@@ -1,0 +1,50 @@
+@import-normalize; /* bring in normalize.css styles */
+@import '../node_modules/modern-normalize/modern-normalize.css';
+
+:root {
+  --main-color: #000000;
+  --secondary-color: #f5ce46;
+  --secondary-burnt-color: #ffdd66;
+  --text-color: #ffffff;
+  --main-font-family: 'Gilroy', sans-serif;
+  --secondary-font-family: 'Montserrat', sans-serif;
+  --animation-global: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  margin: 0;
+  font-family: var(--main-font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img {
+  display: block;
+}
+
+.swiper-wrapper {
+  transition-timing-function: linear;
+}
