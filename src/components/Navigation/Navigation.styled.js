@@ -18,7 +18,7 @@ export const StyledNavigation = styled.nav`
     font-weight: 500;
   }
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1280px) {
     font-size: 20px;
   }
 `;
@@ -37,7 +37,7 @@ export const NavigationList = styled.ul`
     gap: 10px;
   }
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1280px) {
     gap: 20px;
   }
 

@@ -2,12 +2,14 @@
 @import '../node_modules/modern-normalize/modern-normalize.css';
 
 :root {
-  --main-color: #000000;
-  --secondary-color: #f5ce46;
-  --secondary-burnt-color: #ffdd66;
+  --main-color: #0f645b;
+  --secondary-color: #ffffff;
+  --secondary-transparent-color: #ffffff1c;
+  --accent-color: #f9c838;
   --text-color: #ffffff;
-  --main-font-family: 'Gilroy', sans-serif;
-  --secondary-font-family: 'Montserrat', sans-serif;
+  --main-font-family: 'LT Journal', sans-serif;
+  --title-font-family: 'LT Journal Extended', sans-serif;
+  --secondary-font-family: 'Caveat', cursive;
   --animation-global: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 

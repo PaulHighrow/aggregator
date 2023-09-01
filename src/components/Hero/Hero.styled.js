@@ -1,254 +1,131 @@
-import { ReactComponent as loveIcon } from 'img/svg/love.svg';
-import { ReactComponent as screamIcon } from 'img/svg/scream.svg';
-import styled from 'styled-components';
-
-import { heroImgsIndex } from '../../img/hero/heroImgs';
-import jpegBg from '../../img/hero/skillhub-grad-only-bg.jpg';
-
-const { flagWebp } = heroImgsIndex;
+import styled, { keyframes } from 'styled-components';
+import { ReactComponent as TitleSketchSVG } from '../../img/svg/sketchTitle.svg';
 
 export const HeroSection = styled.section`
   position: relative;
-  margin-top: 80px;
-  background-color: var(--main-color);
-  background-image: url(${jpegBg});
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  height: calc(100vh - 80px);
   min-height: 500px;
   display: flex;
-  align-items: end;
-  padding: 10px;
+  padding-top: 50px;
+  padding-bottom: 30px;
+  margin-top: 73px;
 
   @media screen and (min-width: 768px) {
-    padding: 20px;
-    margin-top: 0px;
+    padding-bottom: 40px;
+    margin: 0;
   }
 
-  @media screen and (min-width: 1024px) {
-    padding: 40px;
-  }
-`;
-
-export const ScreamTopIcon = styled(screamIcon)`
-  position: absolute;
-  top: 46px;
-  left: 48px;
-  width: 107px;
-  height: 102px;
-
-  @media screen and (min-width: 480px) {
-    width: 125px;
-    height: 120px;
-  }
-
-  @media screen and (min-width: 768px) {
-    width: 143px;
-    height: 138px;
-  }
-`;
-
-export const ScreamBotIcon = styled(screamIcon)`
-  position: absolute;
-  bottom: 100px;
-  right: 70px;
-  width: 136px;
-  height: 136px;
-
-  @media screen and (min-width: 480px) {
-    bottom: 110px;
-    right: 75px;
-    width: 204px;
-    height: 204px;
-  }
-
-  @media screen and (min-width: 768px) {
-    bottom: 125px;
-    right: 85px;
-    width: 272px;
-    height: 272px;
-  }
-`;
-
-export const LoveTopIcon = styled(loveIcon)`
-  position: absolute;
-  top: 136px;
-  right: 36px;
-  width: 88px;
-  height: 85px;
-
-  @media screen and (min-width: 480px) {
-    top: 136px;
-    right: 44px;
-    width: 96px;
-    height: 93px;
-  }
-
-  @media screen and (min-width: 768px) {
-    top: 367px;
-    right: 52px;
-    width: 106px;
-    height: 102px;
-  }
-`;
-
-export const LoveBotIcon = styled(loveIcon)`
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  width: 71px;
-  height: 69px;
-
-  @media screen and (min-width: 480px) {
-    bottom: 12px;
-    left: 12px;
-  }
-
-  @media screen and (min-width: 768px) {
-    bottom: 67px;
-    left: 67px;
-    width: 89px;
-    height: 86px;
-  }
-
-  @media screen and (min-width: 1024px) {
-    bottom: 67px;
-    left: 187px;
-    width: 89px;
-    height: 86px;
+  @media screen and (min-width: 1280px) {
+    padding: 55px 0;
   }
 `;
 
 export const Title = styled.h1`
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  width: 300px;
-  color: var(--text-color);
-  text-shadow: 0px 17px 50px rgba(0, 0, 0, 0.25);
-  /* -webkit-text-stroke: 2px var(--main-color); */
-  font-family: var(--secondary-font-family);
-  font-size: 50px;
-  font-weight: 700;
-  text-align: center;
-
-  @media screen and (min-width: 768px) {
-    width: 480px;
-    font-size: 80px;
-  }
-
-  @media screen and (min-width: 1024px) {
-    width: 640px;
-    font-size: 100px;
-  }
-`;
-
-export const SubTitle = styled(Title)`
-  top: 35%;
-  text-shadow: 0px 5px 14px rgba(0, 0, 0, 0.25);
-  font-size: 24px;
-
-  @media screen and (min-width: 768px) {
-    font-size: 35px;
-  }
-
-  @media screen and (min-width: 1024px) {
-    font-size: 45px;
-  }
-`;
-
-export const BtnUnderlay = styled.div`
   position: relative;
   z-index: 1;
-  margin-bottom: 15%;
-`;
 
-export const HeroLeadBtn = styled.button`
-  position: relative;
-  width: 280px;
-  height: 45px;
-  padding: 10px 10px;
-
-  text-align: center;
-  border-radius: 47px;
-
-  font-size: 20px;
+  width: 270px;
+  color: var(--main-color);
+  font-family: var(--title-font-family);
+  font-size: 40px;
   font-weight: 700;
-  border: none;
-  outline: transparent;
-
-  background-color: var(--text-color);
-
-  @media screen and (min-width: 480px) {
-    width: 320px;
-    height: 55px;
-    font-size: 24px;
-  }
+  letter-spacing: 2px;
+  text-align: center;
+  -webkit-text-stroke: 1px var(--main-color);
+  margin: 0 auto 30px auto;
 
   @media screen and (min-width: 768px) {
-    width: 360px;
-    height: 65px;
-    font-size: 30px;
+    margin-bottom: 80px;
+    letter-spacing: 3.5px;
+    width: 500px;
+    font-size: 70px;
+    -webkit-text-stroke: 2px var(--main-color);
+  }
+`;
+
+const sketchAnimation = keyframes`
+  0%{
+    stroke-dashoffset: 746;
+  }
+  100% {
+    /* closing the offset makes the line appear to be drawn-in */
+    stroke-dashoffset: 0;
+  }
+`;
+
+export const TitleSketch = styled(TitleSketchSVG)`
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  stroke-dasharray: 746;
+  width: 120px;
+
+  @media screen and (min-width: 768px) {
+    width: 270px;
   }
 
-  /* &::before {
-    position: absolute;
-    opacity: 1;
-    left: -30px;
-    top: -30px;
-    content: '';
-    background: url(${flagWebp});
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 96px;
-    height: 60px;
+  & path {
+    animation-name: ${sketchAnimation};
+    animation-duration: 1.1s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    stroke: #f5ce46;
+    stroke-width: 4px;
+  }
+`;
 
-    @media screen and (min-width: 480px) {
-      left: -35px;
-      top: -35px;
-      width: 120px;
-      height: 75px;
-    }
+export const SubTitle = styled.span`
+  position: relative;
+  font-family: var(--secondary-font-family);
+  font-size: 42px;
+  -webkit-text-stroke: 0;
+  letter-spacing: 2px;
+  line-height: 0.7;
 
-    @media screen and (min-width: 768px) {
-      left: -40px;
-      top: -40px;
-      width: 144px;
-      height: 90px;
-    }
-  } */
+  color: var(--accent-color);
 
-  &::after {
-    position: absolute;
-    left: -5px;
-    top: -5px;
-    z-index: -1;
-    content: '';
-    width: 280px;
-    height: 45px;
-    background-color: var(--secondary-color);
-    transform: rotate(-1.205deg);
-    border-radius: 47px;
-    box-shadow: 0px 0px 45px 10px #00000054;
-    transition: box-shadow var(--animation-global),
-      transform var(--animation-global);
+  @media screen and (min-width: 768px) {
+    font-size: 100px;
+    vertical-align: sub;
+  }
+`;
 
-    @media screen and (min-width: 480px) {
-      width: 320px;
-      height: 55px;
-    }
+export const Description = styled.p`
+  text-align: center;
+  font-size: 20px;
+  color: var(--main-color);
+  margin-bottom: 5px;
+  padding: 0 30px;
 
-    @media screen and (min-width: 768px) {
-      width: 360px;
-      height: 65px;
-    }
+  @media screen and (min-width: 768px) {
+    font-size: 22px;
+    padding: 0 40px;
   }
 
-  &:hover::after {
-    z-index: -1;
-    transform: rotate(2.41deg);
-    box-shadow: 0px 0px 22px 5px #c9c5d7;
+  @media screen and (min-width: 1280px) {
+    font-size: 22px;
+    padding: 0 55px;
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+`;
+
+export const DescriptionLink = styled.a`
+  display: block;
+  margin-bottom: 54px;
+
+  font-family: var(--secondary-font-family);
+  font-size: 18px;
+  font-weight: 700;
+
+  color: var(--accent-color);
+  text-align: center;
+  text-transform: uppercase;
+
+  @media screen and (min-width: 768px) {
+    font-size: 22px;
+    margin-bottom: 55px;
   }
 `;

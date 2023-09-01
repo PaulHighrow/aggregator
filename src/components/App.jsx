@@ -1,14 +1,18 @@
 import axios from 'axios';
 import { useEffect, useLayoutEffect, useState } from 'react';
 import { Loader } from 'utils/Loader/Loader';
-import { About } from './About/About';
+import { Admission } from './Admission/Admission';
+import { BackgroundWrapper } from './BackgroundWrapper/BackgroundWrapper';
+import { Consent } from './Consent/Consent';
+import { EdCenter } from './EdCenter/EdCenter';
+import { ExamCenter } from './ExamCenter/ExamCenter';
 import { Hero } from './Hero/Hero';
+import { HowItWorks } from './HowItWorks/HowItWorks';
 import { LeadForm } from './LeadForm/LeadForm';
 import { MainFooter } from './MainFooter/MainFooter';
 import { Menu } from './Menu/Menu';
-import { Services } from './Services/Services';
-import { Testimonials } from './Testimonials/Testimonials';
-import { Consent } from './Consent/Consent';
+import { Translations } from './Translations/Translations';
+import { AboutUs } from './AboutUs/AboutUs';
 
 export const App = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -62,11 +66,16 @@ export const App = () => {
       {!isLoading && (
         <>
           <Menu toggleModal={toggleModal} />
-          <Hero toggleModal={toggleModal} />
-          <About toggleModal={toggleModal} />
-          <Services />
-          <Testimonials toggleModal={toggleModal} />
-          <MainFooter />
+          <BackgroundWrapper>
+            <Hero />
+            <HowItWorks />
+          </BackgroundWrapper>
+          <EdCenter />
+          <Admission />
+          <Translations />
+          <ExamCenter toggleModal={toggleModal} />
+          <AboutUs />
+          <MainFooter toggleModal={toggleModal} />
           <Consent />
           {isOpenModal && <LeadForm closeModal={closeModal} />}
         </>

@@ -1,32 +1,33 @@
-import { LogoLink } from 'components/Menu/Menu.styled';
+import { Logo, LogoLink } from 'components/Menu/Menu.styled';
 import styled from 'styled-components';
-import { ReactComponent as LogoIcon } from '../../img/svg/LogoFooter.svg';
 
-import {
-  AiOutlineFacebook,
-  AiOutlineInstagram,
-  AiOutlineYoutube,
-} from 'react-icons/ai';
-import { BiLogoTiktok } from 'react-icons/bi';
+import { ReactComponent as FacebookIcon } from '../../img/svg/social-links/facebook.svg';
+import { ReactComponent as InstagramIcon } from '../../img/svg/social-links/instagram.svg';
+import { ReactComponent as TikTokIcon } from '../../img/svg/social-links/tiktok.svg';
+import { ReactComponent as YouTubeIcon } from '../../img/svg/social-links/youtube.svg';
 
 export const Footer = styled.footer`
-  background-color: var(--secondary-color);
+  background-color: var(--main-color);
+`;
 
-  padding: 10px;
+export const FooterBox = styled.div`
+  padding: 30px 32px;
 
   @media screen and (min-width: 768px) {
-    padding: 20px;
+    padding: 36px 40px;
   }
 
-  @media screen and (min-width: 1024px) {
-    padding: 40px;
+  @media screen and (min-width: 1280px) {
+    padding: 40px 55px;
   }
 `;
 
-export const FooterLogo = styled(LogoIcon)`
+export const FooterLogo = styled(Logo)`
   height: 50px;
   display: block;
   flex-shrink: 0;
+  margin: 0 auto;
+  margin-bottom: 30px;
   height: 100%;
   transition: transform var(--animation-global), filter var(--animation-global);
 
@@ -36,105 +37,141 @@ export const FooterLogo = styled(LogoIcon)`
   }
 `;
 
-export const FooterTitle = styled.h3`
-  text-align: center;
-  color: var(--secondary-color);
-  -webkit-text-stroke: 2px var(--main-color);
-  font-size: 28px;
-  font-weight: 700;
-
-  margin-bottom: 20px;
+export const FooterSocials = styled.div`
+  display: flex;
+  width: max-content;
+  gap: 25px;
+  margin: 0 auto;
+  margin-bottom: 36px;
+  align-items: center;
 `;
 
-export const FooterWrapper = styled.div`
+const socialBtnStyles =
+  'fill: var(--accent-color); width: 40px; height: 40px; transition: fill var(--animation-global), transform var(--animation-global), filter var(--animation-global); ';
+
+const socialBtnStylesOnHover =
+  'fill: #fff;  transform: scale(1.2);  filter: drop-shadow(0px 0px 5px #00000054);';
+
+export const InstagramBtn = styled(InstagramIcon)`
+  ${socialBtnStyles}
+
+  ${LogoLink}:hover & {
+    ${socialBtnStylesOnHover}
+  }
+`;
+
+export const FacebookBtn = styled(FacebookIcon)`
+  ${socialBtnStyles}
+
+  ${LogoLink}:hover & {
+    ${socialBtnStylesOnHover}
+  }
+`;
+
+export const TikTokBtn = styled(TikTokIcon)`
+  ${socialBtnStyles}
+
+  ${LogoLink}:hover & {
+    ${socialBtnStylesOnHover}
+  }
+`;
+
+export const YouTubeBtn = styled(YouTubeIcon)`
+  ${socialBtnStyles}
+
+  ${LogoLink}:hover & {
+    ${socialBtnStylesOnHover}
+  }
+`;
+
+export const LeadWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  justify-content: space-between;
   align-items: center;
+  gap: 18px;
+  margin-bottom: 50px;
+
+  @media screen and (min-width: 768px) {
+    gap: 20px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    gap: 22px;
+  }
+`;
+
+export const LeadDesc = styled.p`
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  color: var(--secondary-color);
+  letter-spacing: 1.8px;
+
+  @media screen and (min-width: 768px) {
+    font-weight: 600;
+    font-size: 28px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 36px;
+  }
+`;
+
+export const FooterList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
   }
-`;
 
-export const FooterSocials = styled.div`
-  display: flex;
-  gap: 25px;
-  align-items: center;
-`;
-
-export const FacebookBtn = styled(AiOutlineFacebook)`
-  fill: var(--main-color);
-  width: 40px;
-  height: 40px;
-  transition: fill var(--animation-global), transform var(--animation-global),
-    filter var(--animation-global);
-
-  ${LogoLink}:hover & {
-    fill: #fff;
-    transform: scale(1.2);
-    filter: drop-shadow(0px 0px 5px #00000054);
-  }
-`;
-export const YouTubeBtn = styled(AiOutlineYoutube)`
-  fill: var(--main-color);
-  width: 40px;
-  height: 40px;
-  transition: fill var(--animation-global), transform var(--animation-global),
-    filter var(--animation-global);
-
-  ${LogoLink}:hover & {
-    fill: #fff;
-    transform: scale(1.2);
-    filter: drop-shadow(0px 0px 5px #00000054);
-  }
-`;
-export const InstagramBtn = styled(AiOutlineInstagram)`
-  fill: var(--main-color);
-  width: 40px;
-  height: 40px;
-  transition: fill var(--animation-global), transform var(--animation-global),
-    filter var(--animation-global);
-
-  ${LogoLink}:hover & {
-    fill: #fff;
-    transform: scale(1.2);
-    filter: drop-shadow(0px 0px 5px #00000054);
-  }
-`;
-export const TikTokBtn = styled(BiLogoTiktok)`
-  fill: var(--main-color);
-  width: 40px;
-  height: 40px;
-  transition: fill var(--animation-global), transform var(--animation-global),
-    filter var(--animation-global);
-
-  ${LogoLink}:hover & {
-    fill: #fff;
-    transform: scale(1.2);
-    filter: drop-shadow(0px 0px 5px #00000054);
+  @media screen and (min-width: 1280px) {
+    gap: 113px;
   }
 `;
 
-export const Contacts = styled.div`
+export const FooterListItem = styled.li`
+  margin: 0 auto;
+`;
+
+export const LinkListTitle = styled.h4`
   text-align: center;
+  color: var(--secondary-color);
+  font-size: 28px;
+  letter-spacing: 1.4px;
+  margin-bottom: 8px;
+  -webkit-text-stroke: 0.5px var(--secondary-color);
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 14px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 20px;
+  }
 `;
 
-export const ContactsList = styled.ul`
-  display: grid;
+export const LinkList = styled.ul`
+  display: flex;
+  flex-direction: column;
   gap: 10px;
 `;
 
-export const ContactLink = styled.a`
-  font-size: 20px;
-  font-weight: 500;
-  transition: color var(--animation-global);
-  text-decoration: none;
-  color: var(--main-color);
+export const LinkListItem = styled.li`
+  text-align: center;
+  font-size: 22px;
+  -webkit-text-stroke: 0.2px var(--secondary-color);
+  color: var(--secondary-color);
 
-  &:hover,
-  &:focus {
-    color: #fff;
+  @media screen and (min-width: 768px) {
+    letter-spacing: 1px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 20px;
+    -webkit-text-stroke: 0.5px var(--secondary-color);
   }
 `;
+
+export const MapContainer = styled.div``;
