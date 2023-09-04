@@ -18,10 +18,12 @@ export const ExamCenterSection = styled.section`
 
 export const ExamCenterWrapper = styled.div`
   margin-bottom: 20px;
+  padding-top: 6px;
   display: flex;
   gap: 33px;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 
   @media screen and (min-width: 768px) {
     width: 684px;
@@ -32,6 +34,7 @@ export const ExamCenterWrapper = styled.div`
 
   @media screen and (min-width: 1280px) {
     width: 1155px;
+    
     gap: 40px;
   }
 
@@ -65,7 +68,6 @@ export const ExamCenterTitle = styled.h2`
   @media screen and (min-width: 1280px) {
     max-width: 871px;
     font-size: 82px;
-    margin-bottom: 87px;
   }
 `;
 
@@ -97,8 +99,8 @@ export const ExamCenterNavigation = styled.ul`
   display: flex;
   gap: 20px;
   margin-bottom: 33px;
-  overflow-x: scroll;
-  overflow-y: hidden;
+  overflow: auto;
+  white-space: nowrap;
 
   &::-webkit-scrollbar {
     display: none;

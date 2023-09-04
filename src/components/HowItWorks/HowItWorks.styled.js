@@ -16,7 +16,9 @@ export const HowItWorksSection = styled.section`
 `;
 
 export const SectionWrapper = styled.div`
+  margin: 0 auto;
   margin-bottom: 20px;
+  max-width: 1280px;
 
   @media screen and (min-width: 768px) {
     display: flex;
@@ -26,7 +28,7 @@ export const SectionWrapper = styled.div`
   }
 
   @media screen and (min-width: 1280px) {
-    padding: 0 70px 0 100px;
+    padding-right: 70px;
     margin-bottom: 80px;
   }
 `;

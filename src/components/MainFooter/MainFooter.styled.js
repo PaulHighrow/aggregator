@@ -5,6 +5,7 @@ import { ReactComponent as FacebookIcon } from '../../img/svg/social-links/faceb
 import { ReactComponent as InstagramIcon } from '../../img/svg/social-links/instagram.svg';
 import { ReactComponent as TikTokIcon } from '../../img/svg/social-links/tiktok.svg';
 import { ReactComponent as YouTubeIcon } from '../../img/svg/social-links/youtube.svg';
+import { PiMapPinDuotone } from 'react-icons/pi';
 
 export const Footer = styled.footer`
   background-color: var(--main-color);
@@ -19,6 +20,18 @@ export const FooterBox = styled.div`
 
   @media screen and (min-width: 1280px) {
     padding: 40px 55px;
+    display: flex;
+    justify-content: space-between;
+  }
+`;
+
+export const FooterLeftBox = styled.div``;
+
+export const IconBox = styled.div`
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    align-items: center;
+    gap: 96px;
   }
 `;
 
@@ -96,7 +109,9 @@ export const LeadWrapper = styled.div`
   }
 
   @media screen and (min-width: 1280px) {
+    align-items: start;
     gap: 22px;
+    margin: 0;
   }
 `;
 
@@ -109,11 +124,11 @@ export const LeadDesc = styled.p`
 
   @media screen and (min-width: 768px) {
     font-weight: 600;
-    font-size: 28px;
   }
 
   @media screen and (min-width: 1280px) {
-    font-size: 36px;
+    font-size: 22px;
+    text-align: left;
   }
 `;
 
@@ -149,6 +164,7 @@ export const LinkListTitle = styled.h4`
 
   @media screen and (min-width: 1280px) {
     margin-bottom: 20px;
+    text-align: left;
   }
 `;
 
@@ -156,6 +172,7 @@ export const LinkList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 10px;
+    max-width: 160px;
 `;
 
 export const LinkListItem = styled.li`
@@ -170,8 +187,12 @@ export const LinkListItem = styled.li`
 
   @media screen and (min-width: 1280px) {
     font-size: 20px;
+    text-align: left;
     -webkit-text-stroke: 0.5px var(--secondary-color);
   }
 `;
 
-export const MapContainer = styled.div``;
+export const MapPointer = styled(PiMapPinDuotone)`
+  width: 30px;
+  height: 30px;
+`;

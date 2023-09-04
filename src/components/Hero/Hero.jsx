@@ -25,6 +25,7 @@ export const Hero = () => {
   return (
     <HeroSection id="hero">
       <Box>
+        
         <Title>
           ONE STEP FROM ZERO TO
           <SubTitle ref={ref}>HERO{inView && <TitleSketch />}</SubTitle>
@@ -64,8 +65,8 @@ export const Hero = () => {
         <DescriptionLink onClick={showMore}>
           {isMore ? 'Згорнути' : 'Дізнатись більше'}
         </DescriptionLink>
-        <HeroMarquee />
       </Box>
+      <HeroMarquee />
     </HeroSection>
   );
 };

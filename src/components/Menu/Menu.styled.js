@@ -142,7 +142,7 @@ export const LeadBtn = styled.button`
 
   font-size: 22px;
   width: 258px;
-  height: 58px;
+  height: 60px;
   border: none;
   /* border: 2px solid #fff; */
   border-radius: 47px;

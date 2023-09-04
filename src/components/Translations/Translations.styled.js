@@ -17,6 +17,7 @@ export const TranslationsSection = styled.section`
 
 export const TranslationsWrapper = styled.div`
   margin-bottom: 20px;
+  max-width: 1280px;
 
   @media screen and (min-width: 768px) {
     display: grid;
@@ -90,7 +91,7 @@ export const TranslationsNavigation = styled.ul`
   color: var(--main-color);
   font-size: 26px;
   font-weight: 600;
-  max-width: 350px;
+  max-width: 500px;
   letter-spacing: 1.8px;
   display: flex;
   flex-direction: column;
@@ -122,9 +123,12 @@ const arrowAnimation = keyframes`
 export const NavigationItem = styled.li`
   position: relative;
   z-index: 1;
+`;
 
+export const ExamNavigationLink = styled.a`
   &::after {
     content: url(${menuHoverArrow});
+    fill: currentColor;
     opacity: 0;
     position: absolute;
     bottom: -10px;
@@ -145,7 +149,7 @@ export const NavigationItem = styled.li`
   }
 
   &:hover::after,
-  &:focus::before {
+  &:focus::after {
     opacity: 1;
     animation-name: ${arrowAnimation};
     animation-duration: 1.5s;

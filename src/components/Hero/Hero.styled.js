@@ -4,7 +4,6 @@ import { ReactComponent as TitleSketchSVG } from '../../img/svg/sketchTitle.svg'
 export const HeroSection = styled.section`
   position: relative;
   min-height: 500px;
-  display: flex;
   padding-top: 50px;
   padding-bottom: 30px;
   margin-top: 73px;
@@ -18,6 +17,8 @@ export const HeroSection = styled.section`
     padding: 55px 0;
   }
 `;
+
+export const HeroTextWrapper = styled.div``;
 
 export const Title = styled.h1`
   position: relative;

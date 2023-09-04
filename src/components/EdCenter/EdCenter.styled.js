@@ -69,7 +69,6 @@ export const EdCenterTitle = styled.h2`
   @media screen and (min-width: 1280px) {
     width: 630px;
     font-size: 70px;
-    margin-bottom: 87px;
   }
 `;
 

@@ -3,6 +3,7 @@ import { Box } from 'components/Box/Box.styled';
 import { useRef } from 'react';
 import ReactPlayer from 'react-player';
 import {
+  ExamNavigationLink,
   NavigationItem,
   TranslationTextWrapper,
   TranslationsNavigation,
@@ -32,9 +33,15 @@ export const Translations = () => {
               БЮРО <TranslationsSubTitle>ПЕРЕКЛАДІВ</TranslationsSubTitle>
             </TranslationsTitle>
             <TranslationsNavigation>
-              <NavigationItem>Англійська</NavigationItem>
-              <NavigationItem>Польська</NavigationItem>
-              <NavigationItem>Німецька</NavigationItem>
+              <NavigationItem>
+                <ExamNavigationLink>Англійська</ExamNavigationLink>
+              </NavigationItem>
+              <NavigationItem>
+                <ExamNavigationLink>Польська</ExamNavigationLink>
+              </NavigationItem>
+              <NavigationItem>
+                <ExamNavigationLink>Німецька</ExamNavigationLink>
+              </NavigationItem>
             </TranslationsNavigation>
           </TranslationTextWrapper>
           <VideoLimiter>
