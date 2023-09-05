@@ -1,3 +1,4 @@
+import { heroImgsIndex } from 'img/hero/heroImgs';
 import {
   MarqueeChild,
   MarqueeImg,

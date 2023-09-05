@@ -1,6 +1,6 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "AP Education Center",
+    "short_name": "AP Education",
     "icons": [
         {
             "src": "/public/android-chrome-192x192.png",
@@ -13,7 +13,7 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#f5ce46",
-    "background_color": "#f5ce46",
+    "theme_color": "#0f645b",
+    "background_color": "#0f645b",
     "display": "standalone"
 }
