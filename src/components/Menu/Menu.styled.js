@@ -41,7 +41,7 @@ export const HeaderWrapper = styled.div`
 `;
 
 export const MobileMenuBtn = styled.button`
-  border-color: var(--text-color);
+  border-color: var(--secondary-color);
   border: none;
   border-radius: 9px;
   padding: 10px 14px;
@@ -185,7 +185,7 @@ export const LeadBtn = styled.button`
 `;
 
 export const PlatformLink = styled.a`
-  border-color: var(--text-color);
+  border-color: var(--secondary-color);
   border-radius: 9px;
   padding: 10px 14px;
   background-color: transparent;
@@ -207,7 +207,7 @@ export const HeaderText = styled.span`
   line-height: 1.45;
 
   margin-right: 8px;
-  color: var(--text-color);
+  color: var(--secondary-color);
 
   @media screen and (min-width: 768px) {
     font-weight: 600;

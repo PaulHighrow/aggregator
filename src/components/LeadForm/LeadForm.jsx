@@ -73,7 +73,7 @@ export const LeadForm = ({ closeModal }) => {
           <FormCloseBtn onClick={closeModal}>
             <CloseIcon />
           </FormCloseBtn>
-          <FormTitle>Оформіть заявку і наш менеджер вам зателефонує</FormTitle>
+          <FormTitle>Залишіть заявку і наш менеджер вам зателефонує</FormTitle>
           <Label>
             <Input type="text" name="name" placeholder="Ім'я" />
             <InputNote component="p" name="name" />

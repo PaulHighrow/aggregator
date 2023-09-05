@@ -1,5 +1,4 @@
 import { Box } from 'components/Box/Box.styled';
-import GoogleMapReact from 'google-map-react';
 import { LeadBtn, LogoLink } from '../Menu/Menu.styled';
 import {
   FacebookBtn,
@@ -17,10 +16,10 @@ import {
   LinkList,
   LinkListItem,
   LinkListTitle,
-  MapPointer,
   TikTokBtn,
   YouTubeBtn,
 } from './MainFooter.styled';
+import { Map } from './Map/Map';
 
 export const MainFooter = ({ toggleModal }) => {
   return (
@@ -97,19 +96,7 @@ export const MainFooter = ({ toggleModal }) => {
           </FooterList>
         </FooterBox>
       </Box>
-      <div style={{ height: '235px', width: '100%' }}>
-        <GoogleMapReact
-          bootstrapURLKeys={{ key: process.env.REACT_APP_MAPS_API_KEY }}
-          defaultCenter={{ lat: 49.84037940597361, lng: 24.03317568650616 }}
-          defaultZoom={16}
-        >
-          <MapPointer
-            lat={49.84037940597361}
-            lng={24.03317568650616}
-            text="AP Education Center"
-          />
-        </GoogleMapReact>
-      </div>
+      <Map />
     </Footer>
   );
 };

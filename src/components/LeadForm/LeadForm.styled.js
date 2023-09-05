@@ -15,20 +15,20 @@ export const StyledForm = styled(Form)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 310px;
-  padding: 40px;
-  border: 2px solid var(--secondary-color);
+  width: 320px;
+  padding: 40px 20px;
+  border-radius: 20px;
   margin: 0 auto;
-  gap: 30px;
+  gap: 36px;
 
   @media screen and (min-width: 768px) {
     width: 640px;
+    padding: 50px 20px;
   }
 `;
 
 export const FormTitle = styled.h3`
   color: var(--secondary-color);
-  -webkit-text-stroke: 2px var(--main-color);
   font-size: 24px;
   font-weight: 700;
   text-align: center;
@@ -44,17 +44,23 @@ export const Label = styled.label`
   flex-direction: column;
   align-items: center;
   gap: 8px;
+  width: 300px;
+
+  @media screen and (min-width: 768px) {
+    width: 500px;
+  }
 `;
 
 export const Input = styled(Field)`
-  width: 240px;
+  width: 280px;
   padding: 10px 5px;
+  font-size: 22px;
 
   border-color: transparent;
-  border-radius: 5px;
+  border-radius: 15px;
 
   @media screen and (min-width: 768px) {
-    width: 480px;
+    width: 500px;
   }
 
   &:hover,
@@ -66,11 +72,16 @@ export const Input = styled(Field)`
 
 export const InputNote = styled(ErrorMessage)`
   position: absolute;
-  bottom: -16px;
+  bottom: -20px;
   color: var(--secondary-burnt-color);
   text-align: center;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
+
+  @media screen and (min-width: 768px) {
+    bottom: -28px;
+    font-size: 22px;
+  }
 `;
 
 export const FormCloseBtn = styled.button`
@@ -78,6 +89,7 @@ export const FormCloseBtn = styled.button`
   top: 10px;
   right: 10px;
   background-color: transparent;
+  border: 2px solid;
   border-color: var(--secondary-color);
   border-radius: 50%;
   width: 32px;
@@ -88,7 +100,7 @@ export const FormCloseBtn = styled.button`
   justify-content: center;
 
   &:hover {
-    border-color: red;
+    border-color: var(--accent-color);
   }
 `;
 
@@ -99,10 +111,15 @@ export const CloseIcon = styled(IoClose)`
   flex-shrink: 0;
 
   ${FormCloseBtn}:hover & {
-    fill: red;
+    fill: var(--accent-color);
   }
 `;
 
 export const FormBtn = styled(LeadBtn)`
-  width: 240px;
+  font-size: 24px;
+  font-weight: 700;
+
+  @media screen and (min-width: 768px) {
+    font-size: 28px;
+  }
 `;

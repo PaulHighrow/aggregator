@@ -40,11 +40,11 @@ export const ExamCenter = ({ toggleModal }) => {
             <NavigationItem>
               <NavigationLink>IELTS</NavigationLink>
             </NavigationItem>
-            <NavigationItem length={length.long}>
-              <NavigationLink>CAMBRIDGE ENGLISH</NavigationLink>
-            </NavigationItem>
             <NavigationItem>
               <NavigationLink>ISOL</NavigationLink>
+            </NavigationItem>
+            <NavigationItem length={length.long}>
+              <NavigationLink>CAMBRIDGE ENGLISH</NavigationLink>
             </NavigationItem>
           </ExamCenterNavigation>
         </ExamCenterWrapper>

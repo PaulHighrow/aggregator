@@ -11,7 +11,7 @@ import {
 } from './Hero.styled';
 import { HeroMarquee } from './HeroMarquee/HeroMarquee';
 
-export const Hero = () => {
+export const Hero = ({ closeModal }) => {
   const [isMore, setIsMore] = useState(false);
 
   const { ref, inView } = useInView({
@@ -25,7 +25,6 @@ export const Hero = () => {
   return (
     <HeroSection id="hero">
       <Box>
-        
         <Title>
           ONE STEP FROM ZERO TO
           <SubTitle ref={ref}>HERO{inView && <TitleSketch />}</SubTitle>
@@ -37,6 +36,7 @@ export const Hero = () => {
           </span>
           {isMore ? (
             <span>
+              {' '}
               Lorem ipsum dolor sit, amet consectetur adipisicing elit.
               Exercitationem veritatis temporibus magni? A amet eius atque
               provident quod explicabo asperiores pariatur modi corporis
@@ -66,7 +66,7 @@ export const Hero = () => {
           {isMore ? 'Згорнути' : 'Дізнатись більше'}
         </DescriptionLink>
       </Box>
-      <HeroMarquee />
+      <HeroMarquee closeModal={closeModal} />
     </HeroSection>
   );
 };

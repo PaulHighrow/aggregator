@@ -67,7 +67,7 @@ export const App = () => {
         <>
           <Menu toggleModal={toggleModal} />
           <BackgroundWrapper>
-            <Hero />
+            <Hero closeModal={closeModal}/>
             <HowItWorks />
           </BackgroundWrapper>
           <EdCenter />

@@ -34,7 +34,7 @@ export const ExamCenterWrapper = styled.div`
 
   @media screen and (min-width: 1280px) {
     width: 1155px;
-    
+
     gap: 40px;
   }
 
@@ -51,6 +51,8 @@ export const ExamCenterTitle = styled.h2`
   letter-spacing: 2px;
   -webkit-text-stroke: 1px var(--main-color);
   margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
 
   @media screen and (min-width: 390px) {
     font-size: 30px;
@@ -93,24 +95,19 @@ export const ExamCenterSubTitle = styled.span`
 `;
 
 export const ExamCenterNavigation = styled.ul`
-  font-size: 26px;
+  font-size: 20px;
   font-weight: 600;
   letter-spacing: 1.8px;
   display: flex;
-  gap: 20px;
-  margin-bottom: 33px;
-  overflow: auto;
-  white-space: nowrap;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  
 
   @media screen and (min-width: 768px) {
     text-align: end;
     font-size: 32px;
     gap: 41px;
-    overflow: hidden;
+    margin-bottom: 32px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -129,50 +126,14 @@ const arrowAnimation = keyframes`
   }
 `;
 
-export const NavigationItem = styled.li``;
+export const NavigationItem = styled.li`
+  flex: 0 0 auto;
+`;
 
 export const NavigationLink = styled.a`
   color: #9d9d9d;
   z-index: 1;
   position: relative;
-  z-index: 1;
-
-  &::after {
-    content: url(${underline});
-    fill: #9d9d9d;
-    opacity: 1;
-    position: absolute;
-    bottom: -10px;
-    left: -6px;
-    width: 250px;
-    z-index: -1;
-    stroke-dasharray: 435;
-
-    @media screen and (min-width: 768px) {
-      bottom: -12px;
-      width: 220px;
-    }
-
-    @media screen and (min-width: 1280px) {
-      bottom: -14px;
-      left: -28px;
-      width: 350px;
-    }
-
-    @media screen and (min-width: 1390px) {
-      left: 10px;
-    }
-  }
-
-  &:hover::after,
-  &:focus::before {
-    fill: var(--main-color);
-    opacity: 1;
-    animation-name: ${arrowAnimation};
-    animation-duration: 1.5s;
-    animation-timing-function: ease;
-    animation-iteration-count: 1;
-  }
 
   &:active,
   &:hover,
