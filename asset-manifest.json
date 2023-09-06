@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/aggregator/static/css/main.3524d8a1.css",
-    "main.js": "/aggregator/static/js/main.c31ca7a3.js",
+    "main.css": "/aggregator/static/css/main.7c2da39f.css",
+    "main.js": "/aggregator/static/js/main.22e50c6f.js",
     "reactPlayerYouTube.js": "/aggregator/static/js/reactPlayerYouTube.f21d2dc2.chunk.js",
     "reactPlayerSoundCloud.js": "/aggregator/static/js/reactPlayerSoundCloud.9eeb4279.chunk.js",
     "reactPlayerVimeo.js": "/aggregator/static/js/reactPlayerVimeo.1be465ed.chunk.js",
@@ -142,10 +142,9 @@
     "static/media/menu-arrow.svg": "/aggregator/static/media/menu-arrow.56a53f1cd106c1e8953085e012887b16.svg",
     "static/media/menu-arrow-rotated.svg": "/aggregator/static/media/menu-arrow-rotated.4eded94223efb5e99ab1efd7a5dbdaf4.svg",
     "static/media/sketchTitle.svg": "/aggregator/static/media/sketchTitle.e0df9213771982a06aa71be5ae87eebd.svg",
-    "static/media/underline.svg": "/aggregator/static/media/underline.67e4278361d18cc1b4ffb56b8c169626.svg",
     "static/media/downArrow.svg": "/aggregator/static/media/downArrow.3d74cb9d6d38fab26c47bbadb8e4f56d.svg",
-    "main.3524d8a1.css.map": "/aggregator/static/css/main.3524d8a1.css.map",
-    "main.c31ca7a3.js.map": "/aggregator/static/js/main.c31ca7a3.js.map",
+    "main.7c2da39f.css.map": "/aggregator/static/css/main.7c2da39f.css.map",
+    "main.22e50c6f.js.map": "/aggregator/static/js/main.22e50c6f.js.map",
     "reactPlayerYouTube.f21d2dc2.chunk.js.map": "/aggregator/static/js/reactPlayerYouTube.f21d2dc2.chunk.js.map",
     "reactPlayerSoundCloud.9eeb4279.chunk.js.map": "/aggregator/static/js/reactPlayerSoundCloud.9eeb4279.chunk.js.map",
     "reactPlayerVimeo.1be465ed.chunk.js.map": "/aggregator/static/js/reactPlayerVimeo.1be465ed.chunk.js.map",
@@ -161,7 +160,7 @@
     "reactPlayerPreview.3d7930ba.chunk.js.map": "/aggregator/static/js/reactPlayerPreview.3d7930ba.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3524d8a1.css",
-    "static/js/main.c31ca7a3.js"
+    "static/css/main.7c2da39f.css",
+    "static/js/main.22e50c6f.js"
   ]
 }
