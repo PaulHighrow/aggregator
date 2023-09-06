@@ -1,7 +1,4 @@
-import styled, { keyframes } from 'styled-components';
-
-import underline from 'img/svg/underline.svg';
-// import underlineLong from 'img/svg/underline-long.svg';
+import styled from 'styled-components';
 
 export const ExamCenterSection = styled.section`
   position: relative;
@@ -113,16 +110,6 @@ export const ExamCenterNavigation = styled.ul`
   @media screen and (min-width: 1280px) {
     font-size: 36px;
     gap: 62px;
-  }
-`;
-
-const arrowAnimation = keyframes`
-  0%{
-    stroke-dashoffset: 435;
-  }
-  100% {
-    /* closing the offset makes the line appear to be drawn-in */
-    stroke-dashoffset: 0;
   }
 `;
 

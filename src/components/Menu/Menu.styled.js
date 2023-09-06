@@ -189,6 +189,7 @@ export const PlatformLink = styled.a`
   border-radius: 9px;
   padding: 10px 14px;
   background-color: transparent;
+  text-decoration: none;
 
   display: flex;
   justify-content: center;

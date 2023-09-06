@@ -1,10 +1,10 @@
 import {
   GoogleMap,
-  MarkerF,
   InfoWindow,
+  MarkerF,
   useJsApiLoader,
 } from '@react-google-maps/api';
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { Location, LocationAdress, LocationName } from './Map.styled';
 
 export const Map = () => {

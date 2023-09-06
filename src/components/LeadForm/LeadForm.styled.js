@@ -89,8 +89,7 @@ export const FormCloseBtn = styled.button`
   top: 10px;
   right: 10px;
   background-color: transparent;
-  border: 2px solid;
-  border-color: var(--secondary-color);
+  border: 2px solid var(--secondary-color);
   border-radius: 50%;
   width: 32px;
   height: 32px;

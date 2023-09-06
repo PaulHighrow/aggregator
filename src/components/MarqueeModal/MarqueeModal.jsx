@@ -1,22 +1,41 @@
-export const MarqueeModal = ({ closeModal }) => {
-  useEffect(() => {
-    const onEscapeClose = event => {
-      if (event.code === 'Escape') {
-        closeModal();
-      }
-    };
+import { CloseIcon } from 'components/LeadForm/LeadForm.styled';
+import {
+  MarqueeBackdrop,
+  MarqueeCloseBtn,
+  ModalHeader,
+  ModalWindow,
+  ServiceLink,
+  ServiceList,
+} from './MarqueeModal.styled';
 
-    window.addEventListener('keydown', onEscapeClose);
-
-    return () => {
-      window.removeEventListener('keydown', onEscapeClose);
-    };
-  });
-
+export const MarqueeModal = ({ closeMarqueeModal }) => {
   return (
     <>
-      <Backdrop onClick={closeModal} />
-      <div style={{ width: '100px', height: '100px' }}>Хуйня</div>
+      <MarqueeBackdrop onClick={closeMarqueeModal} />
+      <ModalWindow>
+        <MarqueeCloseBtn onClick={closeMarqueeModal}>
+          <CloseIcon />
+        </MarqueeCloseBtn>
+        <ModalHeader>Оберіть програму, що вас цікавить:</ModalHeader>
+        <ServiceList>
+          <li>
+            <ServiceLink>Вивчення англійської</ServiceLink>
+          </li>
+          <li>
+            <ServiceLink>Вивчення німецької</ServiceLink>
+          </li>
+          <li>
+            <ServiceLink>Вивчення польської</ServiceLink>
+          </li>
+          <li>
+            <ServiceLink>Відгуки наших клієнтів</ServiceLink>
+          </li>
+          <li>
+            <ServiceLink>Перекладацьке бюро</ServiceLink>
+          </li>
+        </ServiceList>
+
+      </ModalWindow>
     </>
   );
 };

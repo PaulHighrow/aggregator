@@ -49,7 +49,7 @@ export const App = () => {
 
   useEffect(() => {
     const onEscapeClose = event => {
-      if (event.code === 'Escape') {
+      if (event.code === 'Escape' && isOpenModal) {
         closeModal();
       }
     };

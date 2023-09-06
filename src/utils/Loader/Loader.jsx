@@ -11,7 +11,7 @@ export const Loader = () => {
         ariaLabel="blocks-loading"
         wrapperStyle={{}}
         wrapperClass="blocks-wrapper"
-        colors={['#FF4D00', '#FF8A00', '#F9C838', '#f5ce46', '#f08d2b']}
+        colors={['#0f645b', '#0B4943', '#073D37', '#0B4943', '#0f645b']}
       />
     </LoaderWrapper>
   );

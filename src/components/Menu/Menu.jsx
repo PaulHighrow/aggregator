@@ -44,7 +44,7 @@ export const Menu = ({ toggleModal }) => {
       )}
 
       {width >= 768 && (
-        <PlatformLink onClick={toggleMenu}>
+        <PlatformLink href='https://online.ap.education/' target='_blank'>
           <HeaderText>УВІЙТИ</HeaderText> <LoginIcon />
         </PlatformLink>
       )}

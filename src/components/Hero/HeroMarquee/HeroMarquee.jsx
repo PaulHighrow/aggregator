@@ -6,8 +6,9 @@ import {
   MarqueeText,
   StyledMarquee,
 } from 'components/Hero/HeroMarquee/HeroMarquee.styled';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { heroImgsIndex } from '../../../img/hero/heroImgs';
+import { MarqueeModal } from 'components/MarqueeModal/MarqueeModal';
 
 const {
   heroMarquee1large1xpng,
@@ -53,173 +54,202 @@ const {
 } = heroImgsIndex;
 
 export const HeroMarquee = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isMarqueeModalOpen, setIsMarqueeModalOpen] = useState(false);
 
-  const handleToggleModal = key => {
-    setIsModalOpen(isModalOpen => !isModalOpen);
+  const handleToggleModal = e => {
+
+    console.log(e.currentTarget.id);
+    setIsMarqueeModalOpen(isOpen => !isOpen);
+    document.body.style.overflowY = 'hidden';
   };
 
+  const closeMarqueeModal = () => {
+    setIsMarqueeModalOpen(isOpen => (isOpen = false));
+    !document.body.style.overflowY && isMarqueeModalOpen
+      ? (document.body.style.overflowY = 'hidden')
+      : (document.body.style.overflowY = '');
+  };
+
+  useEffect(() => {
+    const onEscapeClose = event => {
+      if (event.code === 'Escape' && isMarqueeModalOpen) {
+        closeMarqueeModal();
+      }
+    };
+
+    window.addEventListener('keydown', onEscapeClose);
+
+    return () => {
+      window.removeEventListener('keydown', onEscapeClose);
+    };
+  });
+
   return (
-    <StyledMarquee autoFill={true} pauseOnHover={true}>
-      <MarqueeChild key={1} onClick={handleToggleModal}>
-        <MarqueeOverlay>
-          <MarqueeText>Вивчай німецьку</MarqueeText>
-        </MarqueeOverlay>
-        <MarqueePicture>
-          <source
-            media="(min-width:768px)"
-            srcSet={`${heroMarquee1large1xwebp} 1x, ${heroMarquee1large2xwebp} 2x`}
-            type="image/webp"
-          />
-          <source
-            media="(min-width:768px)"
-            srcSet={`${heroMarquee1large1xpng} 1x, ${heroMarquee1large2xpng} 2x`}
-            type="image/png"
-          />
-          <source
-            media="(max-width:767px)"
-            srcSet={`${heroMarquee1small1xwebp} 1x, ${heroMarquee1small2xwebp} 2x`}
-            type="image/webp"
-          />
-          <source
-            media="(max-width:767px)"
-            srcSet={`${heroMarquee1small1xpng} 1x, ${heroMarquee1small2xpng} 2x`}
-            type="image/png"
-          />
-          <MarqueeImg
-            src={heroMarquee1small1xpng}
-            alt="Hero marquee placeholder"
-          />
-        </MarqueePicture>
-      </MarqueeChild>
+    <>
+      {isMarqueeModalOpen && (
+        <MarqueeModal closeMarqueeModal={closeMarqueeModal} />
+      )}
+      <StyledMarquee autoFill={true} pauseOnHover={true}>
+        <MarqueeChild id={1} onClick={handleToggleModal}>
+          <MarqueeOverlay>
+            <MarqueeText>Вивчай німецьку</MarqueeText>
+          </MarqueeOverlay>
+          <MarqueePicture>
+            <source
+              media="(min-width:768px)"
+              srcSet={`${heroMarquee1large1xwebp} 1x, ${heroMarquee1large2xwebp} 2x`}
+              type="image/webp"
+            />
+            <source
+              media="(min-width:768px)"
+              srcSet={`${heroMarquee1large1xpng} 1x, ${heroMarquee1large2xpng} 2x`}
+              type="image/png"
+            />
+            <source
+              media="(max-width:767px)"
+              srcSet={`${heroMarquee1small1xwebp} 1x, ${heroMarquee1small2xwebp} 2x`}
+              type="image/webp"
+            />
+            <source
+              media="(max-width:767px)"
+              srcSet={`${heroMarquee1small1xpng} 1x, ${heroMarquee1small2xpng} 2x`}
+              type="image/png"
+            />
+            <MarqueeImg
+              src={heroMarquee1small1xpng}
+              alt="Hero marquee placeholder"
+            />
+          </MarqueePicture>
+        </MarqueeChild>
 
-      <MarqueeChild key={2} onClick={handleToggleModal}>
-        <MarqueeOverlay>
-          <MarqueeText>Відгук</MarqueeText>
-        </MarqueeOverlay>
-        <MarqueePicture>
-          <source
-            media="(min-width:768px)"
-            srcSet={`${heroMarquee2large1xwebp} 1x, ${heroMarquee2large2xwebp} 2x`}
-            type="image/webp"
-          />
-          <source
-            media="(min-width:768px)"
-            srcSet={`${heroMarquee2large1xpng} 1x, ${heroMarquee2large2xpng} 2x`}
-            type="image/png"
-          />
-          <source
-            media="(max-width:767px)"
-            srcSet={`${heroMarquee2small1xwebp} 1x, ${heroMarquee2small2xwebp} 2x`}
-            type="image/webp"
-          />
-          <source
-            media="(max-width:767px)"
-            srcSet={`${heroMarquee2small1xpng} 1x, ${heroMarquee2small2xpng} 2x`}
-            type="image/png"
-          />
-          <MarqueeImg
-            src={heroMarquee2small1xpng}
-            alt="Education Center marquee placeholder"
-          />
-        </MarqueePicture>
-      </MarqueeChild>
+        <MarqueeChild id={2} onClick={handleToggleModal}>
+          <MarqueeOverlay>
+            <MarqueeText>Відгук</MarqueeText>
+          </MarqueeOverlay>
+          <MarqueePicture>
+            <source
+              media="(min-width:768px)"
+              srcSet={`${heroMarquee2large1xwebp} 1x, ${heroMarquee2large2xwebp} 2x`}
+              type="image/webp"
+            />
+            <source
+              media="(min-width:768px)"
+              srcSet={`${heroMarquee2large1xpng} 1x, ${heroMarquee2large2xpng} 2x`}
+              type="image/png"
+            />
+            <source
+              media="(max-width:767px)"
+              srcSet={`${heroMarquee2small1xwebp} 1x, ${heroMarquee2small2xwebp} 2x`}
+              type="image/webp"
+            />
+            <source
+              media="(max-width:767px)"
+              srcSet={`${heroMarquee2small1xpng} 1x, ${heroMarquee2small2xpng} 2x`}
+              type="image/png"
+            />
+            <MarqueeImg
+              src={heroMarquee2small1xpng}
+              alt="Education Center marquee placeholder"
+            />
+          </MarqueePicture>
+        </MarqueeChild>
 
-      <MarqueeChild key={3} onClick={handleToggleModal}>
-        <MarqueeOverlay>
-          <MarqueeText>Вивчай англійську</MarqueeText>
-        </MarqueeOverlay>
-        <MarqueePicture>
-          <source
-            media="(min-width:768px)"
-            srcSet={`${heroMarquee3large1xwebp} 1x, ${heroMarquee3large2xwebp} 2x`}
-            type="image/webp"
-          />
-          <source
-            media="(min-width:768px)"
-            srcSet={`${heroMarquee3large1xpng} 1x, ${heroMarquee3large2xpng} 2x`}
-            type="image/png"
-          />
-          <source
-            media="(max-width:767px)"
-            srcSet={`${heroMarquee3small1xwebp} 1x, ${heroMarquee3small2xwebp} 2x`}
-            type="image/webp"
-          />
-          <source
-            media="(max-width:767px)"
-            srcSet={`${heroMarquee3small1xpng} 1x, ${heroMarquee3small2xpng} 2x`}
-            type="image/png"
-          />
-          <MarqueeImg
-            src={heroMarquee3small1xpng}
-            alt="Education Center marquee placeholder"
-          />
-        </MarqueePicture>
-      </MarqueeChild>
+        <MarqueeChild id={3} onClick={handleToggleModal}>
+          <MarqueeOverlay>
+            <MarqueeText>Вивчай англійську</MarqueeText>
+          </MarqueeOverlay>
+          <MarqueePicture>
+            <source
+              media="(min-width:768px)"
+              srcSet={`${heroMarquee3large1xwebp} 1x, ${heroMarquee3large2xwebp} 2x`}
+              type="image/webp"
+            />
+            <source
+              media="(min-width:768px)"
+              srcSet={`${heroMarquee3large1xpng} 1x, ${heroMarquee3large2xpng} 2x`}
+              type="image/png"
+            />
+            <source
+              media="(max-width:767px)"
+              srcSet={`${heroMarquee3small1xwebp} 1x, ${heroMarquee3small2xwebp} 2x`}
+              type="image/webp"
+            />
+            <source
+              media="(max-width:767px)"
+              srcSet={`${heroMarquee3small1xpng} 1x, ${heroMarquee3small2xpng} 2x`}
+              type="image/png"
+            />
+            <MarqueeImg
+              src={heroMarquee3small1xpng}
+              alt="Education Center marquee placeholder"
+            />
+          </MarqueePicture>
+        </MarqueeChild>
 
-      <MarqueeChild key={4} onClick={handleToggleModal}>
-        <MarqueeOverlay>
-          <MarqueeText>Відео з платформи</MarqueeText>
-        </MarqueeOverlay>
-        <MarqueePicture>
-          <source
-            media="(min-width:768px)"
-            srcSet={`${heroMarquee4large1xwebp} 1x, ${heroMarquee4large2xwebp} 2x`}
-            type="image/webp"
-          />
-          <source
-            media="(min-width:768px)"
-            srcSet={`${heroMarquee4large1xpng} 1x, ${heroMarquee4large2xpng} 2x`}
-            type="image/png"
-          />
-          <source
-            media="(max-width:767px)"
-            srcSet={`${heroMarquee4small1xwebp} 1x, ${heroMarquee4small2xwebp} 2x`}
-            type="image/webp"
-          />
-          <source
-            media="(max-width:767px)"
-            srcSet={`${heroMarquee4small1xpng} 1x, ${heroMarquee4small2xpng} 2x`}
-            type="image/png"
-          />
-          <MarqueeImg
-            src={heroMarquee4small1xpng}
-            alt="Education Center marquee placeholder"
-          />
-        </MarqueePicture>
-      </MarqueeChild>
+        <MarqueeChild id={4} onClick={handleToggleModal}>
+          <MarqueeOverlay>
+            <MarqueeText>Відео з платформи</MarqueeText>
+          </MarqueeOverlay>
+          <MarqueePicture>
+            <source
+              media="(min-width:768px)"
+              srcSet={`${heroMarquee4large1xwebp} 1x, ${heroMarquee4large2xwebp} 2x`}
+              type="image/webp"
+            />
+            <source
+              media="(min-width:768px)"
+              srcSet={`${heroMarquee4large1xpng} 1x, ${heroMarquee4large2xpng} 2x`}
+              type="image/png"
+            />
+            <source
+              media="(max-width:767px)"
+              srcSet={`${heroMarquee4small1xwebp} 1x, ${heroMarquee4small2xwebp} 2x`}
+              type="image/webp"
+            />
+            <source
+              media="(max-width:767px)"
+              srcSet={`${heroMarquee4small1xpng} 1x, ${heroMarquee4small2xpng} 2x`}
+              type="image/png"
+            />
+            <MarqueeImg
+              src={heroMarquee4small1xpng}
+              alt="Education Center marquee placeholder"
+            />
+          </MarqueePicture>
+        </MarqueeChild>
 
-      <MarqueeChild key={5} onClick={handleToggleModal}>
-        <MarqueeOverlay>
-          <MarqueeText>Перекладацьке бюро</MarqueeText>
-        </MarqueeOverlay>
-        <MarqueePicture>
-          <source
-            media="(min-width:768px)"
-            srcSet={`${heroMarquee5large1xwebp} 1x, ${heroMarquee5large2xwebp} 2x`}
-            type="image/webp"
-          />
-          <source
-            media="(min-width:768px)"
-            srcSet={`${heroMarquee5large1xpng} 1x, ${heroMarquee5large2xpng} 2x`}
-            type="image/png"
-          />
-          <source
-            media="(max-width:767px)"
-            srcSet={`${heroMarquee5small1xwebp} 1x, ${heroMarquee5small2xwebp} 2x`}
-            type="image/webp"
-          />
-          <source
-            media="(max-width:767px)"
-            srcSet={`${heroMarquee5small1xpng} 1x, ${heroMarquee5small2xpng} 2x`}
-            type="image/png"
-          />
-          <MarqueeImg
-            src={heroMarquee5small1xpng}
-            alt="Education Center marquee placeholder"
-          />
-        </MarqueePicture>
-      </MarqueeChild>
-    </StyledMarquee>
+        <MarqueeChild id={5} onClick={handleToggleModal}>
+          <MarqueeOverlay>
+            <MarqueeText>Перекладацьке бюро</MarqueeText>
+          </MarqueeOverlay>
+          <MarqueePicture>
+            <source
+              media="(min-width:768px)"
+              srcSet={`${heroMarquee5large1xwebp} 1x, ${heroMarquee5large2xwebp} 2x`}
+              type="image/webp"
+            />
+            <source
+              media="(min-width:768px)"
+              srcSet={`${heroMarquee5large1xpng} 1x, ${heroMarquee5large2xpng} 2x`}
+              type="image/png"
+            />
+            <source
+              media="(max-width:767px)"
+              srcSet={`${heroMarquee5small1xwebp} 1x, ${heroMarquee5small2xwebp} 2x`}
+              type="image/webp"
+            />
+            <source
+              media="(max-width:767px)"
+              srcSet={`${heroMarquee5small1xpng} 1x, ${heroMarquee5small2xpng} 2x`}
+              type="image/png"
+            />
+            <MarqueeImg
+              src={heroMarquee5small1xpng}
+              alt="Education Center marquee placeholder"
+            />
+          </MarqueePicture>
+        </MarqueeChild>
+      </StyledMarquee>
+    </>
   );
 };
