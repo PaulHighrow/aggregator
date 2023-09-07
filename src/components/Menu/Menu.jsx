@@ -35,7 +35,7 @@ export const Menu = ({ toggleModal }) => {
           <HeaderText>МЕНЮ</HeaderText> <MobileMenuIcon />
         </MobileMenuBtn>
       </HeaderWrapper>
-      {isMenuOpen && <Navigation toggleMenu={toggleMenu} />}
+      {isMenuOpen && <Navigation toggleMenu={toggleMenu} toggleModal={toggleModal}/>}
       {width < 1 && (
         <PhoneNumber href="tel:+380638989102">+380638989102</PhoneNumber>
       )}

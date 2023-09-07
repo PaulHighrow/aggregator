@@ -1,4 +1,17 @@
+import { BackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
 import styled from 'styled-components';
+
+export const AdmissionBackground = styled(BackgroundWrapper)`
+  background-position: center top 70px;
+
+  @media screen and (min-width: 768px) {
+    background-position: left -140px top;
+  }
+
+  @media screen and (min-width: 1280px) {
+    background-position: center top;
+  }
+`;
 
 export const AdmissionSection = styled.section`
   position: relative;

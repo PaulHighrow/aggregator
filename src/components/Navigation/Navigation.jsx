@@ -5,16 +5,20 @@ import {
   NavigationList,
   StyledNavigation,
 } from './Navigation.styled';
+import { LeadBtn } from 'components/Menu/Menu.styled';
 
-export const Navigation = ({ toggleMenu }) => {
+export const Navigation = ({ toggleMenu, toggleModal }) => {
   // eslint-disable-next-line
   const [width, _] = useSize(document.body);
 
   const props = { spy: true, smooth: true, onClick: toggleMenu };
-  const offsetProps = { ...props, offset: -80 };
+  const offsetProps = { ...props, offset: -73 };
 
   return (
     <StyledNavigation>
+      {width < 768 && (
+        <LeadBtn onClick={toggleModal}> ШВИДКА КОНСУЛЬТАЦІЯ </LeadBtn>
+      )}
       <NavigationList>
         <NavigationItem>
           {width < 768 ? (
@@ -29,34 +33,67 @@ export const Navigation = ({ toggleMenu }) => {
         </NavigationItem>
         <NavigationItem>
           {width < 768 ? (
+            <NavigationLink to="howitworks" {...offsetProps}>
+              Як це працює
+            </NavigationLink>
+          ) : (
+            <NavigationLink to="howitworks" {...props}>
+              Як це працює
+            </NavigationLink>
+          )}
+        </NavigationItem>
+        <NavigationItem>
+          {width < 768 ? (
+            <NavigationLink to="edcenter" {...offsetProps}>
+              Навчальний центр
+            </NavigationLink>
+          ) : (
+            <NavigationLink to="edcenter" {...props}>
+              Навчальний центр
+            </NavigationLink>
+          )}
+        </NavigationItem>
+        <NavigationItem>
+          {width < 768 ? (
+            <NavigationLink to="admissions" {...offsetProps}>
+              Бюро кар'єри
+            </NavigationLink>
+          ) : (
+            <NavigationLink to="admissions" {...props}>
+              Бюро кар'єри
+            </NavigationLink>
+          )}
+        </NavigationItem>
+        <NavigationItem>
+          {width < 768 ? (
+            <NavigationLink to="translations" {...offsetProps}>
+              Бюро перекладів
+            </NavigationLink>
+          ) : (
+            <NavigationLink to="translations" {...props}>
+              Бюро перекладів
+            </NavigationLink>
+          )}
+        </NavigationItem>
+        <NavigationItem>
+          {width < 768 ? (
+            <NavigationLink to="examcenter" {...offsetProps}>
+              Екзаменаційний центр
+            </NavigationLink>
+          ) : (
+            <NavigationLink to="examcenter" {...props}>
+              Екзаменаційний центр
+            </NavigationLink>
+          )}
+        </NavigationItem>
+        <NavigationItem>
+          {width < 768 ? (
             <NavigationLink to="aboutus" {...offsetProps}>
               Про нас
             </NavigationLink>
           ) : (
             <NavigationLink to="aboutus" {...props}>
               Про нас
-            </NavigationLink>
-          )}
-        </NavigationItem>
-        <NavigationItem>
-          {width < 768 ? (
-            <NavigationLink to="services" {...offsetProps}>
-              Послуги
-            </NavigationLink>
-          ) : (
-            <NavigationLink to="services" {...props}>
-              Послуги
-            </NavigationLink>
-          )}
-        </NavigationItem>
-        <NavigationItem>
-          {width < 768 ? (
-            <NavigationLink to="testimonials" {...offsetProps}>
-              Відгуки
-            </NavigationLink>
-          ) : (
-            <NavigationLink to="testimonials" {...props}>
-              Відгуки
             </NavigationLink>
           )}
         </NavigationItem>

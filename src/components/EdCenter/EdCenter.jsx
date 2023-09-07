@@ -1,7 +1,7 @@
-import { EdCenterBackground } from 'components/BackgroundWrapper/BackgroundWrapper';
 import { Box } from 'components/Box/Box.styled';
 import ReactPlayer from 'react-player';
 import {
+  EdCenterBackground,
   EdCenterNavigation,
   EdCenterSection,
   EdCenterSubTitle,
@@ -14,8 +14,8 @@ import {
 
 export const EdCenter = () => {
   return (
-    <EdCenterSection id="edcenter">
-      <EdCenterBackground>
+    <EdCenterBackground>
+      <EdCenterSection id="edcenter">
         <Box>
           <EdCenterTitle>
             НАВЧАЛЬНИЙ <EdCenterSubTitle>ЦЕНТР</EdCenterSubTitle>
@@ -46,7 +46,7 @@ export const EdCenter = () => {
             </EdCenterNavigation>
           </EdCenterWrapper>
         </Box>
-      </EdCenterBackground>
-    </EdCenterSection>
+      </EdCenterSection>
+    </EdCenterBackground>
   );
 };

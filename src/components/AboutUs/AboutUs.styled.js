@@ -1,4 +1,17 @@
+import { BackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
 import styled from 'styled-components';
+
+export const AboutUsBackground = styled(BackgroundWrapper)`
+  background-position: right -70px bottom 10px;
+
+  @media screen and (min-width: 768px) {
+    background-position: left -140px bottom -140px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    background-position: center top;
+  }
+`;
 
 export const AboutUsSection = styled.section`
   position: relative;

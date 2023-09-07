@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect, useLayoutEffect, useState } from 'react';
 import { Loader } from 'utils/Loader/Loader';
 import { Admission } from './Admission/Admission';
-import { BackgroundWrapper } from './BackgroundWrapper/BackgroundWrapper';
+import { BackgroundWrapper } from './BackgroundWrapper/BackgroundWrappers';
 import { Consent } from './Consent/Consent';
 import { EdCenter } from './EdCenter/EdCenter';
 import { ExamCenter } from './ExamCenter/ExamCenter';

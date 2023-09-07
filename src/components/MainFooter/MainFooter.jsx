@@ -23,7 +23,7 @@ import { Map } from './Map/Map';
 
 export const MainFooter = ({ toggleModal }) => {
   return (
-    <Footer id="contacts">
+    <Footer>
       <Box>
         <FooterBox>
           <FooterLeftBox>
@@ -86,7 +86,7 @@ export const MainFooter = ({ toggleModal }) => {
               </LinkList>
             </FooterListItem>
             <FooterListItem>
-              <LinkListTitle>Контакти</LinkListTitle>
+              <LinkListTitle id="contacts">Контакти</LinkListTitle>
               <LinkList>
                 <LinkListItem>info@ap.education</LinkListItem>
                 <LinkListItem>+380671047700</LinkListItem>

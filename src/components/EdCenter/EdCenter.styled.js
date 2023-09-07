@@ -2,6 +2,19 @@ import styled, { keyframes } from 'styled-components';
 
 import menuHoverArrow from 'img/svg/menu-arrow.svg';
 import menuHoverRotatedArrow from 'img/svg/menu-arrow-rotated.svg';
+import { BackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
+
+export const EdCenterBackground = styled(BackgroundWrapper)`
+  background-position: left -70px top 0;
+
+  @media screen and (min-width: 768px) {
+    background-position: right -140px top;
+  }
+
+  @media screen and (min-width: 1280px) {
+    background-position: right -185px top;
+  }
+`;
 
 export const EdCenterSection = styled.section`
   position: relative;
@@ -9,6 +22,7 @@ export const EdCenterSection = styled.section`
 
   @media screen and (min-width: 768px) {
     padding: 42px;
+    padding-bottom: 84px;
   }
 
   @media screen and (min-width: 1280px) {

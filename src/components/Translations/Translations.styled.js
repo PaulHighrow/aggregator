@@ -1,6 +1,19 @@
 import styled, { keyframes } from 'styled-components';
 
 import menuHoverArrow from 'img/svg/menu-arrow.svg';
+import { BackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
+
+export const TranslationsBackground = styled(BackgroundWrapper)`
+  background-position: right -70px top 70px;
+
+  @media screen and (min-width: 768px) {
+    background-position: center center;
+  }
+
+  @media screen and (min-width: 1280px) {
+    background-position: left -75px center;
+  }
+`;
 
 export const TranslationsSection = styled.section`
   position: relative;

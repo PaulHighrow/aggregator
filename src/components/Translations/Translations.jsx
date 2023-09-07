@@ -6,6 +6,7 @@ import {
   ExamNavigationLink,
   NavigationItem,
   TranslationTextWrapper,
+  TranslationsBackground,
   TranslationsNavigation,
   TranslationsSection,
   TranslationsSubTitle,
@@ -25,47 +26,49 @@ export const Translations = () => {
   const [width, _] = useSize(boxEl);
 
   return (
-    <TranslationsSection id="translations">
-      <Box ref={boxEl}>
-        <TranslationsWrapper>
-          <TranslationTextWrapper>
-            <TranslationsTitle>
-              БЮРО <TranslationsSubTitle>ПЕРЕКЛАДІВ</TranslationsSubTitle>
-            </TranslationsTitle>
-            <TranslationsNavigation>
-              <NavigationItem>
-                <ExamNavigationLink>Англійська</ExamNavigationLink>
-              </NavigationItem>
-              <NavigationItem>
-                <ExamNavigationLink>Польська</ExamNavigationLink>
-              </NavigationItem>
-              <NavigationItem>
-                <ExamNavigationLink>Німецька</ExamNavigationLink>
-              </NavigationItem>
-            </TranslationsNavigation>
-          </TranslationTextWrapper>
-          <VideoLimiter>
-            <VideoBox>
-              <ReactPlayer
-                playing
-                loop={true}
-                controls={true}
-                style={{
-                  display: 'block',
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                }}
-                width="100%"
-                height="100%"
-                url={
-                  width >= 768 ? videoUrls.notMobileUrl : videoUrls.mobileUrl
-                }
-              />
-            </VideoBox>
-          </VideoLimiter>
-        </TranslationsWrapper>
-      </Box>
-    </TranslationsSection>
+    <TranslationsBackground>
+      <TranslationsSection id="translations">
+        <Box ref={boxEl}>
+          <TranslationsWrapper>
+            <TranslationTextWrapper>
+              <TranslationsTitle>
+                БЮРО <TranslationsSubTitle>ПЕРЕКЛАДІВ</TranslationsSubTitle>
+              </TranslationsTitle>
+              <TranslationsNavigation>
+                <NavigationItem>
+                  <ExamNavigationLink>Англійська</ExamNavigationLink>
+                </NavigationItem>
+                <NavigationItem>
+                  <ExamNavigationLink>Польська</ExamNavigationLink>
+                </NavigationItem>
+                <NavigationItem>
+                  <ExamNavigationLink>Німецька</ExamNavigationLink>
+                </NavigationItem>
+              </TranslationsNavigation>
+            </TranslationTextWrapper>
+            <VideoLimiter>
+              <VideoBox>
+                <ReactPlayer
+                  playing
+                  loop={true}
+                  controls={true}
+                  style={{
+                    display: 'block',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                  }}
+                  width="100%"
+                  height="100%"
+                  url={
+                    width >= 768 ? videoUrls.notMobileUrl : videoUrls.mobileUrl
+                  }
+                />
+              </VideoBox>
+            </VideoLimiter>
+          </TranslationsWrapper>
+        </Box>
+      </TranslationsSection>
+    </TranslationsBackground>
   );
 };

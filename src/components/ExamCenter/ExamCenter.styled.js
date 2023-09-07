@@ -1,4 +1,17 @@
+import { BackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
 import styled from 'styled-components';
+
+export const ExamCenterBackground = styled(BackgroundWrapper)`
+  background-position: left -70px bottom 0px;
+
+  @media screen and (min-width: 768px) {
+    background-position: right -140px top 70px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    background-position: right -215px top 70px;
+  }
+`;
 
 export const ExamCenterSection = styled.section`
   position: relative;
@@ -98,7 +111,6 @@ export const ExamCenterNavigation = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 10px 20px;
-  
 
   @media screen and (min-width: 768px) {
     text-align: end;

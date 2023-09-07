@@ -3,10 +3,12 @@ import { Link } from "react-scroll";
 
 export const StyledNavigation = styled.nav`
   position: absolute;
-  width: 150px;
-  top: 65px;
-  right: 10px;
-  border-radius: 10px;
+  width: 100%;
+  top: 73px;
+  right: 0%;
+  font-size: 20px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   z-index: 5;
   background-color: var(--main-color);
 
@@ -29,7 +31,6 @@ export const NavigationList = styled.ul`
   border-radius: 10px;
   border-top-right-radius: 0;
   overflow: hidden;
-  border: 1.5px solid var(--secondary-color);
 
   @media screen and (min-width: 768px) {
     border: none;
