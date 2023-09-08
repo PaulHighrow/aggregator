@@ -170,8 +170,7 @@ export const LeadBtn = styled.button`
   &::before {
     position: absolute;
     width: 260px;
-    height: 64px;
-    top: -7%;
+    top: 0%;
     left: 0%;
     content: url(${sketchOutline});
     animation: 2s linear infinite ${wobblyOutline};

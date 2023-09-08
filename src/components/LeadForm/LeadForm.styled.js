@@ -44,7 +44,11 @@ export const Label = styled.label`
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  width: 300px;
+  width: 260px;
+
+  @media screen and (min-width: 360px) {
+    width: 300px;
+  }
 
   @media screen and (min-width: 768px) {
     width: 500px;
@@ -58,6 +62,10 @@ export const Input = styled(Field)`
 
   border-color: transparent;
   border-radius: 15px;
+
+  @media screen and (min-width: 360px) {
+    width: 300px;
+  }
 
   @media screen and (min-width: 768px) {
     width: 500px;

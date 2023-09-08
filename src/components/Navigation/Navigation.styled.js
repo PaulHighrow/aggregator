@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import { Link } from "react-scroll";
+import { Link } from 'react-scroll';
+import { animated } from '@react-spring/web';
 
-export const StyledNavigation = styled.nav`
+export const StyledNavigation = styled(animated.nav)`
   position: absolute;
   width: 100%;
   top: 73px;
@@ -23,6 +24,14 @@ export const StyledNavigation = styled.nav`
   @media screen and (min-width: 1280px) {
     font-size: 20px;
   }
+`;
+
+export const MenuButtonsWrapper = styled.div`
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 `;
 
 export const NavigationList = styled.ul`
@@ -48,12 +57,6 @@ export const NavigationList = styled.ul`
 
 export const NavigationItem = styled.li`
   overflow: hidden;
-
-  @media screen and (max-width: 767px) {
-    &:not(:last-child) {
-      border-bottom: 1px solid var(--secondary-color);
-    }
-  }
 `;
 
 export const NavigationLink = styled(Link)`
@@ -64,7 +67,7 @@ export const NavigationLink = styled(Link)`
   transition: color var(--animation-global),
     background-color var(--animation-global),
     text-shadow var(--animation-global);
-  padding: 10px 8px;
+  padding: 10px 16px;
 
   &:hover,
   &:focus,
