@@ -18,7 +18,7 @@ export const Header = styled.header`
   justify-content: space-between;
 
   @media screen and (min-width: 768px) {
-    position: static;
+    position: relative;
     padding: 0 42px;
     height: 89px;
   }
@@ -93,6 +93,7 @@ export const LogoLink = styled.a`
 `;
 
 export const Logo = styled(LogoIcon)`
+  z-index: 10;
   width: 49px;
   display: block;
   flex-shrink: 0;
@@ -139,10 +140,9 @@ const wobblyOutline = keyframes`
 
 export const LeadBtn = styled.button`
   padding: 10px 10px;
-
   font-size: 22px;
   width: 258px;
-  height: 60px;
+  height: 58px;
   border: none;
   /* border: 2px solid #fff; */
   border-radius: 47px;
@@ -156,6 +156,7 @@ export const LeadBtn = styled.button`
 
   @media screen and (min-width: 390px) {
     width: 287px;
+    height: 60px;
   }
 
   &:hover,
@@ -170,8 +171,8 @@ export const LeadBtn = styled.button`
   &::before {
     position: absolute;
     width: 260px;
-    top: 0%;
-    left: 0%;
+    top: -2px;
+    left: -2px;
     content: url(${sketchOutline});
     animation: 2s linear infinite ${wobblyOutline};
 

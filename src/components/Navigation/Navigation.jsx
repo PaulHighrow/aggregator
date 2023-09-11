@@ -1,6 +1,6 @@
 import useSize from '@react-hook/size';
-import { useTransition } from '@react-spring/web';
 import { HeaderText, LeadBtn, PlatformLink } from 'components/Menu/Menu.styled';
+import { useState } from 'react';
 import { ReactComponent as LoginIcon } from '../../img/svg/loginIcon.svg';
 import {
   MenuButtonsWrapper,
@@ -9,34 +9,15 @@ import {
   NavigationList,
   StyledNavigation,
 } from './Navigation.styled';
-import { useEffect, useState } from 'react';
 
-export const Navigation = ({ toggleMenu, toggleModal }) => {
+export const Navigation = ({ toggleMenu, toggleModal, className }) => {
   // eslint-disable-next-line
   const [width, _] = useSize(document.body);
-  const [isOpen, setIsOpen] = useState(false);
+  // eslint-disable-next-line
+  const [__, setIsOpen] = useState(false);
 
   const props = { spy: true, smooth: true, onClick: toggleMenu };
   const offsetProps = { ...props, offset: -73 };
-
-  const animate = component => {
-    component.style = { transition: 'transformY : 500px' };
-  };
-
-  const animateBack = component => {
-    component.style = { transition: 'transformY : 0px' };
-  };
-
-  useEffect(() => {
-    console.log('menu open');
-    console.log(document.body);
-    // animate();
-
-    return () => {
-      console.log('menu closed');
-      // animateBack();
-    };
-  }, []);
 
   const handleNavBtn = () => {
     setIsOpen(isOpen => !isOpen);
@@ -44,14 +25,8 @@ export const Navigation = ({ toggleMenu, toggleModal }) => {
     toggleModal();
   };
 
-  const transitions = useTransition(isOpen, {
-    from: { y: -503 },
-    enter: { y: 0 },
-    leave: { y: -503 },
-  });
-
   return (
-    <StyledNavigation style={{ ...transitions }}>
+    <StyledNavigation className={className}>
       <MenuButtonsWrapper>
         {width < 768 && (
           <>

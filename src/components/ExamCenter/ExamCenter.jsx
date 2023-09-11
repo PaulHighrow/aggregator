@@ -53,7 +53,6 @@ export const ExamCenter = ({ toggleModal }) => {
           <VideoLimiter>
             <VideoBox>
               <ReactPlayer
-                playing
                 loop={true}
                 controls={true}
                 style={{

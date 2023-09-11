@@ -49,7 +49,6 @@ export const Translations = () => {
             <VideoLimiter>
               <VideoBox>
                 <ReactPlayer
-                  playing
                   loop={true}
                   controls={true}
                   style={{

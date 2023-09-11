@@ -29,7 +29,7 @@ export const Hero = ({ closeModal }) => {
           ONE STEP FROM ZERO TO
           <SubTitle ref={ref}>HERO{inView && <TitleSketch />}</SubTitle>
         </Title>
-        <Description>
+        <Description className={isMore ? 'more-shown' : 'more-hidden'}>
           <span>
             «AP Education Center» є провідним центром навчання іноземних мов та
             підготовки до міжнародних іспитів
@@ -59,7 +59,7 @@ export const Hero = ({ closeModal }) => {
               officiis.
             </span>
           ) : (
-            '...'
+            <span>...</span>
           )}
         </Description>
         <DescriptionLink onClick={showMore}>

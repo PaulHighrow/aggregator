@@ -98,6 +98,7 @@ export const Description = styled.p`
   color: var(--main-color);
   margin-bottom: 5px;
   padding: 0 30px;
+  transition: max-height var(--animation-global);
 
   @media screen and (min-width: 768px) {
     font-size: 22px;

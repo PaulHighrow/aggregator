@@ -24,7 +24,6 @@ export const EdCenter = () => {
             <VideoLimiter>
               <VideoBox>
                 <ReactPlayer
-                  playing
                   loop={true}
                   controls={true}
                   style={{

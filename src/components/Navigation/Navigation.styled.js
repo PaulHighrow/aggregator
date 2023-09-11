@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-scroll';
-import { animated } from '@react-spring/web';
 
-export const StyledNavigation = styled(animated.nav)`
+export const StyledNavigation = styled.nav`
   position: absolute;
   width: 100%;
   top: 73px;
@@ -12,17 +11,17 @@ export const StyledNavigation = styled(animated.nav)`
   border-bottom-right-radius: 10px;
   z-index: 5;
   background-color: var(--main-color);
+  transition: opacity var(--animation-global), transform var(--animation-global);
 
   @media screen and (min-width: 768px) {
-    position: static;
-    display: block;
-    width: auto;
-    font-size: 14px;
+    width: 360px;
+    top: 89px;
+    left: 0%;
     font-weight: 500;
   }
 
   @media screen and (min-width: 1280px) {
-    font-size: 20px;
+    top: 105px;
   }
 `;
 
@@ -32,6 +31,10 @@ export const MenuButtonsWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 10px;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
 `;
 
 export const NavigationList = styled.ul`
@@ -43,12 +46,11 @@ export const NavigationList = styled.ul`
 
   @media screen and (min-width: 768px) {
     border: none;
-    flex-direction: row;
     gap: 10px;
   }
 
   @media screen and (min-width: 1280px) {
-    gap: 20px;
+    gap: 10px;
   }
 
   color: var(--secondary-color);

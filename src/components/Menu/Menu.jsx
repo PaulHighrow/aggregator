@@ -26,28 +26,34 @@ export const Menu = ({ toggleModal }) => {
   };
 
   return (
-    <Header ref={headerEl}>
-      <HeaderWrapper>
-        <LogoLink href="https://www.ap-education.com.ua/">
-          <Logo />
-        </LogoLink>
-        <MobileMenuBtn onClick={toggleMenu}>
-          <HeaderText>МЕНЮ</HeaderText> <MobileMenuIcon />
-        </MobileMenuBtn>
-      </HeaderWrapper>
-      {isMenuOpen && <Navigation toggleMenu={toggleMenu} toggleModal={toggleModal}/>}
-      {width < 1 && (
-        <PhoneNumber href="tel:+380638989102">+380638989102</PhoneNumber>
-      )}
-      {width >= 768 && (
-        <LeadBtn onClick={toggleModal}> ШВИДКА КОНСУЛЬТАЦІЯ </LeadBtn>
-      )}
+    <>
+      <Header ref={headerEl}>
+        <HeaderWrapper>
+          <LogoLink href="https://www.ap-education.com.ua/">
+            <Logo />
+          </LogoLink>
+          <MobileMenuBtn onClick={toggleMenu}>
+            <HeaderText>МЕНЮ</HeaderText> <MobileMenuIcon />
+          </MobileMenuBtn>
+        </HeaderWrapper>
 
-      {width >= 768 && (
-        <PlatformLink href='https://online.ap.education/' target='_blank'>
-          <HeaderText>УВІЙТИ</HeaderText> <LoginIcon />
-        </PlatformLink>
-      )}
-    </Header>
+        {width < 1 && (
+          <PhoneNumber href="tel:+380638989102">+380638989102</PhoneNumber>
+        )}
+        {width >= 768 && (
+          <LeadBtn onClick={toggleModal}> ШВИДКА КОНСУЛЬТАЦІЯ </LeadBtn>
+        )}
+        {width >= 768 && (
+          <PlatformLink href="https://online.ap.education/" target="_blank">
+            <HeaderText>УВІЙТИ</HeaderText> <LoginIcon />
+          </PlatformLink>
+        )}
+      </Header>
+      <Navigation
+        toggleMenu={toggleMenu}
+        toggleModal={toggleModal}
+        className={isMenuOpen ? 'nav-open' : 'nav-closed'}
+      />
+    </>
   );
 };

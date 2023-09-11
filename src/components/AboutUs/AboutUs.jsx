@@ -23,7 +23,6 @@ export const AboutUs = () => {
             <VideoLimiter>
               <VideoBox>
                 <ReactPlayer
-                  playing
                   loop={true}
                   controls={true}
                   style={{
