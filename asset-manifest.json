@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/aggregator/static/css/main.217ef3f9.css",
-    "main.js": "/aggregator/static/js/main.32a7bd95.js",
+    "main.css": "/aggregator/static/css/main.c7b99a5e.css",
+    "main.js": "/aggregator/static/js/main.73697c26.js",
     "reactPlayerYouTube.js": "/aggregator/static/js/reactPlayerYouTube.f21d2dc2.chunk.js",
     "reactPlayerSoundCloud.js": "/aggregator/static/js/reactPlayerSoundCloud.9eeb4279.chunk.js",
     "reactPlayerVimeo.js": "/aggregator/static/js/reactPlayerVimeo.1be465ed.chunk.js",
@@ -141,10 +141,12 @@
     "static/media/tiktok.svg": "/aggregator/static/media/tiktok.d562cd64774490264b88b3740b43d307.svg",
     "static/media/menu-arrow.svg": "/aggregator/static/media/menu-arrow.56a53f1cd106c1e8953085e012887b16.svg",
     "static/media/menu-arrow-rotated.svg": "/aggregator/static/media/menu-arrow-rotated.4eded94223efb5e99ab1efd7a5dbdaf4.svg",
+    "static/media/hero-underline-short.svg": "/aggregator/static/media/hero-underline-short.b8f8f2082cb7d2ed5d9a24600df4cc39.svg",
     "static/media/sketchTitle.svg": "/aggregator/static/media/sketchTitle.e0df9213771982a06aa71be5ae87eebd.svg",
+    "static/media/hero-underline-long.svg": "/aggregator/static/media/hero-underline-long.7c2a251c1ddf8e281ed16416ecaa76f5.svg",
     "static/media/downArrow.svg": "/aggregator/static/media/downArrow.3d74cb9d6d38fab26c47bbadb8e4f56d.svg",
-    "main.217ef3f9.css.map": "/aggregator/static/css/main.217ef3f9.css.map",
-    "main.32a7bd95.js.map": "/aggregator/static/js/main.32a7bd95.js.map",
+    "main.c7b99a5e.css.map": "/aggregator/static/css/main.c7b99a5e.css.map",
+    "main.73697c26.js.map": "/aggregator/static/js/main.73697c26.js.map",
     "reactPlayerYouTube.f21d2dc2.chunk.js.map": "/aggregator/static/js/reactPlayerYouTube.f21d2dc2.chunk.js.map",
     "reactPlayerSoundCloud.9eeb4279.chunk.js.map": "/aggregator/static/js/reactPlayerSoundCloud.9eeb4279.chunk.js.map",
     "reactPlayerVimeo.1be465ed.chunk.js.map": "/aggregator/static/js/reactPlayerVimeo.1be465ed.chunk.js.map",
@@ -160,7 +162,7 @@
     "reactPlayerPreview.3d7930ba.chunk.js.map": "/aggregator/static/js/reactPlayerPreview.3d7930ba.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.217ef3f9.css",
-    "static/js/main.32a7bd95.js"
+    "static/css/main.c7b99a5e.css",
+    "static/js/main.73697c26.js"
   ]
 }
