@@ -3,13 +3,17 @@ import { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import {
   Description,
-  DescriptionLink,
+  DescriptionMoreText,
+  DescriptionTrigger,
+  DescriptionUnderlineShort,
+  DescriptionUnderlineLong,
   HeroSection,
   SubTitle,
   Title,
   TitleSketch,
 } from './Hero.styled';
 import { HeroMarquee } from './HeroMarquee/HeroMarquee';
+import { HeroSlider } from './HeroSlider/HeroSlider';
 
 export const Hero = ({ closeModal }) => {
   const [isMore, setIsMore] = useState(false);
@@ -29,43 +33,42 @@ export const Hero = ({ closeModal }) => {
           ONE STEP FROM ZERO TO
           <SubTitle ref={ref}>HERO{inView && <TitleSketch />}</SubTitle>
         </Title>
-        <Description className={isMore ? 'more-shown' : 'more-hidden'}>
+        <Description>
           <span>
             «AP Education Center» є провідним центром навчання іноземних мов та
-            підготовки до міжнародних іспитів
+            підготовки до міжнародних іспитів{isMore ? '' : '...'}
           </span>
-          {isMore ? (
-            <span>
-              {' '}
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Exercitationem veritatis temporibus magni? A amet eius atque
-              provident quod explicabo asperiores pariatur modi corporis
-              quibusdam accusamus magni exercitationem vero, similique commodi
-              nulla beatae deleniti, esse, maxime ea eum natus temporibus?
-              Exercitationem unde laborum reiciendis explicabo molestias
-              dignissimos temporibus quod perferendis voluptate vitae debitis
-              suscipit odio ipsam eligendi iusto dicta autem quos excepturi,
-              aspernatur voluptatibus eveniet ab a. Odit provident nisi nesciunt
-              culpa. Tempora esse voluptatem dolore, porro aspernatur nostrum
-              non fuga laudantium praesentium consectetur quisquam maiores
-              ducimus officia at eum ratione necessitatibus dicta distinctio
-              harum corrupti repudiandae id est temporibus laboriosam? Sint
-              architecto obcaecati nam quae voluptatibus aut totam dolore at,
-              deserunt dolor perspiciatis optio quia, similique sapiente ab
-              ducimus? Sint non, totam reiciendis consequuntur nostrum
-              voluptatibus cumque unde soluta. Quasi ad a mollitia sequi.
-              Voluptates porro voluptatibus itaque cumque quaerat laudantium
-              tempore, qui voluptatum alias ipsum quisquam sed quibusdam
-              officiis.
-            </span>
-          ) : (
-            <span>...</span>
-          )}
+          <DescriptionMoreText
+            className={isMore ? 'more-shown' : 'more-hidden'}
+          >
+            {' '}
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            Exercitationem veritatis temporibus magni? A amet eius atque
+            provident quod explicabo asperiores pariatur modi corporis quibusdam
+            accusamus magni exercitationem vero, similique commodi nulla beatae
+            deleniti, esse, maxime ea eum natus temporibus? Exercitationem unde
+            laborum reiciendis explicabo molestias dignissimos temporibus quod
+            perferendis voluptate vitae debitis suscipit odio ipsam eligendi
+            iusto dicta autem quos excepturi, aspernatur voluptatibus eveniet ab
+            a. Odit provident nisi nesciunt culpa. Tempora esse voluptatem
+            dolore, porro aspernatur nostrum non fuga laudantium praesentium
+            consectetur quisquam maiores ducimus officia at eum ratione
+            necessitatibus dicta distinctio harum corrupti repudiandae id est
+            temporibus laboriosam? Sint architecto obcaecati nam quae
+            voluptatibus aut totam dolore at, deserunt dolor perspiciatis optio
+            quia, similique sapiente ab ducimus? Sint non, totam reiciendis
+            consequuntur nostrum voluptatibus cumque unde soluta. Quasi ad a
+            mollitia sequi. Voluptates porro voluptatibus itaque cumque quaerat
+            laudantium tempore, qui voluptatum alias ipsum quisquam sed
+            quibusdam officiis.
+          </DescriptionMoreText>
         </Description>
-        <DescriptionLink onClick={showMore}>
+        <DescriptionTrigger onClick={showMore}>
           {isMore ? 'Згорнути' : 'Дізнатись більше'}
-        </DescriptionLink>
+          {isMore ? <DescriptionUnderlineShort /> : <DescriptionUnderlineLong />}
+        </DescriptionTrigger>
       </Box>
+      <HeroSlider closeModal={closeModal} />
       <HeroMarquee closeModal={closeModal} />
     </HeroSection>
   );

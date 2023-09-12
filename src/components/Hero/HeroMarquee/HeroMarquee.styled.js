@@ -4,9 +4,11 @@ import styled from 'styled-components';
 export const StyledMarquee = styled(Marquee)`
   margin: 0 auto;
   max-width: 100vw;
+  touch-action: manipulation;
 `;
 
 export const MarqueeChild = styled.div`
+  touch-action: manipulation;
   position: relative;
   border-radius: 20px;
   overflow: hidden;

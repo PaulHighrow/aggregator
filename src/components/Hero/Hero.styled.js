@@ -1,5 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 import { ReactComponent as TitleSketchSVG } from '../../img/svg/sketchTitle.svg';
+import { ReactComponent as UnderlineShort } from '../../img/svg/hero-underline-short.svg';
+import { ReactComponent as UnderlineLong } from '../../img/svg/hero-underline-long.svg';
 
 export const HeroSection = styled.section`
   position: relative;
@@ -98,7 +100,6 @@ export const Description = styled.p`
   color: var(--main-color);
   margin-bottom: 5px;
   padding: 0 30px;
-  transition: max-height var(--animation-global);
 
   @media screen and (min-width: 768px) {
     font-size: 22px;
@@ -106,7 +107,6 @@ export const Description = styled.p`
   }
 
   @media screen and (min-width: 1280px) {
-    font-size: 22px;
     padding: 0 55px;
     max-width: 60%;
     margin-left: auto;
@@ -114,9 +114,31 @@ export const Description = styled.p`
   }
 `;
 
-export const DescriptionLink = styled.a`
+export const DescriptionMoreText = styled.span`
+  transition: opacity var(--animation-global), font-size var(--animation-global),
+    margin var(--animation-global), padding var(--animation-global);
+
+  &.more-shown {
+  }
+
+  &.more-hidden {
+    font-size: 0;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+    transition: opacity var(--animation-global),
+      font-size var(--animation-global), margin var(--animation-global),
+      padding var(--animation-global);
+  }
+`;
+
+export const DescriptionTrigger = styled.span`
   display: block;
+  position: relative;
+  max-width: max-content;
+  margin: 0 auto;
   margin-bottom: 54px;
+  cursor: pointer;
 
   font-family: var(--secondary-font-family);
   font-size: 18px;
@@ -125,9 +147,26 @@ export const DescriptionLink = styled.a`
   color: var(--accent-color);
   text-align: center;
   text-transform: uppercase;
+  transition: all var(--animation-global);
 
   @media screen and (min-width: 768px) {
     font-size: 22px;
     margin-bottom: 55px;
   }
+
+  &:hover,
+  &:focus {
+    color: var(--main-color);
+  }
+`;
+
+const underlineStyles =
+  'position: absolute; width: 100%; bottom: -6px; left: 0px; transform: rotate(-1.5deg);';
+
+export const DescriptionUnderlineShort = styled(UnderlineShort)`
+  ${underlineStyles}
+`;
+
+export const DescriptionUnderlineLong = styled(UnderlineLong)`
+  ${underlineStyles}
 `;
