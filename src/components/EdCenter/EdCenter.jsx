@@ -13,6 +13,8 @@ import {
 } from './EdCenter.styled';
 
 export const EdCenter = () => {
+  const listItems = ['Англійська мова', 'Польська мова', 'Німецька мова'];
+
   return (
     <EdCenterBackground>
       <EdCenterSection id="edcenter">
@@ -39,9 +41,9 @@ export const EdCenter = () => {
               </VideoBox>
             </VideoLimiter>
             <EdCenterNavigation>
-              <NavigationItem>Англійська мова</NavigationItem>
-              <NavigationItem>Польська мова</NavigationItem>
-              <NavigationItem>Німецька мова</NavigationItem>
+              {listItems.map((item, i) => (
+                <NavigationItem key={i}>{item}</NavigationItem>
+              ))}
             </EdCenterNavigation>
           </EdCenterWrapper>
         </Box>

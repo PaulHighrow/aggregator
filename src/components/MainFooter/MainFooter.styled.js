@@ -1,11 +1,12 @@
 import { Logo, LogoLink } from 'components/Menu/Menu.styled';
 import styled from 'styled-components';
 
+import { PiMapPinDuotone } from 'react-icons/pi';
+import { Link } from 'react-scroll';
 import { ReactComponent as FacebookIcon } from '../../img/svg/social-links/facebook.svg';
 import { ReactComponent as InstagramIcon } from '../../img/svg/social-links/instagram.svg';
 import { ReactComponent as TikTokIcon } from '../../img/svg/social-links/tiktok.svg';
 import { ReactComponent as YouTubeIcon } from '../../img/svg/social-links/youtube.svg';
-import { PiMapPinDuotone } from 'react-icons/pi';
 
 export const Footer = styled.footer`
   background-color: var(--main-color);
@@ -172,14 +173,13 @@ export const LinkList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 10px;
-    max-width: 160px;
+  max-width: 160px;
 `;
 
 export const LinkListItem = styled.li`
   text-align: center;
   font-size: 22px;
   -webkit-text-stroke: 0.2px var(--secondary-color);
-  color: var(--secondary-color);
 
   @media screen and (min-width: 768px) {
     letter-spacing: 1px;
@@ -189,6 +189,24 @@ export const LinkListItem = styled.li`
     font-size: 20px;
     text-align: left;
     -webkit-text-stroke: 0.5px var(--secondary-color);
+  }
+`;
+
+export const FooterLink = styled(Link)`
+  position: relative;
+  color: var(--secondary-color);
+  cursor: pointer;
+  text-decoration: none;
+  transition: color var(--animation-global), -webkit-text-stroke var(--animation-global);
+
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+    -webkit-text-stroke: 0.2px var(--accent-color);
+
+    @media screen and (min-width: 1280px) {
+      -webkit-text-stroke: 0.5px var(--accent-color);
+    }
   }
 `;
 

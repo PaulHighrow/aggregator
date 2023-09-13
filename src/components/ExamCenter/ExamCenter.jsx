@@ -21,10 +21,13 @@ import {
 } from './ExamCenter.styled';
 
 export const ExamCenter = ({ toggleModal }) => {
-  const length = {
-    short: 'img/svg/underline.svg',
-    long: 'img/svg/underline-long.svg',
-  };
+  const listItems = ['TOEFL', 'IELTS', 'ISOL', 'CAMBRIDGE ENGLISH'];
+  const navListItems = [
+    'Навчальний центр',
+    'Перекладацьке бюро',
+    'Вступ до ВНЗ',
+    'Екзаменаційний центр',
+  ];
 
   return (
     <ExamCenterBackground>
@@ -36,18 +39,11 @@ export const ExamCenter = ({ toggleModal }) => {
           <ExamCenterWrapper>
             <LeadBtn onClick={toggleModal}> ЗАЛИШИТИ ЗАЯВКУ </LeadBtn>
             <ExamCenterNavigation>
-              <NavigationItem>
-                <NavigationLink>TOEFL</NavigationLink>
-              </NavigationItem>
-              <NavigationItem>
-                <NavigationLink>IELTS</NavigationLink>
-              </NavigationItem>
-              <NavigationItem>
-                <NavigationLink>ISOL</NavigationLink>
-              </NavigationItem>
-              <NavigationItem length={length.long}>
-                <NavigationLink>CAMBRIDGE ENGLISH</NavigationLink>
-              </NavigationItem>
+              {listItems.map((item, i) => (
+                <NavigationItem key={i}>
+                  <NavigationLink>{item}</NavigationLink>
+                </NavigationItem>
+              ))}
             </ExamCenterNavigation>
           </ExamCenterWrapper>
           <VideoLimiter>
@@ -70,10 +66,9 @@ export const ExamCenter = ({ toggleModal }) => {
           <NavigationWrapper>
             <NavigationDesc>... всі наші послуги</NavigationDesc>
             <PageNavigation>
-              <PageNavigationItem>Навчальний центр</PageNavigationItem>
-              <PageNavigationItem>Перекладацьке бюро</PageNavigationItem>
-              <PageNavigationItem>Вступ до ВНЗ</PageNavigationItem>
-              <PageNavigationItem>Екзаменаційний центр</PageNavigationItem>
+              {navListItems.map((item, i) => (
+                <PageNavigationItem key={i}>{item}</PageNavigationItem>
+              ))}
             </PageNavigation>
           </NavigationWrapper>
         </Box>

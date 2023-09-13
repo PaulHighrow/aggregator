@@ -13,7 +13,6 @@ import {
   TitleSketch,
 } from './Hero.styled';
 import { HeroMarquee } from './HeroMarquee/HeroMarquee';
-import { HeroSlider } from './HeroSlider/HeroSlider';
 
 export const Hero = ({ closeModal }) => {
   const [isMore, setIsMore] = useState(false);
@@ -65,10 +64,13 @@ export const Hero = ({ closeModal }) => {
         </Description>
         <DescriptionTrigger onClick={showMore}>
           {isMore ? 'Згорнути' : 'Дізнатись більше'}
-          {isMore ? <DescriptionUnderlineShort /> : <DescriptionUnderlineLong />}
+          {isMore ? (
+            <DescriptionUnderlineShort />
+          ) : (
+            <DescriptionUnderlineLong />
+          )}
         </DescriptionTrigger>
       </Box>
-      <HeroSlider closeModal={closeModal} />
       <HeroMarquee closeModal={closeModal} />
     </HeroSection>
   );

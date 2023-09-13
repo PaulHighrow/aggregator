@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-scroll';
 
 export const StyledNavigation = styled.nav`
-  position: absolute;
+  position: fixed;
   width: 100%;
   top: 73px;
   right: 0%;
@@ -14,6 +14,7 @@ export const StyledNavigation = styled.nav`
   transition: opacity var(--animation-global), transform var(--animation-global);
 
   @media screen and (min-width: 768px) {
+    position: absolute;
     width: 360px;
     top: 89px;
     left: 0%;

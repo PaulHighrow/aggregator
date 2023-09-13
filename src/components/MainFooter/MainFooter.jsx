@@ -5,6 +5,7 @@ import {
   Footer,
   FooterBox,
   FooterLeftBox,
+  FooterLink,
   FooterList,
   FooterListItem,
   FooterLogo,
@@ -22,6 +23,25 @@ import {
 import { Map } from './Map/Map';
 
 export const MainFooter = ({ toggleModal }) => {
+  const footerServicesItems = [
+    { to: 'edcenter', service: 'Навчальний центр' },
+    { to: 'translations', service: 'Перекладацьке бюро' },
+    { to: 'admissions', service: 'Вступ до ВНЗ' },
+    { to: 'examcenter', service: 'Екзаменаційний центр' },
+  ];
+  const footerCoursesItems = [
+    'Англійська мова',
+    'Польська мова',
+    'Німецька мова',
+  ];
+  const footerContactsItems = [
+    { href: 'mailto:info@ap.education', contact: 'info@ap.education' },
+    { href: 'tel:+380671047700', contact: '+380671047700' },
+    { href: 'https://goo.gl/maps/AvneSaz3ikRAaKUD6', contact: 'м.Львів, вул.Братів Рогатинців, 18' },
+  ];
+
+  const props = { spy: true, smooth: true };
+
   return (
     <Footer>
       <Box>
@@ -71,26 +91,33 @@ export const MainFooter = ({ toggleModal }) => {
             <FooterListItem>
               <LinkListTitle>Наші послуги</LinkListTitle>
               <LinkList>
-                <LinkListItem>Навчальний центр</LinkListItem>
-                <LinkListItem>Перекладацьке бюро</LinkListItem>
-                <LinkListItem>Вступ до ВНЗ</LinkListItem>
-                <LinkListItem>Екзаменаційний центр</LinkListItem>
+                {footerServicesItems.map((item, i) => (
+                  <LinkListItem key={i}>
+                    <FooterLink to={item.to} {...props}>
+                      {item.service}
+                    </FooterLink>
+                  </LinkListItem>
+                ))}
               </LinkList>
             </FooterListItem>
             <FooterListItem>
               <LinkListTitle>Курси</LinkListTitle>
               <LinkList>
-                <LinkListItem>Англійська мова</LinkListItem>
-                <LinkListItem>Польська мова</LinkListItem>
-                <LinkListItem>Німецька мова</LinkListItem>
+                {footerCoursesItems.map((item, i) => (
+                  <LinkListItem key={i}>
+                    <FooterLink>{item}</FooterLink>
+                  </LinkListItem>
+                ))}
               </LinkList>
             </FooterListItem>
             <FooterListItem>
               <LinkListTitle id="contacts">Контакти</LinkListTitle>
               <LinkList>
-                <LinkListItem>info@ap.education</LinkListItem>
-                <LinkListItem>+380671047700</LinkListItem>
-                <LinkListItem>м.Львів, вул.Братів Рогатинців, 18</LinkListItem>
+                {footerContactsItems.map((item, i) => (
+                  <LinkListItem key={i}>
+                    <FooterLink href={item.href}>{item.contact}</FooterLink>
+                  </LinkListItem>
+                ))}
               </LinkList>
             </FooterListItem>
           </FooterList>

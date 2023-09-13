@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-
+import { Link } from 'react-scroll';
 import menuHoverArrow from 'img/svg/menu-arrow.svg';
 
 export const HowItWorksSection = styled.section`
@@ -74,7 +74,6 @@ export const SectionSubTitle = styled.span`
 `;
 
 export const PageNavigation = styled.ul`
-  color: var(--main-color);
   font-size: 26px;
   font-weight: 600;
   letter-spacing: 1.8px;
@@ -136,6 +135,16 @@ export const PageNavigationItem = styled.li`
     animation-duration: 1.5s;
     animation-timing-function: ease;
     animation-iteration-count: 1;
+  }
+`;
+
+export const PageNavigationLink = styled(Link)`
+  color: var(--main-color);
+  transition: color var(--animation-global);
+
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
   }
 `;
 

@@ -17,6 +17,8 @@ import {
 } from './Translations.styled';
 
 export const Translations = () => {
+  const listItems = ['Англійська', 'Польська', 'Німецька'];
+
   const boxEl = useRef();
   const videoUrls = {
     mobileUrl: 'https://youtu.be/Ujz1YjEEqyk?si=8crApB-nqbzlqihQ',
@@ -35,15 +37,11 @@ export const Translations = () => {
                 БЮРО <TranslationsSubTitle>ПЕРЕКЛАДІВ</TranslationsSubTitle>
               </TranslationsTitle>
               <TranslationsNavigation>
-                <NavigationItem>
-                  <ExamNavigationLink>Англійська</ExamNavigationLink>
-                </NavigationItem>
-                <NavigationItem>
-                  <ExamNavigationLink>Польська</ExamNavigationLink>
-                </NavigationItem>
-                <NavigationItem>
-                  <ExamNavigationLink>Німецька</ExamNavigationLink>
-                </NavigationItem>
+                {listItems.map((item, i) => (
+                  <NavigationItem key={i}>
+                    <ExamNavigationLink>{item}</ExamNavigationLink>
+                  </NavigationItem>
+                ))}
               </TranslationsNavigation>
             </TranslationTextWrapper>
             <VideoLimiter>

@@ -3,16 +3,24 @@ import {
   HowItWorksSection,
   PageNavigation,
   PageNavigationItem,
+  PageNavigationLink,
   SectionSubTitle,
   SectionTitle,
   SectionWrapper,
   VideoBox,
-  VideoLimiter
+  VideoLimiter,
 } from './HowItWorks.styled';
-
 import ReactPlayer from 'react-player/lazy';
 
 export const HowItWorks = () => {
+  const listItems = [
+    { to: 'edcenter', service: 'Навчальний центр' },
+    { to: 'translations', service: 'Перекладацьке бюро' },
+    { to: 'admissions', service: 'Вступ до ВНЗ' },
+    { to: 'examcenter', service: 'Екзаменаційний центр' },
+  ];
+  const props = { spy: true, smooth: true };
+
   return (
     <HowItWorksSection id="howitworks">
       <Box>
@@ -21,10 +29,13 @@ export const HowItWorks = () => {
             HOW IT <SectionSubTitle>WORKS?</SectionSubTitle>
           </SectionTitle>
           <PageNavigation>
-            <PageNavigationItem>Навчальний центр</PageNavigationItem>
-            <PageNavigationItem>Перекладацьке бюро</PageNavigationItem>
-            <PageNavigationItem>Вступ до ВНЗ</PageNavigationItem>
-            <PageNavigationItem>Екзаменаційний центр</PageNavigationItem>
+            {listItems.map((item, i) => (
+              <PageNavigationItem key={i}>
+                <PageNavigationLink to={item.to} {...props}>
+                  {item.service}
+                </PageNavigationLink>
+              </PageNavigationItem>
+            ))}
           </PageNavigation>
         </SectionWrapper>
         <VideoLimiter>
