@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-scroll';
-import menuHoverArrow from 'img/svg/menu-arrow.svg';
+import { ReactComponent as MenuArrow } from '../../img/svg/menu-arrow.svg';
 
 export const HowItWorksSection = styled.section`
   position: relative;
@@ -28,7 +28,7 @@ export const SectionWrapper = styled.div`
   }
 
   @media screen and (min-width: 1280px) {
-    padding-right: 70px;
+    padding-right: 120px;
     margin-bottom: 80px;
   }
 `;
@@ -93,7 +93,7 @@ export const PageNavigation = styled.ul`
 
 const arrowAnimation = keyframes`
   0%{
-    stroke-dashoffset: 435;
+    stroke-dashoffset: -435;
   }
   100% {
     /* closing the offset makes the line appear to be drawn-in */
@@ -102,50 +102,65 @@ const arrowAnimation = keyframes`
 `;
 
 export const PageNavigationItem = styled.li`
-  position: relative;
   z-index: 1;
-
-  &::after {
-    content: url(${menuHoverArrow});
-    opacity: 0;
-    position: absolute;
-    bottom: -10px;
-    left: -6px;
-    width: 250px;
-    z-index: -1;
-    stroke-dasharray: 435;
-
-    @media screen and (min-width: 768px) {
-      bottom: -12px;
-      left: -8px;
-      width: 300px;
-    }
-
-    @media screen and (min-width: 1280px) {
-      bottom: -14px;
-      left: -10px;
-      width: 350px;
-    }
-  }
-
-  &:hover::after,
-  &:focus::before {
-    opacity: 1;
-    animation-name: ${arrowAnimation};
-    animation-duration: 1.5s;
-    animation-timing-function: ease;
-    animation-iteration-count: 1;
-  }
 `;
 
 export const PageNavigationLink = styled(Link)`
+  position: relative;
+  display: block;
+  z-index: 1;
   color: var(--main-color);
-  transition: color var(--animation-global);
+  transition: color var(--animation-global), opacity var(--animation-global);
 
   &:hover,
   &:focus {
     color: var(--accent-color);
   }
+
+  &:hover > *,
+  &:focus > * {
+    opacity: 1;
+    animation-name: ${arrowAnimation};
+    animation-duration: 400ms;
+    animation-direction: revert;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+  }
+`;
+
+export const PageNavigationArrow = styled(MenuArrow)`
+  display: block;
+  opacity: 0;
+  position: absolute;
+  bottom: -5px;
+  left: -5px;
+  width: 250px;
+  z-index: -1;
+  stroke-dasharray: 435;
+
+  @media screen and (min-width: 768px) {
+    bottom: -6px;
+    left: -6px;
+    width: 300px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    bottom: -6px;
+    left: -6px;
+    width: 400px;
+  }
+`;
+
+export const PageNavigationText = styled.span`
+  color: var(--accent-color);
+  opacity: 0;
+  position: absolute;
+  top: 33%;
+  right: -95px;
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: normal;
+  transition: opacity var(--animation-global) 250ms;
 `;
 
 export const VideoLimiter = styled.div`

@@ -9,6 +9,7 @@ import {
   FooterList,
   FooterListItem,
   FooterLogo,
+  FooterNavLink,
   FooterSocials,
   IconBox,
   InstagramBtn,
@@ -18,7 +19,7 @@ import {
   LinkListItem,
   LinkListTitle,
   TikTokBtn,
-  YouTubeBtn,
+  YouTubeBtn
 } from './MainFooter.styled';
 import { Map } from './Map/Map';
 
@@ -37,7 +38,10 @@ export const MainFooter = ({ toggleModal }) => {
   const footerContactsItems = [
     { href: 'mailto:info@ap.education', contact: 'info@ap.education' },
     { href: 'tel:+380671047700', contact: '+380671047700' },
-    { href: 'https://goo.gl/maps/AvneSaz3ikRAaKUD6', contact: 'м.Львів, вул.Братів Рогатинців, 18' },
+    {
+      href: 'https://goo.gl/maps/AvneSaz3ikRAaKUD6',
+      contact: 'м.Львів, вул.Братів Рогатинців, 18',
+    },
   ];
 
   const props = { spy: true, smooth: true };
@@ -93,9 +97,9 @@ export const MainFooter = ({ toggleModal }) => {
               <LinkList>
                 {footerServicesItems.map((item, i) => (
                   <LinkListItem key={i}>
-                    <FooterLink to={item.to} {...props}>
+                    <FooterNavLink to={item.to} {...props}>
                       {item.service}
-                    </FooterLink>
+                    </FooterNavLink>
                   </LinkListItem>
                 ))}
               </LinkList>
@@ -115,7 +119,9 @@ export const MainFooter = ({ toggleModal }) => {
               <LinkList>
                 {footerContactsItems.map((item, i) => (
                   <LinkListItem key={i}>
-                    <FooterLink href={item.href}>{item.contact}</FooterLink>
+                    <FooterLink href={item.href}>
+                      {item.contact}
+                    </FooterLink>
                   </LinkListItem>
                 ))}
               </LinkList>

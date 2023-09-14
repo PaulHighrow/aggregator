@@ -2,8 +2,10 @@ import { Box } from 'components/Box/Box.styled';
 import {
   HowItWorksSection,
   PageNavigation,
+  PageNavigationArrow,
   PageNavigationItem,
   PageNavigationLink,
+  PageNavigationText,
   SectionSubTitle,
   SectionTitle,
   SectionWrapper,
@@ -15,8 +17,8 @@ import ReactPlayer from 'react-player/lazy';
 export const HowItWorks = () => {
   const listItems = [
     { to: 'edcenter', service: 'Навчальний центр' },
-    { to: 'translations', service: 'Перекладацьке бюро' },
     { to: 'admissions', service: 'Вступ до ВНЗ' },
+    { to: 'translations', service: 'Перекладацьке бюро' },
     { to: 'examcenter', service: 'Екзаменаційний центр' },
   ];
   const props = { spy: true, smooth: true };
@@ -33,6 +35,8 @@ export const HowItWorks = () => {
               <PageNavigationItem key={i}>
                 <PageNavigationLink to={item.to} {...props}>
                   {item.service}
+                  <PageNavigationArrow/>
+                  <PageNavigationText>перейти</PageNavigationText>
                 </PageNavigationLink>
               </PageNavigationItem>
             ))}

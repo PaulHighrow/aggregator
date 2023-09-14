@@ -1,5 +1,8 @@
 import { BackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
 import styled from 'styled-components';
+import { ReactComponent as UnderlineShort } from '../../img/svg/hero-underline-short.svg';
+import { ReactComponent as UnderlineMedium } from '../../img/svg/hero-underline-medium.svg';
+import { ReactComponent as UnderlineLong } from '../../img/svg/hero-underline-long.svg';
 
 export const ExamCenterBackground = styled(BackgroundWrapper)`
   background-position: left -70px bottom 0px;
@@ -104,13 +107,18 @@ export const ExamCenterSubTitle = styled.span`
   }
 `;
 
-export const ExamCenterNavigation = styled.ul`
+export const ExamCenterList = styled.ul`
   font-size: 20px;
   font-weight: 600;
   letter-spacing: 1.8px;
+  justify-content: center;
   display: flex;
   flex-wrap: wrap;
   gap: 10px 20px;
+
+  &:last-child {
+    padding-bottom: 6px;
+  }
 
   @media screen and (min-width: 768px) {
     text-align: end;
@@ -129,16 +137,37 @@ export const NavigationItem = styled.li`
   flex: 0 0 auto;
 `;
 
-export const NavigationLink = styled.a`
+export const ExamToggler = styled.a`
+  user-select: none;
   color: #9d9d9d;
   z-index: 1;
   position: relative;
+  transition: color var(--animation-global);
 
-  &:active,
+  &.selected,
   &:hover,
   &:focus {
     color: var(--main-color);
   }
+
+  &.selected svg {
+    display: block;
+  }
+`;
+
+const underlineStyles =
+  'display: none; position: absolute; width: 100%; bottom: -6px; left: 0px; transform: rotate(-1.5deg);';
+
+export const ExamTogglerUnderlineShort = styled(UnderlineShort)`
+  ${underlineStyles}
+`;
+
+export const ExamTogglerUnderlineMedium = styled(UnderlineMedium)`
+  ${underlineStyles}
+`;
+
+export const ExamTogglerUnderlineLong = styled(UnderlineLong)`
+  ${underlineStyles}
 `;
 
 export const VideoLimiter = styled.div`

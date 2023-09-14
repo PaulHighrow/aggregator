@@ -192,7 +192,25 @@ export const LinkListItem = styled.li`
   }
 `;
 
-export const FooterLink = styled(Link)`
+export const FooterNavLink = styled(Link)`
+  position: relative;
+  color: var(--secondary-color);
+  cursor: pointer;
+  text-decoration: none;
+  transition: color var(--animation-global), -webkit-text-stroke var(--animation-global);
+
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+    -webkit-text-stroke: 0.2px var(--accent-color);
+
+    @media screen and (min-width: 1280px) {
+      -webkit-text-stroke: 0.5px var(--accent-color);
+    }
+  }
+`;
+
+export const FooterLink = styled.a`
   position: relative;
   color: var(--secondary-color);
   cursor: pointer;

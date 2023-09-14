@@ -2,32 +2,54 @@ import { Box } from 'components/Box/Box.styled';
 import {
   PageNavigation,
   PageNavigationItem,
+  PageNavigationLink,
 } from 'components/HowItWorks/HowItWorks.styled';
 import { LeadBtn } from 'components/Menu/Menu.styled';
+import { useState } from 'react';
 import ReactPlayer from 'react-player';
 import {
   ExamCenterBackground,
-  ExamCenterNavigation,
+  ExamCenterList,
   ExamCenterSection,
   ExamCenterSubTitle,
   ExamCenterTitle,
   ExamCenterWrapper,
+  ExamToggler,
+  ExamTogglerUnderlineLong,
+  ExamTogglerUnderlineMedium,
+  ExamTogglerUnderlineShort,
   NavigationDesc,
   NavigationItem,
-  NavigationLink,
   NavigationWrapper,
   VideoBox,
   VideoLimiter,
 } from './ExamCenter.styled';
 
 export const ExamCenter = ({ toggleModal }) => {
+  const [examType, setExamType] = useState('TOEFL');
+  const [videoUrl, setVideoUrl] = useState(
+    'https://youtu.be/cJH4FUP99rA?si=clJ5upwIiebB7Fzt'
+  );
   const listItems = ['TOEFL', 'IELTS', 'ISOL', 'CAMBRIDGE ENGLISH'];
-  const navListItems = [
-    'Навчальний центр',
-    'Перекладацьке бюро',
-    'Вступ до ВНЗ',
-    'Екзаменаційний центр',
+  const videoUrls = [
+    'https://youtu.be/cJH4FUP99rA?si=clJ5upwIiebB7Fzt',
+    'https://youtu.be/RRKiBZi9moY?si=83dwA-AgfQRqIqZV',
+    'https://youtu.be/NEe6hl7msfs?si=V8YaLMy1gqtR6vys',
+    'https://youtu.be/IpnNTWCL3to?si=r7wIOnJWIXgckw-s',
   ];
+  const navListItems = [
+    { to: 'edcenter', service: 'Навчальний центр' },
+    { to: 'admissions', service: 'Вступ до ВНЗ' },
+    { to: 'translations', service: 'Перекладацьке бюро' },
+    { to: 'examcenter', service: 'Екзаменаційний центр' },
+  ];
+  const props = { spy: true, smooth: true };
+
+  const toggleExam = (item, i) => {
+
+    setExamType(examType => (examType = item));
+    setVideoUrl(videoUrl => (videoUrl = videoUrls[i]));
+  };
 
   return (
     <ExamCenterBackground>
@@ -38,13 +60,25 @@ export const ExamCenter = ({ toggleModal }) => {
           </ExamCenterTitle>
           <ExamCenterWrapper>
             <LeadBtn onClick={toggleModal}> ЗАЛИШИТИ ЗАЯВКУ </LeadBtn>
-            <ExamCenterNavigation>
+            <ExamCenterList>
               {listItems.map((item, i) => (
                 <NavigationItem key={i}>
-                  <NavigationLink>{item}</NavigationLink>
+                  <ExamToggler
+                    className={examType === item ? 'selected' : ''}
+                    onClick={() => toggleExam(item, i)}
+                  >
+                    {item}
+                    {item.length > 10 ? (
+                      <ExamTogglerUnderlineLong />
+                    ) : item.length > 4 ? (
+                      <ExamTogglerUnderlineMedium />
+                    ) : (
+                      <ExamTogglerUnderlineShort />
+                    )}
+                  </ExamToggler>
                 </NavigationItem>
               ))}
-            </ExamCenterNavigation>
+            </ExamCenterList>
           </ExamCenterWrapper>
           <VideoLimiter>
             <VideoBox>
@@ -59,7 +93,7 @@ export const ExamCenter = ({ toggleModal }) => {
                 }}
                 width="100%"
                 height="100%"
-                url="https://youtu.be/cJH4FUP99rA?si=clJ5upwIiebB7Fzt"
+                url={videoUrl}
               />
             </VideoBox>
           </VideoLimiter>
@@ -67,7 +101,11 @@ export const ExamCenter = ({ toggleModal }) => {
             <NavigationDesc>... всі наші послуги</NavigationDesc>
             <PageNavigation>
               {navListItems.map((item, i) => (
-                <PageNavigationItem key={i}>{item}</PageNavigationItem>
+                <PageNavigationItem key={i}>
+                  <PageNavigationLink to={item.to} {...props}>
+                    {item.service}
+                  </PageNavigationLink>
+                </PageNavigationItem>
               ))}
             </PageNavigation>
           </NavigationWrapper>

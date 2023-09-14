@@ -44,6 +44,7 @@ export const App = () => {
   };
 
   useLayoutEffect(() => {
+    console.log('wakeupRequest');
     wakeupRequest();
   }, []);
 
