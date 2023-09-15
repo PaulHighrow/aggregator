@@ -1,16 +1,17 @@
 import useSize from '@react-hook/size';
 import { Box } from 'components/Box/Box.styled';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
 import {
-  ExamNavigationLink,
   NavigationItem,
   TranslationTextWrapper,
+  TranslationsArrow,
   TranslationsBackground,
   TranslationsNavigation,
   TranslationsSection,
   TranslationsSubTitle,
   TranslationsTitle,
+  TranslationsToggler,
   TranslationsWrapper,
   VideoBox,
   VideoLimiter,
@@ -19,18 +20,38 @@ import {
 export const Translations = () => {
   const listItems = ['Англійська', 'Польська', 'Німецька'];
 
-  const boxEl = useRef();
-  const videoUrls = {
-    mobileUrl: 'https://youtu.be/Ujz1YjEEqyk?si=8crApB-nqbzlqihQ',
-    notMobileUrl: 'https://youtube.com/shorts/H1aAX1Fk9_Y?si=IeCfKVC_lkdAi267',
-  };
+  const translationsEl = useRef();
+  const videoUrls = [
+    {
+      mobileUrl: 'https://youtu.be/Ujz1YjEEqyk?si=8crApB-nqbzlqihQ',
+      notMobileUrl:
+        'https://youtube.com/shorts/H1aAX1Fk9_Y?si=IeCfKVC_lkdAi267',
+    },
+    {
+      mobileUrl: 'https://youtu.be/RRKiBZi9moY?si=83dwA-AgfQRqIqZV',
+      notMobileUrl:
+        'https://youtube.com/shorts/8RcVZpGHlC0?si=Hg6MyOU_2VaLYcnW',
+    },
+    {
+      mobileUrl: 'https://youtu.be/NEe6hl7msfs?si=V8YaLMy1gqtR6vys',
+      notMobileUrl:
+        'https://youtube.com/shorts/bUW-SjgUZ_8?si=HK713ekEFMpMbBAu',
+    },
+  ];
   // eslint-disable-next-line
-  const [width, _] = useSize(boxEl);
+  const [width, _] = useSize(translationsEl);
+  const [language, setLanguage] = useState('Англійська');
+  const [videoUrl, setVideoUrl] = useState(videoUrls[0]);
+
+  const toggleLanguage = (item, i) => {
+    setLanguage(language => (language = item));
+    setVideoUrl(videoUrl => (videoUrl = videoUrls[i]));
+  };
 
   return (
-    <TranslationsBackground>
+    <TranslationsBackground ref={translationsEl}>
       <TranslationsSection id="translations">
-        <Box ref={boxEl}>
+        <Box>
           <TranslationsWrapper>
             <TranslationTextWrapper>
               <TranslationsTitle>
@@ -39,7 +60,13 @@ export const Translations = () => {
               <TranslationsNavigation>
                 {listItems.map((item, i) => (
                   <NavigationItem key={i}>
-                    <ExamNavigationLink>{item}</ExamNavigationLink>
+                    <TranslationsToggler
+                      className={language === item ? 'selected' : ''}
+                      onClick={() => toggleLanguage(item, i)}
+                    >
+                      {item}
+                      <TranslationsArrow />
+                    </TranslationsToggler>
                   </NavigationItem>
                 ))}
               </TranslationsNavigation>
@@ -58,7 +85,7 @@ export const Translations = () => {
                   width="100%"
                   height="100%"
                   url={
-                    width >= 768 ? videoUrls.notMobileUrl : videoUrls.mobileUrl
+                    width >= 768 ? videoUrl.notMobileUrl : videoUrl.mobileUrl
                   }
                 />
               </VideoBox>

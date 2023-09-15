@@ -1,8 +1,9 @@
 import { BackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
 import styled from 'styled-components';
-import { ReactComponent as UnderlineShort } from '../../img/svg/hero-underline-short.svg';
-import { ReactComponent as UnderlineMedium } from '../../img/svg/hero-underline-medium.svg';
-import { ReactComponent as UnderlineLong } from '../../img/svg/hero-underline-long.svg';
+import { ReactComponent as UnderlineShort } from '../../img/svg/exam-underline-short.svg';
+import { ReactComponent as UnderlineMedium } from '../../img/svg/exam-underline-medium.svg';
+import { ReactComponent as UnderlineLong } from '../../img/svg/exam-underline-long.svg';
+import { PageNavigationText } from 'components/HowItWorks/HowItWorks.styled';
 
 export const ExamCenterBackground = styled(BackgroundWrapper)`
   background-position: left -70px bottom 0px;
@@ -144,6 +145,10 @@ export const ExamToggler = styled.a`
   position: relative;
   transition: color var(--animation-global);
 
+  @media screen and (min-width: 1280px) {
+    cursor: pointer;
+  }
+
   &.selected,
   &:hover,
   &:focus {
@@ -222,4 +227,9 @@ export const NavigationDesc = styled.p`
     font-size: 36px;
     margin-bottom: 22px;
   }
+`;
+
+export const BottomPageNavigationText = styled(PageNavigationText)`
+  left: 325px;
+  bottom: -2px;
 `;

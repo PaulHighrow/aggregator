@@ -41,8 +41,6 @@ export const MenuButtonsWrapper = styled.div`
 export const NavigationList = styled.ul`
   display: flex;
   flex-direction: column;
-  border-radius: 10px;
-  border-top-right-radius: 0;
   overflow: hidden;
 
   @media screen and (min-width: 768px) {
@@ -67,6 +65,7 @@ export const NavigationLink = styled(Link)`
   text-decoration: none;
   text-transform: uppercase;
   color: var(--secondary-color);
+  cursor: pointer;
   transition: color var(--animation-global),
     background-color var(--animation-global),
     text-shadow var(--animation-global);
@@ -77,10 +76,10 @@ export const NavigationLink = styled(Link)`
   &:active {
     color: white;
 
-    @media screen and (max-width: 767px) {
+    @media screen and (min-width: 1280px) {
       color: var(--main-color);
-      text-shadow: 1px 0px 1px rgba(0, 0, 0, 0.75);
-      background-color: var(--secondary-color);
+      text-shadow: 0.5px 0px 0.5px rgba(0, 0, 0, 0.75);
+      background-color: var(--secondary-burnt-color);
     }
   }
 `;

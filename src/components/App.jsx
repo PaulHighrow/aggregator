@@ -13,6 +13,7 @@ import { MainFooter } from './MainFooter/MainFooter';
 import { Menu } from './Menu/Menu';
 import { Translations } from './Translations/Translations';
 import { AboutUs } from './AboutUs/AboutUs';
+import { UpButton } from './UpButton/UpButton';
 
 export const App = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -77,6 +78,7 @@ export const App = () => {
           <ExamCenter toggleModal={toggleModal} />
           <AboutUs />
           <MainFooter toggleModal={toggleModal} />
+          <UpButton />
           <Consent />
           {isOpenModal && <LeadForm closeModal={closeModal} />}
         </>

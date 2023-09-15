@@ -1,7 +1,8 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
-import menuHoverArrow from 'img/svg/menu-arrow.svg';
 import { BackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
+import { arrowAnimation } from 'components/HowItWorks/HowItWorks.styled';
+import { ReactComponent as Arrow } from '../../img/svg/menu-arrow.svg';
 
 export const TranslationsBackground = styled(BackgroundWrapper)`
   background-position: right -70px top 70px;
@@ -123,51 +124,63 @@ export const TranslationsNavigation = styled.ul`
   }
 `;
 
-const arrowAnimation = keyframes`
-  0%{
-    stroke-dashoffset: 435;
-  }
-  100% {
-    /* closing the offset makes the line appear to be drawn-in */
-    stroke-dashoffset: 0;
-  }
-`;
-
 export const NavigationItem = styled.li`
   position: relative;
   z-index: 1;
 `;
 
-export const ExamNavigationLink = styled.a`
-  &::after {
-    content: url(${menuHoverArrow});
-    fill: currentColor;
-    opacity: 0;
-    position: absolute;
-    bottom: -10px;
-    left: -6px;
-    width: 250px;
-    z-index: -1;
-    stroke-dasharray: 435;
+export const TranslationsToggler = styled.a`
+  color: var(--main-color);
+  z-index: 1;
+  position: relative;
+  transition: color var(--animation-global);
 
-    @media screen and (min-width: 768px) {
-      bottom: -12px;
-      width: 220px;
-    }
-
-    @media screen and (min-width: 1280px) {
-      bottom: -14px;
-      width: 350px;
-    }
+  @media screen and (min-width: 1280px) {
+    cursor: pointer;
   }
 
-  &:hover::after,
-  &:focus::after {
+  @media screen and (max-width: 1279px) {
+    user-select: none;
+  }
+
+  &.selected,
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+  }
+
+  &.selected svg {
+    display: block;
+  }
+
+  &:hover > *,
+  &:focus > * {
     opacity: 1;
     animation-name: ${arrowAnimation};
-    animation-duration: 1.5s;
-    animation-timing-function: ease;
+    animation-duration: 400ms;
+    animation-direction: revert;
+    animation-timing-function: linear;
     animation-iteration-count: 1;
+  }
+`;
+
+export const TranslationsArrow = styled(Arrow)`
+  opacity: 0;
+  position: absolute;
+  bottom: -4px;
+  left: -4px;
+  width: 250px;
+  z-index: -1;
+  stroke-dasharray: 435;
+
+  @media screen and (min-width: 768px) {
+    left: -6px;
+    width: 300px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    left: -8px;
+    width: 350px;
   }
 `;
 

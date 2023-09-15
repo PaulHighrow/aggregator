@@ -1,13 +1,15 @@
 import { Box } from 'components/Box/Box.styled';
 import {
   PageNavigation,
+  PageNavigationArrow,
   PageNavigationItem,
-  PageNavigationLink,
+  PageNavigationLink
 } from 'components/HowItWorks/HowItWorks.styled';
 import { LeadBtn } from 'components/Menu/Menu.styled';
 import { useState } from 'react';
 import ReactPlayer from 'react-player';
 import {
+  BottomPageNavigationText,
   ExamCenterBackground,
   ExamCenterList,
   ExamCenterSection,
@@ -46,7 +48,6 @@ export const ExamCenter = ({ toggleModal }) => {
   const props = { spy: true, smooth: true };
 
   const toggleExam = (item, i) => {
-
     setExamType(examType => (examType = item));
     setVideoUrl(videoUrl => (videoUrl = videoUrls[i]));
   };
@@ -104,6 +105,8 @@ export const ExamCenter = ({ toggleModal }) => {
                 <PageNavigationItem key={i}>
                   <PageNavigationLink to={item.to} {...props}>
                     {item.service}
+                    <PageNavigationArrow />
+                    <BottomPageNavigationText>перейти</BottomPageNavigationText>
                   </PageNavigationLink>
                 </PageNavigationItem>
               ))}

@@ -91,7 +91,7 @@ export const PageNavigation = styled.ul`
   }
 `;
 
-const arrowAnimation = keyframes`
+export const arrowAnimation = keyframes`
   0%{
     stroke-dashoffset: -435;
   }
@@ -112,13 +112,27 @@ export const PageNavigationLink = styled(Link)`
   color: var(--main-color);
   transition: color var(--animation-global), opacity var(--animation-global);
 
+  @media screen and (min-width: 1280px) {
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 1279px) {
+    user-select: none;
+  }
+
   &:hover,
   &:focus {
     color: var(--accent-color);
   }
 
-  &:hover > *,
-  &:focus > * {
+  &:hover > span,
+  &:focus > span {
+    opacity: 1;
+    transition: opacity var(--animation-global) 250ms;
+  }
+
+  &:hover > svg,
+  &:focus > svg {
     opacity: 1;
     animation-name: ${arrowAnimation};
     animation-duration: 400ms;
@@ -152,15 +166,19 @@ export const PageNavigationArrow = styled(MenuArrow)`
 `;
 
 export const PageNavigationText = styled.span`
-  color: var(--accent-color);
-  opacity: 0;
-  position: absolute;
-  top: 33%;
-  right: -95px;
-  font-size: 22px;
-  font-weight: 400;
-  letter-spacing: normal;
-  transition: opacity var(--animation-global) 250ms;
+display: none;
+
+  @media screen and (min-width: 1280px) {
+    display: inline;
+    color: var(--accent-color);
+    opacity: 0;
+    position: absolute;
+    top: 33%;
+    right: -95px;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: normal;
+  }
 `;
 
 export const VideoLimiter = styled.div`

@@ -14,12 +14,12 @@ export const ModalWindow = styled.div`
   text-align: center;
 
   width: 300px;
-  height: 700px;
+  height: 500px;
   padding: 40px;
 
   @media screen and (min-width: 768px) {
-    width: 700px;
-    height: 700px;
+    width: 500px;
+    height: 500px;
     padding: 40px;
   }
 `;
@@ -55,3 +55,5 @@ export const ServiceLink = styled.a`
     color: var(--accent-color);
   }
 `;
+
+export const ModalContent = styled.div``;

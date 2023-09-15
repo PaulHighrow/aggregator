@@ -119,7 +119,7 @@ export const MainFooter = ({ toggleModal }) => {
               <LinkList>
                 {footerContactsItems.map((item, i) => (
                   <LinkListItem key={i}>
-                    <FooterLink href={item.href}>
+                    <FooterLink href={item.href} target='_blank'>
                       {item.contact}
                     </FooterLink>
                   </LinkListItem>

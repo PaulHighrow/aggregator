@@ -47,6 +47,7 @@ export const LeadForm = ({ closeModal }) => {
   });
 
   const handleSubmit = async (values, { resetForm }) => {
+    console.log(values);
     setIsLoading(isLoading => (isLoading = true));
 
     try {

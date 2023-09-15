@@ -2,13 +2,14 @@ import { CloseIcon } from 'components/LeadForm/LeadForm.styled';
 import {
   MarqueeBackdrop,
   MarqueeCloseBtn,
+  ModalContent,
   ModalHeader,
   ModalWindow,
   ServiceLink,
   ServiceList,
 } from './MarqueeModal.styled';
 
-export const MarqueeModal = ({ closeMarqueeModal }) => {
+export const MarqueeModal = ({ closeMarqueeModal, id }) => {
   return (
     <>
       <MarqueeBackdrop onClick={closeMarqueeModal} />
@@ -34,7 +35,7 @@ export const MarqueeModal = ({ closeMarqueeModal }) => {
             <ServiceLink>Перекладацьке бюро</ServiceLink>
           </li>
         </ServiceList>
-
+        <ModalContent id={id}></ModalContent>
       </ModalWindow>
     </>
   );

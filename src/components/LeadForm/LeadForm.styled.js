@@ -59,7 +59,8 @@ export const Input = styled(Field)`
   width: 280px;
   padding: 10px 5px;
   font-size: 22px;
-
+  color: var(--main-color);
+  -webkit-text-stroke: 0.5px var(--main-color);
   border-color: transparent;
   border-radius: 15px;
 
@@ -75,6 +76,21 @@ export const Input = styled(Field)`
   &:focus {
     background-color: var(--secondary-burnt-color);
     outline: transparent;
+  }
+
+  &:-webkit-autofill {
+    &,
+    &:hover,
+    &:focus {
+      font-family: var(--main-font-family);
+      -webkit-text-fill-color: var(--main-color);
+      -webkit-box-shadow: 0 0 0px 1000px var(--accent-color) inset;
+    }
+  }
+
+  &::placeholder {
+    color: var(--main-color);
+    -webkit-text-stroke: 0.5px var(--main-color);
   }
 `;
 

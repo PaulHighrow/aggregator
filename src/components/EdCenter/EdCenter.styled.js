@@ -1,8 +1,9 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
-import menuHoverArrow from 'img/svg/menu-arrow.svg';
-import menuHoverRotatedArrow from 'img/svg/menu-arrow-rotated.svg';
 import { BackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
+import { arrowAnimation } from 'components/HowItWorks/HowItWorks.styled';
+import { ReactComponent as Arrow } from '../../img/svg/menu-arrow.svg';
+import { ReactComponent as RotatedArrow } from '../../img/svg/menu-arrow-rotated.svg';
 
 export const EdCenterBackground = styled(BackgroundWrapper)`
   background-position: left -70px top 0;
@@ -125,54 +126,71 @@ export const EdCenterNavigation = styled.ul`
   }
 `;
 
-const arrowAnimation = keyframes`
-  0%{
-    stroke-dashoffset: 435;
-  }
-  100% {
-    /* closing the offset makes the line appear to be drawn-in */
-    stroke-dashoffset: 0;
-  }
-`;
-
 export const NavigationItem = styled.li`
   position: relative;
   z-index: 1;
+`;
 
-  &::after {
-    content: url(${menuHoverArrow});
-    opacity: 0;
-    position: absolute;
-    bottom: -10px;
-    left: -6px;
-    width: 250px;
-    z-index: -1;
-    stroke-dasharray: 435;
+export const EdVideoToggler = styled.a`
+  color: var(--main-color);
+  z-index: 1;
+  position: relative;
+  transition: color var(--animation-global);
 
-    @media screen and (min-width: 768px) {
-      content: url(${menuHoverRotatedArrow});
-      bottom: -12px;
-      width: 220px;
-    }
-
-    @media screen and (min-width: 1280px) {
-      bottom: -14px;
-      left: -28px;
-      width: 350px;
-    }
-
-    @media screen and (min-width: 1390px) {
-      left: 10px;
-    }
+  @media screen and (max-width: 1279px) {
+    user-select: none;
   }
 
-  &:hover::after,
-  &:focus::before {
+  @media screen and (min-width: 1280px) {
+    cursor: pointer;
+  }
+
+  &.selected,
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+  }
+
+  &.selected svg {
+    display: block;
+  }
+
+  &:hover > *,
+  &:focus > * {
     opacity: 1;
     animation-name: ${arrowAnimation};
-    animation-duration: 1.5s;
-    animation-timing-function: ease;
+    animation-duration: 400ms;
+    animation-direction: revert;
+    animation-timing-function: linear;
     animation-iteration-count: 1;
+  }
+`;
+
+export const EdCenterArrowMobile = styled(Arrow)`
+  opacity: 0;
+  position: absolute;
+  bottom: -4px;
+  left: -4px;
+  width: 250px;
+  z-index: -1;
+  stroke-dasharray: 435;
+`;
+
+export const EdCenterArrow = styled(RotatedArrow)`
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+  stroke-dasharray: 435;
+
+  @media screen and (min-width: 768px) {
+    bottom: -4px;
+    right: -6px;
+    width: 230px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    right: -8px;
+    width: 350px;
   }
 `;
 
