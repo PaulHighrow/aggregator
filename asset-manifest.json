@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.c72ad63a.css",
-    "main.js": "/aggregator/static/js/main.aa343547.js",
+    "main.js": "/aggregator/static/js/main.75defe9a.js",
     "reactPlayerYouTube.js": "/aggregator/static/js/reactPlayerYouTube.f21d2dc2.chunk.js",
     "reactPlayerSoundCloud.js": "/aggregator/static/js/reactPlayerSoundCloud.9eeb4279.chunk.js",
     "reactPlayerVimeo.js": "/aggregator/static/js/reactPlayerVimeo.1be465ed.chunk.js",
@@ -147,9 +147,10 @@
     "static/media/hero-underline-long.svg": "/aggregator/static/media/hero-underline-long.7c2a251c1ddf8e281ed16416ecaa76f5.svg",
     "static/media/exam-underline-short.svg": "/aggregator/static/media/exam-underline-short.600c098c8973950d92dadc132a7d8fad.svg",
     "static/media/hero-underline-short.svg": "/aggregator/static/media/hero-underline-short.90b175d84589869326a2fcaeaf166b8d.svg",
+    "static/media/up-arrow.svg": "/aggregator/static/media/up-arrow.bb856e4e4ef20c2a677ad3696311dcce.svg",
     "static/media/downArrow.svg": "/aggregator/static/media/downArrow.3d74cb9d6d38fab26c47bbadb8e4f56d.svg",
     "main.c72ad63a.css.map": "/aggregator/static/css/main.c72ad63a.css.map",
-    "main.aa343547.js.map": "/aggregator/static/js/main.aa343547.js.map",
+    "main.75defe9a.js.map": "/aggregator/static/js/main.75defe9a.js.map",
     "reactPlayerYouTube.f21d2dc2.chunk.js.map": "/aggregator/static/js/reactPlayerYouTube.f21d2dc2.chunk.js.map",
     "reactPlayerSoundCloud.9eeb4279.chunk.js.map": "/aggregator/static/js/reactPlayerSoundCloud.9eeb4279.chunk.js.map",
     "reactPlayerVimeo.1be465ed.chunk.js.map": "/aggregator/static/js/reactPlayerVimeo.1be465ed.chunk.js.map",
@@ -166,6 +167,6 @@
   },
   "entrypoints": [
     "static/css/main.c72ad63a.css",
-    "static/js/main.aa343547.js"
+    "static/js/main.75defe9a.js"
   ]
 }
