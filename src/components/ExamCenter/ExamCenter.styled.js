@@ -230,6 +230,7 @@ export const NavigationDesc = styled.p`
 `;
 
 export const BottomPageNavigationText = styled(PageNavigationText)`
+  right: 0px;
   left: 325px;
   bottom: -2px;
 `;

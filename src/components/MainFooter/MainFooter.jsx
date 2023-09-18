@@ -22,6 +22,7 @@ import {
   YouTubeBtn
 } from './MainFooter.styled';
 import { Map } from './Map/Map';
+import useSize from '@react-hook/size';
 
 export const MainFooter = ({ toggleModal }) => {
   const footerServicesItems = [
@@ -44,7 +45,13 @@ export const MainFooter = ({ toggleModal }) => {
     },
   ];
 
-  const props = { spy: true, smooth: true };
+  // eslint-disable-next-line
+  const [width, _] = useSize(document.body);
+
+  const props =
+    width < 768
+      ? { spy: true, smooth: true, offset: -73 }
+      : { spy: true, smooth: true };
 
   return (
     <Footer>

@@ -13,6 +13,7 @@ import {
   VideoLimiter,
 } from './HowItWorks.styled';
 import ReactPlayer from 'react-player/lazy';
+import useSize from '@react-hook/size';
 
 export const HowItWorks = () => {
   const listItems = [
@@ -21,7 +22,13 @@ export const HowItWorks = () => {
     { to: 'translations', service: 'Перекладацьке бюро' },
     { to: 'examcenter', service: 'Екзаменаційний центр' },
   ];
-  const props = { spy: true, smooth: true };
+  // eslint-disable-next-line
+  const [width, _] = useSize(document.body);
+
+  const props =
+    width < 768
+      ? { spy: true, smooth: true, offset: -73 }
+      : { spy: true, smooth: true };
 
   return (
     <HowItWorksSection id="howitworks">
@@ -35,7 +42,7 @@ export const HowItWorks = () => {
               <PageNavigationItem key={i}>
                 <PageNavigationLink to={item.to} {...props}>
                   {item.service}
-                  <PageNavigationArrow/>
+                  <PageNavigationArrow />
                   <PageNavigationText>перейти</PageNavigationText>
                 </PageNavigationLink>
               </PageNavigationItem>

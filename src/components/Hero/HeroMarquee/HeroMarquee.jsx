@@ -53,12 +53,11 @@ const {
   heroMarquee5small2xwebp,
 } = heroImgsIndex;
 
-export const HeroMarquee = () => {
+export const HeroMarquee = ({ toggleModal }) => {
   const [isMarqueeModalOpen, setIsMarqueeModalOpen] = useState(false);
   const [modalId, setmodalId] = useState(0);
 
   const handleToggleModal = e => {
-    console.log(e.currentTarget.id);
     setmodalId(modalId => (modalId = e.currentTarget.id));
     setIsMarqueeModalOpen(isOpen => !isOpen);
     document.body.style.overflowY = 'hidden';
@@ -88,12 +87,16 @@ export const HeroMarquee = () => {
   return (
     <>
       {isMarqueeModalOpen && (
-        <MarqueeModal closeMarqueeModal={closeMarqueeModal} id={modalId}/>
+        <MarqueeModal
+          closeMarqueeModal={closeMarqueeModal}
+          toggleModal={toggleModal}
+          id={modalId}
+        />
       )}
       <StyledMarquee autoFill={true} pauseOnHover={true}>
-        <MarqueeChild id={1} onClick={handleToggleModal}>
+        <MarqueeChild id={0} onClick={handleToggleModal}>
           <MarqueeOverlay>
-            <MarqueeText>Вивчай німецьку</MarqueeText>
+            <MarqueeText>Вивчай англійську</MarqueeText>
           </MarqueeOverlay>
           <MarqueePicture>
             <source
@@ -123,9 +126,9 @@ export const HeroMarquee = () => {
           </MarqueePicture>
         </MarqueeChild>
 
-        <MarqueeChild id={2} onClick={handleToggleModal}>
+        <MarqueeChild id={1} onClick={handleToggleModal}>
           <MarqueeOverlay>
-            <MarqueeText>Відгук</MarqueeText>
+            <MarqueeText>Вивчай німецьку</MarqueeText>
           </MarqueeOverlay>
           <MarqueePicture>
             <source
@@ -155,9 +158,9 @@ export const HeroMarquee = () => {
           </MarqueePicture>
         </MarqueeChild>
 
-        <MarqueeChild id={3} onClick={handleToggleModal}>
+        <MarqueeChild id={2} onClick={handleToggleModal}>
           <MarqueeOverlay>
-            <MarqueeText>Вивчай англійську</MarqueeText>
+            <MarqueeText>Вивчай польську</MarqueeText>
           </MarqueeOverlay>
           <MarqueePicture>
             <source
@@ -187,9 +190,9 @@ export const HeroMarquee = () => {
           </MarqueePicture>
         </MarqueeChild>
 
-        <MarqueeChild id={4} onClick={handleToggleModal}>
+        <MarqueeChild id={3} onClick={handleToggleModal}>
           <MarqueeOverlay>
-            <MarqueeText>Відео з платформи</MarqueeText>
+            <MarqueeText>Відгуки наших клієнтів</MarqueeText>
           </MarqueeOverlay>
           <MarqueePicture>
             <source
@@ -219,7 +222,7 @@ export const HeroMarquee = () => {
           </MarqueePicture>
         </MarqueeChild>
 
-        <MarqueeChild id={5} onClick={handleToggleModal}>
+        <MarqueeChild id={4} onClick={handleToggleModal}>
           <MarqueeOverlay>
             <MarqueeText>Перекладацьке бюро</MarqueeText>
           </MarqueeOverlay>

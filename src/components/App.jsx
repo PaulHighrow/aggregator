@@ -69,7 +69,7 @@ export const App = () => {
         <>
           <Menu toggleModal={toggleModal} />
           <BackgroundWrapper>
-            <Hero closeModal={closeModal}/>
+            <Hero closeModal={closeModal} toggleModal={toggleModal}/>
             <HowItWorks />
           </BackgroundWrapper>
           <EdCenter />

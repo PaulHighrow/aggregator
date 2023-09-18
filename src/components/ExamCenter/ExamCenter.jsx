@@ -26,6 +26,7 @@ import {
   VideoBox,
   VideoLimiter,
 } from './ExamCenter.styled';
+import useSize from '@react-hook/size';
 
 export const ExamCenter = ({ toggleModal }) => {
   const [examType, setExamType] = useState('TOEFL');
@@ -45,7 +46,13 @@ export const ExamCenter = ({ toggleModal }) => {
     { to: 'translations', service: 'Перекладацьке бюро' },
     { to: 'examcenter', service: 'Екзаменаційний центр' },
   ];
-  const props = { spy: true, smooth: true };
+  // eslint-disable-next-line
+  const [width, _] = useSize(document.body);
+
+  const props =
+    width < 768
+      ? { spy: true, smooth: true, offset: -73 }
+      : { spy: true, smooth: true };
 
   const toggleExam = (item, i) => {
     setExamType(examType => (examType = item));

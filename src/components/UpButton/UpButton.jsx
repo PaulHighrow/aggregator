@@ -1,5 +1,18 @@
-import { StyledUpButton } from './UpButton.styled';
+import useSize from '@react-hook/size';
+import { StyledUpButton, UpArrow } from './UpButton.styled';
 
 export const UpButton = () => {
-  return <StyledUpButton></StyledUpButton>;
+  // eslint-disable-next-line
+  const [width, _] = useSize(document.body);
+
+  const props =
+    width < 768
+      ? { spy: true, smooth: true, offset: -73 }
+      : { spy: true, smooth: true };
+
+  return (
+    <StyledUpButton to="hero" {...props}>
+      <UpArrow />
+    </StyledUpButton>
+  );
 };

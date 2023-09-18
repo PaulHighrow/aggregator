@@ -8,6 +8,11 @@ export const ModalWindow = styled.div`
   left: 50%;
   z-index: 50;
   transform: translate(-50%, -50%);
+  
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
 
   border-radius: 20px;
   background-color: var(--main-color);
@@ -15,11 +20,17 @@ export const ModalWindow = styled.div`
 
   width: 300px;
   height: 500px;
-  padding: 40px;
+  padding: 20px;
 
   @media screen and (min-width: 768px) {
     width: 500px;
     height: 500px;
+    padding: 30px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 700px;
+    height: 700px;
     padding: 40px;
   }
 `;
@@ -35,25 +46,12 @@ export const MarqueeCloseBtn = styled(FormCloseBtn)`
 
 export const ModalHeader = styled.h4`
   color: var(--accent-color);
+  font-family: var(--secondary-font-family);
   font-size: 32px;
-  margin-bottom: 25px;
+  text-transform: uppercase;
 `;
 
-export const ServiceList = styled.ul`
-  display: flex;
-  justify-content: space-between;
-  font-size: 22px;
+export const ModalDesc = styled.p`
+  font-size: 26px;
   color: var(--secondary-color);
 `;
-
-export const ServiceLink = styled.a`
-  font-size: 18px;
-  cursor: pointer;
-
-  &:hover,
-  &:focus {
-    color: var(--accent-color);
-  }
-`;
-
-export const ModalContent = styled.div``;

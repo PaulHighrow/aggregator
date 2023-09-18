@@ -14,7 +14,7 @@ import {
 } from './Hero.styled';
 import { HeroMarquee } from './HeroMarquee/HeroMarquee';
 
-export const Hero = ({ closeModal }) => {
+export const Hero = ({ closeModal, toggleModal }) => {
   const [isMore, setIsMore] = useState(false);
 
   const { ref, inView } = useInView({
@@ -71,7 +71,7 @@ export const Hero = ({ closeModal }) => {
           )}
         </DescriptionTrigger>
       </Box>
-      <HeroMarquee closeModal={closeModal} />
+      <HeroMarquee closeModal={closeModal} toggleModal={toggleModal}/>
     </HeroSection>
   );
 };
