@@ -20,6 +20,7 @@ export const App = () => {
   // eslint-disable-next-line
   const [isLoading, setIsLoading] = useState(false);
 
+  // eslint-disable-next-line
   const wakeupRequest = async () => {
     setIsLoading(isLoading => (isLoading = true));
     try {
@@ -46,7 +47,8 @@ export const App = () => {
 
   useLayoutEffect(() => {
     console.log('wakeupRequest');
-    wakeupRequest();
+
+    // wakeupRequest();
   }, []);
 
   useEffect(() => {
@@ -69,7 +71,7 @@ export const App = () => {
         <>
           <Menu toggleModal={toggleModal} />
           <BackgroundWrapper>
-            <Hero closeModal={closeModal} toggleModal={toggleModal}/>
+            <Hero closeModal={closeModal} toggleModal={toggleModal} />
             <HowItWorks />
           </BackgroundWrapper>
           <EdCenter />
