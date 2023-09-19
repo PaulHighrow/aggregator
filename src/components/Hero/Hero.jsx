@@ -11,6 +11,7 @@ import {
   SubTitle,
   Title,
   TitleSketch,
+  HeroVector,
 } from './Hero.styled';
 import { HeroMarquee } from './HeroMarquee/HeroMarquee';
 
@@ -31,6 +32,7 @@ export const Hero = ({ closeModal, toggleModal }) => {
         <Title>
           ONE STEP FROM ZERO TO
           <SubTitle ref={ref}>HERO{inView && <TitleSketch />}</SubTitle>
+          <HeroVector/>
         </Title>
         <Description>
           <span>

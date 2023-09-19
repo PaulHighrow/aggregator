@@ -2,6 +2,7 @@ import styled, { keyframes } from 'styled-components';
 import { ReactComponent as TitleSketchSVG } from '../../img/svg/sketchTitle.svg';
 import { ReactComponent as UnderlineShort } from '../../img/svg/hero-underline-short.svg';
 import { ReactComponent as UnderlineLong } from '../../img/svg/hero-underline-long.svg';
+import { ReactComponent as HeroSVG } from '../../img/svg/hero.svg';
 
 export const HeroSection = styled.section`
   position: relative;
@@ -169,4 +170,74 @@ export const DescriptionUnderlineShort = styled(UnderlineShort)`
 
 export const DescriptionUnderlineLong = styled(UnderlineLong)`
   ${underlineStyles}
+`;
+
+const pathsHAnimation = keyframes`
+  0%{
+    stroke-dashoffset: 1;
+  }
+  100%{
+    stroke-dashoffset: 0;
+  }
+`;
+
+const pathsAnimation = keyframes`
+  0%{
+    stroke-dashoffset: 1;
+    opacity: 0;
+  }
+  50%{
+    stroke-dashoffset: 1;
+  }
+  55%{
+    opacity: 1;
+  }
+  100%{
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+`;
+
+export const HeroVector = styled(HeroSVG)`
+  width: 300px;
+
+  & .hero-h {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 2;
+    animation-name: ${pathsHAnimation};
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    stroke: #f5ce46;
+  }
+  & .hero-e {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 2;
+    animation-name: ${pathsAnimation};
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-delay: 1s;
+    stroke: #f5ce46;
+  }
+  & .hero-r {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 2;
+    animation-name: ${pathsAnimation};
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-delay: 2s;
+    stroke: #f5ce46;
+  }
+  & .hero-o {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 2;
+    animation-name: ${pathsAnimation};
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-delay: 3s;
+    stroke: #f5ce46;
+  }
 `;

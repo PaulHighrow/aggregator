@@ -7,6 +7,7 @@ import {
   AdmissionBackground,
 } from './Admission.styled';
 import { AdmissionMarquee } from './AdmissionMarquee/AdmissionMarquee';
+import { ScrollableMenu } from './AdmissionMarquee/AdmissionScrollingMenu';
 
 export const Admission = () => {
   return (
@@ -21,6 +22,7 @@ export const Admission = () => {
           </AdmissionDescription>
         </AdmissionWrapper>
         <AdmissionMarquee />
+        <ScrollableMenu/>
       </AdmissionSection>
     </AdmissionBackground>
   );
