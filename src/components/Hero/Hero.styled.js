@@ -2,7 +2,7 @@ import styled, { keyframes } from 'styled-components';
 import { ReactComponent as TitleSketchSVG } from '../../img/svg/sketchTitle.svg';
 import { ReactComponent as UnderlineShort } from '../../img/svg/hero-underline-short.svg';
 import { ReactComponent as UnderlineLong } from '../../img/svg/hero-underline-long.svg';
-import { ReactComponent as HeroSVG } from '../../img/svg/hero.svg';
+import { ReactComponent as HeroSVG } from '../../img/svg/hero-caveat.svg';
 
 export const HeroSection = styled.section`
   position: relative;
@@ -200,44 +200,50 @@ const pathsAnimation = keyframes`
 
 export const HeroVector = styled(HeroSVG)`
   width: 300px;
+  position: absolute;
+
 
   & .hero-h {
     stroke-dasharray: 1;
     stroke-dashoffset: 2;
     animation-name: ${pathsHAnimation};
-    animation-duration: 1s;
+    animation-duration: 400ms;
     animation-timing-function: linear;
     animation-iteration-count: 1;
-    stroke: #f5ce46;
+    animation-fill-mode: both;
+  
   }
   & .hero-e {
     stroke-dasharray: 1;
     stroke-dashoffset: 2;
     animation-name: ${pathsAnimation};
-    animation-duration: 1s;
+    animation-duration: 400ms;
     animation-timing-function: linear;
     animation-iteration-count: 1;
-    animation-delay: 1s;
-    stroke: #f5ce46;
+    animation-delay: 350ms;
+    animation-fill-mode: both;
+  
   }
   & .hero-r {
     stroke-dasharray: 1;
     stroke-dashoffset: 2;
     animation-name: ${pathsAnimation};
-    animation-duration: 1s;
+    animation-duration: 400ms;
     animation-timing-function: linear;
     animation-iteration-count: 1;
-    animation-delay: 2s;
-    stroke: #f5ce46;
+    animation-delay: 750ms;
+    animation-fill-mode: both;
+  
   }
   & .hero-o {
     stroke-dasharray: 1;
     stroke-dashoffset: 2;
     animation-name: ${pathsAnimation};
-    animation-duration: 1s;
+    animation-duration: 400ms;
     animation-timing-function: linear;
     animation-iteration-count: 1;
-    animation-delay: 3s;
-    stroke: #f5ce46;
+    animation-delay: 1.15s;
+    animation-fill-mode: both;
+  
   }
 `;

@@ -7,6 +7,7 @@ import {
   AdmissionBackground,
 } from './Admission.styled';
 import { AdmissionMarquee } from './AdmissionMarquee/AdmissionMarquee';
+// eslint-disable-next-line
 import { ScrollableMenu } from './AdmissionMarquee/AdmissionScrollingMenu';
 
 export const Admission = () => {
@@ -22,7 +23,7 @@ export const Admission = () => {
           </AdmissionDescription>
         </AdmissionWrapper>
         <AdmissionMarquee />
-        <ScrollableMenu/>
+        {/* <ScrollableMenu/> */}
       </AdmissionSection>
     </AdmissionBackground>
   );

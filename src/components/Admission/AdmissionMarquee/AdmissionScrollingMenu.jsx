@@ -208,9 +208,9 @@ const cardItems = [
 ];
 
 export const ScrollableMenu = () => {
-  const [items, setItems] = useState(cardItems);
+  // eslint-disable-next-line
+  const [items, _] = useState(cardItems);
   const [selected, setSelected] = useState([]);
-  const [position, setPosition] = useState(0);
 
   const isItemSelected = id => !!selected.find(el => el === id);
 
@@ -257,16 +257,12 @@ function LeftArrow() {
   const { isFirstItemVisible, scrollPrev } = useContext(VisibilityContext);
 
   return (
-    <Arrow disabled={isFirstItemVisible} onClick={() => scrollPrev()}>
-      <StyledUpButton
-        style={{
-          position: 'absolute',
-          top: 'center',
-          left: '5px',
-        }}
-      >
-        {'<'}
-      </StyledUpButton>
+    <Arrow
+      disabled={isFirstItemVisible}
+      onClick={() => scrollPrev()}
+      style={{ position: 'absolute', top: 'center', left: '5px' }}
+    >
+      {'<'}
     </Arrow>
   );
 }
@@ -275,37 +271,30 @@ function RightArrow() {
   const { isLastItemVisible, scrollNext } = useContext(VisibilityContext);
 
   return (
-    <Arrow disabled={isLastItemVisible} onClick={() => scrollNext()}>
-      <StyledUpButton
-        style={{
-          position: 'absolute',
-          top: 'center',
-          right: '5px',
-        }}
-      >
-        {'>'}
-      </StyledUpButton>
+    <Arrow
+      disabled={isLastItemVisible}
+      onClick={() => scrollNext()}
+      style={{ position: 'absolute', top: 'center', right: '5px' }}
+    >
+      {'>'}
     </Arrow>
   );
 }
 
 function Arrow({ children, disabled, onClick }) {
   return (
-    <button
+    <StyledUpButton
       disabled={disabled}
       onClick={onClick}
       style={{
         cursor: 'pointer',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        right: '1%',
+        position: 'absolute',
         opacity: disabled ? '0' : '1',
         userSelect: 'none',
       }}
     >
       {children}
-    </button>
+    </StyledUpButton>
   );
 }
 
