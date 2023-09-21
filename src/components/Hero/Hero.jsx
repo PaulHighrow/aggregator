@@ -1,5 +1,5 @@
 import { Box } from 'components/Box/Box.styled';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import {
   Description,
@@ -17,6 +17,8 @@ import { HeroMarquee } from './HeroMarquee/HeroMarquee';
 
 export const Hero = ({ closeModal, toggleModal }) => {
   const [isMore, setIsMore] = useState(false);
+  const [isSketchHidden, setIsSketchHidden] = useState(true);
+  const [isSubtitleHidden, setIsSubtitleHidden] = useState(true);
 
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -26,13 +28,30 @@ export const Hero = ({ closeModal, toggleModal }) => {
     setIsMore(isMore => !isMore);
   };
 
+  useEffect(() => {
+    const showSubtitle = setTimeout(() => {
+      setIsSubtitleHidden(isHidden => (isHidden = false));
+    }, 1500);
+
+    const showSketch = setTimeout(() => {
+      setIsSketchHidden(isHidden => (isHidden = false));
+    }, 3000);
+
+    return () => {
+      clearTimeout(showSubtitle);
+      clearTimeout(showSketch);
+    };
+  }, []);
+
   return (
     <HeroSection id="hero">
       <Box>
         <Title>
           ONE STEP FROM ZERO TO
-          <SubTitle ref={ref}>HERO{inView && <TitleSketch />}</SubTitle>
-          <HeroVector/>
+          <SubTitle ref={ref}>
+            HERO{inView && !isSketchHidden && <TitleSketch />}
+            {!isSubtitleHidden && <HeroVector />}
+          </SubTitle>        
         </Title>
         <Description>
           <span>
@@ -73,7 +92,7 @@ export const Hero = ({ closeModal, toggleModal }) => {
           )}
         </DescriptionTrigger>
       </Box>
-      <HeroMarquee closeModal={closeModal} toggleModal={toggleModal}/>
+      <HeroMarquee closeModal={closeModal} toggleModal={toggleModal} />
     </HeroSection>
   );
 };

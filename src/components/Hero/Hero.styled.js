@@ -27,7 +27,7 @@ export const Title = styled.h1`
   position: relative;
   z-index: 1;
 
-  width: 270px;
+  width: 300px;
   color: var(--main-color);
   font-family: var(--title-font-family);
   font-size: 40px;
@@ -86,8 +86,7 @@ export const SubTitle = styled.span`
   -webkit-text-stroke: 0;
   letter-spacing: 2px;
   line-height: 0.7;
-
-  color: var(--accent-color);
+  color: transparent;
 
   @media screen and (min-width: 768px) {
     font-size: 100px;
@@ -199,9 +198,16 @@ const pathsAnimation = keyframes`
 `;
 
 export const HeroVector = styled(HeroSVG)`
-  width: 300px;
   position: absolute;
+  width: 100px;
+  left: 2px;
+  top: -12px;
 
+  @media screen and (min-width: 768px) {
+    width: 300px;
+    left: -33px;
+    top: 20px;
+  }
 
   & .hero-h {
     stroke-dasharray: 1;
@@ -211,7 +217,6 @@ export const HeroVector = styled(HeroSVG)`
     animation-timing-function: linear;
     animation-iteration-count: 1;
     animation-fill-mode: both;
-  
   }
   & .hero-e {
     stroke-dasharray: 1;
@@ -222,7 +227,6 @@ export const HeroVector = styled(HeroSVG)`
     animation-iteration-count: 1;
     animation-delay: 350ms;
     animation-fill-mode: both;
-  
   }
   & .hero-r {
     stroke-dasharray: 1;
@@ -233,7 +237,6 @@ export const HeroVector = styled(HeroSVG)`
     animation-iteration-count: 1;
     animation-delay: 750ms;
     animation-fill-mode: both;
-  
   }
   & .hero-o {
     stroke-dasharray: 1;
@@ -244,6 +247,5 @@ export const HeroVector = styled(HeroSVG)`
     animation-iteration-count: 1;
     animation-delay: 1.15s;
     animation-fill-mode: both;
-  
   }
 `;
