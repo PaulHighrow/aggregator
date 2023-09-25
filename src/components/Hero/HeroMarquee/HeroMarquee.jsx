@@ -55,7 +55,7 @@ const {
 
 export const HeroMarquee = ({ toggleModal }) => {
   const [isMarqueeModalOpen, setIsMarqueeModalOpen] = useState(false);
-  const [modalId, setmodalId] = useState(0);
+  const [modalId, setmodalId] = useState(NaN);
 
   const handleToggleModal = e => {
     setmodalId(modalId => (modalId = e.currentTarget.id));
@@ -65,6 +65,7 @@ export const HeroMarquee = ({ toggleModal }) => {
 
   const closeMarqueeModal = () => {
     setIsMarqueeModalOpen(isOpen => (isOpen = false));
+    setmodalId(modalId => (modalId = NaN));
     !document.body.style.overflowY && isMarqueeModalOpen
       ? (document.body.style.overflowY = 'hidden')
       : (document.body.style.overflowY = '');

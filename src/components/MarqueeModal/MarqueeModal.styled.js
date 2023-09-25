@@ -8,10 +8,10 @@ export const ModalWindow = styled.div`
   left: 50%;
   z-index: 50;
   transform: translate(-50%, -50%);
-  
+
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 20px;
   align-items: center;
 
   border-radius: 20px;
@@ -19,18 +19,16 @@ export const ModalWindow = styled.div`
   text-align: center;
 
   width: 300px;
-  height: 500px;
   padding: 20px;
+  padding-top: 40px;
 
   @media screen and (min-width: 768px) {
     width: 500px;
-    height: 500px;
     padding: 30px;
   }
 
   @media screen and (min-width: 1280px) {
     width: 700px;
-    height: 700px;
     padding: 40px;
   }
 `;
@@ -47,11 +45,28 @@ export const MarqueeCloseBtn = styled(FormCloseBtn)`
 export const ModalHeader = styled.h4`
   color: var(--accent-color);
   font-family: var(--secondary-font-family);
-  font-size: 32px;
+  font-size: 24px;
   text-transform: uppercase;
+
+  @media screen and (min-width: 768px) {
+    font-size: 28px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 32px;
+  }
 `;
 
 export const ModalDesc = styled.p`
-  font-size: 26px;
   color: var(--secondary-color);
+  font-size: 18px;
+  max-height: 150px;
+  overflow-y: scroll;
+
+  @media screen and (min-width: 768px) {
+    font-size: 19px;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 20px;
+  }
 `;

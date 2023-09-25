@@ -1,7 +1,7 @@
 import useSize from '@react-hook/size';
 import { Box } from 'components/Box/Box.styled';
 import { useRef, useState } from 'react';
-import ReactPlayer from 'react-player';
+import ReactPlayer from 'react-player/lazy';
 import {
   EdCenterArrow,
   EdCenterArrowMobile,

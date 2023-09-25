@@ -1,5 +1,5 @@
 import { Box } from 'components/Box/Box.styled';
-import ReactPlayer from 'react-player';
+import ReactPlayer from 'react-player/lazy';
 import {
   AboutUsBackground,
   AboutUsSection,

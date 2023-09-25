@@ -7,7 +7,7 @@ import {
 } from 'components/HowItWorks/HowItWorks.styled';
 import { LeadBtn } from 'components/Menu/Menu.styled';
 import { useState } from 'react';
-import ReactPlayer from 'react-player';
+import ReactPlayer from 'react-player/lazy';
 import {
   BottomPageNavigationText,
   ExamCenterBackground,

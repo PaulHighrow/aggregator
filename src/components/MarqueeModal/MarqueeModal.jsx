@@ -1,6 +1,6 @@
 import { VideoBox, VideoLimiter } from 'components/AboutUs/AboutUs.styled';
 import { CloseIcon } from 'components/LeadForm/LeadForm.styled';
-import ReactPlayer from 'react-player';
+import ReactPlayer from 'react-player/lazy';
 import {
   MarqueeBackdrop,
   MarqueeCloseBtn,
@@ -34,7 +34,7 @@ const serviceList = [
   {
     title: 'Перекладацьке бюро',
     videoUrl: 'https://youtu.be/Sagg08DrO5U?si=FAeZdQ2Zz9ksXsrt',
-    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. At nihil possimus, magnam dolorum rem repellendus. Sapiente culpa ipsum amet doloremque corrupti ut alias odio quibusdam.',
+    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati deserunt, labore aut eveniet, iure impedit ipsum rem dignissimos nesciunt quis illum consequatur. Voluptatibus delectus nulla dicta inventore vero provident aspernatur!',
   },
 ];
 
