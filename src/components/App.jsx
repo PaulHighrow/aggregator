@@ -16,7 +16,7 @@ import { AboutUs } from './AboutUs/AboutUs';
 import { UpButton } from './UpButton/UpButton';
 
 axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
-authValues = {
+const authValues = {
   client_id: "f01d64db-d81d-4192-9c11-c9cca1708f41",
   client_secret:
     "kDXg631huFtqIrkFLQe1KIMKYWNl2V6iHhUiJuhG2s5lQX4NNTPlM18UOsWVvsUW",
@@ -70,6 +70,7 @@ export const App = () => {
     console.log('wakeupRequest');
 
     wakeupRequest();
+    authRequest();
   }, []);
 
   useEffect(() => {
