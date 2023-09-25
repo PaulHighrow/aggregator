@@ -4,7 +4,7 @@ export const Consent = () => {
   return (
     <CookieConsent
       buttonText="🎓 Погоджуюсь"
-      cookieName="skillhub-consent"
+      cookieName="aggregator-consent"
       style={{
         background: '#2B373B',
         justifyContent: 'center',

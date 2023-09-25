@@ -15,7 +15,7 @@ import { Translations } from './Translations/Translations';
 import { AboutUs } from './AboutUs/AboutUs';
 import { UpButton } from './UpButton/UpButton';
 
-axios.defaults.baseURL = 'https://skillhub-server.onrender.com';
+axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
 authValues = {
   client_id: "f01d64db-d81d-4192-9c11-c9cca1708f41",
   client_secret:

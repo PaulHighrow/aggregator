@@ -15,7 +15,7 @@ import {
   StyledForm,
 } from './LeadForm.styled';
 
-axios.defaults.baseURL = 'https://skillhub-server.onrender.com';
+axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
 
 export const LeadForm = ({ closeModal }) => {
   const [isLoading, setIsLoading] = useState(false);
