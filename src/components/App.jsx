@@ -45,7 +45,7 @@ export const App = () => {
   const authRequest = async () => {
     setIsLoading(isLoading => (isLoading = true));
     try {
-      const auth = await axios.post('/tokens');
+      const auth = await axios.post('/tokens', authValues);
       console.log(auth);
     } catch (error) {
       console.log(error);
