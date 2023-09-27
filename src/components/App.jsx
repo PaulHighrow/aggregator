@@ -34,6 +34,18 @@ export const App = () => {
     }
   };
 
+  const authRequest = async () => {
+    setIsLoading(isLoading => (isLoading = true));
+    try {
+      const auth = await axios.post('/tokens');
+      console.log(auth);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(isLoading => (isLoading = false));
+    }
+  };
+
   const toggleModal = () => {
     setIsOpenModal(isOpen => !isOpen);
     document.body.style.overflowY = 'hidden';
@@ -48,6 +60,7 @@ export const App = () => {
 
   useLayoutEffect(() => {
     wakeupRequest();
+    authRequest();
   }, []);
 
   useEffect(() => {
