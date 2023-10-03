@@ -25,20 +25,28 @@ export const App = () => {
   // eslint-disable-next-line
   const [searchParams, _] = useSearchParams();
 
-  localStorage.setItem('utm_content', searchParams.get('utm_content'));
-  localStorage.setItem('utm_medium', searchParams.get('utm_medium'));
-  localStorage.setItem('utm_campaign', searchParams.get('utm_campaign'));
-  localStorage.setItem('utm_source', searchParams.get('utm_source'));
-  localStorage.setItem('utm_term', searchParams.get('utm_term'));
-  localStorage.setItem('utm_referrer', searchParams.get('utm_referrer'));
+  const localStorageTagSetter = tag => {
+    localStorage.setItem(tag, searchParams.get(tag));
+  };
+
+  const localStorageTagGetter = tag => {
+    localStorage.getItem(tag);
+  };
+
+  localStorageTagSetter('utm_content');
+  localStorageTagSetter('utm_medium');
+  localStorageTagSetter('utm_campaign');
+  localStorageTagSetter('utm_source');
+  localStorageTagSetter('utm_term');
+  localStorageTagSetter('utm_referrer');
 
   const utms = {
-    utm_content: localStorage.getItem('utm_content'),
-    utm_medium: localStorage.getItem('utm_medium'),
-    utm_campaign: localStorage.getItem('utm_campaign'),
-    utm_source: localStorage.getItem('utm_source'),
-    utm_term: localStorage.getItem('utm_term'),
-    utm_referrer: localStorage.getItem('utm_referrer'),
+    utm_content: localStorageTagGetter('utm_content'),
+    utm_medium: localStorageTagGetter('utm_medium'),
+    utm_campaign: localStorageTagGetter('utm_campaign'),
+    utm_source: localStorageTagGetter('utm_source'),
+    utm_term: localStorageTagGetter('utm_term'),
+    utm_referrer: localStorageTagGetter('utm_referrer'),
   };
 
   const wakeupRequest = async () => {

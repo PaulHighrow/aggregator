@@ -60,12 +60,12 @@ export const LeadForm = ({ closeModal, utms }) => {
   });
 
   const handleSubmit = async (values, { resetForm }) => {
-    values.utm_content = utms.utm_content || '';
-    values.utm_medium = utms.utm_medium || '';
-    values.utm_campaign = utms.utm_campaign || '';
-    values.utm_source = utms.utm_source || '';
-    values.utm_term = utms.utm_term || '';
-    values.utm_referrer = utms.utm_referrer || '';
+    values.utm_content = utms.utm_content;
+    values.utm_medium = utms.utm_medium;
+    values.utm_campaign = utms.utm_campaign;
+    values.utm_source = utms.utm_source;
+    values.utm_term = utms.utm_term;
+    values.utm_referrer = utms.utm_referrer;
     setIsLoading(isLoading => (isLoading = true));
 
     try {
