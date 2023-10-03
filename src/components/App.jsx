@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useLayoutEffect, useState } from 'react';
 import { Loader } from 'utils/Loader/Loader';
+import { AboutUs } from './AboutUs/AboutUs';
 import { Admission } from './Admission/Admission';
 import { BackgroundWrapper } from './BackgroundWrapper/BackgroundWrappers';
 import { Consent } from './Consent/Consent';
@@ -12,8 +13,8 @@ import { LeadForm } from './LeadForm/LeadForm';
 import { MainFooter } from './MainFooter/MainFooter';
 import { Menu } from './Menu/Menu';
 import { Translations } from './Translations/Translations';
-import { AboutUs } from './AboutUs/AboutUs';
 import { UpButton } from './UpButton/UpButton';
+import { useSearchParams } from 'react-router-dom';
 
 axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
 
@@ -21,6 +22,24 @@ export const App = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   // eslint-disable-next-line
   const [isLoading, setIsLoading] = useState(false);
+  // eslint-disable-next-line
+  const [searchParams, _] = useSearchParams();
+
+  localStorage.setItem('utm_content', searchParams.get('utm_content'));
+  localStorage.setItem('utm_medium', searchParams.get('utm_medium'));
+  localStorage.setItem('utm_campaign', searchParams.get('utm_campaign'));
+  localStorage.setItem('utm_source', searchParams.get('utm_source'));
+  localStorage.setItem('utm_term', searchParams.get('utm_term'));
+  localStorage.setItem('utm_referrer', searchParams.get('utm_referrer'));
+
+  const utms = {
+    utm_content: localStorage.getItem('utm_content'),
+    utm_medium: localStorage.getItem('utm_medium'),
+    utm_campaign: localStorage.getItem('utm_campaign'),
+    utm_source: localStorage.getItem('utm_source'),
+    utm_term: localStorage.getItem('utm_term'),
+    utm_referrer: localStorage.getItem('utm_referrer'),
+  };
 
   const wakeupRequest = async () => {
     setIsLoading(isLoading => (isLoading = true));
@@ -94,7 +113,7 @@ export const App = () => {
           <MainFooter toggleModal={toggleModal} />
           <UpButton />
           <Consent />
-          {isOpenModal && <LeadForm closeModal={closeModal} />}
+          {isOpenModal && <LeadForm closeModal={closeModal} utms={utms} />}
         </>
       )}
       {isLoading && <Loader />}

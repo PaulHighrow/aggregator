@@ -108,6 +108,23 @@ export const InputNote = styled(ErrorMessage)`
   }
 `;
 
+export const HiddenInput = styled(Field)`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  color: transparent;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+`;
+
 export const FormCloseBtn = styled.button`
   position: absolute;
   top: 10px;

@@ -3,17 +3,19 @@ import CookieConsent from 'react-cookie-consent';
 export const Consent = () => {
   return (
     <CookieConsent
-      buttonText="🎓 Погоджуюсь"
+      buttonText="✔ Погоджуюсь"
       cookieName="aggregator-consent"
       style={{
-        background: '#2B373B',
+        background: '#0f645b',
         justifyContent: 'center',
         alignItems: 'center',
+        fontSize: '16px',
       }}
       buttonStyle={{
         background: '#f5ce46',
+        borderRadius: '20px',
         color: '#000000',
-        fontSize: '16px',
+        fontSize: '18px',
       }}
       expires={150}
     >
