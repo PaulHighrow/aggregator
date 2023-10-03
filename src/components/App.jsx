@@ -25,13 +25,10 @@ export const App = () => {
   // eslint-disable-next-line
   const [searchParams, _] = useSearchParams();
 
-  const localStorageTagSetter = tag => {
-    localStorage.setItem(tag, searchParams.get(tag));
-  };
+  const localStorageTagSetter = tag =>
+    localStorage.setItem(tag, searchParams.get(tag) || '');
 
-  const localStorageTagGetter = tag => {
-    localStorage.getItem(tag);
-  };
+  const localStorageTagGetter = tag => localStorage.getItem(tag);
 
   localStorageTagSetter('utm_content');
   localStorageTagSetter('utm_medium');
