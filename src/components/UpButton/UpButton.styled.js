@@ -18,8 +18,7 @@ export const StyledUpButton = styled(Link)`
   display: flex;
   justify-content: center;
 
-  &:hover > svg,
-  &:focus > svg {
+  &:hover > svg {
     color: var(--accent-color);
     transform: scale(1.1) translateY(-5px);
   }

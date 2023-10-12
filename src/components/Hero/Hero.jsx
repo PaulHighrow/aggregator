@@ -47,7 +47,7 @@ export const Hero = ({ closeModal, toggleModal }) => {
     <HeroSection id="hero">
       <Box>
         <Title>
-          ONE STEP FROM ZERO TO
+          ONE STEP FROM ZERO TO {' '}
           <SubTitle ref={ref}>
             HERO{inView && !isSketchHidden && <TitleSketch />}
             {!isSubtitleHidden && <HeroVector />}

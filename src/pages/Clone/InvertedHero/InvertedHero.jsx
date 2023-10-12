@@ -1,33 +1,59 @@
-import { Description, DescriptionMoreText, DescriptionTrigger, DescriptionUnderlineLong, DescriptionUnderlineShort } from 'components/Hero/Hero.styled';
+import { Box } from 'components/Box/Box.styled';
+import { useEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 import {
-  AdmissionDescription,
-  AdmissionSection,
-  AdmissionSubTitle,
-  AdmissionTitle,
-  AdmissionWrapper,
-  AdmissionBackground,
-} from './Admission.styled';
-import { AdmissionMarquee } from './AdmissionMarquee/AdmissionMarquee';
-// eslint-disable-next-line
-import { ScrollableMenu } from './AdmissionMarquee/AdmissionScrollingMenu';
-import { useState } from 'react';
+  Description,
+  DescriptionMoreText,
+  DescriptionTrigger,
+  DescriptionUnderlineShort,
+  DescriptionUnderlineLong,
+  HeroSection,
+  SubTitle,
+  Title,
+  TitleSketch,
+  HeroVector,
+} from './InvertedHero.styled';
+import { HeroMarquee } from 'components/Hero/HeroMarquee/HeroMarquee';
 
-export const Admission = () => {
+export const InvertedHero = ({ closeModal, toggleModal }) => {
   const [isMore, setIsMore] = useState(false);
+  const [isSketchHidden, setIsSketchHidden] = useState(true);
+  const [isSubtitleHidden, setIsSubtitleHidden] = useState(true);
+
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+  });
 
   const showMore = () => {
     setIsMore(isMore => !isMore);
   };
 
+  useEffect(() => {
+    const showSubtitle = setTimeout(() => {
+      setIsSubtitleHidden(isHidden => (isHidden = false));
+    }, 1500);
+
+    const showSketch = setTimeout(() => {
+      setIsSketchHidden(isHidden => (isHidden = false));
+    }, 3000);
+
+    return () => {
+      clearTimeout(showSubtitle);
+      clearTimeout(showSketch);
+    };
+  }, []);
+
   return (
-    <AdmissionBackground>
-      <AdmissionSection id="admissions">
-        <AdmissionWrapper>
-          <AdmissionTitle>
-            БЮРО <AdmissionSubTitle>ОСВІТИ</AdmissionSubTitle> ТА <AdmissionSubTitle>КАР'ЄРИ</AdmissionSubTitle>
-          </AdmissionTitle>
-          <AdmissionDescription>
-          <Description>
+    <HeroSection id="hero">
+      <Box>
+        <Title>
+          ONE STEP FROM ZERO TO {' '}
+          <SubTitle ref={ref}>
+            HERO{inView && !isSketchHidden && <TitleSketch />}
+            {!isSubtitleHidden && <HeroVector />}
+          </SubTitle>        
+        </Title>
+        <Description>
           <span>
             «AP Education Center» є провідним центром навчання іноземних мов та
             підготовки до міжнародних іспитів{isMore ? '' : '...'}
@@ -65,12 +91,8 @@ export const Admission = () => {
             <DescriptionUnderlineLong />
           )}
         </DescriptionTrigger>
-            Вступ в коледжі, університети України та інші країни Європи
-          </AdmissionDescription>
-        </AdmissionWrapper>
-        <AdmissionMarquee />
-        {/* <ScrollableMenu/> */}
-      </AdmissionSection>
-    </AdmissionBackground>
+      </Box>
+      <HeroMarquee closeModal={closeModal} toggleModal={toggleModal} />
+    </HeroSection>
   );
 };

@@ -1,11 +1,12 @@
+import useSize from '@react-hook/size';
 import { Box } from 'components/Box/Box.styled';
+import { LeadBtn } from 'components/Menu/Menu.styled';
 import {
   PageNavigation,
   PageNavigationArrow,
   PageNavigationItem,
   PageNavigationLink
-} from 'components/HowItWorks/HowItWorks.styled';
-import { LeadBtn } from 'components/Menu/Menu.styled';
+} from 'pages/Clone/InvertedHowItWorks/InvertedHowItWorks.styled';
 import { useState } from 'react';
 import ReactPlayer from 'react-player/lazy';
 import {
@@ -25,10 +26,9 @@ import {
   NavigationWrapper,
   VideoBox,
   VideoLimiter,
-} from './ExamCenter.styled';
-import useSize from '@react-hook/size';
+} from './InvertedExamCenter.styled';
 
-export const ExamCenter = ({ toggleModal }) => {
+export const InvertedExamCenter = ({ toggleModal }) => {
   const [examType, setExamType] = useState('ESOL');
   const [videoUrl, setVideoUrl] = useState(
     'https://youtu.be/cJH4FUP99rA?si=clJ5upwIiebB7Fzt'
