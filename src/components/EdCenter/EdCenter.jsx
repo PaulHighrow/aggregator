@@ -16,14 +16,12 @@ import {
   EdCenterTitle,
   EdCenterWrapper,
   EdVideoToggler,
-  LeadBtnBox,
   MoreBtn,
   MoreBtnBox,
   NavigationItem,
   VideoBox,
-  VideoLimiter,
+  VideoLimiter
 } from './EdCenter.styled';
-import { LeadBtn } from 'components/Menu/Menu.styled';
 
 export const EdCenter = ({ toggleModal }) => {
   const listItems = ['Англійська мова', 'Польська мова', 'Німецька мова'];
