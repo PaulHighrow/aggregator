@@ -1,7 +1,7 @@
-import { BackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
+import { InvertedBackgroundWrapper } from 'components/BackgroundWrapper/InvertedBackgroundWrappers';
 import styled from 'styled-components';
 
-export const AboutUsBackground = styled(BackgroundWrapper)`
+export const AboutUsBackground = styled(InvertedBackgroundWrapper)`
   background-position: right -70px bottom 10px;
   background-color: var(--main-color);
 

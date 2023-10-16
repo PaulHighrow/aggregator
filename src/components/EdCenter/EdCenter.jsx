@@ -1,10 +1,14 @@
 import useSize from '@react-hook/size';
 import { Box } from 'components/Box/Box.styled';
 import { useRef, useState } from 'react';
+
+import { useInView } from 'react-intersection-observer';
 import ReactPlayer from 'react-player/lazy';
 import {
   EdCenterArrow,
+  EdCenterArrowInView,
   EdCenterArrowMobile,
+  EdCenterArrowMobileInView,
   EdCenterBackground,
   EdCenterNavigation,
   EdCenterSection,
@@ -12,12 +16,16 @@ import {
   EdCenterTitle,
   EdCenterWrapper,
   EdVideoToggler,
+  LeadBtnBox,
+  MoreBtn,
+  MoreBtnBox,
   NavigationItem,
   VideoBox,
-  VideoLimiter
+  VideoLimiter,
 } from './EdCenter.styled';
+import { LeadBtn } from 'components/Menu/Menu.styled';
 
-export const EdCenter = () => {
+export const EdCenter = ({ toggleModal }) => {
   const listItems = ['Англійська мова', 'Польська мова', 'Німецька мова'];
   const videoUrls = [
     'https://youtu.be/cJH4FUP99rA?si=clJ5upwIiebB7Fzt',
@@ -30,6 +38,11 @@ export const EdCenter = () => {
   const edCenterEl = useRef();
   // eslint-disable-next-line
   const [width, _] = useSize(edCenterEl);
+
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    delay: 1000,
+  });
 
   const toggleCourse = (item, i) => {
     setCourse(course => (course = item));
@@ -61,23 +74,40 @@ export const EdCenter = () => {
                 />
               </VideoBox>
             </VideoLimiter>
-            <EdCenterNavigation>
-              {listItems.map((item, i) => (
-                <NavigationItem key={i}>
-                  <EdVideoToggler
-                    className={course === item ? 'selected' : ''}
-                    onClick={() => toggleCourse(item, i)}
-                  >
-                    {item}
-                    {width < 768 ? (
-                      <EdCenterArrowMobile />
-                    ) : (
-                      <EdCenterArrow />
-                    )}
-                  </EdVideoToggler>
-                </NavigationItem>
-              ))}
-            </EdCenterNavigation>
+            <MoreBtnBox>
+              <EdCenterNavigation ref={ref}>
+                {listItems.map((item, i) => (
+                  <NavigationItem key={i}>
+                    <EdVideoToggler
+                      className={course === item ? 'selected' : ''}
+                      onClick={() => toggleCourse(item, i)}
+                    >
+                      {item}
+                      {width < 768 ? (
+                        <>
+                          {inView && (
+                            <EdCenterArrowMobileInView
+                              style={{ animationDelay: `${i}s` }}
+                            />
+                          )}
+                          <EdCenterArrowMobile className="on-hover" />
+                        </>
+                      ) : (
+                        <>
+                          {inView && (
+                            <EdCenterArrowInView
+                              style={{ animationDelay: `${i * 400}ms` }}
+                            />
+                          )}
+                          <EdCenterArrow className="on-hover" />
+                        </>
+                      )}
+                    </EdVideoToggler>
+                  </NavigationItem>
+                ))}
+              </EdCenterNavigation>
+              <MoreBtn onClick={toggleModal}>ДЕТАЛЬНІШЕ</MoreBtn>
+            </MoreBtnBox>
           </EdCenterWrapper>
         </Box>
       </EdCenterSection>

@@ -6,7 +6,7 @@ export const Consent = () => {
       buttonText="✔ Погоджуюсь"
       cookieName="aggregator-consent"
       style={{
-        background: '#0f645b',
+        background: '#0B4943',
         justifyContent: 'center',
         alignItems: 'center',
         fontSize: '16px',

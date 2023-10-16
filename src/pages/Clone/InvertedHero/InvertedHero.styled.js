@@ -10,7 +10,6 @@ export const HeroSection = styled.section`
   padding-top: 50px;
   padding-bottom: 30px;
   margin-top: 73px;
-  background-color: var(--main-color);
 
   @media screen and (min-width: 768px) {
     padding-bottom: 40px;

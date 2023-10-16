@@ -7,7 +7,7 @@ export const InvertedConsent = () => {
       cookieName="aggregator-consent"
       style={{
         background: 'white',
-        color: '#0f645b',
+        color: '#0B4943',
         justifyContent: 'center',
         alignItems: 'center',
         fontSize: '16px',
@@ -15,7 +15,7 @@ export const InvertedConsent = () => {
       buttonStyle={{
         background: '#f5ce46',
         borderRadius: '20px',
-        color: '#0f645b',
+        color: '#0B4943',
         fontSize: '18px',
       }}
       expires={150}

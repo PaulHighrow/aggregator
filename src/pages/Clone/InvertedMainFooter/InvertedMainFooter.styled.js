@@ -37,12 +37,16 @@ export const IconBox = styled.div`
   }
 `;
 
+export const FooterLogoLink = styled(LogoLink)`
+margin: 0 auto;
+  margin-bottom: 30px;
+`
+
 export const FooterLogo = styled(Logo)`
   height: 50px;
   display: block;
   flex-shrink: 0;
-  margin: 0 auto;
-  margin-bottom: 30px;
+  
   height: 100%;
   transition: transform var(--animation-global), filter var(--animation-global);
 

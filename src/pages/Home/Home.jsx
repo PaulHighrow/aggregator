@@ -48,7 +48,7 @@ const Home = (utms) => {
         <Hero closeModal={closeModal} toggleModal={toggleModal} />
         <HowItWorks />
       </BackgroundWrapper>
-      <EdCenter />
+      <EdCenter toggleModal={toggleModal} />
       {/* <Admission /> */}
       <Translations />
       <ExamCenter toggleModal={toggleModal} />

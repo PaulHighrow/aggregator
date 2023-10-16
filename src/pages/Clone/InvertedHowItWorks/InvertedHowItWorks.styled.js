@@ -5,7 +5,6 @@ import { ReactComponent as MenuArrow } from '../../../img/svg/menu-arrow.svg';
 export const HowItWorksSection = styled.section`
   position: relative;
   padding: 30px;
-  background-color: var(--main-color);
 
   @media screen and (min-width: 768px) {
     padding: 42px;

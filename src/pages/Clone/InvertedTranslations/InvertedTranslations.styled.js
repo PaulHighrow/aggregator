@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-import { BackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
+import { InvertedBackgroundWrapper } from 'components/BackgroundWrapper/InvertedBackgroundWrappers';
 import { arrowAnimation } from 'components/HowItWorks/HowItWorks.styled';
 import { ReactComponent as Arrow } from '../../../img/svg/menu-arrow.svg';
 
-export const TranslationsBackground = styled(BackgroundWrapper)`
+export const TranslationsBackground = styled(InvertedBackgroundWrapper)`
   background-position: right -70px top 70px;
 
   @media screen and (min-width: 768px) {
@@ -19,7 +19,7 @@ export const TranslationsBackground = styled(BackgroundWrapper)`
 export const TranslationsSection = styled.section`
   position: relative;
   padding: 30px;
-  background-color: var(--main-color);
+ 
 
   @media screen and (min-width: 768px) {
     padding: 42px;

@@ -114,7 +114,7 @@ export const Logo = styled(LogoIcon)`
   }
 `;
 
-const wobblyOutline = keyframes`
+export const wobblyOutline = keyframes`
   0%, 7% {
     transform: rotateZ(0);
   }

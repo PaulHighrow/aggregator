@@ -1,9 +1,12 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import { BackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
 import { arrowAnimation } from 'components/HowItWorks/HowItWorks.styled';
 import { ReactComponent as Arrow } from '../../img/svg/menu-arrow.svg';
 import { ReactComponent as RotatedArrow } from '../../img/svg/menu-arrow-rotated.svg';
+import { LeadBtn, wobblyOutline } from 'components/Menu/Menu.styled';
+
+import sketchOutlineSmall from 'img/svg/sketchOutlineSmall.svg';
 
 export const EdCenterBackground = styled(BackgroundWrapper)`
   background-position: left -70px top 0;
@@ -155,8 +158,8 @@ export const EdVideoToggler = styled.a`
     display: block;
   }
 
-  &:hover > *,
-  &:focus > * {
+  &:hover > .on-hover,
+  &:focus > .on-hover {
     opacity: 1;
     animation-name: ${arrowAnimation};
     animation-duration: 400ms;
@@ -176,6 +179,33 @@ export const EdCenterArrowMobile = styled(Arrow)`
   stroke-dasharray: 435;
 `;
 
+export const arrowAnimationTriggeredOnce = keyframes`
+  0%{
+    opacity: 1;
+    stroke-dashoffset: -435;
+  }
+  50% {
+    /* closing the offset makes the line appear to be drawn-in */
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+  90%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+`;
+
+export const EdCenterArrowMobileInView = styled(EdCenterArrowMobile)`
+  animation-name: ${arrowAnimationTriggeredOnce};
+  animation-duration: 2s;
+  animation-direction: revert;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-fill-mode: backwards;
+`;
+
 export const EdCenterArrow = styled(RotatedArrow)`
   opacity: 0;
   position: absolute;
@@ -191,6 +221,31 @@ export const EdCenterArrow = styled(RotatedArrow)`
   @media screen and (min-width: 1280px) {
     right: -8px;
     width: 350px;
+  }
+`;
+
+export const EdCenterArrowInView = styled(EdCenterArrow)`
+  animation-name: ${arrowAnimationTriggeredOnce};
+  animation-duration: 2s;
+  animation-direction: revert;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-fill-mode: backwards;
+`;
+
+export const MoreBtnBox = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const MoreBtn = styled(LeadBtn)`
+  width: 240px;
+  margin: 0 auto;
+
+  &::before {
+    width: 240px;
+    content: url(${sketchOutlineSmall});
+    animation: 2s linear infinite ${wobblyOutline};
   }
 `;
 

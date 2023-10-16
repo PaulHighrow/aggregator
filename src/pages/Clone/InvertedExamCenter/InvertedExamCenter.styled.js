@@ -4,10 +4,10 @@ import { ReactComponent as UnderlineShort } from '../../../img/svg/exam-underlin
 import { ReactComponent as UnderlineMedium } from '../../../img/svg/exam-underline-medium.svg';
 import { ReactComponent as UnderlineLong } from '../../../img/svg/exam-underline-long.svg';
 import { PageNavigationText } from 'components/HowItWorks/HowItWorks.styled';
+import { InvertedBackgroundWrapper } from 'components/BackgroundWrapper/InvertedBackgroundWrappers';
 
-export const ExamCenterBackground = styled(BackgroundWrapper)`
+export const ExamCenterBackground = styled(InvertedBackgroundWrapper)`
   background-position: left -70px bottom 0px;
-  background: var(--main-color);
 
   @media screen and (min-width: 768px) {
     background-position: right -140px top 70px;

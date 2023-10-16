@@ -1,4 +1,4 @@
-import { BackgroundWrapper } from "components/BackgroundWrapper/BackgroundWrappers";
+import { InvertedBackgroundWrapper } from "components/BackgroundWrapper/InvertedBackgroundWrappers";
 import { InvertedConsent } from "components/Consent/InvertedConsent";
 import { LeadForm } from "components/LeadForm/LeadForm";
 import { UpButton } from "components/UpButton/UpButton";
@@ -44,10 +44,10 @@ const Clone = (utms) => {
   return (
     <>
       <InvertedMenu toggleModal={toggleModal} />
-      <BackgroundWrapper>
+      <InvertedBackgroundWrapper>
         <InvertedHero closeModal={closeModal} toggleModal={toggleModal} />
         <InvertedHowItWorks />
-      </BackgroundWrapper>
+      </InvertedBackgroundWrapper>
       <InvertedEdCenter />
       {/* <Admission /> */}
       <InvertedTranslations />

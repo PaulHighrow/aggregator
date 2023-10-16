@@ -1,11 +1,13 @@
 import useSize from '@react-hook/size';
 import { Box } from 'components/Box/Box.styled';
 import { useRef, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 import ReactPlayer from 'react-player/lazy';
 import {
   NavigationItem,
   TranslationTextWrapper,
   TranslationsArrow,
+  TranslationsArrowInView,
   TranslationsBackground,
   TranslationsNavigation,
   TranslationsSection,
@@ -43,6 +45,11 @@ export const Translations = () => {
   const [language, setLanguage] = useState('Англійська');
   const [videoUrl, setVideoUrl] = useState(videoUrls[0]);
 
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    delay: 1000,
+  });
+
   const toggleLanguage = (item, i) => {
     setLanguage(language => (language = item));
     setVideoUrl(videoUrl => (videoUrl = videoUrls[i]));
@@ -57,7 +64,7 @@ export const Translations = () => {
               <TranslationsTitle>
                 БЮРО <TranslationsSubTitle>ПЕРЕКЛАДІВ</TranslationsSubTitle>
               </TranslationsTitle>
-              <TranslationsNavigation>
+              <TranslationsNavigation ref={ref}>
                 {listItems.map((item, i) => (
                   <NavigationItem key={i}>
                     <TranslationsToggler
@@ -65,7 +72,12 @@ export const Translations = () => {
                       onClick={() => toggleLanguage(item, i)}
                     >
                       {item}
-                      <TranslationsArrow />
+                      <TranslationsArrow className="on-hover" />
+                      {inView && (
+                        <TranslationsArrowInView
+                          style={{ animationDelay: `${i}s` }}
+                        />
+                      )}
                     </TranslationsToggler>
                   </NavigationItem>
                 ))}

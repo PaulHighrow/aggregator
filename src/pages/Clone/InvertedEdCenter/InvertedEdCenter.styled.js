@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-import { BackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
+import { InvertedBackgroundWrapper } from 'components/BackgroundWrapper/InvertedBackgroundWrappers';
 import { arrowAnimation } from 'components/HowItWorks/HowItWorks.styled';
-import { ReactComponent as Arrow } from '../../../img/svg/menu-arrow.svg';
 import { ReactComponent as RotatedArrow } from '../../../img/svg/menu-arrow-rotated.svg';
+import { ReactComponent as Arrow } from '../../../img/svg/menu-arrow.svg';
 
-export const EdCenterBackground = styled(BackgroundWrapper)`
+export const EdCenterBackground = styled(InvertedBackgroundWrapper)`
   background-position: left -70px top 0;
   background-color: var(--main-color);
 

@@ -7,7 +7,7 @@ export const StyledUpButton = styled(Link)`
   height: 60px;
 
   position: fixed;
-  bottom: 40px;
+  bottom: 65px;
   right: 40px;
   z-index: 4;
 

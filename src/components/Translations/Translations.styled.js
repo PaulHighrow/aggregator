@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { BackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
 import { arrowAnimation } from 'components/HowItWorks/HowItWorks.styled';
 import { ReactComponent as Arrow } from '../../img/svg/menu-arrow.svg';
+import { arrowAnimationTriggeredOnce } from 'components/EdCenter/EdCenter.styled';
 
 export const TranslationsBackground = styled(BackgroundWrapper)`
   background-position: right -70px top 70px;
@@ -153,8 +154,8 @@ export const TranslationsToggler = styled.a`
     display: block;
   }
 
-  &:hover > *,
-  &:focus > * {
+  &:hover > .on-hover,
+  &:focus > .on-hover {
     opacity: 1;
     animation-name: ${arrowAnimation};
     animation-duration: 400ms;
@@ -182,6 +183,15 @@ export const TranslationsArrow = styled(Arrow)`
     left: -8px;
     width: 350px;
   }
+`;
+
+export const TranslationsArrowInView = styled(TranslationsArrow)`
+  animation-name: ${arrowAnimationTriggeredOnce};
+  animation-duration: 2s;
+  animation-direction: revert;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-fill-mode: backwards;
 `;
 
 export const VideoLimiter = styled.div`
