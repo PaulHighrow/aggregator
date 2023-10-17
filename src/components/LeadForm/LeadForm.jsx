@@ -51,21 +51,21 @@ export const LeadForm = ({ closeModal, utms }) => {
       )
       .min(10, 'Номер телефону має складатися не менше ніж з 10 символів!')
       .max(20, 'Номер телефону має складатися не більше ніж з 20 символів!'),
-    utm_content: yup.string(),
-    utm_medium: yup.string(),
-    utm_campaign: yup.string(),
-    utm_source: yup.string(),
-    utm_term: yup.string(),
-    utm_referrer: yup.string(),
+    utm_content: yup.string().optional(),
+    utm_medium: yup.string().optional(),
+    utm_campaign: yup.string().optional(),
+    utm_source: yup.string().optional(),
+    utm_term: yup.string().optional(),
+    utm_referrer: yup.string().optional(),
   });
 
   const handleSubmit = async (values, { resetForm }) => {
-    values.utm_content = utms.utm_content || undefined;
-    values.utm_medium = utms.utm_medium || undefined;
-    values.utm_campaign = utms.utm_campaign || undefined;
-    values.utm_source = utms.utm_source || undefined;
-    values.utm_term = utms.utm_term || undefined;
-    values.utm_referrer = utms.utm_referrer || undefined;
+    values.utm_content = utms.utm_content;
+    values.utm_medium = utms.utm_medium;
+    values.utm_campaign = utms.utm_campaign;
+    values.utm_source = utms.utm_source;
+    values.utm_term = utms.utm_term;
+    values.utm_referrer = utms.utm_referrer;
     setIsLoading(isLoading => (isLoading = true));
 
     try {

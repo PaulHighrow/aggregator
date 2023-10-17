@@ -38,11 +38,11 @@ export const AboutUs = () => {
               </VideoBox>
             </VideoLimiter>
             <AboutUsText>
-              «AP Education Centre», є провідним центром навчання іноземних мов
+              «AP Education Center», є провідним центром навчання іноземних мов
               та підготовки до міжнародних іспитів. Ми є сертифікованим
               партнером Cambridge English та Language Cert, що дозволяє нашим
               клієнтам готуватися до іспитів та складати їх відразу у нашому
-              центрі.`
+              центрі.
             </AboutUsText>
           </AboutUsWrapper>
         </Box>

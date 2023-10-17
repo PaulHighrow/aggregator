@@ -11,6 +11,9 @@ const Home = lazy(() =>
 const Clone = lazy(() =>
   import(/* webpackChunkName: "Inverted Homepage" */ '../pages/Clone/Clone')
 );
+const NotFound = lazy(() =>
+  import(/* webpackChunkName: "Not Found" */ '../pages/NotFound/NotFound')
+);
 
 export const App = () => {
   // eslint-disable-next-line
@@ -69,9 +72,10 @@ export const App = () => {
   return (
     <Routes>
       {!isLoading && (
-        <Route path="/" element={<SharedLayout />}>
+        <Route path="/" element={<SharedLayout utms={utms} />}>
           <Route index element={<Home utms={utms} />} />
-          <Route path="clone" element={<Clone utms={utms}/>} />
+          <Route path="clone" element={<Clone utms={utms} />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       )}
     </Routes>

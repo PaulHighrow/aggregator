@@ -1,11 +1,44 @@
 import { Title } from 'components/Hero/Hero.styled';
-import { Suspense } from 'react';
+import { LeadForm } from 'components/LeadForm/LeadForm';
+import { MainFooter } from 'components/MainFooter/MainFooter';
+import { Menu } from 'components/Menu/Menu';
+import { UpButton } from 'components/UpButton/UpButton';
+import { Suspense, useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Loader } from 'utils/Loader/Loader';
 
-export const SharedLayout = () => {
+export const SharedLayout = ({ utms }) => {
+  const [isOpenModal, setIsOpenModal] = useState(false);
+
+  const toggleModal = () => {
+    setIsOpenModal(isOpen => !isOpen);
+    document.body.style.overflowY = 'hidden';
+  };
+
+  const closeModal = () => {
+    setIsOpenModal(isOpen => (isOpen = false));
+    !document.body.style.overflowY && isOpenModal
+      ? (document.body.style.overflowY = 'hidden')
+      : (document.body.style.overflowY = '');
+  };
+
+  useEffect(() => {
+    const onEscapeClose = event => {
+      if (event.code === 'Escape' && isOpenModal) {
+        closeModal();
+      }
+    };
+
+    window.addEventListener('keydown', onEscapeClose);
+
+    return () => {
+      window.removeEventListener('keydown', onEscapeClose);
+    };
+  });
+
   return (
     <>
+      <Menu toggleModal={toggleModal} />
       <Suspense
         fallback={
           <>
@@ -16,6 +49,10 @@ export const SharedLayout = () => {
       >
         <Outlet />
       </Suspense>
+      <MainFooter toggleModal={toggleModal} />
+      <UpButton />
+
+      {isOpenModal && <LeadForm closeModal={closeModal} utms={utms} />}
     </>
   );
 };

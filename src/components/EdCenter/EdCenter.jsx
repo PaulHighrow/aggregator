@@ -20,17 +20,18 @@ import {
   MoreBtnBox,
   NavigationItem,
   VideoBox,
-  VideoLimiter
+  VideoLimiter,
 } from './EdCenter.styled';
+import { EdCenterModal } from './EdCenterModal/EdCenterModal';
 
-export const EdCenter = ({ toggleModal }) => {
+export const EdCenter = ({closeModal}) => {
   const listItems = ['Англійська мова', 'Польська мова', 'Німецька мова'];
   const videoUrls = [
     'https://youtu.be/cJH4FUP99rA?si=clJ5upwIiebB7Fzt',
     'https://youtu.be/RRKiBZi9moY?si=83dwA-AgfQRqIqZV',
     'https://youtu.be/NEe6hl7msfs?si=V8YaLMy1gqtR6vys',
   ];
-
+  const [isNavModalOpen, setIsNavModalOpen] = useState(false);
   const [course, setCourse] = useState('Англійська мова');
   const [videoUrl, setVideoUrl] = useState(videoUrls[0]);
   const edCenterEl = useRef();
@@ -45,6 +46,19 @@ export const EdCenter = ({ toggleModal }) => {
   const toggleCourse = (item, i) => {
     setCourse(course => (course = item));
     setVideoUrl(videoUrl => (videoUrl = videoUrls[i]));
+  };
+
+  const toggleNavModal = () => {
+    setIsNavModalOpen(isOpen => !isOpen);
+    document.body.style.overflowY = 'hidden';
+  };
+
+  const closeNavModal = () => {
+    console.log('clicked');
+    setIsNavModalOpen(isOpen => (isOpen = false));
+    !document.body.style.overflowY && isNavModalOpen
+      ? (document.body.style.overflowY = 'hidden')
+      : (document.body.style.overflowY = '');
   };
 
   return (
@@ -94,7 +108,7 @@ export const EdCenter = ({ toggleModal }) => {
                         <>
                           {inView && (
                             <EdCenterArrowInView
-                              style={{ animationDelay: `${i * 400}ms` }}
+                              style={{ animationDelay: `${i}s` }}
                             />
                           )}
                           <EdCenterArrow className="on-hover" />
@@ -104,11 +118,12 @@ export const EdCenter = ({ toggleModal }) => {
                   </NavigationItem>
                 ))}
               </EdCenterNavigation>
-              <MoreBtn onClick={toggleModal}>ДЕТАЛЬНІШЕ</MoreBtn>
+              <MoreBtn onClick={toggleNavModal}>ДЕТАЛЬНІШЕ</MoreBtn>
             </MoreBtnBox>
           </EdCenterWrapper>
         </Box>
       </EdCenterSection>
+      {isNavModalOpen && <EdCenterModal closeNavModal={closeNavModal}/>}
     </EdCenterBackground>
   );
 };

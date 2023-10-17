@@ -116,7 +116,6 @@ export const EdCenterNavigation = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 9px;
-  margin-bottom: 21px;
 
   @media screen and (min-width: 768px) {
     text-align: end;
@@ -235,7 +234,10 @@ export const EdCenterArrowInView = styled(EdCenterArrow)`
 
 export const MoreBtnBox = styled.div`
   display: flex;
+  gap: 25px;
   flex-direction: column;
+  
+  margin-bottom: 21px;
 `;
 
 export const MoreBtn = styled(LeadBtn)`

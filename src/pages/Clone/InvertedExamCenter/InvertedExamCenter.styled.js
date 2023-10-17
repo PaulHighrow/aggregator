@@ -1,10 +1,9 @@
-import { BackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
-import styled from 'styled-components';
-import { ReactComponent as UnderlineShort } from '../../../img/svg/exam-underline-short.svg';
-import { ReactComponent as UnderlineMedium } from '../../../img/svg/exam-underline-medium.svg';
-import { ReactComponent as UnderlineLong } from '../../../img/svg/exam-underline-long.svg';
-import { PageNavigationText } from 'components/HowItWorks/HowItWorks.styled';
 import { InvertedBackgroundWrapper } from 'components/BackgroundWrapper/InvertedBackgroundWrappers';
+import { PageNavigationText } from 'components/HowItWorks/HowItWorks.styled';
+import styled from 'styled-components';
+import { ReactComponent as UnderlineLong } from '../../../img/svg/exam-underline-long.svg';
+import { ReactComponent as UnderlineMedium } from '../../../img/svg/exam-underline-medium.svg';
+import { ReactComponent as UnderlineShort } from '../../../img/svg/exam-underline-short.svg';
 
 export const ExamCenterBackground = styled(InvertedBackgroundWrapper)`
   background-position: left -70px bottom 0px;

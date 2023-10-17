@@ -1,18 +1,14 @@
 import { InvertedBackgroundWrapper } from "components/BackgroundWrapper/InvertedBackgroundWrappers";
 import { InvertedConsent } from "components/Consent/InvertedConsent";
-import { LeadForm } from "components/LeadForm/LeadForm";
-import { UpButton } from "components/UpButton/UpButton";
 import { useEffect, useState } from "react";
 import { InvertedAboutUs } from "./InvertedAboutUs/InvertedAboutUs";
 import { InvertedEdCenter } from "./InvertedEdCenter/InvertedEdCenter";
 import { InvertedExamCenter } from "./InvertedExamCenter/InvertedExamCenter";
 import { InvertedHero } from "./InvertedHero/InvertedHero";
 import { InvertedHowItWorks } from "./InvertedHowItWorks/InvertedHowItWorks";
-import { InvertedMainFooter } from "./InvertedMainFooter/InvertedMainFooter";
-import { InvertedMenu } from "./InvertedMenu/InvertedMenu";
 import { InvertedTranslations } from "./InvertedTranslations/InvertedTranslations";
 
-const Clone = (utms) => {
+const Clone = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
 
   const toggleModal = () => {
@@ -43,20 +39,16 @@ const Clone = (utms) => {
 
   return (
     <>
-      <InvertedMenu toggleModal={toggleModal} />
       <InvertedBackgroundWrapper>
         <InvertedHero closeModal={closeModal} toggleModal={toggleModal} />
         <InvertedHowItWorks />
       </InvertedBackgroundWrapper>
-      <InvertedEdCenter />
+      <InvertedEdCenter toggleModal={toggleModal}/>
       {/* <Admission /> */}
       <InvertedTranslations />
       <InvertedExamCenter toggleModal={toggleModal} />
       <InvertedAboutUs />
-      <InvertedMainFooter toggleModal={toggleModal} />
-      <UpButton />
       <InvertedConsent />
-      {isOpenModal && <LeadForm closeModal={closeModal} utms={utms} />}
     </>
   );
 };
