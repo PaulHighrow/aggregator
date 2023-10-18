@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.331bf624.css",
-    "main.js": "/aggregator/static/js/main.5261a714.js",
-    "Homepage.js": "/aggregator/static/js/Homepage.2661e155.chunk.js",
+    "main.js": "/aggregator/static/js/main.ec7553da.js",
+    "Homepage.js": "/aggregator/static/js/Homepage.6ff48574.chunk.js",
     "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.bb8a5b36.chunk.js",
     "Not Found.js": "/aggregator/static/js/Not Found.b564afa1.chunk.js",
     "reactPlayerYouTube.js": "/aggregator/static/js/reactPlayerYouTube.f21d2dc2.chunk.js",
@@ -19,7 +19,7 @@
     "reactPlayerFilePlayer.js": "/aggregator/static/js/reactPlayerFilePlayer.0187d443.chunk.js",
     "reactPlayerPreview.js": "/aggregator/static/js/reactPlayerPreview.3d7930ba.chunk.js",
     "static/js/108.321d0613.chunk.js": "/aggregator/static/js/108.321d0613.chunk.js",
-    "static/js/79.64553b72.chunk.js": "/aggregator/static/js/79.64553b72.chunk.js",
+    "static/js/79.71c267c7.chunk.js": "/aggregator/static/js/79.71c267c7.chunk.js",
     "static/media/LTJournalCrayon-Regular.eot": "/aggregator/static/media/LTJournalCrayon-Regular.4e01f9d2a8b68d2b8f20.eot",
     "static/media/LTJournalCrayon-Regular.ttf": "/aggregator/static/media/LTJournalCrayon-Regular.6f92c12d932b03431110.ttf",
     "static/media/LTJournalCrayon-Regular.woff": "/aggregator/static/media/LTJournalCrayon-Regular.ad68ffb639193095ad33.woff",
@@ -129,8 +129,8 @@
     "static/media/up-arrow.svg": "/aggregator/static/media/up-arrow.bb856e4e4ef20c2a677ad3696311dcce.svg",
     "static/media/downArrow.svg": "/aggregator/static/media/downArrow.3d74cb9d6d38fab26c47bbadb8e4f56d.svg",
     "main.331bf624.css.map": "/aggregator/static/css/main.331bf624.css.map",
-    "main.5261a714.js.map": "/aggregator/static/js/main.5261a714.js.map",
-    "Homepage.2661e155.chunk.js.map": "/aggregator/static/js/Homepage.2661e155.chunk.js.map",
+    "main.ec7553da.js.map": "/aggregator/static/js/main.ec7553da.js.map",
+    "Homepage.6ff48574.chunk.js.map": "/aggregator/static/js/Homepage.6ff48574.chunk.js.map",
     "Inverted Homepage.bb8a5b36.chunk.js.map": "/aggregator/static/js/Inverted Homepage.bb8a5b36.chunk.js.map",
     "Not Found.b564afa1.chunk.js.map": "/aggregator/static/js/Not Found.b564afa1.chunk.js.map",
     "reactPlayerYouTube.f21d2dc2.chunk.js.map": "/aggregator/static/js/reactPlayerYouTube.f21d2dc2.chunk.js.map",
@@ -147,10 +147,10 @@
     "reactPlayerFilePlayer.0187d443.chunk.js.map": "/aggregator/static/js/reactPlayerFilePlayer.0187d443.chunk.js.map",
     "reactPlayerPreview.3d7930ba.chunk.js.map": "/aggregator/static/js/reactPlayerPreview.3d7930ba.chunk.js.map",
     "108.321d0613.chunk.js.map": "/aggregator/static/js/108.321d0613.chunk.js.map",
-    "79.64553b72.chunk.js.map": "/aggregator/static/js/79.64553b72.chunk.js.map"
+    "79.71c267c7.chunk.js.map": "/aggregator/static/js/79.71c267c7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.331bf624.css",
-    "static/js/main.5261a714.js"
+    "static/js/main.ec7553da.js"
   ]
 }
