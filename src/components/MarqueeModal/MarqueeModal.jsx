@@ -39,6 +39,11 @@ const serviceList = [
 ];
 
 export const MarqueeModal = ({ closeMarqueeModal, toggleModal, id }) => {
+  const toggleLeadForm = () => {
+    toggleModal();
+    closeMarqueeModal();
+  };
+
   return (
     <>
       <MarqueeBackdrop onClick={closeMarqueeModal} />
@@ -68,7 +73,7 @@ export const MarqueeModal = ({ closeMarqueeModal, toggleModal, id }) => {
         </VideoLimiter>
 
         <ModalDesc>{serviceList[id].desc}</ModalDesc>
-        <LeadBtn onClick={toggleModal}> ШВИДКА КОНСУЛЬТАЦІЯ </LeadBtn>
+        <LeadBtn onClick={toggleLeadForm}> ШВИДКА КОНСУЛЬТАЦІЯ </LeadBtn>
       </ModalWindow>
     </>
   );

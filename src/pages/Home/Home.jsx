@@ -5,15 +5,18 @@ import { EdCenter } from 'components/EdCenter/EdCenter';
 import { ExamCenter } from 'components/ExamCenter/ExamCenter';
 import { Hero } from 'components/Hero/Hero';
 import { HowItWorks } from 'components/HowItWorks/HowItWorks';
+import { LeadForm } from 'components/LeadForm/LeadForm';
 import { Translations } from 'components/Translations/Translations';
 import { useEffect, useState } from 'react';
 
-const Home = () => {
+const Home = ({ utms }) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
 
   const toggleModal = () => {
     setIsOpenModal(isOpen => !isOpen);
-    document.body.style.overflowY = 'hidden';
+    if (!document.body.style.overflowY) {
+      document.body.style.overflowY = 'hidden';
+    }
   };
 
   const closeModal = () => {
@@ -43,12 +46,13 @@ const Home = () => {
         <Hero closeModal={closeModal} toggleModal={toggleModal} />
         <HowItWorks />
       </BackgroundWrapper>
-      <EdCenter toggleModal={toggleModal} closeModal={closeModal}/>
+      <EdCenter />
       {/* <Admission /> */}
       <Translations />
-      <ExamCenter toggleModal={toggleModal} />
+      <ExamCenter toggleModal={toggleModal} closeModal={closeModal} />
       <AboutUs />
       <Consent />
+      {isOpenModal && <LeadForm closeModal={closeModal} utms={utms} />}
     </>
   );
 };

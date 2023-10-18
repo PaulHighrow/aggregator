@@ -2,6 +2,7 @@ import axios from 'axios';
 import { lazy, useLayoutEffect, useState } from 'react';
 import { Route, Routes, useSearchParams } from 'react-router-dom';
 import { SharedLayout } from './SharedLayout/SharedLayout';
+import ScrollToTop from 'utils/ScrollToTop/ScrollToTop';
 
 axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
 
@@ -70,14 +71,17 @@ export const App = () => {
   }, []);
 
   return (
-    <Routes>
-      {!isLoading && (
-        <Route path="/" element={<SharedLayout utms={utms} />}>
-          <Route index element={<Home utms={utms} />} />
-          <Route path="clone" element={<Clone utms={utms} />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      )}
-    </Routes>
+    <>
+      <ScrollToTop />
+      <Routes>
+        {!isLoading && (
+          <Route path="/" element={<SharedLayout utms={utms} />}>
+            <Route index element={<Home utms={utms} />} />
+            <Route path="clone" element={<Clone utms={utms} />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        )}
+      </Routes>
+    </>
   );
 };

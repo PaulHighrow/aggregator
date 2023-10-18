@@ -27,7 +27,7 @@ export const Menu = ({ toggleModal }) => {
 
   return (
     <>
-      <Header ref={headerEl}>
+      <Header id="header" ref={headerEl}>
         <HeaderWrapper>
           <LogoLink href="https://www.ap-education.com.ua/">
             <Logo />

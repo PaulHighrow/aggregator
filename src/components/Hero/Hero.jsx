@@ -47,11 +47,11 @@ export const Hero = ({ closeModal, toggleModal }) => {
     <HeroSection id="hero">
       <Box>
         <Title>
-          ONE STEP FROM ZERO TO {' '}
+          ONE STEP FROM ZERO TO{' '}
           <SubTitle ref={ref}>
             HERO{inView && !isSketchHidden && <TitleSketch />}
             {!isSubtitleHidden && <HeroVector />}
-          </SubTitle>        
+          </SubTitle>
         </Title>
         <Description>
           <span>
@@ -92,7 +92,7 @@ export const Hero = ({ closeModal, toggleModal }) => {
           )}
         </DescriptionTrigger>
       </Box>
-      <HeroMarquee closeModal={closeModal} toggleModal={toggleModal} />
+      <HeroMarquee toggleModal={toggleModal} />
     </HeroSection>
   );
 };

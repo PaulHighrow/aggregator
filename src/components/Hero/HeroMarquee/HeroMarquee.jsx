@@ -66,7 +66,7 @@ export const HeroMarquee = ({ toggleModal }) => {
   const closeMarqueeModal = () => {
     setIsMarqueeModalOpen(isOpen => (isOpen = false));
     setmodalId(modalId => (modalId = NaN));
-    !document.body.style.overflowY && isMarqueeModalOpen
+    !!document.body.style.overflowY && isMarqueeModalOpen
       ? (document.body.style.overflowY = 'hidden')
       : (document.body.style.overflowY = '');
   };

@@ -23,8 +23,9 @@ import {
   VideoLimiter,
 } from './EdCenter.styled';
 import { EdCenterModal } from './EdCenterModal/EdCenterModal';
+import { useEffect } from 'react';
 
-export const EdCenter = ({closeModal}) => {
+export const EdCenter = () => {
   const listItems = ['Англійська мова', 'Польська мова', 'Німецька мова'];
   const videoUrls = [
     'https://youtu.be/cJH4FUP99rA?si=clJ5upwIiebB7Fzt',
@@ -54,12 +55,25 @@ export const EdCenter = ({closeModal}) => {
   };
 
   const closeNavModal = () => {
-    console.log('clicked');
     setIsNavModalOpen(isOpen => (isOpen = false));
     !document.body.style.overflowY && isNavModalOpen
       ? (document.body.style.overflowY = 'hidden')
       : (document.body.style.overflowY = '');
   };
+
+  useEffect(() => {
+    const onEscapeClose = event => {
+      if (event.code === 'Escape' && isNavModalOpen) {
+        closeNavModal();
+      }
+    };
+
+    window.addEventListener('keydown', onEscapeClose);
+
+    return () => {
+      window.removeEventListener('keydown', onEscapeClose);
+    };
+  });
 
   return (
     <EdCenterBackground>
@@ -123,7 +137,7 @@ export const EdCenter = ({closeModal}) => {
           </EdCenterWrapper>
         </Box>
       </EdCenterSection>
-      {isNavModalOpen && <EdCenterModal closeNavModal={closeNavModal}/>}
+      {isNavModalOpen && <EdCenterModal closeNavModal={closeNavModal} />}
     </EdCenterBackground>
   );
 };
