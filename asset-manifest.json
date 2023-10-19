@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.331bf624.css",
-    "main.js": "/aggregator/static/js/main.02be3fdb.js",
-    "Homepage.js": "/aggregator/static/js/Homepage.42ed568a.chunk.js",
+    "main.js": "/aggregator/static/js/main.01039218.js",
+    "Homepage.js": "/aggregator/static/js/Homepage.1545d84c.chunk.js",
     "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.bb8a5b36.chunk.js",
     "Not Found.js": "/aggregator/static/js/Not Found.b564afa1.chunk.js",
     "reactPlayerYouTube.js": "/aggregator/static/js/reactPlayerYouTube.f21d2dc2.chunk.js",
@@ -129,8 +129,8 @@
     "static/media/up-arrow.svg": "/aggregator/static/media/up-arrow.bb856e4e4ef20c2a677ad3696311dcce.svg",
     "static/media/downArrow.svg": "/aggregator/static/media/downArrow.3d74cb9d6d38fab26c47bbadb8e4f56d.svg",
     "main.331bf624.css.map": "/aggregator/static/css/main.331bf624.css.map",
-    "main.02be3fdb.js.map": "/aggregator/static/js/main.02be3fdb.js.map",
-    "Homepage.42ed568a.chunk.js.map": "/aggregator/static/js/Homepage.42ed568a.chunk.js.map",
+    "main.01039218.js.map": "/aggregator/static/js/main.01039218.js.map",
+    "Homepage.1545d84c.chunk.js.map": "/aggregator/static/js/Homepage.1545d84c.chunk.js.map",
     "Inverted Homepage.bb8a5b36.chunk.js.map": "/aggregator/static/js/Inverted Homepage.bb8a5b36.chunk.js.map",
     "Not Found.b564afa1.chunk.js.map": "/aggregator/static/js/Not Found.b564afa1.chunk.js.map",
     "reactPlayerYouTube.f21d2dc2.chunk.js.map": "/aggregator/static/js/reactPlayerYouTube.f21d2dc2.chunk.js.map",
@@ -151,6 +151,6 @@
   },
   "entrypoints": [
     "static/css/main.331bf624.css",
-    "static/js/main.02be3fdb.js"
+    "static/js/main.01039218.js"
   ]
 }
