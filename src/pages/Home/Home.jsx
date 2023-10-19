@@ -48,7 +48,7 @@ const Home = ({ utms }) => {
       </BackgroundWrapper>
       <EdCenter />
       {/* <Admission /> */}
-      <Translations />
+      <Translations utms={utms} />
       <ExamCenter toggleModal={toggleModal} closeModal={closeModal} />
       <AboutUs />
       <Consent />

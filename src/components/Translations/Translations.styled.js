@@ -3,7 +3,10 @@ import styled from 'styled-components';
 import { BackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
 import { arrowAnimation } from 'components/HowItWorks/HowItWorks.styled';
 import { ReactComponent as Arrow } from '../../img/svg/menu-arrow.svg';
-import { arrowAnimationTriggeredOnce } from 'components/EdCenter/EdCenter.styled';
+import { MoreBtnBox, arrowAnimationTriggeredOnce } from 'components/EdCenter/EdCenter.styled';
+import { LeadBtn, wobblyOutline } from 'components/Menu/Menu.styled';
+
+import sketchOutlineSmall from 'img/svg/sketchOutlineSmall.svg';
 
 export const TranslationsBackground = styled(BackgroundWrapper)`
   background-position: right -70px top 70px;
@@ -219,3 +222,17 @@ export const VideoBox = styled.div`
     padding-top: calc(16 / 9 * 100%);
   }
 `;
+
+export const OrderBtn = styled(LeadBtn)`
+  width: 240px;
+  margin: 0 auto;
+
+  &::before {
+    width: 240px;
+    content: url(${sketchOutlineSmall});
+    animation: 2s linear infinite ${wobblyOutline};
+  }
+`;
+
+export const OrderBtnBox = styled(MoreBtnBox)`
+`

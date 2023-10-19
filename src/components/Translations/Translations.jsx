@@ -1,10 +1,12 @@
 import useSize from '@react-hook/size';
 import { Box } from 'components/Box/Box.styled';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import ReactPlayer from 'react-player/lazy';
 import {
   NavigationItem,
+  OrderBtn,
+  OrderBtnBox,
   TranslationTextWrapper,
   TranslationsArrow,
   TranslationsArrowInView,
@@ -18,8 +20,9 @@ import {
   VideoBox,
   VideoLimiter,
 } from './Translations.styled';
+import { TranslationsOrderModal } from './TranslationsOrderModal/TranslationsOrderModal';
 
-export const Translations = () => {
+export const Translations = ({ utms }) => {
   const listItems = ['Англійська', 'Польська', 'Німецька'];
 
   const translationsEl = useRef();
@@ -44,6 +47,7 @@ export const Translations = () => {
   const [width, _] = useSize(translationsEl);
   const [language, setLanguage] = useState('Англійська');
   const [videoUrl, setVideoUrl] = useState(videoUrls[0]);
+  const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
 
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -55,6 +59,32 @@ export const Translations = () => {
     setVideoUrl(videoUrl => (videoUrl = videoUrls[i]));
   };
 
+  const toggleOrderModal = () => {
+    setIsOrderModalOpen(isOpen => !isOpen);
+    document.body.style.overflowY = 'hidden';
+  };
+
+  const closeOrderModal = () => {
+    setIsOrderModalOpen(isOpen => (isOpen = false));
+    !document.body.style.overflowY && isOrderModalOpen
+      ? (document.body.style.overflowY = 'hidden')
+      : (document.body.style.overflowY = '');
+  };
+
+  useEffect(() => {
+    const onEscapeClose = event => {
+      if (event.code === 'Escape' && isOrderModalOpen) {
+        closeOrderModal();
+      }
+    };
+
+    window.addEventListener('keydown', onEscapeClose);
+
+    return () => {
+      window.removeEventListener('keydown', onEscapeClose);
+    };
+  });
+
   return (
     <TranslationsBackground ref={translationsEl}>
       <TranslationsSection id="translations">
@@ -64,24 +94,27 @@ export const Translations = () => {
               <TranslationsTitle>
                 БЮРО <TranslationsSubTitle>ПЕРЕКЛАДІВ</TranslationsSubTitle>
               </TranslationsTitle>
-              <TranslationsNavigation ref={ref}>
-                {listItems.map((item, i) => (
-                  <NavigationItem key={i}>
-                    <TranslationsToggler
-                      className={language === item ? 'selected' : ''}
-                      onClick={() => toggleLanguage(item, i)}
-                    >
-                      {item}
-                      <TranslationsArrow className="on-hover" />
-                      {inView && (
-                        <TranslationsArrowInView
-                          style={{ animationDelay: `${i}s` }}
-                        />
-                      )}
-                    </TranslationsToggler>
-                  </NavigationItem>
-                ))}
-              </TranslationsNavigation>
+              <OrderBtnBox>
+                <TranslationsNavigation ref={ref}>
+                  {listItems.map((item, i) => (
+                    <NavigationItem key={i}>
+                      <TranslationsToggler
+                        className={language === item ? 'selected' : ''}
+                        onClick={() => toggleLanguage(item, i)}
+                      >
+                        {item}
+                        <TranslationsArrow className="on-hover" />
+                        {inView && (
+                          <TranslationsArrowInView
+                            style={{ animationDelay: `${i}s` }}
+                          />
+                        )}
+                      </TranslationsToggler>
+                    </NavigationItem>
+                  ))}
+                </TranslationsNavigation>
+                <OrderBtn onClick={toggleOrderModal}>ЗАМОВИТИ</OrderBtn>
+              </OrderBtnBox>
             </TranslationTextWrapper>
             <VideoLimiter>
               <VideoBox>
@@ -105,6 +138,10 @@ export const Translations = () => {
           </TranslationsWrapper>
         </Box>
       </TranslationsSection>
+
+      {isOrderModalOpen && (
+        <TranslationsOrderModal closeOrderModal={closeOrderModal} utms={utms} />
+      )}
     </TranslationsBackground>
   );
 };
