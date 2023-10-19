@@ -73,7 +73,7 @@ export const TranslationsOrderModal = ({ closeOrderModal, utms }) => {
     setIsLoading(isLoading => (isLoading = true));
 
     try {
-      const response = await axios.post('/leads', values);
+      const response = await axios.post('/tr-leads', values);
       console.log(response);
       resetForm();
       closeOrderModal();
@@ -117,6 +117,7 @@ export const TranslationsOrderModal = ({ closeOrderModal, utms }) => {
                 name="lang"
                 placeholder="Мова"
               >
+                <option value="" disabled hidden></option>
                 <option value="Англійська">Англійська</option>
                 <option value="Німецька">Німецька</option>
                 <option value="Польська">Польська</option>
