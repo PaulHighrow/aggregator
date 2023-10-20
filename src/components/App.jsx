@@ -12,6 +12,19 @@ const Home = lazy(() =>
 const Clone = lazy(() =>
   import(/* webpackChunkName: "Inverted Homepage" */ '../pages/Clone/Clone')
 );
+const English = lazy(() =>
+  import(
+    /* webpackChunkName: "English courses page" */ '../pages/English/English'
+  )
+);
+const Polski = lazy(() =>
+  import(/* webpackChunkName: "Polski courses page" */ '../pages/Polski/Polski')
+);
+const Deutsch = lazy(() =>
+  import(
+    /* webpackChunkName: "Deutsch courses page" */ '../pages/Deutsch/Deutsch'
+  )
+);
 const NotFound = lazy(() =>
   import(/* webpackChunkName: "Not Found" */ '../pages/NotFound/NotFound')
 );
@@ -78,6 +91,9 @@ export const App = () => {
           <Route path="/" element={<SharedLayout utms={utms} />}>
             <Route index element={<Home utms={utms} />} />
             <Route path="clone" element={<Clone utms={utms} />} />
+            <Route path="english" element={<English utms={utms} />} />
+            <Route path="polski" element={<Polski utms={utms} />} />
+            <Route path="deutsch" element={<Deutsch utms={utms} />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         )}

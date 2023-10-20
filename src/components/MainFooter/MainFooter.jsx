@@ -9,6 +9,7 @@ import {
   FooterList,
   FooterListItem,
   FooterLogo,
+  FooterPageNavLink,
   FooterNavLink,
   FooterSocials,
   IconBox,
@@ -19,7 +20,7 @@ import {
   LinkListItem,
   LinkListTitle,
   TikTokBtn,
-  YouTubeBtn
+  YouTubeBtn,
 } from './MainFooter.styled';
 import { Map } from './Map/Map';
 import useSize from '@react-hook/size';
@@ -32,9 +33,9 @@ export const MainFooter = ({ toggleModal }) => {
     { to: 'examcenter', service: 'Екзаменаційний центр' },
   ];
   const footerCoursesItems = [
-    'Англійська мова',
-    'Польська мова',
-    'Німецька мова',
+    { to: 'english', course: 'Англійська мова' },
+    { to: 'polski', course: 'Польська мова' },
+    { to: 'deutsch', course: 'Німецька мова' },
   ];
   const footerContactsItems = [
     { href: 'mailto:info@ap.education', contact: 'info@ap.education' },
@@ -104,9 +105,9 @@ export const MainFooter = ({ toggleModal }) => {
               <LinkList>
                 {footerServicesItems.map((item, i) => (
                   <LinkListItem key={i}>
-                    <FooterNavLink to={item.to} {...props}>
+                    <FooterPageNavLink to={item.to} {...props}>
                       {item.service}
-                    </FooterNavLink>
+                    </FooterPageNavLink>
                   </LinkListItem>
                 ))}
               </LinkList>
@@ -116,7 +117,7 @@ export const MainFooter = ({ toggleModal }) => {
               <LinkList>
                 {footerCoursesItems.map((item, i) => (
                   <LinkListItem key={i}>
-                    <FooterLink>{item}</FooterLink>
+                    <FooterNavLink to={item.to}>{item.course}</FooterNavLink>
                   </LinkListItem>
                 ))}
               </LinkList>
@@ -126,7 +127,7 @@ export const MainFooter = ({ toggleModal }) => {
               <LinkList>
                 {footerContactsItems.map((item, i) => (
                   <LinkListItem key={i}>
-                    <FooterLink href={item.href} target='_blank'>
+                    <FooterLink href={item.href} target="_blank">
                       {item.contact}
                     </FooterLink>
                   </LinkListItem>

@@ -238,6 +238,10 @@ export const MoreBtnBox = styled.div`
   flex-direction: column;
   
   margin-bottom: 21px;
+
+  @media screen and (min-width: 768px) {
+    margin: 0;
+  }
 `;
 
 export const MoreBtn = styled(LeadBtn)`

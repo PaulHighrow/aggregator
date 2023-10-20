@@ -23,6 +23,7 @@ export const ExamCenterSection = styled.section`
 
   @media screen and (min-width: 768px) {
     padding: 42px;
+    padding-top: 0;
   }
 
   @media screen and (min-width: 1280px) {
@@ -48,7 +49,6 @@ export const ExamCenterWrapper = styled.div`
 
   @media screen and (min-width: 1280px) {
     width: 1155px;
-
     gap: 40px;
   }
 

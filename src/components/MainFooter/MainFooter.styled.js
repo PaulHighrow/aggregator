@@ -7,6 +7,7 @@ import { ReactComponent as FacebookIcon } from '../../img/svg/social-links/faceb
 import { ReactComponent as InstagramIcon } from '../../img/svg/social-links/instagram.svg';
 import { ReactComponent as TikTokIcon } from '../../img/svg/social-links/tiktok.svg';
 import { ReactComponent as YouTubeIcon } from '../../img/svg/social-links/youtube.svg';
+import { NavLink } from 'react-router-dom';
 
 export const Footer = styled.footer`
   background-color: var(--main-color);
@@ -192,15 +193,44 @@ export const LinkListItem = styled.li`
   }
 `;
 
-export const FooterNavLink = styled(Link)`
+export const FooterPageNavLink = styled(Link)`
   position: relative;
   color: var(--secondary-color);
   cursor: pointer;
   text-decoration: none;
-  transition: color var(--animation-global), -webkit-text-stroke var(--animation-global);
+  transition: color var(--animation-global),
+    -webkit-text-stroke var(--animation-global);
 
   &:hover,
   &:focus {
+    color: var(--accent-color);
+    -webkit-text-stroke: 0.2px var(--accent-color);
+
+    @media screen and (min-width: 1280px) {
+      -webkit-text-stroke: 0.5px var(--accent-color);
+    }
+  }
+`;
+
+export const FooterNavLink = styled(NavLink)`
+  position: relative;
+  color: var(--secondary-color);
+  cursor: pointer;
+  text-decoration: none;
+  transition: color var(--animation-global),
+    -webkit-text-stroke var(--animation-global);
+
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+    -webkit-text-stroke: 0.2px var(--accent-color);
+
+    @media screen and (min-width: 1280px) {
+      -webkit-text-stroke: 0.5px var(--accent-color);
+    }
+  }
+
+  & .active {
     color: var(--accent-color);
     -webkit-text-stroke: 0.2px var(--accent-color);
 
@@ -215,7 +245,8 @@ export const FooterLink = styled.a`
   color: var(--secondary-color);
   cursor: pointer;
   text-decoration: none;
-  transition: color var(--animation-global), -webkit-text-stroke var(--animation-global);
+  transition: color var(--animation-global),
+    -webkit-text-stroke var(--animation-global);
 
   &:hover,
   &:focus {

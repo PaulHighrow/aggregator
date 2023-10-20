@@ -3,11 +3,14 @@ import { LeadForm } from 'components/LeadForm/LeadForm';
 import { MainFooter } from 'components/MainFooter/MainFooter';
 import { Menu } from 'components/Menu/Menu';
 import { UpButton } from 'components/UpButton/UpButton';
+import { InvertedMainFooter } from 'pages/Clone/InvertedMainFooter/InvertedMainFooter';
+import { InvertedMenu } from 'pages/Clone/InvertedMenu/InvertedMenu';
 import { Suspense, useEffect, useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import { Loader } from 'utils/Loader/Loader';
 
 export const SharedLayout = ({ utms }) => {
+  let location = useLocation();
   const [isOpenModal, setIsOpenModal] = useState(false);
 
   const toggleModal = () => {
@@ -38,7 +41,11 @@ export const SharedLayout = ({ utms }) => {
 
   return (
     <>
-      <Menu toggleModal={toggleModal} />
+      {location.pathname === '/' ? (
+        <Menu toggleModal={toggleModal} />
+      ) : (
+        <InvertedMenu toggleModal={toggleModal} />
+      )}
       <Suspense
         fallback={
           <>
@@ -49,7 +56,11 @@ export const SharedLayout = ({ utms }) => {
       >
         <Outlet />
       </Suspense>
+      {location.pathname === '/' ? (
       <MainFooter toggleModal={toggleModal} />
+      ) : (
+        <InvertedMainFooter toggleModal={toggleModal} />
+      )}
       <UpButton />
 
       {isOpenModal && <LeadForm closeModal={closeModal} utms={utms} />}

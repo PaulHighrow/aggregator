@@ -3,7 +3,10 @@ import styled from 'styled-components';
 import { BackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
 import { arrowAnimation } from 'components/HowItWorks/HowItWorks.styled';
 import { ReactComponent as Arrow } from '../../img/svg/menu-arrow.svg';
-import { MoreBtnBox, arrowAnimationTriggeredOnce } from 'components/EdCenter/EdCenter.styled';
+import {
+  MoreBtnBox,
+  arrowAnimationTriggeredOnce,
+} from 'components/EdCenter/EdCenter.styled';
 import { LeadBtn, wobblyOutline } from 'components/Menu/Menu.styled';
 
 import sketchOutlineSmall from 'img/svg/sketchOutlineSmall.svg';
@@ -12,7 +15,7 @@ export const TranslationsBackground = styled(BackgroundWrapper)`
   background-position: right -70px top 70px;
 
   @media screen and (min-width: 768px) {
-    background-position: center center;
+    background-position: top center;
   }
 
   @media screen and (min-width: 1280px) {
@@ -26,6 +29,7 @@ export const TranslationsSection = styled.section`
 
   @media screen and (min-width: 768px) {
     padding: 42px;
+    padding-bottom: 84px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -38,8 +42,9 @@ export const TranslationsWrapper = styled.div`
   max-width: 1280px;
 
   @media screen and (min-width: 768px) {
+    width: 684px;
     display: grid;
-    grid-template-columns: auto 339px;
+    grid-template-columns: auto 448px;
     gap: 30px;
     align-items: center;
 
@@ -47,15 +52,13 @@ export const TranslationsWrapper = styled.div`
   }
 
   @media screen and (min-width: 1280px) {
-    grid-template-columns: auto 360px;
-    padding-right: 25px;
+    width: 1155px;
+    grid-template-columns: auto 800px;
     gap: 40px;
   }
-`;
 
-export const TranslationTextWrapper = styled.div`
-  @media screen and (min-width: 1280px) {
-    padding-left: 100px;
+  @media screen and (min-width: 1390px) {
+    width: 1280px;
   }
 `;
 
@@ -67,6 +70,7 @@ export const TranslationsTitle = styled.h2`
   letter-spacing: 2px;
   -webkit-text-stroke: 1px var(--main-color);
   margin-bottom: 18px;
+  
 
   @media screen and (min-width: 360px) {
     width: 300px;
@@ -74,15 +78,17 @@ export const TranslationsTitle = styled.h2`
   }
 
   @media screen and (min-width: 768px) {
+    text-align: center;
+    margin: 0 auto;
     letter-spacing: 3.5px;
     margin-bottom: 52px;
-    width: 315px;
+    width: 415px;
     font-size: 55px;
     -webkit-text-stroke: 2px var(--main-color);
   }
 
   @media screen and (min-width: 1280px) {
-    width: 380px;
+    width: 630px;
     font-size: 70px;
     margin-bottom: 80px;
   }
@@ -97,11 +103,11 @@ export const TranslationsSubTitle = styled.span`
   color: var(--accent-color);
 
   @media screen and (min-width: 768px) {
-    font-size: 53px;
+    font-size: 70px;
   }
 
   @media screen and (min-width: 1280px) {
-    font-size: 64px;
+    font-size: 100px;
   }
 `;
 
@@ -109,15 +115,13 @@ export const TranslationsNavigation = styled.ul`
   color: var(--main-color);
   font-size: 26px;
   font-weight: 600;
-  max-width: 500px;
+  max-width: 350px;
   letter-spacing: 1.8px;
   display: flex;
   flex-direction: column;
   gap: 9px;
-  margin-bottom: 21px;
 
   @media screen and (min-width: 768px) {
-    padding-left: 45px;
     font-size: 32px;
     gap: 10px;
     margin: 0;
@@ -179,7 +183,7 @@ export const TranslationsArrow = styled(Arrow)`
 
   @media screen and (min-width: 768px) {
     left: -6px;
-    width: 300px;
+    width: 230px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -207,20 +211,16 @@ export const VideoLimiter = styled.div`
     max-width: 448px;
   }
   @media screen and (min-width: 1280px) {
-    max-width: 360px;
+    max-width: 800px;
   }
 `;
 
 export const VideoBox = styled.div`
   position: relative;
-  padding-top: calc(9 / 16 * 100%);
+  padding-top: 56.25%;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: -10px -10px 30px 0px #00000040;
-
-  @media screen and (min-width: 768px) {
-    padding-top: calc(16 / 9 * 100%);
-  }
 `;
 
 export const OrderBtn = styled(LeadBtn)`
@@ -235,4 +235,9 @@ export const OrderBtn = styled(LeadBtn)`
 `;
 
 export const OrderBtnBox = styled(MoreBtnBox)`
-`
+  margin-bottom: 21px;
+
+  @media screen and (min-width: 768px) {
+    margin: 0;
+  }
+`;
