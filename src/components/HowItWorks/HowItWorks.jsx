@@ -53,7 +53,7 @@ export const HowItWorks = () => {
           <VideoBox>
             <ReactPlayer
               loop={true}
-              controls={true}
+              playing={true}
               style={{
                 display: 'block',
                 position: 'absolute',
@@ -62,7 +62,7 @@ export const HowItWorks = () => {
               }}
               width="100%"
               height="100%"
-              url="https://youtu.be/cJH4FUP99rA?si=clJ5upwIiebB7Fzt"
+              url="https://assets-global.website-files.com/625593a881b8ebd169835ca5/628cd51661a07cf1eb23a7db_Family%20Vacation%20-%20Screen-transcode.mp4"
             />
           </VideoBox>
         </VideoLimiter>

@@ -9,7 +9,6 @@ import {
   FooterList,
   FooterListItem,
   FooterLogo,
-  FooterPageNavLink,
   FooterNavLink,
   FooterSocials,
   IconBox,
@@ -23,19 +22,19 @@ import {
   YouTubeBtn,
 } from './MainFooter.styled';
 import { Map } from './Map/Map';
-import useSize from '@react-hook/size';
 
 export const MainFooter = ({ toggleModal }) => {
   const footerServicesItems = [
-    { to: 'edcenter', service: 'Навчальний центр' },
-    { to: 'translations', service: 'Перекладацьке бюро' },
-    { to: 'admissions', service: 'Вступ до ВНЗ' },
-    { to: 'examcenter', service: 'Екзаменаційний центр' },
+    { to: '/education', service: 'Навчальний центр' },
+    { to: '/examination', service: 'Екзаменаційний центр' },
+    { to: '/translation', service: 'Перекладацьке бюро' },
+    // { to: 'admission', service: 'Вступ до ВНЗ' },
+    
   ];
   const footerCoursesItems = [
-    { to: 'english', course: 'Англійська мова' },
-    { to: 'polski', course: 'Польська мова' },
-    { to: 'deutsch', course: 'Німецька мова' },
+    { to: '/english', course: 'Англійська мова' },
+    { to: '/polski', course: 'Польська мова' },
+    { to: '/deutsch', course: 'Німецька мова' },
   ];
   const footerContactsItems = [
     { href: 'mailto:info@ap.education', contact: 'info@ap.education' },
@@ -45,14 +44,6 @@ export const MainFooter = ({ toggleModal }) => {
       contact: 'м.Львів, вул.Братів Рогатинців, 18',
     },
   ];
-
-  // eslint-disable-next-line
-  const [width, _] = useSize(document.body);
-
-  const props =
-    width < 768
-      ? { spy: true, smooth: true, offset: -73 }
-      : { spy: true, smooth: true };
 
   return (
     <Footer>
@@ -105,9 +96,9 @@ export const MainFooter = ({ toggleModal }) => {
               <LinkList>
                 {footerServicesItems.map((item, i) => (
                   <LinkListItem key={i}>
-                    <FooterPageNavLink to={item.to} {...props}>
+                    <FooterNavLink to={item.to}>
                       {item.service}
-                    </FooterPageNavLink>
+                    </FooterNavLink>
                   </LinkListItem>
                 ))}
               </LinkList>

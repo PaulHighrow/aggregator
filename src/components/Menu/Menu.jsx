@@ -1,7 +1,7 @@
 import useSize from '@react-hook/size';
 import { Navigation } from 'components/Navigation/Navigation';
 import { useRef, useState } from 'react';
-import { ReactComponent as LoginIcon } from '../../img/svg/loginIcon.svg';
+import { ReactComponent as LoginIcon } from '../../img/svg/invertedLoginIcon.svg';
 import {
   Header,
   HeaderText,
@@ -38,7 +38,7 @@ export const Menu = ({ toggleModal }) => {
         </HeaderWrapper>
 
         {width < 1 && (
-          <PhoneNumber href="tel:+380638989102">+380638989102</PhoneNumber>
+          <PhoneNumber href="tel:+380671047700">+380671047700</PhoneNumber>
         )}
         {width >= 768 && (
           <LeadBtn onClick={toggleModal}> ШВИДКА КОНСУЛЬТАЦІЯ </LeadBtn>

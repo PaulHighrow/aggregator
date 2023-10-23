@@ -1,9 +1,19 @@
 import { BackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { ReactComponent as UnderlineShort } from '../../img/svg/exam-underline-short.svg';
 import { ReactComponent as UnderlineMedium } from '../../img/svg/exam-underline-medium.svg';
 import { ReactComponent as UnderlineLong } from '../../img/svg/exam-underline-long.svg';
+import { ReactComponent as LoopyLine } from '../../img/svg/loopyLine.svg';
 import { PageNavigationText } from 'components/HowItWorks/HowItWorks.styled';
+
+const pathAnimation = keyframes`
+  0%{
+    stroke-dashoffset: 1;
+  }
+  100%{
+    stroke-dashoffset: 0;
+  }
+`;
 
 export const ExamCenterBackground = styled(BackgroundWrapper)`
   background-position: left -70px bottom 0px;
@@ -199,10 +209,22 @@ export const VideoBox = styled.div`
   box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.25);
 `;
 
+export const NavAnimationWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding-right: 43px;
+
+  @media screen and (min-width: 1280px) {
+    padding-right: 75px;
+  }
+`;
+
 export const NavigationWrapper = styled.div`
+  width: 350px;
   padding-left: 11px;
 
   @media screen and (min-width: 768px) {
+    width: 400px;
     padding-left: 43px;
   }
 
@@ -233,4 +255,19 @@ export const BottomPageNavigationText = styled(PageNavigationText)`
   right: 0px;
   left: 325px;
   bottom: -2px;
+`;
+
+export const LoopyLineIcon = styled(LoopyLine)`
+  width: 90px;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 2;
+  animation-name: ${pathAnimation};
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+
+  @media screen and (min-width: 1280px) {
+    width: 120px;
+  }
 `;

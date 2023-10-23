@@ -22,13 +22,13 @@ export const EdCenterModal = ({ closeNavModal }) => {
         </MarqueeCloseBtn>
         <RouteModalText>Куди їдемо?</RouteModalText>
         <PageLinkBox>
-          <PageLink to="english" onClick={allowScroll}>
+          <PageLink to="/english" onClick={allowScroll}>
             Англійська
           </PageLink>
-          <PageLink to="polski" onClick={allowScroll}>
+          <PageLink to="/polski" onClick={allowScroll}>
             Польська
           </PageLink>
-          <PageLink to="deutsch" onClick={allowScroll}>
+          <PageLink to="/deutsch" onClick={allowScroll}>
             Німецька
           </PageLink>
         </PageLinkBox>

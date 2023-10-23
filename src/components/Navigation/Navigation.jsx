@@ -1,7 +1,7 @@
 import useSize from '@react-hook/size';
 import { HeaderText, LeadBtn, PlatformLink } from 'components/Menu/Menu.styled';
 import { useState } from 'react';
-import { ReactComponent as LoginIcon } from '../../img/svg/loginIcon.svg';
+import { ReactComponent as LoginIcon } from '../../img/svg/invertedLoginIcon.svg';
 import {
   MenuButtonsWrapper,
   NavigationItem,
@@ -55,11 +55,11 @@ export const Navigation = ({ toggleMenu, toggleModal, className }) => {
             Навчальний центр
           </NavigationLink>
         </NavigationItem>
-        <NavigationItem>
+        {/* <NavigationItem>
           <NavigationLink to="admissions" {...props}>
             Бюро кар'єри
           </NavigationLink>
-        </NavigationItem>
+        </NavigationItem> */}
         <NavigationItem>
           <NavigationLink to="translations" {...props}>
             Бюро перекладів

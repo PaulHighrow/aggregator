@@ -25,6 +25,26 @@ const Deutsch = lazy(() =>
     /* webpackChunkName: "Deutsch courses page" */ '../pages/Deutsch/Deutsch'
   )
 );
+const Education = lazy(() =>
+  import(
+    /* webpackChunkName: "Education center page" */ '../pages/Education/Education'
+  )
+);
+const Examination = lazy(() =>
+  import(
+    /* webpackChunkName: "Examination center page" */ '../pages/Examination/Examination'
+  )
+);
+const Translation = lazy(() =>
+  import(
+    /* webpackChunkName: "Translation bureau page" */ '../pages/Translation/Translation'
+  )
+);
+const Career = lazy(() =>
+  import(
+    /* webpackChunkName: "Career and admission page" */ '../pages/Career/Career'
+  )
+);
 const NotFound = lazy(() =>
   import(/* webpackChunkName: "Not Found" */ '../pages/NotFound/NotFound')
 );
@@ -94,6 +114,10 @@ export const App = () => {
             <Route path="english" element={<English utms={utms} />} />
             <Route path="polski" element={<Polski utms={utms} />} />
             <Route path="deutsch" element={<Deutsch utms={utms} />} />
+            <Route path="education" element={<Education utms={utms} />} />
+            <Route path="examination" element={<Examination utms={utms} />} />
+            <Route path="translation" element={<Translation utms={utms} />} />
+            <Route path="career" element={<Career utms={utms} />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         )}

@@ -7,9 +7,9 @@ import { ReactComponent as HeroSVG } from '../../img/svg/hero-caveat.svg';
 export const HeroSection = styled.section`
   position: relative;
   min-height: 500px;
-  padding-top: 50px;
+  padding-top: 30px;
   padding-bottom: 30px;
-  margin-top: 73px;
+  margin-top: 60px;
 
   @media screen and (min-width: 768px) {
     padding-bottom: 40px;
@@ -38,9 +38,9 @@ export const Title = styled.h1`
   margin: 0 auto 30px auto;
 
   @media screen and (min-width: 768px) {
-    margin-bottom: 80px;
+    margin-bottom: 65px;
     letter-spacing: 3.5px;
-    width: 500px;
+    width: 700px;
     font-size: 70px;
     -webkit-text-stroke: 2px var(--main-color);
   }
@@ -137,7 +137,7 @@ export const DescriptionTrigger = styled.span`
   position: relative;
   max-width: max-content;
   margin: 0 auto;
-  margin-bottom: 54px;
+  margin-bottom: 30px;
   cursor: pointer;
 
   font-family: var(--secondary-font-family);
@@ -151,7 +151,7 @@ export const DescriptionTrigger = styled.span`
 
   @media screen and (min-width: 768px) {
     font-size: 22px;
-    margin-bottom: 55px;
+    margin-bottom: 40px;
   }
 
   &:hover,

@@ -4,25 +4,26 @@ import { Link } from 'react-scroll';
 export const StyledNavigation = styled.nav`
   position: fixed;
   width: 100%;
-  top: 73px;
+  max-width: 360px;
+  top: 60px;
   right: 0%;
   font-size: 20px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
   z-index: 5;
-  background-color: var(--main-color);
+  background-color: var(--secondary-color);
   transition: opacity var(--animation-global), transform var(--animation-global);
 
   @media screen and (min-width: 768px) {
     position: absolute;
-    width: 360px;
-    top: 89px;
+    top: 75px;
     left: 0%;
     font-weight: 500;
   }
 
   @media screen and (min-width: 1280px) {
-    top: 105px;
+    top: 90px;
   }
 `;
 
@@ -45,11 +46,6 @@ export const NavigationList = styled.ul`
 
   @media screen and (min-width: 768px) {
     border: none;
-    gap: 10px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    gap: 10px;
   }
 
   color: var(--secondary-color);
@@ -58,13 +54,17 @@ export const NavigationList = styled.ul`
 
 export const NavigationItem = styled.li`
   overflow: hidden;
+
+  &:not(:last-child) {
+    border-bottom: 0.5px solid var(--main-color);
+  }
 `;
 
 export const NavigationLink = styled(Link)`
   display: block;
   text-decoration: none;
   text-transform: uppercase;
-  color: var(--secondary-color);
+  color: var(--main-color);
   cursor: pointer;
   transition: color var(--animation-global),
     background-color var(--animation-global),
@@ -74,12 +74,12 @@ export const NavigationLink = styled(Link)`
   &:hover,
   &:focus,
   &:active {
-    color: white;
+    color: var(--accent-color);
 
     @media screen and (min-width: 1280px) {
       color: var(--main-color);
       text-shadow: 0.5px 0px 0.5px rgba(0, 0, 0, 0.75);
-      background-color: var(--secondary-burnt-color);
+      background-color: var(--main-transparent-color);
     }
   }
 `;

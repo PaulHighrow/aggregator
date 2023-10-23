@@ -1,12 +1,14 @@
+import useSize from '@react-hook/size';
 import { Box } from 'components/Box/Box.styled';
 import {
   PageNavigation,
   PageNavigationArrow,
   PageNavigationItem,
-  PageNavigationLink
+  PageNavigationLink,
 } from 'components/HowItWorks/HowItWorks.styled';
 import { LeadBtn } from 'components/Menu/Menu.styled';
 import { useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 import ReactPlayer from 'react-player/lazy';
 import {
   BottomPageNavigationText,
@@ -20,13 +22,14 @@ import {
   ExamTogglerUnderlineLong,
   ExamTogglerUnderlineMedium,
   ExamTogglerUnderlineShort,
+  LoopyLineIcon,
+  NavAnimationWrapper,
   NavigationDesc,
   NavigationItem,
   NavigationWrapper,
   VideoBox,
   VideoLimiter,
 } from './ExamCenter.styled';
-import useSize from '@react-hook/size';
 
 export const ExamCenter = ({ toggleModal }) => {
   const [examType, setExamType] = useState('ESOL');
@@ -48,6 +51,11 @@ export const ExamCenter = ({ toggleModal }) => {
   ];
   // eslint-disable-next-line
   const [width, _] = useSize(document.body);
+
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    delay: 1000,
+  });
 
   const props =
     width < 768
@@ -107,20 +115,25 @@ export const ExamCenter = ({ toggleModal }) => {
               />
             </VideoBox>
           </VideoLimiter>
-          <NavigationWrapper>
-            <NavigationDesc>... всі наші послуги</NavigationDesc>
-            <PageNavigation>
-              {navListItems.map((item, i) => (
-                <PageNavigationItem key={i}>
-                  <PageNavigationLink to={item.to} {...props}>
-                    {item.service}
-                    <PageNavigationArrow />
-                    <BottomPageNavigationText>перейти</BottomPageNavigationText>
-                  </PageNavigationLink>
-                </PageNavigationItem>
-              ))}
-            </PageNavigation>
-          </NavigationWrapper>
+          <NavAnimationWrapper ref={ref}>
+            <NavigationWrapper>
+              <NavigationDesc>... всі наші послуги</NavigationDesc>
+              <PageNavigation>
+                {navListItems.map((item, i) => (
+                  <PageNavigationItem key={i}>
+                    <PageNavigationLink to={item.to} {...props}>
+                      {item.service}
+                      <PageNavigationArrow />
+                      <BottomPageNavigationText>
+                        перейти
+                      </BottomPageNavigationText>
+                    </PageNavigationLink>
+                  </PageNavigationItem>
+                ))}
+              </PageNavigation>
+            </NavigationWrapper>
+            {inView && <LoopyLineIcon />}
+          </NavAnimationWrapper>
         </Box>
       </ExamCenterSection>
     </ExamCenterBackground>
