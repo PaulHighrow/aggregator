@@ -1,5 +1,6 @@
 import { Box } from 'components/Box/Box.styled';
-import { LeadBtn, LogoLink } from '../../../components/Menu/Menu.styled';
+import { Map } from '../../../components/MainFooter/Map/Map';
+import { LeadBtn } from '../../../components/Menu/Menu.styled';
 import {
   FacebookBtn,
   Footer,
@@ -9,6 +10,7 @@ import {
   FooterList,
   FooterListItem,
   FooterLogo,
+  FooterLogoLink,
   FooterNavLink,
   FooterSocials,
   IconBox,
@@ -18,23 +20,22 @@ import {
   LinkList,
   LinkListItem,
   LinkListTitle,
+  SocialLogoLink,
   TikTokBtn,
   YouTubeBtn
 } from './InvertedMainFooter.styled';
-import { Map } from '../../../components/MainFooter/Map/Map';
-import useSize from '@react-hook/size';
 
 export const InvertedMainFooter = ({ toggleModal }) => {
   const footerServicesItems = [
-    { to: 'edcenter', service: 'Навчальний центр' },
-    { to: 'translations', service: 'Перекладацьке бюро' },
-    { to: 'admissions', service: 'Вступ до ВНЗ' },
-    { to: 'examcenter', service: 'Екзаменаційний центр' },
+    { to: '/education', service: 'Навчальний центр' },
+    { to: '/examination', service: 'Екзаменаційний центр' },
+    { to: '/translation', service: 'Перекладацьке бюро' },
+    // { to: 'admissions', service: 'Вступ до ВНЗ' },
   ];
   const footerCoursesItems = [
-    'Англійська мова',
-    'Польська мова',
-    'Німецька мова',
+    { to: '/english', course: 'Англійська мова' },
+    { to: '/polski', course: 'Польська мова' },
+    { to: '/deutsch', course: 'Німецька мова' },
   ];
   const footerContactsItems = [
     { href: 'mailto:info@ap.education', contact: 'info@ap.education' },
@@ -45,52 +46,44 @@ export const InvertedMainFooter = ({ toggleModal }) => {
     },
   ];
 
-  // eslint-disable-next-line
-  const [width, _] = useSize(document.body);
-
-  const props =
-    width < 768
-      ? { spy: true, smooth: true, offset: -73 }
-      : { spy: true, smooth: true };
-
   return (
     <Footer>
       <Box>
         <FooterBox>
           <FooterLeftBox>
             <IconBox>
-              <LogoLink href="https://www.ap-education.com.ua/">
+              <FooterLogoLink to="/">
                 <FooterLogo />
-              </LogoLink>
+              </FooterLogoLink>
               <FooterSocials>
-                <LogoLink
+                <SocialLogoLink
                   href="https://www.instagram.com/ap.education/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <InstagramBtn />
-                </LogoLink>
-                <LogoLink
+                </SocialLogoLink>
+                <SocialLogoLink
                   href="https://www.facebook.com/ap.edu.centre/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <FacebookBtn />
-                </LogoLink>
-                <LogoLink
+                </SocialLogoLink>
+                <SocialLogoLink
                   href="https://www.tiktok.com/@ap_education"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <TikTokBtn />
-                </LogoLink>
-                <LogoLink
+                </SocialLogoLink>
+                <SocialLogoLink
                   href="https://www.youtube.com/channel/UC3XSGAVLhPXXlMN5-Gebtvw"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <YouTubeBtn />
-                </LogoLink>
+                </SocialLogoLink>
               </FooterSocials>
             </IconBox>
             <LeadWrapper>
@@ -104,7 +97,7 @@ export const InvertedMainFooter = ({ toggleModal }) => {
               <LinkList>
                 {footerServicesItems.map((item, i) => (
                   <LinkListItem key={i}>
-                    <FooterNavLink to={item.to} {...props}>
+                    <FooterNavLink to={item.to}>
                       {item.service}
                     </FooterNavLink>
                   </LinkListItem>
@@ -116,7 +109,7 @@ export const InvertedMainFooter = ({ toggleModal }) => {
               <LinkList>
                 {footerCoursesItems.map((item, i) => (
                   <LinkListItem key={i}>
-                    <FooterLink>{item}</FooterLink>
+                    <FooterNavLink to={item.to}>{item.course}</FooterNavLink>
                   </LinkListItem>
                 ))}
               </LinkList>

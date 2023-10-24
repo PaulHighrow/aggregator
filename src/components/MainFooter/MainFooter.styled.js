@@ -1,8 +1,8 @@
-import { Logo, LogoLink } from 'components/Menu/Menu.styled';
+import { Logo } from 'components/Menu/Menu.styled';
 import styled from 'styled-components';
 
 import { PiMapPinDuotone } from 'react-icons/pi';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { ReactComponent as FacebookIcon } from '../../img/svg/social-links/facebook.svg';
 import { ReactComponent as InstagramIcon } from '../../img/svg/social-links/instagram.svg';
 import { ReactComponent as TikTokIcon } from '../../img/svg/social-links/tiktok.svg';
@@ -39,8 +39,17 @@ export const IconBox = styled.div`
   }
 `;
 
+export const FooterLogoLink = styled(Link)`
+  display: inline;
+  text-decoration: none;
+`;
+
+export const SocialLogoLink = styled.a`
+  text-decoration: none;
+`;
+
 export const FooterLogo = styled(Logo)`
-  height: 50px;
+  width: 60px;
   display: block;
   flex-shrink: 0;
   margin: 0 auto;
@@ -48,9 +57,13 @@ export const FooterLogo = styled(Logo)`
   height: 100%;
   transition: transform var(--animation-global), filter var(--animation-global);
 
-  ${LogoLink}:hover & {
+  ${FooterLogoLink}:hover & {
     transform: scale(1.2);
     filter: drop-shadow(0px 0px 0.5px #00000054);
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 64px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -80,7 +93,7 @@ const socialBtnStylesOnHover =
 export const InstagramBtn = styled(InstagramIcon)`
   ${socialBtnStyles}
 
-  ${LogoLink}:hover & {
+  ${SocialLogoLink}:hover & {
     ${socialBtnStylesOnHover}
   }
 `;
@@ -88,7 +101,7 @@ export const InstagramBtn = styled(InstagramIcon)`
 export const FacebookBtn = styled(FacebookIcon)`
   ${socialBtnStyles}
 
-  ${LogoLink}:hover & {
+  ${SocialLogoLink}:hover & {
     ${socialBtnStylesOnHover}
   }
 `;
@@ -96,7 +109,7 @@ export const FacebookBtn = styled(FacebookIcon)`
 export const TikTokBtn = styled(TikTokIcon)`
   ${socialBtnStyles}
 
-  ${LogoLink}:hover & {
+  ${SocialLogoLink}:hover & {
     ${socialBtnStylesOnHover}
   }
 `;
@@ -104,7 +117,7 @@ export const TikTokBtn = styled(TikTokIcon)`
 export const YouTubeBtn = styled(YouTubeIcon)`
   ${socialBtnStyles}
 
-  ${LogoLink}:hover & {
+  ${SocialLogoLink}:hover & {
     ${socialBtnStylesOnHover}
   }
 `;

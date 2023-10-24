@@ -31,6 +31,10 @@ export const TranslationsOrderModal = ({ closeOrderModal, utms }) => {
     utm_source: '',
     utm_term: '',
     utm_referrer: '',
+    referrer: '',
+    gclientid: '',
+    gclid: '',
+    fbclid: '',
   };
 
   const leadSchema = yup.object().shape({
@@ -59,6 +63,10 @@ export const TranslationsOrderModal = ({ closeOrderModal, utms }) => {
     utm_source: yup.string().optional(),
     utm_term: yup.string().optional(),
     utm_referrer: yup.string().optional(),
+    referrer: yup.string().optional(),
+    gclientid: yup.string().optional(),
+    gclid: yup.string().optional(),
+    fbclid: yup.string().optional(),
   });
 
   const handleSubmit = async (values, { resetForm }) => {
@@ -69,6 +77,10 @@ export const TranslationsOrderModal = ({ closeOrderModal, utms }) => {
     values.utm_source = utms.utm_source;
     values.utm_term = utms.utm_term;
     values.utm_referrer = utms.utm_referrer;
+    values.referrer = utms.referrer;
+    values.gclientid = utms.gclientid;
+    values.gclid = utms.gclid;
+    values.fbclid = utms.fbclid;
     console.log(values);
     setIsLoading(isLoading => (isLoading = true));
 
@@ -112,11 +124,7 @@ export const TranslationsOrderModal = ({ closeOrderModal, utms }) => {
               <InputNote component="p" name="phone" />
             </Label>
             <Label>
-              <Input
-                component="select"
-                name="lang"
-                placeholder="Мова"
-              >
+              <Input component="select" name="lang" placeholder="Мова">
                 <option value="" disabled hidden></option>
                 <option value="Англійська">Англійська</option>
                 <option value="Німецька">Німецька</option>
@@ -130,6 +138,10 @@ export const TranslationsOrderModal = ({ closeOrderModal, utms }) => {
             <HiddenInput type="text" name="utm_source" />
             <HiddenInput type="text" name="utm_term" />
             <HiddenInput type="text" name="utm_referrer" />
+            <HiddenInput type="text" name="referrer" />
+            <HiddenInput type="text" name="gclientid" />
+            <HiddenInput type="text" name="gclid" />
+            <HiddenInput type="text" name="fbclid" />
             <FormBtn type="submit">Надіслати</FormBtn>
             {isLoading && <Loader />}
           </StyledForm>

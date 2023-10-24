@@ -8,11 +8,10 @@ import {
   HeaderWrapper,
   LeadBtn,
   Logo,
-  LogoLink,
+  LogoRoute,
   MobileMenuBtn,
   MobileMenuIcon,
-  PhoneNumber,
-  PlatformLink,
+  PlatformLink
 } from './Menu.styled';
 
 export const Menu = ({ toggleModal }) => {
@@ -29,17 +28,13 @@ export const Menu = ({ toggleModal }) => {
     <>
       <Header id="header" ref={headerEl}>
         <HeaderWrapper>
-          <LogoLink href="https://www.ap-education.com.ua/">
+          <LogoRoute to="/">
             <Logo />
-          </LogoLink>
+          </LogoRoute>
           <MobileMenuBtn onClick={toggleMenu}>
             <HeaderText>МЕНЮ</HeaderText> <MobileMenuIcon />
           </MobileMenuBtn>
         </HeaderWrapper>
-
-        {width < 1 && (
-          <PhoneNumber href="tel:+380671047700">+380671047700</PhoneNumber>
-        )}
         {width >= 768 && (
           <LeadBtn onClick={toggleModal}> ШВИДКА КОНСУЛЬТАЦІЯ </LeadBtn>
         )}

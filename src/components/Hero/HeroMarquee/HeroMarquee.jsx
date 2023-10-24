@@ -193,7 +193,7 @@ export const HeroMarquee = ({ toggleModal }) => {
 
         <MarqueeChild id={3} onClick={handleToggleModal}>
           <MarqueeOverlay>
-            <MarqueeText>Відгуки наших клієнтів</MarqueeText>
+            <MarqueeText>Навчальний центр</MarqueeText>
           </MarqueeOverlay>
           <MarqueePicture>
             <source
@@ -226,6 +226,38 @@ export const HeroMarquee = ({ toggleModal }) => {
         <MarqueeChild id={4} onClick={handleToggleModal}>
           <MarqueeOverlay>
             <MarqueeText>Перекладацьке бюро</MarqueeText>
+          </MarqueeOverlay>
+          <MarqueePicture>
+            <source
+              media="(min-width:768px)"
+              srcSet={`${heroMarquee5large1xwebp} 1x, ${heroMarquee5large2xwebp} 2x`}
+              type="image/webp"
+            />
+            <source
+              media="(min-width:768px)"
+              srcSet={`${heroMarquee5large1xpng} 1x, ${heroMarquee5large2xpng} 2x`}
+              type="image/png"
+            />
+            <source
+              media="(max-width:767px)"
+              srcSet={`${heroMarquee5small1xwebp} 1x, ${heroMarquee5small2xwebp} 2x`}
+              type="image/webp"
+            />
+            <source
+              media="(max-width:767px)"
+              srcSet={`${heroMarquee5small1xpng} 1x, ${heroMarquee5small2xpng} 2x`}
+              type="image/png"
+            />
+            <MarqueeImg
+              src={heroMarquee5small1xpng}
+              alt="Education Center marquee placeholder"
+            />
+          </MarqueePicture>
+        </MarqueeChild>
+
+        <MarqueeChild id={5} onClick={handleToggleModal}>
+          <MarqueeOverlay>
+            <MarqueeText>Екзаменаційний центр</MarqueeText>
           </MarqueeOverlay>
           <MarqueePicture>
             <source

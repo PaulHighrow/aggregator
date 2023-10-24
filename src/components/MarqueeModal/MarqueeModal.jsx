@@ -27,7 +27,7 @@ const serviceList = [
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio et, consectetur eos maiores corrupti quaerat alias facilis fugiat laudantium accusantium quibusdam, aperiam pariatur fuga aspernatur.',
   },
   {
-    title: 'Відгуки наших клієнтів',
+    title: 'Навчальний центр',
     videoUrl: 'https://youtu.be/Sagg08DrO5U?si=FAeZdQ2Zz9ksXsrt',
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque accusamus aliquam quae, quis quasi labore maiores eveniet accusantium dicta quam beatae qui eius, esse facilis.',
   },
@@ -35,6 +35,11 @@ const serviceList = [
     title: 'Перекладацьке бюро',
     videoUrl: 'https://youtu.be/Sagg08DrO5U?si=FAeZdQ2Zz9ksXsrt',
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati deserunt, labore aut eveniet, iure impedit ipsum rem dignissimos nesciunt quis illum consequatur. Voluptatibus delectus nulla dicta inventore vero provident aspernatur!',
+  },
+  {
+    title: 'Екзаменаційний центр',
+    videoUrl: 'https://youtu.be/Sagg08DrO5U?si=FAeZdQ2Zz9ksXsrt',
+    desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus libero, facere hic repellendus commodi dolore impedit, porro error vel exercitationem minus sed architecto amet eum inventore dolorum ratione. Possimus, rerum. Assumenda ipsum earum qui eos, sequi molestias natus neque, ipsam non eum aliquid voluptatibus voluptas alias, cumque expedita eligendi temporibus!',
   },
 ];
 

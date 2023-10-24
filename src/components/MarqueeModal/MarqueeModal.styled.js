@@ -61,7 +61,7 @@ export const ModalDesc = styled.p`
   color: var(--secondary-color);
   font-size: 18px;
   max-height: 150px;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 
   @media screen and (min-width: 768px) {
     font-size: 19px;

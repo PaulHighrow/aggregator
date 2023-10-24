@@ -1,5 +1,5 @@
 import { Box } from 'components/Box/Box.styled';
-import { LeadBtn, LogoLink } from '../Menu/Menu.styled';
+import { LeadBtn } from '../Menu/Menu.styled';
 import {
   FacebookBtn,
   Footer,
@@ -9,6 +9,7 @@ import {
   FooterList,
   FooterListItem,
   FooterLogo,
+  FooterLogoLink,
   FooterNavLink,
   FooterSocials,
   IconBox,
@@ -18,6 +19,7 @@ import {
   LinkList,
   LinkListItem,
   LinkListTitle,
+  SocialLogoLink,
   TikTokBtn,
   YouTubeBtn,
 } from './MainFooter.styled';
@@ -51,38 +53,38 @@ export const MainFooter = ({ toggleModal }) => {
         <FooterBox>
           <FooterLeftBox>
             <IconBox>
-              <LogoLink href="https://www.ap-education.com.ua/">
+              <FooterLogoLink to="/">
                 <FooterLogo />
-              </LogoLink>
+              </FooterLogoLink>
               <FooterSocials>
-                <LogoLink
+                <SocialLogoLink
                   href="https://www.instagram.com/ap.education/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <InstagramBtn />
-                </LogoLink>
-                <LogoLink
+                </SocialLogoLink>
+                <SocialLogoLink
                   href="https://www.facebook.com/ap.edu.centre/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <FacebookBtn />
-                </LogoLink>
-                <LogoLink
+                </SocialLogoLink>
+                <SocialLogoLink
                   href="https://www.tiktok.com/@ap_education"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <TikTokBtn />
-                </LogoLink>
-                <LogoLink
+                </SocialLogoLink>
+                <SocialLogoLink
                   href="https://www.youtube.com/channel/UC3XSGAVLhPXXlMN5-Gebtvw"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <YouTubeBtn />
-                </LogoLink>
+                </SocialLogoLink>
               </FooterSocials>
             </IconBox>
             <LeadWrapper>

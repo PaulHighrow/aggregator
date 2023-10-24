@@ -1,8 +1,9 @@
 import styled, { keyframes } from 'styled-components';
-import { ReactComponent as LogoIcon } from '../../img/svg/invertedLogo.svg';
 import { ReactComponent as MenuDownArrow } from '../../img/svg/invertedDownArrow.svg';
+import { ReactComponent as LogoIcon } from '../../img/svg/invertedLogo.svg';
 
 import sketchOutline from 'img/svg/sketchOutline.svg';
+import { Link } from 'react-router-dom';
 
 export const Header = styled.header`
   position: fixed;
@@ -13,7 +14,9 @@ export const Header = styled.header`
   padding: 0 30px;
   height: 60px;
   background-color: var(--secondary-color);
-  box-shadow: rgba(0, 0, 0, 0.06) 0px 1px 10px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 0.5px 5px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 0.5px;
+  /* box-shadow: rgba(0, 0, 0, 0.06) 0px 1px 10px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -74,22 +77,8 @@ export const MobileMenuIcon = styled(MenuDownArrow)`
   }
 `;
 
-export const PhoneNumber = styled.a`
-  font-size: 20px;
-  font-weight: 500;
-  color: var(--main-color);
+export const LogoRoute = styled(Link)`
   text-decoration: none;
-  transition: color var(--animation-global);
-
-  &:hover,
-  &:focus {
-    color: #fff;
-  }
-`;
-
-export const LogoLink = styled.a`
-  text-decoration: none;
-  text-transform: uppercase;
 `;
 
 export const Logo = styled(LogoIcon)`
@@ -100,7 +89,7 @@ export const Logo = styled(LogoIcon)`
   height: 100%;
   transition: transform var(--animation-global), filter var(--animation-global);
 
-  ${LogoLink}:hover & {
+  ${LogoRoute}:hover & {
     transform: scale(1.2);
     filter: drop-shadow(0px 0px 0.5px #00000054);
   }

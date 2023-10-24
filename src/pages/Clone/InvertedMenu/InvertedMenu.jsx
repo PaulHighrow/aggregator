@@ -1,18 +1,17 @@
 import useSize from '@react-hook/size';
 import { Navigation } from 'components/Navigation/Navigation';
 import { useRef, useState } from 'react';
-import { ReactComponent as LoginIcon } from '../../../img/svg/invertedLoginIcon.svg';
+import { ReactComponent as LoginIcon } from '../../../img/svg/loginIcon.svg';
 import {
   Header,
   HeaderText,
   HeaderWrapper,
   LeadBtn,
   Logo,
-  LogoLink,
+  LogoRoute,
   MobileMenuBtn,
   MobileMenuIcon,
-  PhoneNumber,
-  PlatformLink,
+  PlatformLink
 } from './InvertedMenu.styled';
 
 export const InvertedMenu = ({ toggleModal }) => {
@@ -27,19 +26,15 @@ export const InvertedMenu = ({ toggleModal }) => {
 
   return (
     <>
-      <Header ref={headerEl}>
+      <Header id="header" ref={headerEl}>
         <HeaderWrapper>
-          <LogoLink href="https://www.ap-education.com.ua/">
+          <LogoRoute to="/">
             <Logo />
-          </LogoLink>
+          </LogoRoute>
           <MobileMenuBtn onClick={toggleMenu}>
             <HeaderText>МЕНЮ</HeaderText> <MobileMenuIcon />
           </MobileMenuBtn>
         </HeaderWrapper>
-
-        {width < 1 && (
-          <PhoneNumber href="tel:+380638989102">+380638989102</PhoneNumber>
-        )}
         {width >= 768 && (
           <LeadBtn onClick={toggleModal}> ШВИДКА КОНСУЛЬТАЦІЯ </LeadBtn>
         )}

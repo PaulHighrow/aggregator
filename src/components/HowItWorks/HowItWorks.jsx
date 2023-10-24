@@ -54,6 +54,7 @@ export const HowItWorks = () => {
             <ReactPlayer
               loop={true}
               playing={true}
+              muted={true}
               style={{
                 display: 'block',
                 position: 'absolute',

@@ -1,7 +1,8 @@
 import styled, { keyframes } from 'styled-components';
-import { ReactComponent as LogoIcon } from '../../../img/svg/invertedLogo.svg';
-import { ReactComponent as MenuDownArrow } from '../../../img/svg/invertedDownArrow.svg';
+import { ReactComponent as MenuDownArrow } from '../../../img/svg/downArrow.svg';
+import { ReactComponent as LogoIcon } from '../../../img/svg/logo.svg';
 
+import { Link } from 'react-router-dom';
 import sketchOutline from '../../../img/svg/sketchOutline.svg';
 
 export const Header = styled.header`
@@ -11,8 +12,10 @@ export const Header = styled.header`
   z-index: 10;
   width: 100%;
   padding: 0 30px;
-  height: 73px;
-  background-color: var(--secondary-color);
+  height: 60px;
+  background-color: var(--main-color);
+  box-shadow: rgba(255, 255, 255, 0.06) 0px 0.5px 5px 0px,
+    rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -20,12 +23,12 @@ export const Header = styled.header`
   @media screen and (min-width: 768px) {
     position: relative;
     padding: 0 42px;
-    height: 89px;
+    height: 75px;
   }
 
   @media screen and (min-width: 1280px) {
     padding: 0 55px;
-    height: 105px;
+    height: 90px;
   }
 `;
 
@@ -41,11 +44,10 @@ export const HeaderWrapper = styled.div`
 `;
 
 export const MobileMenuBtn = styled.button`
-  border-color: var(--main-color);
   border: none;
   border-radius: 9px;
-  padding: 10px 14px;
-  background-color: var(--main-transparent-color);
+  padding: 8px 12px;
+  background-color: var(--secondary-transparent-color);
   align-self: center;
 
   display: flex;
@@ -60,12 +62,11 @@ export const MobileMenuBtn = styled.button`
 
   &:hover,
   &:focus {
-    background-color: var(--main-transparent-color);
+    background-color: var(--secondary-transparent-color);
   }
 `;
 
 export const MobileMenuIcon = styled(MenuDownArrow)`
-  color: var(--main-color);
   flex-shrink: 0;
   stroke-width: 1;
 
@@ -74,47 +75,33 @@ export const MobileMenuIcon = styled(MenuDownArrow)`
   }
 `;
 
-export const PhoneNumber = styled.a`
-  font-size: 20px;
-  font-weight: 500;
-  color: var(--main-color);
+export const LogoRoute = styled(Link)`
   text-decoration: none;
-  transition: color var(--animation-global);
-
-  &:hover,
-  &:focus {
-    color: #fff;
-  }
-`;
-
-export const LogoLink = styled.a`
-  text-decoration: none;
-  text-transform: uppercase;
 `;
 
 export const Logo = styled(LogoIcon)`
   z-index: 10;
-  width: 49px;
+  width: 43px;
   display: block;
   flex-shrink: 0;
   height: 100%;
   transition: transform var(--animation-global), filter var(--animation-global);
 
-  ${LogoLink}:hover & {
+  ${LogoRoute}:hover & {
     transform: scale(1.2);
-    filter: drop-shadow(0px 0px 5px #ffffff);
+    filter: drop-shadow(0px 0px 1px #ffffff);
   }
 
   @media screen and (min-width: 768px) {
-    width: 64px;
+    width: 58px;
   }
 
   @media screen and (min-width: 1280px) {
-    width: 78px;
+    width: 72px;
   }
 `;
 
-const wobblyOutline = keyframes`
+export const wobblyOutline = keyframes`
   0%, 7% {
     transform: rotateZ(0);
   }
@@ -146,8 +133,8 @@ export const LeadBtn = styled.button`
   border: none;
   /* border: 2px solid #fff; */
   border-radius: 47px;
-  background-color: var(--main-color);
-  color: var(--secondary-color);
+  background-color: var(--secondary-color);
+  color: var(--main-color);
   text-align: center;
   position: relative;
   outline: transparent;
@@ -161,7 +148,7 @@ export const LeadBtn = styled.button`
 
   &:hover,
   &:focus {
-    /* box-shadow: inset 0px 0px 10px 2px #0f645b; */
+    box-shadow: inset 0px 0px 10px 2px #fff;
     transform: scale(0.95);
     /* background-color: #fff;
     border-color: var(--secondary-color);
@@ -199,7 +186,7 @@ export const PlatformLink = styled.a`
 
   &:hover,
   &:focus {
-    background-color: var(--main-transparent-color);
+    background-color: var(--secondary-transparent-color);
   }
 `;
 
@@ -208,7 +195,7 @@ export const HeaderText = styled.span`
   line-height: 1.45;
 
   margin-right: 8px;
-  color: var(--main-color);
+  color: var(--secondary-color);
 
   @media screen and (min-width: 768px) {
     font-weight: 600;

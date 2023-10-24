@@ -62,6 +62,10 @@ export const App = () => {
     'utm_source',
     'utm_term',
     'utm_referrer',
+    'referrer',
+    'gclientid',
+    'gclid',
+    'fbclid',
   ];
 
   const localStorageTagSetter = tags =>

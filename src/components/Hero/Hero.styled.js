@@ -38,11 +38,15 @@ export const Title = styled.h1`
   margin: 0 auto 30px auto;
 
   @media screen and (min-width: 768px) {
-    margin-bottom: 65px;
+    margin-bottom: 75px;
     letter-spacing: 3.5px;
     width: 700px;
     font-size: 70px;
     -webkit-text-stroke: 2px var(--main-color);
+  }
+
+  @media screen and (min-width: 1600px) {
+    width: 600px;
   }
 `;
 
@@ -151,7 +155,7 @@ export const DescriptionTrigger = styled.span`
 
   @media screen and (min-width: 768px) {
     font-size: 22px;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
   }
 
   &:hover,
