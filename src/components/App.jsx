@@ -1,10 +1,7 @@
-import axios from 'axios';
-import { lazy, useLayoutEffect, useState } from 'react';
+import { lazy } from 'react';
 import { Route, Routes, useSearchParams } from 'react-router-dom';
-import { SharedLayout } from './SharedLayout/SharedLayout';
 import ScrollToTop from 'utils/ScrollToTop/ScrollToTop';
-
-axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
+import { SharedLayout } from './SharedLayout/SharedLayout';
 
 const Home = lazy(() =>
   import(/* webpackChunkName: "Homepage" */ '../pages/Home/Home')
@@ -51,8 +48,6 @@ const NotFound = lazy(() =>
 
 export const App = () => {
   // eslint-disable-next-line
-  const [isLoading, setIsLoading] = useState(false);
-  // eslint-disable-next-line
   const [searchParams, _] = useSearchParams();
 
   const utm_tags = [
@@ -78,53 +73,22 @@ export const App = () => {
   const utms = {};
   utm_tags.forEach(tag => (utms[tag] = localStorageTagGetter(tag)));
 
-  const wakeupRequest = async () => {
-    setIsLoading(isLoading => (isLoading = true));
-    try {
-      const wake = await axios.get('/');
-      console.log(wake);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setIsLoading(isLoading => (isLoading = false));
-    }
-  };
-
-  const authRequest = async () => {
-    setIsLoading(isLoading => (isLoading = true));
-    try {
-      const auth = await axios.post('/tokens');
-      console.log(auth);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setIsLoading(isLoading => (isLoading = false));
-    }
-  };
-
-  useLayoutEffect(() => {
-    wakeupRequest();
-    authRequest();
-  }, []);
-
   return (
     <>
       <ScrollToTop />
       <Routes>
-        {!isLoading && (
-          <Route path="/" element={<SharedLayout utms={utms} />}>
-            <Route index element={<Home utms={utms} />} />
-            <Route path="clone" element={<Clone utms={utms} />} />
-            <Route path="english" element={<English utms={utms} />} />
-            <Route path="polski" element={<Polski utms={utms} />} />
-            <Route path="deutsch" element={<Deutsch utms={utms} />} />
-            <Route path="education" element={<Education utms={utms} />} />
-            <Route path="examination" element={<Examination utms={utms} />} />
-            <Route path="translation" element={<Translation utms={utms} />} />
-            <Route path="career" element={<Career utms={utms} />} />
-            <Route path="*" element={<NotFound />} />
-          </Route>
-        )}
+        <Route path="/" element={<SharedLayout utms={utms} />}>
+          <Route index element={<Home utms={utms} />} />
+          <Route path="clone" element={<Clone utms={utms} />} />
+          <Route path="english" element={<English utms={utms} />} />
+          <Route path="polski" element={<Polski utms={utms} />} />
+          <Route path="deutsch" element={<Deutsch utms={utms} />} />
+          <Route path="education" element={<Education utms={utms} />} />
+          <Route path="examination" element={<Examination utms={utms} />} />
+          <Route path="translation" element={<Translation utms={utms} />} />
+          <Route path="career" element={<Career utms={utms} />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
       </Routes>
     </>
   );

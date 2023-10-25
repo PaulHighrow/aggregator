@@ -162,7 +162,6 @@ export const EdVideoToggler = styled.a`
     opacity: 1;
     animation-name: ${arrowAnimation};
     animation-duration: 400ms;
-    animation-direction: revert;
     animation-timing-function: linear;
     animation-iteration-count: 1;
   }
@@ -199,7 +198,6 @@ export const arrowAnimationTriggeredOnce = keyframes`
 export const EdCenterArrowMobileInView = styled(EdCenterArrowMobile)`
   animation-name: ${arrowAnimationTriggeredOnce};
   animation-duration: 2s;
-  animation-direction: revert;
   animation-timing-function: linear;
   animation-iteration-count: 1;
   animation-fill-mode: backwards;
@@ -226,7 +224,6 @@ export const EdCenterArrow = styled(RotatedArrow)`
 export const EdCenterArrowInView = styled(EdCenterArrow)`
   animation-name: ${arrowAnimationTriggeredOnce};
   animation-duration: 2s;
-  animation-direction: revert;
   animation-timing-function: linear;
   animation-iteration-count: 1;
   animation-fill-mode: backwards;

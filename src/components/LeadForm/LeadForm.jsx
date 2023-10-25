@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Backdrop } from 'components/LeadForm/Backdrop/Backdrop.styled';
 import { Formik } from 'formik';
 import { useState } from 'react';
-import { Loader } from 'utils/Loader/Loader';
+import { Loader } from 'components/SharedLayout/Loader/Loader';
 import * as yup from 'yup';
 import {
   CloseIcon,

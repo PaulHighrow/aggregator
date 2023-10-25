@@ -2,7 +2,7 @@ import { Title } from 'components/Hero/Hero.styled';
 import styled from 'styled-components';
 
 export const NotFoundSection = styled.section`
-  min-height: 40vh;
+  min-height: 50vh;
   display: flex;
 `;
 

@@ -14,7 +14,7 @@ import {
 import { MarqueeCloseBtn } from 'components/MarqueeModal/MarqueeModal.styled';
 import { Formik } from 'formik';
 import { useState } from 'react';
-import { Loader } from 'utils/Loader/Loader';
+import { Loader } from 'components/SharedLayout/Loader/Loader';
 import * as yup from 'yup';
 import { OrderModal } from './TranslationsOrderModal.styled';
 

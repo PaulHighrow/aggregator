@@ -28,7 +28,7 @@ import {
   NavigationItem,
   NavigationWrapper,
   VideoBox,
-  VideoLimiter,
+  VideoLimiter
 } from './ExamCenter.styled';
 
 export const ExamCenter = ({ toggleModal }) => {
@@ -116,6 +116,7 @@ export const ExamCenter = ({ toggleModal }) => {
             </VideoBox>
           </VideoLimiter>
           <NavAnimationWrapper ref={ref}>
+          {/* {inView && <LoopyLineMirroredIcon />} */}
             <NavigationWrapper>
               <NavigationDesc>... всі наші послуги</NavigationDesc>
               <PageNavigation>

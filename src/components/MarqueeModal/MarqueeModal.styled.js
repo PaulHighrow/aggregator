@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { Backdrop } from 'components/LeadForm/Backdrop/Backdrop.styled';
 import { FormCloseBtn } from 'components/LeadForm/LeadForm.styled';
+import { DescriptionTrigger } from 'components/Hero/Hero.styled';
+import { Link } from 'react-router-dom';
 
 export const ModalWindow = styled.div`
   position: fixed;
@@ -60,13 +62,28 @@ export const ModalHeader = styled.h4`
 export const ModalDesc = styled.p`
   color: var(--secondary-color);
   font-size: 18px;
-  max-height: 150px;
-  /* overflow-y: scroll; */
+  max-height: 145px;
+  overflow-y: scroll;
 
   @media screen and (min-width: 768px) {
     font-size: 19px;
   }
   @media screen and (min-width: 1280px) {
+    max-height: auto;
+    overflow-y: hidden;
     font-size: 20px;
+  }
+`;
+
+export const Details = styled(DescriptionTrigger)`
+  margin-bottom: 0;
+`;
+
+export const DetailsLink = styled(Link)`
+  text-decoration: none;
+
+  &:hover > span,
+  &:focus > span {
+    color: var(--secondary-color);
   }
 `;

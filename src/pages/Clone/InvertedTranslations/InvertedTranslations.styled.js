@@ -159,7 +159,6 @@ export const TranslationsToggler = styled.a`
     opacity: 1;
     animation-name: ${arrowAnimation};
     animation-duration: 400ms;
-    animation-direction: revert;
     animation-timing-function: linear;
     animation-iteration-count: 1;
   }

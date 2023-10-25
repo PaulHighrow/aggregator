@@ -3,7 +3,8 @@ import styled, { keyframes } from 'styled-components';
 import { ReactComponent as UnderlineShort } from '../../img/svg/exam-underline-short.svg';
 import { ReactComponent as UnderlineMedium } from '../../img/svg/exam-underline-medium.svg';
 import { ReactComponent as UnderlineLong } from '../../img/svg/exam-underline-long.svg';
-import { ReactComponent as LoopyLine } from '../../img/svg/loopyLine.svg';
+import { ReactComponent as LoopyLine } from '../../img/svg/loopyLineNormal.svg';
+import { ReactComponent as LoopyLineMirrored } from '../../img/svg/loopyLineMirror.svg';
 import { PageNavigationText } from 'components/HowItWorks/HowItWorks.styled';
 
 const pathAnimation = keyframes`
@@ -192,12 +193,12 @@ export const VideoLimiter = styled.div`
 
   @media screen and (min-width: 768px) {
     max-width: 960px;
-    margin-bottom: 90px;
+    margin-bottom: 75px;
   }
 
   @media screen and (min-width: 1280px) {
     max-width: 1280px;
-    margin-bottom: 120px;
+    margin-bottom: 90px;
   }
 `;
 
@@ -211,11 +212,12 @@ export const VideoBox = styled.div`
 
 export const NavAnimationWrapper = styled.div`
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  padding-right: 43px;
+  padding: 0 43px;
 
   @media screen and (min-width: 1280px) {
-    padding-right: 75px;
+    padding: 0 75px;
   }
 `;
 
@@ -225,11 +227,6 @@ export const NavigationWrapper = styled.div`
 
   @media screen and (min-width: 768px) {
     width: 400px;
-    padding-left: 43px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    padding-left: 75px;
   }
 `;
 
@@ -258,16 +255,33 @@ export const BottomPageNavigationText = styled(PageNavigationText)`
 `;
 
 export const LoopyLineIcon = styled(LoopyLine)`
-  width: 90px;
+  width: 120px;
   stroke-dasharray: 1;
   stroke-dashoffset: 2;
   animation-name: ${pathAnimation};
   animation-duration: 1s;
+  animation-direction: normal;
   animation-timing-function: linear;
   animation-iteration-count: 1;
   animation-fill-mode: both;
 
   @media screen and (min-width: 1280px) {
-    width: 120px;
+    width: 150px;
+  }
+`;
+
+export const LoopyLineMirroredIcon = styled(LoopyLineMirrored)`
+  width: 120px;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 2;
+  animation-name: ${pathAnimation};
+  animation-duration: 1s;
+  animation-direction: normal;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+
+  @media screen and (min-width: 1280px) {
+    width: 150px;
   }
 `;

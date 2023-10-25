@@ -166,7 +166,6 @@ export const TranslationsToggler = styled.a`
     opacity: 1;
     animation-name: ${arrowAnimation};
     animation-duration: 400ms;
-    animation-direction: revert;
     animation-timing-function: linear;
     animation-iteration-count: 1;
   }
@@ -195,7 +194,6 @@ export const TranslationsArrow = styled(Arrow)`
 export const TranslationsArrowInView = styled(TranslationsArrow)`
   animation-name: ${arrowAnimationTriggeredOnce};
   animation-duration: 2s;
-  animation-direction: revert;
   animation-timing-function: linear;
   animation-iteration-count: 1;
   animation-fill-mode: backwards;
