@@ -214,7 +214,6 @@ export const NavAnimationWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 43px;
 
   @media screen and (min-width: 1280px) {
     padding: 0 75px;
@@ -266,7 +265,7 @@ export const LoopyLineIcon = styled(LoopyLine)`
   animation-fill-mode: both;
 
   @media screen and (min-width: 1280px) {
-    width: 150px;
+    width: 130px;
   }
 `;
 
@@ -282,6 +281,6 @@ export const LoopyLineMirroredIcon = styled(LoopyLineMirrored)`
   animation-fill-mode: both;
 
   @media screen and (min-width: 1280px) {
-    width: 150px;
+    width: 130px;
   }
 `;

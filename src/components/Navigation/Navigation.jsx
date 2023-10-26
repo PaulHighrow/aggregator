@@ -16,9 +16,19 @@ export const Navigation = ({ toggleMenu, toggleModal, className }) => {
   // eslint-disable-next-line
   const [__, setIsOpen] = useState(false);
 
+  const nodeList = [];
+  document.querySelectorAll('[id]').forEach(node => nodeList.push(node));
+  const filteredNodeList = nodeList.filter(
+    node =>
+      !!node.className &&
+      (node.nodeName === 'HEADER' ||
+        node.nodeName === 'SECTION' ||
+        node.nodeName === 'H4')
+  );
+
   const props =
     width < 768
-      ? { spy: true, smooth: true, onClick: toggleMenu, offset: -73 }
+      ? { spy: true, smooth: true, onClick: toggleMenu, offset: -60 }
       : { spy: true, smooth: true, onClick: toggleMenu };
 
   const handleNavBtn = () => {
@@ -40,8 +50,21 @@ export const Navigation = ({ toggleMenu, toggleModal, className }) => {
         )}
       </MenuButtonsWrapper>
       <NavigationList>
-        <NavigationItem>
-          <NavigationLink to="hero" {...props}>
+        {filteredNodeList.map((node, i) => {
+          if (i === 0) {
+            return null;
+          }
+          console.log(node.id);
+          return (
+            <NavigationItem key={i}>
+              <NavigationLink to={width < 768 ? node.id : filteredNodeList[i-1].id} {...props}>
+                {node.outerText.split('\n')[0]}
+              </NavigationLink>
+            </NavigationItem>
+          );
+        })}
+        {/* <NavigationItem>
+          <NavigationLink to={width > 768 ? 'header' : 'hero'} {...props}>
             Головна
           </NavigationLink>
         </NavigationItem>
@@ -55,11 +78,11 @@ export const Navigation = ({ toggleMenu, toggleModal, className }) => {
             Навчальний центр
           </NavigationLink>
         </NavigationItem>
-        {/* <NavigationItem>
+        <NavigationItem>
           <NavigationLink to="admissions" {...props}>
             Бюро кар'єри
           </NavigationLink>
-        </NavigationItem> */}
+        </NavigationItem> 
         <NavigationItem>
           <NavigationLink to="translations" {...props}>
             Бюро перекладів
@@ -79,7 +102,7 @@ export const Navigation = ({ toggleMenu, toggleModal, className }) => {
           <NavigationLink to="contacts" {...props}>
             Контакти
           </NavigationLink>
-        </NavigationItem>
+        </NavigationItem>*/}
       </NavigationList>
     </StyledNavigation>
   );

@@ -27,7 +27,7 @@ export const Title = styled.h1`
   position: relative;
   z-index: 1;
 
-  width: 300px;
+  width: 280px;
   color: var(--main-color);
   font-family: var(--title-font-family);
   font-size: 40px;
@@ -36,6 +36,10 @@ export const Title = styled.h1`
   text-align: center;
   -webkit-text-stroke: 1px var(--main-color);
   margin: 0 auto 30px auto;
+
+  @media screen and (min-width: 360px) {
+    width: 300px;
+  }
 
   @media screen and (min-width: 768px) {
     margin-bottom: 75px;

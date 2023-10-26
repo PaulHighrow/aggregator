@@ -72,7 +72,7 @@ export const ExamCenter = ({ toggleModal }) => {
       <ExamCenterSection id="examcenter">
         <Box>
           <ExamCenterTitle>
-            ЕКЗАМЕНАЦІЙНИЙ <ExamCenterSubTitle>ЦЕНТР</ExamCenterSubTitle>
+            ЕКЗАМЕНАЦІЙНИЙ <ExamCenterSubTitle>ЦЕНТР</ExamCenterSubTitle> 
           </ExamCenterTitle>
           <ExamCenterWrapper>
             <LeadBtn onClick={toggleModal}> ЗАЛИШИТИ ЗАЯВКУ </LeadBtn>
@@ -133,7 +133,7 @@ export const ExamCenter = ({ toggleModal }) => {
                 ))}
               </PageNavigation>
             </NavigationWrapper>
-            {inView && <LoopyLineIcon />}
+            {width > 480 && inView && <LoopyLineIcon />}
           </NavAnimationWrapper>
         </Box>
       </ExamCenterSection>
