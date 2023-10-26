@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.331bf624.css",
-    "main.js": "/aggregator/static/js/main.8dea9382.js",
+    "main.js": "/aggregator/static/js/main.5d6e7b7a.js",
     "Homepage.js": "/aggregator/static/js/Homepage.51143982.chunk.js",
     "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.b155fadf.chunk.js",
     "English courses page.js": "/aggregator/static/js/English courses page.0084f3da.chunk.js",
@@ -11,7 +11,7 @@
     "Examination center page.js": "/aggregator/static/js/Examination center page.db6cecbc.chunk.js",
     "Translation bureau page.js": "/aggregator/static/js/Translation bureau page.9b2533f8.chunk.js",
     "Career and admission page.js": "/aggregator/static/js/Career and admission page.d16e8e2b.chunk.js",
-    "Not Found.js": "/aggregator/static/js/Not Found.a5537118.chunk.js",
+    "Not Found.js": "/aggregator/static/js/Not Found.da55cf18.chunk.js",
     "reactPlayerYouTube.js": "/aggregator/static/js/reactPlayerYouTube.f21d2dc2.chunk.js",
     "reactPlayerSoundCloud.js": "/aggregator/static/js/reactPlayerSoundCloud.9eeb4279.chunk.js",
     "reactPlayerVimeo.js": "/aggregator/static/js/reactPlayerVimeo.1be465ed.chunk.js",
@@ -27,7 +27,7 @@
     "reactPlayerPreview.js": "/aggregator/static/js/reactPlayerPreview.3d7930ba.chunk.js",
     "static/js/108.321d0613.chunk.js": "/aggregator/static/js/108.321d0613.chunk.js",
     "static/js/79.7d6892f7.chunk.js": "/aggregator/static/js/79.7d6892f7.chunk.js",
-    "static/js/312.53af0291.chunk.js": "/aggregator/static/js/312.53af0291.chunk.js",
+    "static/js/312.4b5211ac.chunk.js": "/aggregator/static/js/312.4b5211ac.chunk.js",
     "static/media/LTJournalCrayon-Regular.eot": "/aggregator/static/media/LTJournalCrayon-Regular.4e01f9d2a8b68d2b8f20.eot",
     "static/media/LTJournalCrayon-Regular.ttf": "/aggregator/static/media/LTJournalCrayon-Regular.6f92c12d932b03431110.ttf",
     "static/media/LTJournalCrayon-Regular.woff": "/aggregator/static/media/LTJournalCrayon-Regular.ad68ffb639193095ad33.woff",
@@ -142,7 +142,7 @@
     "static/media/invertedDownArrow.svg": "/aggregator/static/media/invertedDownArrow.81d2e354f4424bf21d20b96a031591ce.svg",
     "static/media/downArrow.svg": "/aggregator/static/media/downArrow.3d74cb9d6d38fab26c47bbadb8e4f56d.svg",
     "main.331bf624.css.map": "/aggregator/static/css/main.331bf624.css.map",
-    "main.8dea9382.js.map": "/aggregator/static/js/main.8dea9382.js.map",
+    "main.5d6e7b7a.js.map": "/aggregator/static/js/main.5d6e7b7a.js.map",
     "Homepage.51143982.chunk.js.map": "/aggregator/static/js/Homepage.51143982.chunk.js.map",
     "Inverted Homepage.b155fadf.chunk.js.map": "/aggregator/static/js/Inverted Homepage.b155fadf.chunk.js.map",
     "English courses page.0084f3da.chunk.js.map": "/aggregator/static/js/English courses page.0084f3da.chunk.js.map",
@@ -152,7 +152,7 @@
     "Examination center page.db6cecbc.chunk.js.map": "/aggregator/static/js/Examination center page.db6cecbc.chunk.js.map",
     "Translation bureau page.9b2533f8.chunk.js.map": "/aggregator/static/js/Translation bureau page.9b2533f8.chunk.js.map",
     "Career and admission page.d16e8e2b.chunk.js.map": "/aggregator/static/js/Career and admission page.d16e8e2b.chunk.js.map",
-    "Not Found.a5537118.chunk.js.map": "/aggregator/static/js/Not Found.a5537118.chunk.js.map",
+    "Not Found.da55cf18.chunk.js.map": "/aggregator/static/js/Not Found.da55cf18.chunk.js.map",
     "reactPlayerYouTube.f21d2dc2.chunk.js.map": "/aggregator/static/js/reactPlayerYouTube.f21d2dc2.chunk.js.map",
     "reactPlayerSoundCloud.9eeb4279.chunk.js.map": "/aggregator/static/js/reactPlayerSoundCloud.9eeb4279.chunk.js.map",
     "reactPlayerVimeo.1be465ed.chunk.js.map": "/aggregator/static/js/reactPlayerVimeo.1be465ed.chunk.js.map",
@@ -168,10 +168,10 @@
     "reactPlayerPreview.3d7930ba.chunk.js.map": "/aggregator/static/js/reactPlayerPreview.3d7930ba.chunk.js.map",
     "108.321d0613.chunk.js.map": "/aggregator/static/js/108.321d0613.chunk.js.map",
     "79.7d6892f7.chunk.js.map": "/aggregator/static/js/79.7d6892f7.chunk.js.map",
-    "312.53af0291.chunk.js.map": "/aggregator/static/js/312.53af0291.chunk.js.map"
+    "312.4b5211ac.chunk.js.map": "/aggregator/static/js/312.4b5211ac.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.331bf624.css",
-    "static/js/main.8dea9382.js"
+    "static/js/main.5d6e7b7a.js"
   ]
 }
