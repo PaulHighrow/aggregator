@@ -76,8 +76,7 @@ export const ExamCenterTitle = styled.h2`
   letter-spacing: 2px;
   -webkit-text-stroke: 1px var(--main-color);
   margin-bottom: 18px;
-  display: flex;
-  flex-direction: column;
+  max-width: 400px;
 
   @media screen and (min-width: 390px) {
     font-size: 30px;
@@ -86,6 +85,7 @@ export const ExamCenterTitle = styled.h2`
   @media screen and (min-width: 768px) {
     text-align: center;
     letter-spacing: 3.5px;
+    max-width: 570px;
     margin: 0 auto;
     margin-bottom: 52px;
     font-size: 51px;

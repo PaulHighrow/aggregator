@@ -20,9 +20,9 @@ export const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition: transform var(--animation-global);
 
   @media screen and (min-width: 768px) {
-    position: relative;
     padding: 0 42px;
     height: 75px;
   }
@@ -31,6 +31,20 @@ export const Header = styled.header`
     padding: 0 55px;
     height: 90px;
   }
+
+  &.hidden {
+    transform: translateY(-90px);
+  }
+
+  &.shown {
+    transform: translateY(0px);
+  }
+`;
+
+export const NavContainer = styled.div`
+  position: sticky;
+  z-index: 9;
+  top: 0;
 `;
 
 export const HeaderWrapper = styled.div`

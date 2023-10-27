@@ -71,8 +71,8 @@ export const ExamCenter = ({ toggleModal }) => {
     <ExamCenterBackground>
       <ExamCenterSection id="examcenter">
         <Box>
-          <ExamCenterTitle>
-            ЕКЗАМЕНАЦІЙНИЙ <ExamCenterSubTitle>ЦЕНТР</ExamCenterSubTitle> 
+        <ExamCenterTitle>
+            ЕКЗАМЕНАЦІЙНИЙ <ExamCenterSubTitle>ЦЕНТР</ExamCenterSubTitle>
           </ExamCenterTitle>
           <ExamCenterWrapper>
             <LeadBtn onClick={toggleModal}> ЗАЛИШИТИ ЗАЯВКУ </LeadBtn>

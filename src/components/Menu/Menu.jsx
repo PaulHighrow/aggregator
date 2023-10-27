@@ -1,6 +1,6 @@
 import useSize from '@react-hook/size';
 import { Navigation } from 'components/Navigation/Navigation';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ReactComponent as LoginIcon } from '../../img/svg/invertedLoginIcon.svg';
 import {
   Header,
@@ -11,7 +11,8 @@ import {
   LogoRoute,
   MobileMenuBtn,
   MobileMenuIcon,
-  PlatformLink
+  NavContainer,
+  PlatformLink,
 } from './Menu.styled';
 
 export const Menu = ({ toggleModal }) => {
@@ -19,14 +20,33 @@ export const Menu = ({ toggleModal }) => {
   const headerEl = useRef();
   // eslint-disable-next-line
   const [width, _] = useSize(headerEl);
+  const [show, setShow] = useState(true);
 
   const toggleMenu = () => {
     setIsMenuOpen(isOpen => !isOpen);
   };
 
+  useEffect(() => {
+    let previousScrollPosition = 0;
+    let currentScrollPosition = 0;
+
+    window.addEventListener('scroll', () => {
+      currentScrollPosition = window.scrollY;
+
+      if (previousScrollPosition <= currentScrollPosition) {
+        setIsMenuOpen(isOpen => (isOpen = false));
+        setShow(show => (show = false));
+      } else if (previousScrollPosition > currentScrollPosition) {
+        setShow(show => (show = true));
+      }
+
+      previousScrollPosition = currentScrollPosition;
+    });
+  }, []);
+
   return (
     <>
-      <Header id="header" ref={headerEl}>
+      <Header id="header" ref={headerEl} className={show ? 'shown' : 'hidden'}>
         <HeaderWrapper>
           <LogoRoute to="/">
             <Logo />
@@ -44,11 +64,13 @@ export const Menu = ({ toggleModal }) => {
           </PlatformLink>
         )}
       </Header>
-      <Navigation
-        toggleMenu={toggleMenu}
-        toggleModal={toggleModal}
-        className={isMenuOpen ? 'nav-open' : 'nav-closed'}
-      />
+      <NavContainer className={show ? 'shown' : 'hidden'}>
+        <Navigation
+          toggleMenu={toggleMenu}
+          toggleModal={toggleModal}
+          className={isMenuOpen ? 'nav-open' : 'nav-closed'}
+        />
+      </NavContainer>
     </>
   );
 };

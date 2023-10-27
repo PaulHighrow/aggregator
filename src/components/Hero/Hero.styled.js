@@ -7,17 +7,19 @@ import { ReactComponent as HeroSVG } from '../../img/svg/hero-caveat.svg';
 export const HeroSection = styled.section`
   position: relative;
   min-height: 500px;
-  padding-top: 30px;
+  padding-top: 60px;
   padding-bottom: 30px;
   margin-top: 60px;
 
   @media screen and (min-width: 768px) {
     padding-bottom: 40px;
+    padding-top: 105px;
     margin: 0;
   }
 
   @media screen and (min-width: 1280px) {
     padding: 55px 0;
+    padding-top: 145px;
   }
 `;
 

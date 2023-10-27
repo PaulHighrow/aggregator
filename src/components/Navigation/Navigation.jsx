@@ -28,8 +28,8 @@ export const Navigation = ({ toggleMenu, toggleModal, className }) => {
 
   const props =
     width < 768
-      ? { spy: true, smooth: true, onClick: toggleMenu, offset: -60 }
-      : { spy: true, smooth: true, onClick: toggleMenu };
+      ? { spy: true, smooth: true, onClick: toggleMenu, offset: -30 }
+      : { spy: true, smooth: true, onClick: toggleMenu, offset: -40 };
 
   const handleNavBtn = () => {
     setIsOpen(isOpen => !isOpen);
@@ -54,55 +54,14 @@ export const Navigation = ({ toggleMenu, toggleModal, className }) => {
           if (i === 0) {
             return null;
           }
-          console.log(node.id);
           return (
             <NavigationItem key={i}>
-              <NavigationLink to={width < 768 ? node.id : filteredNodeList[i-1].id} {...props}>
+              <NavigationLink to={node.id} {...props}>
                 {node.outerText.split('\n')[0]}
               </NavigationLink>
             </NavigationItem>
           );
         })}
-        {/* <NavigationItem>
-          <NavigationLink to={width > 768 ? 'header' : 'hero'} {...props}>
-            Головна
-          </NavigationLink>
-        </NavigationItem>
-        <NavigationItem>
-          <NavigationLink to="howitworks" {...props}>
-            Як це працює
-          </NavigationLink>
-        </NavigationItem>
-        <NavigationItem>
-          <NavigationLink to="edcenter" {...props}>
-            Навчальний центр
-          </NavigationLink>
-        </NavigationItem>
-        <NavigationItem>
-          <NavigationLink to="admissions" {...props}>
-            Бюро кар'єри
-          </NavigationLink>
-        </NavigationItem> 
-        <NavigationItem>
-          <NavigationLink to="translations" {...props}>
-            Бюро перекладів
-          </NavigationLink>
-        </NavigationItem>
-        <NavigationItem>
-          <NavigationLink to="examcenter" {...props}>
-            Екзаменаційний центр
-          </NavigationLink>
-        </NavigationItem>
-        <NavigationItem>
-          <NavigationLink to="aboutus" {...props}>
-            Про нас
-          </NavigationLink>
-        </NavigationItem>
-        <NavigationItem>
-          <NavigationLink to="contacts" {...props}>
-            Контакти
-          </NavigationLink>
-        </NavigationItem>*/}
       </NavigationList>
     </StyledNavigation>
   );
