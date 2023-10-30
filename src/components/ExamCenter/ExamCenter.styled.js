@@ -49,7 +49,6 @@ export const ExamCenterWrapper = styled.div`
   gap: 33px;
   flex-direction: column;
   align-items: center;
-  overflow: hidden;
 
   @media screen and (min-width: 768px) {
     width: 684px;

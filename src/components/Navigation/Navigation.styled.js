@@ -65,7 +65,7 @@ export const NavigationLink = styled(Link)`
   text-decoration: none;
   text-transform: uppercase;
   color: var(--main-color);
-  cursor: pointer;
+
   transition: color var(--animation-global),
     background-color var(--animation-global),
     text-shadow var(--animation-global);
@@ -77,6 +77,7 @@ export const NavigationLink = styled(Link)`
     color: var(--accent-color);
 
     @media screen and (min-width: 1280px) {
+      cursor: pointer;
       color: var(--main-color);
       text-shadow: 0.5px 0px 0.5px rgba(0, 0, 0, 0.75);
       background-color: var(--main-transparent-color);

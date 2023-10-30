@@ -148,7 +148,6 @@ export const DescriptionTrigger = styled.span`
   max-width: max-content;
   margin: 0 auto;
   margin-bottom: 30px;
-  cursor: pointer;
 
   font-family: var(--secondary-font-family);
   font-size: 18px;
@@ -162,6 +161,10 @@ export const DescriptionTrigger = styled.span`
   @media screen and (min-width: 768px) {
     font-size: 22px;
     margin-bottom: 60px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    cursor: pointer;
   }
 
   &:hover,
