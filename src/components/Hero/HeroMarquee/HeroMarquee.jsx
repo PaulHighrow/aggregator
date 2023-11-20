@@ -1,57 +1,12 @@
 import {
   MarqueeChild,
-  MarqueeImg,
   MarqueeOverlay,
-  MarqueePicture,
   MarqueeText,
+  MarqueeVideo,
   StyledMarquee,
 } from 'components/Hero/HeroMarquee/HeroMarquee.styled';
-import { useEffect, useState } from 'react';
-import { heroImgsIndex } from '../../../img/hero/heroImgs';
 import { MarqueeModal } from 'components/MarqueeModal/MarqueeModal';
-
-const {
-  heroMarquee1large1xpng,
-  heroMarquee1large1xwebp,
-  heroMarquee1large2xpng,
-  heroMarquee1large2xwebp,
-  heroMarquee2large1xpng,
-  heroMarquee2large1xwebp,
-  heroMarquee2large2xpng,
-  heroMarquee2large2xwebp,
-  heroMarquee3large1xpng,
-  heroMarquee3large1xwebp,
-  heroMarquee3large2xpng,
-  heroMarquee3large2xwebp,
-  heroMarquee4large1xpng,
-  heroMarquee4large1xwebp,
-  heroMarquee4large2xpng,
-  heroMarquee4large2xwebp,
-  heroMarquee5large1xpng,
-  heroMarquee5large1xwebp,
-  heroMarquee5large2xpng,
-  heroMarquee5large2xwebp,
-  heroMarquee1small1xpng,
-  heroMarquee1small1xwebp,
-  heroMarquee1small2xpng,
-  heroMarquee1small2xwebp,
-  heroMarquee2small1xpng,
-  heroMarquee2small1xwebp,
-  heroMarquee2small2xpng,
-  heroMarquee2small2xwebp,
-  heroMarquee3small1xpng,
-  heroMarquee3small1xwebp,
-  heroMarquee3small2xpng,
-  heroMarquee3small2xwebp,
-  heroMarquee4small1xpng,
-  heroMarquee4small1xwebp,
-  heroMarquee4small2xpng,
-  heroMarquee4small2xwebp,
-  heroMarquee5small1xpng,
-  heroMarquee5small1xwebp,
-  heroMarquee5small2xpng,
-  heroMarquee5small2xwebp,
-} = heroImgsIndex;
+import { useEffect, useState } from 'react';
 
 export const HeroMarquee = ({ toggleModal }) => {
   const [isMarqueeModalOpen, setIsMarqueeModalOpen] = useState(false);
@@ -97,194 +52,82 @@ export const HeroMarquee = ({ toggleModal }) => {
       <StyledMarquee autoFill={true} pauseOnHover={true}>
         <MarqueeChild id={0} onClick={handleToggleModal}>
           <MarqueeOverlay>
-            <MarqueeText>Вивчай англійську</MarqueeText>
+            <MarqueeText>From Zero to Hero</MarqueeText>
           </MarqueeOverlay>
-          <MarqueePicture>
+          <MarqueeVideo autoPlay loop muted={true}>
             <source
-              media="(min-width:768px)"
-              srcSet={`${heroMarquee1large1xwebp} 1x, ${heroMarquee1large2xwebp} 2x`}
-              type="image/webp"
-            />
-            <source
-              media="(min-width:768px)"
-              srcSet={`${heroMarquee1large1xpng} 1x, ${heroMarquee1large2xpng} 2x`}
-              type="image/png"
+              src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700484543/preview1_vktvdl.webm"
+              type="video/webm"
             />
             <source
-              media="(max-width:767px)"
-              srcSet={`${heroMarquee1small1xwebp} 1x, ${heroMarquee1small2xwebp} 2x`}
-              type="image/webp"
+              src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700484130/preview1.mp4"
+              type="video/mp4"
             />
-            <source
-              media="(max-width:767px)"
-              srcSet={`${heroMarquee1small1xpng} 1x, ${heroMarquee1small2xpng} 2x`}
-              type="image/png"
-            />
-            <MarqueeImg
-              src={heroMarquee1small1xpng}
-              alt="Hero marquee placeholder"
-            />
-          </MarqueePicture>
+          </MarqueeVideo>
         </MarqueeChild>
 
         <MarqueeChild id={1} onClick={handleToggleModal}>
           <MarqueeOverlay>
-            <MarqueeText>Вивчай німецьку</MarqueeText>
+            <MarqueeText>Навчальна платформа</MarqueeText>
           </MarqueeOverlay>
-          <MarqueePicture>
+          <MarqueeVideo autoPlay loop muted={true}>
             <source
-              media="(min-width:768px)"
-              srcSet={`${heroMarquee2large1xwebp} 1x, ${heroMarquee2large2xwebp} 2x`}
-              type="image/webp"
-            />
-            <source
-              media="(min-width:768px)"
-              srcSet={`${heroMarquee2large1xpng} 1x, ${heroMarquee2large2xpng} 2x`}
-              type="image/png"
+              src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700484543/preview2_kq0yix.webm"
+              type="video/webm"
             />
             <source
-              media="(max-width:767px)"
-              srcSet={`${heroMarquee2small1xwebp} 1x, ${heroMarquee2small2xwebp} 2x`}
-              type="image/webp"
+              src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700484130/preview2.mp4"
+              type="video/mp4"
             />
-            <source
-              media="(max-width:767px)"
-              srcSet={`${heroMarquee2small1xpng} 1x, ${heroMarquee2small2xpng} 2x`}
-              type="image/png"
-            />
-            <MarqueeImg
-              src={heroMarquee2small1xpng}
-              alt="Education Center marquee placeholder"
-            />
-          </MarqueePicture>
+          </MarqueeVideo>
         </MarqueeChild>
 
         <MarqueeChild id={2} onClick={handleToggleModal}>
           <MarqueeOverlay>
-            <MarqueeText>Вивчай польську</MarqueeText>
+            <MarqueeText>Гарантія на навчання</MarqueeText>
           </MarqueeOverlay>
-          <MarqueePicture>
+          <MarqueeVideo autoPlay loop muted={true}>
             <source
-              media="(min-width:768px)"
-              srcSet={`${heroMarquee3large1xwebp} 1x, ${heroMarquee3large2xwebp} 2x`}
-              type="image/webp"
-            />
-            <source
-              media="(min-width:768px)"
-              srcSet={`${heroMarquee3large1xpng} 1x, ${heroMarquee3large2xpng} 2x`}
-              type="image/png"
+              src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700484543/preview3_pvoduh.webm"
+              type="video/webm"
             />
             <source
-              media="(max-width:767px)"
-              srcSet={`${heroMarquee3small1xwebp} 1x, ${heroMarquee3small2xwebp} 2x`}
-              type="image/webp"
+              src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700484130/preview3.mp4"
+              type="video/mp4"
             />
-            <source
-              media="(max-width:767px)"
-              srcSet={`${heroMarquee3small1xpng} 1x, ${heroMarquee3small2xpng} 2x`}
-              type="image/png"
-            />
-            <MarqueeImg
-              src={heroMarquee3small1xpng}
-              alt="Education Center marquee placeholder"
-            />
-          </MarqueePicture>
+          </MarqueeVideo>
         </MarqueeChild>
 
         <MarqueeChild id={3} onClick={handleToggleModal}>
           <MarqueeOverlay>
-            <MarqueeText>Навчальний центр</MarqueeText>
+            <MarqueeText>Ноутбук в подарунок</MarqueeText>
           </MarqueeOverlay>
-          <MarqueePicture>
+          <MarqueeVideo autoPlay loop muted={true}>
             <source
-              media="(min-width:768px)"
-              srcSet={`${heroMarquee4large1xwebp} 1x, ${heroMarquee4large2xwebp} 2x`}
-              type="image/webp"
-            />
-            <source
-              media="(min-width:768px)"
-              srcSet={`${heroMarquee4large1xpng} 1x, ${heroMarquee4large2xpng} 2x`}
-              type="image/png"
+              src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700486374/preview4_xlqaux.webm"
+              type="video/webm"
             />
             <source
-              media="(max-width:767px)"
-              srcSet={`${heroMarquee4small1xwebp} 1x, ${heroMarquee4small2xwebp} 2x`}
-              type="image/webp"
+              src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700486134/preview4.mp4"
+              type="video/mp4"
             />
-            <source
-              media="(max-width:767px)"
-              srcSet={`${heroMarquee4small1xpng} 1x, ${heroMarquee4small2xpng} 2x`}
-              type="image/png"
-            />
-            <MarqueeImg
-              src={heroMarquee4small1xpng}
-              alt="Education Center marquee placeholder"
-            />
-          </MarqueePicture>
+          </MarqueeVideo>
         </MarqueeChild>
 
         <MarqueeChild id={4} onClick={handleToggleModal}>
           <MarqueeOverlay>
-            <MarqueeText>Перекладацьке бюро</MarqueeText>
+            <MarqueeText>Close to You</MarqueeText>
           </MarqueeOverlay>
-          <MarqueePicture>
+          <MarqueeVideo autoPlay loop muted={true}>
             <source
-              media="(min-width:768px)"
-              srcSet={`${heroMarquee5large1xwebp} 1x, ${heroMarquee5large2xwebp} 2x`}
-              type="image/webp"
-            />
-            <source
-              media="(min-width:768px)"
-              srcSet={`${heroMarquee5large1xpng} 1x, ${heroMarquee5large2xpng} 2x`}
-              type="image/png"
+              src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700493363/preview5_cm4htf.webm"
+              type="video/webm"
             />
             <source
-              media="(max-width:767px)"
-              srcSet={`${heroMarquee5small1xwebp} 1x, ${heroMarquee5small2xwebp} 2x`}
-              type="image/webp"
+              src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700493193/preview5.mp4"
+              type="video/mp4"
             />
-            <source
-              media="(max-width:767px)"
-              srcSet={`${heroMarquee5small1xpng} 1x, ${heroMarquee5small2xpng} 2x`}
-              type="image/png"
-            />
-            <MarqueeImg
-              src={heroMarquee5small1xpng}
-              alt="Education Center marquee placeholder"
-            />
-          </MarqueePicture>
-        </MarqueeChild>
-
-        <MarqueeChild id={5} onClick={handleToggleModal}>
-          <MarqueeOverlay>
-            <MarqueeText>Екзаменаційний центр</MarqueeText>
-          </MarqueeOverlay>
-          <MarqueePicture>
-            <source
-              media="(min-width:768px)"
-              srcSet={`${heroMarquee5large1xwebp} 1x, ${heroMarquee5large2xwebp} 2x`}
-              type="image/webp"
-            />
-            <source
-              media="(min-width:768px)"
-              srcSet={`${heroMarquee5large1xpng} 1x, ${heroMarquee5large2xpng} 2x`}
-              type="image/png"
-            />
-            <source
-              media="(max-width:767px)"
-              srcSet={`${heroMarquee5small1xwebp} 1x, ${heroMarquee5small2xwebp} 2x`}
-              type="image/webp"
-            />
-            <source
-              media="(max-width:767px)"
-              srcSet={`${heroMarquee5small1xpng} 1x, ${heroMarquee5small2xpng} 2x`}
-              type="image/png"
-            />
-            <MarqueeImg
-              src={heroMarquee5small1xpng}
-              alt="Education Center marquee placeholder"
-            />
-          </MarqueePicture>
+          </MarqueeVideo>
         </MarqueeChild>
       </StyledMarquee>
     </>

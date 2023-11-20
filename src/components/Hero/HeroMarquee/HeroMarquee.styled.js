@@ -4,16 +4,32 @@ import styled from 'styled-components';
 export const StyledMarquee = styled(Marquee)`
   margin: 0 auto;
   max-width: 100vw;
-  touch-action: manipulation;
 `;
 
 export const MarqueeChild = styled.div`
-  touch-action: manipulation;
   position: relative;
   border-radius: 20px;
   overflow: hidden;
   margin-right: 30px;
   transition: transform var(--animation-global);
+  width: 180px;
+  height: 320px;
+
+  @media screen and (min-width: 768px) {
+    width: 270px;
+    height: 480px;
+  }
+
+  &:hover > *,
+  &:focus > * {
+    background-color: transparent;
+  }
+
+  &:hover span,
+  &:focus span {
+    background-color: #00000080;
+    transform: scale(1.5) translate(-33%, -33%);
+  }
 `;
 
 export const MarqueeOverlay = styled.div`
@@ -21,21 +37,18 @@ export const MarqueeOverlay = styled.div`
   width: 100%;
   height: 100%;
 
-  background-color: #00000080;
+  background-color: #00000060;
   transition: background-color var(--animation-global);
+`;
 
-  &:hover,
-  &:focus {
-    background-color: transparent;
+export const MarqueeVideo = styled.video`
+  width: 180px;
+  height: 320px;
+
+  @media screen and (min-width: 768px) {
+    width: 270px;
+    height: 480px;
   }
-`;
-
-export const MarqueePicture = styled.picture`
-  display: block;
-`;
-
-export const MarqueeImg = styled.img`
-  width: 100%;
 `;
 
 export const MarqueeText = styled.span`
@@ -47,16 +60,11 @@ export const MarqueeText = styled.span`
   padding: 8px;
   border-radius: 20px;
 
-  font-size: 22px;
+  font-size: 28px;
   text-align: center;
   color: var(--secondary-color);
+  background-color: #00000090;
 
   transition: background-color var(--animation-global),
     transform var(--animation-global);
-
-  div:hover > &,
-  div:focus > & {
-    background-color: #00000080;
-    transform: scale(1.5) translate(-33%, -33%);
-  }
 `;

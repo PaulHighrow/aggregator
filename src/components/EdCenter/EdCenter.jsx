@@ -26,11 +26,12 @@ import { EdCenterModal } from './EdCenterModal/EdCenterModal';
 import { useEffect } from 'react';
 
 export const EdCenter = () => {
-  const listItems = ['Англійська мова', 'Польська мова', 'Німецька мова'];
+  const listItems = ['Робота платформи', 'Нові слова', 'Навчання по фільмах', 'iPhone для учнів'];
   const videoUrls = [
-    'https://youtu.be/cJH4FUP99rA?si=clJ5upwIiebB7Fzt',
-    'https://youtu.be/RRKiBZi9moY?si=83dwA-AgfQRqIqZV',
-    'https://youtu.be/NEe6hl7msfs?si=V8YaLMy1gqtR6vys',
+    'https://youtu.be/18RbBq_dIDs?si=OF9HumvGCcMrOQIZ?t=17',
+    'https://youtu.be/18RbBq_dIDs?si=OF9HumvGCcMrOQIZ?t=240',
+    'https://youtu.be/18RbBq_dIDs?si=OF9HumvGCcMrOQIZ?t=409',
+    'https://youtu.be/18RbBq_dIDs?si=OF9HumvGCcMrOQIZ?t=432',
   ];
   const [isNavModalOpen, setIsNavModalOpen] = useState(false);
   const [course, setCourse] = useState('Англійська мова');
@@ -88,6 +89,8 @@ export const EdCenter = () => {
                 <ReactPlayer
                   loop={true}
                   controls={true}
+                  playing={true}
+                  muted={true}
                   style={{
                     display: 'block',
                     position: 'absolute',

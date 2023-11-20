@@ -118,12 +118,14 @@ export const EdCenterNavigation = styled.ul`
   gap: 9px;
 
   @media screen and (min-width: 768px) {
+    width: 243px;
     text-align: end;
     font-size: 32px;
     gap: 10px;
   }
 
   @media screen and (min-width: 1280px) {
+    width: auto;
     font-size: 36px;
   }
 `;
@@ -212,7 +214,7 @@ export const EdCenterArrow = styled(RotatedArrow)`
   @media screen and (min-width: 768px) {
     bottom: -4px;
     right: -6px;
-    width: 230px;
+    width: 270px;
   }
 
   @media screen and (min-width: 1280px) {
