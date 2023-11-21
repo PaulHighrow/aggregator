@@ -8,7 +8,7 @@ import { LeadBtn, wobblyOutline } from 'components/Menu/Menu.styled';
 
 import sketchOutlineSmall from 'img/svg/sketchOutlineSmall.svg';
 
-export const EdCenterBackground = styled(BackgroundWrapper)`
+export const EdPlatformBackground = styled(BackgroundWrapper)`
   background-position: left -70px top 0;
 
   @media screen and (min-width: 768px) {
@@ -20,7 +20,7 @@ export const EdCenterBackground = styled(BackgroundWrapper)`
   }
 `;
 
-export const EdCenterSection = styled.section`
+export const EdPlatformSection = styled.section`
   position: relative;
   padding: 30px;
 
@@ -34,7 +34,7 @@ export const EdCenterSection = styled.section`
   }
 `;
 
-export const EdCenterWrapper = styled.div`
+export const EdPlatformWrapper = styled.div`
   margin-bottom: 20px;
   display: flex;
   flex-direction: column-reverse;
@@ -60,7 +60,7 @@ export const EdCenterWrapper = styled.div`
   }
 `;
 
-export const EdCenterTitle = styled.h2`
+export const EdPlatformTitle = styled.h2`
   color: var(--main-color);
   font-family: var(--title-font-family);
   font-size: 34px;
@@ -90,7 +90,7 @@ export const EdCenterTitle = styled.h2`
   }
 `;
 
-export const EdCenterSubTitle = styled.span`
+export const EdPlatformSubTitle = styled.span`
   font-family: var(--secondary-font-family);
   font-size: 42px;
   -webkit-text-stroke: 0;
@@ -107,7 +107,7 @@ export const EdCenterSubTitle = styled.span`
   }
 `;
 
-export const EdCenterNavigation = styled.ul`
+export const EdPlatformNavigation = styled.ul`
   color: var(--main-color);
   font-size: 26px;
   font-weight: 600;
@@ -120,13 +120,13 @@ export const EdCenterNavigation = styled.ul`
   @media screen and (min-width: 768px) {
     width: 243px;
     text-align: end;
-    font-size: 32px;
+    font-size: 28px;
     gap: 10px;
   }
 
   @media screen and (min-width: 1280px) {
     width: auto;
-    font-size: 36px;
+    font-size: 32px;
   }
 `;
 
@@ -169,7 +169,7 @@ export const EdVideoToggler = styled.a`
   }
 `;
 
-export const EdCenterArrowMobile = styled(Arrow)`
+export const EdPlatformArrowMobile = styled(Arrow)`
   opacity: 0;
   position: absolute;
   bottom: -4px;
@@ -197,7 +197,7 @@ export const arrowAnimationTriggeredOnce = keyframes`
   }
 `;
 
-export const EdCenterArrowMobileInView = styled(EdCenterArrowMobile)`
+export const EdPlatformArrowMobileInView = styled(EdPlatformArrowMobile)`
   animation-name: ${arrowAnimationTriggeredOnce};
   animation-duration: 2s;
   animation-timing-function: linear;
@@ -205,7 +205,7 @@ export const EdCenterArrowMobileInView = styled(EdCenterArrowMobile)`
   animation-fill-mode: backwards;
 `;
 
-export const EdCenterArrow = styled(RotatedArrow)`
+export const EdPlatformArrow = styled(RotatedArrow)`
   opacity: 0;
   position: absolute;
   z-index: -1;
@@ -223,7 +223,7 @@ export const EdCenterArrow = styled(RotatedArrow)`
   }
 `;
 
-export const EdCenterArrowInView = styled(EdCenterArrow)`
+export const EdPlatformArrowInView = styled(EdPlatformArrow)`
   animation-name: ${arrowAnimationTriggeredOnce};
   animation-duration: 2s;
   animation-timing-function: linear;

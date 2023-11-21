@@ -44,15 +44,15 @@ export const Title = styled.h1`
   }
 
   @media screen and (min-width: 768px) {
-    margin-bottom: 75px;
+    margin-bottom: 60px;
     letter-spacing: 3.5px;
     width: 700px;
     font-size: 70px;
     -webkit-text-stroke: 2px var(--main-color);
   }
 
-  @media screen and (min-width: 1600px) {
-    width: 600px;
+  @media screen and (min-width: 960px) {
+    width: 900px;
   }
 `;
 
@@ -63,6 +63,12 @@ const sketchAnimation = keyframes`
   100% {
     /* closing the offset makes the line appear to be drawn-in */
     stroke-dashoffset: 0;
+  }
+`;
+
+export const TitleBlock = styled.span`
+  @media screen and (min-width: 960px) {
+    display: block;
   }
 `;
 
@@ -142,6 +148,11 @@ export const DescriptionMoreText = styled.span`
   }
 `;
 
+export const DescriptionSiteText = styled.span`
+  display: block;
+  margin-top: 1em;
+`;
+
 export const DescriptionTrigger = styled.span`
   display: block;
   position: relative;
@@ -160,7 +171,7 @@ export const DescriptionTrigger = styled.span`
 
   @media screen and (min-width: 768px) {
     font-size: 22px;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
   }
 
   @media screen and (min-width: 1280px) {

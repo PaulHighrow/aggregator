@@ -3,8 +3,6 @@ import { CloseIcon } from 'components/LeadForm/LeadForm.styled';
 import { LeadBtn } from 'components/Menu/Menu.styled';
 import ReactPlayer from 'react-player/lazy';
 import {
-  Details,
-  DetailsLink,
   MarqueeBackdrop,
   MarqueeCloseBtn,
   ModalDesc,
@@ -15,39 +13,28 @@ import {
 const serviceList = [
   {
     title: 'From Zero To Hero',
-    to: '/english',
     videoUrl: 'https://youtu.be/ohJM0wno6ng?si=liFJa4bva-vuL9vv',
-    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. In distinctio minima laborum. Recusandae similique deleniti nesciunt cupiditate perferendis corrupti alias minima obcaecati! Saepe, facilis ipsam.',
+    desc: 'Скільки разів була потреба вивчити англійську? А скільки разів доводилось повертатись на вже пройдений курс і пригадувати? Ми теж колись починали з нуля, все розуміємо. Тому й розробили курс, з яким ти точно вивчиш!',
   },
   {
     title: 'Навчальна платформа',
-    to: '/deutsch',
     videoUrl: 'https://youtu.be/qyEE7FZPkxs?si=AfxAeZQY_WZqxwYC',
-    desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur labore odio repellat? Officia tempora ducimus, obcaecati, sapiente quos, adipisci cupiditate repellendus neque asperiores nulla dolorem.',
+    desc: 'Вивчення англійської - це легко та захоплююче. Звісно, якщо вчитись на нашій платформі!',
   },
   {
-    title: 'Гарантія на навчання',
-    to: '/polski',
+    title: 'Письмова гарантія',
     videoUrl: 'https://youtu.be/5rv1gMjVcPw?si=J8r8AxB01p8V6pQB',
-    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio et, consectetur eos maiores corrupti quaerat alias facilis fugiat laudantium accusantium quibusdam, aperiam pariatur fuga aspernatur.',
+    desc: 'Ваш успіх є для нас пріоритетом, і ми стежимо, щоб кожен учень досягав своїх мовних цілей. Тому ми не лише обіцяємо, але й письмово гарантуємо ваш успіх.',
   },
   {
     title: 'Ноутбук в подарунок',
-    to: '/education',
     videoUrl: 'https://youtu.be/gU88cKEW_II',
-    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque accusamus aliquam quae, quis quasi labore maiores eveniet accusantium dicta quam beatae qui eius, esse facilis.',
+    desc: 'Отримайте в подарунок ноутбук трансформер, обраний з урахуванням вашого комфорту та сучасних вимог. З ним відкривається ще більше можливостей для навчання та творчості!',
   },
   {
     title: 'Close to You',
-    to: '/translation',
     videoUrl: 'https://youtu.be/rAxJr_PZmII',
-    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati deserunt, labore aut eveniet, iure impedit ipsum rem dignissimos nesciunt quis illum consequatur. Voluptatibus delectus nulla dicta inventore vero provident aspernatur!',
-  },
-  {
-    title: 'Екзаменаційний центр',
-    to: '/examination',
-    videoUrl: 'https://youtu.be/Sagg08DrO5U?si=FAeZdQ2Zz9ksXsrt',
-    desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus libero, facere hic repellendus commodi dolore impedit, porro error vel exercitationem minus sed architecto amet eum inventore dolorum ratione. Possimus, rerum. Assumenda ipsum earum qui eos, sequi molestias natus neque, ipsam non eum aliquid voluptatibus voluptas alias, cumque expedita eligendi temporibus!',
+    desc: 'Наш унікальний формат, що розроблявся за участю психологів та педагогів. Разом з ним навчання стає ще цікавіше та зручніше!',
   },
 ];
 
@@ -55,10 +42,6 @@ export const MarqueeModal = ({ closeMarqueeModal, toggleModal, id }) => {
   const toggleLeadForm = () => {
     toggleModal();
     closeMarqueeModal();
-  };
-
-  const allowScroll = () => {
-    document.body.style.overflowY = '';
   };
 
   return (
@@ -90,9 +73,6 @@ export const MarqueeModal = ({ closeMarqueeModal, toggleModal, id }) => {
         </VideoLimiter>
 
         <ModalDesc>{serviceList[id].desc}</ModalDesc>
-        <DetailsLink to={serviceList[id].to}>
-          <Details onClick={allowScroll}>Детальніше</Details>
-        </DetailsLink>
         <LeadBtn onClick={toggleLeadForm}> ШВИДКА КОНСУЛЬТАЦІЯ </LeadBtn>
       </ModalWindow>
     </>

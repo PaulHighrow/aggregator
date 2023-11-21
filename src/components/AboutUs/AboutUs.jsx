@@ -33,7 +33,7 @@ export const AboutUs = () => {
                   }}
                   width="100%"
                   height="100%"
-                  url="https://youtu.be/cJH4FUP99rA?si=clJ5upwIiebB7Fzt"
+                  url="https://youtu.be/YP1TFRbTfyo?si=BxZUY2XrRnGdz33Y"
                 />
               </VideoBox>
             </VideoLimiter>

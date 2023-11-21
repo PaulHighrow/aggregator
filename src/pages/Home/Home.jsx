@@ -1,12 +1,11 @@
 import { AboutUs } from 'components/AboutUs/AboutUs';
 import { BackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
 import { Consent } from 'components/Consent/Consent';
-import { EdCenter } from 'components/EdCenter/EdCenter';
-import { ExamCenter } from 'components/ExamCenter/ExamCenter';
+import { EdPlatform } from 'components/EdPlatform/EdPlatform';
 import { Hero } from 'components/Hero/Hero';
 import { HowItWorks } from 'components/HowItWorks/HowItWorks';
 import { LeadForm } from 'components/LeadForm/LeadForm';
-import { Translations } from 'components/Translations/Translations';
+import { Reviews } from 'components/Reviews/Reviews';
 import { useEffect, useState } from 'react';
 
 const Home = ({ utms }) => {
@@ -46,10 +45,11 @@ const Home = ({ utms }) => {
         <Hero closeModal={closeModal} toggleModal={toggleModal} />
         <HowItWorks />
       </BackgroundWrapper>
-      <EdCenter />
+      <EdPlatform />
       {/* <Admission /> */}
-      <Translations utms={utms} />
-      <ExamCenter toggleModal={toggleModal} closeModal={closeModal} />
+      {/* <Translations utms={utms} /> */}
+      <Reviews toggleModal={toggleModal} closeModal={closeModal} />
+      {/* <ExamCenter toggleModal={toggleModal} closeModal={closeModal} /> */}
       <AboutUs />
       <Consent />
       {isOpenModal && <LeadForm closeModal={closeModal} utms={utms} />}

@@ -13,7 +13,7 @@ export const HeroMarquee = ({ toggleModal }) => {
   const [modalId, setmodalId] = useState(NaN);
 
   const handleToggleModal = e => {
-    setmodalId(modalId => (modalId = e.currentTarget.id));
+    setmodalId(e.currentTarget.id);
     setIsMarqueeModalOpen(isOpen => !isOpen);
     document.body.style.overflowY = 'hidden';
   };
@@ -84,7 +84,7 @@ export const HeroMarquee = ({ toggleModal }) => {
 
         <MarqueeChild id={2} onClick={handleToggleModal}>
           <MarqueeOverlay>
-            <MarqueeText>Гарантія на навчання</MarqueeText>
+            <MarqueeText>Письмова гарантія</MarqueeText>
           </MarqueeOverlay>
           <MarqueeVideo autoPlay loop muted={true}>
             <source
