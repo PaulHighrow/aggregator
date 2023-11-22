@@ -187,12 +187,13 @@ export const VideoLimiter = styled.div`
   max-width: 640px;
 
   @media screen and (min-width: 768px) {
-    max-width: 960px;
+    max-width: 640px;
+    margin: 0;
     margin-bottom: 35px;
   }
 
   @media screen and (min-width: 1280px) {
-    max-width: 1280px;
+    max-width: 960px;
     margin-bottom: 50px;
   }
 `;

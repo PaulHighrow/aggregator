@@ -23,6 +23,7 @@ import {
   VideoBox,
   VideoLimiter,
 } from './Reviews.styled';
+import { ReviewsMarquee } from './ReviewsMarquee/ReviewsMarquee';
 
 export const Reviews = ({ toggleModal }) => {
   const navListItems = [
@@ -70,6 +71,7 @@ export const Reviews = ({ toggleModal }) => {
               />
             </VideoBox>
           </VideoLimiter>
+          <ReviewsMarquee toggleModal={toggleModal} />
           <LeadBtnWrapper>
             <LeadBtn onClick={toggleModal}> ЗАЛИШИТИ ЗАЯВКУ </LeadBtn>
           </LeadBtnWrapper>
