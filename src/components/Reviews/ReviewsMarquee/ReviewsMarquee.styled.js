@@ -42,6 +42,7 @@ export const MarqueeOverlay = styled.div`
 `;
 
 export const MarqueeVideo = styled.video`
+  object-fit: cover;
   width: 240px;
   height: 240px;
 
@@ -49,22 +50,4 @@ export const MarqueeVideo = styled.video`
     width: 320px;
     height: 320px;
   }
-`;
-
-export const MarqueeText = styled.span`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  padding: 8px;
-  border-radius: 20px;
-
-  font-size: 28px;
-  text-align: center;
-  color: var(--secondary-color);
-  background-color: #00000090;
-
-  transition: background-color var(--animation-global),
-    transform var(--animation-global);
 `;
