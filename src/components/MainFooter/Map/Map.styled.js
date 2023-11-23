@@ -16,9 +16,10 @@ export const LocationName = styled.span`
   }
 `;
 
-export const LocationAdress = styled.span`
+export const LocationAdress = styled.a`
   font-size: 13px;
   font-weight: 500;
+  text-decoration: dashed;
 
   @media screen and (min-width: 768px) {
     font-size: 14px;

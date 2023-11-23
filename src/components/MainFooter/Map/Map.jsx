@@ -41,7 +41,9 @@ export const Map = () => {
             <InfoWindow position={marker}>
               <Location>
                 <LocationName>AP Education Center</LocationName>{' '}
-                <LocationAdress>вул. Братів Рогатинців, 18</LocationAdress>
+                <LocationAdress href="https://goo.gl/maps/AvneSaz3ikRAaKUD6">
+                  вул. Братів Рогатинців, 18
+                </LocationAdress>
               </Location>
             </InfoWindow>
           </MarkerF>
