@@ -18,7 +18,7 @@ const serviceList = [
   },
   {
     title: 'Навчальна платформа',
-    videoUrl: 'https://youtu.be/ncDw4CGMn2o',
+    videoUrl: 'https://youtu.be/18RbBq_dIDs?si=3eLudDpUJyU6NdpQ',
     desc: 'Вивчення англійської - це легко та захоплююче. Звісно, якщо вчитись на нашій платформі!',
   },
   {
