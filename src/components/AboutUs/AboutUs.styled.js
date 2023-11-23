@@ -1,5 +1,17 @@
 import { BackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import { ReactComponent as LoopyLine } from '../../img/svg/loopyLineNormal.svg';
+import { ReactComponent as LoopyLineMirrored } from '../../img/svg/loopyLineMirror.svg';
+import { PageNavigationText } from 'components/HowItWorks/HowItWorks.styled';
+
+const pathAnimation = keyframes`
+  0%{
+    stroke-dashoffset: 1;
+  }
+  100%{
+    stroke-dashoffset: 0;
+  }
+`;
 
 export const AboutUsBackground = styled(BackgroundWrapper)`
   background-position: right -70px bottom 10px;
@@ -27,20 +39,22 @@ export const AboutUsSection = styled.section`
 `;
 
 export const AboutUsWrapper = styled.div`
-  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   gap: 13px;
+  margin-bottom: 20px;
 
   @media screen and (min-width: 768px) {
     gap: 30px;
     align-items: center;
     margin: 0 auto;
+    margin-bottom: 35px;
   }
 
   @media screen and (min-width: 1280px) {
     flex-direction: row;
     gap: 40px;
+    margin-bottom: 50px;
   }
 `;
 
@@ -69,18 +83,18 @@ export const AboutUsTitle = styled.h2`
 
 export const AboutUsSubTitle = styled.span`
   font-family: var(--secondary-font-family);
-  font-size: 42px;
+  font-size: 44px;
   -webkit-text-stroke: 0;
   letter-spacing: 2px;
 
   color: var(--accent-color);
 
   @media screen and (min-width: 768px) {
-    font-size: 53px;
+    font-size: 64px;
   }
 
   @media screen and (min-width: 1280px) {
-    font-size: 64px;
+    font-size: 72px;
   }
 `;
 
@@ -118,5 +132,84 @@ export const AboutUsText = styled.p`
 
   @media screen and (min-width: 1280px) {
     font-size: 38px;
+  }
+`;
+
+export const NavAnimationWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media screen and (min-width: 1280px) {
+    padding: 0 75px;
+  }
+`;
+
+export const NavigationWrapper = styled.div`
+  width: 350px;
+  padding-left: 11px;
+
+  @media screen and (min-width: 768px) {
+    width: 400px;
+  }
+`;
+
+export const NavigationItem = styled.li`
+  flex: 0 0 auto;
+`;
+
+export const NavigationDesc = styled.p`
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--main-color);
+  letter-spacing: 1.8px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 22px;
+    margin-bottom: 19px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 28px;
+    margin-bottom: 22px;
+  }
+`;
+
+export const BottomPageNavigationText = styled(PageNavigationText)`
+  right: 0px;
+  left: 325px;
+  bottom: -2px;
+`;
+
+export const LoopyLineIcon = styled(LoopyLine)`
+  width: 120px;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 2;
+  animation-name: ${pathAnimation};
+  animation-duration: 1s;
+  animation-direction: normal;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+
+  @media screen and (min-width: 1280px) {
+    width: 130px;
+  }
+`;
+
+export const LoopyLineMirroredIcon = styled(LoopyLineMirrored)`
+  width: 120px;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 2;
+  animation-name: ${pathAnimation};
+  animation-duration: 1s;
+  animation-direction: normal;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+
+  @media screen and (min-width: 1280px) {
+    width: 130px;
   }
 `;

@@ -34,7 +34,7 @@ export const SectionWrapper = styled.div`
 `;
 
 export const SectionTitle = styled.h2`
-  width: 172px;
+  width: 200px;
   color: var(--main-color);
   font-family: var(--title-font-family);
   font-size: 40px;
@@ -165,7 +165,7 @@ export const PageNavigationArrow = styled(MenuArrow)`
 `;
 
 export const PageNavigationText = styled.span`
-display: none;
+  display: none;
 
   @media screen and (min-width: 1280px) {
     display: inline;

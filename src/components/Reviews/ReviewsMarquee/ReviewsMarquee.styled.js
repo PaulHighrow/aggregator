@@ -12,12 +12,12 @@ export const MarqueeChild = styled.div`
   overflow: hidden;
   margin-right: 30px;
   transition: transform var(--animation-global);
-  width: 180px;
-  height: 320px;
+  width: 240px;
+  height: 240px;
 
   @media screen and (min-width: 768px) {
-    width: 270px;
-    height: 480px;
+    width: 320px;
+    height: 320px;
   }
 
   &:hover > *,
@@ -42,12 +42,12 @@ export const MarqueeOverlay = styled.div`
 `;
 
 export const MarqueeVideo = styled.video`
-  width: 180px;
-  height: 320px;
+  width: 240px;
+  height: 240px;
 
   @media screen and (min-width: 768px) {
-    width: 270px;
-    height: 480px;
+    width: 320px;
+    height: 320px;
   }
 `;
 

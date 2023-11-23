@@ -1,30 +1,15 @@
 import { BackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
-import styled, { keyframes } from 'styled-components';
-import { ReactComponent as UnderlineShort } from '../../img/svg/exam-underline-short.svg';
-import { ReactComponent as UnderlineMedium } from '../../img/svg/exam-underline-medium.svg';
-import { ReactComponent as UnderlineLong } from '../../img/svg/exam-underline-long.svg';
-import { ReactComponent as LoopyLine } from '../../img/svg/loopyLineNormal.svg';
-import { ReactComponent as LoopyLineMirrored } from '../../img/svg/loopyLineMirror.svg';
-import { PageNavigationText } from 'components/HowItWorks/HowItWorks.styled';
-
-const pathAnimation = keyframes`
-  0%{
-    stroke-dashoffset: 1;
-  }
-  100%{
-    stroke-dashoffset: 0;
-  }
-`;
+import styled from 'styled-components';
 
 export const ReviewsBackground = styled(BackgroundWrapper)`
   background-position: left -70px bottom 0px;
 
   @media screen and (min-width: 768px) {
-    background-position: right -140px top 70px;
+    background-position: center center;
   }
 
   @media screen and (min-width: 1280px) {
-    background-position: right -215px top 70px;
+    background-position: right -215px center;
   }
 `;
 
@@ -95,15 +80,10 @@ export const ReviewsTitle = styled.h2`
 export const ReviewsSubTitle = styled.span`
   display: block;
   font-family: var(--secondary-font-family);
-  font-size: 28px;
+  font-size: 42px;
   -webkit-text-stroke: 0;
   letter-spacing: 2px;
-
   color: var(--accent-color);
-
-  @media screen and (min-width: 390px) {
-    font-size: 42px;
-  }
 
   @media screen and (min-width: 768px) {
     font-size: 70px;
@@ -114,87 +94,17 @@ export const ReviewsSubTitle = styled.span`
   }
 `;
 
-export const ReviewsList = styled.ul`
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: 1.8px;
-  justify-content: center;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 20px;
-
-  &:last-child {
-    padding-bottom: 6px;
-  }
-
-  @media screen and (min-width: 768px) {
-    text-align: end;
-    font-size: 32px;
-    gap: 41px;
-    margin-bottom: 32px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    font-size: 36px;
-    gap: 62px;
-  }
-`;
-
-export const NavigationItem = styled.li`
-  flex: 0 0 auto;
-`;
-
-export const ExamToggler = styled.a`
-  user-select: none;
-  color: #9d9d9d;
-  z-index: 1;
-  position: relative;
-  transition: color var(--animation-global);
-
-  @media screen and (min-width: 1280px) {
-    cursor: pointer;
-  }
-
-  &.selected,
-  &:hover,
-  &:focus {
-    color: var(--main-color);
-  }
-
-  &.selected svg {
-    display: block;
-  }
-`;
-
-const underlineStyles =
-  'display: none; position: absolute; width: 100%; bottom: -6px; left: 0px; transform: rotate(-1.5deg);';
-
-export const ExamTogglerUnderlineShort = styled(UnderlineShort)`
-  ${underlineStyles}
-`;
-
-export const ExamTogglerUnderlineMedium = styled(UnderlineMedium)`
-  ${underlineStyles}
-`;
-
-export const ExamTogglerUnderlineLong = styled(UnderlineLong)`
-  ${underlineStyles}
-`;
-
 export const VideoLimiter = styled.div`
   margin: 0 auto;
-  margin-bottom: 20px;
+  width: 100%;
   max-width: 640px;
 
   @media screen and (min-width: 768px) {
-    max-width: 640px;
-    margin: 0;
-    margin-bottom: 35px;
+    max-width: 960px;
   }
 
   @media screen and (min-width: 1280px) {
-    max-width: 960px;
-    margin-bottom: 50px;
+    max-width: 1280px;
   }
 `;
 
@@ -206,83 +116,46 @@ export const VideoBox = styled.div`
   box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.25);
 `;
 
-export const NavAnimationWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  @media screen and (min-width: 1280px) {
-    padding: 0 75px;
-  }
-`;
-
-export const NavigationWrapper = styled.div`
-  width: 350px;
-  padding-left: 11px;
-
-  @media screen and (min-width: 768px) {
-    width: 400px;
-  }
-`;
-
-export const NavigationDesc = styled.p`
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 16px;
-  color: var(--main-color);
-  letter-spacing: 1.8px;
-
-  @media screen and (min-width: 768px) {
-    font-size: 28px;
-    margin-bottom: 19px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    font-size: 36px;
-    margin-bottom: 22px;
-  }
-`;
-
-export const BottomPageNavigationText = styled(PageNavigationText)`
-  right: 0px;
-  left: 325px;
-  bottom: -2px;
-`;
-
-export const LoopyLineIcon = styled(LoopyLine)`
-  width: 120px;
-  stroke-dasharray: 1;
-  stroke-dashoffset: 2;
-  animation-name: ${pathAnimation};
-  animation-duration: 1s;
-  animation-direction: normal;
-  animation-timing-function: linear;
-  animation-iteration-count: 1;
-  animation-fill-mode: both;
-
-  @media screen and (min-width: 1280px) {
-    width: 130px;
-  }
-`;
-
-export const LoopyLineMirroredIcon = styled(LoopyLineMirrored)`
-  width: 120px;
-  stroke-dasharray: 1;
-  stroke-dashoffset: 2;
-  animation-name: ${pathAnimation};
-  animation-duration: 1s;
-  animation-direction: normal;
-  animation-timing-function: linear;
-  animation-iteration-count: 1;
-  animation-fill-mode: both;
-
-  @media screen and (min-width: 1280px) {
-    width: 130px;
-  }
-`;
-
 export const LeadBtnWrapper = styled.div`
   width: max-content;
   margin: 0 auto;
-  margin-bottom: 25px;
+`;
+
+export const ReviewsVideoWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: 768px) {
+    gap: 30px;
+    align-items: center;
+    margin: 0 auto;
+    margin-bottom: 32px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    flex-direction: row;
+    gap: 40px;
+  }
+`;
+
+export const ReviewsTextBox = styled.div`
+  max-width: 580px;
+`;
+
+export const ReviewsText = styled.p`
+  color: var(--main-color);
+  font-size: 20px;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 29px;
+    margin-bottom: 35px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 38px;
+    margin-bottom: 50px;
+  }
 `;
