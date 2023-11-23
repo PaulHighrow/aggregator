@@ -2,7 +2,7 @@
   "name": "ap-education-english",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://www.ap.education/",
+  "homepage": "https://PaulHighrow.github.io/aggregator/",
   "dependencies": {
     "@react-google-maps/api": "^2.19.2",
     "@react-hook/size": "^2.1.2",
