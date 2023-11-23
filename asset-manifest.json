@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.331bf624.css",
-    "main.js": "/aggregator/static/js/main.e107f316.js",
-    "Homepage.js": "/aggregator/static/js/Homepage.e296e9a6.chunk.js",
-    "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.b27ca813.chunk.js",
+    "main.js": "/aggregator/static/js/main.4ea7758d.js",
+    "Homepage.js": "/aggregator/static/js/Homepage.7269249f.chunk.js",
+    "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.c91916ab.chunk.js",
     "English courses page.js": "/aggregator/static/js/English courses page.6a4d6655.chunk.js",
     "Polski courses page.js": "/aggregator/static/js/Polski courses page.92516a6f.chunk.js",
     "Deutsch courses page.js": "/aggregator/static/js/Deutsch courses page.8715a379.chunk.js",
@@ -27,8 +27,8 @@
     "reactPlayerPreview.js": "/aggregator/static/js/reactPlayerPreview.73fbb042.chunk.js",
     "static/js/108.0834bdca.chunk.js": "/aggregator/static/js/108.0834bdca.chunk.js",
     "static/js/710.d4cdb015.chunk.js": "/aggregator/static/js/710.d4cdb015.chunk.js",
-    "static/js/30.89689838.chunk.js": "/aggregator/static/js/30.89689838.chunk.js",
-    "static/js/382.4abefa7d.chunk.js": "/aggregator/static/js/382.4abefa7d.chunk.js",
+    "static/js/688.fc8c5568.chunk.js": "/aggregator/static/js/688.fc8c5568.chunk.js",
+    "static/js/382.6553b8a9.chunk.js": "/aggregator/static/js/382.6553b8a9.chunk.js",
     "static/media/LTJournalCrayon-Regular.eot": "/aggregator/static/media/LTJournalCrayon-Regular.4e01f9d2a8b68d2b8f20.eot",
     "static/media/LTJournalCrayon-Regular.ttf": "/aggregator/static/media/LTJournalCrayon-Regular.6f92c12d932b03431110.ttf",
     "static/media/LTJournalCrayon-Regular.woff": "/aggregator/static/media/LTJournalCrayon-Regular.ad68ffb639193095ad33.woff",
@@ -103,9 +103,9 @@
     "static/media/invertedDownArrow.svg": "/aggregator/static/media/invertedDownArrow.81d2e354f4424bf21d20b96a031591ce.svg",
     "static/media/downArrow.svg": "/aggregator/static/media/downArrow.3d74cb9d6d38fab26c47bbadb8e4f56d.svg",
     "main.331bf624.css.map": "/aggregator/static/css/main.331bf624.css.map",
-    "main.e107f316.js.map": "/aggregator/static/js/main.e107f316.js.map",
-    "Homepage.e296e9a6.chunk.js.map": "/aggregator/static/js/Homepage.e296e9a6.chunk.js.map",
-    "Inverted Homepage.b27ca813.chunk.js.map": "/aggregator/static/js/Inverted Homepage.b27ca813.chunk.js.map",
+    "main.4ea7758d.js.map": "/aggregator/static/js/main.4ea7758d.js.map",
+    "Homepage.7269249f.chunk.js.map": "/aggregator/static/js/Homepage.7269249f.chunk.js.map",
+    "Inverted Homepage.c91916ab.chunk.js.map": "/aggregator/static/js/Inverted Homepage.c91916ab.chunk.js.map",
     "English courses page.6a4d6655.chunk.js.map": "/aggregator/static/js/English courses page.6a4d6655.chunk.js.map",
     "Polski courses page.92516a6f.chunk.js.map": "/aggregator/static/js/Polski courses page.92516a6f.chunk.js.map",
     "Deutsch courses page.8715a379.chunk.js.map": "/aggregator/static/js/Deutsch courses page.8715a379.chunk.js.map",
@@ -129,11 +129,11 @@
     "reactPlayerPreview.73fbb042.chunk.js.map": "/aggregator/static/js/reactPlayerPreview.73fbb042.chunk.js.map",
     "108.0834bdca.chunk.js.map": "/aggregator/static/js/108.0834bdca.chunk.js.map",
     "710.d4cdb015.chunk.js.map": "/aggregator/static/js/710.d4cdb015.chunk.js.map",
-    "30.89689838.chunk.js.map": "/aggregator/static/js/30.89689838.chunk.js.map",
-    "382.4abefa7d.chunk.js.map": "/aggregator/static/js/382.4abefa7d.chunk.js.map"
+    "688.fc8c5568.chunk.js.map": "/aggregator/static/js/688.fc8c5568.chunk.js.map",
+    "382.6553b8a9.chunk.js.map": "/aggregator/static/js/382.6553b8a9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.331bf624.css",
-    "static/js/main.e107f316.js"
+    "static/js/main.4ea7758d.js"
   ]
 }
