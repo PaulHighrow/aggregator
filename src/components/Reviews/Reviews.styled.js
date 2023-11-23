@@ -1,4 +1,5 @@
 import { BackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
+import { Box } from 'components/Box/Box.styled';
 import styled from 'styled-components';
 
 export const ReviewsBackground = styled(BackgroundWrapper)`
@@ -15,15 +16,27 @@ export const ReviewsBackground = styled(BackgroundWrapper)`
 
 export const ReviewsSection = styled.section`
   position: relative;
-  padding: 30px;
+  padding: 30px 0;
 
   @media screen and (min-width: 768px) {
-    padding: 42px;
+    padding-bottom: 42px;
     padding-top: 0;
   }
 
   @media screen and (min-width: 1280px) {
-    padding: 55px;
+    padding: 55px 0;
+  }
+`;
+
+export const ReviewsBox = styled(Box)`
+  padding: 0 30px;
+
+  @media screen and (min-width: 768px) {
+    padding: 0 42px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding: 0 55px;
   }
 `;
 

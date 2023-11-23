@@ -1,9 +1,9 @@
-import { Box } from 'components/Box/Box.styled';
 import { LeadBtn } from 'components/Menu/Menu.styled';
 import ReactPlayer from 'react-player';
 import {
   LeadBtnWrapper,
   ReviewsBackground,
+  ReviewsBox,
   ReviewsSection,
   ReviewsSubTitle,
   ReviewsText,
@@ -19,7 +19,7 @@ export const Reviews = ({ toggleModal }) => {
   return (
     <ReviewsBackground>
       <ReviewsSection id="reviews">
-        <Box>
+        <ReviewsBox>
           <ReviewsTitle>
             <ReviewsSubTitle>ВІДГУКИ</ReviewsSubTitle> ПРО КУРС
           </ReviewsTitle>
@@ -55,7 +55,7 @@ export const Reviews = ({ toggleModal }) => {
               </LeadBtnWrapper>
             </ReviewsTextBox>
           </ReviewsVideoWrapper>
-        </Box>
+        </ReviewsBox>
         <ReviewsMarquee toggleModal={toggleModal} />
       </ReviewsSection>
     </ReviewsBackground>
