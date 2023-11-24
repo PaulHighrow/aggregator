@@ -11,7 +11,7 @@ export const ReviewsMarquee = () => {
       <StyledMarquee autoFill={true} pauseOnHover={true}>
         <MarqueeChild>
           <MarqueeOverlay />
-          <MarqueeVideo autoPlay loop muted={true}>
+          <MarqueeVideo autoPlay loop playsInline muted={true}>
             <source
               src="https://ap.education/static/video/review1.webm"
               type="video/webm"
@@ -25,7 +25,7 @@ export const ReviewsMarquee = () => {
 
         <MarqueeChild>
           <MarqueeOverlay />
-          <MarqueeVideo autoPlay loop muted={true}>
+          <MarqueeVideo autoPlay loop playsInline muted={true}>
             <source
               src="https://ap.education/static/video/review2.webm"
               type="video/webm"
@@ -39,7 +39,7 @@ export const ReviewsMarquee = () => {
 
         <MarqueeChild>
           <MarqueeOverlay />
-          <MarqueeVideo autoPlay loop muted={true}>
+          <MarqueeVideo autoPlay loop playsInline muted={true}>
             <source
               src="https://ap.education/static/video/review3.webm"
               type="video/webm"
@@ -53,7 +53,7 @@ export const ReviewsMarquee = () => {
 
         <MarqueeChild>
           <MarqueeOverlay />
-          <MarqueeVideo autoPlay loop muted={true}>
+          <MarqueeVideo autoPlay loop playsInline muted={true}>
             <source
               src="https://ap.education/static/video/review4.webm"
               type="video/webm"
@@ -67,7 +67,7 @@ export const ReviewsMarquee = () => {
 
         <MarqueeChild>
           <MarqueeOverlay />
-          <MarqueeVideo autoPlay loop muted={true}>
+          <MarqueeVideo autoPlay loop playsInline muted={true}>
             <source
               src="https://ap.education/static/video/review5.webm"
               type="video/webm"
@@ -80,7 +80,7 @@ export const ReviewsMarquee = () => {
         </MarqueeChild>
         <MarqueeChild>
           <MarqueeOverlay />
-          <MarqueeVideo autoPlay loop muted={true}>
+          <MarqueeVideo autoPlay loop playsInline muted={true}>
             <source
               src="https://ap.education/static/video/review6.webm"
               type="video/webm"
@@ -93,7 +93,7 @@ export const ReviewsMarquee = () => {
         </MarqueeChild>
         <MarqueeChild>
           <MarqueeOverlay />
-          <MarqueeVideo autoPlay loop muted={true}>
+          <MarqueeVideo autoPlay loop playsInline muted={true}>
             <source
               src="https://ap.education/static/video/review7.webm"
               type="video/webm"
@@ -106,7 +106,7 @@ export const ReviewsMarquee = () => {
         </MarqueeChild>
         <MarqueeChild>
           <MarqueeOverlay />
-          <MarqueeVideo autoPlay loop muted={true}>
+          <MarqueeVideo autoPlay loop playsInline muted={true}>
             <source
               src="https://ap.education/static/video/review8.webm"
               type="video/webm"
@@ -119,7 +119,7 @@ export const ReviewsMarquee = () => {
         </MarqueeChild>
         <MarqueeChild>
           <MarqueeOverlay />
-          <MarqueeVideo autoPlay loop muted={true}>
+          <MarqueeVideo autoPlay loop playsInline muted={true}>
             <source
               src="https://ap.education/static/video/review9.webm"
               type="video/webm"
@@ -132,7 +132,7 @@ export const ReviewsMarquee = () => {
         </MarqueeChild>
         <MarqueeChild>
           <MarqueeOverlay />
-          <MarqueeVideo autoPlay loop muted={true}>
+          <MarqueeVideo autoPlay loop playsInline muted={true}>
             <source
               src="https://ap.education/static/video/review10.webm"
               type="video/webm"
