@@ -56,11 +56,11 @@ export const HeroMarquee = ({ toggleModal }) => {
           </MarqueeOverlay>
           <MarqueeVideo autoPlay loop playsInline muted={true}>
             <source
-              src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700484543/preview1_vktvdl.webm"
+              src="https://ap.education/static/video/previews/preview1.webm"
               type="video/webm"
             />
             <source
-              src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700484130/preview1.mp4"
+              src="https://ap.education/static/video/previews/preview1.mp4"
               type="video/mp4"
             />
           </MarqueeVideo>
@@ -88,11 +88,11 @@ export const HeroMarquee = ({ toggleModal }) => {
           </MarqueeOverlay>
           <MarqueeVideo autoPlay loop playsInline muted={true}>
             <source
-              src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700484543/preview3_pvoduh.webm"
+              src="https://ap.education/static/video/previews/preview3.webm"
               type="video/webm"
             />
             <source
-              src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700484130/preview3.mp4"
+              src="https://ap.education/static/video/previews/preview3.mp4"
               type="video/mp4"
             />
           </MarqueeVideo>
@@ -120,11 +120,11 @@ export const HeroMarquee = ({ toggleModal }) => {
           </MarqueeOverlay>
           <MarqueeVideo autoPlay loop playsInline muted={true}>
             <source
-              src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700493363/preview5_cm4htf.webm"
+              src="https://ap.education/static/video/previews/preview5.webm"
               type="video/webm"
             />
             <source
-              src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700493193/preview5.mp4"
+              src="https://ap.education/static/video/previews/preview5.mp4"
               type="video/mp4"
             />
           </MarqueeVideo>
