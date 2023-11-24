@@ -66,7 +66,7 @@ export const HeroMarquee = ({ toggleModal }) => {
             }}
             width="100%"
             height="100%"
-            url="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700484543/preview1_vktvdl.webm"
+            url="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700484130/preview1.mp4"
           />
         </MarqueeChild>
 
@@ -86,7 +86,7 @@ export const HeroMarquee = ({ toggleModal }) => {
             }}
             width="100%"
             height="100%"
-            url="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700484543/preview2_kq0yix.webm"
+            url="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700484130/preview1.mp4"
           />
         </MarqueeChild>
 
@@ -106,7 +106,7 @@ export const HeroMarquee = ({ toggleModal }) => {
             }}
             width="100%"
             height="100%"
-            url="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700484543/preview3_pvoduh.webm"
+            url="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700484130/preview1.mp4"
           />
         </MarqueeChild>
 
@@ -126,7 +126,7 @@ export const HeroMarquee = ({ toggleModal }) => {
             }}
             width="100%"
             height="100%"
-            url="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700486374/preview4_xlqaux.webm"
+            url="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700484130/preview1.mp4"
           />
         </MarqueeChild>
 
@@ -146,7 +146,7 @@ export const HeroMarquee = ({ toggleModal }) => {
             }}
             width="100%"
             height="100%"
-            url="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700493363/preview5_cm4htf.webm"
+            url="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700484130/preview1.mp4"
           />
         </MarqueeChild>
       </StyledMarquee>
