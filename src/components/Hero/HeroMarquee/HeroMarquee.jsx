@@ -2,11 +2,11 @@ import {
   MarqueeChild,
   MarqueeOverlay,
   MarqueeText,
-  MarqueeVideo,
-  StyledMarquee,
+  StyledMarquee
 } from 'components/Hero/HeroMarquee/HeroMarquee.styled';
 import { MarqueeModal } from 'components/MarqueeModal/MarqueeModal';
 import { useEffect, useState } from 'react';
+import ReactPlayer from 'react-player';
 
 export const HeroMarquee = ({ toggleModal }) => {
   const [isMarqueeModalOpen, setIsMarqueeModalOpen] = useState(false);
@@ -54,80 +54,100 @@ export const HeroMarquee = ({ toggleModal }) => {
           <MarqueeOverlay>
             <MarqueeText>From Zero to Hero</MarqueeText>
           </MarqueeOverlay>
-          <MarqueeVideo autoPlay loop muted={true}>
-            <source
-              src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700484543/preview1_vktvdl.webm"
-              type="video/webm"
-            />
-            <source
-              src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700484130/preview1.mp4"
-              type="video/mp4"
-            />
-          </MarqueeVideo>
+          <ReactPlayer
+            loop={true}
+            muted={true}
+            playing={true}
+            style={{
+              display: 'block',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+            }}
+            width="100%"
+            height="100%"
+            url="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700484543/preview1_vktvdl.webm"
+          />
         </MarqueeChild>
 
         <MarqueeChild id={1} onClick={handleToggleModal}>
           <MarqueeOverlay>
             <MarqueeText>Навчальна платформа</MarqueeText>
           </MarqueeOverlay>
-          <MarqueeVideo autoPlay loop muted={true}>
-            <source
-              src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700484543/preview2_kq0yix.webm"
-              type="video/webm"
-            />
-            <source
-              src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700484130/preview2.mp4"
-              type="video/mp4"
-            />
-          </MarqueeVideo>
+          <ReactPlayer
+            loop={true}
+            muted={true}
+            playing={true}
+            style={{
+              display: 'block',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+            }}
+            width="100%"
+            height="100%"
+            url="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700484543/preview2_kq0yix.webm"
+          />
         </MarqueeChild>
 
         <MarqueeChild id={2} onClick={handleToggleModal}>
           <MarqueeOverlay>
             <MarqueeText>Письмова гарантія</MarqueeText>
           </MarqueeOverlay>
-          <MarqueeVideo autoPlay loop muted={true}>
-            <source
-              src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700484543/preview3_pvoduh.webm"
-              type="video/webm"
-            />
-            <source
-              src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700484130/preview3.mp4"
-              type="video/mp4"
-            />
-          </MarqueeVideo>
+          <ReactPlayer
+            loop={true}
+            muted={true}
+            playing={true}
+            style={{
+              display: 'block',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+            }}
+            width="100%"
+            height="100%"
+            url="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700484543/preview3_pvoduh.webm"
+          />
         </MarqueeChild>
 
         <MarqueeChild id={3} onClick={handleToggleModal}>
           <MarqueeOverlay>
             <MarqueeText>Ноутбук в подарунок</MarqueeText>
           </MarqueeOverlay>
-          <MarqueeVideo autoPlay loop muted={true}>
-            <source
-              src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700486374/preview4_xlqaux.webm"
-              type="video/webm"
-            />
-            <source
-              src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700486134/preview4.mp4"
-              type="video/mp4"
-            />
-          </MarqueeVideo>
+          <ReactPlayer
+            loop={true}
+            muted={true}
+            playing={true}
+            style={{
+              display: 'block',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+            }}
+            width="100%"
+            height="100%"
+            url="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700486374/preview4_xlqaux.webm"
+          />
         </MarqueeChild>
 
         <MarqueeChild id={4} onClick={handleToggleModal}>
           <MarqueeOverlay>
             <MarqueeText>Close to You</MarqueeText>
           </MarqueeOverlay>
-          <MarqueeVideo autoPlay loop muted={true}>
-            <source
-              src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700493363/preview5_cm4htf.webm"
-              type="video/webm"
-            />
-            <source
-              src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700493193/preview5.mp4"
-              type="video/mp4"
-            />
-          </MarqueeVideo>
+          <ReactPlayer
+            loop={true}
+            muted={true}
+            playing={true}
+            style={{
+              display: 'block',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+            }}
+            width="100%"
+            height="100%"
+            url="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700493363/preview5_cm4htf.webm"
+          />
         </MarqueeChild>
       </StyledMarquee>
     </>
