@@ -54,7 +54,7 @@ export const HeroMarquee = ({ toggleModal }) => {
           <MarqueeOverlay>
             <MarqueeText>From Zero to Hero</MarqueeText>
           </MarqueeOverlay>
-          <MarqueeVideo autoPlay loop playsinline muted={true}>
+          <MarqueeVideo autoPlay loop playsInline muted={true}>
             <source
               src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700484543/preview1_vktvdl.webm"
               type="video/webm"
@@ -70,7 +70,7 @@ export const HeroMarquee = ({ toggleModal }) => {
           <MarqueeOverlay>
             <MarqueeText>Навчальна платформа</MarqueeText>
           </MarqueeOverlay>
-          <MarqueeVideo autoPlay loop playsinline muted={true}>
+          <MarqueeVideo autoPlay loop playsInline muted={true}>
             <source
               src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700484543/preview2_kq0yix.webm"
               type="video/webm"
@@ -86,7 +86,7 @@ export const HeroMarquee = ({ toggleModal }) => {
           <MarqueeOverlay>
             <MarqueeText>Письмова гарантія</MarqueeText>
           </MarqueeOverlay>
-          <MarqueeVideo autoPlay loop playsinline muted={true}>
+          <MarqueeVideo autoPlay loop playsInline muted={true}>
             <source
               src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700484543/preview3_pvoduh.webm"
               type="video/webm"
@@ -102,7 +102,7 @@ export const HeroMarquee = ({ toggleModal }) => {
           <MarqueeOverlay>
             <MarqueeText>Ноутбук в подарунок</MarqueeText>
           </MarqueeOverlay>
-          <MarqueeVideo autoPlay loop playsinline muted={true}>
+          <MarqueeVideo autoPlay loop playsInline muted={true}>
             <source
               src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700486374/preview4_xlqaux.webm"
               type="video/webm"
@@ -118,7 +118,7 @@ export const HeroMarquee = ({ toggleModal }) => {
           <MarqueeOverlay>
             <MarqueeText>Close to You</MarqueeText>
           </MarqueeOverlay>
-          <MarqueeVideo autoPlay loop playsinline muted={true}>
+          <MarqueeVideo autoPlay loop playsInline muted={true}>
             <source
               src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700493363/preview5_cm4htf.webm"
               type="video/webm"
