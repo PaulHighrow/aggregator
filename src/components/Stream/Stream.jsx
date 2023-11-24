@@ -1,35 +1,15 @@
 import { Box } from 'components/Box/Box.styled';
+import ReactPlayer from 'react-player';
 import {
   HowItWorksSection,
-  PageNavigation,
-  PageNavigationArrow,
-  PageNavigationItem,
-  PageNavigationLink,
-  PageNavigationText,
   SectionSubTitle,
   SectionTitle,
   SectionWrapper,
   VideoBox,
-  VideoLimiter,
+  VideoLimiter
 } from './Stream.styled';
-import ReactPlayer from 'react-player';
-import useSize from '@react-hook/size';
 
 export const Stream = () => {
-  const listItems = [
-    { to: 'howitworks', service: 'Мотивація' },
-    { to: 'platform', service: 'Навчальна платформа' },
-    { to: 'reviews', service: 'Відгуки про курс' },
-    { to: 'aboutus', service: 'Про нас' },
-  ];
-  // eslint-disable-next-line
-  const [width, _] = useSize(document.body);
-
-  const props =
-    width < 768
-      ? { spy: true, smooth: true, offset: -73 }
-      : { spy: true, smooth: true };
-
   return (
     <HowItWorksSection id="howitworks">
       <Box>
@@ -37,17 +17,6 @@ export const Stream = () => {
           <SectionTitle>
             HOW IT <SectionSubTitle>WORKS?</SectionSubTitle>
           </SectionTitle>
-          <PageNavigation>
-            {listItems.map((item, i) => (
-              <PageNavigationItem key={i}>
-                <PageNavigationLink to={item.to} {...props}>
-                  {item.service}
-                  <PageNavigationArrow />
-                  <PageNavigationText>перейти</PageNavigationText>
-                </PageNavigationLink>
-              </PageNavigationItem>
-            ))}
-          </PageNavigation>
         </SectionWrapper>
         <VideoLimiter>
           <VideoBox>
@@ -73,7 +42,7 @@ export const Stream = () => {
       title='chat'
         width="350px"
         height="500px"
-        src="https://www.youtube.com/live_chat?v=ItvOvNAnk8o&amp;embed_domain=paulhighrow.github.io/aggregator/"
+        src="https://www.youtube.com/live_chat?v=ItvOvNAnk8o&amp;embed_domain=paulhighrow.github.io"
       ></iframe>
     </HowItWorksSection>
   );
