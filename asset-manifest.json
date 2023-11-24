@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.331bf624.css",
-    "main.js": "/aggregator/static/js/main.cbecda77.js",
+    "main.js": "/aggregator/static/js/main.931f3cb0.js",
     "Homepage.js": "/aggregator/static/js/Homepage.9c7240a4.chunk.js",
     "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.c91916ab.chunk.js",
     "English courses page.js": "/aggregator/static/js/English courses page.6a4d6655.chunk.js",
@@ -26,7 +26,7 @@
     "reactPlayerFilePlayer.js": "/aggregator/static/js/reactPlayerFilePlayer.8b5c7efc.chunk.js",
     "reactPlayerPreview.js": "/aggregator/static/js/reactPlayerPreview.73fbb042.chunk.js",
     "static/js/467.2d768db1.chunk.js": "/aggregator/static/js/467.2d768db1.chunk.js",
-    "static/js/688.42d1ea61.chunk.js": "/aggregator/static/js/688.42d1ea61.chunk.js",
+    "static/js/688.b383fcf0.chunk.js": "/aggregator/static/js/688.b383fcf0.chunk.js",
     "static/js/382.6553b8a9.chunk.js": "/aggregator/static/js/382.6553b8a9.chunk.js",
     "static/media/LTJournalCrayon-Regular.eot": "/aggregator/static/media/LTJournalCrayon-Regular.4e01f9d2a8b68d2b8f20.eot",
     "static/media/LTJournalCrayon-Regular.ttf": "/aggregator/static/media/LTJournalCrayon-Regular.6f92c12d932b03431110.ttf",
@@ -102,7 +102,7 @@
     "static/media/invertedDownArrow.svg": "/aggregator/static/media/invertedDownArrow.81d2e354f4424bf21d20b96a031591ce.svg",
     "static/media/downArrow.svg": "/aggregator/static/media/downArrow.3d74cb9d6d38fab26c47bbadb8e4f56d.svg",
     "main.331bf624.css.map": "/aggregator/static/css/main.331bf624.css.map",
-    "main.cbecda77.js.map": "/aggregator/static/js/main.cbecda77.js.map",
+    "main.931f3cb0.js.map": "/aggregator/static/js/main.931f3cb0.js.map",
     "Homepage.9c7240a4.chunk.js.map": "/aggregator/static/js/Homepage.9c7240a4.chunk.js.map",
     "Inverted Homepage.c91916ab.chunk.js.map": "/aggregator/static/js/Inverted Homepage.c91916ab.chunk.js.map",
     "English courses page.6a4d6655.chunk.js.map": "/aggregator/static/js/English courses page.6a4d6655.chunk.js.map",
@@ -127,11 +127,11 @@
     "reactPlayerFilePlayer.8b5c7efc.chunk.js.map": "/aggregator/static/js/reactPlayerFilePlayer.8b5c7efc.chunk.js.map",
     "reactPlayerPreview.73fbb042.chunk.js.map": "/aggregator/static/js/reactPlayerPreview.73fbb042.chunk.js.map",
     "467.2d768db1.chunk.js.map": "/aggregator/static/js/467.2d768db1.chunk.js.map",
-    "688.42d1ea61.chunk.js.map": "/aggregator/static/js/688.42d1ea61.chunk.js.map",
+    "688.b383fcf0.chunk.js.map": "/aggregator/static/js/688.b383fcf0.chunk.js.map",
     "382.6553b8a9.chunk.js.map": "/aggregator/static/js/382.6553b8a9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.331bf624.css",
-    "static/js/main.cbecda77.js"
+    "static/js/main.931f3cb0.js"
   ]
 }
