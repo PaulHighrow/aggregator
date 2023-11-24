@@ -9,6 +9,9 @@ const Home = lazy(() =>
 const Clone = lazy(() =>
   import(/* webpackChunkName: "Inverted Homepage" */ '../pages/Clone/Clone')
 );
+const Streams = lazy(() =>
+  import(/* webpackChunkName: "Streams page" */ '../pages/Streams/Streams')
+);
 const English = lazy(() =>
   import(
     /* webpackChunkName: "English courses page" */ '../pages/English/English'
@@ -79,14 +82,15 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<SharedLayout utms={utms} />}>
           <Route index element={<Home utms={utms} />} />
+          <Route path="streams" element={<Streams utms={utms} />} />
           <Route path="clone" element={<Clone utms={utms} />} />
-          <Route path="english" element={<English utms={utms} />} />
+          {/* <Route path="english" element={<English utms={utms} />} />
           <Route path="polski" element={<Polski utms={utms} />} />
           <Route path="deutsch" element={<Deutsch utms={utms} />} />
           <Route path="education" element={<Education utms={utms} />} />
           <Route path="examination" element={<Examination utms={utms} />} />
           <Route path="translation" element={<Translation utms={utms} />} />
-          <Route path="career" element={<Career utms={utms} />} />
+          <Route path="career" element={<Career utms={utms} />} /> */}
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
