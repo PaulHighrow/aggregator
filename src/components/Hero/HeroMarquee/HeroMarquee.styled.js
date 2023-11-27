@@ -37,6 +37,8 @@ export const MarqueeOverlay = styled.div`
   width: 100%;
   height: 100%;
   z-index: 5;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 
   background-color: #00000060;
   transition: background-color var(--animation-global);

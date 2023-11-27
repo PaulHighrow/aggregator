@@ -22,16 +22,16 @@ import {
   LinkListTitle,
   SocialLogoLink,
   TikTokBtn,
-  YouTubeBtn
+  YouTubeBtn,
 } from './InvertedMainFooter.styled';
 
 export const InvertedMainFooter = ({ toggleModal }) => {
-  const footerServicesItems = [
-    { to: '/education', service: 'Навчальний центр' },
-    { to: '/examination', service: 'Екзаменаційний центр' },
-    { to: '/translation', service: 'Перекладацьке бюро' },
-    // { to: 'admissions', service: 'Вступ до ВНЗ' },
-  ];
+  // const footerServicesItems = [
+  //   { to: '/education', service: 'Навчальний центр' },
+  //   { to: '/examination', service: 'Екзаменаційний центр' },
+  //   { to: '/translation', service: 'Перекладацьке бюро' },
+  //   // { to: 'admissions', service: 'Вступ до ВНЗ' },
+  // ];
   const footerCoursesItems = [
     { to: '/english', course: 'Англійська мова' },
     { to: '/polski', course: 'Польська мова' },
@@ -92,7 +92,7 @@ export const InvertedMainFooter = ({ toggleModal }) => {
             </LeadWrapper>
           </FooterLeftBox>
           <FooterList>
-            <FooterListItem>
+            {/* <FooterListItem>
               <LinkListTitle>Наші послуги</LinkListTitle>
               <LinkList>
                 {footerServicesItems.map((item, i) => (
@@ -103,7 +103,7 @@ export const InvertedMainFooter = ({ toggleModal }) => {
                   </LinkListItem>
                 ))}
               </LinkList>
-            </FooterListItem>
+            </FooterListItem> */}
             <FooterListItem>
               <LinkListTitle>Курси</LinkListTitle>
               <LinkList>
@@ -119,7 +119,7 @@ export const InvertedMainFooter = ({ toggleModal }) => {
               <LinkList>
                 {footerContactsItems.map((item, i) => (
                   <LinkListItem key={i}>
-                    <FooterLink href={item.href} target='_blank'>
+                    <FooterLink href={item.href} target="_blank">
                       {item.contact}
                     </FooterLink>
                   </LinkListItem>

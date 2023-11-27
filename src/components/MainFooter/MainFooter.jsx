@@ -26,13 +26,12 @@ import {
 import { Map } from './Map/Map';
 
 export const MainFooter = ({ toggleModal }) => {
-  const footerServicesItems = [
-    { to: '/education', service: 'Навчальний центр' },
-    { to: '/examination', service: 'Екзаменаційний центр' },
-    { to: '/translation', service: 'Перекладацьке бюро' },
-    // { to: 'admission', service: 'Вступ до ВНЗ' },
-    
-  ];
+  // const footerServicesItems = [
+  //   { to: '/education', service: 'Навчальний центр' },
+  //   { to: '/examination', service: 'Екзаменаційний центр' },
+  //   { to: '/translation', service: 'Перекладацьке бюро' },
+  //   // { to: 'admission', service: 'Вступ до ВНЗ' },
+  // ];
   const footerCoursesItems = [
     { to: '/english', course: 'Англійська мова' },
     { to: '/polski', course: 'Польська мова' },
@@ -93,7 +92,7 @@ export const MainFooter = ({ toggleModal }) => {
             </LeadWrapper>
           </FooterLeftBox>
           <FooterList>
-            <FooterListItem>
+            {/* <FooterListItem>
               <LinkListTitle>Наші послуги</LinkListTitle>
               <LinkList>
                 {footerServicesItems.map((item, i) => (
@@ -104,7 +103,7 @@ export const MainFooter = ({ toggleModal }) => {
                   </LinkListItem>
                 ))}
               </LinkList>
-            </FooterListItem>
+            </FooterListItem> */}
             <FooterListItem>
               <LinkListTitle>Курси</LinkListTitle>
               <LinkList>
