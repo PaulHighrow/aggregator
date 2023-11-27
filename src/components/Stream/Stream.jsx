@@ -37,9 +37,14 @@ export const Stream = () => {
           <VideoLimiter ref={videoEl}>
             <VideoBox>
               <ReactPlayer
-                loop={true}
                 playing={true}
                 muted={true}
+                controls={true}
+                config={{
+                  youtube: {
+                    playerVars: { rel: 0 },
+                  },
+                }}
                 style={{
                   display: 'block',
                   position: 'absolute',

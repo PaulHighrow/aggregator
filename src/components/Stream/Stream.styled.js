@@ -87,6 +87,12 @@ export const VideoBox = styled.div`
   border-radius: 20px;
   overflow: hidden;
   box-shadow: -10px -10px 30px 0px rgba(0, 0, 0, 0.25);
+
+  & .ytp-watermark,
+  & .ytp-youtube-button {
+    display: none;
+    opacity: 0;
+  }
 `;
 
 export const ChatBox = styled.div`
