@@ -37,6 +37,7 @@ export const MarqueeOverlay = styled.div`
   width: 100%;
   height: 100%;
   z-index: 5;
+  border-radius: 20px;
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
 
