@@ -16,23 +16,15 @@ export const StreamSection = styled.section`
 export const SectionWrapper = styled.div`
   margin: 0 auto;
   margin-bottom: 20px;
-  max-width: 1280px;
 
   @media screen and (min-width: 768px) {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    margin-bottom: 50px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    padding-right: 120px;
-    margin-bottom: 80px;
   }
 `;
 
 export const SectionTitle = styled.h2`
-  width: 200px;
   color: var(--main-color);
   font-family: var(--title-font-family);
   font-size: 40px;
@@ -42,9 +34,8 @@ export const SectionTitle = styled.h2`
   margin-bottom: 18px;
 
   @media screen and (min-width: 768px) {
-    margin: 0;
+    margin: 0 auto;
     letter-spacing: 3.5px;
-    width: 400px;
     font-size: 55px;
     -webkit-text-stroke: 2px var(--main-color);
   }
@@ -109,4 +100,24 @@ export const ChatBox = styled.div`
     border: none;
     display: block;
   }
+`;
+
+export const BtnBox = styled.div``;
+
+export const ChatBtn = styled.button`
+  display: block;
+  width: 70px;
+  height: 70px;
+  font-size: 20px;
+  border-radius: 50%;
+  margin: 0 auto;
+`;
+
+export const KahootBtn = styled.button`
+  display: block;
+  width: 70px;
+  height: 70px;
+  font-size: 20px;
+  border-radius: 50%;
+  margin: 0 auto;
 `;
