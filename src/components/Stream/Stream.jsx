@@ -1,9 +1,9 @@
+import useSize from '@react-hook/size';
 import { Box } from 'components/Box/Box.styled';
 import { useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { Kahoots } from './Kahoots/Kahoots';
 import {
-  ChatBox,
   ChatBtn,
   KahootBtn,
   SectionSubTitle,
@@ -12,9 +12,8 @@ import {
   StreamBox,
   StreamSection,
   VideoBox,
-  VideoLimiter,
+  VideoLimiter
 } from './Stream.styled';
-import useSize from '@react-hook/size';
 
 export const Stream = () => {
   const [isChatOpen, setIsChatOpen] = useState(true);
@@ -60,14 +59,12 @@ export const Stream = () => {
           {!isChatOpen && <ChatBtn onClick={toggleChat}>Чат</ChatBtn>}
           {isChatOpen && <ChatBtn onClick={toggleChat}> Не Чат</ChatBtn>}
           {isChatOpen && (
-            <ChatBox>
-              <iframe
-                title="chat"
-                width="350px"
-                height={height}
-                src="https://www.youtube.com/live_chat?v=ItvOvNAnk8o&embed_domain=paulhighrow.github.io"
-              ></iframe>
-            </ChatBox>
+            <iframe
+              title="chat"
+              width="350px"
+              height="50px"
+              src="https://www.youtube.com/live_chat?v=ItvOvNAnk8o&embed_domain=paulhighrow.github.io"
+            ></iframe>
           )}
         </StreamBox>
         {!isKahootOpen && <KahootBtn onClick={toggleKahoot}>Когут</KahootBtn>}
