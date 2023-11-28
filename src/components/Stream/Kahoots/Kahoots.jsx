@@ -12,7 +12,7 @@ export const Kahoots = () => {
           frameBorder="0"
           allowfullscreen=""
           width="650px"
-          height="700px"
+          height="100%"
         ></iframe>
       </KahootBox>
     </>

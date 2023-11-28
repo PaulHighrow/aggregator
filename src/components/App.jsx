@@ -84,7 +84,6 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<SharedLayout utms={utms} />}>
           <Route index element={<Home utms={utms} />} />
-          <Route path="streams" element={<Streams utms={utms} />} />
           <Route path="clone" element={<Clone utms={utms} />} />
           {/* <Route path="english" element={<English utms={utms} />} />
           <Route path="polski" element={<Polski utms={utms} />} />
@@ -95,6 +94,7 @@ export const App = () => {
           <Route path="career" element={<Career utms={utms} />} /> */}
           <Route path="*" element={<NotFound />} />
         </Route>
+        <Route path="/streams" element={<Streams utms={utms} />} />
       </Routes>
     </>
   );

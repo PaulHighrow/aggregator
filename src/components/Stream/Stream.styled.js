@@ -2,15 +2,6 @@ import styled from 'styled-components';
 
 export const StreamSection = styled.section`
   position: relative;
-  padding: 30px;
-
-  @media screen and (min-width: 768px) {
-    padding: 42px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    padding: 55px;
-  }
 `;
 
 export const SectionWrapper = styled.div`
@@ -63,9 +54,7 @@ export const SectionSubTitle = styled.span`
 `;
 
 export const StreamBox = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
+  position: relative;
 `;
 
 export const VideoLimiter = styled.div`
@@ -77,7 +66,7 @@ export const VideoLimiter = styled.div`
     max-width: 960px;
   }
   @media screen and (min-width: 1280px) {
-    max-width: 1280px;
+    max-width: 100vw;
   }
 `;
 
@@ -96,8 +85,11 @@ export const VideoBox = styled.div`
 `;
 
 export const ChatBox = styled.div`
-  position: relative;
+  position: absolute;
+  top: 0;
+  right: 0;
   width: max-content;
+  height: 100%;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: -10px -10px 30px 0px rgba(0, 0, 0, 0.25);
@@ -108,9 +100,11 @@ export const ChatBox = styled.div`
   }
 `;
 
-export const BtnBox = styled.div``;
-
 export const ChatBtn = styled.button`
+  position: absolute;
+  z-index: 100;
+  bottom: 50px;
+  right: 50px;
   display: block;
   width: 70px;
   height: 70px;
@@ -120,6 +114,10 @@ export const ChatBtn = styled.button`
 `;
 
 export const KahootBtn = styled.button`
+  position: absolute;
+  z-index: 100;
+  bottom: 140px;
+  right: 50px;
   display: block;
   width: 70px;
   height: 70px;

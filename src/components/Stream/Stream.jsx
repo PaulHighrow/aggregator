@@ -1,9 +1,9 @@
-import useSize from '@react-hook/size';
 import { Box } from 'components/Box/Box.styled';
 import { useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { Kahoots } from './Kahoots/Kahoots';
 import {
+  ChatBox,
   ChatBtn,
   KahootBtn,
   SectionSubTitle,
@@ -12,11 +12,12 @@ import {
   StreamBox,
   StreamSection,
   VideoBox,
-  VideoLimiter
+  VideoLimiter,
 } from './Stream.styled';
+import useSize from '@react-hook/size';
 
 export const Stream = () => {
-  const [isChatOpen, setIsChatOpen] = useState(true);
+  const [isChatOpen, setIsChatOpen] = useState(false);
   const [isKahootOpen, setIsKahootOpen] = useState(false);
   const toggleKahoot = () => setIsKahootOpen(isKahootOpen => !isKahootOpen);
   const toggleChat = () => setIsChatOpen(isChatOpen => !isChatOpen);
@@ -41,7 +42,7 @@ export const Stream = () => {
                 controls={true}
                 config={{
                   youtube: {
-                    playerVars: { rel: 0 },
+                    playerVars: { rel: 0, showinfo: 0, controls: 1 },
                   },
                 }}
                 style={{
@@ -52,26 +53,28 @@ export const Stream = () => {
                 }}
                 width="100%"
                 height="100%"
-                url="https://www.youtube.com/embed/ItvOvNAnk8o"
+                url="https://www.youtube-nocookie.com/embed/ItvOvNAnk8o"
               />
             </VideoBox>
           </VideoLimiter>
           {!isChatOpen && <ChatBtn onClick={toggleChat}>Чат</ChatBtn>}
           {isChatOpen && <ChatBtn onClick={toggleChat}> Не Чат</ChatBtn>}
           {isChatOpen && (
-            <iframe
-              title="chat"
-              width="350px"
-              height="50px"
-              src="https://www.youtube.com/live_chat?v=ItvOvNAnk8o&embed_domain=paulhighrow.github.io"
-            ></iframe>
+            <ChatBox>
+              <iframe
+                title="chat"
+                width="350px"
+                height={height}
+                src="https://www.youtube.com/live_chat?v=ItvOvNAnk8o&embed_domain=paulhighrow.github.io"
+              ></iframe>
+            </ChatBox>
           )}
+          {!isKahootOpen && <KahootBtn onClick={toggleKahoot}>Когут</KahootBtn>}
+          {isKahootOpen && (
+            <KahootBtn onClick={toggleKahoot}> Не Когут</KahootBtn>
+          )}
+          {isKahootOpen && <Kahoots />}
         </StreamBox>
-        {!isKahootOpen && <KahootBtn onClick={toggleKahoot}>Когут</KahootBtn>}
-        {isKahootOpen && (
-          <KahootBtn onClick={toggleKahoot}> Не Когут</KahootBtn>
-        )}
-        {isKahootOpen && <Kahoots />}
       </Box>
     </StreamSection>
   );

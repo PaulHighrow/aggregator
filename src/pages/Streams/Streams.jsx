@@ -1,12 +1,12 @@
-import { BackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
+import { StreamsBackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
 import { Stream } from 'components/Stream/Stream';
 
 const Streams = () => {
   return (
     <>
-      <BackgroundWrapper>
+      <StreamsBackgroundWrapper>
         <Stream />
-      </BackgroundWrapper>
+      </StreamsBackgroundWrapper>
     </>
   );
 };
