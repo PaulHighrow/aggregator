@@ -1,5 +1,5 @@
 import useSize from '@react-hook/size';
-import { Box, StreamBox } from 'components/Box/Box.styled';
+import { StreamBox } from 'components/Box/Box.styled';
 import { useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { Kahoots } from './Kahoots/Kahoots';
