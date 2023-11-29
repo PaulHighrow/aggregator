@@ -1,5 +1,6 @@
 import useSize from '@react-hook/size';
 import { Box } from 'components/Box/Box.styled';
+import ReactPlayer from 'react-player';
 import {
   HowItWorksSection,
   PageNavigation,
@@ -9,10 +10,9 @@ import {
   PageNavigationText,
   SectionSubTitle,
   SectionTitle,
-  SectionVideo,
   SectionWrapper,
   VideoBox,
-  VideoLimiter,
+  VideoLimiter
 } from './HowItWorks.styled';
 
 export const HowItWorks = () => {
@@ -51,16 +51,23 @@ export const HowItWorks = () => {
         </SectionWrapper>
         <VideoLimiter>
           <VideoBox>
-            <SectionVideo autoPlay loop playsInline muted={true}>
-              <source
-                src="https://ap.education/static/video/trailers/HowItWorks.webm"
-                type="video/webm"
+            <VideoLimiter>
+              <ReactPlayer
+                loop={true}
+                controls={false}
+                muted={true}
+                playing={true}
+                style={{
+                  display: 'block',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                }}
+                width="100%"
+                height="100%"
+                url="https://ap.education/static/video/trailers/HowItWorks.webm"
               />
-              <source
-                src="https://ap.education/static/video/trailers/HowItWorks.mp4"
-                type="video/mp4"
-              />
-            </SectionVideo>
+            </VideoLimiter>
           </VideoBox>
         </VideoLimiter>
       </Box>

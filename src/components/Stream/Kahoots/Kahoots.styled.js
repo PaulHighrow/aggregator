@@ -7,4 +7,8 @@ export const KahootBox = styled.div`
   width: max-content;
   height: 100%;
   margin: 0 auto;
+
+  & iframe {
+    display: block;
+  }
 `;

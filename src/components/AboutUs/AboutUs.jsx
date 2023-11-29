@@ -57,7 +57,7 @@ export const AboutUs = () => {
               <VideoBox>
                 <ReactPlayer
                   loop={true}
-                  controls={true}
+                  controls={false}
                   muted={true}
                   playing={true}
                   style={{
@@ -68,7 +68,7 @@ export const AboutUs = () => {
                   }}
                   width="100%"
                   height="100%"
-                  url="https://youtu.be/YP1TFRbTfyo?si=BxZUY2XrRnGdz33Y"
+                  url='https://ap.education/static/video/trailers/AboutUs.webm'
                 />
               </VideoBox>
             </VideoLimiter>

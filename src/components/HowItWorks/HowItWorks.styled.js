@@ -194,11 +194,8 @@ export const VideoLimiter = styled.div`
 
 export const VideoBox = styled.div`
   position: relative;
+  padding-top: 56.25%;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: -10px -10px 30px 0px rgba(0, 0, 0, 0.25);
-`;
-
-export const SectionVideo = styled.video`
-  display: block;
 `;
