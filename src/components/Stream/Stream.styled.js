@@ -6,7 +6,6 @@ export const StreamSection = styled.section`
 
 export const SectionWrapper = styled.div`
   margin: 0 auto;
-  margin-bottom: 20px;
 
   @media screen and (min-width: 768px) {
     display: flex;
@@ -22,17 +21,12 @@ export const SectionTitle = styled.h2`
   font-weight: 700;
   letter-spacing: 2px;
   -webkit-text-stroke: 1px var(--main-color);
-  margin-bottom: 18px;
 
   @media screen and (min-width: 768px) {
     margin: 0 auto;
     letter-spacing: 3.5px;
     font-size: 55px;
     -webkit-text-stroke: 2px var(--main-color);
-  }
-
-  @media screen and (min-width: 1280px) {
-    font-size: 70px;
   }
 `;
 
@@ -45,29 +39,12 @@ export const SectionSubTitle = styled.span`
   color: var(--accent-color);
 
   @media screen and (min-width: 768px) {
-    font-size: 70px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    font-size: 100px;
+    font-size: 55px;
   }
 `;
 
-export const StreamBox = styled.div`
+export const StreamInnerBox = styled.div`
   position: relative;
-`;
-
-export const VideoLimiter = styled.div`
-  margin: 0 auto;
-  max-width: 640px;
-  width: 100%;
-
-  @media screen and (min-width: 768px) {
-    max-width: 960px;
-  }
-  @media screen and (min-width: 1280px) {
-    max-width: 100vw;
-  }
 `;
 
 export const VideoBox = styled.div`
@@ -76,12 +53,6 @@ export const VideoBox = styled.div`
   border-radius: 20px;
   overflow: hidden;
   box-shadow: -10px -10px 30px 0px rgba(0, 0, 0, 0.25);
-
-  & .ytp-watermark,
-  & .ytp-youtube-button {
-    display: none;
-    opacity: 0;
-  }
 `;
 
 export const ChatBox = styled.div`

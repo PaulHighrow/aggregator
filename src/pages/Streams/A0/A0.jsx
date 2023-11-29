@@ -1,5 +1,5 @@
 import useSize from '@react-hook/size';
-import { Box, StreamBox } from 'components/Box/Box.styled';
+import { Box } from 'components/Box/Box.styled';
 import { useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { Kahoots } from './Kahoots/Kahoots';
@@ -7,7 +7,7 @@ import {
   ChatBox,
   ChatBtn,
   KahootBtn,
-  StreamInnerBox,
+  StreamBox,
   StreamSection,
   VideoBox
 } from './Stream.styled';
@@ -33,8 +33,8 @@ console.log(viewPortHeight);
 
   return (
     <StreamSection ref={sectionEl} >
-      <StreamBox>
-        <StreamInnerBox>
+      <Box>
+        <StreamBox>
             <VideoBox>
               <ReactPlayer
                 playing={true}
@@ -73,8 +73,8 @@ console.log(viewPortHeight);
             <KahootBtn onClick={toggleKahoot}> Не Когут</KahootBtn>
           )}
           {isKahootOpen && <Kahoots/>}
-        </StreamInnerBox>
-      </StreamBox>
+        </StreamBox>
+      </Box>
     </StreamSection>
   );
 };
