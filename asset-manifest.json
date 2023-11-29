@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.331bf624.css",
-    "main.js": "/aggregator/static/js/main.3eb8ff29.js",
+    "main.js": "/aggregator/static/js/main.26d1bb6b.js",
     "Homepage.js": "/aggregator/static/js/Homepage.520619e6.chunk.js",
     "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.f0c255b8.chunk.js",
-    "Streams page.js": "/aggregator/static/js/Streams page.68ac7d12.chunk.js",
+    "Streams page.js": "/aggregator/static/js/Streams page.e55d8758.chunk.js",
     "Not Found.js": "/aggregator/static/js/Not Found.3324ba0a.chunk.js",
     "reactPlayerYouTube.js": "/aggregator/static/js/reactPlayerYouTube.a26a0e93.chunk.js",
     "reactPlayerSoundCloud.js": "/aggregator/static/js/reactPlayerSoundCloud.08d87338.chunk.js",
@@ -21,7 +21,7 @@
     "reactPlayerPreview.js": "/aggregator/static/js/reactPlayerPreview.73fbb042.chunk.js",
     "static/js/710.cbacfc37.chunk.js": "/aggregator/static/js/710.cbacfc37.chunk.js",
     "static/js/108.302e2ccf.chunk.js": "/aggregator/static/js/108.302e2ccf.chunk.js",
-    "static/js/559.f628c990.chunk.js": "/aggregator/static/js/559.f628c990.chunk.js",
+    "static/js/559.e529efe4.chunk.js": "/aggregator/static/js/559.e529efe4.chunk.js",
     "static/media/LTJournalCrayon-Regular.eot": "/aggregator/static/media/LTJournalCrayon-Regular.4e01f9d2a8b68d2b8f20.eot",
     "static/media/LTJournalCrayon-Regular.ttf": "/aggregator/static/media/LTJournalCrayon-Regular.6f92c12d932b03431110.ttf",
     "static/media/LTJournalCrayon-Regular.woff": "/aggregator/static/media/LTJournalCrayon-Regular.ad68ffb639193095ad33.woff",
@@ -81,9 +81,11 @@
     "index.html": "/aggregator/index.html",
     "static/media/youtube.svg": "/aggregator/static/media/youtube.7c0e9b63551b95de8f58fd34bd9d86e3.svg",
     "static/media/facebook.svg": "/aggregator/static/media/facebook.c1f8cad764fca7b64ee97522a571dee7.svg",
+    "static/media/kahootIcon.svg": "/aggregator/static/media/kahootIcon.61b62de0486ff76d2cae5458c5330b87.svg",
     "static/media/tiktok.svg": "/aggregator/static/media/tiktok.d562cd64774490264b88b3740b43d307.svg",
     "static/media/menu-arrow.svg": "/aggregator/static/media/menu-arrow.56a53f1cd106c1e8953085e012887b16.svg",
     "static/media/menu-arrow-rotated.svg": "/aggregator/static/media/menu-arrow-rotated.4eded94223efb5e99ab1efd7a5dbdaf4.svg",
+    "static/media/youTubeChat.svg": "/aggregator/static/media/youTubeChat.b21b712ff4f916a7d764803d1d55c268.svg",
     "static/media/exam-underline-medium.svg": "/aggregator/static/media/exam-underline-medium.c31427019bb2f687b913ae90bd50213b.svg",
     "static/media/sketchTitle.svg": "/aggregator/static/media/sketchTitle.e0df9213771982a06aa71be5ae87eebd.svg",
     "static/media/exam-underline-long.svg": "/aggregator/static/media/exam-underline-long.d9cff05e493bc433b810e0bc6f13c6b5.svg",
@@ -96,10 +98,10 @@
     "static/media/invertedDownArrow.svg": "/aggregator/static/media/invertedDownArrow.81d2e354f4424bf21d20b96a031591ce.svg",
     "static/media/downArrow.svg": "/aggregator/static/media/downArrow.3d74cb9d6d38fab26c47bbadb8e4f56d.svg",
     "main.331bf624.css.map": "/aggregator/static/css/main.331bf624.css.map",
-    "main.3eb8ff29.js.map": "/aggregator/static/js/main.3eb8ff29.js.map",
+    "main.26d1bb6b.js.map": "/aggregator/static/js/main.26d1bb6b.js.map",
     "Homepage.520619e6.chunk.js.map": "/aggregator/static/js/Homepage.520619e6.chunk.js.map",
     "Inverted Homepage.f0c255b8.chunk.js.map": "/aggregator/static/js/Inverted Homepage.f0c255b8.chunk.js.map",
-    "Streams page.68ac7d12.chunk.js.map": "/aggregator/static/js/Streams page.68ac7d12.chunk.js.map",
+    "Streams page.e55d8758.chunk.js.map": "/aggregator/static/js/Streams page.e55d8758.chunk.js.map",
     "Not Found.3324ba0a.chunk.js.map": "/aggregator/static/js/Not Found.3324ba0a.chunk.js.map",
     "reactPlayerYouTube.a26a0e93.chunk.js.map": "/aggregator/static/js/reactPlayerYouTube.a26a0e93.chunk.js.map",
     "reactPlayerSoundCloud.08d87338.chunk.js.map": "/aggregator/static/js/reactPlayerSoundCloud.08d87338.chunk.js.map",
@@ -116,10 +118,10 @@
     "reactPlayerPreview.73fbb042.chunk.js.map": "/aggregator/static/js/reactPlayerPreview.73fbb042.chunk.js.map",
     "710.cbacfc37.chunk.js.map": "/aggregator/static/js/710.cbacfc37.chunk.js.map",
     "108.302e2ccf.chunk.js.map": "/aggregator/static/js/108.302e2ccf.chunk.js.map",
-    "559.f628c990.chunk.js.map": "/aggregator/static/js/559.f628c990.chunk.js.map"
+    "559.e529efe4.chunk.js.map": "/aggregator/static/js/559.e529efe4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.331bf624.css",
-    "static/js/main.3eb8ff29.js"
+    "static/js/main.26d1bb6b.js"
   ]
 }
