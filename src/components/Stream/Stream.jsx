@@ -5,7 +5,12 @@ import { Kahoots } from './Kahoots/Kahoots';
 import {
   ChatBox,
   ChatBtn,
+  ChatCloseBtn,
+  ChatLogo,
+  CloseLogo,
   KahootBtn,
+  KahootCloseBtn,
+  KahootLogo,
   StreamSection,
   VideoBox,
 } from './Stream.styled';
@@ -42,8 +47,16 @@ export const Stream = () => {
           url="https://www.youtube-nocookie.com/embed/rUxyKA_-grg"
         />
       </VideoBox>
-      {!isChatOpen && <ChatBtn onClick={toggleChat}>Чат</ChatBtn>}
-      {isChatOpen && <ChatBtn onClick={toggleChat}> Не Чат</ChatBtn>}
+      {!isChatOpen && (
+        <ChatBtn onClick={toggleChat}>
+          <ChatLogo />
+        </ChatBtn>
+      )}
+      {isChatOpen && (
+        <ChatCloseBtn onClick={toggleChat}>
+          <CloseLogo />
+        </ChatCloseBtn>
+      )}
       {isChatOpen && (
         <ChatBox>
           <iframe
@@ -54,9 +67,19 @@ export const Stream = () => {
           ></iframe>
         </ChatBox>
       )}
-      {!isKahootOpen && <KahootBtn onClick={toggleKahoot}>Когут</KahootBtn>}
-      {isKahootOpen && <KahootBtn onClick={toggleKahoot}> Не Когут</KahootBtn>}
-      {isKahootOpen && <Kahoots sectionWidth={sectionWidth} sectionHeight={sectionHeight} />}
+      {!isKahootOpen && (
+        <KahootBtn onClick={toggleKahoot}>
+          <KahootLogo />
+        </KahootBtn>
+      )}
+      {isKahootOpen && (
+        <KahootCloseBtn onClick={toggleKahoot}>
+          <CloseLogo />
+        </KahootCloseBtn>
+      )}
+      {isKahootOpen && (
+        <Kahoots sectionWidth={sectionWidth} sectionHeight={sectionHeight} />
+      )}
     </StreamSection>
   );
 };

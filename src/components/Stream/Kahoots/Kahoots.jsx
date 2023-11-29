@@ -1,8 +1,7 @@
 import { KahootBox } from './Kahoots.styled';
 
 export const Kahoots = ({ sectionWidth, sectionHeight }) => {
-  console.log(sectionHeight);
-  const desktopWidth = sectionWidth / 3;
+  const desktopWidth = sectionWidth / 5 * 2;
   const mobileWidth = sectionWidth / 5 * 2;
 
   return (
@@ -10,8 +9,7 @@ export const Kahoots = ({ sectionWidth, sectionHeight }) => {
       <KahootBox>
         <iframe
           title="kahoot-pin"
-          src="https://kahoot.it/&amp;embed=true"
-          name="kahoot-embed"
+          src="https://kahoot.it/"
           frameBorder="0"
           width={sectionWidth > 768? desktopWidth : mobileWidth}
           height={sectionHeight}
