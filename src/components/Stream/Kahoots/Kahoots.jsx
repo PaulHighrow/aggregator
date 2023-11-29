@@ -1,6 +1,10 @@
 import { KahootBox } from './Kahoots.styled';
 
-export const Kahoots = () => {
+export const Kahoots = ({ sectionWidth, sectionHeight }) => {
+  console.log(sectionHeight);
+  const desktopWidth = sectionWidth / 3;
+  const mobileWidth = sectionWidth / 5 * 2;
+
   return (
     <>
       <KahootBox>
@@ -8,11 +12,9 @@ export const Kahoots = () => {
           title="kahoot-pin"
           src="https://kahoot.it/&amp;embed=true"
           name="kahoot-embed"
-          scrolling="no"
           frameBorder="0"
-          allowfullscreen=""
-          width="650px"
-          height="100%"
+          width={sectionWidth > 768? desktopWidth : mobileWidth}
+          height={sectionHeight}
         ></iframe>
       </KahootBox>
     </>

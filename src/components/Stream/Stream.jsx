@@ -16,18 +16,12 @@ export const Stream = () => {
   const toggleKahoot = () => setIsKahootOpen(isKahootOpen => !isKahootOpen);
   const toggleChat = () => setIsChatOpen(isChatOpen => !isChatOpen);
   const sectionEl = useRef();
-  const videoEl = useRef();
   // eslint-disable-next-line
-  const [_, sectionHeight] = useSize(sectionEl);
-  // eslint-disable-next-line
-  const [__, videoHeight] = useSize(videoEl);
-
-  const viewPortHeight = window.visualViewport.height;
-  console.log(viewPortHeight);
+  const [sectionWidth, sectionHeight] = useSize(sectionEl);
 
   return (
     <StreamSection ref={sectionEl}>
-      <VideoBox ref={videoEl}>
+      <VideoBox>
         <ReactPlayer
           playing={true}
           muted={true}
@@ -45,7 +39,7 @@ export const Stream = () => {
           }}
           width="100%"
           height="100vh"
-          url="https://www.youtube-nocookie.com/embed/jfKfPfyJRdk"
+          url="https://www.youtube-nocookie.com/embed/rUxyKA_-grg"
         />
       </VideoBox>
       {!isChatOpen && <ChatBtn onClick={toggleChat}>Чат</ChatBtn>}
@@ -55,14 +49,14 @@ export const Stream = () => {
           <iframe
             title="chat"
             width="350px"
-            height={videoHeight}
+            height={sectionHeight}
             src="https://www.youtube.com/live_chat?v=ItvOvNAnk8o&embed_domain=paulhighrow.github.io"
           ></iframe>
         </ChatBox>
       )}
       {!isKahootOpen && <KahootBtn onClick={toggleKahoot}>Когут</KahootBtn>}
       {isKahootOpen && <KahootBtn onClick={toggleKahoot}> Не Когут</KahootBtn>}
-      {isKahootOpen && <Kahoots />}
+      {isKahootOpen && <Kahoots sectionWidth={sectionWidth} sectionHeight={sectionHeight} />}
     </StreamSection>
   );
 };

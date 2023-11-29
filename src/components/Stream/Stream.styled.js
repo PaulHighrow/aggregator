@@ -8,7 +8,7 @@ export const StreamSection = styled.section`
 
 export const VideoBox = styled.div`
   position: relative;
-  padding-top: 56.25%;
+  padding-top: 100vh;
   max-height: 100vh;
   overflow: hidden;
   box-shadow: -10px -10px 30px 0px rgba(0, 0, 0, 0.25);
@@ -23,6 +23,7 @@ export const ChatBox = styled.div`
   position: absolute;
   top: 0;
   right: 0;
+  z-index: 25;
   width: max-content;
   height: 100%;
   border-radius: 20px;
@@ -32,6 +33,7 @@ export const ChatBox = styled.div`
   & > iframe {
     border: none;
     display: block;
+    width: 100%;
   }
 `;
 
