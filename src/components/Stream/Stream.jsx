@@ -3,16 +3,16 @@ import { useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { Kahoots } from './Kahoots/Kahoots';
 import {
+  ButtonBox,
   ChatBox,
   ChatBtn,
   ChatCloseBtn,
   ChatLogo,
   CloseLogo,
   KahootBtn,
-  KahootCloseBtn,
   KahootLogo,
   StreamSection,
-  VideoBox,
+  VideoBox
 } from './Stream.styled';
 
 export const Stream = () => {
@@ -47,16 +47,20 @@ export const Stream = () => {
           url="https://www.youtube-nocookie.com/embed/rUxyKA_-grg"
         />
       </VideoBox>
-      {!isChatOpen && (
-        <ChatBtn onClick={toggleChat}>
-          <ChatLogo />
-        </ChatBtn>
-      )}
-      {isChatOpen && (
-        <ChatCloseBtn onClick={toggleChat}>
-          <CloseLogo />
-        </ChatCloseBtn>
-      )}
+
+      <ButtonBox>
+        {!isKahootOpen && (
+          <KahootBtn onClick={toggleKahoot}>
+            <KahootLogo />
+          </KahootBtn>
+        )}
+        {!isChatOpen && (
+          <ChatBtn onClick={toggleChat}>
+            <ChatLogo />
+          </ChatBtn>
+        )}
+      </ButtonBox>
+
       {isChatOpen && (
         <ChatBox>
           <iframe
@@ -65,20 +69,16 @@ export const Stream = () => {
             height={sectionHeight}
             src="https://www.youtube.com/live_chat?v=ItvOvNAnk8o&embed_domain=paulhighrow.github.io"
           ></iframe>
+          {isChatOpen && (
+            <ChatCloseBtn onClick={toggleChat}>
+              <CloseLogo />
+            </ChatCloseBtn>
+          )}
         </ChatBox>
       )}
-      {!isKahootOpen && (
-        <KahootBtn onClick={toggleKahoot}>
-          <KahootLogo />
-        </KahootBtn>
-      )}
+
       {isKahootOpen && (
-        <KahootCloseBtn onClick={toggleKahoot}>
-          <CloseLogo />
-        </KahootCloseBtn>
-      )}
-      {isKahootOpen && (
-        <Kahoots sectionWidth={sectionWidth} sectionHeight={sectionHeight} />
+        <Kahoots sectionWidth={sectionWidth} sectionHeight={sectionHeight} toggleKahoot={toggleKahoot}/>
       )}
     </StreamSection>
   );

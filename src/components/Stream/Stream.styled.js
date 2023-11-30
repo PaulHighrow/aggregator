@@ -40,11 +40,17 @@ export const ChatBox = styled.div`
   }
 `;
 
-export const ChatBtn = styled.button`
+export const ButtonBox = styled.div`
   position: absolute;
+  top: 60px;
+  left: 12px;
   z-index: 100;
-  bottom: 50px;
-  right: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
+
+export const ChatBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,7 +66,8 @@ export const ChatBtn = styled.button`
     height: 70px;
   }
 
-  &:focus, &:hover {
+  &:focus,
+  &:hover {
     background-color: var(--accent-color);
     box-shadow: -10px -10px 30px 0px rgba(0, 0, 0, 0.25);
   }
@@ -68,7 +75,6 @@ export const ChatBtn = styled.button`
 
 export const ChatCloseBtn = styled.button`
   position: absolute;
-  z-index: 100;
   top: 10px;
   right: 10px;
   display: flex;
@@ -86,17 +92,14 @@ export const ChatCloseBtn = styled.button`
     height: 50px;
   }
 
-  &:focus, &:hover {
+  &:focus,
+  &:hover {
     background-color: var(--accent-color);
     box-shadow: -10px -10px 30px 0px rgba(0, 0, 0, 0.25);
   }
 `;
 
 export const KahootBtn = styled.button`
-  position: absolute;
-  z-index: 100;
-  bottom: 140px;
-  right: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -112,7 +115,8 @@ export const KahootBtn = styled.button`
     height: 70px;
   }
 
-  &:focus, &:hover {
+  &:focus,
+  &:hover {
     background-color: var(--accent-color);
     box-shadow: -10px -10px 30px 0px rgba(0, 0, 0, 0.25);
   }
@@ -120,7 +124,6 @@ export const KahootBtn = styled.button`
 
 export const KahootCloseBtn = styled.button`
   position: absolute;
-  z-index: 100;
   top: 60px;
   right: 20px;
   display: flex;
@@ -138,7 +141,8 @@ export const KahootCloseBtn = styled.button`
     height: 50px;
   }
 
-  &:focus, &:hover {
+  &:focus,
+  &:hover {
     background-color: var(--accent-color);
     box-shadow: -10px -10px 30px 0px rgba(0, 0, 0, 0.25);
   }
@@ -161,7 +165,7 @@ export const ChatLogo = styled(ChatIcon)`
 `;
 
 export const CloseLogo = styled(IoCloseCircle)`
-  width: 30px;  
+  width: 30px;
   height: 30px;
 
   @media screen and (min-width: 768px) {

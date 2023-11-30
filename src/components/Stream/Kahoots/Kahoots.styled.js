@@ -1,6 +1,8 @@
+import { StreamsBackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
 import styled from 'styled-components';
 
 export const KahootBox = styled.div`
+  background-color: white;
   position: absolute;
   top: 0;
   right: 0;
@@ -18,4 +20,23 @@ export const KahootBox = styled.div`
   & iframe {
     display: block;
   }
+`;
+
+export const KahootBackground = styled(StreamsBackgroundWrapper)`
+background-position: right -70px top 0px;
+
+  @media screen and (min-width: 768px) {
+    background-position: center top 0px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    background-position: right -215px top 0;
+  }
+`
+
+export const KahootLoaderWrapper = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
