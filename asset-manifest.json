@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.331bf624.css",
-    "main.js": "/aggregator/static/js/main.87d73e2a.js",
+    "main.js": "/aggregator/static/js/main.803fd2eb.js",
     "Homepage.js": "/aggregator/static/js/Homepage.520619e6.chunk.js",
     "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.f0c255b8.chunk.js",
-    "Streams page.js": "/aggregator/static/js/Streams page.72dce790.chunk.js",
+    "Streams page.js": "/aggregator/static/js/Streams page.ecddfd6b.chunk.js",
     "Not Found.js": "/aggregator/static/js/Not Found.3324ba0a.chunk.js",
     "reactPlayerYouTube.js": "/aggregator/static/js/reactPlayerYouTube.a26a0e93.chunk.js",
     "reactPlayerSoundCloud.js": "/aggregator/static/js/reactPlayerSoundCloud.08d87338.chunk.js",
@@ -68,6 +68,7 @@
     "static/media/tablet-bg-inv@1x.png": "/aggregator/static/media/tablet-bg-inv@1x.7fe3ae829d7dbfaa8596.png",
     "static/media/desktop-bg-inv@1x.webp": "/aggregator/static/media/desktop-bg-inv@1x.9074821c849c100778c7.webp",
     "static/media/mobile-bg-inv@2x.webp": "/aggregator/static/media/mobile-bg-inv@2x.c48bd06db2006d529b3d.webp",
+    "static/media/monoPaw.svg": "/aggregator/static/media/monoPaw.74d8d0148fe0f5dd7ce256ac6bdc0b08.svg",
     "static/media/mobile-bg-inv@1x.png": "/aggregator/static/media/mobile-bg-inv@1x.b165322665a1587048ae.png",
     "static/media/invertedLogo.svg": "/aggregator/static/media/invertedLogo.af551277e0a22f7c3a5b28c32549db12.svg",
     "static/media/logo.svg": "/aggregator/static/media/logo.ceb810f7f01fe6f730f272d79a4786f2.svg",
@@ -98,10 +99,10 @@
     "static/media/invertedDownArrow.svg": "/aggregator/static/media/invertedDownArrow.81d2e354f4424bf21d20b96a031591ce.svg",
     "static/media/downArrow.svg": "/aggregator/static/media/downArrow.3d74cb9d6d38fab26c47bbadb8e4f56d.svg",
     "main.331bf624.css.map": "/aggregator/static/css/main.331bf624.css.map",
-    "main.87d73e2a.js.map": "/aggregator/static/js/main.87d73e2a.js.map",
+    "main.803fd2eb.js.map": "/aggregator/static/js/main.803fd2eb.js.map",
     "Homepage.520619e6.chunk.js.map": "/aggregator/static/js/Homepage.520619e6.chunk.js.map",
     "Inverted Homepage.f0c255b8.chunk.js.map": "/aggregator/static/js/Inverted Homepage.f0c255b8.chunk.js.map",
-    "Streams page.72dce790.chunk.js.map": "/aggregator/static/js/Streams page.72dce790.chunk.js.map",
+    "Streams page.ecddfd6b.chunk.js.map": "/aggregator/static/js/Streams page.ecddfd6b.chunk.js.map",
     "Not Found.3324ba0a.chunk.js.map": "/aggregator/static/js/Not Found.3324ba0a.chunk.js.map",
     "reactPlayerYouTube.a26a0e93.chunk.js.map": "/aggregator/static/js/reactPlayerYouTube.a26a0e93.chunk.js.map",
     "reactPlayerSoundCloud.08d87338.chunk.js.map": "/aggregator/static/js/reactPlayerSoundCloud.08d87338.chunk.js.map",
@@ -122,6 +123,6 @@
   },
   "entrypoints": [
     "static/css/main.331bf624.css",
-    "static/js/main.87d73e2a.js"
+    "static/js/main.803fd2eb.js"
   ]
 }
