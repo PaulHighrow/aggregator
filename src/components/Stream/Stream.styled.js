@@ -24,6 +24,7 @@ export const VideoBox = styled.div`
 
 export const ChatBox = styled.div`
   position: absolute;
+  background-color: white;
   top: 0;
   right: 0;
   z-index: 25;
@@ -172,4 +173,11 @@ export const CloseLogo = styled(IoCloseCircle)`
     width: 40px;
     height: 40px;
   }
+`;
+
+export const IFrameLoaderWrapper = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;

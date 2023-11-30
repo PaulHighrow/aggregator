@@ -33,10 +33,3 @@ background-position: right -70px top 0px;
     background-position: right -215px top 0;
   }
 `
-
-export const KahootLoaderWrapper = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-`;

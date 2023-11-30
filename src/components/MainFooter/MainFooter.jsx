@@ -19,6 +19,7 @@ import {
   LinkList,
   LinkListItem,
   LinkListTitle,
+  MonoPawIcon,
   SocialLogoLink,
   TikTokBtn,
   YouTubeBtn,
@@ -89,6 +90,7 @@ export const MainFooter = ({ toggleModal }) => {
             <LeadWrapper>
               <LeadDesc>... якщо залишились запитання </LeadDesc>
               <LeadBtn onClick={toggleModal}> ЗАЛИШИТИ ЗАЯВКУ </LeadBtn>
+              <MonoPawIcon/>
             </LeadWrapper>
           </FooterLeftBox>
           <FooterList>

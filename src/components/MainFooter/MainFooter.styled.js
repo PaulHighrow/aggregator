@@ -7,6 +7,7 @@ import { ReactComponent as FacebookIcon } from '../../img/svg/social-links/faceb
 import { ReactComponent as InstagramIcon } from '../../img/svg/social-links/instagram.svg';
 import { ReactComponent as TikTokIcon } from '../../img/svg/social-links/tiktok.svg';
 import { ReactComponent as YouTubeIcon } from '../../img/svg/social-links/youtube.svg';
+import { ReactComponent as MonoIcon } from '../../img/svg/monoPaw.svg';
 
 export const Footer = styled.footer`
   background-color: var(--secondary-color);
@@ -120,6 +121,12 @@ export const YouTubeBtn = styled(YouTubeIcon)`
   ${SocialLogoLink}:hover & {
     ${socialBtnStylesOnHover}
   }
+`;
+
+export const MonoPawIcon = styled(MonoIcon)`
+
+  height: 40px;
+  width: 140px;
 `;
 
 export const LeadWrapper = styled.div`

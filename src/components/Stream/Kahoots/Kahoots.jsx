@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { ColorRing } from 'react-loader-spinner';
-import { CloseLogo, KahootCloseBtn } from '../Stream.styled';
+import { CloseLogo, IFrameLoaderWrapper, KahootCloseBtn } from '../Stream.styled';
 import {
   KahootBackground,
-  KahootBox,
-  KahootLoaderWrapper,
+  KahootBox
 } from './Kahoots.styled';
 
 export const Kahoots = ({ sectionWidth, sectionHeight, toggleKahoot }) => {
@@ -28,7 +27,7 @@ export const Kahoots = ({ sectionWidth, sectionHeight, toggleKahoot }) => {
             height={sectionHeight}
           ></iframe>
           {isLoading && (
-            <KahootLoaderWrapper>
+            <IFrameLoaderWrapper>
               <ColorRing
                 visible={true}
                 height="120"
@@ -38,7 +37,7 @@ export const Kahoots = ({ sectionWidth, sectionHeight, toggleKahoot }) => {
                 wrapperClass="blocks-wrapper"
                 colors={['#0f645b', '#0B4943', '#073D37', '#0B4943', '#0f645b']}
               />
-            </KahootLoaderWrapper>
+            </IFrameLoaderWrapper>
           )}
         </KahootBackground>
         <KahootCloseBtn onClick={toggleKahoot}>
