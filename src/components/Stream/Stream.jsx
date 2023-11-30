@@ -20,13 +20,20 @@ import { ColorRing } from 'react-loader-spinner';
 export const Stream = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isKahootOpen, setIsKahootOpen] = useState(false);
-  const toggleKahoot = () => setIsKahootOpen(isKahootOpen => !isKahootOpen);
-  const toggleChat = () => setIsChatOpen(isChatOpen => !isChatOpen);
+  const [isLoading, setIsLoading] = useState(false);
   const sectionEl = useRef();
   // eslint-disable-next-line
   const [sectionWidth, sectionHeight] = useSize(sectionEl);
-  const [isLoading, setIsLoading] = useState(true);
-  const embedDomain = window.location.host
+
+  const toggleKahoot = () => {
+    setIsLoading(isLoading => true);
+    setIsKahootOpen(isKahootOpen => !isKahootOpen);
+  };
+  const toggleChat = () => {
+    setIsLoading(isLoading => true);
+    setIsChatOpen(isChatOpen => !isChatOpen);
+  };
+  const embedDomain = window.location.host;
 
   return (
     <StreamSection ref={sectionEl}>
