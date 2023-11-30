@@ -26,6 +26,7 @@ export const Stream = () => {
   // eslint-disable-next-line
   const [sectionWidth, sectionHeight] = useSize(sectionEl);
   const [isLoading, setIsLoading] = useState(true);
+  const embedDomain = window.location.host
 
   return (
     <StreamSection ref={sectionEl}>
@@ -73,7 +74,7 @@ export const Stream = () => {
               setIsLoading(isLoading => false);
             }}
             height={sectionHeight}
-            src="https://www.youtube.com/live_chat?v=ItvOvNAnk8o&embed_domain=ap.education"
+            src={`https://www.youtube.com/live_chat?v=rUxyKA_-grg&embed_domain=${embedDomain}`}
           ></iframe>
           {isChatOpen && (
             <ChatCloseBtn onClick={toggleChat}>
