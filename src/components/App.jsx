@@ -7,10 +7,10 @@ const Home = lazy(() =>
   import(/* webpackChunkName: "Homepage" */ '../pages/Home/Home')
 );
 const Clone = lazy(() =>
-  import(/* webpackChunkName: "Inverted Homepage" */ '../pages/Clone/Clone')
+  import(/* webpackChunkName: "InvertedHomepage" */ '../pages/Clone/Clone')
 );
 const Streams = lazy(() =>
-  import(/* webpackChunkName: "Streams page" */ '../pages/Streams/Streams')
+  import(/* webpackChunkName: "Streamspage" */ '../pages/Streams/Streams')
 );
 
 // const English = lazy(() =>
@@ -48,7 +48,7 @@ const Streams = lazy(() =>
 //   )
 // );
 const NotFound = lazy(() =>
-  import(/* webpackChunkName: "Not Found" */ '../pages/NotFound/NotFound')
+  import(/* webpackChunkName: "NotFound" */ '../pages/NotFound/NotFound')
 );
 
 export const App = () => {
@@ -94,7 +94,7 @@ export const App = () => {
           <Route path="career" element={<Career utms={utms} />} /> */}
           <Route path="*" element={<NotFound />} />
         </Route>
-        <Route path="/streams" element={<Streams utms={utms} />} />
+        <Route path="streams" element={<Streams utms={utms} />} />
       </Routes>
     </>
   );

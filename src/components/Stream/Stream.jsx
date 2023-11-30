@@ -47,7 +47,7 @@ export const Stream = () => {
           }}
           width="100%"
           height="100vh"
-          url="https://www.youtube-nocookie.com/embed/rUxyKA_-grg"
+          url="https://www.youtube.com/embed/rUxyKA_-grg"
         />
       </VideoBox>
 
@@ -73,7 +73,7 @@ export const Stream = () => {
               setIsLoading(isLoading => false);
             }}
             height={sectionHeight}
-            src="https://www.youtube.com/live_chat?v=ItvOvNAnk8o&embed_domain=paulhighrow.github.io"
+            src="https://www.youtube.com/live_chat?v=ItvOvNAnk8o&embed_domain=ap.education"
           ></iframe>
           {isChatOpen && (
             <ChatCloseBtn onClick={toggleChat}>
