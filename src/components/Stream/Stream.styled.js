@@ -27,17 +27,26 @@ export const ChatBox = styled.div`
   background-color: white;
   top: 0;
   right: 0;
-  z-index: 25;
   width: max-content;
   height: 100%;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: -10px -10px 30px 0px rgba(0, 0, 0, 0.25);
 
+  transition: transform var(--animation-global);
+
   & > iframe {
     border: none;
     display: block;
     width: 100%;
+  }
+
+  &.hidden {
+    transform: translateX(100%);
+  }
+
+  &.shown {
+    transform: translateX(0);
   }
 `;
 
@@ -173,11 +182,4 @@ export const CloseLogo = styled(IoCloseCircle)`
     width: 40px;
     height: 40px;
   }
-`;
-
-export const IFrameLoaderWrapper = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 `;

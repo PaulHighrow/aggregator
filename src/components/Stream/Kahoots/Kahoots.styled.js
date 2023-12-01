@@ -10,11 +10,11 @@ export const KahootBox = styled.div`
   transition: transform var(--animation-global);
 
   &.hidden {
-    transform: translateX(-90px);
+    transform: translateX(100%);
   }
 
   &.shown {
-    transform: translateX(0px);
+    transform: translateX(0);
   }
 
   & iframe {
@@ -23,7 +23,7 @@ export const KahootBox = styled.div`
 `;
 
 export const KahootBackground = styled(StreamsBackgroundWrapper)`
-background-position: right -70px top 0px;
+  background-position: right -70px top 0px;
 
   @media screen and (min-width: 768px) {
     background-position: center top 0px;
@@ -32,4 +32,4 @@ background-position: right -70px top 0px;
   @media screen and (min-width: 1280px) {
     background-position: right -215px top 0;
   }
-`
+`;
