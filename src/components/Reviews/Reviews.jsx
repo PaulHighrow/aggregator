@@ -14,11 +14,16 @@ import {
   VideoLimiter,
 } from './Reviews.styled';
 import { ReviewsMarquee } from './ReviewsMarquee/ReviewsMarquee';
+import { useInView } from 'react-intersection-observer';
 
 export const Reviews = ({ toggleModal }) => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+  });
+
   return (
     <ReviewsBackground>
-      <ReviewsSection id="reviews">
+      <ReviewsSection id="reviews" ref={ref}>
         <ReviewsBox>
           <ReviewsTitle>
             <ReviewsSubTitle>ВІДГУКИ</ReviewsSubTitle> ПРО КУРС
@@ -56,7 +61,7 @@ export const Reviews = ({ toggleModal }) => {
             </ReviewsTextBox>
           </ReviewsVideoWrapper>
         </ReviewsBox>
-        <ReviewsMarquee toggleModal={toggleModal} />
+        {inView && <ReviewsMarquee toggleModal={toggleModal} />}
       </ReviewsSection>
     </ReviewsBackground>
   );

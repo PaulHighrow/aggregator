@@ -11,7 +11,7 @@ export const UpButton = () => {
       : { spy: true, smooth: true };
 
   return (
-    <StyledUpButton to={width >= 768 ? 'header' : 'hero'} {...props}>
+    <StyledUpButton to="hero" {...props}>
       <UpArrow />
     </StyledUpButton>
   );

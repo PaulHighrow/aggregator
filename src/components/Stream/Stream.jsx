@@ -33,7 +33,9 @@ export const Stream = () => {
     setIsLoading(isLoading => true);
     setIsChatOpen(isChatOpen => !isChatOpen);
   };
-  const embedDomain = window.location.host;
+  const embedDomain = window.location.host.includes('localhost')
+    ? 'localhost'
+    : window.location.host;
 
   return (
     <StreamSection ref={sectionEl}>
@@ -55,7 +57,7 @@ export const Stream = () => {
           }}
           width="100%"
           height="100vh"
-          url="https://www.youtube.com/embed/rUxyKA_-grg"
+          url="https://youtu.be/HVyYoAFdpkI?si=dGE9akbRNnPcpPPg"
         />
       </VideoBox>
 
