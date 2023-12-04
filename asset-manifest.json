@@ -1,11 +1,12 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.331bf624.css",
-    "main.js": "/aggregator/static/js/main.7b68777a.js",
-    "Homepage.js": "/aggregator/static/js/Homepage.917789fe.chunk.js",
-    "InvertedHomepage.js": "/aggregator/static/js/InvertedHomepage.3adb14be.chunk.js",
-    "Streamspage.js": "/aggregator/static/js/Streamspage.741de027.chunk.js",
-    "NotFound.js": "/aggregator/static/js/NotFound.0189a20c.chunk.js",
+    "main.js": "/aggregator/static/js/main.d8e2d566.js",
+    "Homepage.js": "/aggregator/static/js/Homepage.155b1915.chunk.js",
+    "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.c4a7c683.chunk.js",
+    "Streams page.js": "/aggregator/static/js/Streams page.848aeb2c.chunk.js",
+    "All reviews page.js": "/aggregator/static/js/All reviews page.eb7754df.chunk.js",
+    "Not Found.js": "/aggregator/static/js/Not Found.3324ba0a.chunk.js",
     "reactPlayerYouTube.js": "/aggregator/static/js/reactPlayerYouTube.a26a0e93.chunk.js",
     "reactPlayerSoundCloud.js": "/aggregator/static/js/reactPlayerSoundCloud.08d87338.chunk.js",
     "reactPlayerVimeo.js": "/aggregator/static/js/reactPlayerVimeo.dab5a4b8.chunk.js",
@@ -19,9 +20,8 @@
     "reactPlayerKaltura.js": "/aggregator/static/js/reactPlayerKaltura.0a6ce37b.chunk.js",
     "reactPlayerFilePlayer.js": "/aggregator/static/js/reactPlayerFilePlayer.8b5c7efc.chunk.js",
     "reactPlayerPreview.js": "/aggregator/static/js/reactPlayerPreview.73fbb042.chunk.js",
-    "static/js/710.cbacfc37.chunk.js": "/aggregator/static/js/710.cbacfc37.chunk.js",
     "static/js/108.302e2ccf.chunk.js": "/aggregator/static/js/108.302e2ccf.chunk.js",
-    "static/js/559.e529efe4.chunk.js": "/aggregator/static/js/559.e529efe4.chunk.js",
+    "static/js/340.b44d435a.chunk.js": "/aggregator/static/js/340.b44d435a.chunk.js",
     "static/media/LTJournalCrayon-Regular.eot": "/aggregator/static/media/LTJournalCrayon-Regular.4e01f9d2a8b68d2b8f20.eot",
     "static/media/LTJournalCrayon-Regular.ttf": "/aggregator/static/media/LTJournalCrayon-Regular.6f92c12d932b03431110.ttf",
     "static/media/LTJournalCrayon-Regular.woff": "/aggregator/static/media/LTJournalCrayon-Regular.ad68ffb639193095ad33.woff",
@@ -82,6 +82,7 @@
     "index.html": "/aggregator/index.html",
     "static/media/youtube.svg": "/aggregator/static/media/youtube.7c0e9b63551b95de8f58fd34bd9d86e3.svg",
     "static/media/facebook.svg": "/aggregator/static/media/facebook.c1f8cad764fca7b64ee97522a571dee7.svg",
+    "static/media/soundIcon.svg": "/aggregator/static/media/soundIcon.53277909c5510b4ade0c3ea05d419515.svg",
     "static/media/kahootIcon.svg": "/aggregator/static/media/kahootIcon.61b62de0486ff76d2cae5458c5330b87.svg",
     "static/media/tiktok.svg": "/aggregator/static/media/tiktok.d562cd64774490264b88b3740b43d307.svg",
     "static/media/menu-arrow.svg": "/aggregator/static/media/menu-arrow.56a53f1cd106c1e8953085e012887b16.svg",
@@ -99,11 +100,12 @@
     "static/media/invertedDownArrow.svg": "/aggregator/static/media/invertedDownArrow.81d2e354f4424bf21d20b96a031591ce.svg",
     "static/media/downArrow.svg": "/aggregator/static/media/downArrow.3d74cb9d6d38fab26c47bbadb8e4f56d.svg",
     "main.331bf624.css.map": "/aggregator/static/css/main.331bf624.css.map",
-    "main.7b68777a.js.map": "/aggregator/static/js/main.7b68777a.js.map",
-    "Homepage.917789fe.chunk.js.map": "/aggregator/static/js/Homepage.917789fe.chunk.js.map",
-    "InvertedHomepage.3adb14be.chunk.js.map": "/aggregator/static/js/InvertedHomepage.3adb14be.chunk.js.map",
-    "Streamspage.741de027.chunk.js.map": "/aggregator/static/js/Streamspage.741de027.chunk.js.map",
-    "NotFound.0189a20c.chunk.js.map": "/aggregator/static/js/NotFound.0189a20c.chunk.js.map",
+    "main.d8e2d566.js.map": "/aggregator/static/js/main.d8e2d566.js.map",
+    "Homepage.155b1915.chunk.js.map": "/aggregator/static/js/Homepage.155b1915.chunk.js.map",
+    "Inverted Homepage.c4a7c683.chunk.js.map": "/aggregator/static/js/Inverted Homepage.c4a7c683.chunk.js.map",
+    "Streams page.848aeb2c.chunk.js.map": "/aggregator/static/js/Streams page.848aeb2c.chunk.js.map",
+    "All reviews page.eb7754df.chunk.js.map": "/aggregator/static/js/All reviews page.eb7754df.chunk.js.map",
+    "Not Found.3324ba0a.chunk.js.map": "/aggregator/static/js/Not Found.3324ba0a.chunk.js.map",
     "reactPlayerYouTube.a26a0e93.chunk.js.map": "/aggregator/static/js/reactPlayerYouTube.a26a0e93.chunk.js.map",
     "reactPlayerSoundCloud.08d87338.chunk.js.map": "/aggregator/static/js/reactPlayerSoundCloud.08d87338.chunk.js.map",
     "reactPlayerVimeo.dab5a4b8.chunk.js.map": "/aggregator/static/js/reactPlayerVimeo.dab5a4b8.chunk.js.map",
@@ -117,12 +119,11 @@
     "reactPlayerKaltura.0a6ce37b.chunk.js.map": "/aggregator/static/js/reactPlayerKaltura.0a6ce37b.chunk.js.map",
     "reactPlayerFilePlayer.8b5c7efc.chunk.js.map": "/aggregator/static/js/reactPlayerFilePlayer.8b5c7efc.chunk.js.map",
     "reactPlayerPreview.73fbb042.chunk.js.map": "/aggregator/static/js/reactPlayerPreview.73fbb042.chunk.js.map",
-    "710.cbacfc37.chunk.js.map": "/aggregator/static/js/710.cbacfc37.chunk.js.map",
     "108.302e2ccf.chunk.js.map": "/aggregator/static/js/108.302e2ccf.chunk.js.map",
-    "559.e529efe4.chunk.js.map": "/aggregator/static/js/559.e529efe4.chunk.js.map"
+    "340.b44d435a.chunk.js.map": "/aggregator/static/js/340.b44d435a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.331bf624.css",
-    "static/js/main.7b68777a.js"
+    "static/js/main.d8e2d566.js"
   ]
 }
