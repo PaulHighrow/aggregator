@@ -40,8 +40,8 @@ const serviceList = [
 
 export const MarqueeModal = ({ closeMarqueeModal, toggleModal, id }) => {
   const toggleLeadForm = () => {
-    toggleModal();
     closeMarqueeModal();
+    toggleModal();
   };
 
   return (

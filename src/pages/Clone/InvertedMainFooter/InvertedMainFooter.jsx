@@ -11,7 +11,6 @@ import {
   FooterListItem,
   FooterLogo,
   FooterLogoLink,
-  FooterNavLink,
   FooterSocials,
   IconBox,
   InstagramBtn,
@@ -22,7 +21,7 @@ import {
   LinkListTitle,
   SocialLogoLink,
   TikTokBtn,
-  YouTubeBtn,
+  YouTubeBtn
 } from './InvertedMainFooter.styled';
 
 export const InvertedMainFooter = ({ toggleModal }) => {
@@ -32,11 +31,11 @@ export const InvertedMainFooter = ({ toggleModal }) => {
   //   { to: '/translation', service: 'Перекладацьке бюро' },
   //   // { to: 'admissions', service: 'Вступ до ВНЗ' },
   // ];
-  const footerCoursesItems = [
-    { to: '/english', course: 'Англійська мова' },
-    { to: '/polski', course: 'Польська мова' },
-    { to: '/deutsch', course: 'Німецька мова' },
-  ];
+  // const footerCoursesItems = [
+  //   { to: '/english', course: 'Англійська мова' },
+  //   { to: '/polski', course: 'Польська мова' },
+  //   { to: '/deutsch', course: 'Німецька мова' },
+  // ];
   const footerContactsItems = [
     { href: 'mailto:info@ap.education', contact: 'info@ap.education' },
     { href: 'tel:+380671047700', contact: '+380671047700' },
@@ -104,7 +103,7 @@ export const InvertedMainFooter = ({ toggleModal }) => {
                 ))}
               </LinkList>
             </FooterListItem> */}
-            <FooterListItem>
+            {/* <FooterListItem>
               <LinkListTitle>Курси</LinkListTitle>
               <LinkList>
                 {footerCoursesItems.map((item, i) => (
@@ -113,7 +112,7 @@ export const InvertedMainFooter = ({ toggleModal }) => {
                   </LinkListItem>
                 ))}
               </LinkList>
-            </FooterListItem>
+            </FooterListItem> */}
             <FooterListItem>
               <LinkListTitle id="contacts">Контакти</LinkListTitle>
               <LinkList>

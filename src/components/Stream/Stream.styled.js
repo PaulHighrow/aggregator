@@ -77,7 +77,7 @@ export const ChatBtn = styled.button`
   }
 
   &:focus,
-  &:hover {
+  &:hover, &:active {
     background-color: var(--accent-color);
     box-shadow: -10px -10px 30px 0px rgba(0, 0, 0, 0.25);
   }
@@ -126,7 +126,7 @@ export const KahootBtn = styled.button`
   }
 
   &:focus,
-  &:hover {
+  &:hover, &:active {
     background-color: var(--accent-color);
     box-shadow: -10px -10px 30px 0px rgba(0, 0, 0, 0.25);
   }

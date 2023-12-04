@@ -1,5 +1,6 @@
 import Marquee from 'react-fast-marquee';
 import styled from 'styled-components';
+import { ReactComponent as SoundIcon } from '../../../img/svg/soundIcon.svg';
 
 export const StyledMarquee = styled(Marquee)`
   margin: 0 auto;
@@ -30,6 +31,11 @@ export const MarqueeChild = styled.div`
     background-color: #00000080;
     transform: scale(1.5) translate(-33%, -33%);
   }
+
+  &:hover svg,
+  &:focus svg {
+    opacity: 1;
+  }
 `;
 
 export const MarqueeOverlay = styled.div`
@@ -54,4 +60,17 @@ export const MarqueeVideo = styled.video`
     width: 320px;
     height: 320px;
   }
+`;
+
+export const MarqueeSoundBtn = styled(SoundIcon)`
+  width: 40px;
+  height: 40px;
+  opacity: 0.7;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  transition: opacity var(--animation-global);
 `;

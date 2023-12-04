@@ -2,15 +2,21 @@ import { lazy } from 'react';
 import { Route, Routes, useSearchParams } from 'react-router-dom';
 import ScrollToTop from 'utils/ScrollToTop/ScrollToTop';
 import { SharedLayout } from './SharedLayout/SharedLayout';
+import { StreamA0 } from 'pages/Streams/A0/StreamA0';
+import { StreamA1 } from 'pages/Streams/A1/StreamA1';
+import { StreamA2 } from 'pages/Streams/A2/StreamA2';
 
 const Home = lazy(() =>
   import(/* webpackChunkName: "Homepage" */ '../pages/Home/Home')
 );
 const Clone = lazy(() =>
-  import(/* webpackChunkName: "InvertedHomepage" */ '../pages/Clone/Clone')
+  import(/* webpackChunkName: "Inverted Homepage" */ '../pages/Clone/Clone')
 );
 const Streams = lazy(() =>
-  import(/* webpackChunkName: "Streamspage" */ '../pages/Streams/Streams')
+  import(/* webpackChunkName: "Streams page" */ '../pages/Streams/Streams')
+);
+const AllReviews = lazy(() =>
+  import(/* webpackChunkName: "All reviews page" */ '../pages/AllReviews/AllReviews')
 );
 
 // const English = lazy(() =>
@@ -48,7 +54,7 @@ const Streams = lazy(() =>
 //   )
 // );
 const NotFound = lazy(() =>
-  import(/* webpackChunkName: "NotFound" */ '../pages/NotFound/NotFound')
+  import(/* webpackChunkName: "Not Found" */ '../pages/NotFound/NotFound')
 );
 
 export const App = () => {
@@ -85,6 +91,7 @@ export const App = () => {
         <Route path="/" element={<SharedLayout utms={utms} />}>
           <Route index element={<Home utms={utms} />} />
           <Route path="clone" element={<Clone utms={utms} />} />
+          <Route path="reviews" element={<AllReviews />} />
           {/* <Route path="english" element={<English utms={utms} />} />
           <Route path="polski" element={<Polski utms={utms} />} />
           <Route path="deutsch" element={<Deutsch utms={utms} />} />
@@ -94,7 +101,11 @@ export const App = () => {
           <Route path="career" element={<Career utms={utms} />} /> */}
           <Route path="*" element={<NotFound />} />
         </Route>
-        <Route path="streams" element={<Streams utms={utms} />} />
+        <Route path="streams" element={<Streams />}>
+          <Route path="a0" element={<StreamA0 />} />
+          <Route path="a1" element={<StreamA1 />} />
+          <Route path="a2" element={<StreamA2 />} />
+        </Route>
       </Routes>
     </>
   );

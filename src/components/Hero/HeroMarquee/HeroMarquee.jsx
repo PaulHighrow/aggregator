@@ -10,17 +10,17 @@ import { useEffect, useState } from 'react';
 
 export const HeroMarquee = ({ toggleModal }) => {
   const [isMarqueeModalOpen, setIsMarqueeModalOpen] = useState(false);
-  const [modalId, setmodalId] = useState(NaN);
+  const [modalId, setModalId] = useState(NaN);
 
   const handleToggleModal = e => {
-    setmodalId(e.currentTarget.id);
+    setModalId(e.currentTarget.id);
     setIsMarqueeModalOpen(isOpen => !isOpen);
     document.body.style.overflowY = 'hidden';
   };
 
   const closeMarqueeModal = () => {
     setIsMarqueeModalOpen(isOpen => (isOpen = false));
-    setmodalId(modalId => (modalId = NaN));
+    setModalId(modalId => (modalId = NaN));
     !document.body.style.overflowY && isMarqueeModalOpen
       ? (document.body.style.overflowY = 'hidden')
       : (document.body.style.overflowY = '');

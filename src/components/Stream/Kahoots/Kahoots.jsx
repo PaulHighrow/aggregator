@@ -1,10 +1,8 @@
-import { CloseLogo, KahootCloseBtn } from '../Stream.styled';
 import { KahootBackground, KahootBox } from './Kahoots.styled';
 
 export const Kahoots = ({
   sectionWidth,
   sectionHeight,
-  toggleKahoot,
   isKahootOpen,
   isOpenedLast,
 }) => {
@@ -27,9 +25,6 @@ export const Kahoots = ({
             height={sectionHeight}
           ></iframe>
         </KahootBackground>
-        <KahootCloseBtn onClick={toggleKahoot}>
-          <CloseLogo />
-        </KahootCloseBtn>
       </KahootBox>
     </>
   );
