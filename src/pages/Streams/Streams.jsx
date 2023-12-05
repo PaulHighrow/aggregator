@@ -1,4 +1,5 @@
 import { StreamsBackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
+import { StreamNav } from 'components/Stream/StreamNav/StreamNav';
 import { Outlet, useLocation } from 'react-router-dom';
 
 const Streams = () => {
@@ -7,7 +8,7 @@ const Streams = () => {
   return (
     <>
       <StreamsBackgroundWrapper>
-        {location.pathname === '/streams' ? 'make a nav for streams' : ''}
+        {location.pathname === '/streams' ? <StreamNav /> : ''}
         <Outlet />
       </StreamsBackgroundWrapper>
     </>

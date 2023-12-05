@@ -12,7 +12,6 @@ import desktop2xBGPng from '../../img/bg/desktop-bg@2x.png';
 import desktop1xBGWebp from '../../img/bg/desktop-bg@1x.webp';
 import desktop2xBGWebp from '../../img/bg/desktop-bg@2x.webp';
 
-
 export const BackgroundWrapper = styled.div`
   background-position: right -70px top 640px;
   background-image: image-set(
@@ -69,7 +68,7 @@ export const BackgroundWrapper = styled.div`
 `;
 
 export const StreamsBackgroundWrapper = styled.div`
-height: 100vh;
+  height: 100vh;
   background-position: right -70px top 0px;
   background-image: image-set(
     url(${mobile1xBGWebp}) type('image/webp'),
