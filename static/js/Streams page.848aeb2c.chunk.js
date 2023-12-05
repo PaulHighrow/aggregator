@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkap_education_english=self.webpackChunkap_education_english||[]).push([[467],{6410:function(e,a,n){n.r(a);var s=n(2605),r=n(7689),t=n(184);a.default=function(){var e=(0,r.TH)();return(0,t.jsx)(t.Fragment,{children:(0,t.jsxs)(s.C,{children:["/streams"===e.pathname?"make a nav for streams":"",(0,t.jsx)(r.j3,{})]})})}}}]);
-//# sourceMappingURL=Streams page.848aeb2c.chunk.js.map
