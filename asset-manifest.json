@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.76a1655c.css",
-    "main.js": "/aggregator/static/js/main.01f702b9.js",
-    "Homepage.js": "/aggregator/static/js/Homepage.155b1915.chunk.js",
-    "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.c4a7c683.chunk.js",
+    "main.js": "/aggregator/static/js/main.b21d0641.js",
+    "Homepage.js": "/aggregator/static/js/Homepage.446d28ef.chunk.js",
+    "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.1842d864.chunk.js",
     "Streams page.js": "/aggregator/static/js/Streams page.32db61e4.chunk.js",
-    "All reviews page.js": "/aggregator/static/js/All reviews page.eb7754df.chunk.js",
+    "All reviews page.js": "/aggregator/static/js/All reviews page.83fa30bf.chunk.js",
     "Not Found.js": "/aggregator/static/js/Not Found.3324ba0a.chunk.js",
     "reactPlayerYouTube.js": "/aggregator/static/js/reactPlayerYouTube.a26a0e93.chunk.js",
     "reactPlayerSoundCloud.js": "/aggregator/static/js/reactPlayerSoundCloud.08d87338.chunk.js",
@@ -21,7 +21,9 @@
     "reactPlayerFilePlayer.js": "/aggregator/static/js/reactPlayerFilePlayer.8b5c7efc.chunk.js",
     "reactPlayerPreview.js": "/aggregator/static/js/reactPlayerPreview.73fbb042.chunk.js",
     "static/js/108.302e2ccf.chunk.js": "/aggregator/static/js/108.302e2ccf.chunk.js",
-    "static/js/340.b44d435a.chunk.js": "/aggregator/static/js/340.b44d435a.chunk.js",
+    "static/js/373.18eb9a1a.chunk.js": "/aggregator/static/js/373.18eb9a1a.chunk.js",
+    "static/js/326.eda85d82.chunk.js": "/aggregator/static/js/326.eda85d82.chunk.js",
+    "static/js/388.fdcc9a19.chunk.js": "/aggregator/static/js/388.fdcc9a19.chunk.js",
     "static/media/LTJournalCrayon-Regular.eot": "/aggregator/static/media/LTJournalCrayon-Regular.4e01f9d2a8b68d2b8f20.eot",
     "static/media/LTJournalCrayon-Regular.ttf": "/aggregator/static/media/LTJournalCrayon-Regular.6f92c12d932b03431110.ttf",
     "static/media/LTJournalCrayon-Regular.woff": "/aggregator/static/media/LTJournalCrayon-Regular.ad68ffb639193095ad33.woff",
@@ -100,11 +102,11 @@
     "static/media/invertedDownArrow.svg": "/aggregator/static/media/invertedDownArrow.81d2e354f4424bf21d20b96a031591ce.svg",
     "static/media/downArrow.svg": "/aggregator/static/media/downArrow.3d74cb9d6d38fab26c47bbadb8e4f56d.svg",
     "main.76a1655c.css.map": "/aggregator/static/css/main.76a1655c.css.map",
-    "main.01f702b9.js.map": "/aggregator/static/js/main.01f702b9.js.map",
-    "Homepage.155b1915.chunk.js.map": "/aggregator/static/js/Homepage.155b1915.chunk.js.map",
-    "Inverted Homepage.c4a7c683.chunk.js.map": "/aggregator/static/js/Inverted Homepage.c4a7c683.chunk.js.map",
+    "main.b21d0641.js.map": "/aggregator/static/js/main.b21d0641.js.map",
+    "Homepage.446d28ef.chunk.js.map": "/aggregator/static/js/Homepage.446d28ef.chunk.js.map",
+    "Inverted Homepage.1842d864.chunk.js.map": "/aggregator/static/js/Inverted Homepage.1842d864.chunk.js.map",
     "Streams page.32db61e4.chunk.js.map": "/aggregator/static/js/Streams page.32db61e4.chunk.js.map",
-    "All reviews page.eb7754df.chunk.js.map": "/aggregator/static/js/All reviews page.eb7754df.chunk.js.map",
+    "All reviews page.83fa30bf.chunk.js.map": "/aggregator/static/js/All reviews page.83fa30bf.chunk.js.map",
     "Not Found.3324ba0a.chunk.js.map": "/aggregator/static/js/Not Found.3324ba0a.chunk.js.map",
     "reactPlayerYouTube.a26a0e93.chunk.js.map": "/aggregator/static/js/reactPlayerYouTube.a26a0e93.chunk.js.map",
     "reactPlayerSoundCloud.08d87338.chunk.js.map": "/aggregator/static/js/reactPlayerSoundCloud.08d87338.chunk.js.map",
@@ -120,10 +122,12 @@
     "reactPlayerFilePlayer.8b5c7efc.chunk.js.map": "/aggregator/static/js/reactPlayerFilePlayer.8b5c7efc.chunk.js.map",
     "reactPlayerPreview.73fbb042.chunk.js.map": "/aggregator/static/js/reactPlayerPreview.73fbb042.chunk.js.map",
     "108.302e2ccf.chunk.js.map": "/aggregator/static/js/108.302e2ccf.chunk.js.map",
-    "340.b44d435a.chunk.js.map": "/aggregator/static/js/340.b44d435a.chunk.js.map"
+    "373.18eb9a1a.chunk.js.map": "/aggregator/static/js/373.18eb9a1a.chunk.js.map",
+    "326.eda85d82.chunk.js.map": "/aggregator/static/js/326.eda85d82.chunk.js.map",
+    "388.fdcc9a19.chunk.js.map": "/aggregator/static/js/388.fdcc9a19.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.76a1655c.css",
-    "static/js/main.01f702b9.js"
+    "static/js/main.b21d0641.js"
   ]
 }
