@@ -20,9 +20,12 @@ import {
   PageNavigationArrow,
   PageNavigationItem,
   PageNavigationLink,
+  VideoSoundBtn,
 } from 'components/HowItWorks/HowItWorks.styled';
+import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import ReactPlayer from 'react-player';
+import { VideoModal } from './VideoModal/VideoModal';
 
 const navListItems = [
   { to: 'howitworks', service: 'Мотивація' },
@@ -34,6 +37,36 @@ const navListItems = [
 export const AboutUs = () => {
   // eslint-disable-next-line
   const [width, _] = useSize(document.body);
+
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+
+  const toggleVideoModal = () => {
+    setIsVideoModalOpen(isOpen => !isOpen);
+    if (!document.body.style.overflowY) {
+      document.body.style.overflowY = 'hidden';
+    }
+  };
+
+  const closeVideoModal = () => {
+    setIsVideoModalOpen(isOpen => (isOpen = false));
+    !document.body.style.overflowY && isVideoModalOpen
+      ? (document.body.style.overflowY = 'hidden')
+      : (document.body.style.overflowY = '');
+  };
+
+  useEffect(() => {
+    const onEscapeClose = event => {
+      if (event.code === 'Escape' && isVideoModalOpen) {
+        closeVideoModal();
+      }
+    };
+
+    window.addEventListener('keydown', onEscapeClose);
+
+    return () => {
+      window.removeEventListener('keydown', onEscapeClose);
+    };
+  });
 
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -54,7 +87,8 @@ export const AboutUs = () => {
           </AboutUsTitle>
           <AboutUsWrapper>
             <VideoLimiter>
-              <VideoBox>
+              <VideoBox onClick={toggleVideoModal}>
+                <VideoSoundBtn />
                 <ReactPlayer
                   loop={true}
                   controls={false}
@@ -68,7 +102,7 @@ export const AboutUs = () => {
                   }}
                   width="100%"
                   height="100%"
-                  url='https://ap.education/static/video/trailers/AboutUs.webm'
+                  url="https://ap.education/static/video/trailers/AboutUs.webm"
                 />
               </VideoBox>
             </VideoLimiter>
@@ -101,6 +135,12 @@ export const AboutUs = () => {
             {width > 480 && inView && <LoopyLineIcon />}
           </NavAnimationWrapper>
         </Box>
+        {isVideoModalOpen && (
+        <VideoModal
+          closeVideoModal={closeVideoModal}
+          url={'https://youtu.be/YP1TFRbTfyo'}
+        />
+      )}
       </AboutUsSection>
     </AboutUsBackground>
   );

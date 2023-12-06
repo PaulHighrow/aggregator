@@ -1,10 +1,15 @@
 import { VideoBox, VideoLimiter } from 'components/AboutUs/AboutUs.styled';
 import { CloseIcon } from 'components/LeadForm/LeadForm.styled';
 import { LeadBtn } from 'components/Menu/Menu.styled';
+import { useState } from 'react';
 import ReactPlayer from 'react-player/lazy';
 import {
+  MarqueeBackBtn,
+  MarqueeBackIcon,
   MarqueeBackdrop,
   MarqueeCloseBtn,
+  MarqueeForwardBtn,
+  MarqueeForwardIcon,
   ModalDesc,
   ModalHeader,
   ModalWindow,
@@ -39,19 +44,42 @@ const serviceList = [
 ];
 
 export const MarqueeModal = ({ closeMarqueeModal, toggleModal, id }) => {
+  const [modalId, setModalId] = useState(id);
+  const length = serviceList.length;
+
   const toggleLeadForm = () => {
     closeMarqueeModal();
     toggleModal();
+  };
+
+  const handleBackClick = () => {
+    console.log(serviceList[modalId]);
+    setModalId(modalId =>
+      modalId <= 0 ? (modalId = length - 1) : (modalId -= 1)
+    );
+  };
+
+  const handleForwardClick = () => {
+    console.log(serviceList[modalId]);
+    setModalId(modalId =>
+      modalId >= length - 1 ? (modalId = 0) : (modalId += 1)
+    );
   };
 
   return (
     <>
       <MarqueeBackdrop onClick={closeMarqueeModal} />
       <ModalWindow>
+        <MarqueeBackBtn onClick={handleBackClick}>
+          <MarqueeBackIcon />
+        </MarqueeBackBtn>
+        <MarqueeForwardBtn onClick={handleForwardClick}>
+          <MarqueeForwardIcon />
+        </MarqueeForwardBtn>
         <MarqueeCloseBtn onClick={closeMarqueeModal}>
           <CloseIcon />
         </MarqueeCloseBtn>
-        <ModalHeader>{serviceList[id].title}</ModalHeader>
+        <ModalHeader>{serviceList[modalId].title}</ModalHeader>
 
         <VideoLimiter>
           <VideoBox>
@@ -67,12 +95,12 @@ export const MarqueeModal = ({ closeMarqueeModal, toggleModal, id }) => {
               }}
               width="100%"
               height="100%"
-              url={serviceList[id].videoUrl}
+              url={serviceList[modalId].videoUrl}
             />
           </VideoBox>
         </VideoLimiter>
 
-        <ModalDesc>{serviceList[id].desc}</ModalDesc>
+        <ModalDesc>{serviceList[modalId].desc}</ModalDesc>
         <LeadBtn onClick={toggleLeadForm}> ШВИДКА КОНСУЛЬТАЦІЯ </LeadBtn>
       </ModalWindow>
     </>

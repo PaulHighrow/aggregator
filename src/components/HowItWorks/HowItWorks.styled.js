@@ -1,6 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-scroll';
 import { ReactComponent as MenuArrow } from '../../img/svg/menu-arrow.svg';
+import { ReactComponent as SoundIcon } from '../../img/svg/soundIcon.svg';
 
 export const HowItWorksSection = styled.section`
   position: relative;
@@ -198,4 +199,30 @@ export const VideoBox = styled.div`
   border-radius: 20px;
   overflow: hidden;
   box-shadow: -10px -10px 30px 0px rgba(0, 0, 0, 0.25);
+`;
+
+export const VideoSoundBtn = styled(SoundIcon)`
+  width: 20px;
+  height: 20px;
+  opacity: 0.7;
+
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  right: 10px;
+
+  transition: opacity var(--animation-global);
+
+  @media screen and (min-width: 480px) {
+    width: 30px;
+    height: 30px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 40px;
+    height: 40px;
+
+    top: 20px;
+  right: 20px;
+  }
 `;

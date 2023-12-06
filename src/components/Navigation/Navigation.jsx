@@ -18,6 +18,7 @@ export const Navigation = ({ toggleMenu, toggleModal, className }) => {
 
   const nodeList = [];
   document.querySelectorAll('[id]').forEach(node => nodeList.push(node));
+
   const filteredNodeList = nodeList.filter(
     node =>
       !!node.className &&
@@ -57,7 +58,9 @@ export const Navigation = ({ toggleMenu, toggleModal, className }) => {
           return (
             <NavigationItem key={i}>
               <NavigationLink to={node.id} {...props}>
-                {node.outerText.split('\n')[0]}
+                {node.outerText.split('\n')[0] === 'ONE STEP'
+                  ? 'ONE STEP FROM ZERO TO HERO'
+                  : node.outerText.split('\n')[0]}
               </NavigationLink>
             </NavigationItem>
           );

@@ -1,4 +1,5 @@
 import useSize from '@react-hook/size';
+import { VideoModal } from 'components/AboutUs/VideoModal/VideoModal';
 import { Box } from 'components/Box/Box.styled';
 import ReactPlayer from 'react-player';
 import {
@@ -12,10 +13,42 @@ import {
   SectionTitle,
   SectionWrapper,
   VideoBox,
-  VideoLimiter
+  VideoLimiter,
+  VideoSoundBtn,
 } from './HowItWorks.styled';
+import { useEffect, useState } from 'react';
 
 export const HowItWorks = () => {
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+
+  const toggleVideoModal = () => {
+    setIsVideoModalOpen(isOpen => !isOpen);
+    if (!document.body.style.overflowY) {
+      document.body.style.overflowY = 'hidden';
+    }
+  };
+
+  const closeVideoModal = () => {
+    setIsVideoModalOpen(isOpen => (isOpen = false));
+    !document.body.style.overflowY && isVideoModalOpen
+      ? (document.body.style.overflowY = 'hidden')
+      : (document.body.style.overflowY = '');
+  };
+
+  useEffect(() => {
+    const onEscapeClose = event => {
+      if (event.code === 'Escape' && isVideoModalOpen) {
+        closeVideoModal();
+      }
+    };
+
+    window.addEventListener('keydown', onEscapeClose);
+
+    return () => {
+      window.removeEventListener('keydown', onEscapeClose);
+    };
+  });
+
   const listItems = [
     { to: 'howitworks', service: 'Мотивація' },
     { to: 'platform', service: 'Навчальна платформа' },
@@ -50,7 +83,8 @@ export const HowItWorks = () => {
           </PageNavigation>
         </SectionWrapper>
         <VideoLimiter>
-          <VideoBox>
+          <VideoBox onClick={toggleVideoModal}>
+            <VideoSoundBtn />
             <VideoLimiter>
               <ReactPlayer
                 loop={true}
@@ -71,6 +105,12 @@ export const HowItWorks = () => {
           </VideoBox>
         </VideoLimiter>
       </Box>
+      {isVideoModalOpen && (
+        <VideoModal
+          closeVideoModal={closeVideoModal}
+          url={'https://youtu.be/ncDw4CGMn2o?si=TLiw7DOmUaf9-cef'}
+        />
+      )}
     </HowItWorksSection>
   );
 };

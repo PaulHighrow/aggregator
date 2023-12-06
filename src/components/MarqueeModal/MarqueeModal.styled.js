@@ -3,6 +3,7 @@ import { Backdrop } from 'components/LeadForm/Backdrop/Backdrop.styled';
 import { FormCloseBtn } from 'components/LeadForm/LeadForm.styled';
 import { DescriptionTrigger } from 'components/Hero/Hero.styled';
 import { Link } from 'react-router-dom';
+import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
 
 export const ModalWindow = styled.div`
   position: fixed;
@@ -86,4 +87,78 @@ export const DetailsLink = styled(Link)`
   &:focus > span {
     color: var(--secondary-color);
   }
+`;
+
+export const MarqueeForwardBtn = styled.button`
+  position: absolute;
+  top: 50%;
+  right: -2em;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: translateY(-50%);
+
+  transition: all var(--animation-global);
+
+  background-color: #000000ab;
+  border-radius: 50%;
+  border: none;
+
+  &:hover svg,
+  &:focus svg {
+    fill: var(--accent-color);
+  }
+
+  &:hover,
+  &:focus {
+    scale: 1.1;
+  }
+`;
+
+export const MarqueeForwardIcon = styled(IoIosArrowForward)`
+  fill: var(--secondary-color);
+  width: 30px;
+  height: 30px;
+`;
+
+export const MarqueeBackBtn = styled.button`
+  position: absolute;
+  top: 50%;
+  left: -2em;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: translateY(-50%);
+
+  transition: all var(--animation-global);
+
+  background-color: #000000ab;
+  border-radius: 50%;
+  border: none;
+
+  &:hover svg,
+  &:focus svg {
+    fill: var(--accent-color);
+  }
+
+  &:hover,
+  &:focus {
+    scale: 1.1;
+  }
+`;
+
+export const MarqueeBackIcon = styled(IoIosArrowBack)`
+  fill: var(--secondary-color);
+  width: 30px;
+  height: 30px;
 `;

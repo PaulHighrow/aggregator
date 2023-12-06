@@ -42,13 +42,13 @@ const Home = ({ utms }) => {
   return (
     <>
       <BackgroundWrapper>
-        <Hero closeModal={closeModal} toggleModal={toggleModal} />
+        <Hero toggleModal={toggleModal} />
         <HowItWorks />
       </BackgroundWrapper>
       <EdPlatform />
       {/* <Admission /> */}
       {/* <Translations utms={utms} /> */}
-      <Reviews toggleModal={toggleModal} closeModal={closeModal} />
+      <Reviews toggleModal={toggleModal} />
       {/* <ExamCenter toggleModal={toggleModal} closeModal={closeModal} /> */}
       <AboutUs />
       <Consent />
