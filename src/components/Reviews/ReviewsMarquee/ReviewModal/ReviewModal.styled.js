@@ -1,6 +1,10 @@
 import { Backdrop } from 'components/LeadForm/Backdrop/Backdrop.styled';
 import { FormCloseBtn } from 'components/LeadForm/LeadForm.styled';
 import styled from 'styled-components';
+import {
+  MarqueeBackBtn,
+  MarqueeForwardBtn,
+} from 'components/MarqueeModal/MarqueeModal.styled';
 
 export const ModalWindow = styled.div`
   position: fixed;
@@ -18,7 +22,7 @@ export const ModalWindow = styled.div`
   text-align: center;
 
   padding-bottom: 20px;
-  width: calc(100vw - 40px);
+  width: calc(100vw - 5em);
   max-width: 320px;
 
   @media screen and (min-width: 768px) {
@@ -47,4 +51,28 @@ export const MarqueeCloseBtn = styled(FormCloseBtn)`
   z-index: 5;
   width: 30px;
   height: 30px;
+`;
+
+export const ReviewPrevBtn = styled(MarqueeBackBtn)`
+  z-index: 5;
+
+  top: 50%;
+  bottom: auto;
+  left: -2.5em;
+
+  @media screen and (min-width: 768px) {
+    left: -4em;
+  }
+`;
+
+export const ReviewNextBtn = styled(MarqueeForwardBtn)`
+  z-index: 5;
+
+  top: 50%;
+  bottom: auto;
+  right: -2.5em;
+
+  @media screen and (min-width: 768px) {
+    right: -4em;
+  }
 `;

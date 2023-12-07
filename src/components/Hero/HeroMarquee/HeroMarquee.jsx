@@ -6,21 +6,21 @@ import {
   StyledMarquee,
 } from 'components/Hero/HeroMarquee/HeroMarquee.styled';
 import { MarqueeModal } from 'components/MarqueeModal/MarqueeModal';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export const HeroMarquee = ({ toggleModal }) => {
   const [isMarqueeModalOpen, setIsMarqueeModalOpen] = useState(false);
-  const [modalId, setModalId] = useState(NaN);
+  const modalId = useRef(NaN);
 
   const handleToggleModal = e => {
-    setModalId(e.currentTarget.id);
+    modalId.current = e.currentTarget.id;
     setIsMarqueeModalOpen(isOpen => !isOpen);
     document.body.style.overflowY = 'hidden';
   };
 
   const closeMarqueeModal = () => {
     setIsMarqueeModalOpen(isOpen => (isOpen = false));
-    setModalId(modalId => (modalId = NaN));
+    modalId.current = 0;
     !document.body.style.overflowY && isMarqueeModalOpen
       ? (document.body.style.overflowY = 'hidden')
       : (document.body.style.overflowY = '');
@@ -46,7 +46,7 @@ export const HeroMarquee = ({ toggleModal }) => {
         <MarqueeModal
           closeMarqueeModal={closeMarqueeModal}
           toggleModal={toggleModal}
-          id={modalId}
+          id={modalId.current}
         />
       )}
       <StyledMarquee autoFill={true} pauseOnHover={true}>

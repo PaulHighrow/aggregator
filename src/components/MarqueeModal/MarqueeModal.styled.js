@@ -25,13 +25,18 @@ export const ModalWindow = styled.div`
   padding: 20px;
   padding-top: 40px;
 
+  @media screen and (min-width: 360px) {
+    width: calc(100vw - 40px);
+  }
+
   @media screen and (min-width: 768px) {
-    width: 500px;
+    width: calc(100vw - 150px);
     padding: 30px;
   }
 
   @media screen and (min-width: 1280px) {
-    width: 700px;
+    width: 80vw;
+    max-width: 1280px;
     padding: 40px;
   }
 `;
@@ -91,8 +96,8 @@ export const DetailsLink = styled(Link)`
 
 export const MarqueeForwardBtn = styled.button`
   position: absolute;
-  top: 50%;
-  right: -2em;
+  bottom: -4rem;
+  right: 2em;
 
   width: 40px;
   height: 40px;
@@ -117,6 +122,15 @@ export const MarqueeForwardBtn = styled.button`
   &:hover,
   &:focus {
     scale: 1.1;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 60px;
+    height: 60px;
+
+    top: 50%;
+    bottom: auto;
+    right: -4em;
   }
 `;
 
@@ -124,12 +138,17 @@ export const MarqueeForwardIcon = styled(IoIosArrowForward)`
   fill: var(--secondary-color);
   width: 30px;
   height: 30px;
+
+  @media screen and (min-width: 768px) {
+    width: 45px;
+    height: 45px;
+  }
 `;
 
 export const MarqueeBackBtn = styled.button`
   position: absolute;
-  top: 50%;
-  left: -2em;
+  bottom: -4em;
+  left: 2em;
 
   width: 40px;
   height: 40px;
@@ -155,10 +174,24 @@ export const MarqueeBackBtn = styled.button`
   &:focus {
     scale: 1.1;
   }
+
+  @media screen and (min-width: 768px) {
+    width: 60px;
+    height: 60px;
+
+    top: 50%;
+    bottom: auto;
+    left: -4em;
+  }
 `;
 
 export const MarqueeBackIcon = styled(IoIosArrowBack)`
   fill: var(--secondary-color);
   width: 30px;
   height: 30px;
+
+  @media screen and (min-width: 768px) {
+    width: 45px;
+    height: 45px;
+  }
 `;

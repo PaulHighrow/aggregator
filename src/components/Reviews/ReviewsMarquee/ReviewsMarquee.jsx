@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   MarqueeChild,
   MarqueeOverlay,
@@ -10,17 +10,17 @@ import { ReviewModal } from './ReviewModal/ReviewModal';
 
 export const ReviewsMarquee = ({ toggleModal }) => {
   const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
-  const [reviewId, setReviewId] = useState(NaN);
+  const reviewId = useRef(0);
 
   const handleToggleModal = e => {
-    setReviewId(e.currentTarget.id);
+    reviewId.current = e.currentTarget.id;
     setIsReviewModalOpen(isOpen => !isOpen);
     document.body.style.overflowY = 'hidden';
   };
 
   const closeMarqueeModal = () => {
     setIsReviewModalOpen(isOpen => (isOpen = false));
-    setReviewId(reviewId => (reviewId = NaN));
+    reviewId.current = 0;
     !document.body.style.overflowY && isReviewModalOpen
       ? (document.body.style.overflowY = 'hidden')
       : (document.body.style.overflowY = '');
@@ -46,7 +46,7 @@ export const ReviewsMarquee = ({ toggleModal }) => {
         <ReviewModal
           closeMarqueeModal={closeMarqueeModal}
           toggleModal={toggleModal}
-          id={reviewId}
+          id={reviewId.current}
         />
       )}
       <StyledMarquee autoFill={true} pauseOnHover={true}>

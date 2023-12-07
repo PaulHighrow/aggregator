@@ -1,62 +1,64 @@
 import { VideoLimiter } from 'components/AboutUs/AboutUs.styled';
 import { CloseIcon } from 'components/LeadForm/LeadForm.styled';
+import {
+  MarqueeBackIcon,
+  MarqueeForwardIcon
+} from 'components/MarqueeModal/MarqueeModal.styled';
 import { LeadBtn } from 'components/Menu/Menu.styled';
+import { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player/lazy';
 import {
   MarqueeBackdrop,
   MarqueeCloseBtn,
   ModalWindow,
+  ReviewNextBtn,
+  ReviewPrevBtn,
   ReviewVideoBox,
 } from './ReviewModal.styled';
-
-const reviewList = [
-  {
-    videoUrl:
-      'https://ap.education/static/video/reviews/fullReviews/fullReview1.webm',
-  },
-  {
-    videoUrl:
-      'https://ap.education/static/video/reviews/fullReviews/fullReview2.webm',
-  },
-  {
-    videoUrl:
-      'https://ap.education/static/video/reviews/fullReviews/fullReview3.webm',
-  },
-  {
-    videoUrl:
-      'https://ap.education/static/video/reviews/fullReviews/fullReview4.webm',
-  },
-  {
-    videoUrl:
-      'https://ap.education/static/video/reviews/fullReviews/fullReview5.webm',
-  },
-  {
-    videoUrl:
-      'https://ap.education/static/video/reviews/fullReviews/fullReview6.webm',
-  },
-  {
-    videoUrl:
-      'https://ap.education/static/video/reviews/fullReviews/fullReview7.webm',
-  },
-  {
-    videoUrl:
-      'https://ap.education/static/video/reviews/fullReviews/fullReview8.webm',
-  },
-  {
-    videoUrl:
-      'https://ap.education/static/video/reviews/fullReviews/fullReview9.webm',
-  },
-  {
-    videoUrl:
-      'https://ap.education/static/video/reviews/fullReviews/fullReview10.webm',
-  },
-];
+import { reviewList } from './reviewList';
 
 export const ReviewModal = ({ closeMarqueeModal, toggleModal, id }) => {
+  const [modalId, setModalId] = useState(parseInt(id));
+  const length = reviewList.length;
+
   const toggleLeadForm = () => {
     closeMarqueeModal();
     toggleModal();
   };
+
+  const handlePrevClick = () => {
+    modalId <= 0
+      ? setModalId(id => (id = length - 1))
+      : setModalId(id => (id -= 1));
+  };
+
+  const handleNextClick = () => {
+    modalId >= length - 1
+      ? setModalId(id => (id = 0))
+      : setModalId(id => (id += 1));
+  };
+
+  useEffect(() => {
+    const onRightArrowNext = event => {
+      if (event.code === 'ArrowRight') {
+        handleNextClick();
+      }
+    };
+    
+    const onLeftArrowPrev = event => {
+      if (event.code === 'ArrowLeft') {
+        handlePrevClick();
+      }
+    };
+
+    window.addEventListener('keydown', onRightArrowNext);
+    window.addEventListener('keydown', onLeftArrowPrev);
+
+    return () => {
+      window.removeEventListener('keydown', onRightArrowNext);
+      window.removeEventListener('keydown', onLeftArrowPrev);
+    };
+  });
 
   return (
     <>
@@ -67,6 +69,12 @@ export const ReviewModal = ({ closeMarqueeModal, toggleModal, id }) => {
         </MarqueeCloseBtn>
 
         <VideoLimiter>
+          <ReviewPrevBtn onClick={handlePrevClick}>
+            <MarqueeBackIcon />
+          </ReviewPrevBtn>
+          <ReviewNextBtn onClick={handleNextClick}>
+            <MarqueeForwardIcon />
+          </ReviewNextBtn>
           <ReviewVideoBox>
             <ReactPlayer
               playing={true}
@@ -80,7 +88,7 @@ export const ReviewModal = ({ closeMarqueeModal, toggleModal, id }) => {
               }}
               width="100%"
               height="100%"
-              url={reviewList[id].videoUrl}
+              url={reviewList[modalId].videoUrl}
             />
           </ReviewVideoBox>
         </VideoLimiter>

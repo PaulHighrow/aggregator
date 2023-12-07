@@ -7,6 +7,7 @@ import { StreamA1 } from 'pages/Streams/A1/StreamA1';
 import { StreamA2 } from 'pages/Streams/A2/StreamA2';
 import { StreamDeutsch } from 'pages/Streams/Deutsch/StreamDeutsch';
 import { StreamPolski } from 'pages/Streams/Polski/StreamPolski';
+import { AdminPanel } from 'pages/Streams/AdminPanel/AdminPanel';
 
 const Home = lazy(() =>
   import(/* webpackChunkName: "Homepage" */ '../pages/Home/Home')
@@ -109,7 +110,7 @@ export const App = () => {
           <Route path="a2" element={<StreamA2 />} />
           <Route path="deutsch" element={<StreamDeutsch />} />
           <Route path="polski" element={<StreamPolski />} />
-          
+          <Route path="stream-admin-panel" element={<AdminPanel />} />
         </Route>
       </Routes>
     </>
