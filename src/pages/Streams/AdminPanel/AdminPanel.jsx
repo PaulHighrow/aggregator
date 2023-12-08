@@ -14,6 +14,9 @@ import {
 } from './AdminPanel.styled';
 
 axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
+const setAuthToken = token => {
+  axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+};
 
 export const AdminPanel = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -33,8 +36,8 @@ export const AdminPanel = () => {
     setIsLoading(isLoading => (isLoading = true));
 
     try {
-      const response = await axios.post('/streams-login', values);
-      console.log(response);
+      const response = await axios.post('/admins/login', values);
+      setAuthToken(response.data.token);
       setIsUserAdmin(isAdmin => (isAdmin = true));
       resetForm();
     } catch (error) {
@@ -64,13 +67,14 @@ export const AdminPanel = () => {
     setIsLoading(isLoading => (isLoading = true));
 
     try {
-      const response = await axios.post('/streams-links', values);
+      const response = await axios.patch('/links', values);
       console.log(response);
       resetForm();
     } catch (error) {
       console.error(error);
     } finally {
       setIsLoading(isLoading => (isLoading = false));
+      alert('Замінив, молодець');
     }
   };
 

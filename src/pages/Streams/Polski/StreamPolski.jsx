@@ -2,6 +2,7 @@ import useSize from '@react-hook/size';
 import { Kahoots } from 'components/Stream/Kahoots/Kahoots';
 import { useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
+import { useOutletContext } from 'react-router-dom';
 import {
   ButtonBox,
   ChatBox,
@@ -10,15 +11,16 @@ import {
   KahootBtn,
   KahootLogo,
   StreamSection,
-  VideoBox
+  VideoBox,
 } from '../../../components/Stream/Stream.styled';
 
 export const StreamPolski = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isKahootOpen, setIsKahootOpen] = useState(false);
   const [isOpenedLast, setIsOpenedLast] = useState('');
-  const sectionEl = useRef();
   // eslint-disable-next-line
+  const [links, setLinks] = useOutletContext();
+  const sectionEl = useRef();
   const [sectionWidth, sectionHeight] = useSize(sectionEl);
 
   const toggleKahoot = e => {
@@ -57,7 +59,7 @@ export const StreamPolski = () => {
           }}
           width="100%"
           height="100vh"
-          url="https://www.youtube.com/live/9UMxZofMNbA?si=n0NpRCT3NkdP0GFA"
+          url={links.polski}
         />
       </VideoBox>
 
@@ -66,22 +68,28 @@ export const StreamPolski = () => {
           <KahootLogo />
         </KahootBtn>
 
-        <ChatBtn onClick={toggleChat}>
-          <ChatLogo />
-        </ChatBtn>
+        {links.polski && (
+          <ChatBtn onClick={toggleChat}>
+            <ChatLogo />
+          </ChatBtn>
+        )}
       </ButtonBox>
 
-      <ChatBox
-        className={isChatOpen ? 'shown' : 'hidden'}
-        style={isOpenedLast === 'chat' ? { zIndex: '1' } : { zIndex: '0' }}
-      >
-        <iframe
-          title="chat"
-          width="350px"
-          height={sectionHeight}
-          src={`https://www.youtube.com/live_chat?v=9UMxZofMNbA&embed_domain=${embedDomain}`}
-        ></iframe>
-      </ChatBox>
+      {links.polski && (
+        <ChatBox
+          className={isChatOpen ? 'shown' : 'hidden'}
+          style={isOpenedLast === 'chat' ? { zIndex: '1' } : { zIndex: '0' }}
+        >
+          <iframe
+            title="chat"
+            width="350px"
+            height={sectionHeight}
+            src={`https://www.youtube.com/live_chat?v=${
+              links.polski.match(/([a-zA-Z0-9_-]{11})/)[0]
+            }&embed_domain=${embedDomain}`}
+          ></iframe>
+        </ChatBox>
+      )}
 
       <Kahoots
         sectionWidth={sectionWidth}

@@ -71,11 +71,21 @@ export const StreamNavDescription = styled.p`
 
 export const StreamNavList = styled.ul`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
+  gap: 20px;
 `;
 
 export const StreamNavItem = styled.li`
-  width: 56px;
+  min-width: 56px;
+  width: max-content;
+
+  @media screen and (min-width: 768px) {
+    min-width: 69px;
+  }
+  @media screen and (min-width: 1280px) {
+    min-width: 80px;
+  }
 `;
 
 export const StreamNavLink = styled(Link)`

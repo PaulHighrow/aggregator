@@ -39,8 +39,8 @@ export const SharedLayout = ({ utms }) => {
 
   const authRequest = async () => {
     try {
-      const auth = await axios.post('/tokens');
-      console.log(auth);
+      await axios.post('/tokens');
+      // console.log(auth);
     } catch (error) {
       console.log(error);
     }

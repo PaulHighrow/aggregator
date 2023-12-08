@@ -1,4 +1,3 @@
-import { Schedule } from '../Schedule/Schedule';
 import {
   StreamNavDescription,
   StreamNavItem,
@@ -16,8 +15,7 @@ export const StreamNav = () => {
         <StreamNavigation>
           <StreamNavTitle>Вітаємо на сторінці онлайн-уроків!</StreamNavTitle>
           <StreamNavDescription>
-            Щоб знайти потрібну трансляцію, скористайтеся розкладом занять або
-            просто оберіть рівень:
+            Щоб знайти потрібну трансляцію, просто оберіть рівень або мову:
           </StreamNavDescription>
           <StreamNavList>
             <StreamNavItem>
@@ -29,9 +27,15 @@ export const StreamNav = () => {
             <StreamNavItem>
               <StreamNavLink to={'/streams/a2'}>A2</StreamNavLink>
             </StreamNavItem>
+            <StreamNavItem>
+              <StreamNavLink to={'/streams/deustch'}>Німецька</StreamNavLink>
+            </StreamNavItem>
+            <StreamNavItem>
+              <StreamNavLink to={'/streams/polski'}>Польська</StreamNavLink>
+            </StreamNavItem>
           </StreamNavList>
         </StreamNavigation>
-        <Schedule />
+        {/* <Schedule /> */}
       </StreamNavigationBox>
     </>
   );
