@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@types/aria-query": "^5.0.1",
     "@types/npm": "^7.19.0",
+    "ag-grid-react": "^31.0.1",
     "animate.css": "^4.1.1",
     "axios": "^1.4.0",
     "formik": "^2.4.3",
