@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.76a1655c.css",
-    "main.js": "/aggregator/static/js/main.894e822c.js",
-    "Homepage.js": "/aggregator/static/js/Homepage.6e177bce.chunk.js",
-    "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.d8dec1df.chunk.js",
-    "Streams page.js": "/aggregator/static/js/Streams page.1095cc18.chunk.js",
+    "main.js": "/aggregator/static/js/main.8f52a2cd.js",
+    "Homepage.js": "/aggregator/static/js/Homepage.b2744925.chunk.js",
+    "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.3ea99694.chunk.js",
+    "Streams page.js": "/aggregator/static/js/Streams page.e3953c3d.chunk.js",
     "All reviews page.js": "/aggregator/static/js/All reviews page.f4d43c91.chunk.js",
     "Not Found.js": "/aggregator/static/js/Not Found.3324ba0a.chunk.js",
     "reactPlayerYouTube.js": "/aggregator/static/js/reactPlayerYouTube.a26a0e93.chunk.js",
@@ -20,9 +20,7 @@
     "reactPlayerKaltura.js": "/aggregator/static/js/reactPlayerKaltura.0a6ce37b.chunk.js",
     "reactPlayerFilePlayer.js": "/aggregator/static/js/reactPlayerFilePlayer.8b5c7efc.chunk.js",
     "reactPlayerPreview.js": "/aggregator/static/js/reactPlayerPreview.73fbb042.chunk.js",
-    "static/js/316.dc648738.chunk.js": "/aggregator/static/js/316.dc648738.chunk.js",
-    "static/js/203.b1ea26f2.chunk.js": "/aggregator/static/js/203.b1ea26f2.chunk.js",
-    "static/js/128.b2495db5.chunk.js": "/aggregator/static/js/128.b2495db5.chunk.js",
+    "static/js/87.ac431215.chunk.js": "/aggregator/static/js/87.ac431215.chunk.js",
     "static/media/LTJournalCrayon-Regular.eot": "/aggregator/static/media/LTJournalCrayon-Regular.4e01f9d2a8b68d2b8f20.eot",
     "static/media/LTJournalCrayon-Regular.ttf": "/aggregator/static/media/LTJournalCrayon-Regular.6f92c12d932b03431110.ttf",
     "static/media/LTJournalCrayon-Regular.woff": "/aggregator/static/media/LTJournalCrayon-Regular.ad68ffb639193095ad33.woff",
@@ -101,10 +99,10 @@
     "static/media/invertedDownArrow.svg": "/aggregator/static/media/invertedDownArrow.81d2e354f4424bf21d20b96a031591ce.svg",
     "static/media/downArrow.svg": "/aggregator/static/media/downArrow.3d74cb9d6d38fab26c47bbadb8e4f56d.svg",
     "main.76a1655c.css.map": "/aggregator/static/css/main.76a1655c.css.map",
-    "main.894e822c.js.map": "/aggregator/static/js/main.894e822c.js.map",
-    "Homepage.6e177bce.chunk.js.map": "/aggregator/static/js/Homepage.6e177bce.chunk.js.map",
-    "Inverted Homepage.d8dec1df.chunk.js.map": "/aggregator/static/js/Inverted Homepage.d8dec1df.chunk.js.map",
-    "Streams page.1095cc18.chunk.js.map": "/aggregator/static/js/Streams page.1095cc18.chunk.js.map",
+    "main.8f52a2cd.js.map": "/aggregator/static/js/main.8f52a2cd.js.map",
+    "Homepage.b2744925.chunk.js.map": "/aggregator/static/js/Homepage.b2744925.chunk.js.map",
+    "Inverted Homepage.3ea99694.chunk.js.map": "/aggregator/static/js/Inverted Homepage.3ea99694.chunk.js.map",
+    "Streams page.e3953c3d.chunk.js.map": "/aggregator/static/js/Streams page.e3953c3d.chunk.js.map",
     "All reviews page.f4d43c91.chunk.js.map": "/aggregator/static/js/All reviews page.f4d43c91.chunk.js.map",
     "Not Found.3324ba0a.chunk.js.map": "/aggregator/static/js/Not Found.3324ba0a.chunk.js.map",
     "reactPlayerYouTube.a26a0e93.chunk.js.map": "/aggregator/static/js/reactPlayerYouTube.a26a0e93.chunk.js.map",
@@ -120,12 +118,10 @@
     "reactPlayerKaltura.0a6ce37b.chunk.js.map": "/aggregator/static/js/reactPlayerKaltura.0a6ce37b.chunk.js.map",
     "reactPlayerFilePlayer.8b5c7efc.chunk.js.map": "/aggregator/static/js/reactPlayerFilePlayer.8b5c7efc.chunk.js.map",
     "reactPlayerPreview.73fbb042.chunk.js.map": "/aggregator/static/js/reactPlayerPreview.73fbb042.chunk.js.map",
-    "316.dc648738.chunk.js.map": "/aggregator/static/js/316.dc648738.chunk.js.map",
-    "203.b1ea26f2.chunk.js.map": "/aggregator/static/js/203.b1ea26f2.chunk.js.map",
-    "128.b2495db5.chunk.js.map": "/aggregator/static/js/128.b2495db5.chunk.js.map"
+    "87.ac431215.chunk.js.map": "/aggregator/static/js/87.ac431215.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.76a1655c.css",
-    "static/js/main.894e822c.js"
+    "static/js/main.8f52a2cd.js"
   ]
 }
