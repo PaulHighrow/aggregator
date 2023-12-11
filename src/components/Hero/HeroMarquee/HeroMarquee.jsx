@@ -7,10 +7,12 @@ import {
 } from 'components/Hero/HeroMarquee/HeroMarquee.styled';
 import { MarqueeModal } from 'components/MarqueeModal/MarqueeModal';
 import { useEffect, useRef, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 export const HeroMarquee = ({ toggleModal }) => {
   const [isMarqueeModalOpen, setIsMarqueeModalOpen] = useState(false);
   const modalId = useRef(NaN);
+  const { ref, inView } = useInView({ delay: 1000 });
 
   const handleToggleModal = e => {
     modalId.current = e.currentTarget.id;
@@ -49,12 +51,22 @@ export const HeroMarquee = ({ toggleModal }) => {
           id={modalId.current}
         />
       )}
-      <StyledMarquee autoFill={true} pauseOnHover={true}>
+      <StyledMarquee
+        autoFill={true}
+        pauseOnHover={true}
+        inViewRef={ref}
+      >
         <MarqueeChild id={0} onClick={handleToggleModal}>
           <MarqueeOverlay>
             <MarqueeText>From Zero to Hero</MarqueeText>
           </MarqueeOverlay>
-          <MarqueeVideo autoPlay loop playsInline muted={true}>
+          <MarqueeVideo
+            autoplay={inView ? 'true' : 'false'}
+            loop
+            playsInline
+            muted={true}
+            poster="../../../img/hero/hero-marquee/posters/poster1.webp"
+          >
             <source
               src="https://ap.education/static/video/previews/preview1.webm"
               type="video/webm"
@@ -70,13 +82,19 @@ export const HeroMarquee = ({ toggleModal }) => {
           <MarqueeOverlay>
             <MarqueeText>Навчальна платформа</MarqueeText>
           </MarqueeOverlay>
-          <MarqueeVideo autoPlay loop playsInline muted={true}>
+          <MarqueeVideo
+            autoplay={inView ? 'true' : 'false'}
+            loop
+            playsInline
+            muted={true}
+            poster="../../../img/hero/hero-marquee/posters/poster2.webp"
+          >
             <source
-              src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700484543/preview2_kq0yix.webm"
+              src="https://ap.education/static/video/previews/preview2.webm"
               type="video/webm"
             />
             <source
-              src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700484130/preview2.mp4"
+              src="https://ap.education/static/video/previews/preview2.mp4"
               type="video/mp4"
             />
           </MarqueeVideo>
@@ -86,7 +104,13 @@ export const HeroMarquee = ({ toggleModal }) => {
           <MarqueeOverlay>
             <MarqueeText>Письмова гарантія</MarqueeText>
           </MarqueeOverlay>
-          <MarqueeVideo autoPlay loop playsInline muted={true}>
+          <MarqueeVideo
+            autoplay={inView ? 'true' : 'false'}
+            loop
+            playsInline
+            muted={true}
+            poster="../../../img/hero/hero-marquee/posters/poster3.webp"
+          >
             <source
               src="https://ap.education/static/video/previews/preview3.webm"
               type="video/webm"
@@ -102,13 +126,19 @@ export const HeroMarquee = ({ toggleModal }) => {
           <MarqueeOverlay>
             <MarqueeText>Ноутбук в подарунок</MarqueeText>
           </MarqueeOverlay>
-          <MarqueeVideo autoPlay loop playsInline muted={true}>
+          <MarqueeVideo
+            autoplay={inView ? 'true' : 'false'}
+            loop
+            playsInline
+            muted={true}
+            poster="../../../img/hero/hero-marquee/posters/poster4.webp"
+          >
             <source
-              src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700486374/preview4_xlqaux.webm"
+              src="https://ap.education/static/video/previews/preview4.webm"
               type="video/webm"
             />
             <source
-              src="https://res.cloudinary.com/dc1nv7ign/video/upload/v1700486134/preview4.mp4"
+              src="https://ap.education/static/video/previews/preview4.mp4"
               type="video/mp4"
             />
           </MarqueeVideo>
@@ -118,7 +148,13 @@ export const HeroMarquee = ({ toggleModal }) => {
           <MarqueeOverlay>
             <MarqueeText>Close to You</MarqueeText>
           </MarqueeOverlay>
-          <MarqueeVideo autoPlay loop playsInline muted={true}>
+          <MarqueeVideo
+            autoplay={inView ? 'true' : 'false'}
+            loop
+            playsInline
+            muted={true}
+            poster="../../../img/hero/hero-marquee/posters/poster5.webp"
+          >
             <source
               src="https://ap.education/static/video/previews/preview5.webm"
               type="video/webm"
@@ -130,6 +166,8 @@ export const HeroMarquee = ({ toggleModal }) => {
           </MarqueeVideo>
         </MarqueeChild>
       </StyledMarquee>
+      {/* <BackBtn onClick={handleBackClick}>Back</BackBtn>
+      <ForwardBtn onClick={handleForwardClick}>Forward</ForwardBtn> */}
     </>
   );
 };

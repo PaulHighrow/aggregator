@@ -68,10 +68,11 @@ export const AboutUs = () => {
     };
   });
 
-  const { ref, inView } = useInView({
+  const [ doodleRef, doodleInView ] = useInView({
     triggerOnce: true,
     delay: 1000,
   });
+  const [ videoRef, videoInView ] = useInView();
 
   const props =
     width < 768
@@ -86,14 +87,14 @@ export const AboutUs = () => {
             ПРО <AboutUsSubTitle>НАС</AboutUsSubTitle>
           </AboutUsTitle>
           <AboutUsWrapper>
-            <VideoLimiter>
+            <VideoLimiter ref={videoRef}>
               <VideoBox onClick={toggleVideoModal}>
                 <VideoSoundBtn />
                 <ReactPlayer
                   loop={true}
                   controls={false}
                   muted={true}
-                  playing={true}
+                  playing={videoInView ? true : false}
                   style={{
                     display: 'block',
                     position: 'absolute',
@@ -114,7 +115,7 @@ export const AboutUs = () => {
               центрі.
             </AboutUsText>
           </AboutUsWrapper>
-          <NavAnimationWrapper ref={ref}>
+          <NavAnimationWrapper ref={doodleRef}>
             {/* {inView && <LoopyLineMirroredIcon />} */}
             <NavigationWrapper>
               <NavigationDesc>... якщо хочеш подивитися ще раз</NavigationDesc>
@@ -132,15 +133,15 @@ export const AboutUs = () => {
                 ))}
               </PageNavigation>
             </NavigationWrapper>
-            {width > 480 && inView && <LoopyLineIcon />}
+            {width > 480 && doodleInView && <LoopyLineIcon />}
           </NavAnimationWrapper>
         </Box>
         {isVideoModalOpen && (
-        <VideoModal
-          closeVideoModal={closeVideoModal}
-          url={'https://youtu.be/YP1TFRbTfyo'}
-        />
-      )}
+          <VideoModal
+            closeVideoModal={closeVideoModal}
+            url={'https://youtu.be/YP1TFRbTfyo'}
+          />
+        )}
       </AboutUsSection>
     </AboutUsBackground>
   );

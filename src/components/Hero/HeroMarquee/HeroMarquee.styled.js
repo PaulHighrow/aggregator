@@ -72,3 +72,6 @@ export const MarqueeText = styled.span`
   transition: background-color var(--animation-global),
     transform var(--animation-global);
 `;
+
+export const BackBtn = styled.button``;
+export const ForwardBtn = styled.button``;

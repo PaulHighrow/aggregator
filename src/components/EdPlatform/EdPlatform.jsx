@@ -40,6 +40,7 @@ export const EdPlatform = () => {
   const edPlatformEl = useRef();
   // eslint-disable-next-line
   const [width, _] = useSize(edPlatformEl);
+  const [videoRef, videoInView] = useInView();
 
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -59,12 +60,12 @@ export const EdPlatform = () => {
             НАВЧАЛЬНА <EdPlatformSubTitle>ПЛАТФОРМА</EdPlatformSubTitle>
           </EdPlatformTitle>
           <EdPlatformWrapper>
-            <VideoLimiter>
+            <VideoLimiter ref={videoRef}>
               <VideoBox>
                 <ReactPlayer
                   loop={true}
                   controls={true}
-                  playing={true}
+                  playing={videoInView ? true : false}
                   muted={true}
                   style={{
                     display: 'block',

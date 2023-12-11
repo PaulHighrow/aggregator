@@ -17,9 +17,11 @@ import {
   VideoSoundBtn,
 } from './HowItWorks.styled';
 import { useEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 export const HowItWorks = () => {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [ videoRef, videoInView ] = useInView();
 
   const toggleVideoModal = () => {
     setIsVideoModalOpen(isOpen => !isOpen);
@@ -82,7 +84,7 @@ export const HowItWorks = () => {
             ))}
           </PageNavigation>
         </SectionWrapper>
-        <VideoLimiter>
+        <VideoLimiter ref={videoRef}>
           <VideoBox onClick={toggleVideoModal}>
             <VideoSoundBtn />
             <VideoLimiter>
@@ -90,7 +92,7 @@ export const HowItWorks = () => {
                 loop={true}
                 controls={false}
                 muted={true}
-                playing={true}
+                playing={videoInView ? true : false}
                 style={{
                   display: 'block',
                   position: 'absolute',

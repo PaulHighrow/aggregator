@@ -20,6 +20,7 @@ export const Reviews = ({ toggleModal }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
   });
+  const [ videoRef, videoInView ] = useInView();
 
   return (
     <ReviewsBackground>
@@ -29,13 +30,13 @@ export const Reviews = ({ toggleModal }) => {
             <ReviewsSubTitle>ВІДГУКИ</ReviewsSubTitle> ПРО КУРС
           </ReviewsTitle>
           <ReviewsVideoWrapper>
-            <VideoLimiter>
+            <VideoLimiter ref={videoRef}>
               <VideoBox>
                 <ReactPlayer
                   loop={true}
                   controls={true}
                   muted={true}
-                  playing={true}
+                  playing={videoInView ? true : false}
                   style={{
                     display: 'block',
                     position: 'absolute',
