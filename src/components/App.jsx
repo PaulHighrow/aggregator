@@ -8,6 +8,8 @@ import { StreamA2 } from 'pages/Streams/A2/StreamA2';
 import { StreamDeutsch } from 'pages/Streams/Deutsch/StreamDeutsch';
 import { StreamPolski } from 'pages/Streams/Polski/StreamPolski';
 import { AdminPanel } from 'pages/Streams/AdminPanel/AdminPanel';
+import Deutsch from 'pages/Deutsch/Deutsch';
+import { StreamB1 } from 'pages/Streams/B1/StreamB1';
 
 const Home = lazy(() =>
   import(/* webpackChunkName: "Homepage" */ '../pages/Home/Home')
@@ -95,9 +97,9 @@ export const App = () => {
           <Route index element={<Home utms={utms} />} />
           <Route path="clone" element={<Clone utms={utms} />} />
           <Route path="reviews" element={<AllReviews />} />
+          <Route path="deutsch" element={<Deutsch utms={utms} />} />
           {/* <Route path="english" element={<English utms={utms} />} />
           <Route path="polski" element={<Polski utms={utms} />} />
-          <Route path="deutsch" element={<Deutsch utms={utms} />} />
           <Route path="education" element={<Education utms={utms} />} />
           <Route path="examination" element={<Examination utms={utms} />} />
           <Route path="translation" element={<Translation utms={utms} />} />
@@ -108,6 +110,7 @@ export const App = () => {
           <Route path="a0" element={<StreamA0 />} />
           <Route path="a1" element={<StreamA1 />} />
           <Route path="a2" element={<StreamA2 />} />
+          <Route path="b1" element={<StreamB1 />} />
           <Route path="deutsch" element={<StreamDeutsch />} />
           <Route path="polski" element={<StreamPolski />} />
           <Route path="stream-admin-panel" element={<AdminPanel />} />

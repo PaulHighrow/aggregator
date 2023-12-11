@@ -51,6 +51,7 @@ export const AdminPanel = () => {
     a0: '',
     a1: '',
     a2: '',
+    b1: '',
     deutsch: '',
     polski: '',
   };
@@ -59,6 +60,7 @@ export const AdminPanel = () => {
     a0: yup.string().optional(),
     a1: yup.string().optional(),
     a2: yup.string().optional(),
+    b1: yup.string().optional(),
     deutsch: yup.string().optional(),
     polski: yup.string().optional(),
   });
@@ -123,6 +125,10 @@ export const AdminPanel = () => {
               <Label>
                 <AdminInput type="text" name="a2" placeholder="A2 link" />
                 <AdminInputNote component="p" name="a2" />
+              </Label>
+              <Label>
+                <AdminInput type="text" name="b1" placeholder="B1 link" />
+                <AdminInputNote component="p" name="b1" />
               </Label>
               <Label>
                 <AdminInput

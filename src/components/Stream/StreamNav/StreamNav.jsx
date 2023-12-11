@@ -28,6 +28,9 @@ export const StreamNav = () => {
               <StreamNavLink to={'/streams/a2'}>A2</StreamNavLink>
             </StreamNavItem>
             <StreamNavItem>
+              <StreamNavLink to={'/streams/b1'}>B1</StreamNavLink>
+            </StreamNavItem>
+            <StreamNavItem>
               <StreamNavLink to={'/streams/deustch'}>Німецька</StreamNavLink>
             </StreamNavItem>
             <StreamNavItem>
