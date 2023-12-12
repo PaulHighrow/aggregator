@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.76a1655c.css",
-    "main.js": "/aggregator/static/js/main.6f7afff6.js",
-    "Homepage.js": "/aggregator/static/js/Homepage.b2744925.chunk.js",
+    "main.js": "/aggregator/static/js/main.e9349aa4.js",
+    "Homepage.js": "/aggregator/static/js/Homepage.9df57ce6.chunk.js",
     "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.3ea99694.chunk.js",
     "Streams page.js": "/aggregator/static/js/Streams page.a04a07fe.chunk.js",
     "All reviews page.js": "/aggregator/static/js/All reviews page.f4d43c91.chunk.js",
@@ -22,7 +22,7 @@
     "reactPlayerPreview.js": "/aggregator/static/js/reactPlayerPreview.73fbb042.chunk.js",
     "static/css/918.96364a26.chunk.css": "/aggregator/static/css/918.96364a26.chunk.css",
     "static/js/918.fd4a81f7.chunk.js": "/aggregator/static/js/918.fd4a81f7.chunk.js",
-    "static/js/87.f98c1dd1.chunk.js": "/aggregator/static/js/87.f98c1dd1.chunk.js",
+    "static/js/87.4abc677e.chunk.js": "/aggregator/static/js/87.4abc677e.chunk.js",
     "static/media/LTJournalCrayon-Regular.eot": "/aggregator/static/media/LTJournalCrayon-Regular.4e01f9d2a8b68d2b8f20.eot",
     "static/media/LTJournalCrayon-Regular.ttf": "/aggregator/static/media/LTJournalCrayon-Regular.6f92c12d932b03431110.ttf",
     "static/media/LTJournalCrayon-Regular.woff": "/aggregator/static/media/LTJournalCrayon-Regular.ad68ffb639193095ad33.woff",
@@ -101,8 +101,8 @@
     "static/media/invertedDownArrow.svg": "/aggregator/static/media/invertedDownArrow.81d2e354f4424bf21d20b96a031591ce.svg",
     "static/media/downArrow.svg": "/aggregator/static/media/downArrow.3d74cb9d6d38fab26c47bbadb8e4f56d.svg",
     "main.76a1655c.css.map": "/aggregator/static/css/main.76a1655c.css.map",
-    "main.6f7afff6.js.map": "/aggregator/static/js/main.6f7afff6.js.map",
-    "Homepage.b2744925.chunk.js.map": "/aggregator/static/js/Homepage.b2744925.chunk.js.map",
+    "main.e9349aa4.js.map": "/aggregator/static/js/main.e9349aa4.js.map",
+    "Homepage.9df57ce6.chunk.js.map": "/aggregator/static/js/Homepage.9df57ce6.chunk.js.map",
     "Inverted Homepage.3ea99694.chunk.js.map": "/aggregator/static/js/Inverted Homepage.3ea99694.chunk.js.map",
     "Streams page.a04a07fe.chunk.js.map": "/aggregator/static/js/Streams page.a04a07fe.chunk.js.map",
     "All reviews page.f4d43c91.chunk.js.map": "/aggregator/static/js/All reviews page.f4d43c91.chunk.js.map",
@@ -122,10 +122,10 @@
     "reactPlayerPreview.73fbb042.chunk.js.map": "/aggregator/static/js/reactPlayerPreview.73fbb042.chunk.js.map",
     "918.96364a26.chunk.css.map": "/aggregator/static/css/918.96364a26.chunk.css.map",
     "918.fd4a81f7.chunk.js.map": "/aggregator/static/js/918.fd4a81f7.chunk.js.map",
-    "87.f98c1dd1.chunk.js.map": "/aggregator/static/js/87.f98c1dd1.chunk.js.map"
+    "87.4abc677e.chunk.js.map": "/aggregator/static/js/87.4abc677e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.76a1655c.css",
-    "static/js/main.6f7afff6.js"
+    "static/js/main.e9349aa4.js"
   ]
 }
