@@ -16,7 +16,7 @@ const Streams = () => {
   const wakeupRequest = async () => {
     try {
       const wake = await axios.get('/');
-      console.log(wake);
+      console.log(wake.data);
     } catch (error) {
       console.log(error);
     }

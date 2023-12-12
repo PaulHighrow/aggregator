@@ -207,7 +207,7 @@ export const VideoSoundBtn = styled(SoundIcon)`
   opacity: 0.7;
 
   position: absolute;
-  z-index: 1;
+  z-index: 5;
   top: 10px;
   right: 10px;
 

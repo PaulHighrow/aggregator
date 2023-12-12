@@ -68,11 +68,11 @@ export const AboutUs = () => {
     };
   });
 
-  const [ doodleRef, doodleInView ] = useInView({
+  const [doodleRef, doodleInView] = useInView({
     triggerOnce: true,
     delay: 1000,
   });
-  const [ videoRef, videoInView ] = useInView();
+  const [videoRef, videoInView] = useInView();
 
   const props =
     width < 768
@@ -95,6 +95,7 @@ export const AboutUs = () => {
                   controls={false}
                   muted={true}
                   playing={videoInView ? true : false}
+                  playsInline
                   style={{
                     display: 'block',
                     position: 'absolute',

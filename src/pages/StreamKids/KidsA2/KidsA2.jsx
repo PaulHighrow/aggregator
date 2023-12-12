@@ -1,26 +1,26 @@
 import useSize from '@react-hook/size';
+import { Kahoots } from 'components/Stream/Kahoots/Kahoots';
 import { useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
-import { Kahoots } from './Kahoots/Kahoots';
+import { useOutletContext } from 'react-router-dom';
 import {
   ButtonBox,
   ChatBox,
   ChatBtn,
-  ChatCloseBtn,
   ChatLogo,
-  CloseLogo,
   KahootBtn,
   KahootLogo,
   StreamSection,
   VideoBox,
-} from './Stream.styled';
+} from '../../../components/Stream/Stream.styled';
 
-export const Stream = () => {
+export const KidsA2 = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isKahootOpen, setIsKahootOpen] = useState(false);
   const [isOpenedLast, setIsOpenedLast] = useState('');
-  const sectionEl = useRef();
   // eslint-disable-next-line
+  const [links, setLinks] = useOutletContext();
+  const sectionEl = useRef();
   const [sectionWidth, sectionHeight] = useSize(sectionEl);
 
   const toggleKahoot = e => {
@@ -38,6 +38,8 @@ export const Stream = () => {
   const embedDomain = window.location.host.includes('localhost')
     ? 'localhost'
     : window.location.host;
+
+    console.log(links);
 
   return (
     <StreamSection ref={sectionEl}>
@@ -59,44 +61,41 @@ export const Stream = () => {
           }}
           width="100%"
           height="100vh"
-          url="https://youtu.be/HVyYoAFdpkI?si=dGE9akbRNnPcpPPg"
+          url={links.a2kids}
         />
       </VideoBox>
 
       <ButtonBox>
-        {!isKahootOpen && (
-          <KahootBtn onClick={toggleKahoot}>
-            <KahootLogo />
-          </KahootBtn>
-        )}
-        {!isChatOpen && (
+        <KahootBtn onClick={toggleKahoot}>
+          <KahootLogo />
+        </KahootBtn>
+
+        {links.a2kids && (
           <ChatBtn onClick={toggleChat}>
             <ChatLogo />
           </ChatBtn>
         )}
       </ButtonBox>
 
-      <ChatBox
-        className={isChatOpen ? 'shown' : 'hidden'}
-        style={isOpenedLast === 'chat' ? { zIndex: '1' } : { zIndex: '0' }}
-      >
-        <iframe
-          title="chat"
-          width="350px"
-          height={sectionHeight}
-          src={`https://www.youtube.com/live_chat?v=rUxyKA_-grg&embed_domain=${embedDomain}`}
-        ></iframe>
-        {isChatOpen && (
-          <ChatCloseBtn onClick={toggleChat}>
-            <CloseLogo />
-          </ChatCloseBtn>
-        )}
-      </ChatBox>
+      {links.a2kids && (
+        <ChatBox
+          className={isChatOpen ? 'shown' : 'hidden'}
+          style={isOpenedLast === 'chat' ? { zIndex: '1' } : { zIndex: '0' }}
+        >
+          <iframe
+            title="chat"
+            width="350px"
+            height={sectionHeight}
+            src={`https://www.youtube.com/live_chat?v=${
+              links.a2kids.match(/([a-zA-Z0-9_-]{11})/)[0]
+            }&embed_domain=${embedDomain}`}
+          ></iframe>
+        </ChatBox>
+      )}
 
       <Kahoots
         sectionWidth={sectionWidth}
         sectionHeight={sectionHeight}
-        toggleKahoot={toggleKahoot}
         isKahootOpen={isKahootOpen}
         isOpenedLast={isOpenedLast}
       />

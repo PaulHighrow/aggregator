@@ -54,6 +54,9 @@ export const AdminPanel = () => {
     b1: '',
     deutsch: '',
     polski: '',
+    trials: '',
+    a1kids: '',
+    a2kids: '',
   };
 
   const linksSchema = yup.object().shape({
@@ -63,6 +66,9 @@ export const AdminPanel = () => {
     b1: yup.string().optional(),
     deutsch: yup.string().optional(),
     polski: yup.string().optional(),
+    trials: yup.string().optional(),
+    a1kids: yup.string().optional(),
+    a2kids: yup.string().optional(),
   });
 
   const handleLinksSubmit = async (values, { resetForm }) => {
@@ -145,6 +151,30 @@ export const AdminPanel = () => {
                   placeholder="Polski link"
                 />
                 <AdminInputNote component="p" name="polski" />
+              </Label>
+              <Label>
+                <AdminInput
+                  type="text"
+                  name="trials"
+                  placeholder="Trials link"
+                />
+                <AdminInputNote component="p" name="trials" />
+              </Label>
+              <Label>
+                <AdminInput
+                  type="text"
+                  name="a1kids"
+                  placeholder="A1 kids link"
+                />
+                <AdminInputNote component="p" name="a1kids" />
+              </Label>
+              <Label>
+                <AdminInput
+                  type="text"
+                  name="a2kids"
+                  placeholder="A2 kids link"
+                />
+                <AdminInputNote component="p" name="a2kids" />
               </Label>
               <AdminFormBtn type="submit">Замінити лінки</AdminFormBtn>
             </LinksForm>

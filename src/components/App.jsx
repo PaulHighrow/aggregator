@@ -10,6 +10,8 @@ import { StreamPolski } from 'pages/Streams/Polski/StreamPolski';
 import { AdminPanel } from 'pages/Streams/AdminPanel/AdminPanel';
 import Deutsch from 'pages/Deutsch/Deutsch';
 import { StreamB1 } from 'pages/Streams/B1/StreamB1';
+import { KidsA1 } from 'pages/StreamKids/KidsA1/KidsA1';
+import { KidsA2 } from 'pages/StreamKids/KidsA2/KidsA2';
 
 const Home = lazy(() =>
   import(/* webpackChunkName: "Homepage" */ '../pages/Home/Home')
@@ -20,8 +22,13 @@ const Clone = lazy(() =>
 const Streams = lazy(() =>
   import(/* webpackChunkName: "Streams page" */ '../pages/Streams/Streams')
 );
+const StreamTrial = lazy(() =>
+  import(/* webpackChunkName: "Streams page" */ '../pages/Trials/StreamTrial')
+);
 const AllReviews = lazy(() =>
-  import(/* webpackChunkName: "All reviews page" */ '../pages/AllReviews/AllReviews')
+  import(
+    /* webpackChunkName: "All reviews page" */ '../pages/AllReviews/AllReviews'
+  )
 );
 
 // const English = lazy(() =>
@@ -113,8 +120,11 @@ export const App = () => {
           <Route path="b1" element={<StreamB1 />} />
           <Route path="deutsch" element={<StreamDeutsch />} />
           <Route path="polski" element={<StreamPolski />} />
+          <Route path="kidsa1" element={<KidsA1 />} />
+          <Route path="kidsa2" element={<KidsA2 />} />
           <Route path="stream-admin-panel" element={<AdminPanel />} />
         </Route>
+        <Route path="trials" element={<StreamTrial />} />
       </Routes>
     </>
   );

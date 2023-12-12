@@ -93,6 +93,7 @@ export const HowItWorks = () => {
                 controls={false}
                 muted={true}
                 playing={videoInView ? true : false}
+                playsInline
                 style={{
                   display: 'block',
                   position: 'absolute',

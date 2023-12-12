@@ -51,12 +51,17 @@ export const ReviewsMarquee = ({ toggleModal }) => {
           id={reviewId.current}
         />
       )}
-      <StyledMarquee autoFill={true} pauseOnHover={true} inViewRef={ref}>
+      <StyledMarquee
+        autoFill={true}
+        pauseOnHover={true}
+        inViewRef={ref}
+        play={inView ? 'true' : 'false'}
+      >
         <MarqueeChild id={0} onClick={handleToggleModal}>
           <MarqueeOverlay />
           <MarqueeSoundBtn />
           <MarqueeVideo
-            autoplay={inView ? "true" : "false"}
+            autoplay={inView ? 'true' : 'false'}
             loop
             playsInline
             muted={true}
@@ -76,7 +81,7 @@ export const ReviewsMarquee = ({ toggleModal }) => {
           <MarqueeOverlay />
           <MarqueeSoundBtn />
           <MarqueeVideo
-            autoplay={inView ? "true" : "false"}
+            autoplay={inView ? 'true' : 'false'}
             loop
             playsInline
             muted={true}
@@ -96,7 +101,7 @@ export const ReviewsMarquee = ({ toggleModal }) => {
           <MarqueeOverlay />
           <MarqueeSoundBtn />
           <MarqueeVideo
-            autoplay={inView ? "true" : "false"}
+            autoplay={inView ? 'true' : 'false'}
             loop
             playsInline
             muted={true}
@@ -116,7 +121,7 @@ export const ReviewsMarquee = ({ toggleModal }) => {
           <MarqueeOverlay />
           <MarqueeSoundBtn />
           <MarqueeVideo
-            autoplay={inView ? "true" : "false"}
+            autoplay={inView ? 'true' : 'false'}
             loop
             playsInline
             muted={true}
@@ -136,7 +141,7 @@ export const ReviewsMarquee = ({ toggleModal }) => {
           <MarqueeOverlay />
           <MarqueeSoundBtn />
           <MarqueeVideo
-            autoplay={inView ? "true" : "false"}
+            autoplay={inView ? 'true' : 'false'}
             loop
             playsInline
             muted={true}
@@ -155,7 +160,7 @@ export const ReviewsMarquee = ({ toggleModal }) => {
           <MarqueeOverlay />
           <MarqueeSoundBtn />
           <MarqueeVideo
-            autoplay={inView ? "true" : "false"}
+            autoplay={inView ? 'true' : 'false'}
             loop
             playsInline
             muted={true}
@@ -174,7 +179,7 @@ export const ReviewsMarquee = ({ toggleModal }) => {
           <MarqueeOverlay />
           <MarqueeSoundBtn />
           <MarqueeVideo
-            autoplay={inView ? "true" : "false"}
+            autoplay={inView ? 'true' : 'false'}
             loop
             playsInline
             muted={true}
@@ -193,7 +198,7 @@ export const ReviewsMarquee = ({ toggleModal }) => {
           <MarqueeOverlay />
           <MarqueeSoundBtn />
           <MarqueeVideo
-            autoplay={inView ? "true" : "false"}
+            autoplay={inView ? 'true' : 'false'}
             loop
             playsInline
             muted={true}
@@ -212,7 +217,7 @@ export const ReviewsMarquee = ({ toggleModal }) => {
           <MarqueeOverlay />
           <MarqueeSoundBtn />
           <MarqueeVideo
-            autoplay={inView ? "true" : "false"}
+            autoplay={inView ? 'true' : 'false'}
             loop
             playsInline
             muted={true}
@@ -231,7 +236,7 @@ export const ReviewsMarquee = ({ toggleModal }) => {
           <MarqueeOverlay />
           <MarqueeSoundBtn />
           <MarqueeVideo
-            autoplay={inView ? "true" : "false"}
+            autoplay={inView ? 'true' : 'false'}
             loop
             playsInline
             muted={true}

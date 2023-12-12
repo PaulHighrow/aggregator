@@ -1,11 +1,8 @@
 import useSize from '@react-hook/size';
-import axios from 'axios';
-import { StreamsBackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
-import { Loader } from 'components/SharedLayout/Loader/Loader';
-import { LoaderWrapper } from 'components/SharedLayout/Loader/Loader.styled';
 import { Kahoots } from 'components/Stream/Kahoots/Kahoots';
-import { useLayoutEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
+import { useOutletContext } from 'react-router-dom';
 import {
   ButtonBox,
   ChatBox,
@@ -15,44 +12,16 @@ import {
   KahootLogo,
   StreamSection,
   VideoBox,
-} from '../../components/Stream/Stream.styled';
+} from '../../../components/Stream/Stream.styled';
 
-axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
-
-export const StreamTrial = () => {
+export const KidsA1 = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isKahootOpen, setIsKahootOpen] = useState(false);
   const [isOpenedLast, setIsOpenedLast] = useState('');
   // eslint-disable-next-line
+  const [links, setLinks] = useOutletContext();
   const sectionEl = useRef();
   const [sectionWidth, sectionHeight] = useSize(sectionEl);
-  const [isLoading, setIsLoading] = useState(false);
-  const [links, setLinks] = useState({});
-
-  const wakeupRequest = async () => {
-    try {
-      const wake = await axios.get('/');
-      console.log(wake.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useLayoutEffect(() => {
-    wakeupRequest();
-
-    const getLinksRequest = async () => {
-      try {
-        setIsLoading(isLoading => (isLoading = true));
-        setLinks((await axios.get('/links')).data);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setIsLoading(isLoading => (isLoading = false));
-      }
-    };
-    getLinksRequest();
-  }, []);
 
   const toggleKahoot = e => {
     setIsKahootOpen(isKahootOpen => !isKahootOpen);
@@ -72,13 +41,6 @@ export const StreamTrial = () => {
 
   return (
     <StreamSection ref={sectionEl}>
-      <StreamsBackgroundWrapper>
-        {isLoading && (
-          <LoaderWrapper>
-            <Loader />
-          </LoaderWrapper>
-        )}
-      
       <VideoBox>
         <ReactPlayer
           playing={true}
@@ -97,7 +59,7 @@ export const StreamTrial = () => {
           }}
           width="100%"
           height="100vh"
-          url={links.trials}
+          url={links.a1kids}
         />
       </VideoBox>
 
@@ -106,14 +68,14 @@ export const StreamTrial = () => {
           <KahootLogo />
         </KahootBtn>
 
-        {links.trials && (
+        {links.a1kids && (
           <ChatBtn onClick={toggleChat}>
             <ChatLogo />
           </ChatBtn>
         )}
       </ButtonBox>
 
-      {links.trials && (
+      {links.a1kids && (
         <ChatBox
           className={isChatOpen ? 'shown' : 'hidden'}
           style={isOpenedLast === 'chat' ? { zIndex: '1' } : { zIndex: '0' }}
@@ -123,7 +85,7 @@ export const StreamTrial = () => {
             width="350px"
             height={sectionHeight}
             src={`https://www.youtube.com/live_chat?v=${
-              links.trials.match(/([a-zA-Z0-9_-]{11})/)[0]
+              links.a1kids.match(/([a-zA-Z0-9_-]{11})/)[0]
             }&embed_domain=${embedDomain}`}
           ></iframe>
         </ChatBox>
@@ -135,9 +97,6 @@ export const StreamTrial = () => {
         isKahootOpen={isKahootOpen}
         isOpenedLast={isOpenedLast}
       />
-      </StreamsBackgroundWrapper>
     </StreamSection>
   );
 };
-
-export default StreamTrial;

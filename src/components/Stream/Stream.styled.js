@@ -64,8 +64,8 @@ export const ChatBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   font-size: 20px;
   border-radius: 50%;
   border: none;
@@ -77,7 +77,8 @@ export const ChatBtn = styled.button`
   }
 
   &:focus,
-  &:hover, &:active {
+  &:hover,
+  &:active {
     background-color: var(--accent-color);
     box-shadow: -10px -10px 30px 0px rgba(0, 0, 0, 0.25);
   }
@@ -90,8 +91,8 @@ export const ChatCloseBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   font-size: 20px;
   border-radius: 50%;
   border: none;
@@ -126,7 +127,8 @@ export const KahootBtn = styled.button`
   }
 
   &:focus,
-  &:hover, &:active {
+  &:hover,
+  &:active {
     background-color: var(--accent-color);
     box-shadow: -10px -10px 30px 0px rgba(0, 0, 0, 0.25);
   }
@@ -160,6 +162,7 @@ export const KahootCloseBtn = styled.button`
 
 export const KahootLogo = styled(KahootIcon)`
   width: 20px;
+  z-index: 5;
 
   @media screen and (min-width: 768px) {
     width: 30px;
@@ -168,7 +171,8 @@ export const KahootLogo = styled(KahootIcon)`
 
 export const ChatLogo = styled(ChatIcon)`
   width: 40px;
-
+  z-index: 5;
+  
   @media screen and (min-width: 768px) {
     width: 50px;
   }

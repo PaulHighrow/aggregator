@@ -55,6 +55,7 @@ export const HeroMarquee = ({ toggleModal }) => {
         autoFill={true}
         pauseOnHover={true}
         inViewRef={ref}
+        play={inView ? 'true' : 'false'}
       >
         <MarqueeChild id={0} onClick={handleToggleModal}>
           <MarqueeOverlay>

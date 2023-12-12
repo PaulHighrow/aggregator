@@ -31,7 +31,7 @@ export const SharedLayout = ({ utms }) => {
   const wakeupRequest = async () => {
     try {
       const wake = await axios.get('/');
-      console.log(wake);
+      console.log(wake.data);
     } catch (error) {
       console.log(error);
     }
@@ -40,7 +40,6 @@ export const SharedLayout = ({ utms }) => {
   const authRequest = async () => {
     try {
       await axios.post('/tokens');
-      // console.log(auth);
     } catch (error) {
       console.log(error);
     }

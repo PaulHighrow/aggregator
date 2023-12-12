@@ -66,6 +66,7 @@ export const MarqueeSoundBtn = styled(SoundIcon)`
   width: 40px;
   height: 40px;
   opacity: 0.7;
+  z-index: 5;
 
   position: absolute;
   top: 50%;
