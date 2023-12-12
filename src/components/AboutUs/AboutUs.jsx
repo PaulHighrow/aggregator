@@ -6,13 +6,13 @@ import {
   AboutUsText,
   AboutUsTitle,
   AboutUsWrapper,
-  VideoBox,
-  VideoLimiter,
   BottomPageNavigationText,
   LoopyLineIcon,
   NavAnimationWrapper,
   NavigationDesc,
   NavigationWrapper,
+  Video,
+  VideoLimiter
 } from 'components/AboutUs/AboutUs.styled';
 import { Box } from 'components/Box/Box.styled';
 import {
@@ -24,7 +24,6 @@ import {
 } from 'components/HowItWorks/HowItWorks.styled';
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
-import ReactPlayer from 'react-player';
 import { VideoModal } from './VideoModal/VideoModal';
 
 const navListItems = [
@@ -87,26 +86,24 @@ export const AboutUs = () => {
             ПРО <AboutUsSubTitle>НАС</AboutUsSubTitle>
           </AboutUsTitle>
           <AboutUsWrapper>
-            <VideoLimiter ref={videoRef}>
-              <VideoBox onClick={toggleVideoModal}>
-                <VideoSoundBtn />
-                <ReactPlayer
-                  loop={true}
-                  controls={false}
-                  muted={true}
-                  playing={videoInView ? true : false}
-                  playsInline
-                  style={{
-                    display: 'block',
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                  }}
-                  width="100%"
-                  height="100%"
-                  url="https://ap.education/static/video/trailers/AboutUs.webm"
+            <VideoLimiter ref={videoRef} onClick={toggleVideoModal}>
+              <VideoSoundBtn />
+              <Video
+                loop
+                controls={false}
+                autoplay={videoInView ? 'true' : 'false'}
+                playsInline
+                muted={true}
+              >
+                <source
+                  src="https://ap.education/static/video/trailers/AboutUs.webm"
+                  type="video/webm"
                 />
-              </VideoBox>
+                <source
+                  src="https://ap.education/static/video/trailers/AboutUs.mp4"
+                  type="video/mp4"
+                />
+              </Video>
             </VideoLimiter>
             <AboutUsText>
               «AP Education Center» є провідним центром навчання іноземних мов

@@ -38,6 +38,10 @@ export const ReviewsBox = styled(Box)`
   @media screen and (min-width: 1280px) {
     padding: 0 55px;
   }
+
+  @media screen and (min-width: 1920px) {
+    padding: 0;
+  }
 `;
 
 export const ReviewsWrapper = styled.div`
@@ -108,7 +112,6 @@ export const ReviewsSubTitle = styled.span`
 `;
 
 export const VideoLimiter = styled.div`
-  margin: 0 auto;
   width: 100%;
   max-width: 640px;
 
