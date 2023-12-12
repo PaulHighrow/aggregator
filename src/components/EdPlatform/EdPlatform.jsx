@@ -2,6 +2,7 @@ import useSize from '@react-hook/size';
 import { Box } from 'components/Box/Box.styled';
 import { useRef, useState } from 'react';
 
+import { YouTubeVideoSoundBtn } from 'components/HowItWorks/HowItWorks.styled';
 import { useInView } from 'react-intersection-observer';
 import ReactPlayer from 'react-player/lazy';
 import {
@@ -62,6 +63,7 @@ export const EdPlatform = () => {
           <EdPlatformWrapper>
             <VideoLimiter ref={videoRef}>
               <VideoBox>
+              <YouTubeVideoSoundBtn />
                 <ReactPlayer
                   loop={true}
                   controls={true}

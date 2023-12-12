@@ -1,7 +1,8 @@
 import useSize from '@react-hook/size';
 import { VideoModal } from 'components/AboutUs/VideoModal/VideoModal';
 import { Box } from 'components/Box/Box.styled';
-import ReactPlayer from 'react-player';
+import { useEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 import {
   HowItWorksSection,
   PageNavigation,
@@ -9,19 +10,17 @@ import {
   PageNavigationItem,
   PageNavigationLink,
   PageNavigationText,
+  PlayerLimiter,
   SectionSubTitle,
   SectionTitle,
   SectionWrapper,
-  VideoBox,
-  VideoLimiter,
-  VideoSoundBtn,
+  Video,
+  VideoSoundBtn
 } from './HowItWorks.styled';
-import { useEffect, useState } from 'react';
-import { useInView } from 'react-intersection-observer';
 
 export const HowItWorks = () => {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
-  const [ videoRef, videoInView ] = useInView();
+  const [videoRef, videoInView] = useInView();
 
   const toggleVideoModal = () => {
     setIsVideoModalOpen(isOpen => !isOpen);
@@ -84,29 +83,25 @@ export const HowItWorks = () => {
             ))}
           </PageNavigation>
         </SectionWrapper>
-        <VideoLimiter ref={videoRef}>
-          <VideoBox onClick={toggleVideoModal}>
-            <VideoSoundBtn />
-            <VideoLimiter>
-              <ReactPlayer
-                loop={true}
-                controls={false}
-                muted={true}
-                playing={videoInView ? true : false}
-                playsInline
-                style={{
-                  display: 'block',
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                }}
-                width="100%"
-                height="100%"
-                url="https://ap.education/static/video/trailers/HowItWorks.webm"
-              />
-            </VideoLimiter>
-          </VideoBox>
-        </VideoLimiter>
+        <PlayerLimiter ref={videoRef} onClick={toggleVideoModal}>
+          <VideoSoundBtn />
+          <Video
+            loop
+            controls={false}
+            autoplay={videoInView ? "true" : "false"}
+            playsInline
+            muted={true}
+          >
+            <source
+              src="https://ap.education/static/video/trailers/HowItWorks.webm"
+              type="video/webm"
+            />
+            <source
+              src="https://ap.education/static/video/trailers/HowItWorks.mp4"
+              type="video/mp4"
+            />
+          </Video>
+        </PlayerLimiter>
       </Box>
       {isVideoModalOpen && (
         <VideoModal

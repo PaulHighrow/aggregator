@@ -17,6 +17,7 @@ export const VideoModal = ({ closeVideoModal, url }) => {
             <ReactPlayer
               playing={true}
               loop={true}
+              muted={false}
               controls={true}
               style={{
                 display: 'block',

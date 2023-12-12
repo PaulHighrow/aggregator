@@ -96,8 +96,9 @@ export const DetailsLink = styled(Link)`
 
 export const MarqueeForwardBtn = styled.button`
   position: absolute;
-  bottom: -4rem;
-  right: 2em;
+  top: 50%;
+  right: 5px;
+  z-index: 2;
 
   width: 40px;
   height: 40px;
@@ -128,8 +129,6 @@ export const MarqueeForwardBtn = styled.button`
     width: 60px;
     height: 60px;
 
-    top: 50%;
-    bottom: auto;
     right: -4em;
   }
 `;
@@ -147,8 +146,9 @@ export const MarqueeForwardIcon = styled(IoIosArrowForward)`
 
 export const MarqueeBackBtn = styled.button`
   position: absolute;
-  bottom: -4em;
-  left: 2em;
+  top: 50%;
+  left: 5px;
+  z-index: 2;
 
   width: 40px;
   height: 40px;
@@ -179,8 +179,6 @@ export const MarqueeBackBtn = styled.button`
     width: 60px;
     height: 60px;
 
-    top: 50%;
-    bottom: auto;
     left: -4em;
   }
 `;

@@ -1,4 +1,6 @@
+import { YouTubeVideoSoundBtn } from 'components/HowItWorks/HowItWorks.styled';
 import { LeadBtn } from 'components/Menu/Menu.styled';
+import { useInView } from 'react-intersection-observer';
 import ReactPlayer from 'react-player';
 import {
   LeadBtnWrapper,
@@ -14,7 +16,6 @@ import {
   VideoLimiter,
 } from './Reviews.styled';
 import { ReviewsMarquee } from './ReviewsMarquee/ReviewsMarquee';
-import { useInView } from 'react-intersection-observer';
 
 export const Reviews = ({ toggleModal }) => {
   const { ref, inView } = useInView({
@@ -32,6 +33,7 @@ export const Reviews = ({ toggleModal }) => {
           <ReviewsVideoWrapper>
             <VideoLimiter ref={videoRef}>
               <VideoBox>
+              <YouTubeVideoSoundBtn />
                 <ReactPlayer
                   loop={true}
                   controls={true}
