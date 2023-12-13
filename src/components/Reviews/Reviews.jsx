@@ -16,12 +16,43 @@ import {
   VideoLimiter,
 } from './Reviews.styled';
 import { ReviewsMarquee } from './ReviewsMarquee/ReviewsMarquee';
+import { VideoModal } from 'components/AboutUs/VideoModal/VideoModal';
+import { useEffect, useState } from 'react';
 
 export const Reviews = ({ toggleModal }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
   });
   const [ videoRef, videoInView ] = useInView();
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+
+  const toggleVideoModal = () => {
+    setIsVideoModalOpen(isOpen => !isOpen);
+    if (!document.body.style.overflowY) {
+      document.body.style.overflowY = 'hidden';
+    }
+  };
+
+  const closeVideoModal = () => {
+    setIsVideoModalOpen(isOpen => (isOpen = false));
+    !document.body.style.overflowY && isVideoModalOpen
+      ? (document.body.style.overflowY = 'hidden')
+      : (document.body.style.overflowY = '');
+  };
+
+  useEffect(() => {
+    const onEscapeClose = event => {
+      if (event.code === 'Escape' && isVideoModalOpen) {
+        closeVideoModal();
+      }
+    };
+
+    window.addEventListener('keydown', onEscapeClose);
+
+    return () => {
+      window.removeEventListener('keydown', onEscapeClose);
+    };
+  });
 
   return (
     <ReviewsBackground>
@@ -32,11 +63,11 @@ export const Reviews = ({ toggleModal }) => {
           </ReviewsTitle>
           <ReviewsVideoWrapper>
             <VideoLimiter ref={videoRef}>
-              <VideoBox>
+              <VideoBox onClick={toggleVideoModal}>
               <YouTubeVideoSoundBtn />
                 <ReactPlayer
                   loop={true}
-                  controls={true}
+                  controls={false}
                   muted={true}
                   playing={videoInView ? true : false}
                   style={{
@@ -66,6 +97,12 @@ export const Reviews = ({ toggleModal }) => {
         </ReviewsBox>
         {inView && <ReviewsMarquee toggleModal={toggleModal} />}
       </ReviewsSection>
+      {isVideoModalOpen && (
+          <VideoModal
+            closeVideoModal={closeVideoModal}
+            url={'https://youtu.be/qj-w9wzo76Q'}
+          />
+        )}
     </ReviewsBackground>
   );
 };

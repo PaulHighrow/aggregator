@@ -58,8 +58,9 @@ export const ReviewsMarquee = ({ toggleModal }) => {
         play={inView ? 'true' : 'false'}
       >
         <MarqueeChild id={0} onClick={handleToggleModal}>
-          <MarqueeOverlay />
-          <MarqueeSoundBtn />
+          <MarqueeOverlay>
+            <MarqueeSoundBtn />
+          </MarqueeOverlay>
           <MarqueeVideo
             autoplay={inView ? 'true' : 'false'}
             loop
@@ -78,8 +79,9 @@ export const ReviewsMarquee = ({ toggleModal }) => {
         </MarqueeChild>
 
         <MarqueeChild id={1} onClick={handleToggleModal}>
-          <MarqueeOverlay />
-          <MarqueeSoundBtn />
+          <MarqueeOverlay>
+            <MarqueeSoundBtn />
+          </MarqueeOverlay>
           <MarqueeVideo
             autoplay={inView ? 'true' : 'false'}
             loop
@@ -98,8 +100,9 @@ export const ReviewsMarquee = ({ toggleModal }) => {
         </MarqueeChild>
 
         <MarqueeChild id={2} onClick={handleToggleModal}>
-          <MarqueeOverlay />
-          <MarqueeSoundBtn />
+          <MarqueeOverlay>
+            <MarqueeSoundBtn />
+          </MarqueeOverlay>
           <MarqueeVideo
             autoplay={inView ? 'true' : 'false'}
             loop
@@ -118,8 +121,9 @@ export const ReviewsMarquee = ({ toggleModal }) => {
         </MarqueeChild>
 
         <MarqueeChild id={3} onClick={handleToggleModal}>
-          <MarqueeOverlay />
-          <MarqueeSoundBtn />
+          <MarqueeOverlay>
+            <MarqueeSoundBtn />
+          </MarqueeOverlay>
           <MarqueeVideo
             autoplay={inView ? 'true' : 'false'}
             loop
@@ -138,8 +142,9 @@ export const ReviewsMarquee = ({ toggleModal }) => {
         </MarqueeChild>
 
         <MarqueeChild id={4} onClick={handleToggleModal}>
-          <MarqueeOverlay />
-          <MarqueeSoundBtn />
+          <MarqueeOverlay>
+            <MarqueeSoundBtn />
+          </MarqueeOverlay>
           <MarqueeVideo
             autoplay={inView ? 'true' : 'false'}
             loop
@@ -157,8 +162,9 @@ export const ReviewsMarquee = ({ toggleModal }) => {
           </MarqueeVideo>
         </MarqueeChild>
         <MarqueeChild id={5} onClick={handleToggleModal}>
-          <MarqueeOverlay />
-          <MarqueeSoundBtn />
+          <MarqueeOverlay>
+            <MarqueeSoundBtn />
+          </MarqueeOverlay>
           <MarqueeVideo
             autoplay={inView ? 'true' : 'false'}
             loop
@@ -176,8 +182,9 @@ export const ReviewsMarquee = ({ toggleModal }) => {
           </MarqueeVideo>
         </MarqueeChild>
         <MarqueeChild id={6} onClick={handleToggleModal}>
-          <MarqueeOverlay />
-          <MarqueeSoundBtn />
+          <MarqueeOverlay>
+            <MarqueeSoundBtn />
+          </MarqueeOverlay>
           <MarqueeVideo
             autoplay={inView ? 'true' : 'false'}
             loop
@@ -195,8 +202,9 @@ export const ReviewsMarquee = ({ toggleModal }) => {
           </MarqueeVideo>
         </MarqueeChild>
         <MarqueeChild id={7} onClick={handleToggleModal}>
-          <MarqueeOverlay />
-          <MarqueeSoundBtn />
+          <MarqueeOverlay>
+            <MarqueeSoundBtn />
+          </MarqueeOverlay>
           <MarqueeVideo
             autoplay={inView ? 'true' : 'false'}
             loop
@@ -214,8 +222,9 @@ export const ReviewsMarquee = ({ toggleModal }) => {
           </MarqueeVideo>
         </MarqueeChild>
         <MarqueeChild id={8} onClick={handleToggleModal}>
-          <MarqueeOverlay />
-          <MarqueeSoundBtn />
+          <MarqueeOverlay>
+            <MarqueeSoundBtn />
+          </MarqueeOverlay>
           <MarqueeVideo
             autoplay={inView ? 'true' : 'false'}
             loop
@@ -233,8 +242,9 @@ export const ReviewsMarquee = ({ toggleModal }) => {
           </MarqueeVideo>
         </MarqueeChild>
         <MarqueeChild id={9} onClick={handleToggleModal}>
-          <MarqueeOverlay />
-          <MarqueeSoundBtn />
+          <MarqueeOverlay>
+            <MarqueeSoundBtn />
+          </MarqueeOverlay>
           <MarqueeVideo
             autoplay={inView ? 'true' : 'false'}
             loop

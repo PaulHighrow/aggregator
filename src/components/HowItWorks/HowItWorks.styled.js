@@ -1,7 +1,7 @@
-import styled, { keyframes } from 'styled-components';
+import { IoVolumeMute } from 'react-icons/io5';
 import { Link } from 'react-scroll';
+import styled, { keyframes } from 'styled-components';
 import { ReactComponent as MenuArrow } from '../../img/svg/menu-arrow.svg';
-import { ReactComponent as SoundIcon } from '../../img/svg/soundIcon.svg';
 
 export const HowItWorksSection = styled.section`
   position: relative;
@@ -222,7 +222,9 @@ export const Video = styled.video`
   width: 100%;
 `;
 
-export const VideoSoundBtn = styled(SoundIcon)`
+export const VideoSoundBtn = styled(IoVolumeMute)`
+  fill: var(--accent-color);
+  stroke: var(--accent-color);
   width: 20px;
   height: 20px;
   opacity: 0.7;

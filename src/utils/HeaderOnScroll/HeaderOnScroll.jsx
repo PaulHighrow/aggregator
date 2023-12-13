@@ -1,6 +1,6 @@
 import useSize from '@react-hook/size';
 import { Navigation } from 'components/Navigation/Navigation';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ReactComponent as LoginIcon } from '../../img/svg/invertedLoginIcon.svg';
 import {
   Header,
@@ -20,12 +20,29 @@ export const Menu = ({ toggleModal }) => {
   const headerEl = useRef();
   // eslint-disable-next-line
   const [width, _] = useSize(headerEl);
-  // eslint-disable-next-line
-  const [show, __] = useState(true);
+  const [show, setShow] = useState(true);
 
   const toggleMenu = () => {
     setIsMenuOpen(isOpen => !isOpen);
   };
+
+  useEffect(() => {
+    let previousScrollPosition = 0;
+    let currentScrollPosition = 0;
+
+    window.addEventListener('scroll', () => {
+      currentScrollPosition = window.scrollY;
+
+      if (previousScrollPosition <= currentScrollPosition) {
+        setIsMenuOpen(isOpen => (isOpen = false));
+        setShow(show => (show = false));
+      } else if (previousScrollPosition > currentScrollPosition) {
+        setShow(show => (show = true));
+      }
+
+      previousScrollPosition = currentScrollPosition;
+    });
+  }, []);
 
   return (
     <>

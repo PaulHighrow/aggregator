@@ -130,12 +130,12 @@ export const VideoBox = styled.div`
 `;
 
 export const AboutUsText = styled.p`
-  max-width: 580px;
   color: var(--main-color);
   font-size: 20px;
 
   @media screen and (min-width: 768px) {
     font-size: 29px;
+    max-width: 580px;
   }
 
   @media screen and (min-width: 1280px) {

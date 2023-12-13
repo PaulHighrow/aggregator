@@ -113,6 +113,7 @@ export const ReviewsSubTitle = styled.span`
 
 export const VideoLimiter = styled.div`
   width: 100%;
+  margin: 0 auto;
   max-width: 640px;
 
   @media screen and (min-width: 768px) {
@@ -157,7 +158,9 @@ export const ReviewsVideoWrapper = styled.div`
 `;
 
 export const ReviewsTextBox = styled.div`
-  max-width: 580px;
+  @media screen and (min-width: 768px) {
+    max-width: 580px;
+  }
 `;
 
 export const ReviewsText = styled.p`

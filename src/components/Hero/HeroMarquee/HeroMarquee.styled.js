@@ -1,3 +1,4 @@
+import { MarqueeSoundBtn } from 'components/Reviews/ReviewsMarquee/ReviewsMarquee.styled';
 import Marquee from 'react-fast-marquee';
 import styled from 'styled-components';
 
@@ -71,6 +72,13 @@ export const MarqueeText = styled.span`
 
   transition: background-color var(--animation-global),
     transform var(--animation-global);
+`;
+
+export const HeroMarqueeSoundBtn = styled(MarqueeSoundBtn)`
+  top: 10px;
+  left: auto;
+  right: 10px;
+  transform: none;
 `;
 
 export const BackBtn = styled.button``;

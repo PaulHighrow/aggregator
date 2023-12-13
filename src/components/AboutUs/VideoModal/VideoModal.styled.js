@@ -35,6 +35,10 @@ export const ModalWindow = styled.div`
 `;
 
 export const ModalVideoLimiter = styled(VideoLimiter)`
+  overflow: auto;
+  position: relative;
+  max-height: 90vh;
+
   @media screen and (min-width: 768px) {
     max-width: 1280px;
   }

@@ -1,6 +1,6 @@
 import Marquee from 'react-fast-marquee';
 import styled from 'styled-components';
-import { ReactComponent as SoundIcon } from '../../../img/svg/soundIcon.svg';
+import { IoVolumeMute } from 'react-icons/io5';
 
 export const StyledMarquee = styled(Marquee)`
   margin: 0 auto;
@@ -62,7 +62,9 @@ export const MarqueeVideo = styled.video`
   }
 `;
 
-export const MarqueeSoundBtn = styled(SoundIcon)`
+export const MarqueeSoundBtn = styled(IoVolumeMute)`
+  fill: var(--accent-color);
+  stroke: var(--accent-color);
   width: 40px;
   height: 40px;
   opacity: 0.7;

@@ -34,6 +34,14 @@ export const ModalWindow = styled.div`
   }
 `;
 
+export const ReviewVideoLimiter = styled.div`
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.25);
+`;
+
 export const ReviewVideoBox = styled.div`
   position: relative;
   padding-bottom: 177%;

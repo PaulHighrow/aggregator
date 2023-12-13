@@ -1,8 +1,7 @@
-import { VideoLimiter } from 'components/AboutUs/AboutUs.styled';
 import { CloseIcon } from 'components/LeadForm/LeadForm.styled';
 import {
   MarqueeBackIcon,
-  MarqueeForwardIcon
+  MarqueeForwardIcon,
 } from 'components/MarqueeModal/MarqueeModal.styled';
 import { LeadBtn } from 'components/Menu/Menu.styled';
 import { useEffect, useState } from 'react';
@@ -14,6 +13,7 @@ import {
   ReviewNextBtn,
   ReviewPrevBtn,
   ReviewVideoBox,
+  ReviewVideoLimiter,
 } from './ReviewModal.styled';
 import { reviewList } from './reviewList';
 
@@ -44,7 +44,7 @@ export const ReviewModal = ({ closeMarqueeModal, toggleModal, id }) => {
         handleNextClick();
       }
     };
-    
+
     const onLeftArrowPrev = event => {
       if (event.code === 'ArrowLeft') {
         handlePrevClick();
@@ -64,36 +64,39 @@ export const ReviewModal = ({ closeMarqueeModal, toggleModal, id }) => {
     <>
       <MarqueeBackdrop onClick={closeMarqueeModal} />
       <ModalWindow>
-        <MarqueeCloseBtn onClick={closeMarqueeModal}>
-          <CloseIcon />
-        </MarqueeCloseBtn>
+        {/* <ModalContent> */}
+          <MarqueeCloseBtn onClick={closeMarqueeModal}>
+            <CloseIcon />
+          </MarqueeCloseBtn>
 
-        <VideoLimiter>
-          <ReviewPrevBtn onClick={handlePrevClick}>
-            <MarqueeBackIcon />
-          </ReviewPrevBtn>
-          <ReviewNextBtn onClick={handleNextClick}>
-            <MarqueeForwardIcon />
-          </ReviewNextBtn>
-          <ReviewVideoBox>
-            <ReactPlayer
-              playing={true}
-              loop={true}
-              controls={true}
-              style={{
-                display: 'block',
-                position: 'absolute',
-                top: 0,
-                left: 0,
-              }}
-              width="100%"
-              height="100%"
-              url={reviewList[modalId].videoUrl}
-            />
-          </ReviewVideoBox>
-        </VideoLimiter>
+          <ReviewVideoLimiter>
+            <ReviewPrevBtn onClick={handlePrevClick}>
+              <MarqueeBackIcon />
+            </ReviewPrevBtn>
+            <ReviewNextBtn onClick={handleNextClick}>
+              <MarqueeForwardIcon />
+            </ReviewNextBtn>
+            <ReviewVideoBox>
+              <ReactPlayer
+                config={{ file: { attributes: { playsInline: true } } }}
+                playing={true}
+                loop={true}
+                controls={true}
+                style={{
+                  display: 'block',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                }}
+                width="100%"
+                height="100%"
+                url={reviewList[modalId].videoUrl}
+              />
+            </ReviewVideoBox>
+          </ReviewVideoLimiter>
 
-        <LeadBtn onClick={toggleLeadForm}> Я ТЕЖ ТАК ХОЧУ! </LeadBtn>
+          <LeadBtn onClick={toggleLeadForm}> Я ТЕЖ ТАК ХОЧУ! </LeadBtn>
+        {/* </ModalContent> */}
       </ModalWindow>
     </>
   );

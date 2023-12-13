@@ -144,9 +144,11 @@ export const wobblyOutline = keyframes`
 export const LeadBtn = styled.button`
   padding: 10px 10px;
   font-size: 22px;
+  font-weight: 600;
   width: 258px;
   height: 58px;
   border: none;
+  flex-shrink: 0;
   /* border: 2px solid #fff; */
   border-radius: 47px;
   background-color: var(--secondary-color);

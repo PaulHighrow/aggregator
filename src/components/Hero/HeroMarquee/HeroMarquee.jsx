@@ -1,4 +1,5 @@
 import {
+  HeroMarqueeSoundBtn,
   MarqueeChild,
   MarqueeOverlay,
   MarqueeText,
@@ -59,6 +60,7 @@ export const HeroMarquee = ({ toggleModal }) => {
       >
         <MarqueeChild id={0} onClick={handleToggleModal}>
           <MarqueeOverlay>
+            <HeroMarqueeSoundBtn />
             <MarqueeText>From Zero to Hero</MarqueeText>
           </MarqueeOverlay>
           <MarqueeVideo
@@ -81,6 +83,7 @@ export const HeroMarquee = ({ toggleModal }) => {
 
         <MarqueeChild id={1} onClick={handleToggleModal}>
           <MarqueeOverlay>
+            <HeroMarqueeSoundBtn />
             <MarqueeText>Навчальна платформа</MarqueeText>
           </MarqueeOverlay>
           <MarqueeVideo
@@ -103,6 +106,7 @@ export const HeroMarquee = ({ toggleModal }) => {
 
         <MarqueeChild id={2} onClick={handleToggleModal}>
           <MarqueeOverlay>
+            <HeroMarqueeSoundBtn />
             <MarqueeText>Письмова гарантія</MarqueeText>
           </MarqueeOverlay>
           <MarqueeVideo
@@ -125,6 +129,7 @@ export const HeroMarquee = ({ toggleModal }) => {
 
         <MarqueeChild id={3} onClick={handleToggleModal}>
           <MarqueeOverlay>
+            <HeroMarqueeSoundBtn />
             <MarqueeText>Ноутбук в подарунок</MarqueeText>
           </MarqueeOverlay>
           <MarqueeVideo
@@ -147,6 +152,7 @@ export const HeroMarquee = ({ toggleModal }) => {
 
         <MarqueeChild id={4} onClick={handleToggleModal}>
           <MarqueeOverlay>
+            <HeroMarqueeSoundBtn />
             <MarqueeText>Close to You</MarqueeText>
           </MarqueeOverlay>
           <MarqueeVideo
