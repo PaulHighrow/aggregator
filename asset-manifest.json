@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.76a1655c.css",
-    "main.js": "/aggregator/static/js/main.3004aaf9.js",
-    "Homepage.js": "/aggregator/static/js/Homepage.fa6cd872.chunk.js",
-    "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.3ea99694.chunk.js",
+    "main.js": "/aggregator/static/js/main.956dc36f.js",
+    "Homepage.js": "/aggregator/static/js/Homepage.1819271e.chunk.js",
+    "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.72795d2b.chunk.js",
     "Streams page.js": "/aggregator/static/js/Streams page.a04a07fe.chunk.js",
-    "All reviews page.js": "/aggregator/static/js/All reviews page.953c3fa0.chunk.js",
+    "All reviews page.js": "/aggregator/static/js/All reviews page.c38058f9.chunk.js",
     "Not Found.js": "/aggregator/static/js/Not Found.3324ba0a.chunk.js",
     "reactPlayerYouTube.js": "/aggregator/static/js/reactPlayerYouTube.a26a0e93.chunk.js",
     "reactPlayerSoundCloud.js": "/aggregator/static/js/reactPlayerSoundCloud.08d87338.chunk.js",
@@ -77,7 +77,9 @@
     "static/media/invertedLoginIcon.svg": "/aggregator/static/media/invertedLoginIcon.645c2131847db5a78c00306af70cf5cd.svg",
     "static/media/loginIcon.svg": "/aggregator/static/media/loginIcon.745d4c66640a74b903bbcd5fbda05106.svg",
     "static/media/sketchOutlineSmall.svg": "/aggregator/static/media/sketchOutlineSmall.20a8a30d0b4aca7cfac85a35eae5f8b4.svg",
+    "static/media/sketchOutlineSmallNarrow.svg": "/aggregator/static/media/sketchOutlineSmallNarrow.35d62bb292bafc8f6ddeae361b4b7d0e.svg",
     "static/media/sketchOutline.svg": "/aggregator/static/media/sketchOutline.344e1d9377325768adb41bc4794059bf.svg",
+    "static/media/sketchOutlineNarrow.svg": "/aggregator/static/media/sketchOutlineNarrow.71fab928c527a9bf9d78865eb700bfe9.svg",
     "index.html": "/aggregator/index.html",
     "static/media/instagram.svg": "/aggregator/static/media/instagram.b9daf875938ed610101b860a8d9931ea.svg",
     "static/media/youtube.svg": "/aggregator/static/media/youtube.7c0e9b63551b95de8f58fd34bd9d86e3.svg",
@@ -99,11 +101,11 @@
     "static/media/invertedDownArrow.svg": "/aggregator/static/media/invertedDownArrow.81d2e354f4424bf21d20b96a031591ce.svg",
     "static/media/downArrow.svg": "/aggregator/static/media/downArrow.3d74cb9d6d38fab26c47bbadb8e4f56d.svg",
     "main.76a1655c.css.map": "/aggregator/static/css/main.76a1655c.css.map",
-    "main.3004aaf9.js.map": "/aggregator/static/js/main.3004aaf9.js.map",
-    "Homepage.fa6cd872.chunk.js.map": "/aggregator/static/js/Homepage.fa6cd872.chunk.js.map",
-    "Inverted Homepage.3ea99694.chunk.js.map": "/aggregator/static/js/Inverted Homepage.3ea99694.chunk.js.map",
+    "main.956dc36f.js.map": "/aggregator/static/js/main.956dc36f.js.map",
+    "Homepage.1819271e.chunk.js.map": "/aggregator/static/js/Homepage.1819271e.chunk.js.map",
+    "Inverted Homepage.72795d2b.chunk.js.map": "/aggregator/static/js/Inverted Homepage.72795d2b.chunk.js.map",
     "Streams page.a04a07fe.chunk.js.map": "/aggregator/static/js/Streams page.a04a07fe.chunk.js.map",
-    "All reviews page.953c3fa0.chunk.js.map": "/aggregator/static/js/All reviews page.953c3fa0.chunk.js.map",
+    "All reviews page.c38058f9.chunk.js.map": "/aggregator/static/js/All reviews page.c38058f9.chunk.js.map",
     "Not Found.3324ba0a.chunk.js.map": "/aggregator/static/js/Not Found.3324ba0a.chunk.js.map",
     "reactPlayerYouTube.a26a0e93.chunk.js.map": "/aggregator/static/js/reactPlayerYouTube.a26a0e93.chunk.js.map",
     "reactPlayerSoundCloud.08d87338.chunk.js.map": "/aggregator/static/js/reactPlayerSoundCloud.08d87338.chunk.js.map",
@@ -123,6 +125,6 @@
   },
   "entrypoints": [
     "static/css/main.76a1655c.css",
-    "static/js/main.3004aaf9.js"
+    "static/js/main.956dc36f.js"
   ]
 }
