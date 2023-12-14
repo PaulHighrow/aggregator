@@ -1,5 +1,5 @@
 import useSize from '@react-hook/size';
-import { HeaderText, LeadBtn, PlatformLink } from 'components/Menu/Menu.styled';
+import { HeaderText, PlatformLink } from 'components/Menu/Menu.styled';
 import { useState } from 'react';
 import { ReactComponent as LoginIcon } from '../../img/svg/invertedLoginIcon.svg';
 import {
@@ -32,12 +32,6 @@ export const Navigation = ({ toggleMenu, toggleModal, className }) => {
       ? { spy: true, smooth: true, onClick: toggleMenu, offset: -30 }
       : { spy: true, smooth: true, onClick: toggleMenu, offset: -40 };
 
-  const handleNavBtn = () => {
-    setIsOpen(isOpen => !isOpen);
-    toggleMenu();
-    toggleModal();
-  };
-
   return (
     <StyledNavigation className={className}>
       <MenuButtonsWrapper>
@@ -46,7 +40,6 @@ export const Navigation = ({ toggleMenu, toggleModal, className }) => {
             <PlatformLink href="https://online.ap.education/" target="_blank">
               <HeaderText>УВІЙТИ</HeaderText> <LoginIcon />
             </PlatformLink>
-            <LeadBtn onClick={handleNavBtn}> ШВИДКА КОНСУЛЬТАЦІЯ </LeadBtn>
           </>
         )}
       </MenuButtonsWrapper>

@@ -1,8 +1,10 @@
 import styled, { keyframes } from 'styled-components';
 import { ReactComponent as MenuDownArrow } from '../../img/svg/invertedDownArrow.svg';
 import { ReactComponent as LogoIcon } from '../../img/svg/invertedLogo.svg';
-
+import { RxHamburgerMenu } from 'react-icons/rx';
 import sketchOutline from 'img/svg/sketchOutline.svg';
+import sketchOutlineNarrow from 'img/svg/sketchOutlineNarrow.svg';
+import sketchOutlineSmallNarrow from 'img/svg/sketchOutlineSmallNarrow.svg';
 import { Link } from 'react-router-dom';
 
 export const Header = styled.header`
@@ -11,7 +13,7 @@ export const Header = styled.header`
   left: 0;
   z-index: 10;
   width: 100%;
-  padding: 0 30px;
+  padding: 0 16px;
   height: 60px;
   background-color: var(--secondary-color);
   box-shadow: rgba(0, 0, 0, 0.06) 0px 0.5px 5px 0px,
@@ -21,6 +23,10 @@ export const Header = styled.header`
   align-items: center;
   justify-content: space-between;
   transition: transform var(--animation-global);
+
+  @media screen and (min-width: 400px) {
+    padding: 0 30px;
+  }
 
   @media screen and (min-width: 768px) {
     padding: 0 42px;
@@ -61,7 +67,7 @@ export const HeaderWrapper = styled.div`
 export const MobileMenuBtn = styled.button`
   border: none;
   border-radius: 9px;
-  padding: 8px 12px;
+  padding: 8px;
   background-color: var(--main-transparent-color);
   align-self: center;
 
@@ -73,6 +79,7 @@ export const MobileMenuBtn = styled.button`
 
   @media screen and (min-width: 768px) {
     background-color: transparent;
+    padding: 8px 12px;
   }
 
   &:hover,
@@ -89,6 +96,13 @@ export const MobileMenuIcon = styled(MenuDownArrow)`
   @media screen and (min-width: 768px) {
     stroke-width: 2;
   }
+`;
+
+export const BurgerMenuIcon = styled(RxHamburgerMenu)`
+  color: var(--main-color);
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
 `;
 
 export const LogoRoute = styled(Link)`
@@ -143,10 +157,10 @@ export const wobblyOutline = keyframes`
 
 export const LeadBtn = styled.button`
   padding: 10px 10px;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 600;
-  width: 258px;
-  height: 58px;
+  width: 180px;
+  height: 50px;
   border: none;
   flex-shrink: 0;
   /* border: 2px solid #fff; */
@@ -159,7 +173,12 @@ export const LeadBtn = styled.button`
   transition: box-shadow var(--animation-global),
     transform var(--animation-global);
 
-  @media screen and (min-width: 390px) {
+  @media screen and (min-width: 400px) {
+    width: 250px;
+    height: 50px;
+  }
+
+  @media screen and (min-width: 768px) {
     width: 287px;
     height: 60px;
   }
@@ -175,15 +194,21 @@ export const LeadBtn = styled.button`
 
   &::before {
     position: absolute;
-    width: 260px;
+    width: 180px;
     top: -2px;
     left: -2px;
-    content: url(${sketchOutline});
+    content: url(${sketchOutlineSmallNarrow});
     animation: 2s linear infinite ${wobblyOutline};
 
     transition: opacity var(--animation-global);
 
-    @media screen and (min-width: 390px) {
+    @media screen and (min-width: 400px) {
+      width: 250px;
+      content: url(${sketchOutlineNarrow});
+    }
+
+    @media screen and (min-width: 768px) {
+      content: url(${sketchOutline});
       width: 289px;
     }
   }

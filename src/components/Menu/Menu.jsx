@@ -3,6 +3,7 @@ import { Navigation } from 'components/Navigation/Navigation';
 import { useRef, useState } from 'react';
 import { ReactComponent as LoginIcon } from '../../img/svg/invertedLoginIcon.svg';
 import {
+  BurgerMenuIcon,
   Header,
   HeaderText,
   HeaderWrapper,
@@ -34,8 +35,21 @@ export const Menu = ({ toggleModal }) => {
           <LogoRoute to="/">
             <Logo />
           </LogoRoute>
+
+          {width < 768 && (
+            <LeadBtn onClick={toggleModal}>
+              {width >= 400 ? 'ШВИДКА КОНСУЛЬТАЦІЯ' : 'КОНСУЛЬТАЦІЯ'}{' '}
+            </LeadBtn>
+          )}
+
           <MobileMenuBtn onClick={toggleMenu}>
-            <HeaderText>МЕНЮ</HeaderText> <MobileMenuIcon />
+            {width >= 768 ? (
+              <>
+                <HeaderText>МЕНЮ</HeaderText> <MobileMenuIcon />
+              </>
+            ) : (
+              <BurgerMenuIcon />
+            )}
           </MobileMenuBtn>
         </HeaderWrapper>
         {width >= 768 && (
