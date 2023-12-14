@@ -6,7 +6,6 @@ import { Hero } from 'components/Hero/Hero';
 import { HowItWorks } from 'components/HowItWorks/HowItWorks';
 import { LeadForm } from 'components/LeadForm/LeadForm';
 import { Reviews } from 'components/Reviews/Reviews';
-import { SwiperWorks } from 'components/SwiperWorks/SwiperWorks';
 import { useEffect, useState } from 'react';
 
 const Home = ({ utms }) => {
@@ -52,7 +51,6 @@ const Home = ({ utms }) => {
       <Reviews toggleModal={toggleModal} />
       {/* <ExamCenter toggleModal={toggleModal} closeModal={closeModal} /> */}
       <AboutUs />
-      {/* <SwiperWorks/> */}
       <Consent />
       {isOpenModal && <LeadForm closeModal={closeModal} utms={utms} />}
     </>

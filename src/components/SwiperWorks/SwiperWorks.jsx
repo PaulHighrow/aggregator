@@ -10,26 +10,69 @@ import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
 import { Swiper } from 'swiper/react';
 import { StyledSlide } from './SwiperWorks.styled';
+import { MarqueeModal } from 'components/MarqueeModal/MarqueeModal';
+import { useEffect, useRef, useState } from 'react';
 
-export const SwiperWorks = () => {
+export const SwiperWorks = ({ toggleModal }) => {
   // eslint-disable-next-line
   const [width, _] = useSize(document.body);
+  const modalId = useRef(NaN);
+  const [isMarqueeModalOpen, setIsMarqueeModalOpen] = useState(false);
+
+  const handleToggleModal = e => {
+    modalId.current = e.currentTarget.getAttribute('data-id');
+    setIsMarqueeModalOpen(isOpen => !isOpen);
+    document.body.style.overflowY = 'hidden';
+  };
+
+  const closeMarqueeModal = () => {
+    setIsMarqueeModalOpen(isOpen => (isOpen = false));
+    modalId.current = 0;
+    !document.body.style.overflowY && isMarqueeModalOpen
+      ? (document.body.style.overflowY = 'hidden')
+      : (document.body.style.overflowY = '');
+  };
+
+  useEffect(() => {
+    const onEscapeClose = event => {
+      if (event.code === 'Escape' && isMarqueeModalOpen) {
+        closeMarqueeModal();
+      }
+    };
+
+    window.addEventListener('keydown', onEscapeClose);
+
+    return () => {
+      window.removeEventListener('keydown', onEscapeClose);
+    };
+  });
+
   return (
     <>
+      {isMarqueeModalOpen && (
+        <MarqueeModal
+          closeMarqueeModal={closeMarqueeModal}
+          toggleModal={toggleModal}
+          id={modalId.current}
+        />
+      )}
       <Swiper
         slidesPerView={
           width < 768 ? Math.floor(width / 180) : Math.floor(width / 270)
         }
         spaceBetween={30}
+        speed={3500}
         autoplay={{
-          delay: 2000,
+          delay: 10,
           disableOnInteraction: false,
         }}
+        touchRatio={20}
+        updateOnWindowResize={true}
         modules={[Autoplay]}
         className="mySwiper"
       >
-        <StyledSlide>
-          <MarqueeChild id={0}>
+        <StyledSlide data-id={0} onClick={handleToggleModal}>
+          <MarqueeChild >
             <MarqueeOverlay>
               <HeroMarqueeSoundBtn />
               <MarqueeText>From Zero to Hero</MarqueeText>
@@ -52,8 +95,8 @@ export const SwiperWorks = () => {
             </MarqueeVideo>
           </MarqueeChild>
         </StyledSlide>
-        <StyledSlide>
-          <MarqueeChild id={1}>
+        <StyledSlide data-id={1} onClick={handleToggleModal}>
+          <MarqueeChild>
             <MarqueeOverlay>
               <HeroMarqueeSoundBtn />
               <MarqueeText>Навчальна платформа</MarqueeText>
@@ -76,8 +119,8 @@ export const SwiperWorks = () => {
             </MarqueeVideo>
           </MarqueeChild>
         </StyledSlide>
-        <StyledSlide>
-          <MarqueeChild id={2}>
+        <StyledSlide data-id={2} onClick={handleToggleModal}>
+          <MarqueeChild>
             <MarqueeOverlay>
               <HeroMarqueeSoundBtn />
               <MarqueeText>Письмова гарантія</MarqueeText>
@@ -100,8 +143,8 @@ export const SwiperWorks = () => {
             </MarqueeVideo>
           </MarqueeChild>
         </StyledSlide>
-        <StyledSlide>
-          <MarqueeChild id={3}>
+        <StyledSlide data-id={3} onClick={handleToggleModal}>
+          <MarqueeChild>
             <MarqueeOverlay>
               <HeroMarqueeSoundBtn />
               <MarqueeText>Ноутбук в подарунок</MarqueeText>
@@ -124,8 +167,8 @@ export const SwiperWorks = () => {
             </MarqueeVideo>
           </MarqueeChild>
         </StyledSlide>
-        <StyledSlide>
-          <MarqueeChild id={4}>
+        <StyledSlide data-id={4} onClick={handleToggleModal}>
+          <MarqueeChild>
             <MarqueeOverlay>
               <HeroMarqueeSoundBtn />
               <MarqueeText>Close to You</MarqueeText>
@@ -148,8 +191,8 @@ export const SwiperWorks = () => {
             </MarqueeVideo>
           </MarqueeChild>
         </StyledSlide>
-        <StyledSlide>
-          <MarqueeChild id={0}>
+        <StyledSlide data-id={0} onClick={handleToggleModal}>
+          <MarqueeChild>
             <MarqueeOverlay>
               <HeroMarqueeSoundBtn />
               <MarqueeText>From Zero to Hero</MarqueeText>
@@ -172,8 +215,8 @@ export const SwiperWorks = () => {
             </MarqueeVideo>
           </MarqueeChild>
         </StyledSlide>
-        <StyledSlide>
-          <MarqueeChild id={1}>
+        <StyledSlide data-id={1} onClick={handleToggleModal}>
+          <MarqueeChild>
             <MarqueeOverlay>
               <HeroMarqueeSoundBtn />
               <MarqueeText>Навчальна платформа</MarqueeText>
@@ -196,8 +239,8 @@ export const SwiperWorks = () => {
             </MarqueeVideo>
           </MarqueeChild>
         </StyledSlide>
-        <StyledSlide>
-          <MarqueeChild id={2}>
+        <StyledSlide  data-id={2} onClick={handleToggleModal}>
+          <MarqueeChild>
             <MarqueeOverlay>
               <HeroMarqueeSoundBtn />
               <MarqueeText>Письмова гарантія</MarqueeText>
@@ -220,8 +263,8 @@ export const SwiperWorks = () => {
             </MarqueeVideo>
           </MarqueeChild>
         </StyledSlide>
-        <StyledSlide>
-          <MarqueeChild id={3}>
+        <StyledSlide data-id={3} onClick={handleToggleModal}>
+          <MarqueeChild>
             <MarqueeOverlay>
               <HeroMarqueeSoundBtn />
               <MarqueeText>Ноутбук в подарунок</MarqueeText>
@@ -244,8 +287,8 @@ export const SwiperWorks = () => {
             </MarqueeVideo>
           </MarqueeChild>
         </StyledSlide>
-        <StyledSlide>
-          <MarqueeChild id={4}>
+        <StyledSlide data-id={4} onClick={handleToggleModal}>
+          <MarqueeChild>
             <MarqueeOverlay>
               <HeroMarqueeSoundBtn />
               <MarqueeText>Close to You</MarqueeText>
@@ -268,8 +311,32 @@ export const SwiperWorks = () => {
             </MarqueeVideo>
           </MarqueeChild>
         </StyledSlide>
-        <StyledSlide>
-          <MarqueeChild id={1}>
+        <StyledSlide data-id={0} onClick={handleToggleModal}>
+          <MarqueeChild>
+            <MarqueeOverlay>
+              <HeroMarqueeSoundBtn />
+              <MarqueeText>From Zero to Hero</MarqueeText>
+            </MarqueeOverlay>
+            <MarqueeVideo
+              autoPlay={true}
+              loop
+              playsInline
+              muted={true}
+              poster="../../../img/hero/hero-marquee/posters/poster1.webp"
+            >
+              <source
+                src="https://ap.education/static/video/previews/preview1.webm"
+                type="video/webm"
+              />
+              <source
+                src="https://ap.education/static/video/previews/preview1.mp4"
+                type="video/mp4"
+              />
+            </MarqueeVideo>
+          </MarqueeChild>
+        </StyledSlide>
+        <StyledSlide data-id={1} onClick={handleToggleModal}>
+          <MarqueeChild>
             <MarqueeOverlay>
               <HeroMarqueeSoundBtn />
               <MarqueeText>Навчальна платформа</MarqueeText>
@@ -292,8 +359,8 @@ export const SwiperWorks = () => {
             </MarqueeVideo>
           </MarqueeChild>
         </StyledSlide>
-        <StyledSlide>
-          <MarqueeChild id={2}>
+        <StyledSlide data-id={2} onClick={handleToggleModal}>
+          <MarqueeChild>
             <MarqueeOverlay>
               <HeroMarqueeSoundBtn />
               <MarqueeText>Письмова гарантія</MarqueeText>
@@ -316,8 +383,8 @@ export const SwiperWorks = () => {
             </MarqueeVideo>
           </MarqueeChild>
         </StyledSlide>
-        <StyledSlide>
-          <MarqueeChild id={3}>
+        <StyledSlide data-id={3} onClick={handleToggleModal}>
+          <MarqueeChild>
             <MarqueeOverlay>
               <HeroMarqueeSoundBtn />
               <MarqueeText>Ноутбук в подарунок</MarqueeText>
@@ -340,8 +407,8 @@ export const SwiperWorks = () => {
             </MarqueeVideo>
           </MarqueeChild>
         </StyledSlide>
-        <StyledSlide>
-          <MarqueeChild id={4}>
+        <StyledSlide data-id={4} onClick={handleToggleModal}>
+          <MarqueeChild>
             <MarqueeOverlay>
               <HeroMarqueeSoundBtn />
               <MarqueeText>Close to You</MarqueeText>

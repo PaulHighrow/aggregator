@@ -1,21 +1,21 @@
 import { Box } from 'components/Box/Box.styled';
+import { SwiperWorks } from 'components/SwiperWorks/SwiperWorks';
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import {
   Description,
   DescriptionMoreText,
+  DescriptionSiteText,
   DescriptionTrigger,
-  DescriptionUnderlineShort,
   DescriptionUnderlineLong,
+  DescriptionUnderlineShort,
   HeroSection,
+  HeroVector,
   SubTitle,
   Title,
-  TitleSketch,
-  HeroVector,
   TitleBlock,
-  DescriptionSiteText,
+  TitleSketch,
 } from './Hero.styled';
-import { HeroMarquee } from './HeroMarquee/HeroMarquee';
 
 export const Hero = ({ toggleModal }) => {
   const [isMore, setIsMore] = useState(false);
@@ -83,7 +83,7 @@ export const Hero = ({ toggleModal }) => {
           )}
         </DescriptionTrigger>
       </Box>
-      <HeroMarquee toggleModal={toggleModal} />
+      <SwiperWorks toggleModal={toggleModal} />
     </HeroSection>
   );
 };
