@@ -51,6 +51,7 @@ const Home = ({ utms }) => {
       <Reviews toggleModal={toggleModal} />
       {/* <ExamCenter toggleModal={toggleModal} closeModal={closeModal} /> */}
       <AboutUs />
+      {/* <SwiperWorks/> */}
       <Consent />
       {isOpenModal && <LeadForm closeModal={closeModal} utms={utms} />}
     </>
