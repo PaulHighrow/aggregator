@@ -2,13 +2,16 @@ import axios from 'axios';
 import { LeadForm } from 'components/LeadForm/LeadForm';
 import { MainFooter } from 'components/MainFooter/MainFooter';
 import { Menu } from 'components/Menu/Menu';
-import { Loader } from 'components/SharedLayout/Loader/Loader';
 import { UpButton } from 'components/UpButton/UpButton';
 import { InvertedMainFooter } from 'pages/Clone/InvertedMainFooter/InvertedMainFooter';
 import { InvertedMenu } from 'pages/Clone/InvertedMenu/InvertedMenu';
 import { Suspense, useEffect, useLayoutEffect, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import { SuspenseBox, SuspenseTitle } from './SharedLayout.styled';
+import { OffsetLoader } from './Loaders/OffsetLoader';
+import {
+  SuspenseBox,
+  SuspenseTitle
+} from './SharedLayout.styled';
 
 axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
 
@@ -76,7 +79,7 @@ export const SharedLayout = ({ utms }) => {
         fallback={
           <SuspenseBox>
             <SuspenseTitle as={'h2'}>Loading...</SuspenseTitle>
-            <Loader />
+            <OffsetLoader />
           </SuspenseBox>
         }
       >

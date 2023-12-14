@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Backdrop } from 'components/LeadForm/Backdrop/Backdrop.styled';
 import { Formik } from 'formik';
 import { useState } from 'react';
-import { Loader } from 'components/SharedLayout/Loader/Loader';
+import { Loader } from 'components/SharedLayout/Loaders/Loader';
 import * as yup from 'yup';
 import {
   CloseIcon,
@@ -54,7 +54,7 @@ export const LeadForm = ({ closeModal, utms }) => {
         'Будь ласка, введіть валідний номер телефону!'
       )
       .min(10, 'Номер телефону має складатися не менше ніж з 10 символів!')
-      .max(20, 'Номер телефону має складатися не більше ніж з 20 символів!'),
+      .max(15, 'Номер телефону має складатися не більше ніж з 15 символів!'),
     utm_content: yup.string().optional(),
     utm_medium: yup.string().optional(),
     utm_campaign: yup.string().optional(),

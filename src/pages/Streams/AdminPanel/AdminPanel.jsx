@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Label } from 'components/LeadForm/LeadForm.styled';
-import { Loader } from 'components/SharedLayout/Loader/Loader';
+import { Loader } from 'components/SharedLayout/Loaders/Loader';
 import { Formik } from 'formik';
 import { useState } from 'react';
 import * as yup from 'yup';

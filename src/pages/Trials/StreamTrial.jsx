@@ -1,8 +1,8 @@
 import useSize from '@react-hook/size';
 import axios from 'axios';
 import { StreamsBackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
-import { Loader } from 'components/SharedLayout/Loader/Loader';
-import { LoaderWrapper } from 'components/SharedLayout/Loader/Loader.styled';
+import { Loader } from 'components/SharedLayout/Loaders/Loader';
+import { LoaderWrapper } from 'components/SharedLayout/Loaders/Loader.styled';
 import { Kahoots } from 'components/Stream/Kahoots/Kahoots';
 import { useLayoutEffect, useRef, useState } from 'react';
 import ReactPlayer from 'react-player';

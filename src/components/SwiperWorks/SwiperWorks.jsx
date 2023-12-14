@@ -7,7 +7,7 @@ import {
   MarqueeVideo,
 } from 'components/Hero/HeroMarquee/HeroMarquee.styled';
 import 'swiper/css';
-import { Autoplay, Navigation } from 'swiper/modules';
+import { Autoplay } from 'swiper/modules';
 import { Swiper } from 'swiper/react';
 import { StyledSlide } from './SwiperWorks.styled';
 
@@ -20,17 +20,12 @@ export const SwiperWorks = () => {
         slidesPerView={
           width < 768 ? Math.floor(width / 180) : Math.floor(width / 270)
         }
-        centeredSlides={true}
         spaceBetween={30}
         autoplay={{
           delay: 2000,
           disableOnInteraction: false,
         }}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Autoplay, Navigation]}
+        modules={[Autoplay]}
         className="mySwiper"
       >
         <StyledSlide>
@@ -369,7 +364,7 @@ export const SwiperWorks = () => {
             </MarqueeVideo>
           </MarqueeChild>
         </StyledSlide>
-              </Swiper>
+      </Swiper>
     </>
   );
 };
