@@ -83,6 +83,7 @@ export const Hero = ({ toggleModal }) => {
           )}
         </DescriptionTrigger>
       </Box>
+      {/* <HeroMarquee toggleModal={toggleModal} /> */}
       <SwiperWorks toggleModal={toggleModal} />
     </HeroSection>
   );
