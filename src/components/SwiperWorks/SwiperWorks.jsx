@@ -72,7 +72,9 @@ export const SwiperWorks = ({ toggleModal }) => {
         updateOnWindowResize={true}
         modules={[Autoplay]}
       >
-        <SwiperSlide>
+        <SwiperSlide
+          style={width < 768 ? { maxWidth: '180px' } : { maxWidth: '270px' }}
+        >
           <StyledSlide data-id={0} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
@@ -98,7 +100,9 @@ export const SwiperWorks = ({ toggleModal }) => {
             </MarqueeChild>
           </StyledSlide>
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide
+          style={width < 768 ? { maxWidth: '180px' } : { maxWidth: '270px' }}
+        >
           <StyledSlide data-id={1} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
@@ -124,7 +128,9 @@ export const SwiperWorks = ({ toggleModal }) => {
             </MarqueeChild>
           </StyledSlide>
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide
+          style={width < 768 ? { maxWidth: '180px' } : { maxWidth: '270px' }}
+        >
           <StyledSlide data-id={2} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
@@ -150,7 +156,9 @@ export const SwiperWorks = ({ toggleModal }) => {
             </MarqueeChild>
           </StyledSlide>
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide
+          style={width < 768 ? { maxWidth: '180px' } : { maxWidth: '270px' }}
+        >
           <StyledSlide data-id={3} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
@@ -176,7 +184,9 @@ export const SwiperWorks = ({ toggleModal }) => {
             </MarqueeChild>
           </StyledSlide>
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide
+          style={width < 768 ? { maxWidth: '180px' } : { maxWidth: '270px' }}
+        >
           <StyledSlide data-id={4} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
@@ -202,7 +212,9 @@ export const SwiperWorks = ({ toggleModal }) => {
             </MarqueeChild>
           </StyledSlide>
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide
+          style={width < 768 ? { maxWidth: '180px' } : { maxWidth: '270px' }}
+        >
           <StyledSlide data-id={0} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
@@ -228,7 +240,9 @@ export const SwiperWorks = ({ toggleModal }) => {
             </MarqueeChild>
           </StyledSlide>
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide
+          style={width < 768 ? { maxWidth: '180px' } : { maxWidth: '270px' }}
+        >
           <StyledSlide data-id={1} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
@@ -254,7 +268,9 @@ export const SwiperWorks = ({ toggleModal }) => {
             </MarqueeChild>
           </StyledSlide>
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide
+          style={width < 768 ? { maxWidth: '180px' } : { maxWidth: '270px' }}
+        >
           <StyledSlide data-id={2} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
@@ -280,7 +296,9 @@ export const SwiperWorks = ({ toggleModal }) => {
             </MarqueeChild>
           </StyledSlide>
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide
+          style={width < 768 ? { maxWidth: '180px' } : { maxWidth: '270px' }}
+        >
           <StyledSlide data-id={3} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
@@ -306,7 +324,9 @@ export const SwiperWorks = ({ toggleModal }) => {
             </MarqueeChild>
           </StyledSlide>
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide
+          style={width < 768 ? { maxWidth: '180px' } : { maxWidth: '270px' }}
+        >
           <StyledSlide data-id={4} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
@@ -332,7 +352,9 @@ export const SwiperWorks = ({ toggleModal }) => {
             </MarqueeChild>
           </StyledSlide>
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide
+          style={width < 768 ? { maxWidth: '180px' } : { maxWidth: '270px' }}
+        >
           <StyledSlide data-id={0} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
@@ -358,7 +380,9 @@ export const SwiperWorks = ({ toggleModal }) => {
             </MarqueeChild>
           </StyledSlide>
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide
+          style={width < 768 ? { maxWidth: '180px' } : { maxWidth: '270px' }}
+        >
           <StyledSlide data-id={1} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
@@ -384,7 +408,9 @@ export const SwiperWorks = ({ toggleModal }) => {
             </MarqueeChild>
           </StyledSlide>
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide
+          style={width < 768 ? { maxWidth: '180px' } : { maxWidth: '270px' }}
+        >
           <StyledSlide data-id={2} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
@@ -410,7 +436,9 @@ export const SwiperWorks = ({ toggleModal }) => {
             </MarqueeChild>
           </StyledSlide>
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide
+          style={width < 768 ? { maxWidth: '180px' } : { maxWidth: '270px' }}
+        >
           <StyledSlide data-id={3} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
@@ -436,7 +464,9 @@ export const SwiperWorks = ({ toggleModal }) => {
             </MarqueeChild>
           </StyledSlide>
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide
+          style={width < 768 ? { maxWidth: '180px' } : { maxWidth: '270px' }}
+        >
           <StyledSlide data-id={4} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
