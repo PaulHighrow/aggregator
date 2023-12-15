@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.d1d16bc5.css",
-    "main.js": "/aggregator/static/js/main.0926ff03.js",
+    "main.js": "/aggregator/static/js/main.5bf7f18a.js",
     "Homepage.js": "/aggregator/static/js/Homepage.9d7a15d9.chunk.js",
     "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.5839fb79.chunk.js",
     "Streams page.js": "/aggregator/static/js/Streams page.d23edcb1.chunk.js",
@@ -101,7 +101,7 @@
     "static/media/invertedDownArrow.svg": "/aggregator/static/media/invertedDownArrow.81d2e354f4424bf21d20b96a031591ce.svg",
     "static/media/downArrow.svg": "/aggregator/static/media/downArrow.3d74cb9d6d38fab26c47bbadb8e4f56d.svg",
     "main.d1d16bc5.css.map": "/aggregator/static/css/main.d1d16bc5.css.map",
-    "main.0926ff03.js.map": "/aggregator/static/js/main.0926ff03.js.map",
+    "main.5bf7f18a.js.map": "/aggregator/static/js/main.5bf7f18a.js.map",
     "Homepage.9d7a15d9.chunk.js.map": "/aggregator/static/js/Homepage.9d7a15d9.chunk.js.map",
     "Inverted Homepage.5839fb79.chunk.js.map": "/aggregator/static/js/Inverted Homepage.5839fb79.chunk.js.map",
     "Streams page.d23edcb1.chunk.js.map": "/aggregator/static/js/Streams page.d23edcb1.chunk.js.map",
@@ -125,6 +125,6 @@
   },
   "entrypoints": [
     "static/css/main.d1d16bc5.css",
-    "static/js/main.0926ff03.js"
+    "static/js/main.5bf7f18a.js"
   ]
 }
