@@ -65,37 +65,37 @@ export const ReviewModal = ({ closeMarqueeModal, toggleModal, id }) => {
       <MarqueeBackdrop onClick={closeMarqueeModal} />
       <ModalWindow>
         {/* <ModalContent> */}
-          <MarqueeCloseBtn onClick={closeMarqueeModal}>
-            <CloseIcon />
-          </MarqueeCloseBtn>
+        <MarqueeCloseBtn onClick={closeMarqueeModal}>
+          <CloseIcon />
+        </MarqueeCloseBtn>
 
-          <ReviewVideoLimiter>
-            <ReviewPrevBtn onClick={handlePrevClick}>
-              <MarqueeBackIcon />
-            </ReviewPrevBtn>
-            <ReviewNextBtn onClick={handleNextClick}>
-              <MarqueeForwardIcon />
-            </ReviewNextBtn>
-            <ReviewVideoBox>
-              <ReactPlayer
-                config={{ file: { attributes: { playsInline: true } } }}
-                playing={true}
-                loop={true}
-                controls={true}
-                style={{
-                  display: 'block',
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                }}
-                width="100%"
-                height="100%"
-                url={reviewList[modalId].videoUrl}
-              />
-            </ReviewVideoBox>
-          </ReviewVideoLimiter>
+        <ReviewVideoLimiter>
+          <ReviewPrevBtn onClick={handlePrevClick}>
+            <MarqueeBackIcon />
+          </ReviewPrevBtn>
+          <ReviewNextBtn onClick={handleNextClick}>
+            <MarqueeForwardIcon />
+          </ReviewNextBtn>
+          <ReviewVideoBox>
+            <ReactPlayer
+              config={{ file: { attributes: { playsInline: true } } }}
+              playing={true}
+              loop={true}
+              controls={true}
+              style={{
+                display: 'block',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+              }}
+              width="100%"
+              height="100%"
+              url={reviewList[modalId].videoUrl}
+            />
+          </ReviewVideoBox>
+        </ReviewVideoLimiter>
 
-          <LeadBtn onClick={toggleLeadForm}> Я ТЕЖ ТАК ХОЧУ! </LeadBtn>
+        <LeadBtn onClick={toggleLeadForm}> Я ТЕЖ ТАК ХОЧУ! </LeadBtn>
         {/* </ModalContent> */}
       </ModalWindow>
     </>
