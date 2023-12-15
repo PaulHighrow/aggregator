@@ -203,7 +203,7 @@ export const SwiperWorks = ({ toggleModal }) => {
           </StyledSlide>
         </SwiperSlide>
         <SwiperSlide>
-          <StyledSlide data-id={5} onClick={handleToggleModal}>
+          <StyledSlide data-id={0} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
                 <HeroMarqueeSoundBtn />
@@ -229,7 +229,7 @@ export const SwiperWorks = ({ toggleModal }) => {
           </StyledSlide>
         </SwiperSlide>
         <SwiperSlide>
-          <StyledSlide data-id={6} onClick={handleToggleModal}>
+          <StyledSlide data-id={1} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
                 <HeroMarqueeSoundBtn />
@@ -255,7 +255,7 @@ export const SwiperWorks = ({ toggleModal }) => {
           </StyledSlide>
         </SwiperSlide>
         <SwiperSlide>
-          <StyledSlide data-id={7} onClick={handleToggleModal}>
+          <StyledSlide data-id={2} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
                 <HeroMarqueeSoundBtn />
@@ -281,7 +281,7 @@ export const SwiperWorks = ({ toggleModal }) => {
           </StyledSlide>
         </SwiperSlide>
         <SwiperSlide>
-          <StyledSlide data-id={8} onClick={handleToggleModal}>
+          <StyledSlide data-id={3} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
                 <HeroMarqueeSoundBtn />
@@ -307,7 +307,7 @@ export const SwiperWorks = ({ toggleModal }) => {
           </StyledSlide>
         </SwiperSlide>
         <SwiperSlide>
-          <StyledSlide data-id={9} onClick={handleToggleModal}>
+          <StyledSlide data-id={4} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
                 <HeroMarqueeSoundBtn />
@@ -333,7 +333,7 @@ export const SwiperWorks = ({ toggleModal }) => {
           </StyledSlide>
         </SwiperSlide>
         <SwiperSlide>
-          <StyledSlide data-id={10} onClick={handleToggleModal}>
+          <StyledSlide data-id={0} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
                 <HeroMarqueeSoundBtn />
@@ -359,7 +359,7 @@ export const SwiperWorks = ({ toggleModal }) => {
           </StyledSlide>
         </SwiperSlide>
         <SwiperSlide>
-          <StyledSlide data-id={11} onClick={handleToggleModal}>
+          <StyledSlide data-id={1} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
                 <HeroMarqueeSoundBtn />
@@ -385,7 +385,7 @@ export const SwiperWorks = ({ toggleModal }) => {
           </StyledSlide>
         </SwiperSlide>
         <SwiperSlide>
-          <StyledSlide data-id={12} onClick={handleToggleModal}>
+          <StyledSlide data-id={2} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
                 <HeroMarqueeSoundBtn />
@@ -411,7 +411,7 @@ export const SwiperWorks = ({ toggleModal }) => {
           </StyledSlide>
         </SwiperSlide>
         <SwiperSlide>
-          <StyledSlide data-id={13} onClick={handleToggleModal}>
+          <StyledSlide data-id={3} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
                 <HeroMarqueeSoundBtn />
@@ -437,7 +437,7 @@ export const SwiperWorks = ({ toggleModal }) => {
           </StyledSlide>
         </SwiperSlide>
         <SwiperSlide>
-          <StyledSlide data-id={14} onClick={handleToggleModal}>
+          <StyledSlide data-id={4} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
                 <HeroMarqueeSoundBtn />
