@@ -63,7 +63,8 @@ export const SwiperWorks = ({ toggleModal }) => {
             : Math.floor((width - 30 * Math.floor(width / 270)) / 270)
         }
         spaceBetween={30}
-        speed={3500}
+        speed={5000}
+        touchRatio={10}
         autoplay={{
           delay: 1,
           disableOnInteraction: false,
