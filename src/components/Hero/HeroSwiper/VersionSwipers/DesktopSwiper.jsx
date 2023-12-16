@@ -1,4 +1,3 @@
-import useSize from '@react-hook/size';
 import {
   HeroMarqueeSoundBtn,
   MarqueeChild,
@@ -6,18 +5,18 @@ import {
   MarqueeText,
   MarqueeVideo,
 } from 'components/Hero/HeroMarquee/HeroMarquee.styled';
-import { MarqueeModal } from 'components/MarqueeModal/MarqueeModal';
+import { MarqueeModal } from 'components/Hero/HeroSwiper/HeroSwiperModal/HeroSwiperModal';
 import { useEffect, useRef, useState } from 'react';
 import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { StyledSlide } from './SwiperWorks.styled';
+import { StyledSlide } from '../HeroSwiper.styled';
+import { useInView } from 'react-intersection-observer';
 
-export const SwiperWorks = ({ toggleModal }) => {
-  // eslint-disable-next-line
-  const [width, _] = useSize(document.body);
+export const DesktopSwiper = ({ toggleModal }) => {
   const modalId = useRef(NaN);
   const [isMarqueeModalOpen, setIsMarqueeModalOpen] = useState(false);
+  const { ref, inView } = useInView();
 
   const handleToggleModal = e => {
     modalId.current = e.currentTarget.getAttribute('data-id');
@@ -57,25 +56,20 @@ export const SwiperWorks = ({ toggleModal }) => {
         />
       )}
       <Swiper
-        slidesPerView={
-          width < 768
-            ? Math.floor((width - 30 * Math.floor(width / 180)) / 180)
-            : Math.floor((width - 30 * Math.floor(width / 270)) / 270)
-        }
+        ref={ref}
+        slidesPerView={'auto'}
         spaceBetween={30}
-        speed={5000}
-        touchRatio={10}
+        speed={4000}
         autoplay={{
-          delay: 1,
+          delay: 500,
           disableOnInteraction: false,
+          pauseOnMouseEnter: true,
         }}
-        loop={true}
         updateOnWindowResize={true}
+        grabCursor={true}
         modules={[Autoplay]}
       >
-        <SwiperSlide
-          style={width < 768 ? { maxWidth: '180px' } : { maxWidth: '270px' }}
-        >
+        <SwiperSlide style={{ maxWidth: '270px' }}>
           <StyledSlide data-id={0} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
@@ -83,7 +77,7 @@ export const SwiperWorks = ({ toggleModal }) => {
                 <MarqueeText>From Zero to Hero</MarqueeText>
               </MarqueeOverlay>
               <MarqueeVideo
-                autoPlay={true}
+                autoplay={inView ? 'true' : 'false'}
                 loop
                 playsInline
                 muted={true}
@@ -101,9 +95,7 @@ export const SwiperWorks = ({ toggleModal }) => {
             </MarqueeChild>
           </StyledSlide>
         </SwiperSlide>
-        <SwiperSlide
-          style={width < 768 ? { maxWidth: '180px' } : { maxWidth: '270px' }}
-        >
+        <SwiperSlide style={{ maxWidth: '270px' }}>
           <StyledSlide data-id={1} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
@@ -111,7 +103,7 @@ export const SwiperWorks = ({ toggleModal }) => {
                 <MarqueeText>Навчальна платформа</MarqueeText>
               </MarqueeOverlay>
               <MarqueeVideo
-                autoPlay={true}
+                autoplay={inView ? 'true' : 'false'}
                 loop
                 playsInline
                 muted={true}
@@ -129,9 +121,7 @@ export const SwiperWorks = ({ toggleModal }) => {
             </MarqueeChild>
           </StyledSlide>
         </SwiperSlide>
-        <SwiperSlide
-          style={width < 768 ? { maxWidth: '180px' } : { maxWidth: '270px' }}
-        >
+        <SwiperSlide style={{ maxWidth: '270px' }}>
           <StyledSlide data-id={2} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
@@ -139,7 +129,7 @@ export const SwiperWorks = ({ toggleModal }) => {
                 <MarqueeText>Письмова гарантія</MarqueeText>
               </MarqueeOverlay>
               <MarqueeVideo
-                autoPlay={true}
+                autoplay={inView ? 'true' : 'false'}
                 loop
                 playsInline
                 muted={true}
@@ -157,9 +147,7 @@ export const SwiperWorks = ({ toggleModal }) => {
             </MarqueeChild>
           </StyledSlide>
         </SwiperSlide>
-        <SwiperSlide
-          style={width < 768 ? { maxWidth: '180px' } : { maxWidth: '270px' }}
-        >
+        <SwiperSlide style={{ maxWidth: '270px' }}>
           <StyledSlide data-id={3} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
@@ -167,7 +155,7 @@ export const SwiperWorks = ({ toggleModal }) => {
                 <MarqueeText>Ноутбук в подарунок</MarqueeText>
               </MarqueeOverlay>
               <MarqueeVideo
-                autoPlay={true}
+                autoplay={inView ? 'true' : 'false'}
                 loop
                 playsInline
                 muted={true}
@@ -185,9 +173,7 @@ export const SwiperWorks = ({ toggleModal }) => {
             </MarqueeChild>
           </StyledSlide>
         </SwiperSlide>
-        <SwiperSlide
-          style={width < 768 ? { maxWidth: '180px' } : { maxWidth: '270px' }}
-        >
+        <SwiperSlide style={{ maxWidth: '270px' }}>
           <StyledSlide data-id={4} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
@@ -195,7 +181,7 @@ export const SwiperWorks = ({ toggleModal }) => {
                 <MarqueeText>Close to You</MarqueeText>
               </MarqueeOverlay>
               <MarqueeVideo
-                autoPlay={true}
+                autoplay={inView ? 'true' : 'false'}
                 loop
                 playsInline
                 muted={true}
@@ -213,9 +199,7 @@ export const SwiperWorks = ({ toggleModal }) => {
             </MarqueeChild>
           </StyledSlide>
         </SwiperSlide>
-        <SwiperSlide
-          style={width < 768 ? { maxWidth: '180px' } : { maxWidth: '270px' }}
-        >
+        <SwiperSlide style={{ maxWidth: '270px' }}>
           <StyledSlide data-id={0} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
@@ -223,7 +207,7 @@ export const SwiperWorks = ({ toggleModal }) => {
                 <MarqueeText>From Zero to Hero</MarqueeText>
               </MarqueeOverlay>
               <MarqueeVideo
-                autoPlay={true}
+                autoplay={inView ? 'true' : 'false'}
                 loop
                 playsInline
                 muted={true}
@@ -241,9 +225,7 @@ export const SwiperWorks = ({ toggleModal }) => {
             </MarqueeChild>
           </StyledSlide>
         </SwiperSlide>
-        <SwiperSlide
-          style={width < 768 ? { maxWidth: '180px' } : { maxWidth: '270px' }}
-        >
+        <SwiperSlide style={{ maxWidth: '270px' }}>
           <StyledSlide data-id={1} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
@@ -251,7 +233,7 @@ export const SwiperWorks = ({ toggleModal }) => {
                 <MarqueeText>Навчальна платформа</MarqueeText>
               </MarqueeOverlay>
               <MarqueeVideo
-                autoPlay={true}
+                autoplay={inView ? 'true' : 'false'}
                 loop
                 playsInline
                 muted={true}
@@ -269,9 +251,7 @@ export const SwiperWorks = ({ toggleModal }) => {
             </MarqueeChild>
           </StyledSlide>
         </SwiperSlide>
-        <SwiperSlide
-          style={width < 768 ? { maxWidth: '180px' } : { maxWidth: '270px' }}
-        >
+        <SwiperSlide style={{ maxWidth: '270px' }}>
           <StyledSlide data-id={2} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
@@ -279,7 +259,7 @@ export const SwiperWorks = ({ toggleModal }) => {
                 <MarqueeText>Письмова гарантія</MarqueeText>
               </MarqueeOverlay>
               <MarqueeVideo
-                autoPlay={true}
+                autoplay={inView ? 'true' : 'false'}
                 loop
                 playsInline
                 muted={true}
@@ -297,9 +277,7 @@ export const SwiperWorks = ({ toggleModal }) => {
             </MarqueeChild>
           </StyledSlide>
         </SwiperSlide>
-        <SwiperSlide
-          style={width < 768 ? { maxWidth: '180px' } : { maxWidth: '270px' }}
-        >
+        <SwiperSlide style={{ maxWidth: '270px' }}>
           <StyledSlide data-id={3} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
@@ -307,7 +285,7 @@ export const SwiperWorks = ({ toggleModal }) => {
                 <MarqueeText>Ноутбук в подарунок</MarqueeText>
               </MarqueeOverlay>
               <MarqueeVideo
-                autoPlay={true}
+                autoplay={inView ? 'true' : 'false'}
                 loop
                 playsInline
                 muted={true}
@@ -325,9 +303,7 @@ export const SwiperWorks = ({ toggleModal }) => {
             </MarqueeChild>
           </StyledSlide>
         </SwiperSlide>
-        <SwiperSlide
-          style={width < 768 ? { maxWidth: '180px' } : { maxWidth: '270px' }}
-        >
+        <SwiperSlide style={{ maxWidth: '270px' }}>
           <StyledSlide data-id={4} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
@@ -335,7 +311,7 @@ export const SwiperWorks = ({ toggleModal }) => {
                 <MarqueeText>Close to You</MarqueeText>
               </MarqueeOverlay>
               <MarqueeVideo
-                autoPlay={true}
+                autoplay={inView ? 'true' : 'false'}
                 loop
                 playsInline
                 muted={true}
@@ -353,9 +329,7 @@ export const SwiperWorks = ({ toggleModal }) => {
             </MarqueeChild>
           </StyledSlide>
         </SwiperSlide>
-        <SwiperSlide
-          style={width < 768 ? { maxWidth: '180px' } : { maxWidth: '270px' }}
-        >
+        <SwiperSlide style={{ maxWidth: '270px' }}>
           <StyledSlide data-id={0} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
@@ -363,7 +337,7 @@ export const SwiperWorks = ({ toggleModal }) => {
                 <MarqueeText>From Zero to Hero</MarqueeText>
               </MarqueeOverlay>
               <MarqueeVideo
-                autoPlay={true}
+                autoplay={inView ? 'true' : 'false'}
                 loop
                 playsInline
                 muted={true}
@@ -381,9 +355,7 @@ export const SwiperWorks = ({ toggleModal }) => {
             </MarqueeChild>
           </StyledSlide>
         </SwiperSlide>
-        <SwiperSlide
-          style={width < 768 ? { maxWidth: '180px' } : { maxWidth: '270px' }}
-        >
+        <SwiperSlide style={{ maxWidth: '270px' }}>
           <StyledSlide data-id={1} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
@@ -391,7 +363,7 @@ export const SwiperWorks = ({ toggleModal }) => {
                 <MarqueeText>Навчальна платформа</MarqueeText>
               </MarqueeOverlay>
               <MarqueeVideo
-                autoPlay={true}
+                autoplay={inView ? 'true' : 'false'}
                 loop
                 playsInline
                 muted={true}
@@ -409,9 +381,7 @@ export const SwiperWorks = ({ toggleModal }) => {
             </MarqueeChild>
           </StyledSlide>
         </SwiperSlide>
-        <SwiperSlide
-          style={width < 768 ? { maxWidth: '180px' } : { maxWidth: '270px' }}
-        >
+        <SwiperSlide style={{ maxWidth: '270px' }}>
           <StyledSlide data-id={2} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
@@ -419,7 +389,7 @@ export const SwiperWorks = ({ toggleModal }) => {
                 <MarqueeText>Письмова гарантія</MarqueeText>
               </MarqueeOverlay>
               <MarqueeVideo
-                autoPlay={true}
+                autoplay={inView ? 'true' : 'false'}
                 loop
                 playsInline
                 muted={true}
@@ -437,9 +407,7 @@ export const SwiperWorks = ({ toggleModal }) => {
             </MarqueeChild>
           </StyledSlide>
         </SwiperSlide>
-        <SwiperSlide
-          style={width < 768 ? { maxWidth: '180px' } : { maxWidth: '270px' }}
-        >
+        <SwiperSlide style={{ maxWidth: '270px' }}>
           <StyledSlide data-id={3} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
@@ -447,7 +415,7 @@ export const SwiperWorks = ({ toggleModal }) => {
                 <MarqueeText>Ноутбук в подарунок</MarqueeText>
               </MarqueeOverlay>
               <MarqueeVideo
-                autoPlay={true}
+                autoplay={inView ? 'true' : 'false'}
                 loop
                 playsInline
                 muted={true}
@@ -465,9 +433,7 @@ export const SwiperWorks = ({ toggleModal }) => {
             </MarqueeChild>
           </StyledSlide>
         </SwiperSlide>
-        <SwiperSlide
-          style={width < 768 ? { maxWidth: '180px' } : { maxWidth: '270px' }}
-        >
+        <SwiperSlide style={{ maxWidth: '270px' }}>
           <StyledSlide data-id={4} onClick={handleToggleModal}>
             <MarqueeChild>
               <MarqueeOverlay>
@@ -475,7 +441,7 @@ export const SwiperWorks = ({ toggleModal }) => {
                 <MarqueeText>Close to You</MarqueeText>
               </MarqueeOverlay>
               <MarqueeVideo
-                autoPlay={true}
+                autoplay={inView ? 'true' : 'false'}
                 loop
                 playsInline
                 muted={true}

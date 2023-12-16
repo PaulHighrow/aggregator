@@ -13,12 +13,15 @@ import {
   ModalDesc,
   ModalHeader,
   ModalWindow,
-} from './MarqueeModal.styled';
+} from './HeroSwiperModal.styled';
 import { serviceList } from './serviceList';
+import useSize from '@react-hook/size';
 
 export const MarqueeModal = ({ closeMarqueeModal, toggleModal, id }) => {
   const [modalId, setModalId] = useState(parseInt(id));
   const length = serviceList.length;
+  // eslint-disable-next-line
+  const [width, _] = useSize(document.body);
 
   const toggleLeadForm = () => {
     closeMarqueeModal();
@@ -43,7 +46,7 @@ export const MarqueeModal = ({ closeMarqueeModal, toggleModal, id }) => {
         handleNextClick();
       }
     };
-    
+
     const onLeftArrowPrev = event => {
       if (event.code === 'ArrowLeft') {
         handlePrevClick();
@@ -85,6 +88,7 @@ export const MarqueeModal = ({ closeMarqueeModal, toggleModal, id }) => {
                 position: 'absolute',
                 top: 0,
                 left: 0,
+                objectFit: 'contain',
               }}
               width="100%"
               height="100%"
@@ -94,7 +98,9 @@ export const MarqueeModal = ({ closeMarqueeModal, toggleModal, id }) => {
         </VideoLimiter>
 
         <ModalDesc>{serviceList[modalId].desc}</ModalDesc>
-        <LeadBtn onClick={toggleLeadForm}> ШВИДКА КОНСУЛЬТАЦІЯ </LeadBtn>
+        <LeadBtn onClick={toggleLeadForm}>
+          {width >= 768 ? 'ШВИДКА КОНСУЛЬТАЦІЯ' : 'КОНСУЛЬТАЦІЯ'}
+        </LeadBtn>
       </ModalWindow>
     </>
   );

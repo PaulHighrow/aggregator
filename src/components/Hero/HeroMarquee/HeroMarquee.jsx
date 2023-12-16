@@ -6,7 +6,7 @@ import {
   MarqueeVideo,
   StyledMarquee,
 } from 'components/Hero/HeroMarquee/HeroMarquee.styled';
-import { MarqueeModal } from 'components/MarqueeModal/MarqueeModal';
+import { MarqueeModal } from 'components/Hero/HeroSwiper/HeroSwiperModal/HeroSwiperModal';
 import { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 

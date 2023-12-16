@@ -23,21 +23,19 @@ export const ModalWindow = styled.div`
 
   width: 300px;
   padding: 20px;
-  padding-top: 40px;
 
   @media screen and (min-width: 360px) {
     width: calc(100vw - 40px);
+    max-height: 95%;
   }
 
   @media screen and (min-width: 768px) {
-    width: calc(100vw - 150px);
-    padding: 30px;
+    width: 50vw;
   }
 
   @media screen and (min-width: 1280px) {
-    width: 80vw;
+    width: 50vw;
     max-width: 1280px;
-    padding: 40px;
   }
 `;
 
@@ -75,9 +73,13 @@ export const ModalDesc = styled.p`
     font-size: 19px;
   }
   @media screen and (min-width: 1280px) {
-    max-height: auto;
-    overflow-y: hidden;
+    max-height: none;
+    overflow-y: visible;
     font-size: 20px;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 `;
 

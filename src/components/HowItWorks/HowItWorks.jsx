@@ -88,7 +88,7 @@ export const HowItWorks = () => {
           <Video
             loop
             controls={false}
-            autoplay={videoInView ? "true" : "false"}
+            autoplay={videoInView ? 'true' : 'false'}
             playsInline
             muted={true}
           >

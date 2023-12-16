@@ -11,7 +11,7 @@ import {
   Label,
   StyledForm,
 } from 'components/LeadForm/LeadForm.styled';
-import { MarqueeCloseBtn } from 'components/MarqueeModal/MarqueeModal.styled';
+import { MarqueeCloseBtn } from 'components/Hero/HeroSwiper/HeroSwiperModal/HeroSwiperModal.styled';
 import { Formik } from 'formik';
 import { useState } from 'react';
 import { Loader } from 'components/SharedLayout/Loaders/Loader';

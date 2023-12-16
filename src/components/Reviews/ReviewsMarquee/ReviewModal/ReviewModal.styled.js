@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import {
   MarqueeBackBtn,
   MarqueeForwardBtn,
-} from 'components/MarqueeModal/MarqueeModal.styled';
+} from 'components/Hero/HeroSwiper/HeroSwiperModal/HeroSwiperModal.styled';
 
 export const ModalWindow = styled.div`
   position: fixed;
@@ -12,7 +12,7 @@ export const ModalWindow = styled.div`
   left: 50%;
   z-index: 50;
   transform: translate(-50%, -50%);
-
+  
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -32,6 +32,11 @@ export const ModalWindow = styled.div`
   @media screen and (min-width: 1280px) {
     padding-bottom: 40px;
   }
+
+  /* @media screen and (max-width: 1280px) and (orientation: landscape) {
+    transform: rotate(-90deg) translate(-50%, -50%);
+    https://stackoverflow.com/questions/38359782/how-to-lock-viewport-to-portrait-orientation-in-html5-css3
+  } */
 `;
 
 export const ReviewVideoLimiter = styled.div`

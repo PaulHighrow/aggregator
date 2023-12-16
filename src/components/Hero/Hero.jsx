@@ -1,5 +1,5 @@
 import { Box } from 'components/Box/Box.styled';
-import { SwiperWorks } from 'components/SwiperWorks/SwiperWorks';
+import { HeroSwiper } from 'components/Hero/HeroSwiper/HeroSwiper';
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import {
@@ -84,7 +84,7 @@ export const Hero = ({ toggleModal }) => {
         </DescriptionTrigger>
       </Box>
       {/* <HeroMarquee toggleModal={toggleModal} /> */}
-      <SwiperWorks toggleModal={toggleModal} />
+      <HeroSwiper toggleModal={toggleModal} />
     </HeroSection>
   );
 };

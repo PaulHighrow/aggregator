@@ -2,7 +2,7 @@ import { CloseIcon } from 'components/LeadForm/LeadForm.styled';
 import {
   MarqueeBackIcon,
   MarqueeForwardIcon,
-} from 'components/MarqueeModal/MarqueeModal.styled';
+} from 'components/Hero/HeroSwiper/HeroSwiperModal/HeroSwiperModal.styled';
 import { LeadBtn } from 'components/Menu/Menu.styled';
 import { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player/lazy';

@@ -1,6 +1,6 @@
 import { Backdrop } from 'components/LeadForm/Backdrop/Backdrop.styled';
 import { CloseIcon } from 'components/LeadForm/LeadForm.styled';
-import { MarqueeCloseBtn } from 'components/MarqueeModal/MarqueeModal.styled';
+import { MarqueeCloseBtn } from 'components/Hero/HeroSwiper/HeroSwiperModal/HeroSwiperModal.styled';
 import {
   RouteModal,
   PageLink,

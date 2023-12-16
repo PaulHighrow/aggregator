@@ -32,6 +32,8 @@ const Home = ({ utms }) => {
       }
     };
 
+    console.log(window.screen);
+
     window.addEventListener('keydown', onEscapeClose);
 
     return () => {

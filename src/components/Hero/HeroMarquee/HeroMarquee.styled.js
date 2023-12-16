@@ -35,6 +35,7 @@ export const MarqueeChild = styled.div`
 
 export const MarqueeOverlay = styled.div`
   position: absolute;
+  user-select: none;
   width: 100%;
   height: 100%;
   z-index: 5;

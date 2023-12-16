@@ -1,5 +1,7 @@
+import { VideoModal } from 'components/AboutUs/VideoModal/VideoModal';
 import { YouTubeVideoSoundBtn } from 'components/HowItWorks/HowItWorks.styled';
 import { LeadBtn } from 'components/Menu/Menu.styled';
+import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import ReactPlayer from 'react-player';
 import {
@@ -15,15 +17,13 @@ import {
   VideoBox,
   VideoLimiter,
 } from './Reviews.styled';
-import { ReviewsMarquee } from './ReviewsMarquee/ReviewsMarquee';
-import { VideoModal } from 'components/AboutUs/VideoModal/VideoModal';
-import { useEffect, useState } from 'react';
+import { ReviewsSwiper } from './ReviewsSwiper/ReviewsSwiper';
 
 export const Reviews = ({ toggleModal }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
   });
-  const [ videoRef, videoInView ] = useInView();
+  const [videoRef, videoInView] = useInView();
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   const toggleVideoModal = () => {
@@ -64,7 +64,7 @@ export const Reviews = ({ toggleModal }) => {
           <ReviewsVideoWrapper>
             <VideoLimiter ref={videoRef}>
               <VideoBox onClick={toggleVideoModal}>
-              <YouTubeVideoSoundBtn />
+                <YouTubeVideoSoundBtn />
                 <ReactPlayer
                   loop={true}
                   controls={false}
@@ -95,14 +95,15 @@ export const Reviews = ({ toggleModal }) => {
             </ReviewsTextBox>
           </ReviewsVideoWrapper>
         </ReviewsBox>
-        {inView && <ReviewsMarquee toggleModal={toggleModal} />}
+        {/* {inView && <ReviewsMarquee toggleModal={toggleModal} />} */}
+        {inView && <ReviewsSwiper />}
       </ReviewsSection>
       {isVideoModalOpen && (
-          <VideoModal
-            closeVideoModal={closeVideoModal}
-            url={'https://youtu.be/qj-w9wzo76Q'}
-          />
-        )}
+        <VideoModal
+          closeVideoModal={closeVideoModal}
+          url={'https://youtu.be/qj-w9wzo76Q'}
+        />
+      )}
     </ReviewsBackground>
   );
 };
