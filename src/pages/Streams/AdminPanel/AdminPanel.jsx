@@ -55,6 +55,7 @@ export const AdminPanel = () => {
     deutsch: '',
     polski: '',
     trials: '',
+    trials_kids: '',
     trials_de: '',
     trials_pl: '',
     a1kids: '',
@@ -70,6 +71,7 @@ export const AdminPanel = () => {
     deutsch: yup.string().optional(),
     polski: yup.string().optional(),
     trials: yup.string().optional(),
+    trials_kids: yup.string().optional(),
     trials_de: yup.string().optional(),
     trials_pl: yup.string().optional(),
     a1kids: yup.string().optional(),
@@ -162,9 +164,17 @@ export const AdminPanel = () => {
                 <AdminInput
                   type="text"
                   name="trials"
-                  placeholder="Trials link"
+                  placeholder="Trials English link"
                 />
                 <AdminInputNote component="p" name="trials" />
+              </Label>
+              <Label>
+                <AdminInput
+                  type="text"
+                  name="trials_kids"
+                  placeholder="Trials Kids link"
+                />
+                <AdminInputNote component="p" name="trials_kids" />
               </Label>
               <Label>
                 <AdminInput
