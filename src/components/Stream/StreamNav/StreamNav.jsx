@@ -1,4 +1,3 @@
-import { Schedule } from '../Schedule/Schedule';
 import {
   StreamNavDescription,
   StreamNavItem,
@@ -19,9 +18,9 @@ export const StreamNav = () => {
             Щоб знайти потрібну трансляцію, просто оберіть рівень або мову:
           </StreamNavDescription>
           <StreamNavList>
-            <StreamNavItem>
+            {/* <StreamNavItem>
               <StreamNavLink to={'/streams/a0'}> A0</StreamNavLink>
-            </StreamNavItem>
+            </StreamNavItem> */}
             <StreamNavItem>
               <StreamNavLink to={'/streams/a1'}>A1</StreamNavLink>
             </StreamNavItem>
@@ -39,7 +38,7 @@ export const StreamNav = () => {
             </StreamNavItem>
           </StreamNavList>
         </StreamNavigation>
-        <Schedule />
+        {/* <Schedule /> */}
       </StreamNavigationBox>
     </>
   );

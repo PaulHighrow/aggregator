@@ -14,7 +14,7 @@ import {
   VideoBox,
 } from '../../../components/Stream/Stream.styled';
 
-export const KidsA2 = () => {
+export const KidsB1 = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isKahootOpen, setIsKahootOpen] = useState(false);
   const [isOpenedLast, setIsOpenedLast] = useState('');
@@ -39,8 +39,6 @@ export const KidsA2 = () => {
     ? 'localhost'
     : window.location.host;
 
-    console.log(links);
-
   return (
     <StreamSection ref={sectionEl}>
       <VideoBox>
@@ -61,7 +59,7 @@ export const KidsA2 = () => {
           }}
           width="100%"
           height="100vh"
-          url={links.a2kids}
+          url={links.b1kids}
         />
       </VideoBox>
 
@@ -70,14 +68,14 @@ export const KidsA2 = () => {
           <KahootLogo />
         </KahootBtn>
 
-        {links.a2kids && (
+        {links.b1kids && (
           <ChatBtn onClick={toggleChat}>
             <ChatLogo />
           </ChatBtn>
         )}
       </ButtonBox>
 
-      {links.a2kids && (
+      {links.b1kids && (
         <ChatBox
           className={isChatOpen ? 'shown' : 'hidden'}
           style={isOpenedLast === 'chat' ? { zIndex: '1' } : { zIndex: '0' }}
@@ -87,7 +85,7 @@ export const KidsA2 = () => {
             width="350px"
             height={sectionHeight}
             src={`https://www.youtube.com/live_chat?v=${
-              links.a2kids.match(/([a-zA-Z0-9_-]{11})/)[0]
+              links.b1kids.match(/([a-zA-Z0-9_-]{11})/)[0]
             }&embed_domain=${embedDomain}`}
           ></iframe>
         </ChatBox>

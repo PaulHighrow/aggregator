@@ -57,6 +57,7 @@ export const AdminPanel = () => {
     trials: '',
     a1kids: '',
     a2kids: '',
+    b1kids: '',
   };
 
   const linksSchema = yup.object().shape({
@@ -69,6 +70,7 @@ export const AdminPanel = () => {
     trials: yup.string().optional(),
     a1kids: yup.string().optional(),
     a2kids: yup.string().optional(),
+    b1kids: yup.string().optional(),
   });
 
   const handleLinksSubmit = async (values, { resetForm }) => {
@@ -120,10 +122,10 @@ export const AdminPanel = () => {
             validationSchema={linksSchema}
           >
             <LinksForm>
-              <Label>
+              {/* <Label>
                 <AdminInput type="text" name="a0" placeholder="A0 link" />
                 <AdminInputNote component="p" name="a0" />
-              </Label>
+              </Label> */}
               <Label>
                 <AdminInput type="text" name="a1" placeholder="A1 link" />
                 <AdminInputNote component="p" name="a1" />
@@ -175,6 +177,14 @@ export const AdminPanel = () => {
                   placeholder="A2 kids link"
                 />
                 <AdminInputNote component="p" name="a2kids" />
+              </Label>
+              <Label>
+                <AdminInput
+                  type="text"
+                  name="b1kids"
+                  placeholder="B1 kids link"
+                />
+                <AdminInputNote component="p" name="b1kids" />
               </Label>
               <AdminFormBtn type="submit">Замінити лінки</AdminFormBtn>
             </LinksForm>

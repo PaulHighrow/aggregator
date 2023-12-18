@@ -1,17 +1,17 @@
+import { StreamA0 } from 'pages/Streams/A0/StreamA0';
+import { StreamA1 } from 'pages/Streams/A1/StreamA1';
+import { StreamA2 } from 'pages/Streams/A2/StreamA2';
+import { AdminPanel } from 'pages/Streams/AdminPanel/AdminPanel';
+import { StreamB1 } from 'pages/Streams/B1/StreamB1';
+import { StreamDeutsch } from 'pages/Streams/Deutsch/StreamDeutsch';
+import { StreamPolski } from 'pages/Streams/Polski/StreamPolski';
+import { KidsA1 } from 'pages/StreamsKids/KidsA1/KidsA1';
+import { KidsA2 } from 'pages/StreamsKids/KidsA2/KidsA2';
+import { KidsB1 } from 'pages/StreamsKids/KidsB1/KidsB1';
 import { lazy } from 'react';
 import { Route, Routes, useSearchParams } from 'react-router-dom';
 import ScrollToTop from 'utils/ScrollToTop/ScrollToTop';
 import { SharedLayout } from './SharedLayout/SharedLayout';
-import { StreamA0 } from 'pages/Streams/A0/StreamA0';
-import { StreamA1 } from 'pages/Streams/A1/StreamA1';
-import { StreamA2 } from 'pages/Streams/A2/StreamA2';
-import { StreamDeutsch } from 'pages/Streams/Deutsch/StreamDeutsch';
-import { StreamPolski } from 'pages/Streams/Polski/StreamPolski';
-import { AdminPanel } from 'pages/Streams/AdminPanel/AdminPanel';
-import Deutsch from 'pages/Deutsch/Deutsch';
-import { StreamB1 } from 'pages/Streams/B1/StreamB1';
-import { KidsA1 } from 'pages/StreamKids/KidsA1/KidsA1';
-import { KidsA2 } from 'pages/StreamKids/KidsA2/KidsA2';
 
 const Home = lazy(() =>
   import(/* webpackChunkName: "Homepage" */ '../pages/Home/Home')
@@ -22,8 +22,11 @@ const Clone = lazy(() =>
 const Streams = lazy(() =>
   import(/* webpackChunkName: "Streams page" */ '../pages/Streams/Streams')
 );
+const StreamsKids = lazy(() =>
+  import(/* webpackChunkName: "Streams Kids page" */ '../pages/StreamsKids/StreamsKids')
+);
 const StreamTrial = lazy(() =>
-  import(/* webpackChunkName: "Streams page" */ '../pages/Trials/StreamTrial')
+  import(/* webpackChunkName: "Trials page" */ '../pages/Trials/StreamTrial')
 );
 const AllReviews = lazy(() =>
   import(
@@ -104,7 +107,7 @@ export const App = () => {
           <Route index element={<Home utms={utms} />} />
           <Route path="clone" element={<Clone utms={utms} />} />
           <Route path="reviews" element={<AllReviews />} />
-          <Route path="deutsch" element={<Deutsch utms={utms} />} />
+          {/* <Route path="deutsch" element={<Deutsch utms={utms} />} /> */}
           {/* <Route path="english" element={<English utms={utms} />} />
           <Route path="polski" element={<Polski utms={utms} />} />
           <Route path="education" element={<Education utms={utms} />} />
@@ -120,9 +123,12 @@ export const App = () => {
           <Route path="b1" element={<StreamB1 />} />
           <Route path="deutsch" element={<StreamDeutsch />} />
           <Route path="polski" element={<StreamPolski />} />
-          <Route path="kidsa1" element={<KidsA1 />} />
-          <Route path="kidsa2" element={<KidsA2 />} />
           <Route path="stream-admin-panel" element={<AdminPanel />} />
+        </Route>
+        <Route path="streams-kids" element={<StreamsKids />}>
+          <Route path="a1" element={<KidsA1 />} />
+          <Route path="a2" element={<KidsA2 />} />
+          <Route path="b1" element={<KidsB1 />} />
         </Route>
         <Route path="trials" element={<StreamTrial />} />
       </Routes>
