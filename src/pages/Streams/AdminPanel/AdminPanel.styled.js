@@ -3,15 +3,18 @@ import { Form } from 'formik';
 import styled from 'styled-components';
 
 export const AdminPanelSection = styled.section`
-  height: 100%;
-
+  height: max-content;
+  padding: 30px 0;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
 export const LoginForm = styled(Form)`
-  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
   display: flex;
   flex-direction: column;
