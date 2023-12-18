@@ -1,15 +1,17 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.76a1655c.css",
-    "main.js": "/aggregator/static/js/main.397369a8.js",
+    "main.js": "/aggregator/static/js/main.2464c9c8.js",
     "Homepage.css": "/aggregator/static/css/Homepage.da8dd18d.chunk.css",
     "Homepage.js": "/aggregator/static/js/Homepage.0fd5dbbc.chunk.js",
     "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.b8a6f5c7.chunk.js",
     "Streams page.js": "/aggregator/static/js/Streams page.0c976688.chunk.js",
     "Streams Kids page.js": "/aggregator/static/js/Streams Kids page.bb1357b0.chunk.js",
-    "Trials page.js": "/aggregator/static/js/Trials page.d3b15b9f.chunk.js",
+    "English trials page.js": "/aggregator/static/js/English trials page.009908df.chunk.js",
+    "Deutsch trials page.js": "/aggregator/static/js/Deutsch trials page.e1298721.chunk.js",
+    "Polska trials page.js": "/aggregator/static/js/Polska trials page.f35c45df.chunk.js",
     "All reviews page.js": "/aggregator/static/js/All reviews page.d3c3871a.chunk.js",
-    "Not Found.js": "/aggregator/static/js/Not Found.3324ba0a.chunk.js",
+    "Not Found.js": "/aggregator/static/js/Not Found.c8d73658.chunk.js",
     "reactPlayerYouTube.js": "/aggregator/static/js/reactPlayerYouTube.a26a0e93.chunk.js",
     "reactPlayerSoundCloud.js": "/aggregator/static/js/reactPlayerSoundCloud.08d87338.chunk.js",
     "reactPlayerVimeo.js": "/aggregator/static/js/reactPlayerVimeo.dab5a4b8.chunk.js",
@@ -106,15 +108,17 @@
     "static/media/invertedDownArrow.svg": "/aggregator/static/media/invertedDownArrow.81d2e354f4424bf21d20b96a031591ce.svg",
     "static/media/downArrow.svg": "/aggregator/static/media/downArrow.3d74cb9d6d38fab26c47bbadb8e4f56d.svg",
     "main.76a1655c.css.map": "/aggregator/static/css/main.76a1655c.css.map",
-    "main.397369a8.js.map": "/aggregator/static/js/main.397369a8.js.map",
+    "main.2464c9c8.js.map": "/aggregator/static/js/main.2464c9c8.js.map",
     "Homepage.da8dd18d.chunk.css.map": "/aggregator/static/css/Homepage.da8dd18d.chunk.css.map",
     "Homepage.0fd5dbbc.chunk.js.map": "/aggregator/static/js/Homepage.0fd5dbbc.chunk.js.map",
     "Inverted Homepage.b8a6f5c7.chunk.js.map": "/aggregator/static/js/Inverted Homepage.b8a6f5c7.chunk.js.map",
     "Streams page.0c976688.chunk.js.map": "/aggregator/static/js/Streams page.0c976688.chunk.js.map",
     "Streams Kids page.bb1357b0.chunk.js.map": "/aggregator/static/js/Streams Kids page.bb1357b0.chunk.js.map",
-    "Trials page.d3b15b9f.chunk.js.map": "/aggregator/static/js/Trials page.d3b15b9f.chunk.js.map",
+    "English trials page.009908df.chunk.js.map": "/aggregator/static/js/English trials page.009908df.chunk.js.map",
+    "Deutsch trials page.e1298721.chunk.js.map": "/aggregator/static/js/Deutsch trials page.e1298721.chunk.js.map",
+    "Polska trials page.f35c45df.chunk.js.map": "/aggregator/static/js/Polska trials page.f35c45df.chunk.js.map",
     "All reviews page.d3c3871a.chunk.js.map": "/aggregator/static/js/All reviews page.d3c3871a.chunk.js.map",
-    "Not Found.3324ba0a.chunk.js.map": "/aggregator/static/js/Not Found.3324ba0a.chunk.js.map",
+    "Not Found.c8d73658.chunk.js.map": "/aggregator/static/js/Not Found.c8d73658.chunk.js.map",
     "reactPlayerYouTube.a26a0e93.chunk.js.map": "/aggregator/static/js/reactPlayerYouTube.a26a0e93.chunk.js.map",
     "reactPlayerSoundCloud.08d87338.chunk.js.map": "/aggregator/static/js/reactPlayerSoundCloud.08d87338.chunk.js.map",
     "reactPlayerVimeo.dab5a4b8.chunk.js.map": "/aggregator/static/js/reactPlayerVimeo.dab5a4b8.chunk.js.map",
@@ -135,6 +139,6 @@
   },
   "entrypoints": [
     "static/css/main.76a1655c.css",
-    "static/js/main.397369a8.js"
+    "static/js/main.2464c9c8.js"
   ]
 }
