@@ -83,7 +83,7 @@ export const Stream = () => {
         <iframe
           title="chat"
           width="350px"
-          height={sectionHeight}
+          // height={sectionHeight / 3}
           src={`https://www.youtube.com/live_chat?v=rUxyKA_-grg&embed_domain=${embedDomain}`}
         ></iframe>
         {isChatOpen && (
