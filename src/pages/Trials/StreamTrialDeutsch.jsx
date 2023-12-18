@@ -19,7 +19,7 @@ import {
 
 axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
 
-export const StreamTrial = () => {
+const StreamTrialDeutsch = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isKahootOpen, setIsKahootOpen] = useState(false);
   const [isOpenedLast, setIsOpenedLast] = useState('');
@@ -97,7 +97,7 @@ export const StreamTrial = () => {
           }}
           width="100%"
           height="100vh"
-          url={links.trials}
+          url={links.trials_de}
         />
       </VideoBox>
 
@@ -106,14 +106,14 @@ export const StreamTrial = () => {
           <KahootLogo />
         </KahootBtn>
 
-        {links.trials && (
+        {links.trials_de && (
           <ChatBtn onClick={toggleChat}>
             <ChatLogo />
           </ChatBtn>
         )}
       </ButtonBox>
 
-      {links.trials && (
+      {links.trials_de && (
         <ChatBox
           className={isChatOpen ? 'shown' : 'hidden'}
           style={isOpenedLast === 'chat' ? { zIndex: '1' } : { zIndex: '0' }}
@@ -123,7 +123,7 @@ export const StreamTrial = () => {
             width="350px"
             height={sectionHeight}
             src={`https://www.youtube.com/live_chat?v=${
-              links.trials.match(/([a-zA-Z0-9_-]{11})/)[0]
+              links.trials_de.match(/([a-zA-Z0-9_-]{11})/)[0]
             }&embed_domain=${embedDomain}`}
           ></iframe>
         </ChatBox>
@@ -140,4 +140,4 @@ export const StreamTrial = () => {
   );
 };
 
-export default StreamTrial;
+export default StreamTrialDeutsch;

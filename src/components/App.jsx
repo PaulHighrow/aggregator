@@ -25,8 +25,14 @@ const Streams = lazy(() =>
 const StreamsKids = lazy(() =>
   import(/* webpackChunkName: "Streams Kids page" */ '../pages/StreamsKids/StreamsKids')
 );
-const StreamTrial = lazy(() =>
-  import(/* webpackChunkName: "Trials page" */ '../pages/Trials/StreamTrial')
+const StreamTrialEnglish = lazy(() =>
+  import(/* webpackChunkName: "English trials page" */ '../pages/Trials/StreamTrialEnglish')
+);
+const StreamTrialDeutsch = lazy(() =>
+  import(/* webpackChunkName: "Deutsch trials page" */ '../pages/Trials/StreamTrialDeutsch')
+);
+const StreamTrialPolski = lazy(() =>
+  import(/* webpackChunkName: "Polska trials page" */ '../pages/Trials/StreamTrialPolski')
 );
 const AllReviews = lazy(() =>
   import(
@@ -130,7 +136,9 @@ export const App = () => {
           <Route path="a2" element={<KidsA2 />} />
           <Route path="b1" element={<KidsB1 />} />
         </Route>
-        <Route path="trials" element={<StreamTrial />} />
+        <Route path="trial-en" element={<StreamTrialEnglish />} />
+        <Route path="trial-pl" element={<StreamTrialPolski />} />
+        <Route path="trial-de" element={<StreamTrialDeutsch />} />
       </Routes>
     </>
   );

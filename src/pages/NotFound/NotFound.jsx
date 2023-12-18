@@ -14,8 +14,11 @@ const NotFound = () => {
       <NotFoundLinkWrapper>
         <NotFoundLinkTitle>Але є інші!</NotFoundLinkTitle>
         <NotFoundLinks>
-          <NotFoundLink to="/">Головна</NotFoundLink>
-          <NotFoundLink to="/streams">Трансляції</NotFoundLink>
+          <NotFoundLink to="/">На головну</NotFoundLink>
+          {/* <NotFoundLink to={{ pathname: '/streams' }}>Трансляції</NotFoundLink>
+          <NotFoundLink to={{ pathname: '/streams-kids' }}>
+            Трансляції (діти)
+          </NotFoundLink> */}
           {/* <NotFoundLink to="/english">Курси англійської мови</NotFoundLink>
           <NotFoundLink to="/polski">Курси польської мови</NotFoundLink>
           <NotFoundLink to="/deutsch">Курси німецької мови</NotFoundLink>
