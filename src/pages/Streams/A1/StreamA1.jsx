@@ -83,7 +83,6 @@ export const StreamA1 = () => {
           <iframe
             title="chat"
             width="350px"
-            height={sectionHeight}
             src={`https://www.youtube.com/live_chat?v=${
               links.a1.match(/([a-zA-Z0-9_-]{11})/)[0]
             }&embed_domain=${embedDomain}`}

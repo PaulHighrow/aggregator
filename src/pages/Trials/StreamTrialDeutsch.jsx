@@ -121,7 +121,6 @@ const StreamTrialDeutsch = () => {
           <iframe
             title="chat"
             width="350px"
-            height={sectionHeight}
             src={`https://www.youtube.com/live_chat?v=${
               links.trials_de.match(/([a-zA-Z0-9_-]{11})/)[0]
             }&embed_domain=${embedDomain}`}

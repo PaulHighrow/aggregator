@@ -24,22 +24,29 @@ export const VideoBox = styled.div`
 export const ChatBox = styled.div`
   position: absolute;
   background-color: white;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 35%;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: max-content;
   border-radius: 20px;
   /* overflow: hidden; */
   box-shadow: -10px -10px 30px 0px rgba(0, 0, 0, 0.25);
 
   transition: transform var(--animation-global);
 
+  @media screen and (orientation: portrait) {
+    bottom: 0;
+    top: auto;
+    left: 0;
+    right: auto;
+    width: 100%;
+    height: 45%;
+  }
+
   @media screen and (min-width: 768px) {
     top: 0;
     left: auto;
     right: 0;
-    height: 100%;
-    width: max-content;
   }
 
   & > iframe {
@@ -50,11 +57,11 @@ export const ChatBox = styled.div`
   }
 
   &.hidden {
-    transform: translateX(-100%);
-
-    @media screen and (min-width: 768px) {
-      transform: translateX(100%);
+    @media screen and (orientation: portrait) {
+      transform: translateX(-100%);
     }
+
+    transform: translateX(100%);
   }
 
   &.shown {
