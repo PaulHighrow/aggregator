@@ -78,62 +78,64 @@ const StreamTrialDeutsch = () => {
             <Loader />
           </LoaderWrapper>
         )}
-      
-      <VideoBox>
-        <ReactPlayer
-          playing={true}
-          muted={true}
-          controls={true}
-          config={{
-            youtube: {
-              playerVars: { rel: 0 },
-            },
-          }}
-          style={{
-            display: 'block',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-          }}
-          width="100%"
-          height="100vh"
-          url={links.trials_de}
-        />
-      </VideoBox>
 
-      <ButtonBox>
-        <KahootBtn onClick={toggleKahoot}>
-          <KahootLogo />
-        </KahootBtn>
+        <VideoBox>
+          <ReactPlayer
+            playing={true}
+            muted={true}
+            controls={true}
+            config={{
+              youtube: {
+                playerVars: { rel: 0 },
+              },
+            }}
+            style={{
+              display: 'block',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+            }}
+            width="100%"
+            height="100vh"
+            url={links.trials_de}
+          />
+        </VideoBox>
 
+        <ButtonBox>
+          <KahootBtn onClick={toggleKahoot}>
+            <KahootLogo />
+          </KahootBtn>
+
+          {links.trials_de && (
+            <ChatBtn onClick={toggleChat}>
+              <ChatLogo />
+            </ChatBtn>
+          )}
+        </ButtonBox>
+        {links.trials_de && !links.trials_de.includes('youtube')
+          ? window.location.replace(links.trials_de)
+          : null}
         {links.trials_de && (
-          <ChatBtn onClick={toggleChat}>
-            <ChatLogo />
-          </ChatBtn>
+          <ChatBox
+            className={isChatOpen ? 'shown' : 'hidden'}
+            style={isOpenedLast === 'chat' ? { zIndex: '1' } : { zIndex: '0' }}
+          >
+            <iframe
+              title="chat"
+              width="350px"
+              src={`https://www.youtube.com/live_chat?v=${
+                links.trials_de.match(/([a-zA-Z0-9_-]{11})/)[0]
+              }&embed_domain=${embedDomain}`}
+            ></iframe>
+          </ChatBox>
         )}
-      </ButtonBox>
 
-      {links.trials_de && (
-        <ChatBox
-          className={isChatOpen ? 'shown' : 'hidden'}
-          style={isOpenedLast === 'chat' ? { zIndex: '1' } : { zIndex: '0' }}
-        >
-          <iframe
-            title="chat"
-            width="350px"
-            src={`https://www.youtube.com/live_chat?v=${
-              links.trials_de.match(/([a-zA-Z0-9_-]{11})/)[0]
-            }&embed_domain=${embedDomain}`}
-          ></iframe>
-        </ChatBox>
-      )}
-
-      <Kahoots
-        sectionWidth={sectionWidth}
-        sectionHeight={sectionHeight}
-        isKahootOpen={isKahootOpen}
-        isOpenedLast={isOpenedLast}
-      />
+        <Kahoots
+          sectionWidth={sectionWidth}
+          sectionHeight={sectionHeight}
+          isKahootOpen={isKahootOpen}
+          isOpenedLast={isOpenedLast}
+        />
       </StreamsBackgroundWrapper>
     </StreamSection>
   );

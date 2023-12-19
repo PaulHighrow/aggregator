@@ -44,7 +44,6 @@ export const ChatBox = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    top: 0;
     left: auto;
     right: 0;
   }
