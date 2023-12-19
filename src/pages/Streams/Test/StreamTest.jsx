@@ -11,12 +11,16 @@ import {
   KahootBtn,
   KahootLogo,
   StreamSection,
+  SupportBtn,
+  SupportLogo,
   VideoBox,
 } from '../../../components/Stream/Stream.styled';
+import { Support } from 'components/Stream/Support/Support';
 
 export const StreamTest = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isKahootOpen, setIsKahootOpen] = useState(false);
+  const [isSupportOpen, setIsSupportOpen] = useState(false);
   const [isOpenedLast, setIsOpenedLast] = useState('');
   // eslint-disable-next-line
   const [links, setLinks] = useOutletContext();
@@ -33,6 +37,12 @@ export const StreamTest = () => {
     setIsChatOpen(isChatOpen => !isChatOpen);
     isKahootOpen
       ? setIsOpenedLast(isOpenedLast => 'chat')
+      : setIsOpenedLast(isOpenedLast => '');
+  };
+  const toggleSupport = () => {
+    setIsSupportOpen(isSupportOpen => !isSupportOpen);
+    isKahootOpen
+      ? setIsOpenedLast(isOpenedLast => 'support')
       : setIsOpenedLast(isOpenedLast => '');
   };
   const embedDomain = window.location.host.includes('localhost')
@@ -67,12 +77,14 @@ export const StreamTest = () => {
         <KahootBtn onClick={toggleKahoot}>
           <KahootLogo />
         </KahootBtn>
-
         {links.test && (
           <ChatBtn onClick={toggleChat}>
             <ChatLogo />
           </ChatBtn>
         )}
+        <SupportBtn onClick={toggleSupport}>
+          <SupportLogo />
+        </SupportBtn>
       </ButtonBox>
 
       {links.test && (
@@ -89,6 +101,11 @@ export const StreamTest = () => {
           ></iframe>
         </ChatBox>
       )}
+      <Support
+        sectionWidth={sectionWidth}
+        isSupportOpen={isSupportOpen}
+        isOpenedLast={isOpenedLast}
+      />
 
       <Kahoots
         sectionWidth={sectionWidth}

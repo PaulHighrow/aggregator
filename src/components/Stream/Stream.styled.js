@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { ReactComponent as KahootIcon } from '../../img/svg/kahootIcon.svg';
 import { ReactComponent as ChatIcon } from '../../img/svg/youTubeChat.svg';
+import { ReactComponent as SupportIcon } from '../../img/svg/supportIcon.svg';
 
 export const StreamSection = styled.section`
   position: relative;
@@ -102,29 +103,7 @@ export const ChatBtn = styled.button`
   }
 `;
 
-export const KahootBtn = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 45px;
-  height: 45px;
-  font-size: 20px;
-  border-radius: 50%;
-  border: none;
-  margin: 0 auto;
-
-  @media screen and (min-width: 768px) {
-    width: 70px;
-    height: 70px;
-  }
-
-  &:focus,
-  &:hover,
-  &:active {
-    background-color: var(--accent-color);
-    box-shadow: -10px -10px 30px 0px rgba(0, 0, 0, 0.25);
-  }
-`;
+export const KahootBtn = styled(ChatBtn)``;
 
 export const KahootLogo = styled(KahootIcon)`
   width: 25px;
@@ -145,5 +124,19 @@ export const ChatLogo = styled(ChatIcon)`
   @media screen and (min-width: 768px) {
     width: 58px;
     height: 58px;
+  }
+`;
+
+export const SupportBtn = styled(ChatBtn)``;
+
+export const SupportLogo = styled(SupportIcon)`
+  fill: var(--main-color);
+  width: 31px;
+  height: 31px;
+  z-index: 5;
+
+  @media screen and (min-width: 768px) {
+    width: 48px;
+    height: 48px;
   }
 `;

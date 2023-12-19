@@ -31,10 +31,10 @@ export const EdPlatform = () => {
     'Призи для учнів',
   ];
   const videoUrls = [
-    'https://youtu.be/18RbBq_dIDs?si=OF9HumvGCcMrOQIZ?t=17',
-    'https://youtu.be/18RbBq_dIDs?si=OF9HumvGCcMrOQIZ?t=240',
-    'https://youtu.be/18RbBq_dIDs?si=OF9HumvGCcMrOQIZ?t=409',
-    'https://youtu.be/18RbBq_dIDs?si=OF9HumvGCcMrOQIZ?t=432',
+    'https://youtu.be/-axzcvYXKgk?si=yxFfIYIU1r8BKsTu?t=17',
+    'https://youtu.be/-axzcvYXKgk?si=yxFfIYIU1r8BKsTu?t=240',
+    'https://youtu.be/-axzcvYXKgk?si=yxFfIYIU1r8BKsTu?t=409',
+    'https://youtu.be/-axzcvYXKgk?si=yxFfIYIU1r8BKsTu?t=433',
   ];
   const [timeCode, setTimeCode] = useState('Англійська мова');
   const [videoUrl, setVideoUrl] = useState(videoUrls[0]);
@@ -63,7 +63,7 @@ export const EdPlatform = () => {
           <EdPlatformWrapper>
             <VideoLimiter ref={videoRef}>
               <VideoBox>
-              <YouTubeVideoSoundBtn />
+                <YouTubeVideoSoundBtn />
                 <ReactPlayer
                   loop={true}
                   controls={true}

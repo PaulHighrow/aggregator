@@ -1,4 +1,11 @@
-import { KahootBackground, KahootBox } from './Kahoots.styled';
+import { useState } from 'react';
+import {
+  KahootBackground,
+  KahootBox,
+  KahootExitFullScreenIcon,
+  KahootFullScreenBtn,
+  KahootFullScreenIcon,
+} from './Kahoots.styled';
 
 export const Kahoots = ({
   sectionWidth,
@@ -6,8 +13,13 @@ export const Kahoots = ({
   isKahootOpen,
   isOpenedLast,
 }) => {
-  const desktopWidth = (sectionWidth / 3) * 2;
-  const mobileWidth = sectionWidth / 2;
+  const [isFullScreen, setIsFullScreen] = useState(false);
+  const desktopWidth = isFullScreen ? sectionWidth : (sectionWidth / 3) * 2;
+  const mobileWidth = isFullScreen ? sectionWidth : sectionWidth / 2;
+
+  const toggleFullScreen = () => {
+    setIsFullScreen(isFullScreen => (isFullScreen = !isFullScreen));
+  };
 
   return (
     <>
@@ -24,6 +36,13 @@ export const Kahoots = ({
             width={sectionWidth > 768 ? desktopWidth : mobileWidth}
             height={sectionHeight}
           ></iframe>
+          <KahootFullScreenBtn onClick={toggleFullScreen}>
+            {isFullScreen ? (
+              <KahootExitFullScreenIcon />
+            ) : (
+              <KahootFullScreenIcon />
+            )}
+          </KahootFullScreenBtn>
         </KahootBackground>
       </KahootBox>
     </>
