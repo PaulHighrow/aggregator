@@ -32,7 +32,6 @@ export const Kahoots = ({
             id="kahoot-window"
             title="kahoot-pin"
             src="https://kahoot.it/"
-            frameBorder="0"
             width={sectionWidth > 768 ? desktopWidth : mobileWidth}
             height={sectionHeight}
           ></iframe>

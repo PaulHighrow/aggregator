@@ -22,6 +22,7 @@ export const StreamTest = () => {
   const [isKahootOpen, setIsKahootOpen] = useState(false);
   const [isSupportOpen, setIsSupportOpen] = useState(false);
   const [isOpenedLast, setIsOpenedLast] = useState('');
+  const [isAnimated, setIsAnimated] = useState(false);
   // eslint-disable-next-line
   const [links, setLinks] = useOutletContext();
   const sectionEl = useRef();
@@ -29,25 +30,28 @@ export const StreamTest = () => {
 
   const toggleKahoot = e => {
     setIsKahootOpen(isKahootOpen => !isKahootOpen);
-    isChatOpen
+    isChatOpen || isSupportOpen
       ? setIsOpenedLast(isOpenedLast => 'kahoot')
       : setIsOpenedLast(isOpenedLast => '');
   };
   const toggleChat = () => {
     setIsChatOpen(isChatOpen => !isChatOpen);
-    isKahootOpen
+    isKahootOpen || isSupportOpen
       ? setIsOpenedLast(isOpenedLast => 'chat')
       : setIsOpenedLast(isOpenedLast => '');
   };
   const toggleSupport = () => {
     setIsSupportOpen(isSupportOpen => !isSupportOpen);
-    isKahootOpen
+    isKahootOpen || isChatOpen
       ? setIsOpenedLast(isOpenedLast => 'support')
       : setIsOpenedLast(isOpenedLast => '');
   };
   const embedDomain = window.location.host.includes('localhost')
     ? 'localhost'
     : window.location.host;
+  const handleSupport = () => {
+    setIsAnimated(isAnimated => !isAnimated);
+  };
 
   return (
     <StreamSection ref={sectionEl}>
@@ -74,7 +78,10 @@ export const StreamTest = () => {
       </VideoBox>
 
       <ButtonBox>
-        <KahootBtn onClick={toggleKahoot}>
+        <KahootBtn
+          onClick={toggleKahoot}
+          className={isAnimated ? 'animated' : ''}
+        >
           <KahootLogo />
         </KahootBtn>
         {links.test && (
@@ -94,17 +101,18 @@ export const StreamTest = () => {
         >
           <iframe
             title="chat"
-            width="350px"
             src={`https://www.youtube.com/live_chat?v=${
               links.test.match(/([a-zA-Z0-9_-]{11})/)[0]
             }&embed_domain=${embedDomain}`}
           ></iframe>
         </ChatBox>
       )}
+
       <Support
         sectionWidth={sectionWidth}
         isSupportOpen={isSupportOpen}
         isOpenedLast={isOpenedLast}
+        handleSupport={handleSupport}
       />
 
       <Kahoots

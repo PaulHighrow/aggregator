@@ -103,7 +103,11 @@ export const ChatBtn = styled.button`
   }
 `;
 
-export const KahootBtn = styled(ChatBtn)``;
+export const KahootBtn = styled(ChatBtn)`
+  &.animated {
+    border: 15px solid var(--main-color);
+  }
+`;
 
 export const KahootLogo = styled(KahootIcon)`
   width: 25px;

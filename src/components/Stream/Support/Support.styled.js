@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export const SupportBox = styled.div`
   background-color: white;
   position: absolute;
+  border-radius: 20px;
   top: 0;
   right: 0;
 
@@ -19,13 +20,87 @@ export const SupportBox = styled.div`
 `;
 
 export const SupportBackground = styled(StreamsBackgroundWrapper)`
-  background-position: right -70px top 0px;
+  background-position: right -70px bottom 0px;
+  background-size: auto 33%;
 
   @media screen and (min-width: 768px) {
-    background-position: center top 0px;
+    background-position: center bottom 25px;
+    background-size: auto 40%;
   }
 
   @media screen and (min-width: 1280px) {
-    background-position: right -215px top 0;
+    background-position: right -115px bottom -115px;
+    background-size: auto 55%;
+  }
+`;
+
+export const SupportFAQBox = styled.div`
+  padding: 20px;
+
+  @media screen and (min-width: 768px) {
+    padding: 28px;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 36px;
+  }
+`;
+
+export const FAQHeading = styled.h3`
+  color: var(--main-color);
+  font-size: 32px;
+  font-family: var(--title-font-family);
+  text-align: center;
+  margin-bottom: 24px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 36px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 40px;
+  }
+`;
+
+export const FAQList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`;
+
+export const FAQListItem = styled.li``;
+
+export const FAQListQuestion = styled.span`
+  display: inline-block;
+  text-decoration: underline;
+  color: var(--main-color);
+  cursor: pointer;
+  font-size: 20px;
+  margin-bottom: 6px;
+
+  transition: color var(--animation-global);
+
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 28px;
+  }
+
+  &:hover, &:focus {
+    color: var(--accent-color);
+  }
+`;
+
+export const FAQListAnswer = styled.p`
+  font-size: 16px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 24px;
   }
 `;

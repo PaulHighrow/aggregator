@@ -25,6 +25,7 @@ export const KahootBox = styled.div`
   }
 
   & iframe {
+    border: none;
     display: block;
     transition: width var(--animation-global);
   }
