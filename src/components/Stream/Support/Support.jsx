@@ -9,7 +9,7 @@ export const Support = ({ isSupportOpen, isOpenedLast, sectionWidth }) => {
       <SupportBox
         className={isSupportOpen ? 'shown' : 'hidden'}
         style={
-          (isOpenedLast === 'support' ? { zIndex: '2' } : { zIndex: '0' },
+          (isOpenedLast === 'support' ? { zIndex: '3' } : { zIndex: '0' },
           sectionWidth > 768
             ? { width: `${desktopWidth}px` }
             : { width: `${mobileWidth}px` })
