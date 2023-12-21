@@ -17,7 +17,7 @@ import {
   StreamSection,
   SupportBtn,
   SupportLogo,
-  VideoBox,
+  VideoBox
 } from '../../../components/Stream/Stream.styled';
 
 export const StreamTest = () => {
@@ -26,10 +26,16 @@ export const StreamTest = () => {
   const [isSupportOpen, setIsSupportOpen] = useState(false);
   const [isOpenedLast, setIsOpenedLast] = useState('');
   const [isAnimated, setIsAnimated] = useState(false);
+  // const [elementId, setElementId] = useState(false);
   // eslint-disable-next-line
   const [links, setLinks] = useOutletContext();
   const sectionEl = useRef();
   const [sectionWidth, sectionHeight] = useSize(sectionEl);
+  const chatEl = useRef();
+  // eslint-disable-next-line
+  const [chatWidth, chatHeight] = useSize(chatEl);
+  // eslint-disable-next-line
+  const [width, height] = useSize(document.body);
 
   const toggleKahoot = e => {
     setIsKahootOpen(isKahootOpen => !isKahootOpen);
@@ -52,56 +58,81 @@ export const StreamTest = () => {
   const embedDomain = window.location.host.includes('localhost')
     ? 'localhost'
     : window.location.host;
-  const handleSupport = () => {
+
+  const handleSupportClick = data_id => {
+    // setElementId(id => (id = data_id));
     setIsAnimated(isAnimated => !isAnimated);
   };
 
+  console.log(width);
+  const Snapshot = chatWidth === 0 ? width - 300 : width - chatWidth;
+  console.log(Snapshot);
+
   return (
-    <StreamSection ref={sectionEl}>
-      <VideoBox>
+    <>
+      <StreamSection
+        ref={sectionEl}
+        style={{ width: isChatOpen ? `${Snapshot}px` : '100%' }}
+      >
         <MoldingNoClick />
         <MoldingNoClickSecondary />
-        <ReactPlayer
-          playing={true}
-          muted={true}
-          controls={true}
-          config={{
-            youtube: {
-              playerVars: { rel: 0 },
-            },
-          }}
-          style={{
-            display: 'block',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-          }}
-          width="100%"
-          height="100vh"
-          url={links.test}
-        />
+        <VideoBox>
+          <ReactPlayer
+            playing={true}
+            muted={true}
+            controls={true}
+            config={{
+              youtube: {
+                playerVars: { rel: 0 },
+              },
+            }}
+            style={{
+              display: 'block',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+            }}
+            width="100%"
+            height="100vh"
+            url={links.test}
+          />
+        </VideoBox>
         <MoldingBottom />
-      </VideoBox>
 
-      <ButtonBox>
-        <KahootBtn
-          onClick={toggleKahoot}
-          className={isAnimated ? 'animated' : ''}
-        >
-          <KahootLogo />
-        </KahootBtn>
-        {links.test && (
-          <ChatBtn onClick={toggleChat}>
-            <ChatLogo />
-          </ChatBtn>
-        )}
-        <SupportBtn onClick={toggleSupport}>
-          <SupportLogo />
-        </SupportBtn>
-      </ButtonBox>
+        <ButtonBox>
+          <KahootBtn
+            onClick={toggleKahoot}
+            className={isAnimated ? 'animated' : ''}
+          >
+            <KahootLogo />
+          </KahootBtn>
+          {links.test && (
+            <ChatBtn onClick={toggleChat}>
+              <ChatLogo />
+            </ChatBtn>
+          )}
+          <SupportBtn onClick={toggleSupport}>
+            <SupportLogo />
+          </SupportBtn>
+        </ButtonBox>
 
+        <Support
+          sectionWidth={sectionWidth}
+          isSupportOpen={isSupportOpen}
+          isOpenedLast={isOpenedLast}
+          handleSupport={handleSupportClick}
+        />
+
+        <Kahoots
+          sectionWidth={sectionWidth}
+          sectionHeight={sectionHeight}
+          isKahootOpen={isKahootOpen}
+          isOpenedLast={isOpenedLast}
+        />
+      </StreamSection>
       {links.test && (
         <ChatBox
+          ref={chatEl}
           className={isChatOpen ? 'shown' : 'hidden'}
           style={isOpenedLast === 'chat' ? { zIndex: '2' } : { zIndex: '1' }}
         >
@@ -113,20 +144,6 @@ export const StreamTest = () => {
           ></iframe>
         </ChatBox>
       )}
-
-      <Support
-        sectionWidth={sectionWidth}
-        isSupportOpen={isSupportOpen}
-        isOpenedLast={isOpenedLast}
-        handleSupport={handleSupport}
-      />
-
-      <Kahoots
-        sectionWidth={sectionWidth}
-        sectionHeight={sectionHeight}
-        isKahootOpen={isKahootOpen}
-        isOpenedLast={isOpenedLast}
-      />
-    </StreamSection>
+    </>
   );
 };

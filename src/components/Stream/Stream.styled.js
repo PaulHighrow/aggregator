@@ -9,6 +9,10 @@ export const StreamSection = styled.section`
   height: 100vh;
 `;
 
+export const Video = styled.div`
+  overflow: hidden;
+`;
+
 export const MoldingNoClick = styled.div`
   position: absolute;
   top: 0;
@@ -53,7 +57,7 @@ export const MoldingBottom = styled.div`
 `;
 
 export const VideoBox = styled.div`
-  position: relative;
+  /* position: relative; */
   padding-top: 100vh;
   max-height: 100vh;
   overflow: hidden;
