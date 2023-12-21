@@ -2,6 +2,7 @@ import { StreamsBackgroundWrapper } from 'components/BackgroundWrapper/Backgroun
 import styled from 'styled-components';
 
 export const SupportBox = styled.div`
+  overflow: scroll;
   background-color: white;
   position: absolute;
   border-radius: 20px;
@@ -88,7 +89,8 @@ export const FAQListQuestion = styled.span`
     font-size: 28px;
   }
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     color: var(--accent-color);
   }
 `;

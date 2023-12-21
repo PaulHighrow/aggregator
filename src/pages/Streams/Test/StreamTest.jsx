@@ -10,6 +10,8 @@ import {
   ChatLogo,
   KahootBtn,
   KahootLogo,
+  MoldingBottom,
+  MoldingTop,
   StreamSection,
   SupportBtn,
   SupportLogo,
@@ -56,6 +58,7 @@ export const StreamTest = () => {
   return (
     <StreamSection ref={sectionEl}>
       <VideoBox>
+        <MoldingTop />
         <ReactPlayer
           playing={true}
           muted={true}
@@ -75,6 +78,7 @@ export const StreamTest = () => {
           height="100vh"
           url={links.test}
         />
+        <MoldingBottom />
       </VideoBox>
 
       <ButtonBox>
@@ -97,7 +101,7 @@ export const StreamTest = () => {
       {links.test && (
         <ChatBox
           className={isChatOpen ? 'shown' : 'hidden'}
-          style={isOpenedLast === 'chat' ? { zIndex: '1' } : { zIndex: '0' }}
+          style={isOpenedLast === 'chat' ? { zIndex: '2' } : { zIndex: '1' }}
         >
           <iframe
             title="chat"

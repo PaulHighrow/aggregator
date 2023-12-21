@@ -25,7 +25,7 @@ export const Kahoots = ({
     <>
       <KahootBox
         className={isKahootOpen ? 'shown' : 'hidden'}
-        style={isOpenedLast === 'kahoot' ? { zIndex: '2' } : { zIndex: '0' }}
+        style={isOpenedLast === 'kahoot' ? { zIndex: '3' } : { zIndex: '1' }}
       >
         <KahootBackground>
           <iframe
