@@ -1,5 +1,6 @@
 import useSize from '@react-hook/size';
 import { Kahoots } from 'components/Stream/Kahoots/Kahoots';
+import { Support } from 'components/Stream/Support/Support';
 import { useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { useOutletContext } from 'react-router-dom';
@@ -13,13 +14,11 @@ import {
   MoldingBottom,
   MoldingNoClick,
   MoldingNoClickSecondary,
-  MoldingTop,
   StreamSection,
   SupportBtn,
   SupportLogo,
-  VideoBox,
+  VideoBox
 } from '../../../components/Stream/Stream.styled';
-import { Support } from 'components/Stream/Support/Support';
 
 export const StreamTest = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -55,12 +54,6 @@ export const StreamTest = () => {
     : window.location.host;
   const handleSupport = () => {
     setIsAnimated(isAnimated => !isAnimated);
-  };
-
-  const getIFrameElement = () => {
-    const videoIFrame = document.querySelector('.iframe iframe');
-    console.log(videoIFrame);
-    // console.log(videoIFrame.document);
   };
 
   return (
