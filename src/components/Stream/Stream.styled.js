@@ -9,23 +9,30 @@ export const StreamSection = styled.section`
   height: 100vh;
 `;
 
-export const MoldingTop = styled.div`
-  background-color: black;
+export const MoldingNoClick = styled.div`
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   width: 100%;
-  height: 60px;
+  height: 65%;
+  z-index: 1;
+`;
+
+export const MoldingNoClickSecondary = styled.div`
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  width: 70%;
+  height: calc(35% - 60px);
   z-index: 1;
 `;
 
 export const MoldingBottom = styled.div`
-  background-color: black;
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 116px;
-  height: 36px;
+  width: 160px;
+  height: 38px;
   z-index: 1;
 `;
 

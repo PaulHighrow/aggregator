@@ -11,6 +11,8 @@ import {
   KahootBtn,
   KahootLogo,
   MoldingBottom,
+  MoldingNoClick,
+  MoldingNoClickSecondary,
   MoldingTop,
   StreamSection,
   SupportBtn,
@@ -55,10 +57,18 @@ export const StreamTest = () => {
     setIsAnimated(isAnimated => !isAnimated);
   };
 
+  const getIFrameElement = () => {
+    const videoIFrame = document.querySelector('.iframe iframe');
+    console.log(videoIFrame);
+    // console.log(videoIFrame.document);
+  };
+
   return (
     <StreamSection ref={sectionEl}>
       <VideoBox>
-        <MoldingTop />
+        {/* <MoldingTop /> */}
+        <MoldingNoClick />
+        <MoldingNoClickSecondary />
         <ReactPlayer
           playing={true}
           muted={true}
