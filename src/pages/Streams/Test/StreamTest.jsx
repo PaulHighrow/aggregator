@@ -17,7 +17,7 @@ import {
   StreamSection,
   SupportBtn,
   SupportLogo,
-  VideoBox
+  VideoBox,
 } from '../../../components/Stream/Stream.styled';
 
 export const StreamTest = () => {
@@ -59,7 +59,6 @@ export const StreamTest = () => {
   return (
     <StreamSection ref={sectionEl}>
       <VideoBox>
-        {/* <MoldingTop /> */}
         <MoldingNoClick />
         <MoldingNoClickSecondary />
         <ReactPlayer

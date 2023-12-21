@@ -14,8 +14,16 @@ export const MoldingNoClick = styled.div`
   top: 0;
   right: 0;
   width: 100%;
-  height: 65%;
+  height: 35%;
   z-index: 1;
+
+  @media screen and (min-height: 800px) {
+    height: 50%;
+  }
+
+  @media screen and (min-height: 1200px) {
+    height: 65%;
+  }
 `;
 
 export const MoldingNoClickSecondary = styled.div`
@@ -23,8 +31,16 @@ export const MoldingNoClickSecondary = styled.div`
   bottom: 60px;
   left: 0;
   width: 70%;
-  height: calc(35% - 60px);
+  height: calc(65% - 60px);
   z-index: 1;
+
+  @media screen and (min-height: 800px) {
+    height: calc(50% - 60px);
+  }
+
+  @media screen and (min-height: 1200px) {
+    height: calc(35% - 60px);
+  }
 `;
 
 export const MoldingBottom = styled.div`
