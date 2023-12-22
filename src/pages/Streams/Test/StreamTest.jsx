@@ -1,9 +1,11 @@
 import useSize from '@react-hook/size';
 import { Kahoots } from 'components/Stream/Kahoots/Kahoots';
 import { Support } from 'components/Stream/Support/Support';
-import { useRef, useState } from 'react';
+import { nanoid } from 'nanoid';
+import { useEffect, useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { useOutletContext } from 'react-router-dom';
+import { io } from 'socket.io-client';
 import {
   ButtonBox,
   ChatBox,
@@ -17,8 +19,9 @@ import {
   StreamSection,
   SupportBtn,
   SupportLogo,
-  VideoBox
+  VideoBox,
 } from '../../../components/Stream/Stream.styled';
+import { Chat } from 'utils/Chat/Chat';
 
 export const StreamTest = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -36,6 +39,10 @@ export const StreamTest = () => {
   const [chatWidth, chatHeight] = useSize(chatEl);
   // eslint-disable-next-line
   const [width, height] = useSize(document.body);
+  const [userName, setUserName] = useState('');
+  const [userID, setUserID] = useState('');
+  const [isLoggedToChat, setIsLoggedToChat] = useState('');
+  const socketRef = useRef(null);
 
   const toggleKahoot = e => {
     setIsKahootOpen(isKahootOpen => !isKahootOpen);
@@ -55,18 +62,64 @@ export const StreamTest = () => {
       ? setIsOpenedLast(isOpenedLast => 'support')
       : setIsOpenedLast(isOpenedLast => '');
   };
-  const embedDomain = window.location.host.includes('localhost')
-    ? 'localhost'
-    : window.location.host;
 
   const handleSupportClick = data_id => {
     // setElementId(id => (id = data_id));
     setIsAnimated(isAnimated => !isAnimated);
   };
 
-  console.log(width);
+  // console.log(width);
   const Snapshot = chatWidth === 0 ? width - 300 : width - chatWidth;
-  console.log(Snapshot);
+  // console.log(Snapshot);
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    setUserID(id => (id = nanoid(8)));
+    localStorage.setItem('userName', userName);
+    localStorage.setItem('userID', userID);
+    setIsLoggedToChat(isLogged => !isLogged);
+  };
+
+  useEffect(() => {
+    // создаем экземпляр сокета, передаем ему адрес сервера
+    // и записываем объект с названием комнаты в строку запроса "рукопожатия"
+    // socket.handshake.query.roomId
+    console.log('connect?');
+    socketRef.current = io('https://aggregator-server.onrender.com:5001');
+    console.log('connected?');
+    console.log(socketRef.current);
+
+    // отправляем событие добавления пользователя,
+    // в качестве данных передаем объект с именем и id пользователя
+    // socketRef.current.emit('user:add', { username, userId });
+
+    // обрабатываем получение списка пользователей
+    // socketRef.current.on('users', users => {
+    //   // обновляем массив пользователей
+    //   setUsers(users);
+    // });
+
+    // отправляем запрос на получение сообщений
+    // socketRef.current.emit('message:get');
+
+    // обрабатываем получение сообщений
+    // socketRef.current.on('messages', messages => {
+    // определяем, какие сообщения были отправлены данным пользователем,
+    // если значение свойства "userId" объекта сообщения совпадает с id пользователя,
+    // то добавляем в объект сообщения свойство "currentUser" со значением "true",
+    // иначе, просто возвращаем объект сообщения
+    // const newMessages = messages.map(msg =>
+    //   msg.userId === userId ? { ...msg, currentUser: true } : msg
+    // );
+    // обновляем массив сообщений
+    // setMessages(newMessages);
+    // });
+
+    return () => {
+      // при размонтировании компонента выполняем отключение сокета
+      socketRef.current.disconnect();
+    };
+  }, []);
 
   return (
     <>
@@ -136,12 +189,24 @@ export const StreamTest = () => {
           className={isChatOpen ? 'shown' : 'hidden'}
           style={isOpenedLast === 'chat' ? { zIndex: '2' } : { zIndex: '1' }}
         >
-          <iframe
-            title="chat"
-            src={`https://www.youtube.com/live_chat?v=${
-              links.test.match(/([a-zA-Z0-9_-]{11})/)[0]
-            }&embed_domain=${embedDomain}`}
-          ></iframe>
+          {isLoggedToChat ? (
+            <form className="home__container" onSubmit={handleSubmit}>
+              <h2 className="home__header">Sign in to Open Chat</h2>
+              <label htmlFor="username">Username</label>
+              <input
+                type="text"
+                minLength={3}
+                name="username"
+                id="username"
+                className="username__input"
+                value={userName}
+                onChange={e => setUserName(e.target.value)}
+              />
+              <button className="home__cta">SIGN IN</button>
+            </form>
+          ) : (
+            <Chat socket={socketRef.current} />
+          )}
         </ChatBox>
       )}
     </>
