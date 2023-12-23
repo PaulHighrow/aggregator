@@ -1,4 +1,5 @@
 import useSize from '@react-hook/size';
+import axios from 'axios';
 import { Kahoots } from 'components/Stream/Kahoots/Kahoots';
 import { Support } from 'components/Stream/Support/Support';
 import { nanoid } from 'nanoid';
@@ -6,6 +7,7 @@ import { useEffect, useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { useOutletContext } from 'react-router-dom';
 import { io } from 'socket.io-client';
+import { Chat } from 'utils/Chat/Chat';
 import {
   ButtonBox,
   ChatBox,
@@ -13,7 +15,6 @@ import {
   ChatLogo,
   KahootBtn,
   KahootLogo,
-  MoldingBottom,
   MoldingNoClick,
   MoldingNoClickSecondary,
   StreamSection,
@@ -21,7 +22,8 @@ import {
   SupportLogo,
   VideoBox,
 } from '../../../components/Stream/Stream.styled';
-import { Chat } from 'utils/Chat/Chat';
+
+axios.defaults.baseURL = 'http://localhost:4000/';
 
 export const StreamTest = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -41,8 +43,9 @@ export const StreamTest = () => {
   const [width, height] = useSize(document.body);
   const [userName, setUserName] = useState('');
   const [userID, setUserID] = useState('');
-  const [isLoggedToChat, setIsLoggedToChat] = useState('');
-  const socketRef = useRef(null);
+  const [isLoggedToChat, setIsLoggedToChat] = useState(false);
+  const socket = io('http://localhost:4000/');
+  const [messages, setMessages] = useState([]);
 
   const toggleKahoot = e => {
     setIsKahootOpen(isKahootOpen => !isKahootOpen);
@@ -72,6 +75,8 @@ export const StreamTest = () => {
   const Snapshot = chatWidth === 0 ? width - 300 : width - chatWidth;
   // console.log(Snapshot);
 
+  // setUserName(name => name = localStorage.getItem('userName'));
+
   const handleSubmit = e => {
     e.preventDefault();
     setUserID(id => (id = nanoid(8)));
@@ -81,13 +86,26 @@ export const StreamTest = () => {
   };
 
   useEffect(() => {
+    // const getMessages = async () => {
+    //   try {
+    //     const dbMessages = await axios.get('/messages');
+    //     setMessages(messages => (messages = dbMessages.data));
+    //     console.log(messages);
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // };
+
+    //
     // создаем экземпляр сокета, передаем ему адрес сервера
     // и записываем объект с названием комнаты в строку запроса "рукопожатия"
     // socket.handshake.query.roomId
-    console.log('connect?');
-    socketRef.current = io('https://aggregator-server.onrender.com:5001');
-    console.log('connected?');
-    console.log(socketRef.current);
+    
+    console.log(socket);
+
+    socket.on('message', data => {
+      setMessages([...messages, data]);
+    });
 
     // отправляем событие добавления пользователя,
     // в качестве данных передаем объект с именем и id пользователя
@@ -117,9 +135,9 @@ export const StreamTest = () => {
 
     return () => {
       // при размонтировании компонента выполняем отключение сокета
-      socketRef.current.disconnect();
+      socket.disconnect();
     };
-  }, []);
+  }, [messages]);
 
   return (
     <>
@@ -150,7 +168,6 @@ export const StreamTest = () => {
             url={links.test}
           />
         </VideoBox>
-        <MoldingBottom />
 
         <ButtonBox>
           <KahootBtn
@@ -189,13 +206,15 @@ export const StreamTest = () => {
           className={isChatOpen ? 'shown' : 'hidden'}
           style={isOpenedLast === 'chat' ? { zIndex: '2' } : { zIndex: '1' }}
         >
-          {isLoggedToChat ? (
+          {!isLoggedToChat ? (
             <form className="home__container" onSubmit={handleSubmit}>
               <h2 className="home__header">Sign in to Open Chat</h2>
               <label htmlFor="username">Username</label>
               <input
                 type="text"
                 minLength={3}
+                maxLength={15}
+                autoComplete={'off'}
                 name="username"
                 id="username"
                 className="username__input"
@@ -205,7 +224,7 @@ export const StreamTest = () => {
               <button className="home__cta">SIGN IN</button>
             </form>
           ) : (
-            <Chat socket={socketRef.current} />
+            <Chat socket={socket} messages={messages} />
           )}
         </ChatBox>
       )}

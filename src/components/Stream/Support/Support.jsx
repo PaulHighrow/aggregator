@@ -16,7 +16,7 @@ export const Support = ({
   sectionWidth,
   handleSupport,
 }) => {
-  const desktopWidth = sectionWidth / 4;
+  const desktopWidth = sectionWidth / 3;
   const mobileWidth = (sectionWidth / 3) * 2;
   const [id, setId] = useState([]);
   const [isAnswerShown, setIsAnswerShown] = useState(false);

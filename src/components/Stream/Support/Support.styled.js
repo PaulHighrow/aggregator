@@ -7,12 +7,12 @@ export const SupportBox = styled.div`
   position: absolute;
   border-radius: 20px;
   top: 0;
-  right: 0;
+  left: 0;
 
   transition: transform var(--animation-global);
 
   &.hidden {
-    transform: translateX(100%);
+    transform: translateX(-100%);
   }
 
   &.shown {
@@ -36,14 +36,14 @@ export const SupportBackground = styled(StreamsBackgroundWrapper)`
 `;
 
 export const SupportFAQBox = styled.div`
-  padding: 20px;
+  padding: 20px 40px 20px 65px;
 
   @media screen and (min-width: 768px) {
-    padding: 28px;
+    padding: 28px 32px 28px 95px;
   }
 
-  @media screen and (min-width: 768px) {
-    padding: 36px;
+  @media screen and (min-width: 1280px) {
+    padding: 36px 40px 36px 95px;
   }
 `;
 

@@ -1,11 +1,17 @@
+import axios from 'axios';
 import { useState } from 'react';
+
+axios.defaults.baseURL = 'http://localhost:4000/';
 
 export const ChatFooter = ({ socket }) => {
   const [message, setMessage] = useState('');
-  console.log(socket);
 
   const handleSendMessage = e => {
     e.preventDefault();
+    console.log(message);
+    console.log(message.trim());
+    console.log(localStorage.getItem('userName'));
+    console.log(message.trim() && localStorage.getItem('userName'));
     if (message.trim() && localStorage.getItem('userName')) {
       socket.emit('message', {
         text: message,
@@ -15,6 +21,12 @@ export const ChatFooter = ({ socket }) => {
       });
     }
     console.log({ userName: localStorage.getItem('userName'), message });
+    // axios.post("messages", {
+    //   text: message,
+    //   name: localStorage.getItem('userName'),
+    //   id: `${socket.id}${Math.random()}`,
+    //   socketID: socket.id,
+    // })
     setMessage('');
   };
 

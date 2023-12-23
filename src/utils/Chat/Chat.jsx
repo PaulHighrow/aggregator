@@ -2,12 +2,12 @@ import { ChatBar } from './ChatBar';
 import { ChatBody } from './ChatBody';
 import { ChatFooter } from './ChatFooter';
 
-export const Chat = ({ socket }) => {
+export const Chat = ({ socket, messages }) => {
   return (
     <div className="chat">
-      <ChatBar />
+      <ChatBar socket={socket}/>
       <div className="chat__main">
-        <ChatBody />
+        <ChatBody messages={messages}/>
         <ChatFooter socket={socket} />
       </div>
     </div>
