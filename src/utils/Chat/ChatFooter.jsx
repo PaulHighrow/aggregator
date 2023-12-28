@@ -9,8 +9,6 @@ export const ChatFooter = ({ socket }) => {
   const handleSendMessage = e => {
     e.preventDefault();
     console.log(message);
-    console.log(message.trim());
-    console.log(localStorage.getItem('userName'));
     console.log(message.trim() && localStorage.getItem('userName'));
     if (message.trim() && localStorage.getItem('userName')) {
       socket.emit('message', {

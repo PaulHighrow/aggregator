@@ -71,3 +71,32 @@ export const KahootExitFullScreenIcon = styled(ExitFullscreenIcon)`
   fill: var(--main-color);
   stroke: var(--main-color);
 `;
+
+export const ClipBoardBtn = styled(KahootBtn)`
+  position: absolute;
+  top: 16px;
+  right: 106px;
+  width: 32px;
+  height: 32px;
+  background-color: white;
+  cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    top: 106px;
+    right: 16px;
+  }
+`;
+
+export const ClipBoardInputBox = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+`;
+
+export const ClipBoardInput = styled.input`
+  width: 100%;
+`;
+
+export const ClipBoardSubmitBtn = styled.button`
+  width: 100%;
+`;

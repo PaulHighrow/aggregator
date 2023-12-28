@@ -1,5 +1,5 @@
 import useSize from '@react-hook/size';
-import axios from 'axios';
+// import axios from 'axios';
 import { Kahoots } from 'components/Stream/Kahoots/Kahoots';
 import { Support } from 'components/Stream/Support/Support';
 import { nanoid } from 'nanoid';
@@ -22,8 +22,6 @@ import {
   SupportLogo,
   VideoBox,
 } from '../../../components/Stream/Stream.styled';
-
-axios.defaults.baseURL = 'http://localhost:4000/';
 
 export const StreamTest = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -88,23 +86,29 @@ export const StreamTest = () => {
   useEffect(() => {
     // const getMessages = async () => {
     //   try {
-    //     const dbMessages = await axios.get('/messages');
+    //     const dbMessages = await axios.get('http://localhost:4000/messages');
     //     setMessages(messages => (messages = dbMessages.data));
-    //     console.log(messages);
+    //     // console.log(messages);
     //   } catch (error) {
     //     console.log(error);
     //   }
     // };
-
+    // getMessages();
     //
     // создаем экземпляр сокета, передаем ему адрес сервера
     // и записываем объект с названием комнаты в строку запроса "рукопожатия"
     // socket.handshake.query.roomId
-    
+
     console.log(socket);
+
+    socket.on('connected', (connected, handshake) => {
+      console.log(connected);
+      console.log(handshake);
+    });
 
     socket.on('message', data => {
       setMessages([...messages, data]);
+      console.log(messages);
     });
 
     // отправляем событие добавления пользователя,
@@ -137,7 +141,7 @@ export const StreamTest = () => {
       // при размонтировании компонента выполняем отключение сокета
       socket.disconnect();
     };
-  }, [messages]);
+  }, [messages, socket]);
 
   return (
     <>

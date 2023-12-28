@@ -13,6 +13,7 @@ import { lazy } from 'react';
 import { Route, Routes, useSearchParams } from 'react-router-dom';
 import ScrollToTop from 'utils/ScrollToTop/ScrollToTop';
 import { SharedLayout } from './SharedLayout/SharedLayout';
+import { Toaster } from 'react-hot-toast';
 
 const Home = lazy(() =>
   import(/* webpackChunkName: "Homepage" */ '../pages/Home/Home')
@@ -24,19 +25,29 @@ const Streams = lazy(() =>
   import(/* webpackChunkName: "Streams page" */ '../pages/Streams/Streams')
 );
 const StreamsKids = lazy(() =>
-  import(/* webpackChunkName: "Streams Kids page" */ '../pages/StreamsKids/StreamsKids')
+  import(
+    /* webpackChunkName: "Streams Kids page" */ '../pages/StreamsKids/StreamsKids'
+  )
 );
 const StreamTrialEnglish = lazy(() =>
-  import(/* webpackChunkName: "English trials page" */ '../pages/Trials/StreamTrialEnglish')
+  import(
+    /* webpackChunkName: "English trials page" */ '../pages/Trials/StreamTrialEnglish'
+  )
 );
 const StreamTrialKids = lazy(() =>
-  import(/* webpackChunkName: "Kids trials page" */ '../pages/Trials/StreamTrialKids')
+  import(
+    /* webpackChunkName: "Kids trials page" */ '../pages/Trials/StreamTrialKids'
+  )
 );
 const StreamTrialDeutsch = lazy(() =>
-  import(/* webpackChunkName: "Deutsch trials page" */ '../pages/Trials/StreamTrialDeutsch')
+  import(
+    /* webpackChunkName: "Deutsch trials page" */ '../pages/Trials/StreamTrialDeutsch'
+  )
 );
 const StreamTrialPolski = lazy(() =>
-  import(/* webpackChunkName: "Polska trials page" */ '../pages/Trials/StreamTrialPolski')
+  import(
+    /* webpackChunkName: "Polska trials page" */ '../pages/Trials/StreamTrialPolski'
+  )
 );
 const AllReviews = lazy(() =>
   import(
@@ -112,6 +123,11 @@ export const App = () => {
   return (
     <>
       <ScrollToTop />
+      <Toaster
+        containerStyle={{
+          top: '10%',
+        }}
+      />
       <Routes>
         <Route path="/" element={<SharedLayout utms={utms} />}>
           <Route index element={<Home utms={utms} />} />
