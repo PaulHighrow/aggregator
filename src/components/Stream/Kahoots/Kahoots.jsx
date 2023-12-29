@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import {
+  ClipBoardAdd,
   ClipBoardBtn,
+  ClipBoardCopy,
+  ClipBoardFormText,
   ClipBoardInput,
-  ClipBoardInputBox,
+  ClipBoardInputForm,
   ClipBoardSubmitBtn,
   KahootBackground,
   KahootBox,
@@ -29,32 +32,33 @@ export const Kahoots = ({
     setIsFullScreen(isFullScreen => (isFullScreen = !isFullScreen));
   };
 
-  const createNameInput = () => {
+  const createNameInput = btn => {
+    btn.disabled = true;
     toast(
       t => (
-        <ClipBoardInputBox
+        <ClipBoardInputForm
           onSubmit={e => {
             e.preventDefault();
-            console.dir(e.currentTarget);
             toast.dismiss(t.id);
             setUsername(
               username => (username = localStorage.getItem('userName'))
             );
+            btn.disabled = false;
             copyToClipboard();
           }}
         >
-          <p>
+          <ClipBoardFormText>
             Введіть ваше ім'я в це поле, щоб вам не доводилося вводити його
             декілька разів під час уроку, бажана максимальна кількість символів
             - не більше 15, бо Кахут обріже зайве.
-          </p>
+          </ClipBoardFormText>
           <ClipBoardInput
             onChange={e => {
               localStorage.setItem('userName', e.target.value);
             }}
           />
           <ClipBoardSubmitBtn>Submit</ClipBoardSubmitBtn>
-        </ClipBoardInputBox>
+        </ClipBoardInputForm>
       ),
       { duration: Infinity }
     );
@@ -63,14 +67,15 @@ export const Kahoots = ({
   const copyToClipboard = () => {
     navigator.clipboard.writeText(localStorage.getItem('userName'));
     toast.success(
-      "Ваше ім'я додано в буфер обміну, можете вставити його у відповідне поле!"
+      <ClipBoardFormText>
+        Ваше ім'я додано в буфер обміну, можете вставити його у відповідне поле!
+      </ClipBoardFormText>
     );
   };
 
-  const handleUsernameBtn = () => {
-    console.log(username);
-    console.log(!username);
-    !username ? createNameInput() : copyToClipboard();
+  const handleUsernameBtn = e => {
+    const btn = e.currentTarget;
+    username ? copyToClipboard() : createNameInput(btn);
   };
 
   return (
@@ -94,7 +99,9 @@ export const Kahoots = ({
               <KahootFullScreenIcon />
             )}
           </KahootFullScreenBtn>
-          <ClipBoardBtn onClick={handleUsernameBtn}></ClipBoardBtn>
+          <ClipBoardBtn onClick={handleUsernameBtn}>
+            {username ? <ClipBoardCopy /> : <ClipBoardAdd />}
+          </ClipBoardBtn>
         </KahootBackground>
       </KahootBox>
     </>

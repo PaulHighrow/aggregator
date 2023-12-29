@@ -3,12 +3,16 @@ import styled from 'styled-components';
 import { KahootBtn } from '../Stream.styled';
 import { ReactComponent as FullscreenIcon } from '../../../img/svg/fullScreen.svg';
 import { ReactComponent as ExitFullscreenIcon } from '../../../img/svg/fullScreenExit.svg';
+import { ReactComponent as ClipBoardAddIcon } from '../../../img/svg/clipBoardAdd.svg';
+import { ReactComponent as ClipBoardCopyIcon } from '../../../img/svg/clipBoardCopy.svg';
 
 export const KahootBox = styled.div`
   background-color: white;
   position: absolute;
   top: 0;
   right: 0;
+
+  outline: transparent;
 
   transition: transform var(--animation-global);
 
@@ -87,16 +91,41 @@ export const ClipBoardBtn = styled(KahootBtn)`
   }
 `;
 
-export const ClipBoardInputBox = styled.form`
+export const ClipBoardInputForm = styled.form`
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 15px;
+`;
+
+export const ClipBoardFormText = styled.p`
+  color: var(--main-color);
+  font-size: 22px;
+  font-weight: 700;
 `;
 
 export const ClipBoardInput = styled.input`
   width: 100%;
+  font-size: 22px;
+  font-weight: 700;
 `;
 
 export const ClipBoardSubmitBtn = styled.button`
-  width: 100%;
+  font-size: 22px;
+  font-weight: 700;
+  width: 50%;
+`;
+
+export const ClipBoardAdd = styled(ClipBoardAddIcon)`
+  width: 22px;
+  height: 22px;
+  fill: var(--main-color);
+  stroke: var(--main-color);
+`;
+
+export const ClipBoardCopy = styled(ClipBoardCopyIcon)`
+  width: 22px;
+  height: 22px;
+  fill: var(--main-color);
+  stroke: var(--main-color);
 `;

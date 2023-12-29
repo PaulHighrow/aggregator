@@ -29,7 +29,7 @@ export const StreamTest = () => {
   const [isSupportOpen, setIsSupportOpen] = useState(false);
   const [isOpenedLast, setIsOpenedLast] = useState('');
   const [isAnimated, setIsAnimated] = useState(false);
-  // const [elementId, setElementId] = useState(false);
+  const [animatedID, setAnimationID] = useState('');
   // eslint-disable-next-line
   const [links, setLinks] = useOutletContext();
   const sectionEl = useRef();
@@ -59,14 +59,17 @@ export const StreamTest = () => {
   };
   const toggleSupport = () => {
     setIsSupportOpen(isSupportOpen => !isSupportOpen);
+    setAnimationID('');
     isKahootOpen || isChatOpen
       ? setIsOpenedLast(isOpenedLast => 'support')
       : setIsOpenedLast(isOpenedLast => '');
   };
 
   const handleSupportClick = data_id => {
-    // setElementId(id => (id = data_id));
-    setIsAnimated(isAnimated => !isAnimated);
+    setAnimationID(id => (id = data_id));
+    if (!isAnimated) {
+      setIsAnimated(isAnimated => !isAnimated);
+    }
   };
 
   // console.log(width);
@@ -176,12 +179,19 @@ export const StreamTest = () => {
         <ButtonBox>
           <KahootBtn
             onClick={toggleKahoot}
-            className={isAnimated ? 'animated' : ''}
+            className={
+              isAnimated && animatedID === 'kahoot_open' ? 'animated' : ''
+            }
           >
             <KahootLogo />
           </KahootBtn>
           {links.test && (
-            <ChatBtn onClick={toggleChat}>
+            <ChatBtn
+              onClick={toggleChat}
+              className={
+                isAnimated && animatedID === 'chat_open' ? 'animated' : ''
+              }
+            >
               <ChatLogo />
             </ChatBtn>
           )}

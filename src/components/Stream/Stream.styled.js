@@ -136,6 +136,7 @@ export const ChatBtn = styled.button`
   border-radius: 50%;
   border: none;
   margin: 0 auto;
+  transition: all var(--animation-global);
 
   @media screen and (min-width: 768px) {
     width: 70px;
@@ -148,13 +149,34 @@ export const ChatBtn = styled.button`
     background-color: var(--accent-color);
     box-shadow: -10px -10px 30px 0px rgba(0, 0, 0, 0.25);
   }
-`;
 
-export const KahootBtn = styled(ChatBtn)`
-  &.animated {
-    border: 15px solid var(--main-color);
+  &:before {
+    content: '';
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+  }
+
+  &.animated:before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    border-radius: 50%;
+    display: block;
+    width: 55px;
+    height: 55px;
+
+    filter: blur(10px);
+    opacity: 1;
+    background: linear-gradient(360deg, var(--main-color), #f9ea38);
+
+    @media screen and (min-width: 768px) {
+      width: 80px;
+      height: 80px;
+    }
   }
 `;
+
+export const KahootBtn = styled(ChatBtn)``;
 
 export const KahootLogo = styled(KahootIcon)`
   width: 25px;

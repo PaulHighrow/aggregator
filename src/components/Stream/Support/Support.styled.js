@@ -50,6 +50,7 @@ export const SupportFAQBox = styled.div`
 export const FAQHeading = styled.h3`
   color: var(--main-color);
   font-size: 32px;
+  font-weight: 700;
   font-family: var(--title-font-family);
   text-align: center;
   margin-bottom: 24px;
@@ -77,6 +78,7 @@ export const FAQListQuestion = styled.span`
   color: var(--main-color);
   cursor: pointer;
   font-size: 20px;
+  font-weight: 700;
   margin-bottom: 6px;
 
   transition: color var(--animation-global);
@@ -96,13 +98,13 @@ export const FAQListQuestion = styled.span`
 `;
 
 export const FAQListAnswer = styled.p`
-  font-size: 16px;
+  font-size: 18px;
 
   @media screen and (min-width: 768px) {
-    font-size: 20px;
+    font-size: 22px;
   }
 
   @media screen and (min-width: 1280px) {
-    font-size: 24px;
+    font-size: 26px;
   }
 `;
