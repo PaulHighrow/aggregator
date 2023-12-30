@@ -56,6 +56,67 @@ export const MoldingBottom = styled.div`
   z-index: 1;
 `;
 
+export const SupportMarkerRight = styled.div`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 250px;
+  height: 40px;
+  pointer-events: none;
+  z-index: 10;
+
+  background: transparent;
+  background-clip: padding-box;
+
+  &:before {
+    content: '';
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+  }
+
+  &.animated:before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 150%;
+
+    filter: blur(10px);
+    opacity: 0.5;
+    background: linear-gradient(360deg, var(--main-color), #f9ea38);
+  }
+`;
+
+export const SupportMarkerLeft = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 240px;
+  height: 40px;
+  pointer-events: none;
+  z-index: 10;
+
+  &:before {
+    content: '';
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+  }
+
+  &.animated:before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    filter: blur(10px);
+    opacity: 0.5;
+    background: linear-gradient(360deg, var(--main-color), #f9ea38);
+  }
+`;
+
 export const VideoBox = styled.div`
   /* position: relative; */
   padding-top: 100vh;

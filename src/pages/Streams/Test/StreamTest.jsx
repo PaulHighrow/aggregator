@@ -20,6 +20,8 @@ import {
   StreamSection,
   SupportBtn,
   SupportLogo,
+  SupportMarkerLeft,
+  SupportMarkerRight,
   VideoBox,
 } from '../../../components/Stream/Stream.styled';
 
@@ -102,8 +104,6 @@ export const StreamTest = () => {
     // и записываем объект с названием комнаты в строку запроса "рукопожатия"
     // socket.handshake.query.roomId
 
-    console.log(socket);
-
     socket.on('connected', (connected, handshake) => {
       console.log(connected);
       console.log(handshake);
@@ -155,6 +155,17 @@ export const StreamTest = () => {
         <MoldingNoClick />
         <MoldingNoClickSecondary />
         <VideoBox>
+          <SupportMarkerLeft
+            className={
+              (isAnimated && animatedID === 'sound') ||
+              (isAnimated && animatedID === 'live')
+                ? 'animated'
+                : ''
+            }
+          />{' '}
+          <SupportMarkerRight
+            className={isAnimated && animatedID === 'quality' ? 'animated' : ''}
+          />
           <ReactPlayer
             playing={true}
             muted={true}

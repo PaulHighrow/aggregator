@@ -1,8 +1,10 @@
 import { StreamsBackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
 import styled from 'styled-components';
+import { ReactComponent as YTPSettingsIcon } from '../../../img/svg/supportIcons/ytp-settings.svg';
 
 export const SupportBox = styled.div`
-  overflow: scroll;
+  height: 95vh;
+  overflow-y: scroll;
   background-color: white;
   position: absolute;
   border-radius: 20px;
@@ -21,6 +23,7 @@ export const SupportBox = styled.div`
 `;
 
 export const SupportBackground = styled(StreamsBackgroundWrapper)`
+  height: 100%;
   background-position: right -70px bottom 0px;
   background-size: auto 33%;
 
@@ -107,4 +110,9 @@ export const FAQListAnswer = styled.p`
   @media screen and (min-width: 1280px) {
     font-size: 26px;
   }
+`;
+
+export const YTPSettings = styled(YTPSettingsIcon)`
+  width: 1em;
+  height: 1em;
 `;
