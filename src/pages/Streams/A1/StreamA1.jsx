@@ -10,6 +10,8 @@ import {
   ChatLogo,
   KahootBtn,
   KahootLogo,
+  MoldingNoClick,
+  MoldingNoClickSecondary,
   StreamSection,
   SupportArrow,
   SupportBtn,
@@ -65,6 +67,8 @@ export const StreamA1 = () => {
   return (
     <StreamSection ref={sectionEl}>
       <VideoBox>
+        <MoldingNoClick />
+        <MoldingNoClickSecondary />
         <SupportMarkerLeft
           className={
             (isAnimated && animatedID === 'sound') ||

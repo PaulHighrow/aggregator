@@ -13,6 +13,8 @@ import {
   ChatLogo,
   KahootBtn,
   KahootLogo,
+  MoldingNoClick,
+  MoldingNoClickSecondary,
   StreamSection,
   SupportBtn,
   SupportLogo,
@@ -101,6 +103,8 @@ const StreamTrialKids = () => {
         )}
 
         <VideoBox>
+          <MoldingNoClick />
+          <MoldingNoClickSecondary />
           <SupportMarkerLeft
             className={
               (isAnimated && animatedID === 'sound') ||
