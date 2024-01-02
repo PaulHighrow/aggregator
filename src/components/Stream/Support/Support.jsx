@@ -7,8 +7,15 @@ import {
   FAQListQuestion,
   SupportBackground,
   SupportBox,
+  SupportClipBoardAdd,
+  SupportClipBoardCopy,
   SupportFAQBox,
+  SupportFullScreenExitIcon,
+  SupportFullScreenIcon,
+  SupportKahoot,
   YTPSettings,
+  YTPSound,
+  YTPSoundMuted,
 } from './Support.styled';
 
 export const Support = ({
@@ -16,6 +23,8 @@ export const Support = ({
   isOpenedLast,
   sectionWidth,
   handleSupport,
+  openKahoot,
+  isKahootOpen
 }) => {
   const desktopWidth = sectionWidth / 3;
   const mobileWidth = (sectionWidth / 3) * 2;
@@ -30,6 +39,13 @@ export const Support = ({
 
     setIsAnswerShown(true);
     handleSupport(dataId);
+  };
+
+  const showAnswerAndOpenKahoot = e => {
+    showAnswer(e);
+    if (!isKahootOpen) {
+      openKahoot();
+    }
   };
 
   const supportBoxStylesHandler = () => {
@@ -65,75 +81,6 @@ export const Support = ({
                 )}
               </FAQListItem>
               <FAQListItem>
-                <FAQListQuestion data_id="sound" onClick={showAnswer}>
-                  Як включити звук?
-                </FAQListQuestion>
-                {isAnswerShown && questionIds.includes('sound') && (
-                  <FAQListAnswer>
-                    У низу зліва екрану є штука 🔊, якщо вона перекреслена, то
-                    біда, от на неї клац, і буде добре
-                  </FAQListAnswer>
-                )}
-              </FAQListItem>
-              <FAQListItem>
-                <FAQListQuestion data_id="chat_login" onClick={showAnswer}>
-                  Чому я не можу писати в чаті?
-                </FAQListQuestion>
-                {isAnswerShown && questionIds.includes('chat_login') && (
-                  <FAQListAnswer>
-                    Ютуб просить, щоб авторизувалися там і канал створили там,
-                    бо ноунеймів не любить, тому треба все це зробити, а потім у
-                    чаті писати буде добре
-                  </FAQListAnswer>
-                )}
-              </FAQListItem>
-              <FAQListItem>
-                <FAQListQuestion data_id="chat_open" onClick={showAnswer}>
-                  Як відкрити чат?
-                </FAQListQuestion>
-                {isAnswerShown && questionIds.includes('chat_open') && (
-                  <FAQListAnswer>
-                    Он там зліва зверху кнопка 🗨 є, її клац і буде добре
-                  </FAQListAnswer>
-                )}
-              </FAQListItem>
-              <FAQListItem>
-                <FAQListQuestion data_id="kahoot_open" onClick={showAnswer}>
-                  Як відкрити Кахут?
-                </FAQListQuestion>
-                {isAnswerShown && questionIds.includes('kahoot_open') && (
-                  <FAQListAnswer>
-                    Он там зліва зверху кнопка K! є, її клац і буде добре
-                  </FAQListAnswer>
-                )}
-              </FAQListItem>
-              <FAQListItem>
-                <FAQListQuestion data_id="kahoot_login" onClick={showAnswer}>
-                  Як зайти на Кахут?
-                </FAQListQuestion>
-                {isAnswerShown && questionIds.includes('kahoot_login') && (
-                  <FAQListAnswer>
-                    Он там на екрані код кахуту є, його в поле Game PIN у вікні
-                    Кахуту, потім своє ім'я (повне, будь ласка, від цього ваші
-                    бали залежать) і буде добре
-                  </FAQListAnswer>
-                )}
-              </FAQListItem>
-              <FAQListItem>
-                <FAQListQuestion
-                  data_id="kahoot_fullscreen"
-                  onClick={showAnswer}
-                >
-                  Як відкрити Кахут на весь екран?
-                </FAQListQuestion>
-                {isAnswerShown && questionIds.includes('kahoot_fullscreen') && (
-                  <FAQListAnswer>
-                    Он там у вікні Кахуту справа зверху є кнопка типу 💢, от її
-                    клац і буде взагалі добре
-                  </FAQListAnswer>
-                )}
-              </FAQListItem>
-              <FAQListItem>
                 <FAQListQuestion data_id="live" onClick={showAnswer}>
                   Моя трансляція дуже сильно відстає, що робити?
                 </FAQListQuestion>
@@ -143,6 +90,111 @@ export const Support = ({
                     зручності), праворуч від кнопок паузи та налаштувань
                     гучності розташована кнопка "• У прямому ефірі". Натисніть
                     її, щоб наздогнати трансляцію!
+                  </FAQListAnswer>
+                )}
+              </FAQListItem>
+              <FAQListItem>
+                <FAQListQuestion data_id="sound" onClick={showAnswer}>
+                  Як включити звук?
+                </FAQListQuestion>
+                {isAnswerShown && questionIds.includes('sound') && (
+                  <FAQListAnswer>
+                    У низу зліва вікна (область підсвічено жовтим кольором для
+                    зручності), праворуч від кнопки паузи розташована кнопка
+                    <YTPSoundMuted />, яка за замовчуванням завжди перекреслена,
+                    що означає, що звук вимкнений. Клікніть на неї один раз,
+                    звук ввімкнеться, а сама кнопка набуде такого вигляду:
+                    <YTPSound />
+                  </FAQListAnswer>
+                )}
+              </FAQListItem>
+              <FAQListItem>
+                <FAQListQuestion data_id="chat_open" onClick={showAnswer}>
+                  Як відкрити чат?
+                </FAQListQuestion>
+                {isAnswerShown && questionIds.includes('chat_open') && (
+                  <FAQListAnswer>
+                    У лівому верхньому кутку екрану одразу над кнопкою, якою ви
+                    відкрили це віконце питань та відповідей, розташована кнопка
+                    🗨 (підсвічена зелено-жовтим кольором для зручності),
+                    клікніть по ній один раз і чат з'явиться на екрані.
+                  </FAQListAnswer>
+                )}
+              </FAQListItem>
+              <FAQListItem>
+                <FAQListQuestion data_id="chat_login" onClick={showAnswer}>
+                  Чому я не можу писати в чаті?
+                </FAQListQuestion>
+                {isAnswerShown && questionIds.includes('chat_login') && (
+                  <FAQListAnswer>
+                    YouTube вимагає, щоб ті, хто хоче писати в чат, не тільки
+                    авторизувалися на їх платформі, а ще й створили там канал.
+                    Зробити це вам допоможе{' '}
+                    <a
+                      href="https://support.google.com/youtube/answer/1646861?hl=uk"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      офіційна інструкція
+                    </a>
+                    .
+                  </FAQListAnswer>
+                )}
+              </FAQListItem>
+              <FAQListItem>
+                <FAQListQuestion data_id="kahoot_open" onClick={showAnswer}>
+                  Як відкрити Кахут?
+                </FAQListQuestion>
+                {isAnswerShown && questionIds.includes('kahoot_open') && (
+                  <FAQListAnswer>
+                    У лівому верхньому кутку екрану одразу над кнопкою, якою ви
+                    відкрили це віконце питань та відповідей, розташована кнопка{' '}
+                    <SupportKahoot /> (підсвічена зелено-жовтим кольором для
+                    зручності), клікніть по ній один раз і Kahoot з'явиться на
+                    екрані.
+                  </FAQListAnswer>
+                )}
+              </FAQListItem>
+              <FAQListItem>
+                <FAQListQuestion
+                  data_id="kahoot_login"
+                  onClick={showAnswerAndOpenKahoot}
+                >
+                  Як зайти на Кахут?
+                </FAQListQuestion>
+                {isAnswerShown && questionIds.includes('kahoot_login') && (
+                  <FAQListAnswer>
+                    На екрані трансляції буде продемонстрований код гри, який
+                    необхідно ввести в поле "Game PIN" і натиснути під цим полем
+                    кнопку Enter у вікні Кахуту. Після цього, будь ласка,
+                    введіть своє ім'я у поле "Nickname" у вікні Кахуту повністю
+                    (від цього залежить нарахування вам балів за заняття).
+                    Максимальна кількість символів у полі Кахуту - 15, тому,
+                    можливо, якась частина імені обріжеться.
+                  </FAQListAnswer>
+                )}
+              </FAQListItem>
+              <FAQListItem>
+                <FAQListQuestion
+                  data_id="kahoot_name"
+                  onClick={showAnswerAndOpenKahoot}
+                >
+                  Як не вводити своє ім'я кожний раз для кожного Кахуту? (Поки тільки для Windows)
+                </FAQListQuestion>
+                {isAnswerShown && questionIds.includes('kahoot_name') && (
+                  <FAQListAnswer>Для того, щоб вам не доводилося писати ваше ім'я заново кожного разу, ми розташували у правому верхньому куті вікна Кахуту кнопку <SupportClipBoardAdd/>, яка зберігатиме ваше ім'я на одному пристрої навіть між уроками! По кліку на неї з'явиться невеличке вікно, яке попросить вас ввести ваше повне ім'я (від цього залежить нарахування вам балів за заняття). Коли введете, клікніть кнопку "Зберегти" і ваше ім'я збережеться у буфер обміну, а кнопка буде виглядати так: <SupportClipBoardCopy/>. Тепер по кліку на неї ваше ім'я буде швидко скопійовано і ви зможете вставити його у поле "Nickname" у вікні Кахуту будь-якою звичною для вас комбінацією. </FAQListAnswer>
+                )}
+              </FAQListItem>
+              <FAQListItem>
+                <FAQListQuestion
+                  data_id="kahoot_fullscreen"
+                  onClick={showAnswerAndOpenKahoot}
+                >
+                  Як відкрити Кахут на весь екран?
+                </FAQListQuestion>
+                {isAnswerShown && questionIds.includes('kahoot_fullscreen') && (
+                  <FAQListAnswer>
+                    Зробити це можна кнопкою <SupportFullScreenIcon/> у правому верхньому куті вікна Кахуту. Вийти з цього режиму можна буде по кліку на цю ж кнопку, яка тепер буде мати вигляд <SupportFullScreenExitIcon/>.
                   </FAQListAnswer>
                 )}
               </FAQListItem>

@@ -216,6 +216,8 @@ export const StreamTest = () => {
           isSupportOpen={isSupportOpen}
           isOpenedLast={isOpenedLast}
           handleSupport={handleSupportClick}
+          openKahoot={toggleKahoot}
+          isKahootOpen={isKahootOpen}
         />
 
         <Kahoots

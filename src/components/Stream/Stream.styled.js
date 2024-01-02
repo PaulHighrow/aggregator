@@ -1,7 +1,9 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { ReactComponent as KahootIcon } from '../../img/svg/kahootIcon.svg';
 import { ReactComponent as ChatIcon } from '../../img/svg/youTubeChat.svg';
 import { ReactComponent as SupportIcon } from '../../img/svg/supportIcon.svg';
+import { ReactComponent as SupportArrowIcon } from '../../img/svg/supportIcons/supportArrow.svg';
+import { ReactComponent as SupportPointerIcon } from '../../img/svg/supportIcons/supportPointer.svg';
 
 export const StreamSection = styled.section`
   position: relative;
@@ -44,6 +46,15 @@ export const MoldingNoClickSecondary = styled.div`
 
   @media screen and (min-height: 1200px) {
     height: calc(35% - 60px);
+  }
+`;
+
+const pulse = keyframes`
+  0%{
+    transform: scale(0.9);
+  }
+  100%{
+    transform: scale(1.1);
   }
 `;
 
@@ -211,6 +222,10 @@ export const ChatBtn = styled.button`
     box-shadow: -10px -10px 30px 0px rgba(0, 0, 0, 0.25);
   }
 
+  &.animated {
+    animation: ${pulse} 1000ms infinite ease-in-out alternate;
+  }
+
   &:before {
     content: '';
     opacity: 0;
@@ -225,6 +240,7 @@ export const ChatBtn = styled.button`
     display: block;
     width: 55px;
     height: 55px;
+    /* animation: ${pulse} 1000ms infinite ease-in-out alternate; */
 
     filter: blur(10px);
     opacity: 1;
@@ -272,5 +288,51 @@ export const SupportLogo = styled(SupportIcon)`
   @media screen and (min-width: 768px) {
     width: 48px;
     height: 48px;
+  }
+`;
+
+export const SupportArrow = styled(SupportArrowIcon)`
+  fill: var(--main-color);
+  position: absolute;
+  bottom: 60px;
+  left: 60px;
+  width: 80px;
+  height: 80px;
+  z-index: 5;
+  opacity: 0;
+  transition: all var(--animation-global);
+
+  @media screen and (min-width: 768px) {
+    width: 120px;
+    height: 120px;
+  }
+
+  &.animated {
+    opacity: 1;
+    filter: drop-shadow(1px 1px 7px #f9ea38);
+    animation: ${pulse} 1000ms infinite ease-in-out alternate;
+  }
+`;
+
+export const SupportPointer = styled(SupportPointerIcon)`
+  fill: var(--main-color);
+  position: absolute;
+  bottom: 60px;
+  right: 100px;
+  width: 64px;
+  height: 64px;
+  z-index: 5;
+  opacity: 0;
+
+  @media screen and (min-width: 768px) {
+    width: 72px;
+    height: 72px;
+  }
+
+  &.animated {
+    opacity: 1;
+    filter: drop-shadow(1px 1px 7px #f9ea38);
+    transform: rotate(180deg);
+    animation: ${pulse} 1s infinite ease-in-out alternate;
   }
 `;

@@ -14,15 +14,23 @@ import {
   KahootBtn,
   KahootLogo,
   StreamSection,
+  SupportBtn,
+  SupportLogo,
+  SupportMarkerLeft,
+  SupportMarkerRight,
   VideoBox,
 } from '../../components/Stream/Stream.styled';
+import { Support } from 'components/Stream/Support/Support';
 
 axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
 
 const StreamTrialKids = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isKahootOpen, setIsKahootOpen] = useState(false);
+  const [isSupportOpen, setIsSupportOpen] = useState(false);
   const [isOpenedLast, setIsOpenedLast] = useState('');
+  const [isAnimated, setIsAnimated] = useState(false);
+  const [animatedID, setAnimationID] = useState('');
   // eslint-disable-next-line
   const sectionEl = useRef();
   const [sectionWidth, sectionHeight] = useSize(sectionEl);
@@ -56,15 +64,28 @@ const StreamTrialKids = () => {
 
   const toggleKahoot = e => {
     setIsKahootOpen(isKahootOpen => !isKahootOpen);
-    isChatOpen
+    isChatOpen || isSupportOpen
       ? setIsOpenedLast(isOpenedLast => 'kahoot')
       : setIsOpenedLast(isOpenedLast => '');
   };
   const toggleChat = () => {
     setIsChatOpen(isChatOpen => !isChatOpen);
-    isKahootOpen
+    isKahootOpen || isSupportOpen
       ? setIsOpenedLast(isOpenedLast => 'chat')
       : setIsOpenedLast(isOpenedLast => '');
+  };
+  const toggleSupport = () => {
+    setIsSupportOpen(isSupportOpen => !isSupportOpen);
+    setAnimationID('');
+    isKahootOpen || isChatOpen
+      ? setIsOpenedLast(isOpenedLast => 'support')
+      : setIsOpenedLast(isOpenedLast => '');
+  };
+  const handleSupportClick = data_id => {
+    setAnimationID(id => (id = data_id));
+    if (!isAnimated) {
+      setIsAnimated(isAnimated => !isAnimated);
+    }
   };
   const embedDomain = window.location.host.includes('localhost')
     ? 'localhost'
@@ -78,62 +99,98 @@ const StreamTrialKids = () => {
             <Loader />
           </LoaderWrapper>
         )}
-      
-      <VideoBox>
-        <ReactPlayer
-          playing={true}
-          muted={true}
-          controls={true}
-          config={{
-            youtube: {
-              playerVars: { rel: 0 },
-            },
-          }}
-          style={{
-            display: 'block',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-          }}
-          width="100%"
-          height="100vh"
-          url={links.trials_kids}
-        />
-      </VideoBox>
 
-      <ButtonBox>
-        <KahootBtn onClick={toggleKahoot}>
-          <KahootLogo />
-        </KahootBtn>
+        <VideoBox>
+          <SupportMarkerLeft
+            className={
+              (isAnimated && animatedID === 'sound') ||
+              (isAnimated && animatedID === 'live')
+                ? 'animated'
+                : ''
+            }
+          />{' '}
+          <SupportMarkerRight
+            className={isAnimated && animatedID === 'quality' ? 'animated' : ''}
+          />
+          <ReactPlayer
+            playing={true}
+            muted={true}
+            controls={true}
+            config={{
+              youtube: {
+                playerVars: { rel: 0 },
+              },
+            }}
+            style={{
+              display: 'block',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+            }}
+            width="100%"
+            height="100vh"
+            url={links.trials_kids}
+          />
+        </VideoBox>
 
+        <ButtonBox>
+          <KahootBtn
+            onClick={toggleKahoot}
+            className={
+              isAnimated && animatedID === 'kahoot_open' ? 'animated' : ''
+            }
+          >
+            <KahootLogo />
+          </KahootBtn>
+
+          {links.trials_kids && (
+            <ChatBtn
+              onClick={toggleChat}
+              className={
+                isAnimated && animatedID === 'chat_open' ? 'animated' : ''
+              }
+            >
+              <ChatLogo />
+            </ChatBtn>
+          )}
+
+          <SupportBtn onClick={toggleSupport}>
+            <SupportLogo />
+          </SupportBtn>
+        </ButtonBox>
+        {links.trials_kids && !links.trials_kids.includes('youtube')
+          ? window.location.replace(links.trials_kids)
+          : null}
         {links.trials_kids && (
-          <ChatBtn onClick={toggleChat}>
-            <ChatLogo />
-          </ChatBtn>
+          <ChatBox
+            className={isChatOpen ? 'shown' : 'hidden'}
+            style={isOpenedLast === 'chat' ? { zIndex: '1' } : { zIndex: '0' }}
+          >
+            <iframe
+              title="chat"
+              width="350px"
+              src={`https://www.youtube.com/live_chat?v=${
+                links.trials_kids.match(/([a-zA-Z0-9_-]{11})/)[0]
+              }&embed_domain=${embedDomain}`}
+            ></iframe>
+          </ChatBox>
         )}
-      </ButtonBox>
 
-      {links.trials_kids && (
-        <ChatBox
-          className={isChatOpen ? 'shown' : 'hidden'}
-          style={isOpenedLast === 'chat' ? { zIndex: '1' } : { zIndex: '0' }}
-        >
-          <iframe
-            title="chat"
-            width="350px"
-            src={`https://www.youtube.com/live_chat?v=${
-              links.trials_kids.match(/([a-zA-Z0-9_-]{11})/)[0]
-            }&embed_domain=${embedDomain}`}
-          ></iframe>
-        </ChatBox>
-      )}
+        <Kahoots
+          sectionWidth={sectionWidth}
+          sectionHeight={sectionHeight}
+          isKahootOpen={isKahootOpen}
+          isOpenedLast={isOpenedLast}
+        />
 
-      <Kahoots
-        sectionWidth={sectionWidth}
-        sectionHeight={sectionHeight}
-        isKahootOpen={isKahootOpen}
-        isOpenedLast={isOpenedLast}
-      />
+        <Support
+          sectionWidth={sectionWidth}
+          isSupportOpen={isSupportOpen}
+          isOpenedLast={isOpenedLast}
+          handleSupport={handleSupportClick}
+          openKahoot={toggleKahoot}
+          isKahootOpen={isKahootOpen}
+        />
       </StreamsBackgroundWrapper>
     </StreamSection>
   );

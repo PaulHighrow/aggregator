@@ -1,6 +1,13 @@
 import { StreamsBackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
 import styled from 'styled-components';
 import { ReactComponent as YTPSettingsIcon } from '../../../img/svg/supportIcons/ytp-settings.svg';
+import { ReactComponent as YTPSoundMutedIcon } from '../../../img/svg/supportIcons/ytp-sound-muted.svg';
+import { ReactComponent as YTPSoundIcon } from '../../../img/svg/supportIcons/ytp-sound.svg';
+import { ReactComponent as SupportKahootIcon } from '../../../img/svg/kahootIcon.svg';
+import { ReactComponent as ClipBoardAddIcon } from '../../../img/svg/clipBoardAdd.svg';
+import { ReactComponent as ClipBoardCopyIcon } from '../../../img/svg/clipBoardCopy.svg';
+import { ReactComponent as FullScreenIcon } from '../../../img/svg/fullScreen.svg';
+import { ReactComponent as FullScreenExitIcon } from '../../../img/svg/fullScreenExit.svg';
 
 export const SupportBox = styled.div`
   height: 95vh;
@@ -77,7 +84,6 @@ export const FAQListItem = styled.li``;
 
 export const FAQListQuestion = styled.span`
   display: inline-block;
-  text-decoration: underline;
   color: var(--main-color);
   cursor: pointer;
   font-size: 20px;
@@ -113,6 +119,59 @@ export const FAQListAnswer = styled.p`
 `;
 
 export const YTPSettings = styled(YTPSettingsIcon)`
+  vertical-align: middle;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+`;
+
+export const YTPSoundMuted = styled(YTPSoundMutedIcon)`
+  vertical-align: middle;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+`;
+
+export const YTPSound = styled(YTPSoundIcon)`
+  vertical-align: middle;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+`;
+
+export const SupportKahoot = styled(SupportKahootIcon)`
+  fill: #000;
+
+  vertical-align: middle;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+`;
+
+export const SupportClipBoardAdd = styled(ClipBoardAddIcon)`
+  vertical-align: middle;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+`;
+
+export const SupportClipBoardCopy = styled(ClipBoardCopyIcon)`
+  vertical-align: middle;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+`;
+
+export const SupportFullScreenIcon = styled(FullScreenIcon)`
+  vertical-align: middle;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+`;
+
+export const SupportFullScreenExitIcon = styled(FullScreenExitIcon)`
+  vertical-align: middle;
+  display: inline-block;
   width: 1em;
   height: 1em;
 `;

@@ -53,11 +53,12 @@ export const Kahoots = ({
             - не більше 15, бо Кахут обріже зайве.
           </ClipBoardFormText>
           <ClipBoardInput
+            placeholder="Ім'я"
             onChange={e => {
               localStorage.setItem('userName', e.target.value);
             }}
           />
-          <ClipBoardSubmitBtn>Submit</ClipBoardSubmitBtn>
+          <ClipBoardSubmitBtn>Зберегти</ClipBoardSubmitBtn>
         </ClipBoardInputForm>
       ),
       { duration: Infinity }

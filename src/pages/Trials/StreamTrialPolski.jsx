@@ -14,15 +14,23 @@ import {
   KahootBtn,
   KahootLogo,
   StreamSection,
+  SupportBtn,
+  SupportLogo,
+  SupportMarkerLeft,
+  SupportMarkerRight,
   VideoBox,
 } from '../../components/Stream/Stream.styled';
+import { Support } from 'components/Stream/Support/Support';
 
 axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
 
-const StreamTrialPolska = () => {
+const StreamTrialPolski = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isKahootOpen, setIsKahootOpen] = useState(false);
+  const [isSupportOpen, setIsSupportOpen] = useState(false);
   const [isOpenedLast, setIsOpenedLast] = useState('');
+  const [isAnimated, setIsAnimated] = useState(false);
+  const [animatedID, setAnimationID] = useState('');
   // eslint-disable-next-line
   const sectionEl = useRef();
   const [sectionWidth, sectionHeight] = useSize(sectionEl);
@@ -56,15 +64,28 @@ const StreamTrialPolska = () => {
 
   const toggleKahoot = e => {
     setIsKahootOpen(isKahootOpen => !isKahootOpen);
-    isChatOpen
+    isChatOpen || isSupportOpen
       ? setIsOpenedLast(isOpenedLast => 'kahoot')
       : setIsOpenedLast(isOpenedLast => '');
   };
   const toggleChat = () => {
     setIsChatOpen(isChatOpen => !isChatOpen);
-    isKahootOpen
+    isKahootOpen || isSupportOpen
       ? setIsOpenedLast(isOpenedLast => 'chat')
       : setIsOpenedLast(isOpenedLast => '');
+  };
+  const toggleSupport = () => {
+    setIsSupportOpen(isSupportOpen => !isSupportOpen);
+    setAnimationID('');
+    isKahootOpen || isChatOpen
+      ? setIsOpenedLast(isOpenedLast => 'support')
+      : setIsOpenedLast(isOpenedLast => '');
+  };
+  const handleSupportClick = data_id => {
+    setAnimationID(id => (id = data_id));
+    if (!isAnimated) {
+      setIsAnimated(isAnimated => !isAnimated);
+    }
   };
   const embedDomain = window.location.host.includes('localhost')
     ? 'localhost'
@@ -80,6 +101,17 @@ const StreamTrialPolska = () => {
         )}
 
         <VideoBox>
+          <SupportMarkerLeft
+            className={
+              (isAnimated && animatedID === 'sound') ||
+              (isAnimated && animatedID === 'live')
+                ? 'animated'
+                : ''
+            }
+          />{' '}
+          <SupportMarkerRight
+            className={isAnimated && animatedID === 'quality' ? 'animated' : ''}
+          />
           <ReactPlayer
             playing={true}
             muted={true}
@@ -102,15 +134,29 @@ const StreamTrialPolska = () => {
         </VideoBox>
 
         <ButtonBox>
-          <KahootBtn onClick={toggleKahoot}>
+          <KahootBtn
+            onClick={toggleKahoot}
+            className={
+              isAnimated && animatedID === 'kahoot_open' ? 'animated' : ''
+            }
+          >
             <KahootLogo />
           </KahootBtn>
 
           {links.trials_pl && (
-            <ChatBtn onClick={toggleChat}>
+            <ChatBtn
+              onClick={toggleChat}
+              className={
+                isAnimated && animatedID === 'chat_open' ? 'animated' : ''
+              }
+            >
               <ChatLogo />
             </ChatBtn>
           )}
+
+          <SupportBtn onClick={toggleSupport}>
+            <SupportLogo />
+          </SupportBtn>
         </ButtonBox>
         {links.trials_pl && !links.trials_pl.includes('youtube')
           ? window.location.replace(links.trials_pl)
@@ -136,9 +182,18 @@ const StreamTrialPolska = () => {
           isKahootOpen={isKahootOpen}
           isOpenedLast={isOpenedLast}
         />
+
+        <Support
+          sectionWidth={sectionWidth}
+          isSupportOpen={isSupportOpen}
+          isOpenedLast={isOpenedLast}
+          handleSupport={handleSupportClick}
+          openKahoot={toggleKahoot}
+          isKahootOpen={isKahootOpen}
+        />
       </StreamsBackgroundWrapper>
     </StreamSection>
   );
 };
 
-export default StreamTrialPolska;
+export default StreamTrialPolski;
