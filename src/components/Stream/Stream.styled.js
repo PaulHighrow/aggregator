@@ -39,6 +39,11 @@ export const MoldingNoClickSecondary = styled.div`
   width: 70%;
   height: calc(65% - 60px);
   z-index: 1;
+  display: block;
+
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
 
   @media screen and (min-height: 800px) {
     height: calc(50% - 60px);
@@ -56,15 +61,6 @@ const pulse = keyframes`
   100%{
     transform: scale(1.1);
   }
-`;
-
-export const MoldingBottom = styled.div`
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 160px;
-  height: 38px;
-  z-index: 1;
 `;
 
 export const SupportMarkerRight = styled.div`
@@ -176,6 +172,8 @@ export const ChatBox = styled.div`
   }
 
   &.hidden {
+    display: none;
+
     @media screen and (orientation: portrait) {
       transform: translateX(-100%);
     }
@@ -184,6 +182,11 @@ export const ChatBox = styled.div`
   }
 
   &.shown {
+    display: block;
+    transform: translateX(0);
+  }
+
+  &.transformed {
     transform: translateX(0);
   }
 `;

@@ -18,10 +18,12 @@ import {
   MoldingNoClick,
   MoldingNoClickSecondary,
   StreamSection,
+  SupportArrow,
   SupportBtn,
   SupportLogo,
   SupportMarkerLeft,
   SupportMarkerRight,
+  SupportPointer,
   VideoBox,
 } from '../../../components/Stream/Stream.styled';
 
@@ -75,8 +77,11 @@ export const StreamTest = () => {
   };
 
   // console.log(width);
+  console.log(window.screen);
+  const orientation = window.screen.orientation.type;
+  console.log(orientation);
   const Snapshot = chatWidth === 0 ? width - 300 : width - chatWidth;
-  // console.log(Snapshot);
+  console.log(Snapshot);
 
   // setUserName(name => name = localStorage.getItem('userName'));
 
@@ -150,11 +155,13 @@ export const StreamTest = () => {
     <>
       <StreamSection
         ref={sectionEl}
-        style={{ width: isChatOpen ? `${Snapshot}px` : '100%' }}
+        style={{
+          width: isChatOpen && width > height ? `${Snapshot}px` : '100%',
+        }}
       >
-        <MoldingNoClick />
-        <MoldingNoClickSecondary />
         <VideoBox>
+          <MoldingNoClick />
+          <MoldingNoClickSecondary />
           <SupportMarkerLeft
             className={
               (isAnimated && animatedID === 'sound') ||
@@ -162,10 +169,25 @@ export const StreamTest = () => {
                 ? 'animated'
                 : ''
             }
-          />{' '}
+          >
+            <SupportArrow
+              className={
+                (isAnimated && animatedID === 'sound') ||
+                (isAnimated && animatedID === 'live')
+                  ? 'animated'
+                  : ''
+              }
+            />
+          </SupportMarkerLeft>
           <SupportMarkerRight
             className={isAnimated && animatedID === 'quality' ? 'animated' : ''}
-          />
+          >
+            <SupportPointer
+              className={
+                isAnimated && animatedID === 'quality' ? 'animated' : ''
+              }
+            />
+          </SupportMarkerRight>
           <ReactPlayer
             playing={true}
             muted={true}
@@ -211,6 +233,35 @@ export const StreamTest = () => {
           </SupportBtn>
         </ButtonBox>
 
+        {links.test && orientation.includes('portrait') && (
+          <ChatBox
+            ref={chatEl}
+            className={isChatOpen ? 'shown' : 'hidden'}
+            style={isOpenedLast === 'chat' ? { zIndex: '2' } : { zIndex: '1' }}
+          >
+            {!isLoggedToChat ? (
+              <form className="home__container" onSubmit={handleSubmit}>
+                <h2 className="home__header">Sign in to Open Chat</h2>
+                <label htmlFor="username">Username</label>
+                <input
+                  type="text"
+                  minLength={3}
+                  maxLength={15}
+                  autoComplete={'off'}
+                  name="username"
+                  id="username"
+                  className="username__input"
+                  value={userName}
+                  onChange={e => setUserName(e.target.value)}
+                />
+                <button className="home__cta">SIGN IN</button>
+              </form>
+            ) : (
+              <Chat socket={socket} messages={messages} />
+            )}
+          </ChatBox>
+        )}
+
         <Support
           sectionWidth={sectionWidth}
           isSupportOpen={isSupportOpen}
@@ -227,7 +278,7 @@ export const StreamTest = () => {
           isOpenedLast={isOpenedLast}
         />
       </StreamSection>
-      {links.test && (
+      {links.test && width > height && (
         <ChatBox
           ref={chatEl}
           className={isChatOpen ? 'shown' : 'hidden'}

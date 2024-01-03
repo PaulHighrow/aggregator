@@ -13,10 +13,12 @@ import {
   MoldingNoClick,
   MoldingNoClickSecondary,
   StreamSection,
+  SupportArrow,
   SupportBtn,
   SupportLogo,
   SupportMarkerLeft,
   SupportMarkerRight,
+  SupportPointer,
   VideoBox,
 } from '../../../components/Stream/Stream.styled';
 import { Support } from 'components/Stream/Support/Support';
@@ -32,6 +34,11 @@ export const KidsA1 = () => {
   const [links, setLinks] = useOutletContext();
   const sectionEl = useRef();
   const [sectionWidth, sectionHeight] = useSize(sectionEl);
+  const chatEl = useRef();
+  // eslint-disable-next-line
+  const [chatWidth, chatHeight] = useSize(chatEl);
+  // eslint-disable-next-line
+  const [width, height] = useSize(document.body);
 
   const toggleKahoot = e => {
     setIsKahootOpen(isKahootOpen => !isKahootOpen);
@@ -62,82 +69,128 @@ export const KidsA1 = () => {
     ? 'localhost'
     : window.location.host;
 
+  const videoBoxWidth =
+    chatWidth === 0 && width > height ? width - 300 : width - chatWidth;
+
   return (
-    <StreamSection ref={sectionEl}>
-      <VideoBox>
-        <MoldingNoClick />
-        <MoldingNoClickSecondary />
-        <SupportMarkerLeft
-          className={
-            (isAnimated && animatedID === 'sound') ||
-            (isAnimated && animatedID === 'live')
-              ? 'animated'
-              : ''
-          }
-        />{' '}
-        <SupportMarkerRight
-          className={isAnimated && animatedID === 'quality' ? 'animated' : ''}
-        />
-        <ReactPlayer
-          playing={true}
-          muted={true}
-          controls={true}
-          config={{
-            youtube: {
-              playerVars: { rel: 0 },
-            },
-          }}
-          style={{
-            display: 'block',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-          }}
-          width="100%"
-          height="100vh"
-          url={links.a1kids}
-        />
-      </VideoBox>
-
-      <ButtonBox>
-        <KahootBtn
-          onClick={toggleKahoot}
-          className={
-            isAnimated && animatedID === 'kahoot_open' ? 'animated' : ''
-          }
-        >
-          <KahootLogo />
-        </KahootBtn>
-
-        {links.a1kids && (
-          <ChatBtn
-            onClick={toggleChat}
+    <>
+      <StreamSection
+        ref={sectionEl}
+        style={{
+          width: isChatOpen && width > height ? `${videoBoxWidth}px` : '100%',
+        }}
+      >
+        <VideoBox>
+          <MoldingNoClick />
+          <MoldingNoClickSecondary />
+          <SupportMarkerLeft
             className={
-              isAnimated && animatedID === 'chat_open' ? 'animated' : ''
+              (isAnimated && animatedID === 'sound') ||
+              (isAnimated && animatedID === 'live')
+                ? 'animated'
+                : ''
             }
           >
-            <ChatLogo />
-          </ChatBtn>
+            <SupportArrow
+              className={
+                (isAnimated && animatedID === 'sound') ||
+                (isAnimated && animatedID === 'live')
+                  ? 'animated'
+                  : ''
+              }
+            />
+          </SupportMarkerLeft>
+          <SupportMarkerRight
+            className={isAnimated && animatedID === 'quality' ? 'animated' : ''}
+          >
+            <SupportPointer
+              className={
+                isAnimated && animatedID === 'quality' ? 'animated' : ''
+              }
+            />
+          </SupportMarkerRight>
+          <ReactPlayer
+            playing={true}
+            muted={true}
+            controls={true}
+            config={{
+              youtube: {
+                playerVars: { rel: 0 },
+              },
+            }}
+            style={{
+              display: 'block',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+            }}
+            width="100%"
+            height="100vh"
+            url={links.a1kids}
+          />
+        </VideoBox>
+
+        <ButtonBox>
+          <KahootBtn
+            onClick={toggleKahoot}
+            className={
+              isAnimated && animatedID === 'kahoot_open' ? 'animated' : ''
+            }
+          >
+            <KahootLogo />
+          </KahootBtn>
+
+          {links.a1kids && (
+            <ChatBtn
+              onClick={toggleChat}
+              className={
+                isAnimated && animatedID === 'chat_open' ? 'animated' : ''
+              }
+            >
+              <ChatLogo />
+            </ChatBtn>
+          )}
+
+          <SupportBtn onClick={toggleSupport}>
+            <SupportLogo />
+          </SupportBtn>
+        </ButtonBox>
+
+        <Support
+          sectionWidth={sectionWidth}
+          isSupportOpen={isSupportOpen}
+          isOpenedLast={isOpenedLast}
+          handleSupport={handleSupportClick}
+          openKahoot={toggleKahoot}
+          isKahootOpen={isKahootOpen}
+        />
+
+        {links.a1kids && height > width && (
+          <ChatBox
+            className={isChatOpen ? 'shown' : 'hidden'}
+            style={isOpenedLast === 'chat' ? { zIndex: '2' } : { zIndex: '1' }}
+          >
+            <iframe
+              title="chat"
+              width="350px"
+              src={`https://www.youtube.com/live_chat?v=${
+                links.a1kids.match(/([a-zA-Z0-9_-]{11})/)[0]
+              }&embed_domain=${embedDomain}`}
+            ></iframe>
+          </ChatBox>
         )}
 
-        <SupportBtn onClick={toggleSupport}>
-          <SupportLogo />
-        </SupportBtn>
-      </ButtonBox>
-
-      <Support
-        sectionWidth={sectionWidth}
-        isSupportOpen={isSupportOpen}
-        isOpenedLast={isOpenedLast}
-        handleSupport={handleSupportClick}
-        openKahoot={toggleKahoot}
-        isKahootOpen={isKahootOpen}
-      />
-
-      {links.a1kids && (
+        <Kahoots
+          sectionWidth={sectionWidth}
+          sectionHeight={sectionHeight}
+          isKahootOpen={isKahootOpen}
+          isOpenedLast={isOpenedLast}
+        />
+      </StreamSection>
+      {links.a1kids && width > height && (
         <ChatBox
           className={isChatOpen ? 'shown' : 'hidden'}
-          style={isOpenedLast === 'chat' ? { zIndex: '1' } : { zIndex: '0' }}
+          style={isOpenedLast === 'chat' ? { zIndex: '2' } : { zIndex: '1' }}
         >
           <iframe
             title="chat"
@@ -148,13 +201,6 @@ export const KidsA1 = () => {
           ></iframe>
         </ChatBox>
       )}
-
-      <Kahoots
-        sectionWidth={sectionWidth}
-        sectionHeight={sectionHeight}
-        isKahootOpen={isKahootOpen}
-        isOpenedLast={isOpenedLast}
-      />
-    </StreamSection>
+    </>
   );
 };
