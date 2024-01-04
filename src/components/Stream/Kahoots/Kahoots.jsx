@@ -25,7 +25,7 @@ export const Kahoots = ({
   const [username, setUsername] = useState(
     localStorage.getItem('userName') || ''
   );
-  const kahootWidth = isFullScreen ? sectionWidth : sectionWidth / 2;
+  const kahootWidth = isFullScreen ? sectionWidth : sectionWidth / 3;
 
   const toggleFullScreen = () => {
     setIsFullScreen(isFullScreen => (isFullScreen = !isFullScreen));

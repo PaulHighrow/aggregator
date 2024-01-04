@@ -154,6 +154,7 @@ export const App = () => {
         </Route>
         <Route path="streams-kids" element={<StreamsKids />}>
           <Route path="a1" element={<KidsA1 />} />
+          <Route path="pilot" element={<KidsA1 />} />
           <Route path="a2" element={<KidsA2 />} />
           <Route path="b1" element={<KidsB1 />} />
         </Route>
