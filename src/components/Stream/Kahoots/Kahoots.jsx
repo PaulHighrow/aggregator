@@ -25,8 +25,7 @@ export const Kahoots = ({
   const [username, setUsername] = useState(
     localStorage.getItem('userName') || ''
   );
-  const desktopWidth = isFullScreen ? sectionWidth : (sectionWidth / 3) * 2;
-  const mobileWidth = isFullScreen ? sectionWidth : sectionWidth / 2;
+  const kahootWidth = isFullScreen ? sectionWidth : sectionWidth / 2;
 
   const toggleFullScreen = () => {
     setIsFullScreen(isFullScreen => (isFullScreen = !isFullScreen));
@@ -90,7 +89,7 @@ export const Kahoots = ({
             id="kahoot-window"
             title="kahoot-pin"
             src="https://kahoot.it/"
-            width={sectionWidth > 768 ? desktopWidth : mobileWidth}
+            width={kahootWidth}
             height={sectionHeight}
           ></iframe>
           <KahootFullScreenBtn onClick={toggleFullScreen}>
