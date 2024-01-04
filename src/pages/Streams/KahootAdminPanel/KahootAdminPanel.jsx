@@ -19,6 +19,14 @@ import { A2KahootForm } from './A2KahootForm';
 import { B1KahootForm } from './B1KahootForm';
 import { DeutschKahootForm } from './DeutschKahootForm';
 import { PolskiKahootForm } from './PolskiKahootForm';
+import { TrialsEngKahootForm } from './TrialsEngKahootForm';
+import { TrialsKidsKahootForm } from './TrialsKidsKahootForm';
+import { TrialsDeKahootForm } from './TrialsDeKahootForm';
+import { TrialsPlKahootForm } from './TrialsPlKahootForm';
+import { A1KidsKahootForm } from './A1KidsKahootForm';
+import { A2KidsKahootForm } from './A2KidsKahootForm';
+import { B1KidsKahootForm } from './B1KidsKahootForm';
+import { TestKahootForm } from './TestKahootForm';
 
 axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
 const setAuthToken = token => {
@@ -96,6 +104,30 @@ export const KahootAdminPanel = () => {
             <KahootLvlBtn onClick={() => handleBtnClick('b1')}>B1</KahootLvlBtn>
             <KahootLvlBtn onClick={() => handleBtnClick('de')}>DE</KahootLvlBtn>
             <KahootLvlBtn onClick={() => handleBtnClick('pl')}>PL</KahootLvlBtn>
+            <KahootLvlBtn onClick={() => handleBtnClick('trial-en')}>
+              Trial EN
+            </KahootLvlBtn>
+            <KahootLvlBtn onClick={() => handleBtnClick('trial-kids')}>
+              Trial Kids
+            </KahootLvlBtn>
+            <KahootLvlBtn onClick={() => handleBtnClick('trial-de')}>
+              Trial DE
+            </KahootLvlBtn>
+            <KahootLvlBtn onClick={() => handleBtnClick('trial-pl')}>
+              Trial PL
+            </KahootLvlBtn>
+            <KahootLvlBtn onClick={() => handleBtnClick('a1kids')}>
+              A1 Kids
+            </KahootLvlBtn>
+            <KahootLvlBtn onClick={() => handleBtnClick('a2kids')}>
+              A2 Kids
+            </KahootLvlBtn>
+            <KahootLvlBtn onClick={() => handleBtnClick('b1kids')}>
+              B1 Kids
+            </KahootLvlBtn>
+            <KahootLvlBtn onClick={() => handleBtnClick('test')}>
+              Test
+            </KahootLvlBtn>
           </KahootLvlBtnBox>
         )}
         {levels.includes('a0') && <A0KahootForm />}
@@ -104,6 +136,14 @@ export const KahootAdminPanel = () => {
         {levels.includes('b1') && <B1KahootForm />}
         {levels.includes('de') && <DeutschKahootForm />}
         {levels.includes('pl') && <PolskiKahootForm />}
+        {levels.includes('trial-en') && <TrialsEngKahootForm />}
+        {levels.includes('trial-kids') && <TrialsKidsKahootForm />}
+        {levels.includes('trial-de') && <TrialsDeKahootForm />}
+        {levels.includes('trial-pl') && <TrialsPlKahootForm />}
+        {levels.includes('a1kids') && <A1KidsKahootForm />}
+        {levels.includes('a2kids') && <A2KidsKahootForm />}
+        {levels.includes('b1kids') && <B1KidsKahootForm />}
+        {levels.includes('test') && <TestKahootForm />}
         {isLoading && <Loader />}
       </AdminPanelSection>
     </>
