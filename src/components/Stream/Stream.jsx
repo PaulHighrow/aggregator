@@ -20,7 +20,6 @@ export const Stream = () => {
   const [isKahootOpen, setIsKahootOpen] = useState(false);
   const [isOpenedLast, setIsOpenedLast] = useState('');
   const sectionEl = useRef();
-  // eslint-disable-next-line
   const [sectionWidth, sectionHeight] = useSize(sectionEl);
 
   const toggleKahoot = e => {

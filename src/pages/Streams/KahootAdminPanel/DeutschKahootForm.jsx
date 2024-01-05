@@ -7,7 +7,6 @@ import * as yup from 'yup';
 import {
   AdminFormBtn,
   AdminInput,
-  AdminInputNote,
   AdminPanelSection,
   LinksForm,
 } from './KahootAdminPanel.styled';
@@ -16,34 +15,43 @@ export const DeutschKahootForm = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const initialLinksValues = {
-    de_1: '',
-    de_2: '',
-    de_3: '',
-    de_4: '',
-    de_5: '',
+    deutsch_1: '',
+    deutsch_2: '',
+    deutsch_3: '',
+    deutsch_4: '',
+    deutsch_5: '',
+    replace: true,
   };
 
   const linksSchema = yup.object().shape({
-    de_1: yup.string().optional(),
-    de_2: yup.string().optional(),
-    de_3: yup.string().optional(),
-    de_4: yup.string().optional(),
-    de_5: yup.string().optional(),
+    deutsch_1: yup.string().optional(),
+    deutsch_2: yup.string().optional(),
+    deutsch_3: yup.string().optional(),
+    deutsch_4: yup.string().optional(),
+    deutsch_5: yup.string().optional(),
+    replace: yup.bool().required(),
   });
 
   const handleLinksSubmit = async (values, { resetForm }) => {
     setIsLoading(isLoading => (isLoading = true));
-    console.log(values);
-
+    const deutschlinks = { deutsch: { links: {} } };
+    for (const [key, value] of Object.entries(values)) {
+      if (value && key !== 'replace') {
+        deutschlinks.deutsch.links[key] = value;
+      } else {
+        deutschlinks.deutsch.replace = value;
+      }
+    }
     try {
-      const response = await axios.patch('/kahoots', values);
+      const response = await axios.patch('/kahoots', deutschlinks);
       console.log(response);
       resetForm();
+      alert('Замінив, молодець');
     } catch (error) {
       console.error(error);
+      alert('Щось не прокнуло');
     } finally {
       setIsLoading(isLoading => (isLoading = false));
-      alert('Замінив, молодець');
     }
   };
 
@@ -59,42 +67,41 @@ export const DeutschKahootForm = () => {
             <Label>
               <AdminInput
                 type="text"
-                name="de_1"
+                name="deutsch_1"
                 placeholder="Перший кахут для вебінарів з німецької"
               />
-              <AdminInputNote component="p" name="de_1" />
             </Label>
             <Label>
               <AdminInput
                 type="text"
-                name="de_2"
+                name="deutsch_2"
                 placeholder="Другий кахут для вебінарів з німецької"
               />
-              <AdminInputNote component="p" name="de_2" />
             </Label>
             <Label>
               <AdminInput
                 type="text"
-                name="de_3"
+                name="deutsch_3"
                 placeholder="Третій кахут для вебінарів з німецької"
               />
-              <AdminInputNote component="p" name="de_3" />
             </Label>
             <Label>
               <AdminInput
                 type="text"
-                name="de_4"
+                name="deutsch_4"
                 placeholder="Четвертий кахут для вебінарів з німецької"
               />
-              <AdminInputNote component="p" name="de_4" />
             </Label>
             <Label>
               <AdminInput
                 type="text"
-                name="de_5"
+                name="deutsch_5"
                 placeholder="П'ятий кахут для вебінарів з німецької"
               />
-              <AdminInputNote component="p" name="de_5" />
+            </Label>
+            <Label>
+              Переписати старі лінки повністю?
+              <AdminInput type="checkbox" name="replace" />
             </Label>
             <AdminFormBtn type="submit">Замінити лінки</AdminFormBtn>
           </LinksForm>

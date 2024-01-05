@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import axios from 'axios';
+import { useLayoutEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import {
   ClipBoardAdd,
   ClipBoardBtn,
@@ -13,7 +15,7 @@ import {
   KahootFullScreenBtn,
   KahootFullScreenIcon,
 } from './Kahoots.styled';
-import toast from 'react-hot-toast';
+import { useLocation } from 'react-router-dom';
 
 export const Kahoots = ({
   sectionWidth,
@@ -26,6 +28,28 @@ export const Kahoots = ({
     localStorage.getItem('userName') || ''
   );
   const kahootWidth = isFullScreen ? sectionWidth : (sectionWidth / 10) * 4;
+  let location = useLocation();
+  // eslint-disable-next-line
+  const [isLoading, setIsLoading] = useState(false);
+  const [links, setLinks] = useState({});
+
+  useLayoutEffect(() => {
+    const getLinksRequest = async () => {
+      try {
+        setIsLoading(isLoading => (isLoading = true));
+        setLinks((await axios.get('/kahoots')).data);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsLoading(isLoading => (isLoading = false));
+      }
+    };
+
+    getLinksRequest();
+  }, []);
+
+  console.log(links);
+  console.log(location);
 
   const toggleFullScreen = () => {
     setIsFullScreen(isFullScreen => (isFullScreen = !isFullScreen));
@@ -80,30 +104,33 @@ export const Kahoots = ({
 
   return (
     <>
-      <KahootBox
-        className={isKahootOpen ? 'shown' : 'hidden'}
-        style={isOpenedLast === 'kahoot' ? { zIndex: '3' } : { zIndex: '1' }}
-      >
-        <KahootBackground>
-          <iframe
-            id="kahoot-window"
-            title="kahoot-pin"
-            src="https://kahoot.it/"
-            width={kahootWidth}
-            height={sectionHeight}
-          ></iframe>
-          <KahootFullScreenBtn onClick={toggleFullScreen}>
-            {isFullScreen ? (
-              <KahootExitFullScreenIcon />
-            ) : (
-              <KahootFullScreenIcon />
-            )}
-          </KahootFullScreenBtn>
-          <ClipBoardBtn onClick={handleUsernameBtn}>
-            {username ? <ClipBoardCopy /> : <ClipBoardAdd />}
-          </ClipBoardBtn>
-        </KahootBackground>
-      </KahootBox>
+      {Object.keys(links).length && (
+        <KahootBox
+          className={isKahootOpen ? 'shown' : 'hidden'}
+          style={isOpenedLast === 'kahoot' ? { zIndex: '3' } : { zIndex: '1' }}
+        >
+          <KahootBackground>
+            <iframe
+              id="kahoot-window"
+              title="kahoot-pin"
+              src="https://kahoot.it/"
+              //https://kahoot.it/?pin=1061800&refer_method=link
+              width={kahootWidth}
+              height={sectionHeight}
+            ></iframe>
+            <KahootFullScreenBtn onClick={toggleFullScreen}>
+              {isFullScreen ? (
+                <KahootExitFullScreenIcon />
+              ) : (
+                <KahootFullScreenIcon />
+              )}
+            </KahootFullScreenBtn>
+            <ClipBoardBtn onClick={handleUsernameBtn}>
+              {username ? <ClipBoardCopy /> : <ClipBoardAdd />}
+            </ClipBoardBtn>
+          </KahootBackground>
+        </KahootBox>
+      )}
     </>
   );
 };
