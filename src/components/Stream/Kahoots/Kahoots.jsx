@@ -29,6 +29,9 @@ export const Kahoots = ({
   );
   const kahootWidth = isFullScreen ? sectionWidth : (sectionWidth / 10) * 4;
   let location = useLocation();
+  const page = location.pathname.includes('streams-kids')
+    ? location.pathname
+    : location.pathname.match(/\/([^/]+)\/?$/)[1];
   // eslint-disable-next-line
   const [isLoading, setIsLoading] = useState(false);
   const [links, setLinks] = useState({});
@@ -50,6 +53,7 @@ export const Kahoots = ({
 
   console.log(links);
   console.log(location);
+  console.log(page);
 
   const toggleFullScreen = () => {
     setIsFullScreen(isFullScreen => (isFullScreen = !isFullScreen));
@@ -110,6 +114,7 @@ export const Kahoots = ({
           style={isOpenedLast === 'kahoot' ? { zIndex: '3' } : { zIndex: '1' }}
         >
           <KahootBackground>
+            {console.log(links[page])}
             <iframe
               id="kahoot-window"
               title="kahoot-pin"
