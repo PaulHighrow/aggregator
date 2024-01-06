@@ -45,6 +45,43 @@ export const KahootBackground = styled(StreamsBackgroundWrapper)`
   @media screen and (min-width: 1280px) {
     background-position: right -215px top 0;
   }
+
+  transition: transform var(--animation-global);
+
+  &.hidden {
+    transform: translateX(100%);
+  }
+
+  &.shown {
+    transform: translateX(0);
+  }
+`;
+
+export const KahootPicker = styled.div`
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  z-index: 10;
+  transform: translateX(-50%);
+  font-family: var(--title-font-family);
+
+  display: flex;
+  gap: 16px;
+`;
+
+export const KahootNumbersBtn = styled(KahootBtn)`
+  position: static;
+  width: 32px;
+  height: 32px;
+  background-color: white;
+  cursor: pointer;
+  box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.5);
+
+  font-weight: 700;
+
+  &.active {
+    background-color: var(--accent-color);
+  }
 `;
 
 export const KahootFullScreenBtn = styled(KahootBtn)`

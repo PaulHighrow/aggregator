@@ -3,6 +3,7 @@ import useSize from '@react-hook/size';
 import { Kahoots } from 'components/Stream/Kahoots/Kahoots';
 import { Support } from 'components/Stream/Support/Support';
 import { nanoid } from 'nanoid';
+// eslint-disable-next-line
 import { useEffect, useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { useOutletContext } from 'react-router-dom';
@@ -47,6 +48,7 @@ export const StreamTest = () => {
   const [userID, setUserID] = useState('');
   const [isLoggedToChat, setIsLoggedToChat] = useState(false);
   const socket = io('http://localhost:4000/');
+  // eslint-disable-next-line
   const [messages, setMessages] = useState([]);
 
   const toggleKahoot = e => {
@@ -93,63 +95,63 @@ export const StreamTest = () => {
     setIsLoggedToChat(isLogged => !isLogged);
   };
 
-  useEffect(() => {
-    // const getMessages = async () => {
-    //   try {
-    //     const dbMessages = await axios.get('http://localhost:4000/messages');
-    //     setMessages(messages => (messages = dbMessages.data));
-    //     // console.log(messages);
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // };
-    // getMessages();
-    //
-    // создаем экземпляр сокета, передаем ему адрес сервера
-    // и записываем объект с названием комнаты в строку запроса "рукопожатия"
-    // socket.handshake.query.roomId
+  // useEffect(() => {
+  //   // const getMessages = async () => {
+  //   //   try {
+  //   //     const dbMessages = await axios.get('http://localhost:4000/messages');
+  //   //     setMessages(messages => (messages = dbMessages.data));
+  //   //     // console.log(messages);
+  //   //   } catch (error) {
+  //   //     console.log(error);
+  //   //   }
+  //   // };
+  //   // getMessages();
+  //   //
+  //   // создаем экземпляр сокета, передаем ему адрес сервера
+  //   // и записываем объект с названием комнаты в строку запроса "рукопожатия"
+  //   // socket.handshake.query.roomId
 
-    socket.on('connected', (connected, handshake) => {
-      console.log(connected);
-      console.log(handshake);
-    });
+  //   socket.on('connected', (connected, handshake) => {
+  //     console.log(connected);
+  //     console.log(handshake);
+  //   });
 
-    socket.on('message', data => {
-      setMessages([...messages, data]);
-      console.log(messages);
-    });
+  //   socket.on('message', data => {
+  //     setMessages([...messages, data]);
+  //     console.log(messages);
+  //   });
 
-    // отправляем событие добавления пользователя,
-    // в качестве данных передаем объект с именем и id пользователя
-    // socketRef.current.emit('user:add', { username, userId });
+  //   // отправляем событие добавления пользователя,
+  //   // в качестве данных передаем объект с именем и id пользователя
+  //   // socketRef.current.emit('user:add', { username, userId });
 
-    // обрабатываем получение списка пользователей
-    // socketRef.current.on('users', users => {
-    //   // обновляем массив пользователей
-    //   setUsers(users);
-    // });
+  //   // обрабатываем получение списка пользователей
+  //   // socketRef.current.on('users', users => {
+  //   //   // обновляем массив пользователей
+  //   //   setUsers(users);
+  //   // });
 
-    // отправляем запрос на получение сообщений
-    // socketRef.current.emit('message:get');
+  //   // отправляем запрос на получение сообщений
+  //   // socketRef.current.emit('message:get');
 
-    // обрабатываем получение сообщений
-    // socketRef.current.on('messages', messages => {
-    // определяем, какие сообщения были отправлены данным пользователем,
-    // если значение свойства "userId" объекта сообщения совпадает с id пользователя,
-    // то добавляем в объект сообщения свойство "currentUser" со значением "true",
-    // иначе, просто возвращаем объект сообщения
-    // const newMessages = messages.map(msg =>
-    //   msg.userId === userId ? { ...msg, currentUser: true } : msg
-    // );
-    // обновляем массив сообщений
-    // setMessages(newMessages);
-    // });
+  //   // обрабатываем получение сообщений
+  //   // socketRef.current.on('messages', messages => {
+  //   // определяем, какие сообщения были отправлены данным пользователем,
+  //   // если значение свойства "userId" объекта сообщения совпадает с id пользователя,
+  //   // то добавляем в объект сообщения свойство "currentUser" со значением "true",
+  //   // иначе, просто возвращаем объект сообщения
+  //   // const newMessages = messages.map(msg =>
+  //   //   msg.userId === userId ? { ...msg, currentUser: true } : msg
+  //   // );
+  //   // обновляем массив сообщений
+  //   // setMessages(newMessages);
+  //   // });
 
-    return () => {
-      // при размонтировании компонента выполняем отключение сокета
-      socket.disconnect();
-    };
-  }, [messages, socket]);
+  //   return () => {
+  //     // при размонтировании компонента выполняем отключение сокета
+  //     socket.disconnect();
+  //   };
+  // }, [messages, socket]);
 
   return (
     <>
