@@ -59,7 +59,7 @@ export const KahootBackground = styled(StreamsBackgroundWrapper)`
 
 export const KahootPicker = styled.div`
   position: absolute;
-  top: 20px;
+  top: 16px;
   left: 50%;
   z-index: 10;
   transform: translateX(-50%);

@@ -42,8 +42,13 @@ const StreamsKids = () => {
   return (
     <>
       <StreamsBackgroundWrapper>
-        {location.pathname === '/streams-kids' ? <StreamNavKids /> : ''}
-        <Outlet context={[links, setLinks]} />
+        {location.pathname === '/streams-kids' ||
+        location.pathname === '/streams-kids/' ? (
+          <StreamNavKids />
+        ) : (
+          ''
+        )}
+        <Outlet context={[links, isLoading]} />
         {isLoading && (
           <LoaderWrapper>
             <Loader />

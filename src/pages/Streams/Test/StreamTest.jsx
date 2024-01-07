@@ -18,6 +18,8 @@ import {
   KahootLogo,
   MoldingNoClick,
   MoldingNoClickSecondary,
+  StreamPlaceHolder,
+  StreamPlaceHolderText,
   StreamSection,
   SupportArrow,
   SupportBtn,
@@ -35,10 +37,7 @@ export const StreamTest = () => {
   const [isOpenedLast, setIsOpenedLast] = useState('');
   const [isAnimated, setIsAnimated] = useState(false);
   const [animatedID, setAnimationID] = useState('');
-  // eslint-disable-next-line
-  const [links, setLinks] = useOutletContext();
-  const sectionEl = useRef();
-  const [sectionWidth, sectionHeight] = useSize(sectionEl);
+  const [links, isLoading] = useOutletContext();
   const chatEl = useRef();
   // eslint-disable-next-line
   const [chatWidth, chatHeight] = useSize(chatEl);
@@ -155,158 +154,175 @@ export const StreamTest = () => {
 
   return (
     <>
-      <StreamSection
-        ref={sectionEl}
-        style={{
-          width: isChatOpen && width > height ? `${Snapshot}px` : '100%',
-        }}
-      >
-        <VideoBox>
-          <MoldingNoClick />
-          <MoldingNoClickSecondary />
-          <SupportMarkerLeft
-            className={
-              (isAnimated && animatedID === 'sound') ||
-              (isAnimated && animatedID === 'live')
-                ? 'animated'
-                : ''
-            }
-          >
-            <SupportArrow
-              className={
-                (isAnimated && animatedID === 'sound') ||
-                (isAnimated && animatedID === 'live')
-                  ? 'animated'
-                  : ''
-              }
-            />
-          </SupportMarkerLeft>
-          <SupportMarkerRight
-            className={isAnimated && animatedID === 'quality' ? 'animated' : ''}
-          >
-            <SupportPointer
-              className={
-                isAnimated && animatedID === 'quality' ? 'animated' : ''
-              }
-            />
-          </SupportMarkerRight>
-          <ReactPlayer
-            playing={true}
-            muted={true}
-            controls={true}
-            config={{
-              youtube: {
-                playerVars: { rel: 0 },
-              },
-            }}
+      {(links.a0 === undefined || links.a0[0] < 10) && !isLoading ? (
+        <StreamPlaceHolder>
+          <StreamPlaceHolderText>
+            Поки що трансляції тут немає! <br />
+            Перевірте, чи правильно ви вказали адресу сторінки або спробуйте
+            пізніше.
+          </StreamPlaceHolderText>
+        </StreamPlaceHolder>
+      ) : (
+        <>
+          <StreamSection
             style={{
-              display: 'block',
-              position: 'absolute',
-              top: 0,
-              left: 0,
+              width: isChatOpen && width > height ? `${Snapshot}px` : '100%',
             }}
-            width="100%"
-            height="100vh"
-            url={links.test}
-          />
-        </VideoBox>
-
-        <ButtonBox>
-          <KahootBtn
-            onClick={toggleKahoot}
-            className={
-              isAnimated && animatedID === 'kahoot_open' ? 'animated' : ''
-            }
           >
-            <KahootLogo />
-          </KahootBtn>
-          {links.test && (
-            <ChatBtn
-              onClick={toggleChat}
-              className={
-                isAnimated && animatedID === 'chat_open' ? 'animated' : ''
+            <VideoBox>
+              <MoldingNoClick />
+              <MoldingNoClickSecondary />
+              <SupportMarkerLeft
+                className={
+                  (isAnimated && animatedID === 'sound') ||
+                  (isAnimated && animatedID === 'live')
+                    ? 'animated'
+                    : ''
+                }
+              >
+                <SupportArrow
+                  className={
+                    (isAnimated && animatedID === 'sound') ||
+                    (isAnimated && animatedID === 'live')
+                      ? 'animated'
+                      : ''
+                  }
+                />
+              </SupportMarkerLeft>
+              <SupportMarkerRight
+                className={
+                  isAnimated && animatedID === 'quality' ? 'animated' : ''
+                }
+              >
+                <SupportPointer
+                  className={
+                    isAnimated && animatedID === 'quality' ? 'animated' : ''
+                  }
+                />
+              </SupportMarkerRight>
+              <ReactPlayer
+                playing={true}
+                muted={true}
+                controls={true}
+                config={{
+                  youtube: {
+                    playerVars: { rel: 0 },
+                  },
+                }}
+                style={{
+                  display: 'block',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                }}
+                width="100%"
+                height="100vh"
+                url={links.test}
+              />
+            </VideoBox>
+
+            <ButtonBox>
+              <KahootBtn
+                onClick={toggleKahoot}
+                className={
+                  isAnimated && animatedID === 'kahoot_open' ? 'animated' : ''
+                }
+              >
+                <KahootLogo />
+              </KahootBtn>
+              {links.test && (
+                <ChatBtn
+                  onClick={toggleChat}
+                  className={
+                    isAnimated && animatedID === 'chat_open' ? 'animated' : ''
+                  }
+                >
+                  <ChatLogo />
+                </ChatBtn>
+              )}
+              <SupportBtn onClick={toggleSupport}>
+                <SupportLogo />
+              </SupportBtn>
+            </ButtonBox>
+
+            {links.test && orientation.includes('portrait') && (
+              <ChatBox
+                ref={chatEl}
+                className={isChatOpen ? 'shown' : 'hidden'}
+                style={
+                  isOpenedLast === 'chat' ? { zIndex: '2' } : { zIndex: '1' }
+                }
+              >
+                {!isLoggedToChat ? (
+                  <form className="home__container" onSubmit={handleSubmit}>
+                    <h2 className="home__header">Sign in to Open Chat</h2>
+                    <label htmlFor="username">Username</label>
+                    <input
+                      type="text"
+                      minLength={3}
+                      maxLength={15}
+                      autoComplete={'off'}
+                      name="username"
+                      id="username"
+                      className="username__input"
+                      value={userName}
+                      onChange={e => setUserName(e.target.value)}
+                    />
+                    <button className="home__cta">SIGN IN</button>
+                  </form>
+                ) : (
+                  <Chat socket={socket} messages={messages} />
+                )}
+              </ChatBox>
+            )}
+
+            <Support
+              sectionWidth={width}
+              isSupportOpen={isSupportOpen}
+              isOpenedLast={isOpenedLast}
+              handleSupport={handleSupportClick}
+              openKahoot={toggleKahoot}
+              isKahootOpen={isKahootOpen}
+            />
+
+            <Kahoots
+              sectionWidth={width}
+              sectionHeight={height}
+              isKahootOpen={isKahootOpen}
+              isOpenedLast={isOpenedLast}
+            />
+          </StreamSection>
+          {links.test && width > height && (
+            <ChatBox
+              ref={chatEl}
+              className={isChatOpen ? 'shown' : 'hidden'}
+              style={
+                isOpenedLast === 'chat' ? { zIndex: '2' } : { zIndex: '1' }
               }
             >
-              <ChatLogo />
-            </ChatBtn>
+              {!isLoggedToChat ? (
+                <form className="home__container" onSubmit={handleSubmit}>
+                  <h2 className="home__header">Sign in to Open Chat</h2>
+                  <label htmlFor="username">Username</label>
+                  <input
+                    type="text"
+                    minLength={3}
+                    maxLength={15}
+                    autoComplete={'off'}
+                    name="username"
+                    id="username"
+                    className="username__input"
+                    value={userName}
+                    onChange={e => setUserName(e.target.value)}
+                  />
+                  <button className="home__cta">SIGN IN</button>
+                </form>
+              ) : (
+                <Chat socket={socket} messages={messages} />
+              )}
+            </ChatBox>
           )}
-          <SupportBtn onClick={toggleSupport}>
-            <SupportLogo />
-          </SupportBtn>
-        </ButtonBox>
-
-        {links.test && orientation.includes('portrait') && (
-          <ChatBox
-            ref={chatEl}
-            className={isChatOpen ? 'shown' : 'hidden'}
-            style={isOpenedLast === 'chat' ? { zIndex: '2' } : { zIndex: '1' }}
-          >
-            {!isLoggedToChat ? (
-              <form className="home__container" onSubmit={handleSubmit}>
-                <h2 className="home__header">Sign in to Open Chat</h2>
-                <label htmlFor="username">Username</label>
-                <input
-                  type="text"
-                  minLength={3}
-                  maxLength={15}
-                  autoComplete={'off'}
-                  name="username"
-                  id="username"
-                  className="username__input"
-                  value={userName}
-                  onChange={e => setUserName(e.target.value)}
-                />
-                <button className="home__cta">SIGN IN</button>
-              </form>
-            ) : (
-              <Chat socket={socket} messages={messages} />
-            )}
-          </ChatBox>
-        )}
-
-        <Support
-          sectionWidth={sectionWidth}
-          isSupportOpen={isSupportOpen}
-          isOpenedLast={isOpenedLast}
-          handleSupport={handleSupportClick}
-          openKahoot={toggleKahoot}
-          isKahootOpen={isKahootOpen}
-        />
-
-        <Kahoots
-          sectionWidth={sectionWidth}
-          sectionHeight={sectionHeight}
-          isKahootOpen={isKahootOpen}
-          isOpenedLast={isOpenedLast}
-        />
-      </StreamSection>
-      {links.test && width > height && (
-        <ChatBox
-          ref={chatEl}
-          className={isChatOpen ? 'shown' : 'hidden'}
-          style={isOpenedLast === 'chat' ? { zIndex: '2' } : { zIndex: '1' }}
-        >
-          {!isLoggedToChat ? (
-            <form className="home__container" onSubmit={handleSubmit}>
-              <h2 className="home__header">Sign in to Open Chat</h2>
-              <label htmlFor="username">Username</label>
-              <input
-                type="text"
-                minLength={3}
-                maxLength={15}
-                autoComplete={'off'}
-                name="username"
-                id="username"
-                className="username__input"
-                value={userName}
-                onChange={e => setUserName(e.target.value)}
-              />
-              <button className="home__cta">SIGN IN</button>
-            </form>
-          ) : (
-            <Chat socket={socket} messages={messages} />
-          )}
-        </ChatBox>
+        </>
       )}
     </>
   );

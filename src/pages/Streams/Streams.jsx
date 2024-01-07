@@ -42,8 +42,13 @@ const Streams = () => {
   return (
     <>
       <StreamsBackgroundWrapper>
-        {location.pathname === '/streams' ? <StreamNav /> : ''}
-        <Outlet context={[links, setLinks]} />
+        {location.pathname === '/streams' ||
+        location.pathname === '/streams/' ? (
+          <StreamNav />
+        ) : (
+          ''
+        )}
+        <Outlet context={[links, isLoading]} />
         {isLoading && (
           <LoaderWrapper>
             <Loader />

@@ -33,8 +33,26 @@ export const Kahoots = ({
   const [activeKahoot, setActiveKahoot] = useState(1);
 
   let location = useLocation();
+
+  const trialsSwitch = path => {
+    switch (path) {
+      case 'trial-en':
+        return 'trials';
+      case 'trial-de':
+        return 'trials_de';
+      case 'trial-pl':
+        return 'trials_pl';
+      case 'trial-kids':
+        return 'trials_kids';
+      default:
+        break;
+    }
+  };
+
   const page = location.pathname.includes('streams-kids')
-    ? location.pathname
+    ? location.pathname.match(/\/([^/]+)\/?$/)[1] + 'kids'
+    : location.pathname.includes('trial')
+    ? trialsSwitch(location.pathname.match(/\/([^/]+)\/?$/)[1])
     : location.pathname.match(/\/([^/]+)\/?$/)[1];
 
   const kahootWidth = isFullScreen ? sectionWidth : (sectionWidth / 10) * 4;

@@ -15,6 +15,8 @@ import {
   KahootLogo,
   MoldingNoClick,
   MoldingNoClickSecondary,
+  StreamPlaceHolder,
+  StreamPlaceHolderText,
   StreamSection,
   SupportArrow,
   SupportBtn,
@@ -35,13 +37,9 @@ const StreamTrialPolski = () => {
   const [isOpenedLast, setIsOpenedLast] = useState('');
   const [isAnimated, setIsAnimated] = useState(false);
   const [animatedID, setAnimationID] = useState('');
-  // eslint-disable-next-line
-  const sectionEl = useRef();
-  const [sectionWidth, sectionHeight] = useSize(sectionEl);
   const chatEl = useRef();
   // eslint-disable-next-line
   const [chatWidth, chatHeight] = useSize(chatEl);
-  // eslint-disable-next-line
   const [width, height] = useSize(document.body);
   const [isLoading, setIsLoading] = useState(false);
   const [links, setLinks] = useState({});
@@ -105,100 +103,147 @@ const StreamTrialPolski = () => {
 
   return (
     <>
-      <StreamSection
-        ref={sectionEl}
-        style={{
-          width: isChatOpen && width > height ? `${videoBoxWidth}px` : '100%',
-        }}
-      >
-        <StreamsBackgroundWrapper>
-          {isLoading && (
-            <LoaderWrapper>
-              <Loader />
-            </LoaderWrapper>
-          )}
+      {(links.trials_pl === undefined || links.trials_pl[0] < 10) &&
+      !isLoading ? (
+        <StreamPlaceHolder>
+          <StreamPlaceHolderText>
+            Поки що трансляції тут немає! <br />
+            Перевірте, чи правильно ви вказали адресу сторінки або спробуйте
+            пізніше.
+          </StreamPlaceHolderText>
+        </StreamPlaceHolder>
+      ) : (
+        <>
+          <StreamSection
+            style={{
+              width:
+                isChatOpen && width > height ? `${videoBoxWidth}px` : '100%',
+            }}
+          >
+            <StreamsBackgroundWrapper>
+              {isLoading && (
+                <LoaderWrapper>
+                  <Loader />
+                </LoaderWrapper>
+              )}
 
-          <VideoBox>
-            <MoldingNoClick />
-            <MoldingNoClickSecondary />
-            <SupportMarkerLeft
-              className={
-                (isAnimated && animatedID === 'sound') ||
-                (isAnimated && animatedID === 'live')
-                  ? 'animated'
-                  : ''
-              }
-            >
-              <SupportArrow
-                className={
-                  (isAnimated && animatedID === 'sound') ||
-                  (isAnimated && animatedID === 'live')
-                    ? 'animated'
-                    : ''
-                }
+              <VideoBox>
+                <MoldingNoClick />
+                <MoldingNoClickSecondary />
+                <SupportMarkerLeft
+                  className={
+                    (isAnimated && animatedID === 'sound') ||
+                    (isAnimated && animatedID === 'live')
+                      ? 'animated'
+                      : ''
+                  }
+                >
+                  <SupportArrow
+                    className={
+                      (isAnimated && animatedID === 'sound') ||
+                      (isAnimated && animatedID === 'live')
+                        ? 'animated'
+                        : ''
+                    }
+                  />
+                </SupportMarkerLeft>
+                <SupportMarkerRight
+                  className={
+                    isAnimated && animatedID === 'quality' ? 'animated' : ''
+                  }
+                >
+                  <SupportPointer
+                    className={
+                      isAnimated && animatedID === 'quality' ? 'animated' : ''
+                    }
+                  />
+                </SupportMarkerRight>
+                <ReactPlayer
+                  playing={true}
+                  muted={true}
+                  controls={true}
+                  config={{
+                    youtube: {
+                      playerVars: { rel: 0 },
+                    },
+                  }}
+                  style={{
+                    display: 'block',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                  }}
+                  width="100%"
+                  height="100vh"
+                  url={links.trials_pl}
+                />
+              </VideoBox>
+
+              <ButtonBox>
+                <KahootBtn
+                  onClick={toggleKahoot}
+                  className={
+                    isAnimated && animatedID === 'kahoot_open' ? 'animated' : ''
+                  }
+                >
+                  <KahootLogo />
+                </KahootBtn>
+
+                {links.trials_pl && (
+                  <ChatBtn
+                    onClick={toggleChat}
+                    className={
+                      isAnimated && animatedID === 'chat_open' ? 'animated' : ''
+                    }
+                  >
+                    <ChatLogo />
+                  </ChatBtn>
+                )}
+
+                <SupportBtn onClick={toggleSupport}>
+                  <SupportLogo />
+                </SupportBtn>
+              </ButtonBox>
+              {links.trials_pl &&
+              !links.trials_pl.includes('youtube') &&
+              !links.trials_pl.includes('youtu.be')
+                ? window.location.replace(links.trials_pl)
+                : null}
+              {links.trials_pl && height > width && (
+                <ChatBox
+                  className={isChatOpen ? 'shown' : 'hidden'}
+                  style={
+                    isOpenedLast === 'chat' ? { zIndex: '2' } : { zIndex: '1' }
+                  }
+                >
+                  <iframe
+                    title="chat"
+                    width="350px"
+                    src={`https://www.youtube.com/live_chat?v=${
+                      links.trials_pl.match(/([a-zA-Z0-9_-]{11})/)[0]
+                    }&embed_domain=${embedDomain}`}
+                  ></iframe>
+                </ChatBox>
+              )}
+
+              <Kahoots
+                sectionWidth={width}
+                sectionHeight={height}
+                isKahootOpen={isKahootOpen}
+                isOpenedLast={isOpenedLast}
               />
-            </SupportMarkerLeft>
-            <SupportMarkerRight
-              className={
-                isAnimated && animatedID === 'quality' ? 'animated' : ''
-              }
-            >
-              <SupportPointer
-                className={
-                  isAnimated && animatedID === 'quality' ? 'animated' : ''
-                }
+
+              <Support
+                sectionWidth={width}
+                isSupportOpen={isSupportOpen}
+                isOpenedLast={isOpenedLast}
+                handleSupport={handleSupportClick}
+                openKahoot={toggleKahoot}
+                isKahootOpen={isKahootOpen}
               />
-            </SupportMarkerRight>
-            <ReactPlayer
-              playing={true}
-              muted={true}
-              controls={true}
-              config={{
-                youtube: {
-                  playerVars: { rel: 0 },
-                },
-              }}
-              style={{
-                display: 'block',
-                position: 'absolute',
-                top: 0,
-                left: 0,
-              }}
-              width="100%"
-              height="100vh"
-              url={links.trials_pl}
-            />
-          </VideoBox>
-
-          <ButtonBox>
-            <KahootBtn
-              onClick={toggleKahoot}
-              className={
-                isAnimated && animatedID === 'kahoot_open' ? 'animated' : ''
-              }
-            >
-              <KahootLogo />
-            </KahootBtn>
-
-            {links.trials_pl && (
-              <ChatBtn
-                onClick={toggleChat}
-                className={
-                  isAnimated && animatedID === 'chat_open' ? 'animated' : ''
-                }
-              >
-                <ChatLogo />
-              </ChatBtn>
-            )}
-
-            <SupportBtn onClick={toggleSupport}>
-              <SupportLogo />
-            </SupportBtn>
-          </ButtonBox>
-          {links.trials_pl && !links.trials_pl.includes('youtube')
-            ? window.location.replace(links.trials_pl)
-            : null}
-          {links.trials_pl && height > width && (
+            </StreamsBackgroundWrapper>
+          </StreamSection>
+          {links.trials_pl && width > height && (
             <ChatBox
               className={isChatOpen ? 'shown' : 'hidden'}
               style={
@@ -214,37 +259,7 @@ const StreamTrialPolski = () => {
               ></iframe>
             </ChatBox>
           )}
-
-          <Kahoots
-            sectionWidth={sectionWidth}
-            sectionHeight={sectionHeight}
-            isKahootOpen={isKahootOpen}
-            isOpenedLast={isOpenedLast}
-          />
-
-          <Support
-            sectionWidth={sectionWidth}
-            isSupportOpen={isSupportOpen}
-            isOpenedLast={isOpenedLast}
-            handleSupport={handleSupportClick}
-            openKahoot={toggleKahoot}
-            isKahootOpen={isKahootOpen}
-          />
-        </StreamsBackgroundWrapper>
-      </StreamSection>
-      {links.trials_pl && width > height && (
-        <ChatBox
-          className={isChatOpen ? 'shown' : 'hidden'}
-          style={isOpenedLast === 'chat' ? { zIndex: '2' } : { zIndex: '1' }}
-        >
-          <iframe
-            title="chat"
-            width="350px"
-            src={`https://www.youtube.com/live_chat?v=${
-              links.trials_pl.match(/([a-zA-Z0-9_-]{11})/)[0]
-            }&embed_domain=${embedDomain}`}
-          ></iframe>
-        </ChatBox>
+        </>
       )}
     </>
   );
