@@ -6,10 +6,12 @@ import {
   ClipBoardAdd,
   ClipBoardBtn,
   ClipBoardCopy,
+  ClipBoardFormDismissBtn,
   ClipBoardFormText,
   ClipBoardInput,
   ClipBoardInputForm,
   ClipBoardSubmitBtn,
+  DismissIcon,
   KahootBackground,
   KahootBox,
   KahootExitFullScreenIcon,
@@ -106,9 +108,14 @@ export const Kahoots = ({
               username => (username = localStorage.getItem('userName'))
             );
             btn.disabled = false;
-            copyToClipboard();
+            if (localStorage.getItem('userName')) {
+              copyToClipboard();
+            }
           }}
         >
+          <ClipBoardFormDismissBtn onClick={() => toast.dismiss(t.id)}>
+            <DismissIcon />
+          </ClipBoardFormDismissBtn>
           <ClipBoardFormText>
             Введіть ваше ім'я в це поле, щоб вам не доводилося вводити його
             декілька разів під час уроку, бажана максимальна кількість символів
@@ -129,11 +136,14 @@ export const Kahoots = ({
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(localStorage.getItem('userName'));
-    toast.success(
+    toast.success(t => (
       <ClipBoardFormText>
+        <ClipBoardFormDismissBtn onClick={() => toast.dismiss(t.id)}>
+          <DismissIcon />
+        </ClipBoardFormDismissBtn>
         Ваше ім'я додано в буфер обміну, можете вставити його у відповідне поле!
       </ClipBoardFormText>
-    );
+    ));
   };
 
   const handleUsernameBtn = e => {
