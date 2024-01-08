@@ -10,6 +10,7 @@ import {
   AdminInput,
   AdminInputNote,
   AdminPanelSection,
+  KahootFormBox,
   KahootLvlBtn,
   KahootLvlBtnBox,
   LoginForm,
@@ -130,20 +131,22 @@ export const KahootAdminPanel = () => {
             </KahootLvlBtn>
           </KahootLvlBtnBox>
         )}
-        {levels.includes('a0') && <A0KahootForm />}
-        {levels.includes('a1') && <A1KahootForm />}
-        {levels.includes('a2') && <A2KahootForm />}
-        {levels.includes('b1') && <B1KahootForm />}
-        {levels.includes('de') && <DeutschKahootForm />}
-        {levels.includes('pl') && <PolskiKahootForm />}
-        {levels.includes('trial-en') && <TrialsEngKahootForm />}
-        {levels.includes('trial-kids') && <TrialsKidsKahootForm />}
-        {levels.includes('trial-de') && <TrialsDeKahootForm />}
-        {levels.includes('trial-pl') && <TrialsPlKahootForm />}
-        {levels.includes('a1kids') && <A1KidsKahootForm />}
-        {levels.includes('a2kids') && <A2KidsKahootForm />}
-        {levels.includes('b1kids') && <B1KidsKahootForm />}
-        {levels.includes('test') && <TestKahootForm />}
+        <KahootFormBox>
+          {levels.includes('a0') && <A0KahootForm />}
+          {levels.includes('a1') && <A1KahootForm />}
+          {levels.includes('a2') && <A2KahootForm />}
+          {levels.includes('b1') && <B1KahootForm />}
+          {levels.includes('de') && <DeutschKahootForm />}
+          {levels.includes('pl') && <PolskiKahootForm />}
+          {levels.includes('trial-en') && <TrialsEngKahootForm />}
+          {levels.includes('trial-kids') && <TrialsKidsKahootForm />}
+          {levels.includes('trial-de') && <TrialsDeKahootForm />}
+          {levels.includes('trial-pl') && <TrialsPlKahootForm />}
+          {levels.includes('a1kids') && <A1KidsKahootForm />}
+          {levels.includes('a2kids') && <A2KidsKahootForm />}
+          {levels.includes('b1kids') && <B1KidsKahootForm />}
+          {levels.includes('test') && <TestKahootForm />}
+        </KahootFormBox>
         {isLoading && <Loader />}
       </AdminPanelSection>
     </>

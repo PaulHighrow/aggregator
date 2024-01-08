@@ -1,18 +1,28 @@
 import axios from 'axios';
 import { Label } from 'components/LeadForm/LeadForm.styled';
 import { Loader } from 'components/SharedLayout/Loaders/Loader';
+import { DismissIcon } from 'components/Stream/Kahoots/Kahoots.styled';
 import { Formik } from 'formik';
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 import * as yup from 'yup';
 import {
+  AdminCheckbox,
   AdminFormBtn,
   AdminInput,
   AdminPanelSection,
+  LabelCheckBox,
   LinksForm,
+  WarningBox,
+  WarningBtn,
+  WarningBtnBox,
+  WarningDismissBtn,
+  WarningText,
 } from './KahootAdminPanel.styled';
 
 export const DeutschKahootForm = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [confirmation, setConfirmation] = useState(false);
 
   const initialLinksValues = {
     deutsch_1: '',
@@ -34,25 +44,68 @@ export const DeutschKahootForm = () => {
 
   const handleLinksSubmit = async (values, { resetForm }) => {
     setIsLoading(isLoading => (isLoading = true));
-    const deutschlinks = { deutsch: { links: {} } };
-    for (const [key, value] of Object.entries(values)) {
-      if (value && key !== 'replace') {
-        deutschlinks.deutsch.links[key] = value;
-      } else {
-        deutschlinks.deutsch.replace = value;
+    const emptyValues = Object.values(values)
+      .filter(value => typeof value === 'string')
+      .every(value => !value === true);
+
+    !confirmation &&
+      emptyValues &&
+      toast(
+        t => (
+          <WarningBox>
+            <WarningDismissBtn onClick={() => toast.dismiss(t.id)}>
+              <DismissIcon />
+            </WarningDismissBtn>
+            <WarningText>
+              Краще не відправляти пусту форму, бо так затруться ВСІ лінки. Якщо
+              так і треба, клацай "Затерти лінки" і відправ форму знов.
+            </WarningText>
+            <WarningBtnBox>
+              <WarningBtn
+                className="delete"
+                onClick={() => {
+                  setConfirmation(confirmation => (confirmation = true));
+                  toast.dismiss(t.id);
+                }}
+              >
+                Затерти все
+              </WarningBtn>
+              <WarningBtn
+                className="cancel"
+                onClick={() => toast.dismiss(t.id)}
+              >
+                Додати лінки
+              </WarningBtn>
+            </WarningBtnBox>
+          </WarningBox>
+        ),
+        { duration: Infinity }
+      );
+
+    if (!emptyValues || confirmation) {
+      const deutschlinks = { deutsch: { links: {} } };
+      for (const [key, value] of Object.entries(values)) {
+        if (value && key !== 'replace') {
+          deutschlinks.deutsch.links[key] = value;
+        } else {
+          deutschlinks.deutsch.replace = value;
+        }
+      }
+      try {
+        const response = await axios.patch('/kahoots', deutschlinks);
+        console.log(response);
+        resetForm();
+        alert('Лінки замінилися, молодець');
+      } catch (error) {
+        console.error(error);
+        alert('Щось не прокнуло');
+      } finally {
+        setIsLoading(isLoading => (isLoading = false));
+        setConfirmation(confirmation => (confirmation = false));
       }
     }
-    try {
-      const response = await axios.patch('/kahoots', deutschlinks);
-      console.log(response);
-      resetForm();
-      alert('Замінив, молодець');
-    } catch (error) {
-      console.error(error);
-      alert('Щось не прокнуло');
-    } finally {
-      setIsLoading(isLoading => (isLoading = false));
-    }
+    setIsLoading(isLoading => (isLoading = false));
+    return;
   };
 
   return (
@@ -99,10 +152,13 @@ export const DeutschKahootForm = () => {
                 placeholder="П'ятий кахут для вебінарів з німецької"
               />
             </Label>
-            <Label>
-              Переписати старі лінки повністю?
-              <AdminInput type="checkbox" name="replace" />
-            </Label>
+            <LabelCheckBox>
+              <AdminCheckbox type="checkbox" name="replace" />
+              Якщо не зняти галочку, всі лінки перезапишуться повністю. <br />{' '}
+              Якщо її зняти, можна виправити конкретний лінк, не зачіпаючи інші.
+              Наприклад, якщо треба виправити тільки один Кахут, наприклад, №3 -
+              внось його лінк у відповідне поле (третє) і знімай галочку.
+            </LabelCheckBox>
             <AdminFormBtn type="submit">Замінити лінки</AdminFormBtn>
           </LinksForm>
         </Formik>

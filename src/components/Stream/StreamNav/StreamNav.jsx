@@ -31,7 +31,7 @@ export const StreamNav = () => {
               <StreamNavLink to={'/streams/b1'}>B1</StreamNavLink>
             </StreamNavItem>
             <StreamNavItem>
-              <StreamNavLink to={'/streams/deustch'}>Німецька</StreamNavLink>
+              <StreamNavLink to={'/streams/deutsch'}>Німецька</StreamNavLink>
             </StreamNavItem>
             <StreamNavItem>
               <StreamNavLink to={'/streams/polski'}>Польська</StreamNavLink>
