@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import {
   FAQHeading,
+  FAQHighlight,
   FAQList,
   FAQListAnswer,
   FAQListItem,
@@ -24,7 +25,7 @@ export const Support = ({
   sectionWidth,
   handleSupport,
   openKahoot,
-  isKahootOpen
+  isKahootOpen,
 }) => {
   const desktopWidth = sectionWidth / 3;
   const mobileWidth = (sectionWidth / 3) * 2;
@@ -179,10 +180,23 @@ export const Support = ({
                   data_id="kahoot_name"
                   onClick={showAnswerAndOpenKahoot}
                 >
-                  Як не вводити своє ім'я кожний раз для кожного Кахуту? (Поки тільки для Windows)
+                  Як не вводити своє ім'я кожний раз для кожного Кахуту?
                 </FAQListQuestion>
                 {isAnswerShown && questionIds.includes('kahoot_name') && (
-                  <FAQListAnswer>Для того, щоб вам не доводилося писати ваше ім'я заново кожного разу, ми розташували у правому верхньому куті вікна Кахуту кнопку <SupportClipBoardAdd/>, яка зберігатиме ваше ім'я на одному пристрої навіть між уроками! По кліку на неї з'явиться невеличке вікно, яке попросить вас ввести ваше повне ім'я (від цього залежить нарахування вам балів за заняття). Коли введете, клікніть кнопку "Зберегти" і ваше ім'я збережеться у буфер обміну, а кнопка буде виглядати так: <SupportClipBoardCopy/>. Тепер по кліку на неї ваше ім'я буде швидко скопійовано і ви зможете вставити його у поле "Nickname" у вікні Кахуту будь-якою звичною для вас комбінацією. </FAQListAnswer>
+                  <FAQListAnswer>
+                    Для того, щоб вам не доводилося писати ваше ім'я заново
+                    кожного разу, ми розташували у правому верхньому куті вікна
+                    Кахуту кнопку <SupportClipBoardAdd />, яка зберігатиме ваше
+                    ім'я на одному пристрої навіть між уроками! По кліку на неї
+                    з'явиться невеличке вікно, яке попросить вас ввести ваше
+                    повне ім'я (від цього залежить нарахування вам балів за
+                    заняття). Коли введете, клікніть кнопку "Зберегти" і ваше
+                    ім'я збережеться у буфер обміну, а кнопка буде виглядати
+                    так: <SupportClipBoardCopy />. Тепер по кліку на неї ваше
+                    ім'я буде швидко скопійовано і ви зможете вставити його у
+                    поле "Nickname" у вікні Кахуту будь-якою звичною для вас
+                    комбінацією.{' '}
+                  </FAQListAnswer>
                 )}
               </FAQListItem>
               <FAQListItem>
@@ -194,7 +208,34 @@ export const Support = ({
                 </FAQListQuestion>
                 {isAnswerShown && questionIds.includes('kahoot_fullscreen') && (
                   <FAQListAnswer>
-                    Зробити це можна кнопкою <SupportFullScreenIcon/> у правому верхньому куті вікна Кахуту. Вийти з цього режиму можна буде по кліку на цю ж кнопку, яка тепер буде мати вигляд <SupportFullScreenExitIcon/>.
+                    Зробити це можна кнопкою <SupportFullScreenIcon /> у правому
+                    верхньому куті вікна Кахуту. Вийти з цього режиму можна буде
+                    по кліку на цю ж кнопку, яка тепер буде мати вигляд{' '}
+                    <SupportFullScreenExitIcon />.
+                  </FAQListAnswer>
+                )}
+              </FAQListItem>
+              <FAQListItem>
+                <FAQListQuestion
+                  data_id="kahoot_picker"
+                  onClick={showAnswerAndOpenKahoot}
+                >
+                  Як мені переключити Кахут?
+                </FAQListQuestion>
+                {isAnswerShown && questionIds.includes('kahoot_picker') && (
+                  <FAQListAnswer>
+                    Зробити це можна кнопкою <FAQHighlight>#</FAQHighlight> у
+                    правому верхньому куті вікна Кахуту. Із-за меж екрану
+                    з'являться пронумеровані кнопки, кожна з яких - окремий
+                    Кахут. Кнопка з номером відкритого наразі Кахуту підсвічена
+                    жовтим кольором. Ви можете в будь-який момент переключити
+                    відкритий Кахут, натиснувши кнопку з його номером. Закрити
+                    меню з кнопками Кахутів можна, повторним натисканням кнопки
+                    <FAQHighlight>#</FAQHighlight>.<br />
+                    <FAQHighlight>
+                      Важливо! Не перемикайте Кахути під час гри, щоб не
+                      втратити результати!
+                    </FAQHighlight>
                   </FAQListAnswer>
                 )}
               </FAQListItem>

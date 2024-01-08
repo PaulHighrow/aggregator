@@ -58,23 +58,61 @@ export const KahootBackground = styled(StreamsBackgroundWrapper)`
   }
 `;
 
-export const KahootPicker = styled.div`
+export const KahootNumbersHider = styled(KahootBtn)`
   position: absolute;
   top: 64px;
   right: 16px;
+  width: 32px;
+  height: 32px;
+  background-color: white;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin: 0;
+  box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.5);
+
+  font-weight: 700;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    top: 150px;
+    right: 16px;
+  }
+`;
+
+export const KahootPicker = styled.div`
+  position: absolute;
+  top: 112px;
+  right: 16px;
+  width: max-content;
   z-index: 10;
   font-family: var(--title-font-family);
 
   display: flex;
   flex-direction: column;
-  flex-shrink: 0;
   gap: 16px;
+
+  transition: all var(--animation-global);
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
     top: 16px;
     left: 50%;
-    transform: translateX(-50%);
+  }
+
+  &.hidden {
+    transform: translateX(150px);
+
+    @media screen and (min-width: 768px) {
+      transform: translate(-50%, -200%);
+    }
+  }
+
+  &.shown {
+    transform: translateX(0px);
+
+    @media screen and (min-width: 768px) {
+      transform: translate(-50%, 0px);
+    }
   }
 `;
 
@@ -84,6 +122,8 @@ export const KahootNumbersBtn = styled(KahootBtn)`
   height: 32px;
   background-color: white;
   cursor: pointer;
+  flex-shrink: 0;
+  margin: 0;
   box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.5);
 
   font-weight: 700;

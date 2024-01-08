@@ -20,6 +20,11 @@ export const A2KidsKahootForm = () => {
     a2kids_3: '',
     a2kids_4: '',
     a2kids_5: '',
+    a2kids_6: '',
+    a2kids_7: '',
+    a2kids_8: '',
+    a2kids_9: '',
+    a2kids_10: '',
     replace: true,
   };
 
@@ -29,6 +34,11 @@ export const A2KidsKahootForm = () => {
     a2kids_3: yup.string().optional(),
     a2kids_4: yup.string().optional(),
     a2kids_5: yup.string().optional(),
+    a2kids_6: yup.string().optional(),
+    a2kids_7: yup.string().optional(),
+    a2kids_8: yup.string().optional(),
+    a2kids_9: yup.string().optional(),
+    a2kids_10: yup.string().optional(),
     replace: yup.bool().required(),
   });
 
@@ -97,6 +107,41 @@ export const A2KidsKahootForm = () => {
                 type="text"
                 name="a2kids_5"
                 placeholder="П'ятий кахут для дітей рівня А2"
+              />
+            </Label>
+            <Label>
+              <AdminInput
+                type="text"
+                name="a2kids_6"
+                placeholder="Шостий кахут для дітей рівня А2"
+              />
+            </Label>
+            <Label>
+              <AdminInput
+                type="text"
+                name="a2kids_7"
+                placeholder="Сьомий кахут для дітей рівня А2"
+              />
+            </Label>
+            <Label>
+              <AdminInput
+                type="text"
+                name="a2kids_8"
+                placeholder="Восьмий кахут для дітей рівня А2"
+              />
+            </Label>
+            <Label>
+              <AdminInput
+                type="text"
+                name="a2kids_9"
+                placeholder="Дев'ятий кахут для дітей рівня А2"
+              />
+            </Label>
+            <Label>
+              <AdminInput
+                type="text"
+                name="a2kids_10"
+                placeholder="Десятий кахут для дітей рівня А2"
               />
             </Label>
             <Label>

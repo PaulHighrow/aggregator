@@ -20,6 +20,11 @@ export const B1KidsKahootForm = () => {
     b1kids_3: '',
     b1kids_4: '',
     b1kids_5: '',
+    b1kids_6: '',
+    b1kids_7: '',
+    b1kids_8: '',
+    b1kids_9: '',
+    b1kids_10: '',
     replace: true,
   };
 
@@ -29,6 +34,11 @@ export const B1KidsKahootForm = () => {
     b1kids_3: yup.string().optional(),
     b1kids_4: yup.string().optional(),
     b1kids_5: yup.string().optional(),
+    b1kids_6: yup.string().optional(),
+    b1kids_7: yup.string().optional(),
+    b1kids_8: yup.string().optional(),
+    b1kids_9: yup.string().optional(),
+    b1kids_10: yup.string().optional(),
     replace: yup.bool().required(),
   });
 
@@ -97,6 +107,41 @@ export const B1KidsKahootForm = () => {
                 type="text"
                 name="b1kids_5"
                 placeholder="П'ятий кахут для дітей рівня B1"
+              />
+            </Label>
+            <Label>
+              <AdminInput
+                type="text"
+                name="b1kids_6"
+                placeholder="Шостий кахут для дітей рівня B1"
+              />
+            </Label>
+            <Label>
+              <AdminInput
+                type="text"
+                name="b1kids_7"
+                placeholder="Сьомий кахут для дітей рівня B1"
+              />
+            </Label>
+            <Label>
+              <AdminInput
+                type="text"
+                name="b1kids_8"
+                placeholder="Восьмий кахут для дітей рівня B1"
+              />
+            </Label>
+            <Label>
+              <AdminInput
+                type="text"
+                name="b1kids_9"
+                placeholder="Дев'ятий кахут для дітей рівня B1"
+              />
+            </Label>
+            <Label>
+              <AdminInput
+                type="text"
+                name="b1kids_10"
+                placeholder="Десятий кахут для дітей рівня B1"
               />
             </Label>
             <Label>

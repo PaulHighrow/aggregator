@@ -118,6 +118,10 @@ export const FAQListAnswer = styled.p`
   }
 `;
 
+export const FAQHighlight = styled.span`
+  font-weight: 600;
+`;
+
 export const YTPSettings = styled(YTPSettingsIcon)`
   vertical-align: middle;
   display: inline-block;

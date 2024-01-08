@@ -18,6 +18,7 @@ import {
   KahootFullScreenBtn,
   KahootFullScreenIcon,
   KahootNumbersBtn,
+  KahootNumbersHider,
   KahootPicker,
 } from './Kahoots.styled';
 
@@ -28,6 +29,7 @@ export const Kahoots = ({
   isOpenedLast,
 }) => {
   const [isFullScreen, setIsFullScreen] = useState(false);
+  const [isPickerOpen, setIsPickerOpen] = useState(false);
   const [username, setUsername] = useState(
     localStorage.getItem('userName') || ''
   );
@@ -96,6 +98,10 @@ export const Kahoots = ({
     setIsFullScreen(isFullScreen => (isFullScreen = !isFullScreen));
   };
 
+  const toggleKahootPicker = () => {
+    setIsPickerOpen(isOpen => (isOpen = !isOpen));
+  };
+
   const createNameInput = btn => {
     btn.disabled = true;
     toast(
@@ -159,7 +165,11 @@ export const Kahoots = ({
           style={isOpenedLast === 'kahoot' ? { zIndex: '3' } : { zIndex: '1' }}
           onTransitionEnd={kahootLinksRefresher}
         >
-          <KahootPicker>
+          <KahootNumbersHider onClick={toggleKahootPicker}>
+            #
+          </KahootNumbersHider>
+
+          <KahootPicker className={isPickerOpen ? 'shown' : 'hidden'}>
             {Object.values(kahoots[page].links).map((link, i) => (
               <KahootNumbersBtn
                 key={i}
