@@ -58,6 +58,45 @@ export const KahootBackground = styled(StreamsBackgroundWrapper)`
   }
 `;
 
+export const KahootDisclaimerBackground = styled(KahootBackground)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  transition: width var(--animation-global);
+`;
+
+export const KahootDisclaimerBox = styled.div`
+  overflow-y: scroll;
+  width: 100%;
+  padding: 20px 48px;
+`;
+
+export const KahootDisclaimerText = styled.p`
+  font-size: 18px;
+  font-weight: 600;
+
+  @media screen and (min-width: 768px) {
+    font-size: 21px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 24px;
+  }
+`;
+
+export const KahootDisclaimerList = styled.ul`
+  list-style: disc;
+  padding: 12px 0px;
+`;
+
+export const KahootDisclaimerItem = styled.li`
+  &:not(:last-child) {
+    margin-bottom: 8px;
+  }
+`;
+
 export const KahootNumbersHider = styled(KahootBtn)`
   position: absolute;
   top: 64px;
@@ -141,6 +180,7 @@ export const KahootFullScreenBtn = styled(KahootBtn)`
   height: 32px;
   background-color: white;
   cursor: pointer;
+  box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.5);
 
   @media screen and (min-width: 768px) {
     top: 60px;
@@ -170,6 +210,7 @@ export const ClipBoardBtn = styled(KahootBtn)`
   height: 32px;
   background-color: white;
   cursor: pointer;
+  box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.5);
 
   @media screen and (min-width: 768px) {
     top: 106px;
@@ -178,6 +219,13 @@ export const ClipBoardBtn = styled(KahootBtn)`
 `;
 
 export const ClipBoardInputForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+`;
+
+export const ClipBoardNotification = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -215,6 +263,8 @@ export const ClipBoardInput = styled.input`
 `;
 
 export const ClipBoardSubmitBtn = styled.button`
+  display: block;
+  margin: 0 auto;
   font-size: 22px;
   font-weight: 700;
   width: 50%;
