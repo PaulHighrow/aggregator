@@ -201,6 +201,22 @@ export const Support = ({
               </FAQListItem>
               <FAQListItem>
                 <FAQListQuestion
+                  data_id="kahoot_edit_name"
+                  onClick={showAnswerAndOpenKahoot}
+                >
+                  Як виправити помилку в збереженому імені?
+                </FAQListQuestion>
+                {isAnswerShown && questionIds.includes('kahoot_edit_name') && (
+                  <FAQListAnswer>
+                    Якщо ви припустилися помилки, вводячи своє ім'я, ви можете в
+                    будь-який момент натиснути кнопку <SupportClipBoardCopy />.
+                    Тепер при кожному копіюванні вам буде доступна кнопка
+                    "Виправити", яка дозволить вам ввести ім'я ще раз.
+                  </FAQListAnswer>
+                )}
+              </FAQListItem>
+              <FAQListItem>
+                <FAQListQuestion
                   data_id="kahoot_fullscreen"
                   onClick={showAnswerAndOpenKahoot}
                 >
