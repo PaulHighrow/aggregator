@@ -32,7 +32,7 @@ import {
   KahootNumbersBtn,
   KahootNumbersHider,
   KahootPicker,
-  KahootPickerBtn
+  KahootPickerBtn,
 } from './Kahoots.styled';
 
 export const Kahoots = ({
@@ -121,6 +121,7 @@ export const Kahoots = ({
   const toggleKahootPicker = () => {
     setIsAnimated(false);
     setIsPickerOpen(isOpen => (isOpen = !isOpen));
+    setActiveKahoot(1);
   };
 
   const createNameInput = btn => {
