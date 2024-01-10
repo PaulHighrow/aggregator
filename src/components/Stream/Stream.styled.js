@@ -142,7 +142,7 @@ export const ChatBox = styled.div`
   background-color: white;
   top: 0;
   right: 0;
-  height: 100lvh;
+  height: 100vh;
   width: max-content;
   border-radius: 20px;
   /* overflow: hidden; */
