@@ -230,6 +230,7 @@ const StreamTrialPolski = () => {
                 sectionWidth={width}
                 sectionHeight={height}
                 isKahootOpen={isKahootOpen}
+                isChatOpen={isChatOpen}
                 isOpenedLast={isOpenedLast}
               />
 

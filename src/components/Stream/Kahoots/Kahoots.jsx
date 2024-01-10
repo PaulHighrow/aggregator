@@ -1,10 +1,12 @@
 import axios from 'axios';
 import { useLayoutEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+import { useInView } from 'react-intersection-observer';
 import { useLocation } from 'react-router-dom';
 import {
   SupportClipBoardAdd,
   SupportClipBoardCopy,
+  SupportKahootPickerIcon,
 } from '../Support/Support.styled';
 import {
   ClipBoardAdd,
@@ -30,16 +32,19 @@ import {
   KahootNumbersBtn,
   KahootNumbersHider,
   KahootPicker,
+  KahootPickerBtn
 } from './Kahoots.styled';
 
 export const Kahoots = ({
   sectionWidth,
   sectionHeight,
   isKahootOpen,
+  isChatOpen,
   isOpenedLast,
 }) => {
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [isPickerOpen, setIsPickerOpen] = useState(false);
+  const [isAnimated, setIsAnimated] = useState(true);
   const [username, setUsername] = useState(
     localStorage.getItem('userName') || ''
   );
@@ -47,6 +52,11 @@ export const Kahoots = ({
   const [activeKahoot, setActiveKahoot] = useState(0);
 
   let location = useLocation();
+
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    delay: 1000,
+  });
 
   const trialsSwitch = path => {
     switch (path) {
@@ -109,6 +119,7 @@ export const Kahoots = ({
   };
 
   const toggleKahootPicker = () => {
+    setIsAnimated(false);
     setIsPickerOpen(isOpen => (isOpen = !isOpen));
   };
 
@@ -189,22 +200,27 @@ export const Kahoots = ({
     <>
       {Object.keys(kahoots).length && (
         <KahootBox
-          width={kahootWidth}
+          ref={ref}
+          width={isChatOpen ? kahootWidth - 300 : kahootWidth}
           height={sectionHeight}
           className={isKahootOpen ? 'shown' : 'hidden'}
           style={isOpenedLast === 'kahoot' ? { zIndex: '3' } : { zIndex: '1' }}
           onTransitionEnd={kahootLinksRefresher}
         >
-          <KahootNumbersHider onClick={toggleKahootPicker}>
-            #
+          <KahootNumbersHider
+            onClick={toggleKahootPicker}
+            className={inView && isAnimated ? 'animated' : ''}
+            tabIndex={-1}
+          >
+            <KahootPickerBtn />
           </KahootNumbersHider>
-
           <KahootPicker className={isPickerOpen ? 'shown' : 'hidden'}>
             {Object.values(kahoots[page].links).map((link, i) => (
               <KahootNumbersBtn
                 key={i}
                 onClick={setKahootNumber}
                 className={activeKahoot === i + 1 ? 'active' : ''}
+                tabIndex={-1}
               >
                 {i + 1}
               </KahootNumbersBtn>
@@ -219,7 +235,13 @@ export const Kahoots = ({
                       id="kahoot-window"
                       title="kahoot-pin"
                       src={link}
-                      width={kahootWidth}
+                      width={
+                        !isChatOpen
+                          ? kahootWidth
+                          : isFullScreen
+                          ? kahootWidth - 300
+                          : kahootWidth
+                      }
                       height={sectionHeight}
                     ></iframe>
                     <KahootFullScreenBtn onClick={toggleFullScreen}>
@@ -236,7 +258,15 @@ export const Kahoots = ({
                 )
             )
           ) : (
-            <KahootDisclaimerBackground style={{ width: `${kahootWidth}px` }}>
+            <KahootDisclaimerBackground
+              style={
+                !isChatOpen
+                  ? { width: `${kahootWidth}px` }
+                  : isFullScreen
+                  ? { width: `${kahootWidth - 300}px` }
+                  : { width: `${kahootWidth}px` }
+              }
+            >
               <KahootDisclaimerBox>
                 <KahootDisclaimerText>
                   Привіт! Це вікно Кахутів. Ми постійно працюємо над розширенням
@@ -247,9 +277,9 @@ export const Kahoots = ({
                   <KahootDisclaimerItem>
                     <KahootDisclaimerText>
                       Вводити код Кахуту тепер не потрібно, адже ми вже ввели
-                      його за вас. Просто тисніть кнопку з решіткою # у правому
-                      верхньому кутку цього вікна і обирайте номер Кахуту.
-                      Почніть з першого. 😉
+                      його за вас. Просто тисніть кнопку{' '}
+                      <SupportKahootPickerIcon /> у правому верхньому кутку
+                      цього вікна і обирайте номер Кахуту. Почніть з першого. 😉
                     </KahootDisclaimerText>
                   </KahootDisclaimerItem>
                   <KahootDisclaimerItem>
@@ -277,14 +307,14 @@ export const Kahoots = ({
                   </KahootDisclaimerItem>
                 </KahootDisclaimerList>
               </KahootDisclaimerBox>
-              <KahootFullScreenBtn onClick={toggleFullScreen}>
+              <KahootFullScreenBtn onClick={toggleFullScreen} tabIndex={-1}>
                 {isFullScreen ? (
                   <KahootExitFullScreenIcon />
                 ) : (
                   <KahootFullScreenIcon />
                 )}
               </KahootFullScreenBtn>
-              <ClipBoardBtn onClick={e => handleUsernameBtn(e)}>
+              <ClipBoardBtn tabIndex={-1} onClick={e => handleUsernameBtn(e)}>
                 {username ? <ClipBoardCopy /> : <ClipBoardAdd />}
               </ClipBoardBtn>
             </KahootDisclaimerBackground>

@@ -54,7 +54,7 @@ export const MoldingNoClickSecondary = styled.div`
   }
 `;
 
-const pulse = keyframes`
+export const pulse = keyframes`
   0%{
     transform: scale(0.9);
   }
@@ -142,7 +142,7 @@ export const ChatBox = styled.div`
   background-color: white;
   top: 0;
   right: 0;
-  height: 100%;
+  height: 100lvh;
   width: max-content;
   border-radius: 20px;
   /* overflow: hidden; */

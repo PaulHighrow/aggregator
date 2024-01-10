@@ -6,6 +6,7 @@ import { ReactComponent as YTPSoundIcon } from '../../../img/svg/supportIcons/yt
 import { ReactComponent as SupportKahootIcon } from '../../../img/svg/kahootIcon.svg';
 import { ReactComponent as ClipBoardAddIcon } from '../../../img/svg/clipBoardAdd.svg';
 import { ReactComponent as ClipBoardCopyIcon } from '../../../img/svg/clipBoardCopy.svg';
+import { ReactComponent as KahootPickerIcon } from '../../../img/svg/kahootPickerIcon.svg';
 import { ReactComponent as FullScreenIcon } from '../../../img/svg/fullScreen.svg';
 import { ReactComponent as FullScreenExitIcon } from '../../../img/svg/fullScreenExit.svg';
 
@@ -174,6 +175,13 @@ export const SupportFullScreenIcon = styled(FullScreenIcon)`
 `;
 
 export const SupportFullScreenExitIcon = styled(FullScreenExitIcon)`
+  vertical-align: middle;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+`;
+
+export const SupportKahootPickerIcon = styled(KahootPickerIcon)`
   vertical-align: middle;
   display: inline-block;
   width: 1em;

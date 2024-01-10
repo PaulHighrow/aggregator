@@ -196,6 +196,7 @@ export const StreamB1 = () => {
               sectionWidth={width}
               sectionHeight={height}
               isKahootOpen={isKahootOpen}
+              isChatOpen={isChatOpen}
               isOpenedLast={isOpenedLast}
             />
           </StreamSection>

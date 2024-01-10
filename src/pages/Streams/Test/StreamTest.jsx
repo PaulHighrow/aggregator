@@ -41,7 +41,6 @@ export const StreamTest = () => {
   const chatEl = useRef();
   // eslint-disable-next-line
   const [chatWidth, chatHeight] = useSize(chatEl);
-  // eslint-disable-next-line
   const [width, height] = useSize(document.body);
   const [userName, setUserName] = useState('');
   const [userID, setUserID] = useState('');
@@ -289,6 +288,7 @@ export const StreamTest = () => {
               sectionWidth={width}
               sectionHeight={height}
               isKahootOpen={isKahootOpen}
+              isChatOpen={isChatOpen}
               isOpenedLast={isOpenedLast}
             />
           </StreamSection>

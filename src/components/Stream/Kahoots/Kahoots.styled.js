@@ -5,6 +5,7 @@ import { ReactComponent as FullscreenIcon } from '../../../img/svg/fullScreen.sv
 import { ReactComponent as ExitFullscreenIcon } from '../../../img/svg/fullScreenExit.svg';
 import { ReactComponent as ClipBoardAddIcon } from '../../../img/svg/clipBoardAdd.svg';
 import { ReactComponent as ClipBoardCopyIcon } from '../../../img/svg/clipBoardCopy.svg';
+import { ReactComponent as KahootPickerIcon } from '../../../img/svg/kahootPickerIcon.svg';
 import { CloseIcon, FormCloseBtn } from 'components/LeadForm/LeadForm.styled';
 
 export const KahootBox = styled.div`
@@ -70,7 +71,11 @@ export const KahootDisclaimerBackground = styled(KahootBackground)`
 export const KahootDisclaimerBox = styled.div`
   overflow-y: scroll;
   width: 100%;
-  padding: 20px 48px;
+  padding: 48px 48px 20px 24px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const KahootDisclaimerText = styled.p`
@@ -115,6 +120,15 @@ export const KahootNumbersHider = styled(KahootBtn)`
     flex-direction: row;
     top: 150px;
     right: 16px;
+  }
+
+  &.animated:before {
+    width: 100%;
+    height: 100%;
+
+    filter: blur(1px);
+    opacity: 0.5;
+    background: linear-gradient(180deg, var(--main-color), #f9ea38);
   }
 `;
 
@@ -278,6 +292,13 @@ export const ClipBoardAdd = styled(ClipBoardAddIcon)`
 `;
 
 export const ClipBoardCopy = styled(ClipBoardCopyIcon)`
+  width: 22px;
+  height: 22px;
+  fill: var(--main-color);
+  stroke: var(--main-color);
+`;
+
+export const KahootPickerBtn = styled(KahootPickerIcon)`
   width: 22px;
   height: 22px;
   fill: var(--main-color);
