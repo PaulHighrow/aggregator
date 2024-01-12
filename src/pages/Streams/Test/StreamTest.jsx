@@ -29,6 +29,7 @@ import {
   SupportPointer,
   VideoBox,
 } from '../../../components/Stream/Stream.styled';
+import axios from 'axios';
 
 export const StreamTest = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -45,7 +46,6 @@ export const StreamTest = () => {
   const [userName, setUserName] = useState('');
   const [userID, setUserID] = useState('');
   const [isLoggedToChat, setIsLoggedToChat] = useState(false);
-  const socket = io('http://localhost:4000/');
   // eslint-disable-next-line
   const [messages, setMessages] = useState([]);
 
@@ -76,14 +76,10 @@ export const StreamTest = () => {
     }
   };
 
-  // console.log(width);
-  console.log(window.screen);
   const orientation = window.screen.orientation.type;
-  console.log(orientation);
-  const Snapshot = chatWidth === 0 ? width - 300 : width - chatWidth;
-  console.log(Snapshot);
+  const Snapshot = chatWidth === 0 ? width : width - chatWidth;
 
-  // setUserName(name => name = localStorage.getItem('userName'));
+  // setUserName(name => (name = localStorage.getItem('userName')));
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -93,67 +89,80 @@ export const StreamTest = () => {
     setIsLoggedToChat(isLogged => !isLogged);
   };
 
-  // useEffect(() => {
-  //   // const getMessages = async () => {
-  //   //   try {
-  //   //     const dbMessages = await axios.get('http://localhost:4000/messages');
-  //   //     setMessages(messages => (messages = dbMessages.data));
-  //   //     // console.log(messages);
-  //   //   } catch (error) {
-  //   //     console.log(error);
-  //   //   }
-  //   // };
-  //   // getMessages();
-  //   //
-  //   // создаем экземпляр сокета, передаем ему адрес сервера
-  //   // и записываем объект с названием комнаты в строку запроса "рукопожатия"
-  //   // socket.handshake.query.roomId
+  const socketRef = useRef(null);
 
-  //   socket.on('connected', (connected, handshake) => {
-  //     console.log(connected);
-  //     console.log(handshake);
-  //   });
+  useEffect(() => {
+    socketRef.current = io('http://localhost:4000/');
 
-  //   socket.on('message', data => {
-  //     setMessages([...messages, data]);
-  //     console.log(messages);
-  //   });
+    socketRef.current.on('connected', (connected, handshake) => {
+      console.log(connected);
+      console.log(handshake);
+    });
 
-  //   // отправляем событие добавления пользователя,
-  //   // в качестве данных передаем объект с именем и id пользователя
-  //   // socketRef.current.emit('user:add', { username, userId });
+    const getMessages = async () => {
+      try {
+        const dbMessages = await axios.get('http://localhost:4000/messages');
+        setMessages(messages => (messages = dbMessages.data));
+        // console.log(messages);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getMessages();
+    //
+    // создаем экземпляр сокета, передаем ему адрес сервера
+    // и записываем объект с названием комнаты в строку запроса "рукопожатия"
+    // socket.handshake.query.roomId
 
-  //   // обрабатываем получение списка пользователей
-  //   // socketRef.current.on('users', users => {
-  //   //   // обновляем массив пользователей
-  //   //   setUsers(users);
-  //   // });
+    socketRef.current.on('message', data => {
+      const updateMessages = async () => {
+        try {
+          await axios.post('http://localhost:4000/messages', data);
+          setMessages(messages => (messages = [...messages, data]));
+          console.log(messages);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      updateMessages();
+    });
 
-  //   // отправляем запрос на получение сообщений
-  //   // socketRef.current.emit('message:get');
+    // отправляем событие добавления пользователя,
+    // в качестве данных передаем объект с именем и id пользователя
+    // socketRef.current.emit('user:add', { username, userId });
 
-  //   // обрабатываем получение сообщений
-  //   // socketRef.current.on('messages', messages => {
-  //   // определяем, какие сообщения были отправлены данным пользователем,
-  //   // если значение свойства "userId" объекта сообщения совпадает с id пользователя,
-  //   // то добавляем в объект сообщения свойство "currentUser" со значением "true",
-  //   // иначе, просто возвращаем объект сообщения
-  //   // const newMessages = messages.map(msg =>
-  //   //   msg.userId === userId ? { ...msg, currentUser: true } : msg
-  //   // );
-  //   // обновляем массив сообщений
-  //   // setMessages(newMessages);
-  //   // });
+    // обрабатываем получение списка пользователей
+    // socketRef.current.on('users', users => {
+    //   // обновляем массив пользователей
+    //   setUsers(users);
+    // });
 
-  //   return () => {
-  //     // при размонтировании компонента выполняем отключение сокета
-  //     socket.disconnect();
-  //   };
-  // }, [messages, socket]);
+    socketRef.current.emit('message:get');
+
+    // обрабатываем получение сообщений
+    // socketRef.current.on('messages', messages => {
+    // определяем, какие сообщения были отправлены данным пользователем,
+    // если значение свойства "userId" объекта сообщения совпадает с id пользователя,
+    // то добавляем в объект сообщения свойство "currentUser" со значением "true",
+    // иначе, просто возвращаем объект сообщения
+    // const newMessages = messages.map(msg =>
+    //   msg.userId === userId ? { ...msg, currentUser: true } : msg
+    // );
+    // обновляем массив сообщений
+    // setMessages(newMessages);
+    // });
+
+    return () => {
+      // при размонтировании компонента выполняем отключение сокета
+      socketRef.current.off('connected');
+      socketRef.current.off('message');
+      socketRef.current.disconnect();
+    };
+  }, []);
 
   return (
     <>
-      {(links.a0 === undefined || links.a0[0] < 10) && !isLoading ? (
+      {(links.test === undefined || links.test[0] < 10) && !isLoading ? (
         <StreamPlaceHolder>
           <StreamPlaceHolderText>
             Поки що трансляції тут немає! <br />
@@ -270,7 +279,7 @@ export const StreamTest = () => {
                     <button className="home__cta">SIGN IN</button>
                   </form>
                 ) : (
-                  <Chat socket={socket} messages={messages} />
+                  <Chat socket={socketRef.current} messages={messages} />
                 )}
               </ChatBox>
             )}
@@ -318,7 +327,7 @@ export const StreamTest = () => {
                   <button className="home__cta">SIGN IN</button>
                 </form>
               ) : (
-                <Chat socket={socket} messages={messages} />
+                <Chat socket={socketRef.current} messages={messages} />
               )}
             </ChatBox>
           )}
