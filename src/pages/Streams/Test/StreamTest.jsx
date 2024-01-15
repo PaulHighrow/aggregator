@@ -44,6 +44,7 @@ export const StreamTest = () => {
   const [chatWidth, chatHeight] = useSize(chatEl);
   const [width, height] = useSize(document.body);
   const [userName, setUserName] = useState('');
+   // eslint-disable-next-line
   const [userID, setUserID] = useState('');
   const [isLoggedToChat, setIsLoggedToChat] = useState(false);
   // eslint-disable-next-line
@@ -81,11 +82,21 @@ export const StreamTest = () => {
 
   // setUserName(name => (name = localStorage.getItem('userName')));
 
+  const checkLogin = e => {
+    const name = localStorage.getItem('userName');
+    const id = localStorage.getItem('userID');
+
+    if (id && name) {
+      setIsLoggedToChat(isLogged => (isLogged = true));
+    }
+  };
+
   const handleSubmit = e => {
     e.preventDefault();
-    setUserID(id => (id = nanoid(8)));
+    const idGen = nanoid(8);
+    setUserID(id => (id = idGen));
     localStorage.setItem('userName', userName);
-    localStorage.setItem('userID', userID);
+    localStorage.setItem('userID', idGen);
     setIsLoggedToChat(isLogged => !isLogged);
   };
 
@@ -93,6 +104,7 @@ export const StreamTest = () => {
 
   useEffect(() => {
     socketRef.current = io('http://localhost:4000/');
+    checkLogin();
 
     socketRef.current.on('connected', (connected, handshake) => {
       console.log(connected);
@@ -102,8 +114,9 @@ export const StreamTest = () => {
     const getMessages = async () => {
       try {
         const dbMessages = await axios.get('http://localhost:4000/messages');
+
         setMessages(messages => (messages = dbMessages.data));
-        // console.log(messages);
+
       } catch (error) {
         console.log(error);
       }
@@ -119,7 +132,7 @@ export const StreamTest = () => {
         try {
           await axios.post('http://localhost:4000/messages', data);
           setMessages(messages => (messages = [...messages, data]));
-          console.log(messages);
+          getMessages();
         } catch (error) {
           console.log(error);
         }
@@ -137,7 +150,11 @@ export const StreamTest = () => {
     //   setUsers(users);
     // });
 
-    socketRef.current.emit('message:get');
+    socketRef.current.on('message:get', () => {
+      console.log('event succesfully emitted from server and read on client');
+      getMessages();
+      console.log('check messages');
+    });
 
     // обрабатываем получение сообщений
     // socketRef.current.on('messages', messages => {

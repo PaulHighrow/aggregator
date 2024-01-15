@@ -149,6 +149,7 @@ export const App = () => {
           <Route path="a2" element={<StreamA2 />} />
           <Route path="b1" element={<StreamB1 />} />
           <Route path="deutsch" element={<StreamDeutsch />} />
+          <Route path="pilot" element={<StreamDeutsch />} />
           <Route path="polski" element={<StreamPolski />} />
           <Route path="test" element={<StreamTest />} />
           <Route path="stream-admin-panel" element={<AdminPanel />} />
@@ -156,7 +157,6 @@ export const App = () => {
         </Route>
         <Route path="streams-kids" element={<StreamsKids />}>
           <Route path="a1" element={<KidsA1 />} />
-          {/* <Route path="pilot" element={<KidsA1 />} /> */}
           <Route path="a2" element={<KidsA2 />} />
           <Route path="b1" element={<KidsB1 />} />
         </Route>
