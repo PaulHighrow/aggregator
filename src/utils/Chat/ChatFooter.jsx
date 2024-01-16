@@ -1,10 +1,9 @@
-import axios from 'axios';
 import { useState } from 'react';
-
-axios.defaults.baseURL = 'http://localhost:4000/';
+import { useLocation } from 'react-router';
 
 export const ChatFooter = ({ socket }) => {
   const [message, setMessage] = useState('');
+  const location = useLocation();
 
   const handleSendMessage = e => {
     e.preventDefault();
@@ -17,15 +16,10 @@ export const ChatFooter = ({ socket }) => {
         userID: localStorage.getItem('userID'),
         id: `${socket.id}${Math.random()}`,
         socketID: socket.id,
+        roomLocation: location.pathname,
       });
     }
     console.log({ userName: localStorage.getItem('userName'), message });
-    // axios.post("messages", {
-    //   text: message,
-    //   name: localStorage.getItem('userName'),
-    //   id: `${socket.id}${Math.random()}`,
-    //   socketID: socket.id,
-    // })
     setMessage('');
   };
 

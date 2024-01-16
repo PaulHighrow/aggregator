@@ -44,7 +44,7 @@ export const StreamTest = () => {
   const [chatWidth, chatHeight] = useSize(chatEl);
   const [width, height] = useSize(document.body);
   const [userName, setUserName] = useState('');
-   // eslint-disable-next-line
+  // eslint-disable-next-line
   const [userID, setUserID] = useState('');
   const [isLoggedToChat, setIsLoggedToChat] = useState(false);
   // eslint-disable-next-line
@@ -103,7 +103,7 @@ export const StreamTest = () => {
   const socketRef = useRef(null);
 
   useEffect(() => {
-    socketRef.current = io('http://localhost:4000/');
+    socketRef.current = io('https://ap-chat.onrender.com/');
     checkLogin();
 
     socketRef.current.on('connected', (connected, handshake) => {
@@ -113,10 +113,11 @@ export const StreamTest = () => {
 
     const getMessages = async () => {
       try {
-        const dbMessages = await axios.get('http://localhost:4000/messages');
+        const dbMessages = await axios.get(
+          'https://ap-chat.onrender.com/messages'
+        );
 
         setMessages(messages => (messages = dbMessages.data));
-
       } catch (error) {
         console.log(error);
       }
@@ -127,17 +128,16 @@ export const StreamTest = () => {
     // и записываем объект с названием комнаты в строку запроса "рукопожатия"
     // socket.handshake.query.roomId
 
-    socketRef.current.on('message', data => {
+    socketRef.current.on('message', async data => {
       const updateMessages = async () => {
         try {
-          await axios.post('http://localhost:4000/messages', data);
+          await axios.post('https://ap-chat.onrender.com/messages', data);
           setMessages(messages => (messages = [...messages, data]));
-          getMessages();
         } catch (error) {
           console.log(error);
         }
       };
-      updateMessages();
+      await updateMessages();
     });
 
     // отправляем событие добавления пользователя,
@@ -150,9 +150,10 @@ export const StreamTest = () => {
     //   setUsers(users);
     // });
 
-    socketRef.current.on('message:get', () => {
+    socketRef.current.on('message:get', async data => {
       console.log('event succesfully emitted from server and read on client');
-      getMessages();
+      console.log(data);
+      setMessages(messages => (messages = [...messages, data]));
       console.log('check messages');
     });
 
