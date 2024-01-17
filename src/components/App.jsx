@@ -152,6 +152,7 @@ export const App = () => {
           <Route path="pilot" element={<StreamDeutsch />} />
           <Route path="polski" element={<StreamPolski />} />
           <Route path="test" element={<StreamTest />} />
+          <Route path="test1" element={<StreamTest />} />
           <Route path="stream-admin-panel" element={<AdminPanel />} />
           <Route path="kahoot-admin-panel" element={<KahootAdminPanel />} />
         </Route>

@@ -1,39 +1,47 @@
 import { useLocation } from 'react-router';
+import {
+  ChatMessageText,
+  ChatMessageUserCloud,
+  ChatMessageUsername,
+  ChatMessageWrapper,
+  ChatMessageYou,
+  ChatMessageYouCloud,
+  ChatMessagesBox
+} from './Chat.styled';
 
 export const ChatBody = ({ messages }) => {
   const location = useLocation();
 
-  console.log(location.pathname);
-
   return (
     <>
-      <div className="message__container">
+      <ChatMessagesBox>
         {messages.map(message =>
           message.roomLocation === location.pathname ? (
             message.username === localStorage.getItem('userName') &&
             message.userID === localStorage.getItem('userID') ? (
-              <div className="message__chats" key={message.id}>
-                <p className="sender__name">You</p>
-                <div className="message__sender">
-                  <p>{message.text}</p>
-                </div>
-              </div>
+              <ChatMessageWrapper className="message__chats" key={message.id}>
+                <ChatMessageYou className="sender__name">You</ChatMessageYou>
+                <ChatMessageYouCloud>
+                  <ChatMessageText>{message.text}</ChatMessageText>
+                  {/* <ChatMessageTime>
+                    {new Date(message.createdAt).toLocaleTimeString('uk-UA')}
+                  </ChatMessageTime> */}
+                </ChatMessageYouCloud>
+              </ChatMessageWrapper>
             ) : (
-              <div className="message__chats" key={message.id}>
-                <p>{message.username}</p>
-                <div className="message__recipient">
-                  <p>{message.text}</p>
-                </div>
-              </div>
+              <ChatMessageWrapper className="message__chats" key={message.id}>
+                <ChatMessageUsername>{message.username}</ChatMessageUsername>
+                <ChatMessageUserCloud className="message__recipient">
+                  <ChatMessageText>{message.text}</ChatMessageText>
+                  {/* <ChatMessageTime>
+                    {new Date(message.createdAt).toLocaleTimeString('uk-UA')}
+                  </ChatMessageTime> */}
+                </ChatMessageUserCloud>
+              </ChatMessageWrapper>
             )
           ) : null
         )}
-
-        {/*This is triggered when a user is typing*/}
-        {/* <div className="message__status">
-          <p>Someone is typing...</p>
-        </div> */}
-      </div>
+      </ChatMessagesBox>
     </>
   );
 };

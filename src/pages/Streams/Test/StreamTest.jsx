@@ -30,6 +30,13 @@ import {
   VideoBox,
 } from '../../../components/Stream/Stream.styled';
 import axios from 'axios';
+import {
+  ChatLoginButton,
+  ChatLoginForm,
+  ChatLoginHeader,
+  ChatLoginInput,
+  ChatLoginLabel,
+} from 'utils/Chat/Chat.styled';
 
 export const StreamTest = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -69,7 +76,6 @@ export const StreamTest = () => {
       ? setIsOpenedLast(isOpenedLast => 'support')
       : setIsOpenedLast(isOpenedLast => '');
   };
-
   const handleSupportClick = data_id => {
     setAnimationID(id => (id = data_id));
     if (!isAnimated) {
@@ -77,8 +83,8 @@ export const StreamTest = () => {
     }
   };
 
-  const orientation = window.screen.orientation.type;
-  const Snapshot = chatWidth === 0 ? width : width - chatWidth;
+  const videoBoxWidth =
+    chatWidth === 0 && width > height ? width - 300 : width - chatWidth;
 
   // setUserName(name => (name = localStorage.getItem('userName')));
 
@@ -192,7 +198,8 @@ export const StreamTest = () => {
         <>
           <StreamSection
             style={{
-              width: isChatOpen && width > height ? `${Snapshot}px` : '100%',
+              width:
+                isChatOpen && width > height ? `${videoBoxWidth}px` : '100%',
             }}
           >
             <VideoBox>
@@ -271,7 +278,7 @@ export const StreamTest = () => {
               </SupportBtn>
             </ButtonBox>
 
-            {links.test && orientation.includes('portrait') && (
+            {links.a1 && height > width && (
               <ChatBox
                 ref={chatEl}
                 className={isChatOpen ? 'shown' : 'hidden'}
@@ -280,22 +287,21 @@ export const StreamTest = () => {
                 }
               >
                 {!isLoggedToChat ? (
-                  <form className="home__container" onSubmit={handleSubmit}>
-                    <h2 className="home__header">Sign in to Open Chat</h2>
-                    <label htmlFor="username">Username</label>
-                    <input
+                  <ChatLoginForm onSubmit={handleSubmit}>
+                    <ChatLoginHeader>AP Open Chat</ChatLoginHeader>
+                    <ChatLoginLabel htmlFor="username">
+                      Введіть ваше ім'я повністю
+                    </ChatLoginLabel>
+                    <ChatLoginInput
                       type="text"
                       minLength={3}
-                      maxLength={15}
-                      autoComplete={'off'}
                       name="username"
                       id="username"
-                      className="username__input"
                       value={userName}
                       onChange={e => setUserName(e.target.value)}
                     />
-                    <button className="home__cta">SIGN IN</button>
-                  </form>
+                    <ChatLoginButton>Готово!</ChatLoginButton>
+                  </ChatLoginForm>
                 ) : (
                   <Chat socket={socketRef.current} messages={messages} />
                 )}
@@ -328,22 +334,21 @@ export const StreamTest = () => {
               }
             >
               {!isLoggedToChat ? (
-                <form className="home__container" onSubmit={handleSubmit}>
-                  <h2 className="home__header">Sign in to Open Chat</h2>
-                  <label htmlFor="username">Username</label>
-                  <input
+                <ChatLoginForm onSubmit={handleSubmit}>
+                  <ChatLoginHeader>AP Open Chat</ChatLoginHeader>
+                  <ChatLoginLabel htmlFor="username">
+                    Введіть ваше ім'я повністю
+                  </ChatLoginLabel>
+                  <ChatLoginInput
                     type="text"
                     minLength={3}
-                    maxLength={15}
-                    autoComplete={'off'}
                     name="username"
                     id="username"
-                    className="username__input"
                     value={userName}
                     onChange={e => setUserName(e.target.value)}
                   />
-                  <button className="home__cta">SIGN IN</button>
-                </form>
+                  <ChatLoginButton>Готово!</ChatLoginButton>
+                </ChatLoginForm>
               ) : (
                 <Chat socket={socketRef.current} messages={messages} />
               )}

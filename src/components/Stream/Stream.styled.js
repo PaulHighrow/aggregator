@@ -144,7 +144,9 @@ export const ChatBox = styled.div`
   right: 0;
   height: 100vh;
   width: max-content;
-  border-radius: 20px;
+  min-width: 300px;
+  /* border-radius: 20px; */
+  font-family: var(--chat-font-family);
   /* overflow: hidden; */
   box-shadow: -10px -10px 30px 0px rgba(0, 0, 0, 0.25);
 

@@ -1,5 +1,12 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router';
+import {
+  ChatFooterBox,
+  ChatMessageForm,
+  ChatSend,
+  СhatMessageInput,
+  СhatSendMessageButton,
+} from './Chat.styled';
 
 export const ChatFooter = ({ socket }) => {
   const [message, setMessage] = useState('');
@@ -24,17 +31,18 @@ export const ChatFooter = ({ socket }) => {
   };
 
   return (
-    <div className="chat__footer">
-      <form className="form" onSubmit={handleSendMessage}>
-        <input
+    <ChatFooterBox>
+      <ChatMessageForm className="form" onSubmit={handleSendMessage}>
+        <СhatMessageInput
           type="text"
-          placeholder="Write message"
-          className="message"
+          placeholder="Введіть повідомлення"
           value={message}
           onChange={e => setMessage(e.target.value)}
         />
-        <button className="sendBtn">SEND</button>
-      </form>
-    </div>
+        <СhatSendMessageButton>
+          <ChatSend />
+        </СhatSendMessageButton>
+      </ChatMessageForm>
+    </ChatFooterBox>
   );
 };

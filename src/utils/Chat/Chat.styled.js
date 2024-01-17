@@ -1,0 +1,198 @@
+import styled from 'styled-components';
+import { ReactComponent as ChatSendIcon } from '../../img/svg/sendIcon.svg';
+import mobile1xBGPng from '../../img/bg/mobile-bg@1x.png';
+import mobile1xBGWebp from '../../img/bg/mobile-bg@1x.webp';
+
+export const ChatLoginForm = styled.form`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+
+  background-image: image-set(
+    url(${mobile1xBGWebp}) type('image/webp'),
+    url(${mobile1xBGPng}) type('image/png')
+  );
+  background-size: 100% auto;
+  background-position: top 40% center;
+  background-repeat: no-repeat;
+`;
+
+export const ChatLoginHeader = styled.h2`
+  font-size: 30px;
+  color: var(--main-color);
+`;
+
+export const ChatLoginLabel = styled.label`
+  font-size: 18px;
+`;
+
+export const ChatLoginInput = styled.input`
+  border: 1.5px solid var(--accent-color);
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 18px;
+  width: 80%;
+
+  transition: background-color var(--animation-global);
+
+  &:hover,
+  &:focus {
+    background-color: var(--accent-transparent-color);
+  }
+`;
+
+export const ChatLoginButton = styled.button`
+  width: 55%;
+  padding: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  background-color: #607eaa;
+  color: #f9f5eb;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+
+  transition: background-color var(--animation-global),
+    color var(--animation-global);
+
+  &:hover,
+  &:focus {
+    background-color: var(--main-color);
+    color: var(--accent-color);
+  }
+`;
+
+export const ChatContainer = styled.div`
+  width: 100%;
+  max-width: 300px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-image: image-set(
+    url(${mobile1xBGWebp}) type('image/webp'),
+    url(${mobile1xBGPng}) type('image/png')
+  );
+  background-size: 100% auto;
+  background-position: bottom -30px right -50px;
+  background-repeat: no-repeat;
+`;
+
+export const ChatMessagesBox = styled.div`
+  width: 100%;
+  height: 95vh;
+  padding: 14px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+`;
+
+export const ChatMessageWrapper = styled.div`
+  margin-bottom: 8px;
+`;
+
+export const ChatMessageYou = styled.p`
+  text-align: right;
+  margin-bottom: 1px;
+`;
+
+export const ChatMessageUsername = styled.p`
+  margin-bottom: 1px;
+`;
+
+export const ChatMessageYouCloud = styled.div`
+  position: relative;
+  background-color: var(--accent-transparent-color);
+  max-width: 230px;
+  padding: 8px;
+  border-radius: 10px;
+  margin-left: auto;
+  font-size: 15px;
+`;
+
+export const ChatMessageUserCloud = styled.div`
+  position: relative;
+  background-color: var(--main-transparent-color);
+  max-width: 230px;
+  padding: 8px;
+  border-radius: 10px;
+  font-size: 15px;
+`;
+
+export const ChatMessageText = styled.p`
+  word-wrap: break-word;
+  white-space: normal;
+`;
+
+export const ChatMessageTime = styled.p`
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-size: 11px;
+  color: #00000081;
+`;
+
+export const ChatFooterBox = styled.div`
+  width: 100%;
+  padding: 10px;
+  background-color: #f9f5eb;
+  height: 5vh;
+`;
+
+export const ChatMessageForm = styled.form`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: space-between;
+`;
+
+export const СhatMessageInput = styled.input`
+  width: 90%;
+  height: 100%;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  outline: none;
+  padding: 15px;
+
+  word-wrap: break-word;
+  white-space: normal;
+`;
+
+export const ChatSend = styled(ChatSendIcon)`
+  width: 24px;
+  height: 24px;
+  fill: var(--main-color);
+
+  transition: fill var(--animation-global);
+`;
+
+export const СhatSendMessageButton = styled.button`
+  background-color: var(--accent-transparent-color);
+  padding: 10px;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  color: #eae3d2;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--animation-global), box-shadow var(--animation-global);
+
+  &:hover,
+  &:focus {
+    background-color: var(--main-color);
+    box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.5)
+  }
+
+  &:hover > svg,
+  &:focus > svg {
+    fill: var(--accent-color);
+  }
+`;
