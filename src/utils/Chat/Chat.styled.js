@@ -166,7 +166,8 @@ export const ChatFooterBox = styled.div`
   width: 100%;
   padding: 10px;
   background-color: #f9f5eb;
-  height: 48px;
+  height: 5vh;
+  min-height: 48px;
 `;
 
 export const ChatMessageForm = styled.form`
