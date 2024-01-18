@@ -73,7 +73,7 @@ export const ChatLoginButton = styled.button`
 export const ChatContainer = styled.div`
   width: 100%;
   height: 100%;
-  
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -86,18 +86,25 @@ export const ChatContainer = styled.div`
   background-position: bottom 50px right 10px;
   background-repeat: no-repeat;
 
+  @media screen and (orientation: landscape) {
+    max-width: 300px;
+
+    background-size: 100% auto;
+    background-position: bottom -30px right -50px;
+  }
+
   @media screen and (min-width: 1280px) {
     height: 100vh;
     max-width: 300px;
 
-  background-size: 100% auto;
-  background-position: bottom -30px right -50px;
+    background-size: 100% auto;
+    background-position: bottom -30px right -50px;
   }
 `;
 
 export const ChatMessagesBox = styled.div`
   width: 100%;
-  height: 90%;
+  height: 95%;
   padding: 14px;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -131,6 +138,10 @@ export const ChatMessageYouCloud = styled.div`
   margin-left: auto;
   font-size: 15px;
 
+  @media screen and (orientation: landscape) {
+    max-width: 230px;
+  }
+
   @media screen and (min-width: 1280px) {
     max-width: 230px;
   }
@@ -143,6 +154,10 @@ export const ChatMessageUserCloud = styled.div`
   padding: 8px;
   border-radius: 10px;
   font-size: 15px;
+  
+  @media screen and (orientation: landscape) {
+    max-width: 230px;
+  }
 
   @media screen and (min-width: 1280px) {
     max-width: 230px;
@@ -210,12 +225,13 @@ export const СhatSendMessageButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color var(--animation-global), box-shadow var(--animation-global);
+  transition: background-color var(--animation-global),
+    box-shadow var(--animation-global);
 
   &:hover,
   &:focus {
     background-color: var(--main-color);
-    box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.5)
+    box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.5);
   }
 
   &:hover > svg,
