@@ -1,4 +1,4 @@
-import { Logo } from 'components/Menu/Menu.styled';
+import { LeadBtn, Logo } from 'components/Menu/Menu.styled';
 import styled from 'styled-components';
 
 import { PiMapPinDuotone } from 'react-icons/pi';
@@ -162,6 +162,10 @@ export const LeadDesc = styled.p`
     font-size: 22px;
     text-align: left;
   }
+`;
+
+export const FooterLeadBtn = styled(LeadBtn)`
+  padding: 0;
 `;
 
 export const FooterList = styled.ul`

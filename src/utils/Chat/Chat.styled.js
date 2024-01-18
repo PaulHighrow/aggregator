@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import { ReactComponent as ChatSendIcon } from '../../img/svg/sendIcon.svg';
 import mobile1xBGPng from '../../img/bg/mobile-bg@1x.png';
 import mobile1xBGWebp from '../../img/bg/mobile-bg@1x.webp';
+import { ReactComponent as ChatSendIcon } from '../../img/svg/sendIcon.svg';
 
 export const ChatLoginForm = styled.form`
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -19,6 +19,10 @@ export const ChatLoginForm = styled.form`
   background-size: 100% auto;
   background-position: top 40% center;
   background-repeat: no-repeat;
+
+  @media screen and (min-width: 1280px) {
+    height: 100vh;
+  }
 `;
 
 export const ChatLoginHeader = styled.h2`
@@ -68,8 +72,8 @@ export const ChatLoginButton = styled.button`
 
 export const ChatContainer = styled.div`
   width: 100%;
-  max-width: 300px;
-  height: 100vh;
+  height: 100%;
+  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -78,17 +82,29 @@ export const ChatContainer = styled.div`
     url(${mobile1xBGWebp}) type('image/webp'),
     url(${mobile1xBGPng}) type('image/png')
   );
+  background-size: auto 40%;
+  background-position: bottom 50px right 10px;
+  background-repeat: no-repeat;
+
+  @media screen and (min-width: 1280px) {
+    height: 100vh;
+    max-width: 300px;
+
   background-size: 100% auto;
   background-position: bottom -30px right -50px;
-  background-repeat: no-repeat;
+  }
 `;
 
 export const ChatMessagesBox = styled.div`
   width: 100%;
-  height: 95vh;
+  height: 90%;
   padding: 14px;
   overflow-x: hidden;
   overflow-y: scroll;
+
+  @media screen and (min-width: 1280px) {
+    height: 95vh;
+  }
 `;
 
 export const ChatMessageWrapper = styled.div`
@@ -97,30 +113,40 @@ export const ChatMessageWrapper = styled.div`
 
 export const ChatMessageYou = styled.p`
   text-align: right;
+  font-size: 12px;
   margin-bottom: 1px;
 `;
 
 export const ChatMessageUsername = styled.p`
+  font-size: 12px;
   margin-bottom: 1px;
 `;
 
 export const ChatMessageYouCloud = styled.div`
   position: relative;
   background-color: var(--accent-transparent-color);
-  max-width: 230px;
+  max-width: 65%;
   padding: 8px;
   border-radius: 10px;
   margin-left: auto;
   font-size: 15px;
+
+  @media screen and (min-width: 1280px) {
+    max-width: 230px;
+  }
 `;
 
 export const ChatMessageUserCloud = styled.div`
   position: relative;
   background-color: var(--main-transparent-color);
-  max-width: 230px;
+  max-width: 65%;
   padding: 8px;
   border-radius: 10px;
   font-size: 15px;
+
+  @media screen and (min-width: 1280px) {
+    max-width: 230px;
+  }
 `;
 
 export const ChatMessageText = styled.p`
@@ -140,7 +166,7 @@ export const ChatFooterBox = styled.div`
   width: 100%;
   padding: 10px;
   background-color: #f9f5eb;
-  height: 5vh;
+  height: 48px;
 `;
 
 export const ChatMessageForm = styled.form`

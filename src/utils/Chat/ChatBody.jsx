@@ -1,4 +1,5 @@
 import { useLocation } from 'react-router';
+import { animateScroll } from 'react-scroll';
 import {
   ChatMessageText,
   ChatMessageUserCloud,
@@ -6,15 +7,27 @@ import {
   ChatMessageWrapper,
   ChatMessageYou,
   ChatMessageYouCloud,
-  ChatMessagesBox
+  ChatMessagesBox,
 } from './Chat.styled';
+import { useEffect, useRef } from 'react';
 
-export const ChatBody = ({ messages }) => {
+export const ChatBody = ({ messages, isChatOpen }) => {
   const location = useLocation();
+  const ChatBodyEl = useRef();
+
+  useEffect(() => {
+    scrollToBottom();
+  });
+
+  const scrollToBottom = () => {
+    animateScroll.scrollToBottom({
+      containerId: 'chat-box',
+    });
+  };
 
   return (
     <>
-      <ChatMessagesBox>
+      <ChatMessagesBox id="chat-box" ref={ChatBodyEl}>
         {messages.map(message =>
           message.roomLocation === location.pathname ? (
             message.username === localStorage.getItem('userName') &&

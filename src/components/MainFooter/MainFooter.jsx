@@ -1,9 +1,9 @@
 import { Box } from 'components/Box/Box.styled';
-import { LeadBtn } from '../Menu/Menu.styled';
 import {
   FacebookBtn,
   Footer,
   FooterBox,
+  FooterLeadBtn,
   FooterLeftBox,
   FooterLink,
   FooterList,
@@ -88,7 +88,7 @@ export const MainFooter = ({ toggleModal }) => {
             </IconBox>
             <LeadWrapper>
               <LeadDesc>... якщо залишились запитання </LeadDesc>
-              <LeadBtn onClick={toggleModal}> ЗАЛИШИТИ ЗАЯВКУ </LeadBtn>
+              <FooterLeadBtn onClick={toggleModal}> ЗАЛИШИТИ ЗАЯВКУ </FooterLeadBtn>
               <MonoPawIcon/>
             </LeadWrapper>
           </FooterLeftBox>

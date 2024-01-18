@@ -1,5 +1,6 @@
 import { BackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
 import { Box } from 'components/Box/Box.styled';
+import { LeadBtn } from 'components/Menu/Menu.styled';
 import styled from 'styled-components';
 
 export const ReviewsBackground = styled(BackgroundWrapper)`
@@ -136,6 +137,10 @@ export const VideoBox = styled.div`
 export const LeadBtnWrapper = styled.div`
   width: max-content;
   margin: 0 auto;
+`;
+
+export const ReviewLeadBtn = styled(LeadBtn)`
+  padding: 0;
 `;
 
 export const ReviewsVideoWrapper = styled.div`

@@ -149,7 +149,7 @@ export const App = () => {
           <Route path="a2" element={<StreamA2 />} />
           <Route path="b1" element={<StreamB1 />} />
           <Route path="deutsch" element={<StreamDeutsch />} />
-          <Route path="pilot" element={<StreamDeutsch />} />
+          {/* <Route path="pilot" element={<StreamDeutsch />} /> */}
           <Route path="polski" element={<StreamPolski />} />
           <Route path="test" element={<StreamTest />} />
           <Route path="test1" element={<StreamTest />} />

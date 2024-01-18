@@ -263,22 +263,22 @@ export const StreamTest = () => {
               >
                 <KahootLogo />
               </KahootBtn>
-              {links.test && (
-                <ChatBtn
-                  onClick={toggleChat}
-                  className={
-                    isAnimated && animatedID === 'chat_open' ? 'animated' : ''
-                  }
-                >
-                  <ChatLogo />
-                </ChatBtn>
-              )}
+
+              <ChatBtn
+                onClick={toggleChat}
+                className={
+                  isAnimated && animatedID === 'chat_open' ? 'animated' : ''
+                }
+              >
+                <ChatLogo />
+              </ChatBtn>
+
               <SupportBtn onClick={toggleSupport}>
                 <SupportLogo />
               </SupportBtn>
             </ButtonBox>
 
-            {links.a1 && height > width && (
+            {height > width && (
               <ChatBox
                 ref={chatEl}
                 className={isChatOpen ? 'shown' : 'hidden'}
@@ -325,7 +325,7 @@ export const StreamTest = () => {
               isOpenedLast={isOpenedLast}
             />
           </StreamSection>
-          {links.test && width > height && (
+          {width >= height && (
             <ChatBox
               ref={chatEl}
               className={isChatOpen ? 'shown' : 'hidden'}
@@ -350,7 +350,11 @@ export const StreamTest = () => {
                   <ChatLoginButton>Готово!</ChatLoginButton>
                 </ChatLoginForm>
               ) : (
-                <Chat socket={socketRef.current} messages={messages} />
+                <Chat
+                  socket={socketRef.current}
+                  messages={messages}
+                  isChatOpen={isChatOpen}
+                />
               )}
             </ChatBox>
           )}

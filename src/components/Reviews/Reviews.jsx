@@ -1,11 +1,11 @@
 import { VideoModal } from 'components/AboutUs/VideoModal/VideoModal';
 import { YouTubeVideoSoundBtn } from 'components/HowItWorks/HowItWorks.styled';
-import { LeadBtn } from 'components/Menu/Menu.styled';
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import ReactPlayer from 'react-player';
 import {
   LeadBtnWrapper,
+  ReviewLeadBtn,
   ReviewsBackground,
   ReviewsBox,
   ReviewsSection,
@@ -90,7 +90,7 @@ export const Reviews = ({ toggleModal }) => {
                 житті. Приєднуйтесь до нас вже сьогодні!
               </ReviewsText>
               <LeadBtnWrapper>
-                <LeadBtn onClick={toggleModal}> ЗАЛИШИТИ ЗАЯВКУ </LeadBtn>
+                <ReviewLeadBtn onClick={toggleModal}> ЗАЛИШИТИ ЗАЯВКУ </ReviewLeadBtn>
               </LeadBtnWrapper>
             </ReviewsTextBox>
           </ReviewsVideoWrapper>
