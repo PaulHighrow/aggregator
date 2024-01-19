@@ -7,6 +7,7 @@ import {
   СhatMessageInput,
   СhatSendMessageButton,
 } from './Chat.styled';
+import { animateScroll } from 'react-scroll';
 
 export const ChatFooter = ({ socket }) => {
   const [message, setMessage] = useState('');
@@ -28,6 +29,11 @@ export const ChatFooter = ({ socket }) => {
     }
     console.log({ userName: localStorage.getItem('userName'), message });
     setMessage('');
+    setTimeout(() => {
+      animateScroll.scrollToBottom({
+        containerId: 'chat-box',
+      });
+    }, 500);
   };
 
   return (

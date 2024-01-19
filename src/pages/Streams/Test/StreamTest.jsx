@@ -303,7 +303,11 @@ export const StreamTest = () => {
                     <ChatLoginButton>Готово!</ChatLoginButton>
                   </ChatLoginForm>
                 ) : (
-                  <Chat socket={socketRef.current} messages={messages} />
+                  <Chat
+                    socket={socketRef.current}
+                    messages={messages}
+                    isChatOpen={isChatOpen}
+                  />
                 )}
               </ChatBox>
             )}

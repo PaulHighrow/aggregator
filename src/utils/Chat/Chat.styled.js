@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import mobile1xBGPng from '../../img/bg/mobile-bg@1x.png';
 import mobile1xBGWebp from '../../img/bg/mobile-bg@1x.webp';
 import { ReactComponent as ChatSendIcon } from '../../img/svg/sendIcon.svg';
+import { ReactComponent as ChatScrollDownArrow } from '../../img/svg/downArrow.svg';
 
 export const ChatLoginForm = styled.form`
   width: 100%;
@@ -71,6 +72,8 @@ export const ChatLoginButton = styled.button`
 `;
 
 export const ChatContainer = styled.div`
+  position: relative;
+
   width: 100%;
   height: 100%;
 
@@ -154,7 +157,7 @@ export const ChatMessageUserCloud = styled.div`
   padding: 8px;
   border-radius: 10px;
   font-size: 15px;
-  
+
   @media screen and (orientation: landscape) {
     max-width: 230px;
   }
@@ -238,4 +241,26 @@ export const СhatSendMessageButton = styled.button`
   &:focus > svg {
     fill: var(--accent-color);
   }
+`;
+
+export const ChatFastScrollButton = styled(СhatSendMessageButton)`
+  position: absolute;
+  bottom: 65px;
+  right: 35px;
+  z-index: 5;
+
+  width: 36px;
+  height: 36px;
+
+  background-color: var(--main-semi-transparent-color);
+
+  &:hover > svg,
+  &:focus > svg {
+    fill: none;
+  }
+`;
+
+export const ChatScrollDownIcon = styled(ChatScrollDownArrow)`
+  flex-shrink: 0;
+  stroke-width: 2;
 `;
