@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/aggregator/static/css/main.e55ce021.css",
-    "main.js": "/aggregator/static/js/main.90fe1e91.js",
+    "main.css": "/aggregator/static/css/main.b14cbce7.css",
+    "main.js": "/aggregator/static/js/main.95caf3d4.js",
     "Homepage.css": "/aggregator/static/css/Homepage.da8dd18d.chunk.css",
     "Homepage.js": "/aggregator/static/js/Homepage.8d024d74.chunk.js",
     "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.96905dd2.chunk.js",
     "Streams page.js": "/aggregator/static/js/Streams page.873eedb9.chunk.js",
     "Streams Kids page.js": "/aggregator/static/js/Streams Kids page.f5a645a4.chunk.js",
-    "English trials page.js": "/aggregator/static/js/English trials page.02e9f937.chunk.js",
-    "Kids trials page.js": "/aggregator/static/js/Kids trials page.30e99e3c.chunk.js",
-    "Deutsch trials page.js": "/aggregator/static/js/Deutsch trials page.39d1185b.chunk.js",
-    "Polska trials page.js": "/aggregator/static/js/Polska trials page.d2a51ca5.chunk.js",
+    "English trials page.js": "/aggregator/static/js/English trials page.f67f1eaa.chunk.js",
+    "Kids trials page.js": "/aggregator/static/js/Kids trials page.9754004b.chunk.js",
+    "Deutsch trials page.js": "/aggregator/static/js/Deutsch trials page.931ef84b.chunk.js",
+    "Polska trials page.js": "/aggregator/static/js/Polska trials page.ead5bceb.chunk.js",
     "All reviews page.js": "/aggregator/static/js/All reviews page.48955632.chunk.js",
     "Not Found.js": "/aggregator/static/js/Not Found.c8d73658.chunk.js",
     "reactPlayerYouTube.js": "/aggregator/static/js/reactPlayerYouTube.a26a0e93.chunk.js",
@@ -120,17 +120,17 @@
     "static/media/loopyLineMirror.svg": "/aggregator/static/media/loopyLineMirror.48ca7bb812c4829298a091b339e31743.svg",
     "static/media/invertedDownArrow.svg": "/aggregator/static/media/invertedDownArrow.81d2e354f4424bf21d20b96a031591ce.svg",
     "static/media/downArrow.svg": "/aggregator/static/media/downArrow.3d74cb9d6d38fab26c47bbadb8e4f56d.svg",
-    "main.e55ce021.css.map": "/aggregator/static/css/main.e55ce021.css.map",
-    "main.90fe1e91.js.map": "/aggregator/static/js/main.90fe1e91.js.map",
+    "main.b14cbce7.css.map": "/aggregator/static/css/main.b14cbce7.css.map",
+    "main.95caf3d4.js.map": "/aggregator/static/js/main.95caf3d4.js.map",
     "Homepage.da8dd18d.chunk.css.map": "/aggregator/static/css/Homepage.da8dd18d.chunk.css.map",
     "Homepage.8d024d74.chunk.js.map": "/aggregator/static/js/Homepage.8d024d74.chunk.js.map",
     "Inverted Homepage.96905dd2.chunk.js.map": "/aggregator/static/js/Inverted Homepage.96905dd2.chunk.js.map",
     "Streams page.873eedb9.chunk.js.map": "/aggregator/static/js/Streams page.873eedb9.chunk.js.map",
     "Streams Kids page.f5a645a4.chunk.js.map": "/aggregator/static/js/Streams Kids page.f5a645a4.chunk.js.map",
-    "English trials page.02e9f937.chunk.js.map": "/aggregator/static/js/English trials page.02e9f937.chunk.js.map",
-    "Kids trials page.30e99e3c.chunk.js.map": "/aggregator/static/js/Kids trials page.30e99e3c.chunk.js.map",
-    "Deutsch trials page.39d1185b.chunk.js.map": "/aggregator/static/js/Deutsch trials page.39d1185b.chunk.js.map",
-    "Polska trials page.d2a51ca5.chunk.js.map": "/aggregator/static/js/Polska trials page.d2a51ca5.chunk.js.map",
+    "English trials page.f67f1eaa.chunk.js.map": "/aggregator/static/js/English trials page.f67f1eaa.chunk.js.map",
+    "Kids trials page.9754004b.chunk.js.map": "/aggregator/static/js/Kids trials page.9754004b.chunk.js.map",
+    "Deutsch trials page.931ef84b.chunk.js.map": "/aggregator/static/js/Deutsch trials page.931ef84b.chunk.js.map",
+    "Polska trials page.ead5bceb.chunk.js.map": "/aggregator/static/js/Polska trials page.ead5bceb.chunk.js.map",
     "All reviews page.48955632.chunk.js.map": "/aggregator/static/js/All reviews page.48955632.chunk.js.map",
     "Not Found.c8d73658.chunk.js.map": "/aggregator/static/js/Not Found.c8d73658.chunk.js.map",
     "reactPlayerYouTube.a26a0e93.chunk.js.map": "/aggregator/static/js/reactPlayerYouTube.a26a0e93.chunk.js.map",
@@ -152,7 +152,7 @@
     "311.5f8b6d92.chunk.js.map": "/aggregator/static/js/311.5f8b6d92.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e55ce021.css",
-    "static/js/main.90fe1e91.js"
+    "static/css/main.b14cbce7.css",
+    "static/js/main.95caf3d4.js"
   ]
 }
