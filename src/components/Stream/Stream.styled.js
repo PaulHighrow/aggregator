@@ -125,7 +125,6 @@ export const SupportMarkerLeft = styled.div`
 `;
 
 export const VideoBox = styled.div`
-  /* position: relative; */
   padding-top: 100vh;
   max-height: 100vh;
   overflow: hidden;
@@ -147,12 +146,12 @@ export const ChatBox = styled.div`
   height: 100vh;
   width: max-content;
   min-width: 300px;
-  /* border-radius: 20px; */
-  font-family: var(--chat-font-family);
-  /* overflow: hidden; */
+
+  font-family: var(--streams-font-family);
+
   box-shadow: -10px -10px 30px 0px rgba(0, 0, 0, 0.25);
 
-  transition: transform var(--animation-global);
+  /* transition: transform var(--animation-global); */
 
   @media screen and (orientation: portrait) {
     bottom: 0;
@@ -188,19 +187,14 @@ export const ChatBox = styled.div`
     clip: rect(0 0 0 0);
     overflow: hidden;
 
+    transform: translateX(100%);
+
     @media screen and (orientation: portrait) {
       transform: translateX(-100%);
     }
-
-    transform: translateX(100%);
   }
 
   &.shown {
-    display: block;
-    transform: translateX(0);
-  }
-
-  &.transformed {
     transform: translateX(0);
   }
 `;

@@ -1,14 +1,21 @@
 import useSize from '@react-hook/size';
-// import axios from 'axios';
 import { Kahoots } from 'components/Stream/Kahoots/Kahoots';
 import { Support } from 'components/Stream/Support/Support';
 import { nanoid } from 'nanoid';
 // eslint-disable-next-line
+import axios from 'axios';
 import { useEffect, useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { useOutletContext } from 'react-router-dom';
 import { io } from 'socket.io-client';
 import { Chat } from 'utils/Chat/Chat';
+import {
+  ChatLoginButton,
+  ChatLoginForm,
+  ChatLoginHeader,
+  ChatLoginInput,
+  ChatLoginLabel,
+} from 'utils/Chat/Chat.styled';
 import {
   ButtonBox,
   ChatBox,
@@ -29,14 +36,6 @@ import {
   SupportPointer,
   VideoBox,
 } from '../../../components/Stream/Stream.styled';
-import axios from 'axios';
-import {
-  ChatLoginButton,
-  ChatLoginForm,
-  ChatLoginHeader,
-  ChatLoginInput,
-  ChatLoginLabel,
-} from 'utils/Chat/Chat.styled';
 
 export const StreamTest = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -54,7 +53,6 @@ export const StreamTest = () => {
   // eslint-disable-next-line
   const [userID, setUserID] = useState('');
   const [isLoggedToChat, setIsLoggedToChat] = useState(false);
-  // eslint-disable-next-line
   const [messages, setMessages] = useState([]);
 
   const toggleKahoot = e => {
@@ -85,8 +83,6 @@ export const StreamTest = () => {
 
   const videoBoxWidth =
     chatWidth === 0 && width > height ? width - 300 : width - chatWidth;
-
-  // setUserName(name => (name = localStorage.getItem('userName')));
 
   const checkLogin = e => {
     const name = localStorage.getItem('userName');

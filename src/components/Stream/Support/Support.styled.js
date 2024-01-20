@@ -19,6 +19,8 @@ export const SupportBox = styled.div`
   top: 0;
   left: 0;
 
+  font-family: var(--streams-font-family);
+
   transition: transform var(--animation-global);
 
   &.hidden {
@@ -87,18 +89,18 @@ export const FAQListQuestion = styled.span`
   display: inline-block;
   color: var(--main-color);
   cursor: pointer;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 700;
   margin-bottom: 6px;
 
   transition: color var(--animation-global);
 
   @media screen and (min-width: 768px) {
-    font-size: 24px;
+    font-size: 20px;
   }
 
   @media screen and (min-width: 1280px) {
-    font-size: 28px;
+    font-size: 24px;
   }
 
   &:hover,
@@ -108,14 +110,14 @@ export const FAQListQuestion = styled.span`
 `;
 
 export const FAQListAnswer = styled.p`
-  font-size: 18px;
+  font-size: 15px;
 
   @media screen and (min-width: 768px) {
-    font-size: 22px;
+    font-size: 19px;
   }
 
   @media screen and (min-width: 1280px) {
-    font-size: 26px;
+    font-size: 21px;
   }
 `;
 

@@ -122,7 +122,7 @@ export const Support = ({
                   </FAQListAnswer>
                 )}
               </FAQListItem>
-              <FAQListItem>
+              {/* <FAQListItem>
                 <FAQListQuestion data_id="chat_login" onClick={showAnswer}>
                   Чому я не можу писати в чаті?
                 </FAQListQuestion>
@@ -141,7 +141,7 @@ export const Support = ({
                     .
                   </FAQListAnswer>
                 )}
-              </FAQListItem>
+              </FAQListItem> */}
               <FAQListItem>
                 <FAQListQuestion data_id="kahoot_open" onClick={showAnswer}>
                   Як відкрити Кахут?

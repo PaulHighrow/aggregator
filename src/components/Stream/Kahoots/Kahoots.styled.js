@@ -79,15 +79,16 @@ export const KahootDisclaimerBox = styled.div`
 `;
 
 export const KahootDisclaimerText = styled.p`
-  font-size: 18px;
+  font-family: var(--streams-font-family);
+  font-size: 16px;
   font-weight: 600;
 
   @media screen and (min-width: 768px) {
-    font-size: 21px;
+    font-size: 18px;
   }
 
   @media screen and (min-width: 1280px) {
-    font-size: 24px;
+    font-size: 21px;
   }
 `;
 
@@ -233,6 +234,7 @@ export const ClipBoardBtn = styled(KahootBtn)`
 `;
 
 export const ClipBoardInputForm = styled.form`
+  font-family: var(--streams-font-family);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -240,6 +242,7 @@ export const ClipBoardInputForm = styled.form`
 `;
 
 export const ClipBoardNotification = styled.div`
+  font-family: var(--streams-font-family);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -248,7 +251,7 @@ export const ClipBoardNotification = styled.div`
 
 export const ClipBoardFormText = styled.p`
   color: var(--main-color);
-  font-size: 22px;
+  font-size: 19px;
   font-weight: 700;
 `;
 
@@ -272,14 +275,14 @@ export const DismissIcon = styled(CloseIcon)`
 
 export const ClipBoardInput = styled.input`
   width: 100%;
-  font-size: 22px;
+  font-size: 19px;
   font-weight: 700;
 `;
 
 export const ClipBoardSubmitBtn = styled.button`
   display: block;
   margin: 0 auto;
-  font-size: 22px;
+  font-size: 19px;
   font-weight: 700;
   width: 50%;
 `;

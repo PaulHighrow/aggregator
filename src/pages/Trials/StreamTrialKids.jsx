@@ -4,7 +4,7 @@ import { StreamsBackgroundWrapper } from 'components/BackgroundWrapper/Backgroun
 import { Loader } from 'components/SharedLayout/Loaders/Loader';
 import { LoaderWrapper } from 'components/SharedLayout/Loaders/Loader.styled';
 import { Kahoots } from 'components/Stream/Kahoots/Kahoots';
-import { useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
 import {
   ButtonBox,
@@ -27,6 +27,16 @@ import {
   VideoBox,
 } from '../../components/Stream/Stream.styled';
 import { Support } from 'components/Stream/Support/Support';
+import {
+  ChatLoginButton,
+  ChatLoginForm,
+  ChatLoginHeader,
+  ChatLoginInput,
+  ChatLoginLabel,
+} from 'utils/Chat/Chat.styled';
+import { Chat } from 'utils/Chat/Chat';
+import { io } from 'socket.io-client';
+import { nanoid } from 'nanoid';
 
 axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
 
@@ -43,6 +53,11 @@ const StreamTrialKids = () => {
   const [width, height] = useSize(document.body);
   const [isLoading, setIsLoading] = useState(false);
   const [links, setLinks] = useState({});
+  const [userName, setUserName] = useState('');
+  // eslint-disable-next-line
+  const [userID, setUserID] = useState('');
+  const [isLoggedToChat, setIsLoggedToChat] = useState(false);
+  const [messages, setMessages] = useState([]);
 
   const wakeupRequest = async () => {
     try {
@@ -94,12 +109,74 @@ const StreamTrialKids = () => {
       setIsAnimated(isAnimated => !isAnimated);
     }
   };
-  const embedDomain = window.location.host.includes('localhost')
-    ? 'localhost'
-    : window.location.host;
 
   const videoBoxWidth =
     chatWidth === 0 && width > height ? width - 300 : width - chatWidth;
+
+  const checkLogin = e => {
+    const name = localStorage.getItem('userName');
+    const id = localStorage.getItem('userID');
+
+    if (id && name) {
+      setIsLoggedToChat(isLogged => (isLogged = true));
+    }
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    const idGen = nanoid(8);
+    setUserID(id => (id = idGen));
+    localStorage.setItem('userName', userName);
+    localStorage.setItem('userID', idGen);
+    setIsLoggedToChat(isLogged => !isLogged);
+  };
+
+  const socketRef = useRef(null);
+
+  useEffect(() => {
+    socketRef.current = io('https://ap-chat.onrender.com/');
+    checkLogin();
+
+    socketRef.current.on('connected', (connected, handshake) => {
+      console.log(connected);
+      console.log(handshake);
+    });
+
+    const getMessages = async () => {
+      try {
+        const dbMessages = await axios.get(
+          'https://ap-chat.onrender.com/messages'
+        );
+
+        setMessages(messages => (messages = dbMessages.data));
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getMessages();
+
+    socketRef.current.on('message', async data => {
+      const updateMessages = async () => {
+        try {
+          await axios.post('https://ap-chat.onrender.com/messages', data);
+          setMessages(messages => (messages = [...messages, data]));
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      await updateMessages();
+    });
+
+    socketRef.current.on('message:get', async data => {
+      setMessages(messages => (messages = [...messages, data]));
+    });
+
+    return () => {
+      socketRef.current.off('connected');
+      socketRef.current.off('message');
+      socketRef.current.disconnect();
+    };
+  }, []);
 
   return (
     <>
@@ -189,16 +266,14 @@ const StreamTrialKids = () => {
                   <KahootLogo />
                 </KahootBtn>
 
-                {links.trials_kids && (
-                  <ChatBtn
-                    onClick={toggleChat}
-                    className={
-                      isAnimated && animatedID === 'chat_open' ? 'animated' : ''
-                    }
-                  >
-                    <ChatLogo />
-                  </ChatBtn>
-                )}
+                <ChatBtn
+                  onClick={toggleChat}
+                  className={
+                    isAnimated && animatedID === 'chat_open' ? 'animated' : ''
+                  }
+                >
+                  <ChatLogo />
+                </ChatBtn>
 
                 <SupportBtn onClick={toggleSupport}>
                   <SupportLogo />
@@ -209,20 +284,37 @@ const StreamTrialKids = () => {
               !links.trials_kids.includes('youtu.be')
                 ? window.location.replace(links.trials_kids)
                 : null}
-              {links.trials_kids && height > width && (
+              {height > width && (
                 <ChatBox
+                  ref={chatEl}
                   className={isChatOpen ? 'shown' : 'hidden'}
                   style={
                     isOpenedLast === 'chat' ? { zIndex: '2' } : { zIndex: '1' }
                   }
                 >
-                  <iframe
-                    title="chat"
-                    width="350px"
-                    src={`https://www.youtube.com/live_chat?v=${
-                      links.trials_kids.match(/([a-zA-Z0-9_-]{11})/)[0]
-                    }&embed_domain=${embedDomain}`}
-                  ></iframe>
+                  {!isLoggedToChat ? (
+                    <ChatLoginForm onSubmit={handleSubmit}>
+                      <ChatLoginHeader>AP Open Chat</ChatLoginHeader>
+                      <ChatLoginLabel htmlFor="username">
+                        Введіть ваше ім'я повністю
+                      </ChatLoginLabel>
+                      <ChatLoginInput
+                        type="text"
+                        minLength={3}
+                        name="username"
+                        id="username"
+                        value={userName}
+                        onChange={e => setUserName(e.target.value)}
+                      />
+                      <ChatLoginButton>Готово!</ChatLoginButton>
+                    </ChatLoginForm>
+                  ) : (
+                    <Chat
+                      socket={socketRef.current}
+                      messages={messages}
+                      isChatOpen={isChatOpen}
+                    />
+                  )}
                 </ChatBox>
               )}
 
@@ -244,20 +336,37 @@ const StreamTrialKids = () => {
               />
             </StreamsBackgroundWrapper>
           </StreamSection>
-          {links.trials_kids && width > height && (
+          {width >= height && (
             <ChatBox
+              ref={chatEl}
               className={isChatOpen ? 'shown' : 'hidden'}
               style={
                 isOpenedLast === 'chat' ? { zIndex: '2' } : { zIndex: '1' }
               }
             >
-              <iframe
-                title="chat"
-                width="350px"
-                src={`https://www.youtube.com/live_chat?v=${
-                  links.trials_kids.match(/([a-zA-Z0-9_-]{11})/)[0]
-                }&embed_domain=${embedDomain}`}
-              ></iframe>
+              {!isLoggedToChat ? (
+                <ChatLoginForm onSubmit={handleSubmit}>
+                  <ChatLoginHeader>AP Open Chat</ChatLoginHeader>
+                  <ChatLoginLabel htmlFor="username">
+                    Введіть ваше ім'я повністю
+                  </ChatLoginLabel>
+                  <ChatLoginInput
+                    type="text"
+                    minLength={3}
+                    name="username"
+                    id="username"
+                    value={userName}
+                    onChange={e => setUserName(e.target.value)}
+                  />
+                  <ChatLoginButton>Готово!</ChatLoginButton>
+                </ChatLoginForm>
+              ) : (
+                <Chat
+                  socket={socketRef.current}
+                  messages={messages}
+                  isChatOpen={isChatOpen}
+                />
+              )}
             </ChatBox>
           )}
         </>
