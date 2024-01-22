@@ -1,3 +1,5 @@
+import useSize from '@react-hook/size';
+import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router';
 import { animateScroll } from 'react-scroll';
 import {
@@ -11,8 +13,6 @@ import {
   ChatMessagesBox,
   ChatScrollDownIcon,
 } from './Chat.styled';
-import { useEffect, useRef, useState } from 'react';
-import useSize from '@react-hook/size';
 
 export const ChatBody = ({ messages, isChatOpen }) => {
   const location = useLocation();
@@ -57,11 +57,14 @@ export const ChatBody = ({ messages, isChatOpen }) => {
         onScroll={calculateHeights}
       >
         {messages.map(message =>
-          message.roomLocation === location.pathname || message.roomLocation === location.pathname.split('-chat')[0] ? (
+          message.roomLocation === location.pathname ||
+          message.roomLocation === location.pathname.split('-chat')[0] ? (
             message.username === localStorage.getItem('userName') &&
             message.userID === localStorage.getItem('userID') ? (
               <ChatMessageWrapper className="message__chats" key={message.id}>
-                <ChatMessageYou className="sender__name">Ви ({message.username})</ChatMessageYou>
+                <ChatMessageYou className="sender__name">
+                  Ви ({message.username})
+                </ChatMessageYou>
                 <ChatMessageYouCloud>
                   <ChatMessageText
                     dangerouslySetInnerHTML={{

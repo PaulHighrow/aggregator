@@ -4,12 +4,12 @@ import { useLocation } from 'react-router';
 import { animateScroll } from 'react-scroll';
 import {
   ChatFastScrollButton,
-  ChatMessageText,
   ChatMessageUsername,
   ChatMessageWrapper,
   ChatMessageYou,
   ChatMessagesBox,
   ChatScrollDownIcon,
+  ChatWindowedMessageText,
   ChatWindowedMessageUserCloud,
   ChatWindowedMessageYouCloud,
 } from '../Chat.styled';
@@ -66,7 +66,7 @@ export const ChatWindowedBody = ({ messages, isChatOpen }) => {
                   Ви ({message.username})
                 </ChatMessageYou>
                 <ChatWindowedMessageYouCloud>
-                <ChatMessageText
+                  <ChatWindowedMessageText
                     dangerouslySetInnerHTML={{
                       __html: message.text.replace(
                         linksRegex,
@@ -74,7 +74,7 @@ export const ChatWindowedBody = ({ messages, isChatOpen }) => {
                           `<a href="${match}" target="_blank">${match}</a>`
                       ),
                     }}
-                  ></ChatMessageText>
+                  ></ChatWindowedMessageText>
                   {/* <ChatMessageTime>
                     {new Date(message.createdAt).toLocaleTimeString('uk-UA')}
                   </ChatMessageTime> */}
@@ -84,7 +84,7 @@ export const ChatWindowedBody = ({ messages, isChatOpen }) => {
               <ChatMessageWrapper className="message__chats" key={message.id}>
                 <ChatMessageUsername>{message.username}</ChatMessageUsername>
                 <ChatWindowedMessageUserCloud className="message__recipient">
-                  <ChatMessageText
+                  <ChatWindowedMessageText
                     dangerouslySetInnerHTML={{
                       __html: message.text.replace(
                         linksRegex,
@@ -92,7 +92,7 @@ export const ChatWindowedBody = ({ messages, isChatOpen }) => {
                           `<a href="${match}" target="_blank">${match}</a>`
                       ),
                     }}
-                  ></ChatMessageText>
+                  ></ChatWindowedMessageText>
                   {/* <ChatMessageTime>
                     {new Date(message.createdAt).toLocaleTimeString('uk-UA')}
                   </ChatMessageTime> */}

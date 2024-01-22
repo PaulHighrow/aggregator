@@ -105,7 +105,7 @@ export const ChatContainer = styled.div`
   }
 `;
 
-export const ChatWindowedContainer = styled.div`
+export const ChatWindowedContainer = styled(ChatContainer)`
   height: 100vh;
   max-width: none;
 `;
@@ -203,6 +203,16 @@ export const ChatWindowedMessageUserCloud = styled(ChatMessageUserCloud)`
 export const ChatMessageText = styled.p`
   word-wrap: break-word;
   white-space: normal;
+
+  & > a {
+    color: var(--main-color);
+  }
+`;
+
+export const ChatWindowedMessageText = styled(ChatMessageText)`
+  & > a {
+    color: var(--accent-color);
+  }
 `;
 
 export const ChatMessageTime = styled.p`
