@@ -20,6 +20,7 @@ export const ChatBody = ({ messages, isChatOpen }) => {
   // eslint-disable-next-line
   const [_, height] = useSize(ChatBodyEl);
   const [scroll, setScroll] = useState(true);
+  const linksRegex = /\b(?:https?|ftp):\/\/\S+\b/g;
 
   useEffect(() => {
     scrollToBottom();
@@ -62,7 +63,15 @@ export const ChatBody = ({ messages, isChatOpen }) => {
               <ChatMessageWrapper className="message__chats" key={message.id}>
                 <ChatMessageYou className="sender__name">Ви ({message.username})</ChatMessageYou>
                 <ChatMessageYouCloud>
-                  <ChatMessageText>{message.text}</ChatMessageText>
+                  <ChatMessageText
+                    dangerouslySetInnerHTML={{
+                      __html: message.text.replace(
+                        linksRegex,
+                        match =>
+                          `<a href="${match}" target="_blank">${match}</a>`
+                      ),
+                    }}
+                  ></ChatMessageText>
                   {/* <ChatMessageTime>
                     {new Date(message.createdAt).toLocaleTimeString('uk-UA')}
                   </ChatMessageTime> */}
@@ -72,7 +81,15 @@ export const ChatBody = ({ messages, isChatOpen }) => {
               <ChatMessageWrapper className="message__chats" key={message.id}>
                 <ChatMessageUsername>{message.username}</ChatMessageUsername>
                 <ChatMessageUserCloud className="message__recipient">
-                  <ChatMessageText>{message.text}</ChatMessageText>
+                  <ChatMessageText
+                    dangerouslySetInnerHTML={{
+                      __html: message.text.replace(
+                        linksRegex,
+                        match =>
+                          `<a href="${match}" target="_blank">${match}</a>`
+                      ),
+                    }}
+                  ></ChatMessageText>
                   {/* <ChatMessageTime>
                     {new Date(message.createdAt).toLocaleTimeString('uk-UA')}
                   </ChatMessageTime> */}
