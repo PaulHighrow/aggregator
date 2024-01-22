@@ -10,11 +10,11 @@ import {
   ChatMessageYouCloud,
   ChatMessagesBox,
   ChatScrollDownIcon,
-} from './Chat.styled';
+} from '../Chat.styled';
 import { useEffect, useRef, useState } from 'react';
 import useSize from '@react-hook/size';
 
-export const ChatBody = ({ messages, isChatOpen }) => {
+export const ChatWindowedBody = ({ messages, isChatOpen }) => {
   const location = useLocation();
   const ChatBodyEl = useRef();
   // eslint-disable-next-line

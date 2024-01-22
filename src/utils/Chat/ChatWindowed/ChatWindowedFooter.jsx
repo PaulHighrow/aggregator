@@ -6,10 +6,10 @@ import {
   ChatSend,
   СhatMessageInput,
   СhatSendMessageButton,
-} from './Chat.styled';
+} from '../Chat.styled';
 import { animateScroll } from 'react-scroll';
 
-export const ChatFooter = ({ socket }) => {
+export const ChatWindowedFooter = ({ socket }) => {
   const [message, setMessage] = useState('');
   const location = useLocation();
 

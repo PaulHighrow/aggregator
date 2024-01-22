@@ -199,6 +199,16 @@ export const ChatBox = styled.div`
   }
 `;
 
+export const ChatWindowedBox = styled(ChatBox)`
+  width: 100%;
+  height: 100%;
+  
+  top: 0;
+  left: 0;
+
+  min-width: auto;
+`;
+
 export const ButtonBox = styled.div`
   position: absolute;
   top: 60px;

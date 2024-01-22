@@ -105,6 +105,11 @@ export const ChatContainer = styled.div`
   }
 `;
 
+export const ChatWindowedContainer = styled.div`
+  height: 100vh;
+  max-width: none;
+`;
+
 export const ChatMessagesBox = styled.div`
   width: 100%;
   height: 95%;
@@ -115,6 +120,10 @@ export const ChatMessagesBox = styled.div`
   @media screen and (min-width: 1280px) {
     height: 95vh;
   }
+`;
+
+export const ChatWindowedMessagesBox = styled(ChatMessagesBox)`
+  height: 95vh;
 `;
 
 export const ChatMessageWrapper = styled.div`

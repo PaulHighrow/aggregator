@@ -4,17 +4,18 @@ import { StreamA2 } from 'pages/Streams/A2/StreamA2';
 import { AdminPanel } from 'pages/Streams/AdminPanel/AdminPanel';
 import { StreamB1 } from 'pages/Streams/B1/StreamB1';
 import { StreamDeutsch } from 'pages/Streams/Deutsch/StreamDeutsch';
+import { KahootAdminPanel } from 'pages/Streams/KahootAdminPanel/KahootAdminPanel';
 import { StreamPolski } from 'pages/Streams/Polski/StreamPolski';
 import { StreamTest } from 'pages/Streams/Test/StreamTest';
 import { KidsA1 } from 'pages/StreamsKids/KidsA1/KidsA1';
 import { KidsA2 } from 'pages/StreamsKids/KidsA2/KidsA2';
 import { KidsB1 } from 'pages/StreamsKids/KidsB1/KidsB1';
 import { lazy } from 'react';
+import { Toaster } from 'react-hot-toast';
 import { Route, Routes, useSearchParams } from 'react-router-dom';
 import ScrollToTop from 'utils/ScrollToTop/ScrollToTop';
 import { SharedLayout } from './SharedLayout/SharedLayout';
-import { Toaster } from 'react-hot-toast';
-import { KahootAdminPanel } from 'pages/Streams/KahootAdminPanel/KahootAdminPanel';
+import { WindowedChat } from 'utils/Chat/ChatWindowed/WindowedChat';
 
 const Home = lazy(() =>
   import(/* webpackChunkName: "Homepage" */ '../pages/Home/Home')
@@ -149,7 +150,7 @@ export const App = () => {
           <Route path="a2" element={<StreamA2 />} />
           <Route path="b1" element={<StreamB1 />} />
           <Route path="deutsch" element={<StreamDeutsch />} />
-          {/* <Route path="pilot" element={<StreamDeutsch />} /> */}
+          <Route path="pilot" element={<StreamA1 />} />
           <Route path="polski" element={<StreamPolski />} />
           <Route path="test" element={<StreamTest />} />
           <Route path="test1" element={<StreamTest />} />
@@ -158,8 +159,11 @@ export const App = () => {
         </Route>
         <Route path="streams-kids" element={<StreamsKids />}>
           <Route path="a1" element={<KidsA1 />} />
+          <Route path="a1-chat" element={<WindowedChat />} />
           <Route path="a2" element={<KidsA2 />} />
+          <Route path="a2-chat" element={<WindowedChat />} />
           <Route path="b1" element={<KidsB1 />} />
+          <Route path="b1-chat" element={<WindowedChat />} />
         </Route>
         <Route path="trial-en" element={<StreamTrialEnglish />} />
         <Route path="trial-pl" element={<StreamTrialPolski />} />
