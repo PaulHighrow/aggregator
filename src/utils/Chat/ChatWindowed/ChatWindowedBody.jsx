@@ -5,7 +5,6 @@ import { animateScroll } from 'react-scroll';
 import {
   ChatFastScrollButton,
   ChatMessageText,
-  ChatMessageUserCloud,
   ChatMessageUsername,
   ChatMessageWrapper,
   ChatMessageYou,
