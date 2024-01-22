@@ -159,6 +159,18 @@ export const ChatMessageYouCloud = styled.div`
   }
 `;
 
+export const ChatWindowedMessageYouCloud = styled(ChatMessageYouCloud)`
+  max-width: 95%;
+
+  @media screen and (orientation: landscape) {
+    max-width: 95%;
+  }
+
+  @media screen and (min-width: 1280px) {
+    max-width: 95%;
+  }
+`;
+
 export const ChatMessageUserCloud = styled.div`
   position: relative;
   background-color: var(--main-transparent-color);
@@ -173,6 +185,18 @@ export const ChatMessageUserCloud = styled.div`
 
   @media screen and (min-width: 1280px) {
     max-width: 230px;
+  }
+`;
+
+export const ChatWindowedMessageUserCloud = styled(ChatMessageUserCloud)`
+  max-width: 95%;
+
+  @media screen and (orientation: landscape) {
+    max-width: 95%;
+  }
+
+  @media screen and (min-width: 1280px) {
+    max-width: 95%;
   }
 `;
 

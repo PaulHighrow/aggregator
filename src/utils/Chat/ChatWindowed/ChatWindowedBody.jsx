@@ -1,3 +1,5 @@
+import useSize from '@react-hook/size';
+import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router';
 import { animateScroll } from 'react-scroll';
 import {
@@ -7,12 +9,11 @@ import {
   ChatMessageUsername,
   ChatMessageWrapper,
   ChatMessageYou,
-  ChatMessageYouCloud,
   ChatMessagesBox,
   ChatScrollDownIcon,
+  ChatWindowedMessageUserCloud,
+  ChatWindowedMessageYouCloud,
 } from '../Chat.styled';
-import { useEffect, useRef, useState } from 'react';
-import useSize from '@react-hook/size';
 
 export const ChatWindowedBody = ({ messages, isChatOpen }) => {
   const location = useLocation();
@@ -20,6 +21,7 @@ export const ChatWindowedBody = ({ messages, isChatOpen }) => {
   // eslint-disable-next-line
   const [_, height] = useSize(ChatBodyEl);
   const [scroll, setScroll] = useState(true);
+  const linksRegex = /\b(?:https?|ftp):\/\/\S+\b/g;
 
   useEffect(() => {
     scrollToBottom();
@@ -56,27 +58,46 @@ export const ChatWindowedBody = ({ messages, isChatOpen }) => {
         onScroll={calculateHeights}
       >
         {messages.map(message =>
-          message.roomLocation === location.pathname || message.roomLocation === location.pathname.split('-chat')[0] ? (
+          message.roomLocation === location.pathname ||
+          message.roomLocation === location.pathname.split('-chat')[0] ? (
             message.username === localStorage.getItem('userName') &&
             message.userID === localStorage.getItem('userID') ? (
               <ChatMessageWrapper className="message__chats" key={message.id}>
-                <ChatMessageYou className="sender__name">Ви ({message.username})</ChatMessageYou>
-                <ChatMessageYouCloud>
-                  <ChatMessageText>{message.text}</ChatMessageText>
+                <ChatMessageYou className="sender__name">
+                  Ви ({message.username})
+                </ChatMessageYou>
+                <ChatWindowedMessageYouCloud>
+                <ChatMessageText
+                    dangerouslySetInnerHTML={{
+                      __html: message.text.replace(
+                        linksRegex,
+                        match =>
+                          `<a href="${match}" target="_blank">${match}</a>`
+                      ),
+                    }}
+                  ></ChatMessageText>
                   {/* <ChatMessageTime>
                     {new Date(message.createdAt).toLocaleTimeString('uk-UA')}
                   </ChatMessageTime> */}
-                </ChatMessageYouCloud>
+                </ChatWindowedMessageYouCloud>
               </ChatMessageWrapper>
             ) : (
               <ChatMessageWrapper className="message__chats" key={message.id}>
                 <ChatMessageUsername>{message.username}</ChatMessageUsername>
-                <ChatMessageUserCloud className="message__recipient">
-                  <ChatMessageText>{message.text}</ChatMessageText>
+                <ChatWindowedMessageUserCloud className="message__recipient">
+                  <ChatMessageText
+                    dangerouslySetInnerHTML={{
+                      __html: message.text.replace(
+                        linksRegex,
+                        match =>
+                          `<a href="${match}" target="_blank">${match}</a>`
+                      ),
+                    }}
+                  ></ChatMessageText>
                   {/* <ChatMessageTime>
                     {new Date(message.createdAt).toLocaleTimeString('uk-UA')}
                   </ChatMessageTime> */}
-                </ChatMessageUserCloud>
+                </ChatWindowedMessageUserCloud>
               </ChatMessageWrapper>
             )
           ) : null
