@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.b14cbce7.css",
-    "main.js": "/aggregator/static/js/main.59f567fc.js",
+    "main.js": "/aggregator/static/js/main.25f94d7a.js",
     "Homepage.css": "/aggregator/static/css/Homepage.da8dd18d.chunk.css",
     "Homepage.js": "/aggregator/static/js/Homepage.8d024d74.chunk.js",
     "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.96905dd2.chunk.js",
     "Streams page.js": "/aggregator/static/js/Streams page.873eedb9.chunk.js",
     "Streams Kids page.js": "/aggregator/static/js/Streams Kids page.f5a645a4.chunk.js",
-    "English trials page.js": "/aggregator/static/js/English trials page.eb329fa6.chunk.js",
-    "Kids trials page.js": "/aggregator/static/js/Kids trials page.549e5e1d.chunk.js",
-    "Deutsch trials page.js": "/aggregator/static/js/Deutsch trials page.44524850.chunk.js",
-    "Polska trials page.js": "/aggregator/static/js/Polska trials page.aea038cb.chunk.js",
+    "English trials page.js": "/aggregator/static/js/English trials page.d24062a0.chunk.js",
+    "Kids trials page.js": "/aggregator/static/js/Kids trials page.af5fb991.chunk.js",
+    "Deutsch trials page.js": "/aggregator/static/js/Deutsch trials page.3617edb6.chunk.js",
+    "Polska trials page.js": "/aggregator/static/js/Polska trials page.ed14d461.chunk.js",
     "All reviews page.js": "/aggregator/static/js/All reviews page.48955632.chunk.js",
     "Not Found.js": "/aggregator/static/js/Not Found.c8d73658.chunk.js",
     "reactPlayerYouTube.js": "/aggregator/static/js/reactPlayerYouTube.a26a0e93.chunk.js",
@@ -123,16 +123,16 @@
     "static/media/invertedDownArrow.svg": "/aggregator/static/media/invertedDownArrow.81d2e354f4424bf21d20b96a031591ce.svg",
     "static/media/downArrow.svg": "/aggregator/static/media/downArrow.3d74cb9d6d38fab26c47bbadb8e4f56d.svg",
     "main.b14cbce7.css.map": "/aggregator/static/css/main.b14cbce7.css.map",
-    "main.59f567fc.js.map": "/aggregator/static/js/main.59f567fc.js.map",
+    "main.25f94d7a.js.map": "/aggregator/static/js/main.25f94d7a.js.map",
     "Homepage.da8dd18d.chunk.css.map": "/aggregator/static/css/Homepage.da8dd18d.chunk.css.map",
     "Homepage.8d024d74.chunk.js.map": "/aggregator/static/js/Homepage.8d024d74.chunk.js.map",
     "Inverted Homepage.96905dd2.chunk.js.map": "/aggregator/static/js/Inverted Homepage.96905dd2.chunk.js.map",
     "Streams page.873eedb9.chunk.js.map": "/aggregator/static/js/Streams page.873eedb9.chunk.js.map",
     "Streams Kids page.f5a645a4.chunk.js.map": "/aggregator/static/js/Streams Kids page.f5a645a4.chunk.js.map",
-    "English trials page.eb329fa6.chunk.js.map": "/aggregator/static/js/English trials page.eb329fa6.chunk.js.map",
-    "Kids trials page.549e5e1d.chunk.js.map": "/aggregator/static/js/Kids trials page.549e5e1d.chunk.js.map",
-    "Deutsch trials page.44524850.chunk.js.map": "/aggregator/static/js/Deutsch trials page.44524850.chunk.js.map",
-    "Polska trials page.aea038cb.chunk.js.map": "/aggregator/static/js/Polska trials page.aea038cb.chunk.js.map",
+    "English trials page.d24062a0.chunk.js.map": "/aggregator/static/js/English trials page.d24062a0.chunk.js.map",
+    "Kids trials page.af5fb991.chunk.js.map": "/aggregator/static/js/Kids trials page.af5fb991.chunk.js.map",
+    "Deutsch trials page.3617edb6.chunk.js.map": "/aggregator/static/js/Deutsch trials page.3617edb6.chunk.js.map",
+    "Polska trials page.ed14d461.chunk.js.map": "/aggregator/static/js/Polska trials page.ed14d461.chunk.js.map",
     "All reviews page.48955632.chunk.js.map": "/aggregator/static/js/All reviews page.48955632.chunk.js.map",
     "Not Found.c8d73658.chunk.js.map": "/aggregator/static/js/Not Found.c8d73658.chunk.js.map",
     "reactPlayerYouTube.a26a0e93.chunk.js.map": "/aggregator/static/js/reactPlayerYouTube.a26a0e93.chunk.js.map",
@@ -155,6 +155,6 @@
   },
   "entrypoints": [
     "static/css/main.b14cbce7.css",
-    "static/js/main.59f567fc.js"
+    "static/js/main.25f94d7a.js"
   ]
 }
