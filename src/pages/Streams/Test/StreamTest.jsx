@@ -297,7 +297,7 @@ export const StreamTest = () => {
                       name="username"
                       id="username"
                       value={userName}
-                      onChange={e => setUserName(e.target.value)}
+                      onChange={e => setUserName(e.target.value.trim())}
                     />
                     <ChatLoginButton>Готово!</ChatLoginButton>
                   </ChatLoginForm>
@@ -348,7 +348,7 @@ export const StreamTest = () => {
                     name="username"
                     id="username"
                     value={userName}
-                    onChange={e => setUserName(e.target.value)}
+                    onChange={e => setUserName(e.target.value.trim())}
                   />
                   <ChatLoginButton>Готово!</ChatLoginButton>
                 </ChatLoginForm>

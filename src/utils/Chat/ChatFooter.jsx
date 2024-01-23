@@ -8,20 +8,23 @@ import {
   СhatSendMessageButton,
 } from './Chat.styled';
 import { animateScroll } from 'react-scroll';
+import axios from 'axios';
 
 export const ChatFooter = ({ socket }) => {
   const [message, setMessage] = useState('');
   const location = useLocation();
 
-  const handleSendMessage = e => {
+  const handleSendMessage = async e => {
     e.preventDefault();
     console.log(message);
     console.log(message.trim() && localStorage.getItem('userName'));
+    const ip = await axios.get('https://jsonip.com/');
     if (message.trim() && localStorage.getItem('userName')) {
       socket.emit('message', {
         text: message,
-        username: localStorage.getItem('userName'),
+        username: localStorage.getItem('userName').trim(),
         userID: localStorage.getItem('userID'),
+        userIP: ip.data.ip,
         id: `${socket.id}${Math.random()}`,
         socketID: socket.id,
         roomLocation: location.pathname.split('-chat')[0],

@@ -164,6 +164,7 @@ export const ChatMessageYouCloud = styled.div`
 
 export const ChatWindowedMessageYouCloud = styled(ChatMessageYouCloud)`
   max-width: 95%;
+  font-size: 26px;
 
   @media screen and (orientation: landscape) {
     max-width: 95%;
@@ -193,6 +194,7 @@ export const ChatMessageUserCloud = styled.div`
 
 export const ChatWindowedMessageUserCloud = styled(ChatMessageUserCloud)`
   max-width: 95%;
+  font-size: 26px;
 
   @media screen and (orientation: landscape) {
     max-width: 95%;
