@@ -3,6 +3,7 @@ import mobile1xBGPng from '../../img/bg/mobile-bg@1x.png';
 import mobile1xBGWebp from '../../img/bg/mobile-bg@1x.webp';
 import { ReactComponent as ChatSendIcon } from '../../img/svg/sendIcon.svg';
 import { ReactComponent as ChatScrollDownArrow } from '../../img/svg/downArrow.svg';
+import { ReactComponent as PinnedMessageIcon } from '../../img/svg/pinnedMessage.svg';
 
 export const ChatLoginForm = styled.form`
   width: 100%;
@@ -308,4 +309,26 @@ export const ChatFastScrollButton = styled(СhatSendMessageButton)`
 export const ChatScrollDownIcon = styled(ChatScrollDownArrow)`
   flex-shrink: 0;
   stroke-width: 2;
+`;
+
+export const ChatPinnedMessage = styled.div`
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
+  width: 100%;
+  background-color: var(--accent-color);
+
+  border-radius: 10px;
+`;
+
+export const ChatPinnedMessageIcon = styled(PinnedMessageIcon)`
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 22px;
+  height: 22px;
+
+  fill: var(--main-color);
 `;

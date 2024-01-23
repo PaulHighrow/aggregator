@@ -11,6 +11,8 @@ import {
   ChatMessageYou,
   ChatMessageYouCloud,
   ChatMessagesBox,
+  ChatPinnedMessage,
+  ChatPinnedMessageIcon,
   ChatScrollDownIcon,
 } from './Chat.styled';
 
@@ -56,6 +58,34 @@ export const ChatBody = ({ messages, isChatOpen }) => {
         ref={ChatBodyEl}
         onScroll={calculateHeights}
       >
+        <ChatPinnedMessage>
+          <ChatPinnedMessageIcon></ChatPinnedMessageIcon>
+          {messages
+            .filter(
+              message =>
+                message.username.toLowerCase() === 'ap edu' &&
+                message.roomLocation === location.pathname
+            )
+            .map(message => (
+              <ChatMessageWrapper className="message__chats" key={message.id}>
+                <ChatMessageUsername>{message.username}</ChatMessageUsername>
+                <ChatMessageUserCloud className="message__recipient">
+                  <ChatMessageText
+                    dangerouslySetInnerHTML={{
+                      __html: message.text.replace(
+                        linksRegex,
+                        match =>
+                          `<a href="${match}" target="_blank">${match}</a>`
+                      ),
+                    }}
+                  ></ChatMessageText>
+                  {/* <ChatMessageTime>
+                    {new Date(message.createdAt).toLocaleTimeString('uk-UA')}
+                  </ChatMessageTime> */}
+                </ChatMessageUserCloud>
+              </ChatMessageWrapper>
+            ))}
+        </ChatPinnedMessage>
         {messages.map(message =>
           message.roomLocation === location.pathname ||
           message.roomLocation === location.pathname.split('-chat')[0] ? (
