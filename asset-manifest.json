@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.b14cbce7.css",
-    "main.js": "/aggregator/static/js/main.a11bb44b.js",
+    "main.js": "/aggregator/static/js/main.b49ac61a.js",
     "Homepage.css": "/aggregator/static/css/Homepage.da8dd18d.chunk.css",
     "Homepage.js": "/aggregator/static/js/Homepage.8d024d74.chunk.js",
     "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.96905dd2.chunk.js",
@@ -106,6 +106,7 @@
     "static/media/fullScreenExit.svg": "/aggregator/static/media/fullScreenExit.63ed45fc30589df84015f52735b25e44.svg",
     "static/media/youTubeChat.svg": "/aggregator/static/media/youTubeChat.b21b712ff4f916a7d764803d1d55c268.svg",
     "static/media/clipBoardCopy.svg": "/aggregator/static/media/clipBoardCopy.884c0404be0ae913ae045f7467e518bf.svg",
+    "static/media/nameReverse.svg": "/aggregator/static/media/nameReverse.9c0a3d229a56665ad4a367d0e91f8ef1.svg",
     "static/media/clipBoardAdd.svg": "/aggregator/static/media/clipBoardAdd.40c99ea9f2dede1a499126b0cad21bf6.svg",
     "static/media/exam-underline-medium.svg": "/aggregator/static/media/exam-underline-medium.c31427019bb2f687b913ae90bd50213b.svg",
     "static/media/sketchTitle.svg": "/aggregator/static/media/sketchTitle.e0df9213771982a06aa71be5ae87eebd.svg",
@@ -121,7 +122,7 @@
     "static/media/invertedDownArrow.svg": "/aggregator/static/media/invertedDownArrow.81d2e354f4424bf21d20b96a031591ce.svg",
     "static/media/downArrow.svg": "/aggregator/static/media/downArrow.3d74cb9d6d38fab26c47bbadb8e4f56d.svg",
     "main.b14cbce7.css.map": "/aggregator/static/css/main.b14cbce7.css.map",
-    "main.a11bb44b.js.map": "/aggregator/static/js/main.a11bb44b.js.map",
+    "main.b49ac61a.js.map": "/aggregator/static/js/main.b49ac61a.js.map",
     "Homepage.da8dd18d.chunk.css.map": "/aggregator/static/css/Homepage.da8dd18d.chunk.css.map",
     "Homepage.8d024d74.chunk.js.map": "/aggregator/static/js/Homepage.8d024d74.chunk.js.map",
     "Inverted Homepage.96905dd2.chunk.js.map": "/aggregator/static/js/Inverted Homepage.96905dd2.chunk.js.map",
@@ -153,6 +154,6 @@
   },
   "entrypoints": [
     "static/css/main.b14cbce7.css",
-    "static/js/main.a11bb44b.js"
+    "static/js/main.b49ac61a.js"
   ]
 }
