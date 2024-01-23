@@ -2,10 +2,10 @@ import { ChatWindowedContainer } from '../Chat.styled';
 import { ChatWindowedBody } from './ChatWindowedBody';
 import { ChatWindowedFooter } from './ChatWindowedFooter';
 
-export const ChatWindowed = ({ socket, messages, isChatOpen }) => {
+export const ChatWindowed = ({ socket, messages }) => {
   return (
     <ChatWindowedContainer>
-      <ChatWindowedBody messages={messages} isChatOpen={isChatOpen} />
+      <ChatWindowedBody messages={messages} />
       <ChatWindowedFooter socket={socket} />
     </ChatWindowedContainer>
   );

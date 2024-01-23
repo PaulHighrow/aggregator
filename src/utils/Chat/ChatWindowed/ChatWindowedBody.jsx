@@ -14,7 +14,7 @@ import {
   ChatWindowedMessageYouCloud,
 } from '../Chat.styled';
 
-export const ChatWindowedBody = ({ messages, isChatOpen }) => {
+export const ChatWindowedBody = ({ messages }) => {
   const location = useLocation();
   const ChatBodyEl = useRef();
   // eslint-disable-next-line
@@ -102,7 +102,7 @@ export const ChatWindowedBody = ({ messages, isChatOpen }) => {
           ) : null
         )}
       </ChatMessagesBox>
-      {!scroll && isChatOpen && (
+      {!scroll && (
         <ChatFastScrollButton onClick={arrowScroll}>
           <ChatScrollDownIcon />
         </ChatFastScrollButton>
