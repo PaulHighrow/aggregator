@@ -7,6 +7,7 @@ import {
   SupportClipBoardAdd,
   SupportClipBoardCopy,
   SupportKahootPickerIcon,
+  SupportNameReverse,
 } from '../Support/Support.styled';
 import {
   ClipBoardAdd,
@@ -33,6 +34,8 @@ import {
   KahootNumbersHider,
   KahootPicker,
   KahootPickerBtn,
+  NameReverse,
+  NameReverseBtn,
 } from './Kahoots.styled';
 
 export const Kahoots = ({
@@ -198,9 +201,47 @@ export const Kahoots = ({
     );
   };
 
+  const reverseAndCopyToClipboard = btn => {
+    navigator.clipboard.writeText(localStorage.getItem('userName'));
+    toast.success(
+      t => (
+        <ClipBoardNotification>
+          <ClipBoardFormText>
+            <ClipBoardFormDismissBtn onClick={() => toast.dismiss(t.id)}>
+              <DismissIcon />
+            </ClipBoardFormDismissBtn>
+            {`${localStorage.getItem('userName')}`}, ваші ім'я та прізвище
+            додані до буферу обміну в зворотньому порядку, можете вставити їх у
+            відповідне поле і спробувати підключитись до Кахуту знов!
+          </ClipBoardFormText>
+
+          <ClipBoardFormText>
+            Треба виправити помилку? Натисніть на цю кнопку:{' '}
+            <ClipBoardSubmitBtn
+              onClick={() => {
+                toast.dismiss(t.id);
+                createNameInput(btn);
+              }}
+            >
+              Виправити
+            </ClipBoardSubmitBtn>
+          </ClipBoardFormText>
+        </ClipBoardNotification>
+      ),
+      { duration: 3000 }
+    );
+  };
+
   const handleUsernameBtn = e => {
     const btn = e.currentTarget;
     username ? copyToClipboard(btn) : createNameInput(btn);
+  };
+
+  const handleUsernameReverseBtn = e => {
+    const reverseUsername = username.split(' ').reverse().join(' ');
+    localStorage.setItem('userName', reverseUsername);
+    setUsername(username => (username = reverseUsername));
+    reverseAndCopyToClipboard(e.currentTarget);
   };
 
   return (
@@ -233,6 +274,14 @@ export const Kahoots = ({
               </KahootNumbersBtn>
             ))}
           </KahootPicker>
+          {username && (
+            <NameReverseBtn
+              tabIndex={-1}
+              onClick={e => handleUsernameReverseBtn(e)}
+            >
+              <NameReverse />
+            </NameReverseBtn>
+          )}
           {activeKahoot ? (
             getLinksForLocation().map(
               (link, i) =>
@@ -310,6 +359,15 @@ export const Kahoots = ({
                       будь-який момент натиснути кнопку <SupportClipBoardCopy />
                       , а у віконці, що відкриється, кнопку "Виправити", після
                       чого введіть ім'я заново.
+                    </KahootDisclaimerText>
+                  </KahootDisclaimerItem>
+                  <KahootDisclaimerItem>
+                    <KahootDisclaimerText>
+                      У разі, якщо вас за якоїсь причини викинуло з Кахуту і не
+                      пускає назад з тим же іменем, тисніть кнопку{' '}
+                      <SupportNameReverse />, вона збереже ваше ім'я та прізвище
+                      у зворотньому порядку, що дасть вам змогу швидко зайти до
+                      Кахуту під "новим" ім'ям.
                     </KahootDisclaimerText>
                   </KahootDisclaimerItem>
                 </KahootDisclaimerList>

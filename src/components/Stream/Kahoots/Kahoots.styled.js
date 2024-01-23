@@ -5,6 +5,7 @@ import { ReactComponent as FullscreenIcon } from '../../../img/svg/fullScreen.sv
 import { ReactComponent as ExitFullscreenIcon } from '../../../img/svg/fullScreenExit.svg';
 import { ReactComponent as ClipBoardAddIcon } from '../../../img/svg/clipBoardAdd.svg';
 import { ReactComponent as ClipBoardCopyIcon } from '../../../img/svg/clipBoardCopy.svg';
+import { ReactComponent as NameReverseIcon } from '../../../img/svg/nameReverse.svg';
 import { ReactComponent as KahootPickerIcon } from '../../../img/svg/kahootPickerIcon.svg';
 import { CloseIcon, FormCloseBtn } from 'components/LeadForm/LeadForm.styled';
 
@@ -267,6 +268,16 @@ export const ClipBoardFormDismissBtn = styled(FormCloseBtn)`
   background-color: transparent;
 `;
 
+export const NameReverseBtn = styled(ClipBoardBtn)`
+  top: 64px;
+  right: 106px;
+
+  @media screen and (min-width: 768px) {
+    top: 106px;
+    right: 64px;
+  }
+`;
+
 export const DismissIcon = styled(CloseIcon)`
   width: 20px;
   height: 20px;
@@ -305,5 +316,11 @@ export const KahootPickerBtn = styled(KahootPickerIcon)`
   width: 22px;
   height: 22px;
   fill: var(--main-color);
+  stroke: var(--main-color);
+`;
+
+export const NameReverse = styled(NameReverseIcon)`
+  width: 22px;
+  height: 22px;
   stroke: var(--main-color);
 `;
