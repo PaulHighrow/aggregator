@@ -106,6 +106,8 @@ export const ChatContainer = styled.div`
 `;
 
 export const ChatWindowedContainer = styled(ChatContainer)`
+  position: relative;
+
   height: 100vh;
   max-width: none;
 `;

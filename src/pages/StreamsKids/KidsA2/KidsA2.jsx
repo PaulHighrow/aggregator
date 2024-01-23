@@ -83,20 +83,20 @@ export const KidsA2 = () => {
   const videoBoxWidth =
     chatWidth === 0 && width > height ? width - 300 : width - chatWidth;
 
-    const checkLogin = e => {
-      const name = localStorage.getItem('userName');
-      const id = localStorage.getItem('userID');
-  
-      if (!id && name) {
-        const idGen = nanoid(8);
-        setUserID(id => (id = idGen));
-        localStorage.setItem('userID', idGen);
-      }
-  
-      if (id && name) {
-        setIsLoggedToChat(isLogged => (isLogged = true));
-      }
-    };
+  const checkLogin = e => {
+    const name = localStorage.getItem('userName');
+    const id = localStorage.getItem('userID');
+
+    if (!id && name) {
+      const idGen = nanoid(8);
+      setUserID(id => (id = idGen));
+      localStorage.setItem('userID', idGen);
+    }
+
+    if (id && name) {
+      setIsLoggedToChat(isLogged => (isLogged = true));
+    }
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -123,8 +123,11 @@ export const KidsA2 = () => {
         const dbMessages = await axios.get(
           'https://ap-chat.onrender.com/messages'
         );
-
-        setMessages(messages => (messages = dbMessages.data));
+        const todayMessages = dbMessages.data.filter(
+          message =>
+            new Date(message.createdAt).getDate() === new Date().getDate()
+        );
+        setMessages(messages => (messages = todayMessages));
       } catch (error) {
         console.log(error);
       }

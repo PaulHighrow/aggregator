@@ -59,8 +59,11 @@ export const WindowedChat = () => {
         const dbMessages = await axios.get(
           'https://ap-chat.onrender.com/messages'
         );
-
-        setMessages(messages => (messages = dbMessages.data));
+        const todayMessages = dbMessages.data.filter(
+          message =>
+            new Date(message.createdAt).getDate() === new Date().getDate()
+        );
+        setMessages(messages => (messages = todayMessages));
       } catch (error) {
         console.log(error);
       }
@@ -110,10 +113,7 @@ export const WindowedChat = () => {
             <ChatLoginButton>Готово!</ChatLoginButton>
           </ChatLoginForm>
         ) : (
-          <ChatWindowed
-            socket={socketRef.current}
-            messages={messages}
-          />
+          <ChatWindowed socket={socketRef.current} messages={messages} />
         )}
       </ChatWindowedBox>
     </>

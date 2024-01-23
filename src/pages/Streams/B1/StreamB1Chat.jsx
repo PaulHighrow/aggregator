@@ -117,8 +117,11 @@ export const StreamB1 = () => {
         const dbMessages = await axios.get(
           'https://ap-chat.onrender.com/messages'
         );
-
-        setMessages(messages => (messages = dbMessages.data));
+        const todayMessages = dbMessages.data.filter(
+          message =>
+            new Date(message.createdAt).getDate() === new Date().getDate()
+        );
+        setMessages(messages => (messages = todayMessages));
       } catch (error) {
         console.log(error);
       }
