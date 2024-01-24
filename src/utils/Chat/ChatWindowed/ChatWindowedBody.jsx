@@ -12,9 +12,10 @@ import {
   ChatWindowedMessageText,
   ChatWindowedMessageUserCloud,
   ChatWindowedMessageYouCloud,
+  ChatWindowedPinnedMessageIcon,
 } from '../Chat.styled';
 
-export const ChatWindowedBody = ({ messages }) => {
+export const ChatWindowedBody = ({ messages, socket }) => {
   const location = useLocation();
   const ChatBodyEl = useRef();
   // eslint-disable-next-line
@@ -49,6 +50,10 @@ export const ChatWindowedBody = ({ messages }) => {
     });
   };
 
+  const pinMessage = (message) => {
+    socket.emit('message:pin', message._id, { isPinned: !message.isPinned });
+  };
+
   return (
     <>
       <ChatMessagesBox
@@ -61,11 +66,16 @@ export const ChatWindowedBody = ({ messages }) => {
           message.roomLocation === location.pathname.split('-chat')[0] ? (
             message.username === localStorage.getItem('userName') &&
             message.userID === localStorage.getItem('userID') ? (
-              <ChatMessageWrapper className="message__chats" key={message.id}>
+              <ChatMessageWrapper className="message__chats" key={message._id}>
                 <ChatMessageYou className="sender__name">
                   Ви ({message.username})
                 </ChatMessageYou>
                 <ChatWindowedMessageYouCloud>
+                  <ChatWindowedPinnedMessageIcon
+                    className={message.isPinned ? 'pinned' : ''}
+                    onClick={() => pinMessage(message)}
+                    id={message._id}
+                  />
                   <ChatWindowedMessageText
                     dangerouslySetInnerHTML={{
                       __html: message.text.replace(
@@ -81,7 +91,7 @@ export const ChatWindowedBody = ({ messages }) => {
                 </ChatWindowedMessageYouCloud>
               </ChatMessageWrapper>
             ) : (
-              <ChatMessageWrapper className="message__chats" key={message.id}>
+              <ChatMessageWrapper className="message__chats" key={message._id}>
                 <ChatMessageUsername>{message.username}</ChatMessageUsername>
                 <ChatWindowedMessageUserCloud className="message__recipient">
                   <ChatWindowedMessageText

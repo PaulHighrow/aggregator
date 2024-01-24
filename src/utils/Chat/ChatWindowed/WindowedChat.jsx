@@ -46,7 +46,9 @@ export const WindowedChat = () => {
   const socketRef = useRef(null);
 
   useEffect(() => {
-    socketRef.current = io('https://ap-chat.onrender.com/');
+    document.title = 'AP Chat Window';
+
+    socketRef.current = io('http://localhost:4000/');
     checkLogin();
 
     socketRef.current.on('connected', (connected, handshake) => {
@@ -63,6 +65,7 @@ export const WindowedChat = () => {
           message =>
             new Date(message.createdAt).getDate() === new Date().getDate()
         );
+        console.log(todayMessages);
         setMessages(messages => (messages = todayMessages));
       } catch (error) {
         console.log(error);
@@ -84,6 +87,19 @@ export const WindowedChat = () => {
 
     socketRef.current.on('message:get', async data => {
       setMessages(messages => (messages = [...messages, data]));
+    });
+
+    socketRef.current.on('message:pin', async (id, data) => {
+      console.log('pin fired');
+      const editMessage = async () => {
+        try {
+          await axios.patch(`https://ap-chat.onrender.com/messages/${id}`, data);
+          getMessages();
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      await editMessage();
     });
 
     return () => {

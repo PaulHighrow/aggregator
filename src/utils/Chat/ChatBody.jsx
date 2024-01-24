@@ -59,16 +59,18 @@ export const ChatBody = ({ messages, isChatOpen }) => {
         onScroll={calculateHeights}
       >
         <ChatPinnedMessage>
-          <ChatPinnedMessageIcon></ChatPinnedMessageIcon>
           {messages
             .filter(
               message =>
-                message.username.toLowerCase() === 'ap edu' &&
-                message.roomLocation === location.pathname
+                message.isPinned && message.roomLocation === location.pathname
             )
             .map(message => (
-              <ChatMessageWrapper className="message__chats" key={message.id}>
+              <ChatMessageWrapper
+                className="message__chats"
+                key={message._id}
+              >
                 <ChatMessageUsername>{message.username}</ChatMessageUsername>
+                <ChatPinnedMessageIcon/>
                 <ChatMessageUserCloud className="message__recipient">
                   <ChatMessageText
                     dangerouslySetInnerHTML={{

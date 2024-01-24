@@ -134,6 +134,8 @@ const StreamTrialDeutsch = () => {
   const socketRef = useRef(null);
 
   useEffect(() => {
+    document.title = 'Deutsch Trial | AP Education';
+
     socketRef.current = io('https://ap-chat.onrender.com/');
     checkLogin();
 

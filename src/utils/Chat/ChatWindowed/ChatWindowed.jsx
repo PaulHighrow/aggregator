@@ -2,10 +2,13 @@ import { ChatWindowedContainer } from '../Chat.styled';
 import { ChatWindowedBody } from './ChatWindowedBody';
 import { ChatWindowedFooter } from './ChatWindowedFooter';
 
-export const ChatWindowed = ({ socket, messages }) => {
+export const ChatWindowed = ({ socket, messages, pinMessage }) => {
   return (
     <ChatWindowedContainer>
-      <ChatWindowedBody messages={messages} />
+      <ChatWindowedBody
+        socket={socket}
+        messages={messages}
+      />
       <ChatWindowedFooter socket={socket} />
     </ChatWindowedContainer>
   );

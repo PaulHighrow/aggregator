@@ -110,6 +110,8 @@ export const KidsA2 = () => {
   const socketRef = useRef(null);
 
   useEffect(() => {
+    document.title = 'A2 English Kids | AP Education';
+
     socketRef.current = io('https://ap-chat.onrender.com/');
     checkLogin();
 
@@ -148,6 +150,11 @@ export const KidsA2 = () => {
 
     socketRef.current.on('message:get', async data => {
       setMessages(messages => (messages = [...messages, data]));
+    });
+
+    socketRef.current.on('message:pin', async (id, data) => {
+      console.log('pinevent');
+      getMessages();
     });
 
     return () => {

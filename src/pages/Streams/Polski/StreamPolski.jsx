@@ -1,6 +1,6 @@
 import useSize from '@react-hook/size';
 import { Kahoots } from 'components/Stream/Kahoots/Kahoots';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { useOutletContext } from 'react-router-dom';
 import {
@@ -69,6 +69,10 @@ export const StreamPolski = () => {
 
   const videoBoxWidth =
     chatWidth === 0 && width > height ? width - 300 : width - chatWidth;
+
+    useEffect(() => {
+      document.title = 'Polski | AP Education';
+    }, []);
 
   return (
     <>

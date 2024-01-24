@@ -105,6 +105,8 @@ export const StreamTest = () => {
   const socketRef = useRef(null);
 
   useEffect(() => {
+    document.title = 'Test Page | AP Education';
+
     socketRef.current = io('https://ap-chat.onrender.com/');
     checkLogin();
 
@@ -162,6 +164,11 @@ export const StreamTest = () => {
       console.log('check messages');
     });
 
+    socketRef.current.on('message:pin', (id, data) => {
+      console.log('pinevent');
+      getMessages();
+    });
+
     // обрабатываем получение сообщений
     // socketRef.current.on('messages', messages => {
     // определяем, какие сообщения были отправлены данным пользователем,
@@ -179,6 +186,7 @@ export const StreamTest = () => {
       // при размонтировании компонента выполняем отключение сокета
       socketRef.current.off('connected');
       socketRef.current.off('message');
+      socketRef.current.off('message:pin');
       socketRef.current.disconnect();
     };
   }, []);

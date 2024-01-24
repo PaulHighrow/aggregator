@@ -109,6 +109,8 @@ export const ChatContainer = styled.div`
 export const ChatWindowedContainer = styled(ChatContainer)`
   position: relative;
 
+  background-image: unset;
+
   height: 100vh;
   max-width: none;
 `;
@@ -333,4 +335,16 @@ export const ChatPinnedMessageIcon = styled(PinnedMessageIcon)`
   height: 22px;
 
   fill: var(--main-color);
+`;
+
+export const ChatWindowedPinnedMessageIcon = styled(ChatPinnedMessageIcon)`
+  top: 5px;
+  right: 5px;
+  fill: var(--accent-color);
+  transform: rotate(60deg);
+  transition: transform var(--animation-global);
+
+  &.pinned {
+    transform: rotate(0deg);
+  }
 `;

@@ -110,7 +110,9 @@ export const KidsA1 = () => {
   const socketRef = useRef(null);
 
   useEffect(() => {
-    socketRef.current = io('https://ap-chat.onrender.com/');
+    document.title = 'A1 English Kids | AP Education';
+
+    socketRef.current = io('http://localhost:4000/');
     checkLogin();
 
     socketRef.current.on('connected', (connected, handshake) => {
@@ -119,6 +121,8 @@ export const KidsA1 = () => {
     });
 
     const getMessages = async () => {
+      console.log('getting');
+
       try {
         const dbMessages = await axios.get(
           'https://ap-chat.onrender.com/messages'
@@ -127,6 +131,7 @@ export const KidsA1 = () => {
           message =>
             new Date(message.createdAt).getDate() === new Date().getDate()
         );
+        console.log(todayMessages);
         setMessages(messages => (messages = todayMessages));
       } catch (error) {
         console.log(error);
@@ -148,6 +153,12 @@ export const KidsA1 = () => {
 
     socketRef.current.on('message:get', async data => {
       setMessages(messages => (messages = [...messages, data]));
+    });
+
+    socketRef.current.on('message:pinned', async (id, data) => {
+      console.log(id);
+      console.log(data);
+      getMessages();
     });
 
     return () => {
