@@ -318,23 +318,63 @@ export const ChatScrollDownIcon = styled(ChatScrollDownArrow)`
 export const ChatPinnedMessage = styled.div`
   position: sticky;
   top: 0;
+  right: 0;
   z-index: 1;
+  padding: 4px;
+
+  margin-left: auto;
+  margin-bottom: 8px;
 
   width: 100%;
+
   background-color: var(--accent-color);
 
   border-radius: 10px;
+
+  transition: all var(--animation-global);
+
+  & div:last-child {
+    margin-bottom: 0;
+  }
+
+  &.minimized {
+    width: 25px;
+    height: 25px;
+
+    background-color: #f9c8389e;
+
+    right: 0;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    & p,
+    & div {
+      visibility: hidden;
+    }
+
+    & svg {
+      visibility: visible;
+    }
+  }
 `;
 
 export const ChatPinnedMessageIcon = styled(PinnedMessageIcon)`
   position: absolute;
-  top: 0;
+  top: 2px;
   right: 0;
 
   width: 22px;
   height: 22px;
 
   fill: var(--main-color);
+
+  transition: transform var(--animation-global);
+
+  &.minimized {
+    transform: rotate(60deg);
+  }
 `;
 
 export const ChatWindowedPinnedMessageIcon = styled(ChatPinnedMessageIcon)`

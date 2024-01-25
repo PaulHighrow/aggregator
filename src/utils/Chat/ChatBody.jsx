@@ -22,6 +22,7 @@ export const ChatBody = ({ messages, isChatOpen }) => {
   // eslint-disable-next-line
   const [_, height] = useSize(ChatBodyEl);
   const [scroll, setScroll] = useState(true);
+  const [arePinnedShown, setArePinnedShown] = useState(true);
   const linksRegex = /\b(?:https?|ftp):\/\/\S+\b/g;
 
   useEffect(() => {
@@ -35,6 +36,10 @@ export const ChatBody = ({ messages, isChatOpen }) => {
           height ===
           ChatBodyEl.current.scrollHeight - ChatBodyEl.current.scrollTop)
     );
+  };
+
+  const togglePins = () => {
+    setArePinnedShown(shown => !shown);
   };
 
   const scrollToBottom = () => {
@@ -58,19 +63,16 @@ export const ChatBody = ({ messages, isChatOpen }) => {
         ref={ChatBodyEl}
         onScroll={calculateHeights}
       >
-        <ChatPinnedMessage>
+        <ChatPinnedMessage className={arePinnedShown ? '' : 'minimized'}>
           {messages
             .filter(
               message =>
                 message.isPinned && message.roomLocation === location.pathname
             )
             .map(message => (
-              <ChatMessageWrapper
-                className="message__chats"
-                key={message._id}
-              >
+              <ChatMessageWrapper key={message._id}>
                 <ChatMessageUsername>{message.username}</ChatMessageUsername>
-                <ChatPinnedMessageIcon/>
+                <ChatPinnedMessageIcon onClick={togglePins} className={arePinnedShown ? '' : 'minimized'}/>
                 <ChatMessageUserCloud className="message__recipient">
                   <ChatMessageText
                     dangerouslySetInnerHTML={{
@@ -93,7 +95,7 @@ export const ChatBody = ({ messages, isChatOpen }) => {
           message.roomLocation === location.pathname.split('-chat')[0] ? (
             message.username === localStorage.getItem('userName') &&
             message.userID === localStorage.getItem('userID') ? (
-              <ChatMessageWrapper className="message__chats" key={message.id}>
+              <ChatMessageWrapper key={message.id}>
                 <ChatMessageYou className="sender__name">
                   Ви ({message.username})
                 </ChatMessageYou>
@@ -113,7 +115,7 @@ export const ChatBody = ({ messages, isChatOpen }) => {
                 </ChatMessageYouCloud>
               </ChatMessageWrapper>
             ) : (
-              <ChatMessageWrapper className="message__chats" key={message.id}>
+              <ChatMessageWrapper key={message.id}>
                 <ChatMessageUsername>{message.username}</ChatMessageUsername>
                 <ChatMessageUserCloud className="message__recipient">
                   <ChatMessageText

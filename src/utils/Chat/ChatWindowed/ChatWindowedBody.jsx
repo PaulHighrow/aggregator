@@ -31,8 +31,8 @@ export const ChatWindowedBody = ({ messages, socket }) => {
     setScroll(
       scroll =>
         (scroll =
-          height ===
-          ChatBodyEl.current.scrollHeight - ChatBodyEl.current.scrollTop)
+          ChatBodyEl.current.offsetHeight ===
+          ChatBodyEl.current.scrollHeight - Math.ceil(ChatBodyEl.current.scrollTop))
     );
   };
 
@@ -50,7 +50,7 @@ export const ChatWindowedBody = ({ messages, socket }) => {
     });
   };
 
-  const pinMessage = (message) => {
+  const pinMessage = message => {
     socket.emit('message:pin', message._id, { isPinned: !message.isPinned });
   };
 
@@ -66,7 +66,7 @@ export const ChatWindowedBody = ({ messages, socket }) => {
           message.roomLocation === location.pathname.split('-chat')[0] ? (
             message.username === localStorage.getItem('userName') &&
             message.userID === localStorage.getItem('userID') ? (
-              <ChatMessageWrapper className="message__chats" key={message.id}>
+              <ChatMessageWrapper key={message.id}>
                 <ChatMessageYou className="sender__name">
                   Ви ({message.username})
                 </ChatMessageYou>
@@ -91,7 +91,7 @@ export const ChatWindowedBody = ({ messages, socket }) => {
                 </ChatWindowedMessageYouCloud>
               </ChatMessageWrapper>
             ) : (
-              <ChatMessageWrapper className="message__chats" key={message._id}>
+              <ChatMessageWrapper key={message._id}>
                 <ChatMessageUsername>{message.username}</ChatMessageUsername>
                 <ChatWindowedMessageUserCloud className="message__recipient">
                   <ChatWindowedMessageText
