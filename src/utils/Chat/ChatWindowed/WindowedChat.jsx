@@ -48,7 +48,7 @@ export const WindowedChat = () => {
   useEffect(() => {
     document.title = 'AP Chat Window';
 
-    socketRef.current = io('http://localhost:4000/');
+    socketRef.current = io('https://ap-chat.onrender.com/');
     checkLogin();
 
     socketRef.current.on('connected', (connected, handshake) => {

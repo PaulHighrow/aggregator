@@ -112,7 +112,7 @@ export const KidsA1 = () => {
   useEffect(() => {
     document.title = 'A1 English Kids | AP Education';
 
-    socketRef.current = io('http://localhost:4000/');
+    socketRef.current = io('https://ap-chat.onrender.com/');
     checkLogin();
 
     socketRef.current.on('connected', (connected, handshake) => {
