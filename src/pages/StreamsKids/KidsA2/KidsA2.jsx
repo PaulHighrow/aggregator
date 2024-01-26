@@ -98,13 +98,25 @@ export const KidsA2 = () => {
     }
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     const idGen = nanoid(8);
     setUserID(id => (id = idGen));
     localStorage.setItem('userName', userName);
     localStorage.setItem('userID', idGen);
-    setIsLoggedToChat(isLogged => !isLogged);
+    try {
+      const ip = (await axios.get('https://jsonip.com/')).data.ip;
+      const newUser = {
+        username: userName,
+        userID: idGen,
+        userIP: ip,
+        isAdmin: false,
+      };
+      await axios.post('https://ap-chat.onrender.com/users', newUser);
+      setIsLoggedToChat(isLogged => !isLogged);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const socketRef = useRef(null);
@@ -154,6 +166,11 @@ export const KidsA2 = () => {
 
     socketRef.current.on('message:pin', async (id, data) => {
       console.log('pinevent');
+      getMessages();
+    });
+
+    socketRef.current.on('message:deleted', async () => {
+      console.log('deleted event');
       getMessages();
     });
 

@@ -72,7 +72,10 @@ export const ChatBody = ({ messages, isChatOpen }) => {
             .map(message => (
               <ChatMessageWrapper key={message._id}>
                 <ChatMessageUsername>{message.username}</ChatMessageUsername>
-                <ChatPinnedMessageIcon onClick={togglePins} className={arePinnedShown ? '' : 'minimized'}/>
+                <ChatPinnedMessageIcon
+                  onClick={togglePins}
+                  className={arePinnedShown ? '' : 'minimized'}
+                />
                 <ChatMessageUserCloud className="message__recipient">
                   <ChatMessageText
                     dangerouslySetInnerHTML={{

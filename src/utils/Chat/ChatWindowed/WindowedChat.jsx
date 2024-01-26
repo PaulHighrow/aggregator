@@ -74,6 +74,7 @@ export const WindowedChat = () => {
     getMessages();
 
     socketRef.current.on('message', async data => {
+      console.log(data);
       const updateMessages = async () => {
         try {
           await axios.post('https://ap-chat.onrender.com/messages', data);
@@ -86,20 +87,41 @@ export const WindowedChat = () => {
     });
 
     socketRef.current.on('message:get', async data => {
+      console.log(data);
       setMessages(messages => (messages = [...messages, data]));
+      getMessages();
     });
 
     socketRef.current.on('message:pin', async (id, data) => {
       console.log('pin fired');
       const editMessage = async () => {
         try {
-          await axios.patch(`https://ap-chat.onrender.com/messages/${id}`, data);
+          await axios.patch(
+            `https://ap-chat.onrender.com/messages/${id}`,
+            data
+          );
           getMessages();
         } catch (error) {
           console.log(error);
         }
       };
       await editMessage();
+    });
+
+    socketRef.current.on('message:delete', async id => {
+      console.log('delete fired');
+      const deleteMessage = async () => {
+        try {
+          setMessages(
+            messages =>
+              (messages = [...messages.filter(message => message.id !== id)])
+          );
+          await axios.delete(`https://ap-chat.onrender.com/messages/${id}`);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      await deleteMessage();
     });
 
     return () => {

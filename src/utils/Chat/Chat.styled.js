@@ -4,6 +4,7 @@ import mobile1xBGWebp from '../../img/bg/mobile-bg@1x.webp';
 import { ReactComponent as ChatSendIcon } from '../../img/svg/sendIcon.svg';
 import { ReactComponent as ChatScrollDownArrow } from '../../img/svg/downArrow.svg';
 import { ReactComponent as PinnedMessageIcon } from '../../img/svg/pinnedMessage.svg';
+import { ReactComponent as DeleteMessageIcon } from '../../img/svg/deleteMessage.svg';
 
 export const ChatLoginForm = styled.form`
   width: 100%;
@@ -378,8 +379,8 @@ export const ChatPinnedMessageIcon = styled(PinnedMessageIcon)`
 `;
 
 export const ChatWindowedPinnedMessageIcon = styled(ChatPinnedMessageIcon)`
-  top: 5px;
-  right: 5px;
+  top: 2px;
+  right: 0;
   fill: var(--accent-color);
   transform: rotate(60deg);
   transition: transform var(--animation-global);
@@ -387,4 +388,25 @@ export const ChatWindowedPinnedMessageIcon = styled(ChatPinnedMessageIcon)`
   &.pinned {
     transform: rotate(0deg);
   }
+`;
+
+export const ChatWindowedDeleteMessage = styled(DeleteMessageIcon)`
+  position: absolute;
+  top: 2px;
+  right: 2px;
+
+  width: 22px;
+  height: 22px;
+
+  fill: #f9c8389e;
+
+  &:hover,
+  &:focus {
+    fill: var(--accent-color);
+  }
+`;
+
+export const ChatWindowedDeleteYourMessage = styled(ChatWindowedDeleteMessage)`
+  top: 2px;
+  right: 22px;
 `;

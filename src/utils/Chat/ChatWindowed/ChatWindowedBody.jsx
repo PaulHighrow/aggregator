@@ -9,6 +9,8 @@ import {
   ChatMessageYou,
   ChatMessagesBox,
   ChatScrollDownIcon,
+  ChatWindowedDeleteMessage,
+  ChatWindowedDeleteYourMessage,
   ChatWindowedMessageText,
   ChatWindowedMessageUserCloud,
   ChatWindowedMessageYouCloud,
@@ -32,7 +34,8 @@ export const ChatWindowedBody = ({ messages, socket }) => {
       scroll =>
         (scroll =
           ChatBodyEl.current.offsetHeight ===
-          ChatBodyEl.current.scrollHeight - Math.ceil(ChatBodyEl.current.scrollTop))
+          ChatBodyEl.current.scrollHeight -
+            Math.ceil(ChatBodyEl.current.scrollTop))
     );
   };
 
@@ -54,6 +57,10 @@ export const ChatWindowedBody = ({ messages, socket }) => {
     socket.emit('message:pin', message._id, { isPinned: !message.isPinned });
   };
 
+  const deleteMessage = async message => {
+    socket.emit('message:delete', message.id);
+  };
+
   return (
     <>
       <ChatMessagesBox
@@ -71,6 +78,10 @@ export const ChatWindowedBody = ({ messages, socket }) => {
                   Ви ({message.username})
                 </ChatMessageYou>
                 <ChatWindowedMessageYouCloud>
+                  <ChatWindowedDeleteYourMessage
+                    onClick={() => deleteMessage(message)}
+                    id={message._id}
+                  />
                   <ChatWindowedPinnedMessageIcon
                     className={message.isPinned ? 'pinned' : ''}
                     onClick={() => pinMessage(message)}
@@ -91,9 +102,13 @@ export const ChatWindowedBody = ({ messages, socket }) => {
                 </ChatWindowedMessageYouCloud>
               </ChatMessageWrapper>
             ) : (
-              <ChatMessageWrapper key={message._id}>
+              <ChatMessageWrapper key={message.id}>
                 <ChatMessageUsername>{message.username}</ChatMessageUsername>
                 <ChatWindowedMessageUserCloud className="message__recipient">
+                  <ChatWindowedDeleteMessage
+                    onClick={() => deleteMessage(message)}
+                    id={message._id}
+                  />
                   <ChatWindowedMessageText
                     dangerouslySetInnerHTML={{
                       __html: message.text.replace(
