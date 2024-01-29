@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { nanoid } from 'nanoid';
 import { useLayoutEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useInView } from 'react-intersection-observer';
@@ -148,6 +149,8 @@ export const Kahoots = ({
             if (localStorage.getItem('userName')) {
               copyToClipboard(btn);
             }
+            localStorage.setItem('userID', nanoid(8));
+            localStorage.setItem('AP_logged_in', true);
           }}
         >
           <ClipBoardFormDismissBtn onClick={() => toast.dismiss(t.id)}>

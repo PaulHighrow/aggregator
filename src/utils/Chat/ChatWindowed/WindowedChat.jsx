@@ -40,6 +40,7 @@ export const WindowedChat = () => {
     setUserID(id => (id = idGen));
     localStorage.setItem('userName', userName);
     localStorage.setItem('userID', idGen);
+    localStorage.setItem('AP_logged_in', true);
     setIsLoggedToChat(isLogged => !isLogged);
   };
 
@@ -74,7 +75,6 @@ export const WindowedChat = () => {
     getMessages();
 
     socketRef.current.on('message', async data => {
-      console.log(data);
       const updateMessages = async () => {
         try {
           await axios.post('https://ap-chat.onrender.com/messages', data);
@@ -93,6 +93,11 @@ export const WindowedChat = () => {
     });
 
     socketRef.current.on('message:pin', async (id, data) => {
+      setMessages(messages => {
+        messages[messages.findIndex(message => message.id === id)].isPinned =
+          data.isPinned;
+        return [...messages];
+      });
       console.log('pin fired');
       const editMessage = async () => {
         try {
@@ -110,12 +115,12 @@ export const WindowedChat = () => {
 
     socketRef.current.on('message:delete', async id => {
       console.log('delete fired');
+      setMessages(
+        messages =>
+          (messages = [...messages.filter(message => message.id !== id)])
+      );
       const deleteMessage = async () => {
         try {
-          setMessages(
-            messages =>
-              (messages = [...messages.filter(message => message.id !== id)])
-          );
           await axios.delete(`https://ap-chat.onrender.com/messages/${id}`);
         } catch (error) {
           console.log(error);

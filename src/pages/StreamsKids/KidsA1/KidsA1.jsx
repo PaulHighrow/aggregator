@@ -152,10 +152,10 @@ export const KidsA1 = () => {
     getMessages();
 
     socketRef.current.on('message', async data => {
+      setMessages(messages => (messages = [...messages, data]));
       const updateMessages = async () => {
         try {
           await axios.post('https://ap-chat.onrender.com/messages', data);
-          setMessages(messages => (messages = [...messages, data]));
         } catch (error) {
           console.log(error);
         }
@@ -173,9 +173,12 @@ export const KidsA1 = () => {
       getMessages();
     });
 
-    socketRef.current.on('message:deleted', async () => {
-      console.log('deleted event');
-      getMessages();
+    socketRef.current.on('message:deleted', async (id) => {
+      console.log(id);
+      setMessages(
+        messages =>
+          (messages = [...messages.filter(message => message.id !== id)])
+      );
     });
 
     return () => {
