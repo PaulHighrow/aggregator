@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.b14cbce7.css",
-    "main.js": "/aggregator/static/js/main.feb38518.js",
+    "main.js": "/aggregator/static/js/main.f9171af0.js",
     "Homepage.css": "/aggregator/static/css/Homepage.da8dd18d.chunk.css",
     "Homepage.js": "/aggregator/static/js/Homepage.8d024d74.chunk.js",
     "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.96905dd2.chunk.js",
-    "Streams page.js": "/aggregator/static/js/Streams page.873eedb9.chunk.js",
+    "Streams page.js": "/aggregator/static/js/Streams page.5b36b716.chunk.js",
     "Streams Kids page.js": "/aggregator/static/js/Streams Kids page.f5a645a4.chunk.js",
     "English trials page.js": "/aggregator/static/js/English trials page.1b334da1.chunk.js",
     "Kids trials page.js": "/aggregator/static/js/Kids trials page.815aa57b.chunk.js",
@@ -124,11 +124,11 @@
     "static/media/invertedDownArrow.svg": "/aggregator/static/media/invertedDownArrow.81d2e354f4424bf21d20b96a031591ce.svg",
     "static/media/downArrow.svg": "/aggregator/static/media/downArrow.3d74cb9d6d38fab26c47bbadb8e4f56d.svg",
     "main.b14cbce7.css.map": "/aggregator/static/css/main.b14cbce7.css.map",
-    "main.feb38518.js.map": "/aggregator/static/js/main.feb38518.js.map",
+    "main.f9171af0.js.map": "/aggregator/static/js/main.f9171af0.js.map",
     "Homepage.da8dd18d.chunk.css.map": "/aggregator/static/css/Homepage.da8dd18d.chunk.css.map",
     "Homepage.8d024d74.chunk.js.map": "/aggregator/static/js/Homepage.8d024d74.chunk.js.map",
     "Inverted Homepage.96905dd2.chunk.js.map": "/aggregator/static/js/Inverted Homepage.96905dd2.chunk.js.map",
-    "Streams page.873eedb9.chunk.js.map": "/aggregator/static/js/Streams page.873eedb9.chunk.js.map",
+    "Streams page.5b36b716.chunk.js.map": "/aggregator/static/js/Streams page.5b36b716.chunk.js.map",
     "Streams Kids page.f5a645a4.chunk.js.map": "/aggregator/static/js/Streams Kids page.f5a645a4.chunk.js.map",
     "English trials page.1b334da1.chunk.js.map": "/aggregator/static/js/English trials page.1b334da1.chunk.js.map",
     "Kids trials page.815aa57b.chunk.js.map": "/aggregator/static/js/Kids trials page.815aa57b.chunk.js.map",
@@ -156,6 +156,6 @@
   },
   "entrypoints": [
     "static/css/main.b14cbce7.css",
-    "static/js/main.feb38518.js"
+    "static/js/main.f9171af0.js"
   ]
 }
