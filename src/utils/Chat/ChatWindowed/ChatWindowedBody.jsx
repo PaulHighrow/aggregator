@@ -54,7 +54,7 @@ export const ChatWindowedBody = ({ messages, socket }) => {
   };
 
   const pinMessage = message => {
-    socket.emit('message:pin', message._id, { isPinned: !message.isPinned });
+    socket.emit('message:pin', message.id, { isPinned: !message.isPinned });
   };
 
   const deleteMessage = async message => {
@@ -85,7 +85,7 @@ export const ChatWindowedBody = ({ messages, socket }) => {
                   <ChatWindowedPinnedMessageIcon
                     className={message.isPinned ? 'pinned' : ''}
                     onClick={() => pinMessage(message)}
-                    id={message._id}
+                    id={message.id}
                   />
                   <ChatWindowedMessageText
                     dangerouslySetInnerHTML={{

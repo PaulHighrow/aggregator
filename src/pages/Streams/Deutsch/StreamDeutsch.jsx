@@ -1,5 +1,6 @@
 import useSize from '@react-hook/size';
 import { Kahoots } from 'components/Stream/Kahoots/Kahoots';
+import { Support } from 'components/Stream/Support/Support';
 import { useEffect, useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { useOutletContext } from 'react-router-dom';
@@ -23,7 +24,6 @@ import {
   SupportPointer,
   VideoBox,
 } from '../../../components/Stream/Stream.styled';
-import { Support } from 'components/Stream/Support/Support';
 
 export const StreamDeutsch = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -70,9 +70,9 @@ export const StreamDeutsch = () => {
   const videoBoxWidth =
     chatWidth === 0 && width > height ? width - 300 : width - chatWidth;
 
-    useEffect(() => {
-      document.title = 'Deutsch | AP Education';
-    }, []);
+  useEffect(() => {
+    document.title = 'Deutsch | AP Education';
+  }, []);
 
   return (
     <>
@@ -85,6 +85,14 @@ export const StreamDeutsch = () => {
           </StreamPlaceHolderText>
         </StreamPlaceHolder>
       ) : (
+        // ) : currentUser.isBanned ? (
+        //   <StreamPlaceHolder>
+        //     <StreamPlaceHolderText>
+        //       Хмммм, схоже що ви були нечемні! <br />
+        //       Вас було заблоковано за порушення правил нашої платформи. Зв'яжіться
+        //       зі своїм менеджером сервісу!
+        //     </StreamPlaceHolderText>
+        //   </StreamPlaceHolder>
         <>
           <StreamSection
             style={{

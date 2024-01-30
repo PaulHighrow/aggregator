@@ -102,12 +102,12 @@ export const KidsA1 = () => {
     e.preventDefault();
     const idGen = nanoid(8);
     setUserID(id => (id = idGen));
-    localStorage.setItem('userName', userName);
+    localStorage.setItem('userName', userName.trim());
     localStorage.setItem('userID', idGen);
     try {
       const ip = (await axios.get('https://jsonip.com/')).data.ip;
       const newUser = {
-        username: userName,
+        username: userName.trim(),
         userID: idGen,
         userIP: ip,
         isAdmin: false,
@@ -170,10 +170,14 @@ export const KidsA1 = () => {
     socketRef.current.on('message:pinned', async (id, data) => {
       console.log(id);
       console.log(data);
-      getMessages();
+      setMessages(messages => {
+        messages[messages.findIndex(message => message.id === id)].isPinned =
+          data.isPinned;
+        return [...messages];
+      });
     });
 
-    socketRef.current.on('message:deleted', async (id) => {
+    socketRef.current.on('message:deleted', async id => {
       console.log(id);
       setMessages(
         messages =>
@@ -199,6 +203,14 @@ export const KidsA1 = () => {
           </StreamPlaceHolderText>
         </StreamPlaceHolder>
       ) : (
+        // ) : currentUser.isBanned ? (
+        //   <StreamPlaceHolder>
+        //     <StreamPlaceHolderText>
+        //       Хмммм, схоже що ви були нечемні! <br />
+        //       Вас було заблоковано за порушення правил нашої платформи. Зв'яжіться
+        //       зі своїм менеджером сервісу!
+        //     </StreamPlaceHolderText>
+        //   </StreamPlaceHolder>
         <>
           <StreamSection
             style={{
@@ -302,7 +314,7 @@ export const KidsA1 = () => {
                       name="username"
                       id="username"
                       value={userName}
-                      onChange={e => setUserName(e.target.value.trim())}
+                      onChange={e => setUserName(e.target.value)}
                     />
                     <ChatLoginButton>Готово!</ChatLoginButton>
                   </ChatLoginForm>
@@ -353,7 +365,7 @@ export const KidsA1 = () => {
                     name="username"
                     id="username"
                     value={userName}
-                    onChange={e => setUserName(e.target.value.trim())}
+                    onChange={e => setUserName(e.target.value)}
                   />
                   <ChatLoginButton>Готово!</ChatLoginButton>
                 </ChatLoginForm>

@@ -97,12 +97,12 @@ export const StreamTest = () => {
     e.preventDefault();
     const idGen = nanoid(8);
     setUserID(id => (id = idGen));
-    localStorage.setItem('userName', userName);
+    localStorage.setItem('userName', userName.trim());
     localStorage.setItem('userID', idGen);
     try {
       const ip = (await axios.get('https://jsonip.com/')).data.ip;
       const newUser = {
-        username: userName,
+        username: userName.trim(),
         userID: idGen,
         userIP: ip,
         isAdmin: false,
@@ -148,10 +148,10 @@ export const StreamTest = () => {
     // socket.handshake.query.roomId
 
     socketRef.current.on('message', async data => {
+      setMessages(messages => (messages = [...messages, data]));
       const updateMessages = async () => {
         try {
           await axios.post('https://ap-chat.onrender.com/messages', data);
-          setMessages(messages => (messages = [...messages, data]));
         } catch (error) {
           console.log(error);
         }
@@ -170,20 +170,25 @@ export const StreamTest = () => {
     // });
 
     socketRef.current.on('message:get', async data => {
-      console.log('event succesfully emitted from server and read on client');
-      console.log(data);
       setMessages(messages => (messages = [...messages, data]));
-      console.log('check messages');
     });
 
-    socketRef.current.on('message:pin', (id, data) => {
-      console.log('pinevent');
-      getMessages();
+    socketRef.current.on('message:pinned', async (id, data) => {
+      console.log(id);
+      console.log(data);
+      setMessages(messages => {
+        messages[messages.findIndex(message => message.id === id)].isPinned =
+          data.isPinned;
+        return [...messages];
+      });
     });
 
-    socketRef.current.on('message:deleted', async () => {
-      console.log('deleted event');
-      getMessages();
+    socketRef.current.on('message:deleted', async id => {
+      console.log(id);
+      setMessages(
+        messages =>
+          (messages = [...messages.filter(message => message.id !== id)])
+      );
     });
 
     // обрабатываем получение сообщений
@@ -322,7 +327,7 @@ export const StreamTest = () => {
                       name="username"
                       id="username"
                       value={userName}
-                      onChange={e => setUserName(e.target.value.trim())}
+                      onChange={e => setUserName(e.target.value)}
                     />
                     <ChatLoginButton>Готово!</ChatLoginButton>
                   </ChatLoginForm>
@@ -373,7 +378,7 @@ export const StreamTest = () => {
                     name="username"
                     id="username"
                     value={userName}
-                    onChange={e => setUserName(e.target.value.trim())}
+                    onChange={e => setUserName(e.target.value)}
                   />
                   <ChatLoginButton>Готово!</ChatLoginButton>
                 </ChatLoginForm>

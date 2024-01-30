@@ -70,9 +70,9 @@ export const StreamPolski = () => {
   const videoBoxWidth =
     chatWidth === 0 && width > height ? width - 300 : width - chatWidth;
 
-    useEffect(() => {
-      document.title = 'Polski | AP Education';
-    }, []);
+  useEffect(() => {
+    document.title = 'Polski | AP Education';
+  }, []);
 
   return (
     <>
@@ -84,6 +84,14 @@ export const StreamPolski = () => {
             пізніше.
           </StreamPlaceHolderText>
         </StreamPlaceHolder>
+      // ) : currentUser.isBanned ? (
+      //   <StreamPlaceHolder>
+      //     <StreamPlaceHolderText>
+      //       Хмммм, схоже що ви були нечемні! <br />
+      //       Вас було заблоковано за порушення правил нашої платформи. Зв'яжіться
+      //       зі своїм менеджером сервісу!
+      //     </StreamPlaceHolderText>
+      //   </StreamPlaceHolder>
       ) : (
         <>
           <StreamSection

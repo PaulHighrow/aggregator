@@ -38,7 +38,7 @@ export const WindowedChat = () => {
     e.preventDefault();
     const idGen = nanoid(8);
     setUserID(id => (id = idGen));
-    localStorage.setItem('userName', userName);
+    localStorage.setItem('userName', userName.trim());
     localStorage.setItem('userID', idGen);
     localStorage.setItem('AP_logged_in', true);
     setIsLoggedToChat(isLogged => !isLogged);
@@ -98,7 +98,6 @@ export const WindowedChat = () => {
           data.isPinned;
         return [...messages];
       });
-      console.log('pin fired');
       const editMessage = async () => {
         try {
           await axios.patch(

@@ -12,7 +12,7 @@ const Streams = () => {
   let location = useLocation();
   const [isLoading, setIsLoading] = useState(false);
   const [links, setLinks] = useState({});
-  const [currentUser, setCurrentUser] = useState({});
+  // const [currentUser, setCurrentUser] = useState({});
 
   const wakeupRequest = async () => {
     try {
@@ -23,31 +23,31 @@ const Streams = () => {
     }
   };
 
-  const resetLogin = () => {
-    const isLoggedIn = localStorage.getItem('AP_logged_in');
-    if (!isLoggedIn) {
-      localStorage.removeItem('userID');
-      localStorage.removeItem('userName');
-    }
-  };
+  // const resetLogin = () => {
+  //   const isLoggedIn = localStorage.getItem('AP_logged_in');
+  //   if (!isLoggedIn) {
+  //     localStorage.removeItem('userID');
+  //     localStorage.removeItem('userName');
+  //   }
+  // };
 
-  const detectUser = async () => {
-    try {
-      const ip = (await axios.get('https://jsonip.com/')).data.ip;
-      const user = await axios.get('https://ap-chat.onrender.com/users');
-      setCurrentUser(
-        currentUser =>
-          (currentUser = user.data.find(user => user.userIP === ip))
-      );
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const detectUser = async () => {
+  //   try {
+  //     const ip = (await axios.get('https://jsonip.com/')).data.ip;
+  //     const user = await axios.get('https://ap-chat.onrender.com/users');
+  //     setCurrentUser(
+  //       currentUser =>
+  //         (currentUser = user.data.find(user => user.userIP === ip))
+  //     );
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   useLayoutEffect(() => {
-    resetLogin();
+    // resetLogin();
     wakeupRequest();
-    detectUser();
+    // detectUser();
 
     const getLinksRequest = async () => {
       try {
@@ -72,7 +72,7 @@ const Streams = () => {
         ) : (
           ''
         )}
-        <Outlet context={[links, isLoading, currentUser]} />
+        <Outlet context={[links, isLoading]} />
         {isLoading && (
           <LoaderWrapper>
             <Loader />

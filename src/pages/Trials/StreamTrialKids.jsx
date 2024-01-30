@@ -126,7 +126,7 @@ const StreamTrialKids = () => {
     e.preventDefault();
     const idGen = nanoid(8);
     setUserID(id => (id = idGen));
-    localStorage.setItem('userName', userName);
+    localStorage.setItem('userName', userName.trim());
     localStorage.setItem('userID', idGen);
     setIsLoggedToChat(isLogged => !isLogged);
   };
@@ -309,7 +309,7 @@ const StreamTrialKids = () => {
                         name="username"
                         id="username"
                         value={userName}
-                        onChange={e => setUserName(e.target.value.trim())}
+                        onChange={e => setUserName(e.target.value)}
                       />
                       <ChatLoginButton>Готово!</ChatLoginButton>
                     </ChatLoginForm>
@@ -361,7 +361,7 @@ const StreamTrialKids = () => {
                     name="username"
                     id="username"
                     value={userName}
-                    onChange={e => setUserName(e.target.value.trim())}
+                    onChange={e => setUserName(e.target.value)}
                   />
                   <ChatLoginButton>Готово!</ChatLoginButton>
                 </ChatLoginForm>

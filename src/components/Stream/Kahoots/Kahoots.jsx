@@ -139,7 +139,7 @@ export const Kahoots = ({
     toast(
       t => (
         <ClipBoardInputForm
-          onSubmit={e => {
+          onSubmit={async e => {
             e.preventDefault();
             toast.dismiss(t.id);
             setUsername(
@@ -150,7 +150,19 @@ export const Kahoots = ({
               copyToClipboard(btn);
             }
             localStorage.setItem('userID', nanoid(8));
-            localStorage.setItem('AP_logged_in', true);
+            try {
+              const ip = (await axios.get('https://jsonip.com/')).data.ip;
+              const newUser = {
+                username: localStorage.getItem('userName'),
+                userID: localStorage.getItem('userID'),
+                userIP: ip,
+                isAdmin: false,
+              };
+              await axios.post('https://ap-chat.onrender.com/users', newUser);
+              localStorage.setItem('AP_logged_in', true);
+            } catch (error) {
+              console.log(error);
+            }
           }}
         >
           <ClipBoardFormDismissBtn onClick={() => toast.dismiss(t.id)}>

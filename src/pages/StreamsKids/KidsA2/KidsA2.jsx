@@ -102,12 +102,12 @@ export const KidsA2 = () => {
     e.preventDefault();
     const idGen = nanoid(8);
     setUserID(id => (id = idGen));
-    localStorage.setItem('userName', userName);
+    localStorage.setItem('userName', userName.trim());
     localStorage.setItem('userID', idGen);
     try {
       const ip = (await axios.get('https://jsonip.com/')).data.ip;
       const newUser = {
-        username: userName,
+        username: userName.trim(),
         userID: idGen,
         userIP: ip,
         isAdmin: false,
@@ -149,6 +149,7 @@ export const KidsA2 = () => {
     getMessages();
 
     socketRef.current.on('message', async data => {
+      setMessages(messages => (messages = [...messages, data]));
       const updateMessages = async () => {
         try {
           await axios.post('https://ap-chat.onrender.com/messages', data);
@@ -164,14 +165,22 @@ export const KidsA2 = () => {
       setMessages(messages => (messages = [...messages, data]));
     });
 
-    socketRef.current.on('message:pin', async (id, data) => {
-      console.log('pinevent');
-      getMessages();
+    socketRef.current.on('message:pinned', async (id, data) => {
+      console.log(id);
+      console.log(data);
+      setMessages(messages => {
+        messages[messages.findIndex(message => message.id === id)].isPinned =
+          data.isPinned;
+        return [...messages];
+      });
     });
 
-    socketRef.current.on('message:deleted', async () => {
-      console.log('deleted event');
-      getMessages();
+    socketRef.current.on('message:deleted', async id => {
+      console.log(id);
+      setMessages(
+        messages =>
+          (messages = [...messages.filter(message => message.id !== id)])
+      );
     });
 
     return () => {
@@ -192,6 +201,14 @@ export const KidsA2 = () => {
           </StreamPlaceHolderText>
         </StreamPlaceHolder>
       ) : (
+        // ) : currentUser.isBanned ? (
+        //   <StreamPlaceHolder>
+        //     <StreamPlaceHolderText>
+        //       Хмммм, схоже що ви були нечемні! <br />
+        //       Вас було заблоковано за порушення правил нашої платформи. Зв'яжіться
+        //       зі своїм менеджером сервісу!
+        //     </StreamPlaceHolderText>
+        //   </StreamPlaceHolder>
         <>
           <StreamSection
             style={{
@@ -295,7 +312,7 @@ export const KidsA2 = () => {
                       name="username"
                       id="username"
                       value={userName}
-                      onChange={e => setUserName(e.target.value.trim())}
+                      onChange={e => setUserName(e.target.value)}
                     />
                     <ChatLoginButton>Готово!</ChatLoginButton>
                   </ChatLoginForm>
@@ -346,7 +363,7 @@ export const KidsA2 = () => {
                     name="username"
                     id="username"
                     value={userName}
-                    onChange={e => setUserName(e.target.value.trim())}
+                    onChange={e => setUserName(e.target.value)}
                   />
                   <ChatLoginButton>Готово!</ChatLoginButton>
                 </ChatLoginForm>

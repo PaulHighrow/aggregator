@@ -70,7 +70,7 @@ export const ChatBody = ({ messages, isChatOpen }) => {
                 message.isPinned && message.roomLocation === location.pathname
             )
             .map(message => (
-              <ChatMessageWrapper key={message._id}>
+              <ChatMessageWrapper key={`${message.id}_pin`}>
                 <ChatMessageUsername>{message.username}</ChatMessageUsername>
                 <ChatPinnedMessageIcon
                   onClick={togglePins}
