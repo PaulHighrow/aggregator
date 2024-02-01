@@ -35,6 +35,8 @@ export const ChatLoginHeader = styled.h2`
 
 export const ChatLoginLabel = styled.label`
   font-size: 18px;
+  max-width: 280px;
+  text-align: center;
 `;
 
 export const ChatLoginInput = styled.input`
@@ -50,6 +52,13 @@ export const ChatLoginInput = styled.input`
   &:focus {
     background-color: var(--accent-transparent-color);
   }
+`;
+
+export const ChatLoginValidation = styled.p`
+  color: red;
+  font-size: 14px;
+  max-width: 250px;
+  text-align: center;
 `;
 
 export const ChatLoginButton = styled.button`

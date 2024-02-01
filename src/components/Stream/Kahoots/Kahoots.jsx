@@ -159,7 +159,7 @@ export const Kahoots = ({
                 isAdmin: false,
               };
               await axios.post('https://ap-chat.onrender.com/users', newUser);
-              localStorage.setItem('AP_logged_in', true);
+              localStorage.setItem('APLoggedIn', true);
             } catch (error) {
               console.log(error);
             }

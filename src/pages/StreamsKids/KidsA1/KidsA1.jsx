@@ -14,6 +14,7 @@ import {
   ChatLoginHeader,
   ChatLoginInput,
   ChatLoginLabel,
+  ChatLoginValidation,
 } from 'utils/Chat/Chat.styled';
 import {
   ButtonBox,
@@ -43,16 +44,16 @@ export const KidsA1 = () => {
   const [isOpenedLast, setIsOpenedLast] = useState('');
   const [isAnimated, setIsAnimated] = useState(false);
   const [animatedID, setAnimationID] = useState('');
-  const [links, isLoading] = useOutletContext();
+  const [links, isLoading, currentUser] = useOutletContext();
   const chatEl = useRef();
   // eslint-disable-next-line
   const [chatWidth, chatHeight] = useSize(chatEl);
   const [width, height] = useSize(document.body);
   const [userName, setUserName] = useState('');
-  // eslint-disable-next-line
-  const [userID, setUserID] = useState('');
   const [isLoggedToChat, setIsLoggedToChat] = useState(false);
   const [messages, setMessages] = useState([]);
+  const [isUserNameValid, setIsUserNameValid] = useState(true);
+  const [isMoreThanOneWord, setIsMoreThanOneWord] = useState(true);
 
   const toggleKahoot = e => {
     setIsKahootOpen(isKahootOpen => !isKahootOpen);
@@ -86,14 +87,14 @@ export const KidsA1 = () => {
   const checkLogin = e => {
     const name = localStorage.getItem('userName');
     const id = localStorage.getItem('userID');
+    const isLogged = localStorage.getItem('APLoggedIn');
 
     if (!id && name) {
       const idGen = nanoid(8);
-      setUserID(id => (id = idGen));
       localStorage.setItem('userID', idGen);
     }
 
-    if (id && name) {
+    if (id && name && isLogged) {
       setIsLoggedToChat(isLogged => (isLogged = true));
     }
   };
@@ -101,21 +102,29 @@ export const KidsA1 = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     const idGen = nanoid(8);
-    setUserID(id => (id = idGen));
-    localStorage.setItem('userName', userName.trim());
-    localStorage.setItem('userID', idGen);
-    try {
-      const ip = (await axios.get('https://jsonip.com/')).data.ip;
-      const newUser = {
-        username: userName.trim(),
-        userID: idGen,
-        userIP: ip,
-        isAdmin: false,
-      };
-      await axios.post('https://ap-chat.onrender.com/users', newUser);
-      setIsLoggedToChat(isLogged => !isLogged);
-    } catch (error) {
-      console.log(error);
+    if (!userName) {
+      setIsUserNameValid(false);
+      return;
+    } else if (userName.trim().split(' ').length < 2) {
+      setIsMoreThanOneWord(false);
+      return;
+    } else {
+      localStorage.setItem('userName', userName.trim());
+      localStorage.setItem('userID', idGen);
+      localStorage.setItem('APLoggedIn', true);
+      try {
+        const ip = (await axios.get('https://jsonip.com/')).data.ip;
+        const newUser = {
+          username: userName.trim(),
+          userID: idGen,
+          userIP: ip,
+          isAdmin: false,
+        };
+        await axios.post('https://ap-chat.onrender.com/users', newUser);
+        setIsLoggedToChat(isLogged => !isLogged);
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 
@@ -133,8 +142,7 @@ export const KidsA1 = () => {
     });
 
     const getMessages = async () => {
-      console.log('getting');
-
+      console.log('get');
       try {
         const dbMessages = await axios.get(
           'https://ap-chat.onrender.com/messages'
@@ -143,7 +151,6 @@ export const KidsA1 = () => {
           message =>
             new Date(message.createdAt).getDate() === new Date().getDate()
         );
-        console.log(todayMessages);
         setMessages(messages => (messages = todayMessages));
       } catch (error) {
         console.log(error);
@@ -202,15 +209,15 @@ export const KidsA1 = () => {
             пізніше.
           </StreamPlaceHolderText>
         </StreamPlaceHolder>
+      ) : currentUser.isBanned ? (
+        <StreamPlaceHolder>
+          <StreamPlaceHolderText>
+            Хмммм, схоже що ви були нечемні! <br />
+            Вас було заблоковано за порушення правил нашої платформи. Зв'яжіться
+            зі своїм менеджером сервісу!
+          </StreamPlaceHolderText>
+        </StreamPlaceHolder>
       ) : (
-        // ) : currentUser.isBanned ? (
-        //   <StreamPlaceHolder>
-        //     <StreamPlaceHolderText>
-        //       Хмммм, схоже що ви були нечемні! <br />
-        //       Вас було заблоковано за порушення правил нашої платформи. Зв'яжіться
-        //       зі своїм менеджером сервісу!
-        //     </StreamPlaceHolderText>
-        //   </StreamPlaceHolder>
         <>
           <StreamSection
             style={{
@@ -306,16 +313,27 @@ export const KidsA1 = () => {
                   <ChatLoginForm onSubmit={handleSubmit}>
                     <ChatLoginHeader>AP Open Chat</ChatLoginHeader>
                     <ChatLoginLabel htmlFor="username">
-                      Введіть ваше ім'я повністю
+                      Введіть ваше ім'я та прізвище повністю
                     </ChatLoginLabel>
                     <ChatLoginInput
                       type="text"
-                      minLength={3}
+                      minLength="5"
                       name="username"
                       id="username"
                       value={userName}
-                      onChange={e => setUserName(e.target.value)}
+                      onChange={e => {
+                        setIsUserNameValid(true);
+                        setIsMoreThanOneWord(true);
+                        setUserName(e.target.value);
+                      }}
                     />
+                    <ChatLoginValidation>
+                      {!isUserNameValid
+                        ? "Ім'я та прізвище обов'язкові!"
+                        : !isMoreThanOneWord
+                        ? "Прізвище та ім'я, будь ласка, 2 слова!"
+                        : ''}
+                    </ChatLoginValidation>
                     <ChatLoginButton>Готово!</ChatLoginButton>
                   </ChatLoginForm>
                 ) : (
@@ -357,16 +375,27 @@ export const KidsA1 = () => {
                 <ChatLoginForm onSubmit={handleSubmit}>
                   <ChatLoginHeader>AP Open Chat</ChatLoginHeader>
                   <ChatLoginLabel htmlFor="username">
-                    Введіть ваше ім'я повністю
+                    Введіть ваше ім'я та прізвище повністю
                   </ChatLoginLabel>
                   <ChatLoginInput
                     type="text"
-                    minLength={3}
+                    minLength="5"
                     name="username"
                     id="username"
                     value={userName}
-                    onChange={e => setUserName(e.target.value)}
+                    onChange={e => {
+                      setIsUserNameValid(true);
+                      setIsMoreThanOneWord(true);
+                      setUserName(e.target.value);
+                    }}
                   />
+                  <ChatLoginValidation>
+                    {!isUserNameValid
+                      ? "Ім'я та прізвище обов'язкові!"
+                      : !isMoreThanOneWord
+                      ? "Прізвище та ім'я, будь ласка, 2 слова, через пробіл"
+                      : ''}
+                  </ChatLoginValidation>
                   <ChatLoginButton>Готово!</ChatLoginButton>
                 </ChatLoginForm>
               ) : (

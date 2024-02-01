@@ -12,7 +12,7 @@ const StreamsKids = () => {
   let location = useLocation();
   const [isLoading, setIsLoading] = useState(false);
   const [links, setLinks] = useState({});
-  // const [currentUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = useState({});
 
   const wakeupRequest = async () => {
     try {
@@ -23,31 +23,34 @@ const StreamsKids = () => {
     }
   };
 
-  // const resetLogin = () => {
-  //   const isLoggedIn = localStorage.getItem('AP_logged_in');
-  //   if (!isLoggedIn) {
-  //     localStorage.removeItem('userID');
-  //     localStorage.removeItem('userName');
-  //   }
-  // };
+  const resetLogin = () => {
+    localStorage.removeItem('AP_logged_in');
+    const isLoggedIn = localStorage.getItem('APLoggedIn');
+    if (!isLoggedIn) {
+      localStorage.removeItem('userID');
+      localStorage.removeItem('userName');
+    }
+  };
 
-  // const detectUser = async () => {
-  //   try {
-  //     const ip = (await axios.get('https://jsonip.com/')).data.ip;
-  //     const user = await axios.get('https://ap-chat.onrender.com/users');
-  //     setCurrentUser(
-  //       currentUser =>
-  //         (currentUser = user.data.find(user => user.userIP === ip))
-  //     );
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  const detectUser = async () => {
+    try {
+      const ip = (await axios.get('https://jsonip.com/')).data.ip;
+      const user = await axios.get('https://ap-chat.onrender.com/users');
+      setCurrentUser(
+        currentUser =>
+          (currentUser = user.data.find(user => user.userIP === ip) || {
+            isBanned: false,
+          })
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useLayoutEffect(() => {
-    // resetLogin();
+    resetLogin();
     wakeupRequest();
-    // detectUser();
+    detectUser();
 
     const getLinksRequest = async () => {
       try {
@@ -72,7 +75,7 @@ const StreamsKids = () => {
         ) : (
           ''
         )}
-        <Outlet context={[links, isLoading]} />
+        <Outlet context={[links, isLoading, currentUser]} />
         {isLoading && (
           <LoaderWrapper>
             <Loader />

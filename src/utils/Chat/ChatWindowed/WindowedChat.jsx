@@ -40,7 +40,7 @@ export const WindowedChat = () => {
     setUserID(id => (id = idGen));
     localStorage.setItem('userName', userName.trim());
     localStorage.setItem('userID', idGen);
-    localStorage.setItem('AP_logged_in', true);
+    localStorage.setItem('APLoggedIn', true);
     setIsLoggedToChat(isLogged => !isLogged);
   };
 
@@ -58,6 +58,7 @@ export const WindowedChat = () => {
     });
 
     const getMessages = async () => {
+      console.log('get');
       try {
         const dbMessages = await axios.get(
           'https://ap-chat.onrender.com/messages'
@@ -75,10 +76,10 @@ export const WindowedChat = () => {
     getMessages();
 
     socketRef.current.on('message', async data => {
+      setMessages(messages => (messages = [...messages, data]));
       const updateMessages = async () => {
         try {
           await axios.post('https://ap-chat.onrender.com/messages', data);
-          setMessages(messages => (messages = [...messages, data]));
         } catch (error) {
           console.log(error);
         }
@@ -89,7 +90,6 @@ export const WindowedChat = () => {
     socketRef.current.on('message:get', async data => {
       console.log(data);
       setMessages(messages => (messages = [...messages, data]));
-      getMessages();
     });
 
     socketRef.current.on('message:pin', async (id, data) => {
@@ -104,7 +104,6 @@ export const WindowedChat = () => {
             `https://ap-chat.onrender.com/messages/${id}`,
             data
           );
-          getMessages();
         } catch (error) {
           console.log(error);
         }
@@ -142,7 +141,7 @@ export const WindowedChat = () => {
           <ChatLoginForm onSubmit={handleSubmit}>
             <ChatLoginHeader>AP Open Chat</ChatLoginHeader>
             <ChatLoginLabel htmlFor="username">
-              Введіть ваше ім'я повністю
+              Введіть ваше ім'я та прізвище повністю
             </ChatLoginLabel>
             <ChatLoginInput
               type="text"

@@ -1,11 +1,13 @@
 import useSize from '@react-hook/size';
 import axios from 'axios';
+import { StreamsBackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
+import { Loader } from 'components/SharedLayout/Loaders/Loader';
+import { LoaderWrapper } from 'components/SharedLayout/Loaders/Loader.styled';
 import { Kahoots } from 'components/Stream/Kahoots/Kahoots';
 import { Support } from 'components/Stream/Support/Support';
 import { nanoid } from 'nanoid';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
-import { useOutletContext } from 'react-router-dom';
 import { io } from 'socket.io-client';
 import { Chat } from 'utils/Chat/Chat';
 import {
@@ -34,25 +36,53 @@ import {
   SupportMarkerRight,
   SupportPointer,
   VideoBox,
-} from '../../../components/Stream/Stream.styled';
+} from '../../components/Stream/Stream.styled';
 
-export const StreamDeutsch = () => {
+axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
+
+const StreamTrialDeutschSprechclub = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isKahootOpen, setIsKahootOpen] = useState(false);
   const [isSupportOpen, setIsSupportOpen] = useState(false);
   const [isOpenedLast, setIsOpenedLast] = useState('');
   const [isAnimated, setIsAnimated] = useState(false);
   const [animatedID, setAnimationID] = useState('');
-  const [links, isLoading] = useOutletContext();
   const chatEl = useRef();
   // eslint-disable-next-line
   const [chatWidth, chatHeight] = useSize(chatEl);
   const [width, height] = useSize(document.body);
+  const [isLoading, setIsLoading] = useState(false);
+  const [links, setLinks] = useState({});
   const [userName, setUserName] = useState('');
   // eslint-disable-next-line
   const [userID, setUserID] = useState('');
   const [isLoggedToChat, setIsLoggedToChat] = useState(false);
   const [messages, setMessages] = useState([]);
+
+  const wakeupRequest = async () => {
+    try {
+      const wake = await axios.get('/');
+      console.log(wake.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useLayoutEffect(() => {
+    wakeupRequest();
+
+    const getLinksRequest = async () => {
+      try {
+        setIsLoading(isLoading => (isLoading = true));
+        setLinks((await axios.get('/links')).data);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsLoading(isLoading => (isLoading = false));
+      }
+    };
+    getLinksRequest();
+  }, []);
 
   const toggleKahoot = e => {
     setIsKahootOpen(isKahootOpen => !isKahootOpen);
@@ -96,7 +126,7 @@ export const StreamDeutsch = () => {
     e.preventDefault();
     const idGen = nanoid(8);
     setUserID(id => (id = idGen));
-    localStorage.setItem('userName', userName);
+    localStorage.setItem('userName', userName.trim());
     localStorage.setItem('userID', idGen);
     setIsLoggedToChat(isLogged => !isLogged);
   };
@@ -104,6 +134,8 @@ export const StreamDeutsch = () => {
   const socketRef = useRef(null);
 
   useEffect(() => {
+    document.title = 'Deutsch Trial | AP Education';
+
     socketRef.current = io('https://ap-chat.onrender.com/');
     checkLogin();
 
@@ -153,7 +185,8 @@ export const StreamDeutsch = () => {
 
   return (
     <>
-      {(links.deutsch === undefined || links.deutsch[0] < 10) && !isLoading ? (
+      {(links.trials_de === undefined || links.trials_de[0] < 10) &&
+      !isLoading ? (
         <StreamPlaceHolder>
           <StreamPlaceHolderText>
             Поки що трансляції тут немає! <br />
@@ -169,132 +202,146 @@ export const StreamDeutsch = () => {
                 isChatOpen && width > height ? `${videoBoxWidth}px` : '100%',
             }}
           >
-            <VideoBox>
-              <MoldingNoClick />
-              <MoldingNoClickSecondary />
-              <SupportMarkerLeft
-                className={
-                  (isAnimated && animatedID === 'sound') ||
-                  (isAnimated && animatedID === 'live')
-                    ? 'animated'
-                    : ''
-                }
-              >
-                <SupportArrow
+            <StreamsBackgroundWrapper>
+              {isLoading && (
+                <LoaderWrapper>
+                  <Loader />
+                </LoaderWrapper>
+              )}
+
+              <VideoBox>
+                <MoldingNoClick />
+                <MoldingNoClickSecondary />
+                <SupportMarkerLeft
                   className={
                     (isAnimated && animatedID === 'sound') ||
                     (isAnimated && animatedID === 'live')
                       ? 'animated'
                       : ''
                   }
-                />
-              </SupportMarkerLeft>
-              <SupportMarkerRight
-                className={
-                  isAnimated && animatedID === 'quality' ? 'animated' : ''
-                }
-              >
-                <SupportPointer
+                >
+                  <SupportArrow
+                    className={
+                      (isAnimated && animatedID === 'sound') ||
+                      (isAnimated && animatedID === 'live')
+                        ? 'animated'
+                        : ''
+                    }
+                  />
+                </SupportMarkerLeft>
+                <SupportMarkerRight
                   className={
                     isAnimated && animatedID === 'quality' ? 'animated' : ''
                   }
-                />
-              </SupportMarkerRight>
-              <ReactPlayer
-                playing={true}
-                muted={true}
-                controls={true}
-                config={{
-                  youtube: {
-                    playerVars: { rel: 0 },
-                  },
-                }}
-                style={{
-                  display: 'block',
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                }}
-                width="100%"
-                height="100vh"
-                url={links.deutsch}
-              />
-            </VideoBox>
-
-            <ButtonBox>
-              <KahootBtn
-                onClick={toggleKahoot}
-                className={
-                  isAnimated && animatedID === 'kahoot_open' ? 'animated' : ''
-                }
-              >
-                <KahootLogo />
-              </KahootBtn>
-
-              <ChatBtn
-                onClick={toggleChat}
-                className={
-                  isAnimated && animatedID === 'chat_open' ? 'animated' : ''
-                }
-              >
-                <ChatLogo />
-              </ChatBtn>
-
-              <SupportBtn onClick={toggleSupport}>
-                <SupportLogo />
-              </SupportBtn>
-            </ButtonBox>
-
-            {height > width && (
-              <ChatBox
-                ref={chatEl}
-                className={isChatOpen ? 'shown' : 'hidden'}
-                style={
-                  isOpenedLast === 'chat' ? { zIndex: '2' } : { zIndex: '1' }
-                }
-              >
-                {!isLoggedToChat ? (
-                  <ChatLoginForm onSubmit={handleSubmit}>
-                    <ChatLoginHeader>AP Open Chat</ChatLoginHeader>
-                    <ChatLoginLabel htmlFor="username">
-                      Введіть ваше ім'я та прізвище повністю
-                    </ChatLoginLabel>
-                    <ChatLoginInput
-                      type="text"
-                      minLength={3}
-                      name="username"
-                      id="username"
-                      value={userName}
-                      onChange={e => setUserName(e.target.value)}
-                    />
-                    <ChatLoginButton>Готово!</ChatLoginButton>
-                  </ChatLoginForm>
-                ) : (
-                  <Chat
-                    socket={socketRef.current}
-                    messages={messages}
-                    isChatOpen={isChatOpen}
+                >
+                  <SupportPointer
+                    className={
+                      isAnimated && animatedID === 'quality' ? 'animated' : ''
+                    }
                   />
-                )}
-              </ChatBox>
-            )}
+                </SupportMarkerRight>
+                <ReactPlayer
+                  playing={true}
+                  muted={true}
+                  controls={true}
+                  config={{
+                    youtube: {
+                      playerVars: { rel: 0 },
+                    },
+                  }}
+                  style={{
+                    display: 'block',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                  }}
+                  width="100%"
+                  height="100vh"
+                  url={links.trials_de}
+                />
+              </VideoBox>
 
-            <Support
-              sectionWidth={width}
-              isSupportOpen={isSupportOpen}
-              isOpenedLast={isOpenedLast}
-              handleSupport={handleSupportClick}
-              openKahoot={toggleKahoot}
-              isKahootOpen={isKahootOpen}
-            />
+              <ButtonBox>
+                <KahootBtn
+                  onClick={toggleKahoot}
+                  className={
+                    isAnimated && animatedID === 'kahoot_open' ? 'animated' : ''
+                  }
+                >
+                  <KahootLogo />
+                </KahootBtn>
 
-            <Kahoots
-              sectionWidth={width}
-              sectionHeight={height}
-              isKahootOpen={isKahootOpen}
-              isChatOpen={isChatOpen}
-              isOpenedLast={isOpenedLast}
-            />
+                <ChatBtn
+                  onClick={toggleChat}
+                  className={
+                    isAnimated && animatedID === 'chat_open' ? 'animated' : ''
+                  }
+                >
+                  <ChatLogo />
+                </ChatBtn>
+
+                <SupportBtn onClick={toggleSupport}>
+                  <SupportLogo />
+                </SupportBtn>
+              </ButtonBox>
+              {links.trials_de &&
+              !links.trials_de.includes('youtube') &&
+              !links.trials_de.includes('youtu.be')
+                ? window.location.replace(
+                    'https://us06web.zoom.us/j/81182390469?pwd=dgu8giaan9uiyt5ITCFciSmIxjhVEg.1'
+                  )
+                : null}
+              {height > width && (
+                <ChatBox
+                  ref={chatEl}
+                  className={isChatOpen ? 'shown' : 'hidden'}
+                  style={
+                    isOpenedLast === 'chat' ? { zIndex: '2' } : { zIndex: '1' }
+                  }
+                >
+                  {!isLoggedToChat ? (
+                    <ChatLoginForm onSubmit={handleSubmit}>
+                      <ChatLoginHeader>AP Open Chat</ChatLoginHeader>
+                      <ChatLoginLabel htmlFor="username">
+                        Введіть ваше ім'я та прізвище повністю
+                      </ChatLoginLabel>
+                      <ChatLoginInput
+                        type="text"
+                        minLength={3}
+                        name="username"
+                        id="username"
+                        value={userName}
+                        onChange={e => setUserName(e.target.value)}
+                      />
+                      <ChatLoginButton>Готово!</ChatLoginButton>
+                    </ChatLoginForm>
+                  ) : (
+                    <Chat
+                      socket={socketRef.current}
+                      messages={messages}
+                      isChatOpen={isChatOpen}
+                    />
+                  )}
+                </ChatBox>
+              )}
+
+              <Kahoots
+                sectionWidth={width}
+                sectionHeight={height}
+                isKahootOpen={isKahootOpen}
+                isChatOpen={isChatOpen}
+                isOpenedLast={isOpenedLast}
+              />
+
+              <Support
+                sectionWidth={width}
+                isSupportOpen={isSupportOpen}
+                isOpenedLast={isOpenedLast}
+                handleSupport={handleSupportClick}
+                openKahoot={toggleKahoot}
+                isKahootOpen={isKahootOpen}
+              />
+            </StreamsBackgroundWrapper>
           </StreamSection>
           {width >= height && (
             <ChatBox
@@ -334,3 +381,5 @@ export const StreamDeutsch = () => {
     </>
   );
 };
+
+export default StreamTrialDeutschSprechclub;

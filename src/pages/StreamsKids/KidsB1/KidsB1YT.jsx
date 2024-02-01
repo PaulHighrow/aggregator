@@ -254,7 +254,7 @@ export const KidsB1 = () => {
                   <ChatLoginForm onSubmit={handleSubmit}>
                     <ChatLoginHeader>AP Open Chat</ChatLoginHeader>
                     <ChatLoginLabel htmlFor="username">
-                      Введіть ваше ім'я повністю
+                      Введіть ваше ім'я та прізвище повністю
                     </ChatLoginLabel>
                     <ChatLoginInput
                       type="text"
@@ -305,7 +305,7 @@ export const KidsB1 = () => {
                 <ChatLoginForm onSubmit={handleSubmit}>
                   <ChatLoginHeader>AP Open Chat</ChatLoginHeader>
                   <ChatLoginLabel htmlFor="username">
-                    Введіть ваше ім'я повністю
+                    Введіть ваше ім'я та прізвище повністю
                   </ChatLoginLabel>
                   <ChatLoginInput
                     type="text"
