@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.b14cbce7.css",
-    "main.js": "/aggregator/static/js/main.ddc95192.js",
+    "main.js": "/aggregator/static/js/main.a7ef3083.js",
     "Homepage.css": "/aggregator/static/css/Homepage.da8dd18d.chunk.css",
     "Homepage.js": "/aggregator/static/js/Homepage.8d024d74.chunk.js",
     "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.96905dd2.chunk.js",
@@ -9,7 +9,9 @@
     "Streams Kids page.js": "/aggregator/static/js/Streams Kids page.6c88e482.chunk.js",
     "English trials page.js": "/aggregator/static/js/English trials page.a2b1418c.chunk.js",
     "Kids trials page.js": "/aggregator/static/js/Kids trials page.c46eb06f.chunk.js",
-    "Deutsch trials page.js": "/aggregator/static/js/Deutsch trials page.f35d4dac.chunk.js",
+    "Deutsch trials page.js": "/aggregator/static/js/Deutsch trials page.f64eb412.chunk.js",
+    "Deutsch Sprechclub pilot page.js": "/aggregator/static/js/Deutsch Sprechclub pilot page.8d44529a.chunk.js",
+    "B1 Speaking pilot page.js": "/aggregator/static/js/B1 Speaking pilot page.d242e0c9.chunk.js",
     "Polska trials page.js": "/aggregator/static/js/Polska trials page.f24a7fe9.chunk.js",
     "All reviews page.js": "/aggregator/static/js/All reviews page.48955632.chunk.js",
     "Not Found.js": "/aggregator/static/js/Not Found.c8d73658.chunk.js",
@@ -26,7 +28,7 @@
     "reactPlayerKaltura.js": "/aggregator/static/js/reactPlayerKaltura.0a6ce37b.chunk.js",
     "reactPlayerFilePlayer.js": "/aggregator/static/js/reactPlayerFilePlayer.8b5c7efc.chunk.js",
     "reactPlayerPreview.js": "/aggregator/static/js/reactPlayerPreview.73fbb042.chunk.js",
-    "static/js/27.f329748c.chunk.js": "/aggregator/static/js/27.f329748c.chunk.js",
+    "static/js/523.46e78fb2.chunk.js": "/aggregator/static/js/523.46e78fb2.chunk.js",
     "static/js/307.69b48d3e.chunk.js": "/aggregator/static/js/307.69b48d3e.chunk.js",
     "static/js/172.cb0bee3d.chunk.js": "/aggregator/static/js/172.cb0bee3d.chunk.js",
     "static/js/311.5f8b6d92.chunk.js": "/aggregator/static/js/311.5f8b6d92.chunk.js",
@@ -124,7 +126,7 @@
     "static/media/invertedDownArrow.svg": "/aggregator/static/media/invertedDownArrow.81d2e354f4424bf21d20b96a031591ce.svg",
     "static/media/downArrow.svg": "/aggregator/static/media/downArrow.3d74cb9d6d38fab26c47bbadb8e4f56d.svg",
     "main.b14cbce7.css.map": "/aggregator/static/css/main.b14cbce7.css.map",
-    "main.ddc95192.js.map": "/aggregator/static/js/main.ddc95192.js.map",
+    "main.a7ef3083.js.map": "/aggregator/static/js/main.a7ef3083.js.map",
     "Homepage.da8dd18d.chunk.css.map": "/aggregator/static/css/Homepage.da8dd18d.chunk.css.map",
     "Homepage.8d024d74.chunk.js.map": "/aggregator/static/js/Homepage.8d024d74.chunk.js.map",
     "Inverted Homepage.96905dd2.chunk.js.map": "/aggregator/static/js/Inverted Homepage.96905dd2.chunk.js.map",
@@ -132,7 +134,9 @@
     "Streams Kids page.6c88e482.chunk.js.map": "/aggregator/static/js/Streams Kids page.6c88e482.chunk.js.map",
     "English trials page.a2b1418c.chunk.js.map": "/aggregator/static/js/English trials page.a2b1418c.chunk.js.map",
     "Kids trials page.c46eb06f.chunk.js.map": "/aggregator/static/js/Kids trials page.c46eb06f.chunk.js.map",
-    "Deutsch trials page.f35d4dac.chunk.js.map": "/aggregator/static/js/Deutsch trials page.f35d4dac.chunk.js.map",
+    "Deutsch trials page.f64eb412.chunk.js.map": "/aggregator/static/js/Deutsch trials page.f64eb412.chunk.js.map",
+    "Deutsch Sprechclub pilot page.8d44529a.chunk.js.map": "/aggregator/static/js/Deutsch Sprechclub pilot page.8d44529a.chunk.js.map",
+    "B1 Speaking pilot page.d242e0c9.chunk.js.map": "/aggregator/static/js/B1 Speaking pilot page.d242e0c9.chunk.js.map",
     "Polska trials page.f24a7fe9.chunk.js.map": "/aggregator/static/js/Polska trials page.f24a7fe9.chunk.js.map",
     "All reviews page.48955632.chunk.js.map": "/aggregator/static/js/All reviews page.48955632.chunk.js.map",
     "Not Found.c8d73658.chunk.js.map": "/aggregator/static/js/Not Found.c8d73658.chunk.js.map",
@@ -149,13 +153,13 @@
     "reactPlayerKaltura.0a6ce37b.chunk.js.map": "/aggregator/static/js/reactPlayerKaltura.0a6ce37b.chunk.js.map",
     "reactPlayerFilePlayer.8b5c7efc.chunk.js.map": "/aggregator/static/js/reactPlayerFilePlayer.8b5c7efc.chunk.js.map",
     "reactPlayerPreview.73fbb042.chunk.js.map": "/aggregator/static/js/reactPlayerPreview.73fbb042.chunk.js.map",
-    "27.f329748c.chunk.js.map": "/aggregator/static/js/27.f329748c.chunk.js.map",
+    "523.46e78fb2.chunk.js.map": "/aggregator/static/js/523.46e78fb2.chunk.js.map",
     "307.69b48d3e.chunk.js.map": "/aggregator/static/js/307.69b48d3e.chunk.js.map",
     "172.cb0bee3d.chunk.js.map": "/aggregator/static/js/172.cb0bee3d.chunk.js.map",
     "311.5f8b6d92.chunk.js.map": "/aggregator/static/js/311.5f8b6d92.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b14cbce7.css",
-    "static/js/main.ddc95192.js"
+    "static/js/main.a7ef3083.js"
   ]
 }
