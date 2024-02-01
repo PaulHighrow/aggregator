@@ -31,6 +31,7 @@ import {
   KahootExitFullScreenIcon,
   KahootFullScreenBtn,
   KahootFullScreenIcon,
+  KahootNameValidation,
   KahootNumbersBtn,
   KahootNumbersHider,
   KahootPicker,
@@ -134,38 +135,58 @@ export const Kahoots = ({
     setActiveKahoot(1);
   };
 
+  const disableEnter = e => (e.key === 'Enter' ? e.preventDefault() : null);
+
   const createNameInput = btn => {
     btn.disabled = true;
+    document.addEventListener('keydown', disableEnter);
     toast(
       t => (
         <ClipBoardInputForm
           onSubmit={async e => {
             e.preventDefault();
-            toast.dismiss(t.id);
-            setUsername(
-              username => (username = localStorage.getItem('userName'))
-            );
-            btn.disabled = false;
-            if (localStorage.getItem('userName')) {
-              copyToClipboard(btn);
-            }
-            localStorage.setItem('userID', nanoid(8));
-            try {
-              const ip = (await axios.get('https://jsonip.com/')).data.ip;
-              const newUser = {
-                username: localStorage.getItem('userName'),
-                userID: localStorage.getItem('userID'),
-                userIP: ip,
-                isAdmin: false,
-              };
-              await axios.post('https://ap-chat.onrender.com/users', newUser);
-              localStorage.setItem('APLoggedIn', true);
-            } catch (error) {
-              console.log(error);
+            const userName = localStorage.getItem('userName');
+            if (!userName) {
+              createValidationEmptyInput();
+              return;
+            } else if (userName.trim().split(' ').length < 2) {
+              createValidationNotEnoughWords();
+              return;
+            } else {
+              toast.dismiss(t.id);
+              document.removeEventListener('keydown', disableEnter);
+              setUsername(
+                username => (username = localStorage.getItem('userName'))
+              );
+              btn.disabled = false;
+              if (localStorage.getItem('userName')) {
+                copyToClipboard(btn);
+              }
+              localStorage.setItem('userID', nanoid(8));
+              try {
+                const ip = (await axios.get('https://jsonip.com/')).data.ip;
+                const newUser = {
+                  username: localStorage.getItem('userName'),
+                  userID: localStorage.getItem('userID'),
+                  userIP: ip,
+                  isAdmin: false,
+                };
+                await axios.post('https://ap-chat.onrender.com/users', newUser);
+                localStorage.setItem('APLoggedIn', true);
+              } catch (error) {
+                console.log(error);
+              }
             }
           }}
         >
-          <ClipBoardFormDismissBtn onClick={() => toast.dismiss(t.id)}>
+          <ClipBoardFormDismissBtn
+            onClick={e => {
+              e.preventDefault();
+              toast.dismiss(t.id);
+              btn.disabled = false;
+              document.removeEventListener('keydown', disableEnter);
+            }}
+          >
             <DismissIcon />
           </ClipBoardFormDismissBtn>
           <ClipBoardFormText>
@@ -174,15 +195,51 @@ export const Kahoots = ({
             скорочень, щоб ми могли правильно зарахувати ваші бали!
           </ClipBoardFormText>
           <ClipBoardInput
+            name="username"
             placeholder="Ім'я"
+            defaultValue={localStorage.getItem('userName')}
             onChange={e => {
-              localStorage.setItem('userName', e.target.value);
+              if (e.target.value) {
+                localStorage.setItem('userName', e.target.value);
+              }
             }}
           />
           <ClipBoardSubmitBtn>Зберегти</ClipBoardSubmitBtn>
         </ClipBoardInputForm>
       ),
       { duration: Infinity }
+    );
+  };
+
+  const createValidationEmptyInput = () => {
+    toast.error(
+      t => (
+        <>
+          <ClipBoardFormDismissBtn onClick={() => toast.dismiss(t.id)}>
+            <DismissIcon />
+          </ClipBoardFormDismissBtn>
+          <KahootNameValidation>
+            Ім'я та прізвище обов'язкові!
+          </KahootNameValidation>
+        </>
+      ),
+      { duration: 1500 }
+    );
+  };
+
+  const createValidationNotEnoughWords = () => {
+    toast.error(
+      t => (
+        <>
+          <ClipBoardFormDismissBtn onClick={() => toast.dismiss(t.id)}>
+            <DismissIcon />
+          </ClipBoardFormDismissBtn>
+          <KahootNameValidation>
+            Прізвище та ім'я, будь ласка, 2 слова!
+          </KahootNameValidation>
+        </>
+      ),
+      { duration: 1500 }
     );
   };
 

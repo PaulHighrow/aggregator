@@ -8,6 +8,7 @@ import { ReactComponent as ClipBoardCopyIcon } from '../../../img/svg/clipBoardC
 import { ReactComponent as NameReverseIcon } from '../../../img/svg/nameReverse.svg';
 import { ReactComponent as KahootPickerIcon } from '../../../img/svg/kahootPickerIcon.svg';
 import { CloseIcon, FormCloseBtn } from 'components/LeadForm/LeadForm.styled';
+import { ChatLoginValidation } from 'utils/Chat/Chat.styled';
 
 export const KahootBox = styled.div`
   background-color: white;
@@ -323,4 +324,10 @@ export const NameReverse = styled(NameReverseIcon)`
   width: 22px;
   height: 22px;
   stroke: var(--main-color);
+`;
+
+export const KahootNameValidation = styled(ChatLoginValidation)`
+  font-family: var(--streams-font-family);
+
+  width: 100%;
 `;

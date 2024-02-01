@@ -32,7 +32,7 @@ export const StreamA1 = () => {
   const [isOpenedLast, setIsOpenedLast] = useState('');
   const [isAnimated, setIsAnimated] = useState(false);
   const [animatedID, setAnimationID] = useState('');
-  const [links, isLoading] = useOutletContext();
+  const [links, isLoading, currentUser] = useOutletContext();
   const chatEl = useRef();
   // eslint-disable-next-line
   const [chatWidth, chatHeight] = useSize(chatEl);
@@ -84,14 +84,14 @@ export const StreamA1 = () => {
             пізніше.
           </StreamPlaceHolderText>
         </StreamPlaceHolder>
-      // ) : currentUser.isBanned ? (
-      //   <StreamPlaceHolder>
-      //     <StreamPlaceHolderText>
-      //       Хмммм, схоже що ви були нечемні! <br />
-      //       Вас було заблоковано за порушення правил нашої платформи. Зв'яжіться
-      //       зі своїм менеджером сервісу!
-      //     </StreamPlaceHolderText>
-      //   </StreamPlaceHolder>
+      ) : currentUser.isBanned ? (
+        <StreamPlaceHolder>
+          <StreamPlaceHolderText>
+            Хмммм, схоже що ви були нечемні! <br />
+            Вас було заблоковано за порушення правил нашої платформи. Зв'яжіться
+            зі своїм менеджером сервісу!
+          </StreamPlaceHolderText>
+        </StreamPlaceHolder>
       ) : (
         <>
           <StreamSection
