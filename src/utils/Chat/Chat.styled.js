@@ -5,6 +5,7 @@ import { ReactComponent as ChatSendIcon } from '../../img/svg/sendIcon.svg';
 import { ReactComponent as ChatScrollDownArrow } from '../../img/svg/downArrow.svg';
 import { ReactComponent as PinnedMessageIcon } from '../../img/svg/pinnedMessage.svg';
 import { ReactComponent as DeleteMessageIcon } from '../../img/svg/deleteMessage.svg';
+import { ReactComponent as BanUserIcon } from '../../img/svg/banUser.svg';
 
 export const ChatLoginForm = styled.form`
   width: 100%;
@@ -142,6 +143,7 @@ export const ChatWindowedMessagesBox = styled(ChatMessagesBox)`
 `;
 
 export const ChatMessageWrapper = styled.div`
+  position: relative;
   margin-bottom: 8px;
 `;
 
@@ -418,4 +420,19 @@ export const ChatWindowedDeleteMessage = styled(DeleteMessageIcon)`
 export const ChatWindowedDeleteYourMessage = styled(ChatWindowedDeleteMessage)`
   top: 2px;
   right: 22px;
+`;
+
+export const ChatWindowedBanUser = styled(BanUserIcon)`
+  position: absolute;
+  left: 100px;
+
+  width: 12px;
+  height: 12px;
+
+  fill: #800000;
+
+  &:hover,
+  &:focus {
+    fill: var(--accent-color);
+  }
 `;

@@ -35,10 +35,12 @@ const StreamsKids = () => {
   const detectUser = async () => {
     try {
       const ip = (await axios.get('https://jsonip.com/')).data.ip;
+      console.log(ip);
+      const id = localStorage.getItem('userID');
       const user = await axios.get('https://ap-chat.onrender.com/users');
       setCurrentUser(
         currentUser =>
-          (currentUser = user.data.find(user => user.userIP === ip) || {
+          (currentUser = user.data.find(user => user.userID === id) || {
             isBanned: false,
           })
       );

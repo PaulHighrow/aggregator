@@ -9,6 +9,7 @@ import {
   ChatMessageYou,
   ChatMessagesBox,
   ChatScrollDownIcon,
+  ChatWindowedBanUser,
   ChatWindowedDeleteMessage,
   ChatWindowedDeleteYourMessage,
   ChatWindowedMessageText,
@@ -61,6 +62,11 @@ export const ChatWindowedBody = ({ messages, socket }) => {
     socket.emit('message:delete', message.id);
   };
 
+  const banUser = async (userID, userIP) => {
+    console.log(userID, userIP);
+    socket.emit('user:ban', userID, userIP);
+  };
+
   return (
     <>
       <ChatMessagesBox
@@ -103,7 +109,12 @@ export const ChatWindowedBody = ({ messages, socket }) => {
               </ChatMessageWrapper>
             ) : (
               <ChatMessageWrapper key={message.id}>
-                <ChatMessageUsername>{message.username}</ChatMessageUsername>
+                <ChatMessageUsername>
+                  {message.username}
+                  <ChatWindowedBanUser
+                    onClick={() => banUser(message.userID, message.userIP)}
+                  />
+                </ChatMessageUsername>
                 <ChatWindowedMessageUserCloud className="message__recipient">
                   <ChatWindowedDeleteMessage
                     onClick={() => deleteMessage(message)}

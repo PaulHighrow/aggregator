@@ -127,6 +127,23 @@ export const WindowedChat = () => {
       await deleteMessage();
     });
 
+    socketRef.current.on('user:ban', async (userID, userIP) => {
+      console.log('ban fired');
+      const banUser = async () => {
+        console.log('request fired');
+        console.log(userID);
+        console.log(userIP);
+        try {
+          await axios.patch(`https://ap-chat.onrender.com/users/${userID}`, {
+            isBanned: true,
+          });
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      await banUser();
+    });
+
     return () => {
       socketRef.current.off('connected');
       socketRef.current.off('message');

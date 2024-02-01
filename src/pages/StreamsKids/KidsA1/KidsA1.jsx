@@ -192,6 +192,11 @@ export const KidsA1 = () => {
       );
     });
 
+    socketRef.current.on('user:banned', async (userID, userIP) => {
+      console.log(userID);
+      console.log(userIP);
+    });
+
     return () => {
       socketRef.current.off('connected');
       socketRef.current.off('message');
