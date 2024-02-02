@@ -6,7 +6,7 @@ import {
   MarqueeVideo,
   StyledMarquee,
 } from 'components/Hero/HeroMarquee/HeroMarquee.styled';
-import { MarqueeModal } from 'components/Hero/HeroSwiper/HeroSwiperModal/HeroSwiperModal';
+import { HeroSwiperModal } from 'components/Hero/HeroSwiper/HeroSwiperModal/HeroSwiperModal';
 import { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
@@ -46,7 +46,7 @@ export const HeroMarquee = ({ toggleModal }) => {
   return (
     <>
       {isMarqueeModalOpen && (
-        <MarqueeModal
+        <HeroSwiperModal
           closeMarqueeModal={closeMarqueeModal}
           toggleModal={toggleModal}
           id={modalId.current}

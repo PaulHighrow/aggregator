@@ -46,16 +46,16 @@ const StreamTrialDeutsch = lazy(() =>
     /* webpackChunkName: "Deutsch trials page" */ '../pages/Trials/StreamTrialDeutsch'
   )
 );
-const StreamTrialDeutschSprechclub = lazy(() =>
-  import(
-    /* webpackChunkName: "Deutsch Sprechclub pilot page" */ '../pages/Trials/StreamTrialDeutschSprechclub'
-  )
-);
-const StreamTrialB1SpeakingClub = lazy(() =>
-  import(
-    /* webpackChunkName: "B1 Speaking pilot page" */ '../pages/Trials/StreamTrialB1SpeakingClub'
-  )
-);
+// const StreamTrialDeutschSprechclub = lazy(() =>
+//   import(
+//     /* webpackChunkName: "Deutsch Sprechclub pilot page" */ '../pages/Trials/StreamTrialDeutschSprechclub'
+//   )
+// );
+// const StreamTrialB1SpeakingClub = lazy(() =>
+//   import(
+//     /* webpackChunkName: "B1 Speaking pilot page" */ '../pages/Trials/StreamTrialB1SpeakingClub'
+//   )
+// );
 const StreamTrialPolski = lazy(() =>
   import(
     /* webpackChunkName: "Polska trials page" */ '../pages/Trials/StreamTrialPolski'
@@ -73,14 +73,14 @@ const AllReviews = lazy(() =>
 //   )
 // );
 
-// const Polski = lazy(() =>
-//   import(/* webpackChunkName: "Polski courses page" */ '../pages/Polski/Polski')
-// );
-// const Deutsch = lazy(() =>
-//   import(
-//     /* webpackChunkName: "Deutsch courses page" */ '../pages/Deutsch/Deutsch'
-//   )
-// );
+const Polski = lazy(() =>
+  import(/* webpackChunkName: "Polski courses page" */ '../pages/Polski/Polski')
+);
+const Deutsch = lazy(() =>
+  import(
+    /* webpackChunkName: "Deutsch courses page" */ '../pages/Deutsch/Deutsch'
+  )
+);
 // const Education = lazy(() =>
 //   import(
 //     /* webpackChunkName: "Education center page" */ '../pages/Education/Education'
@@ -145,9 +145,10 @@ export const App = () => {
           <Route index element={<Home utms={utms} />} />
           <Route path="clone" element={<Clone utms={utms} />} />
           <Route path="reviews" element={<AllReviews />} />
-          {/* <Route path="deutsch" element={<Deutsch utms={utms} />} /> */}
-          {/* <Route path="english" element={<English utms={utms} />} />
+          <Route path="deutsch" element={<Deutsch utms={utms} />} />
           <Route path="polski" element={<Polski utms={utms} />} />
+          {/* <Route path="english" element={<English utms={utms} />} />
+          
           <Route path="education" element={<Education utms={utms} />} />
           <Route path="examination" element={<Examination utms={utms} />} />
           <Route path="translation" element={<Translation utms={utms} />} />
@@ -177,8 +178,8 @@ export const App = () => {
         <Route path="trial-en" element={<StreamTrialEnglish />} />
         <Route path="trial-pl" element={<StreamTrialPolski />} />
         <Route path="trial-de" element={<StreamTrialDeutsch />} />
-        <Route path="pilot" element={<StreamTrialDeutschSprechclub />} />
-        <Route path="pilot-scb1" element={<StreamTrialB1SpeakingClub />} />
+        {/* <Route path="pilot" element={<StreamTrialDeutschSprechclub />} /> */}
+        {/* <Route path="pilot-scb1" element={<StreamTrialB1SpeakingClub />} /> */}
         <Route path="trial-kids" element={<StreamTrialKids />} />
       </Routes>
     </>

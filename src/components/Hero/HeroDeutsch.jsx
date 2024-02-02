@@ -1,5 +1,4 @@
 import { Box } from 'components/Box/Box.styled';
-import { HeroSwiper } from 'components/Hero/HeroSwiper/HeroSwiper';
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import {
@@ -9,15 +8,16 @@ import {
   DescriptionTrigger,
   DescriptionUnderlineLong,
   DescriptionUnderlineShort,
+  HeldenVector,
   HeroSection,
-  HeroVector,
   SubTitle,
   Title,
   TitleBlock,
-  TitleSketch,
+  TitleSketchDeu,
 } from './Hero.styled';
+import { HeroSwiperDeu } from './HeroSwiper/HeroSwiperDeu';
 
-export const Hero = ({ toggleModal }) => {
+export const HeroDeutsch = ({ toggleModal }) => {
   const [isMore, setIsMore] = useState(false);
   const [isSketchHidden, setIsSketchHidden] = useState(true);
   const [isSubtitleHidden, setIsSubtitleHidden] = useState(true);
@@ -37,7 +37,7 @@ export const Hero = ({ toggleModal }) => {
 
     const showSketch = setTimeout(() => {
       setIsSketchHidden(isHidden => (isHidden = false));
-    }, 3000);
+    }, 3500);
 
     return () => {
       clearTimeout(showSubtitle);
@@ -49,16 +49,16 @@ export const Hero = ({ toggleModal }) => {
     <HeroSection id="hero">
       <Box>
         <Title>
-          <TitleBlock>ONE STEP</TitleBlock> FROM ZERO TO{' '}
+          <TitleBlock>VON NULL</TitleBlock> ZUM{' '}
           <SubTitle ref={ref}>
-            HERO{inView && !isSketchHidden && <TitleSketch />}
-            {!isSubtitleHidden && <HeroVector />}
+            HELDEN{inView && !isSketchHidden && <TitleSketchDeu />}
+            {!isSubtitleHidden && <HeldenVector />}
           </SubTitle>
         </Title>
         <Description>
           <span>
             Ласкаво просимо до AP Education Center! Обравши нас, ви обираєте
-            особливий шлях навчання {isMore ? ',' : '...'}
+            особливий шлях навчання{isMore ? ',' : '...'}
           </span>
           <DescriptionMoreText
             className={isMore ? 'more-shown' : 'more-hidden'}
@@ -83,7 +83,7 @@ export const Hero = ({ toggleModal }) => {
           )}
         </DescriptionTrigger>
       </Box>
-      <HeroSwiper toggleModal={toggleModal} />
+      <HeroSwiperDeu toggleModal={toggleModal} />
     </HeroSection>
   );
 };

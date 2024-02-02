@@ -5,15 +5,15 @@ import {
   MarqueeText,
   MarqueeVideo,
 } from 'components/Hero/HeroMarquee/HeroMarquee.styled';
-import { HeroSwiperModal } from 'components/Hero/HeroSwiper/HeroSwiperModal/HeroSwiperModal';
 import { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { StyledSlide } from '../HeroSwiper.styled';
+import { HeroSwiperModalPol } from '../HeroSwiperModal/HeroSwiperModalPol';
 
-export const MobileSwiper = ({ toggleModal }) => {
+export const MobileSwiperPol = ({ toggleModal }) => {
   const modalId = useRef(NaN);
   const [isMarqueeModalOpen, setIsMarqueeModalOpen] = useState(false);
   const { ref, inView } = useInView();
@@ -49,7 +49,7 @@ export const MobileSwiper = ({ toggleModal }) => {
   return (
     <>
       {isMarqueeModalOpen && (
-        <HeroSwiperModal
+        <HeroSwiperModalPol
           closeMarqueeModal={closeMarqueeModal}
           toggleModal={toggleModal}
           id={modalId.current}
@@ -74,21 +74,20 @@ export const MobileSwiper = ({ toggleModal }) => {
             <MarqueeChild>
               <MarqueeOverlay>
                 <HeroMarqueeSoundBtn />
-                <MarqueeText>From Zero to Hero</MarqueeText>
+                <MarqueeText>Od zera do bohatera</MarqueeText>
               </MarqueeOverlay>
               <MarqueeVideo
                 autoplay={inView ? 'true' : 'false'}
                 loop
                 playsInline
                 muted={true}
-                poster="../../../img/hero/hero-marquee/posters/poster1.webp"
               >
                 <source
-                  src="https://ap.education/static/video/previews/preview1.webm"
+                  src="https://ap.education/static/video/previews-pol/preview1.webm"
                   type="video/webm"
                 />
                 <source
-                  src="https://ap.education/static/video/previews/preview1.mp4"
+                  src="https://ap.education/static/video/previews-pol/preview1.mp4"
                   type="video/mp4"
                 />
               </MarqueeVideo>
@@ -107,14 +106,13 @@ export const MobileSwiper = ({ toggleModal }) => {
                 loop
                 playsInline
                 muted={true}
-                poster="../../../img/hero/hero-marquee/posters/poster2.webp"
               >
                 <source
-                  src="https://ap.education/static/video/previews/preview2.webm"
+                  src="https://ap.education/static/video/previews-pol/preview2.webm"
                   type="video/webm"
                 />
                 <source
-                  src="https://ap.education/static/video/previews/preview2.mp4"
+                  src="https://ap.education/static/video/previews-pol/preview2.mp4"
                   type="video/mp4"
                 />
               </MarqueeVideo>
@@ -133,14 +131,13 @@ export const MobileSwiper = ({ toggleModal }) => {
                 loop
                 playsInline
                 muted={true}
-                poster="../../../img/hero/hero-marquee/posters/poster3.webp"
               >
                 <source
-                  src="https://ap.education/static/video/previews/preview3.webm"
+                  src="https://ap.education/static/video/previews-pol/preview3.webm"
                   type="video/webm"
                 />
                 <source
-                  src="https://ap.education/static/video/previews/preview3.mp4"
+                  src="https://ap.education/static/video/previews-pol/preview3.mp4"
                   type="video/mp4"
                 />
               </MarqueeVideo>
@@ -159,14 +156,13 @@ export const MobileSwiper = ({ toggleModal }) => {
                 loop
                 playsInline
                 muted={true}
-                poster="../../../img/hero/hero-marquee/posters/poster4.webp"
               >
                 <source
-                  src="https://ap.education/static/video/previews/preview4.webm"
+                  src="https://ap.education/static/video/previews-pol/preview4.webm"
                   type="video/webm"
                 />
                 <source
-                  src="https://ap.education/static/video/previews/preview4.mp4"
+                  src="https://ap.education/static/video/previews-pol/preview4.mp4"
                   type="video/mp4"
                 />
               </MarqueeVideo>
@@ -178,21 +174,20 @@ export const MobileSwiper = ({ toggleModal }) => {
             <MarqueeChild>
               <MarqueeOverlay>
                 <HeroMarqueeSoundBtn />
-                <MarqueeText>Close to You</MarqueeText>
+                <MarqueeText>Унікальний формат</MarqueeText>
               </MarqueeOverlay>
               <MarqueeVideo
                 autoplay={inView ? 'true' : 'false'}
                 loop
                 playsInline
                 muted={true}
-                poster="../../../img/hero/hero-marquee/posters/poster5.webp"
               >
                 <source
-                  src="https://ap.education/static/video/previews/preview5.webm"
+                  src="https://ap.education/static/video/previews-pol/preview5.webm"
                   type="video/webm"
                 />
                 <source
-                  src="https://ap.education/static/video/previews/preview5.mp4"
+                  src="https://ap.education/static/video/previews-pol/preview5.mp4"
                   type="video/mp4"
                 />
               </MarqueeVideo>

@@ -1,8 +1,8 @@
 import { Box } from 'components/Box/Box.styled';
-import { HeroSwiper } from 'components/Hero/HeroSwiper/HeroSwiper';
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import {
+  BohateraVector,
   Description,
   DescriptionMoreText,
   DescriptionSiteText,
@@ -10,14 +10,14 @@ import {
   DescriptionUnderlineLong,
   DescriptionUnderlineShort,
   HeroSection,
-  HeroVector,
   SubTitle,
   Title,
   TitleBlock,
-  TitleSketch,
+  TitleSketchPol,
 } from './Hero.styled';
+import { HeroSwiperPol } from './HeroSwiper/HeroSwiperPol';
 
-export const Hero = ({ toggleModal }) => {
+export const HeroPolski = ({ toggleModal }) => {
   const [isMore, setIsMore] = useState(false);
   const [isSketchHidden, setIsSketchHidden] = useState(true);
   const [isSubtitleHidden, setIsSubtitleHidden] = useState(true);
@@ -37,7 +37,7 @@ export const Hero = ({ toggleModal }) => {
 
     const showSketch = setTimeout(() => {
       setIsSketchHidden(isHidden => (isHidden = false));
-    }, 3000);
+    }, 4300);
 
     return () => {
       clearTimeout(showSubtitle);
@@ -49,10 +49,10 @@ export const Hero = ({ toggleModal }) => {
     <HeroSection id="hero">
       <Box>
         <Title>
-          <TitleBlock>ONE STEP</TitleBlock> FROM ZERO TO{' '}
+          <TitleBlock>OD ZERA DO</TitleBlock>{' '}
           <SubTitle ref={ref}>
-            HERO{inView && !isSketchHidden && <TitleSketch />}
-            {!isSubtitleHidden && <HeroVector />}
+            BOHATERA{inView && !isSketchHidden && <TitleSketchPol />}
+            {!isSubtitleHidden && <BohateraVector />}
           </SubTitle>
         </Title>
         <Description>
@@ -83,7 +83,7 @@ export const Hero = ({ toggleModal }) => {
           )}
         </DescriptionTrigger>
       </Box>
-      <HeroSwiper toggleModal={toggleModal} />
+      <HeroSwiperPol toggleModal={toggleModal} />
     </HeroSection>
   );
 };

@@ -14,12 +14,12 @@ import {
   ModalHeader,
   ModalWindow,
 } from './HeroSwiperModal.styled';
-import { serviceList } from './serviceList';
+import { serviceListDeu } from './serviceListDeu';
 import useSize from '@react-hook/size';
 
-export const HeroSwiperModal = ({ closeMarqueeModal, toggleModal, id }) => {
+export const HeroSwiperModalDeu = ({ closeMarqueeModal, toggleModal, id }) => {
   const [modalId, setModalId] = useState(parseInt(id));
-  const length = serviceList.length;
+  const length = serviceListDeu.length;
   // eslint-disable-next-line
   const [width, _] = useSize(document.body);
 
@@ -75,7 +75,7 @@ export const HeroSwiperModal = ({ closeMarqueeModal, toggleModal, id }) => {
         <MarqueeCloseBtn onClick={closeMarqueeModal}>
           <CloseIcon />
         </MarqueeCloseBtn>
-        <ModalHeader>{serviceList[modalId].title}</ModalHeader>
+        <ModalHeader>{serviceListDeu[modalId].title}</ModalHeader>
 
         <VideoLimiter>
           <VideoBox>
@@ -92,12 +92,12 @@ export const HeroSwiperModal = ({ closeMarqueeModal, toggleModal, id }) => {
               }}
               width="100%"
               height="100%"
-              url={serviceList[modalId].videoUrl}
+              url={serviceListDeu[modalId].videoUrl}
             />
           </VideoBox>
         </VideoLimiter>
 
-        <ModalDesc>{serviceList[modalId].desc}</ModalDesc>
+        <ModalDesc>{serviceListDeu[modalId].desc}</ModalDesc>
         <LeadBtn onClick={toggleLeadForm}>
           {width >= 768 ? 'ШВИДКА КОНСУЛЬТАЦІЯ' : 'КОНСУЛЬТАЦІЯ'}
         </LeadBtn>

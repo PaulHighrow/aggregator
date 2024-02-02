@@ -10,6 +10,7 @@ import {
   FooterListItem,
   FooterLogo,
   FooterLogoLink,
+  FooterNavLink,
   FooterSocials,
   IconBox,
   InstagramBtn,
@@ -21,7 +22,7 @@ import {
   MonoPawIcon,
   SocialLogoLink,
   TikTokBtn,
-  YouTubeBtn
+  YouTubeBtn,
 } from './MainFooter.styled';
 import { Map } from './Map/Map';
 
@@ -32,11 +33,11 @@ export const MainFooter = ({ toggleModal }) => {
   //   { to: '/translation', service: 'Перекладацьке бюро' },
   //   // { to: 'admission', service: 'Вступ до ВНЗ' },
   // ];
-  // const footerCoursesItems = [
-  //   { to: '/english', course: 'Англійська мова' },
-  //   { to: '/polski', course: 'Польська мова' },
-  //   { to: '/deutsch', course: 'Німецька мова' },
-  // ];
+  const footerCoursesItems = [
+    { to: '/', course: 'Англійська мова' },
+    { to: '/polski', course: 'Польська мова' },
+    { to: '/deutsch', course: 'Німецька мова' },
+  ];
   const footerContactsItems = [
     { href: 'mailto:info@ap.education', contact: 'info@ap.education' },
     { href: 'tel:+380671047700', contact: '+380671047700' },
@@ -88,8 +89,11 @@ export const MainFooter = ({ toggleModal }) => {
             </IconBox>
             <LeadWrapper>
               <LeadDesc>... якщо залишились запитання </LeadDesc>
-              <FooterLeadBtn onClick={toggleModal}> ЗАЛИШИТИ ЗАЯВКУ </FooterLeadBtn>
-              <MonoPawIcon/>
+              <FooterLeadBtn onClick={toggleModal}>
+                {' '}
+                ЗАЛИШИТИ ЗАЯВКУ{' '}
+              </FooterLeadBtn>
+              <MonoPawIcon />
             </LeadWrapper>
           </FooterLeftBox>
           <FooterList>
@@ -105,7 +109,7 @@ export const MainFooter = ({ toggleModal }) => {
                 ))}
               </LinkList>
             </FooterListItem> */}
-            {/* <FooterListItem>
+            <FooterListItem>
               <LinkListTitle>Курси</LinkListTitle>
               <LinkList>
                 {footerCoursesItems.map((item, i) => (
@@ -114,7 +118,7 @@ export const MainFooter = ({ toggleModal }) => {
                   </LinkListItem>
                 ))}
               </LinkList>
-            </FooterListItem> */}
+            </FooterListItem>
             <FooterListItem>
               <LinkListTitle id="contacts">Контакти</LinkListTitle>
               <LinkList>

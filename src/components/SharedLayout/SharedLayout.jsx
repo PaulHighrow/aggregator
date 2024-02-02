@@ -3,20 +3,14 @@ import { LeadForm } from 'components/LeadForm/LeadForm';
 import { MainFooter } from 'components/MainFooter/MainFooter';
 import { Menu } from 'components/Menu/Menu';
 import { UpButton } from 'components/UpButton/UpButton';
-import { InvertedMainFooter } from 'pages/Clone/InvertedMainFooter/InvertedMainFooter';
-import { InvertedMenu } from 'pages/Clone/InvertedMenu/InvertedMenu';
 import { Suspense, useEffect, useLayoutEffect, useState } from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { OffsetLoader } from './Loaders/OffsetLoader';
-import {
-  SuspenseBox,
-  SuspenseTitle
-} from './SharedLayout.styled';
+import { SuspenseBox, SuspenseTitle } from './SharedLayout.styled';
 
 axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
 
 export const SharedLayout = ({ utms }) => {
-  let location = useLocation();
   const [isOpenModal, setIsOpenModal] = useState(false);
 
   const toggleModal = () => {
@@ -69,16 +63,12 @@ export const SharedLayout = ({ utms }) => {
 
   return (
     <>
-      {location.pathname === '/' ? (
-        <Menu toggleModal={toggleModal} />
-      ) : (
-        <InvertedMenu toggleModal={toggleModal} />
-      )}
+      <Menu toggleModal={toggleModal} />
 
       <Suspense
         fallback={
           <SuspenseBox>
-            <SuspenseTitle as={'h2'}>Loading...</SuspenseTitle>
+            <SuspenseTitle as={'h2'}>Loading</SuspenseTitle>
             <OffsetLoader />
           </SuspenseBox>
         }
@@ -86,11 +76,8 @@ export const SharedLayout = ({ utms }) => {
         <Outlet />
       </Suspense>
 
-      {location.pathname === '/' ? (
-        <MainFooter toggleModal={toggleModal} />
-      ) : (
-        <InvertedMainFooter toggleModal={toggleModal} />
-      )}
+      <MainFooter toggleModal={toggleModal} />
+
       <UpButton />
 
       {isOpenModal && <LeadForm closeModal={closeModal} utms={utms} />}

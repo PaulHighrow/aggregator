@@ -50,6 +50,8 @@ export const SectionTitle = styled.h2`
     width: 400px;
     font-size: 55px;
     -webkit-text-stroke: 2px var(--main-color);
+
+    text-align: center;
   }
 
   @media screen and (min-width: 1280px) {
@@ -196,6 +198,7 @@ export const VideoLimiter = styled.div`
 export const PlayerLimiter = styled.div`
   position: relative;
   margin: 0 auto;
+  width: 90%;
   max-width: 640px;
   border-radius: 20px;
   overflow: hidden;

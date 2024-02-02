@@ -1,12 +1,11 @@
 import { AboutUs } from 'components/AboutUs/AboutUs';
 import { BackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
 import { Consent } from 'components/Consent/Consent';
-import { EdCenter } from 'components/EdCenter/EdCenter';
-import { ExamCenter } from 'components/ExamCenter/ExamCenter';
-import { Hero } from 'components/Hero/Hero';
-import { HowItWorks } from 'components/HowItWorks/HowItWorks';
+import { EdPlatformDeu } from 'components/EdPlatform/EdPlatformDeu';
+import { HeroDeutsch } from 'components/Hero/HeroDeutsch';
+import { HowItWorksDeu } from 'components/HowItWorks/HowItWorksDeu';
 import { LeadForm } from 'components/LeadForm/LeadForm';
-import { Translations } from 'components/Translations/Translations';
+import { Reviews } from 'components/Reviews/Reviews';
 import { useEffect, useState } from 'react';
 
 const Deutsch = ({ utms }) => {
@@ -33,6 +32,8 @@ const Deutsch = ({ utms }) => {
       }
     };
 
+    console.log(window.screen);
+
     window.addEventListener('keydown', onEscapeClose);
 
     return () => {
@@ -43,13 +44,11 @@ const Deutsch = ({ utms }) => {
   return (
     <>
       <BackgroundWrapper>
-        <Hero closeModal={closeModal} toggleModal={toggleModal} />
-        <HowItWorks />
+        <HeroDeutsch toggleModal={toggleModal} />
+        <HowItWorksDeu />
       </BackgroundWrapper>
-      <EdCenter />
-      {/* <Admission /> */}
-      <Translations utms={utms} />
-      <ExamCenter toggleModal={toggleModal} closeModal={closeModal} />
+      <EdPlatformDeu />
+      <Reviews toggleModal={toggleModal} />
       <AboutUs />
       <Consent />
       {isOpenModal && <LeadForm closeModal={closeModal} utms={utms} />}

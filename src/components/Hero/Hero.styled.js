@@ -1,8 +1,12 @@
 import styled, { keyframes } from 'styled-components';
 import { ReactComponent as TitleSketchSVG } from '../../img/svg/sketchTitle.svg';
+import { ReactComponent as TitleSketchDeuSVG } from '../../img/svg/sketchTitleDeu.svg';
+import { ReactComponent as TitleSketchPolSVG } from '../../img/svg/sketchTitlePol.svg';
 import { ReactComponent as UnderlineShort } from '../../img/svg/hero-underline-short.svg';
 import { ReactComponent as UnderlineLong } from '../../img/svg/hero-underline-long.svg';
 import { ReactComponent as HeroSVG } from '../../img/svg/hero-caveat.svg';
+import { ReactComponent as HeldenSVG } from '../../img/svg/helden-caveat.svg';
+import { ReactComponent as BohateraSVG } from '../../img/svg/bohatera-caveat.svg';
 
 export const HeroSection = styled.section`
   position: relative;
@@ -66,6 +70,26 @@ const sketchAnimation = keyframes`
   }
 `;
 
+const sketchDeuAnimation = keyframes`
+  0%{
+    stroke-dashoffset: 1094;
+  }
+  100% {
+    /* closing the offset makes the line appear to be drawn-in */
+    stroke-dashoffset: 0;
+  }
+`;
+
+const sketchPolAnimation = keyframes`
+  0%{
+    stroke-dashoffset: 1235;
+  }
+  100% {
+    /* closing the offset makes the line appear to be drawn-in */
+    stroke-dashoffset: 0;
+  }
+`;
+
 export const TitleBlock = styled.span`
   @media screen and (min-width: 960px) {
     display: block;
@@ -88,6 +112,52 @@ export const TitleSketch = styled(TitleSketchSVG)`
   & path {
     animation-name: ${sketchAnimation};
     animation-duration: 1.1s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    stroke: #f5ce46;
+    stroke-width: 4px;
+  }
+`;
+
+export const TitleSketchDeu = styled(TitleSketchDeuSVG)`
+  position: absolute;
+  z-index: -1;
+  top: 58%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  stroke-dasharray: 1095;
+  width: 180px;
+
+  @media screen and (min-width: 768px) {
+    width: 420px;
+  }
+
+  & path {
+    animation-name: ${sketchDeuAnimation};
+    animation-duration: 1.4s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    stroke: #f5ce46;
+    stroke-width: 4px;
+  }
+`;
+
+export const TitleSketchPol = styled(TitleSketchPolSVG)`
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  stroke-dasharray: 1235;
+  width: 250px;
+
+  @media screen and (min-width: 768px) {
+    width: 540px;
+  }
+
+  & path {
+    animation-name: ${sketchPolAnimation};
+    animation-duration: 1.6s;
     animation-timing-function: linear;
     animation-iteration-count: 1;
     stroke: #f5ce46;
@@ -270,6 +340,172 @@ export const HeroVector = styled(HeroSVG)`
     animation-timing-function: linear;
     animation-iteration-count: 1;
     animation-delay: 1.15s;
+    animation-fill-mode: both;
+  }
+`;
+
+export const HeldenVector = styled(HeldenSVG)`
+  position: absolute;
+  width: 155px;
+  height: 46px;
+  left: 2px;
+
+  @media screen and (min-width: 768px) {
+    width: 354px;
+    /* left: -33px; */
+    /* top: 20px; */
+    height: auto;
+  }
+
+  & .helden-h {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 2;
+    animation-name: ${pathsHAnimation};
+    animation-duration: 400ms;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+  }
+  & .helden-e1 {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 2;
+    animation-name: ${pathsAnimation};
+    animation-duration: 400ms;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-delay: 350ms;
+    animation-fill-mode: both;
+  }
+  & .helden-l {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 2;
+    animation-name: ${pathsAnimation};
+    animation-duration: 400ms;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-delay: 750ms;
+    animation-fill-mode: both;
+  }
+  & .helden-d {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 2;
+    animation-name: ${pathsAnimation};
+    animation-duration: 400ms;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-delay: 1.15s;
+    animation-fill-mode: both;
+  }
+  & .helden-e2 {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 2;
+    animation-name: ${pathsAnimation};
+    animation-duration: 400ms;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-delay: 1.45s;
+    animation-fill-mode: both;
+  }
+  & .helden-n {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 2;
+    animation-name: ${pathsAnimation};
+    animation-duration: 400ms;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-delay: 1.75s;
+    animation-fill-mode: both;
+  }
+`;
+
+export const BohateraVector = styled(BohateraSVG)`
+  position: absolute;
+  width: 187px;
+  height: 46px;
+  left: 2px;
+
+  @media screen and (min-width: 768px) {
+    width: 423px;
+    height: auto;
+  }
+
+  & .bohatera-b {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 2;
+    animation-name: ${pathsHAnimation};
+    animation-duration: 400ms;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+  }
+  & .bohatera-o {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 2;
+    animation-name: ${pathsAnimation};
+    animation-duration: 400ms;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-delay: 350ms;
+    animation-fill-mode: both;
+  }
+  & .bohatera-h {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 2;
+    animation-name: ${pathsAnimation};
+    animation-duration: 400ms;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-delay: 750ms;
+    animation-fill-mode: both;
+  }
+  & .bohatera-a1 {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 2;
+    animation-name: ${pathsAnimation};
+    animation-duration: 400ms;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-delay: 1.15s;
+    animation-fill-mode: both;
+  }
+  & .bohatera-t {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 2;
+    animation-name: ${pathsAnimation};
+    animation-duration: 400ms;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-delay: 1.45s;
+    animation-fill-mode: both;
+  }
+  & .bohatera-e {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 2;
+    animation-name: ${pathsAnimation};
+    animation-duration: 400ms;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-delay: 1.75s;
+    animation-fill-mode: both;
+  }
+  & .bohatera-r {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 2;
+    animation-name: ${pathsAnimation};
+    animation-duration: 400ms;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-delay: 2.15s;
+    animation-fill-mode: both;
+  }
+  & .bohatera-a2 {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 2;
+    animation-name: ${pathsAnimation};
+    animation-duration: 400ms;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-delay: 2.45s;
     animation-fill-mode: both;
   }
 `;
