@@ -51,6 +51,7 @@ export const KidsA2 = () => {
   const [width, height] = useSize(document.body);
   const [userName, setUserName] = useState('');
   const [isLoggedToChat, setIsLoggedToChat] = useState(false);
+  const [isBanned, setIsBanned] = useState(false);
   const [messages, setMessages] = useState([]);
   const [isUserNameValid, setIsUserNameValid] = useState(true);
   const [isMoreThanOneWord, setIsMoreThanOneWord] = useState(true);
@@ -191,6 +192,12 @@ export const KidsA2 = () => {
       );
     });
 
+    socketRef.current.on('user:banned', async (userID, userIP) => {
+      console.log(userID);
+      console.log(userIP);
+      setIsBanned(true);
+    });
+
     return () => {
       socketRef.current.off('connected');
       socketRef.current.off('message');
@@ -208,7 +215,7 @@ export const KidsA2 = () => {
             пізніше.
           </StreamPlaceHolderText>
         </StreamPlaceHolder>
-      ) : currentUser.isBanned ? (
+      ) : currentUser.isBanned || isBanned ? (
         <StreamPlaceHolder>
           <StreamPlaceHolderText>
             Хмммм, схоже що ви були нечемні! <br />
@@ -326,7 +333,7 @@ export const KidsA2 = () => {
                         setUserName(e.target.value);
                       }}
                     />
-                     <ChatLoginValidation>
+                    <ChatLoginValidation>
                       {!isUserNameValid
                         ? "Ім'я та прізвище обов'язкові!"
                         : !isMoreThanOneWord
@@ -340,6 +347,7 @@ export const KidsA2 = () => {
                     socket={socketRef.current}
                     messages={messages}
                     isChatOpen={isChatOpen}
+                    currentUser={currentUser}
                   />
                 )}
               </ChatBox>
@@ -388,13 +396,13 @@ export const KidsA2 = () => {
                       setUserName(e.target.value);
                     }}
                   />
-                   <ChatLoginValidation>
-                      {!isUserNameValid
-                        ? "Ім'я та прізвище обов'язкові!"
-                        : !isMoreThanOneWord
-                        ? "Прізвище та ім'я, будь ласка, 2 слова!"
-                        : ''}
-                    </ChatLoginValidation>
+                  <ChatLoginValidation>
+                    {!isUserNameValid
+                      ? "Ім'я та прізвище обов'язкові!"
+                      : !isMoreThanOneWord
+                      ? "Прізвище та ім'я, будь ласка, 2 слова!"
+                      : ''}
+                  </ChatLoginValidation>
                   <ChatLoginButton>Готово!</ChatLoginButton>
                 </ChatLoginForm>
               ) : (
@@ -402,6 +410,7 @@ export const KidsA2 = () => {
                   socket={socketRef.current}
                   messages={messages}
                   isChatOpen={isChatOpen}
+                  currentUser={currentUser}
                 />
               )}
             </ChatBox>

@@ -51,6 +51,7 @@ export const KidsA1 = () => {
   const [width, height] = useSize(document.body);
   const [userName, setUserName] = useState('');
   const [isLoggedToChat, setIsLoggedToChat] = useState(false);
+  const [isBanned, setIsBanned] = useState(false);
   const [messages, setMessages] = useState([]);
   const [isUserNameValid, setIsUserNameValid] = useState(true);
   const [isMoreThanOneWord, setIsMoreThanOneWord] = useState(true);
@@ -195,6 +196,7 @@ export const KidsA1 = () => {
     socketRef.current.on('user:banned', async (userID, userIP) => {
       console.log(userID);
       console.log(userIP);
+      setIsBanned(true);
     });
 
     return () => {
@@ -214,7 +216,7 @@ export const KidsA1 = () => {
             пізніше.
           </StreamPlaceHolderText>
         </StreamPlaceHolder>
-      ) : currentUser.isBanned ? (
+      ) : currentUser.isBanned || isBanned ? (
         <StreamPlaceHolder>
           <StreamPlaceHolderText>
             Хмммм, схоже що ви були нечемні! <br />
@@ -346,6 +348,7 @@ export const KidsA1 = () => {
                     socket={socketRef.current}
                     messages={messages}
                     isChatOpen={isChatOpen}
+                    currentUser={currentUser}
                   />
                 )}
               </ChatBox>
@@ -408,6 +411,7 @@ export const KidsA1 = () => {
                   socket={socketRef.current}
                   messages={messages}
                   isChatOpen={isChatOpen}
+                  currentUser={currentUser}
                 />
               )}
             </ChatBox>

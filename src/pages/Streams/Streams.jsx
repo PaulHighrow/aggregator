@@ -37,10 +37,10 @@ const Streams = () => {
       const ip = (await axios.get('https://jsonip.com/')).data.ip;
       console.log(ip);
       const id = localStorage.getItem('userID');
-      const user = await axios.get('https://ap-chat.onrender.com/users');
+      const user = await axios.get(`https://ap-chat.onrender.com/users/${id}`);
       setCurrentUser(
         currentUser =>
-          (currentUser = user.data.find(user => user.userID === id) || {
+          (currentUser = user.data || {
             username: 'User Is Not Logged In',
             isBanned: false,
           })

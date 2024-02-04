@@ -54,6 +54,7 @@ export const StreamTest = () => {
   // eslint-disable-next-line
   const [userID, setUserID] = useState('');
   const [isLoggedToChat, setIsLoggedToChat] = useState(false);
+  const [isBanned, setIsBanned] = useState(false);
   const [messages, setMessages] = useState([]);
   const [isUserNameValid, setIsUserNameValid] = useState(true);
   const [isMoreThanOneWord, setIsMoreThanOneWord] = useState(true);
@@ -221,6 +222,12 @@ export const StreamTest = () => {
     // setMessages(newMessages);
     // });
 
+    socketRef.current.on('user:banned', async (userID, userIP) => {
+      console.log(userID);
+      console.log(userIP);
+      setIsBanned(true);
+    });
+
     return () => {
       // при размонтировании компонента выполняем отключение сокета
       socketRef.current.off('connected');
@@ -240,7 +247,7 @@ export const StreamTest = () => {
             пізніше.
           </StreamPlaceHolderText>
         </StreamPlaceHolder>
-      ) : currentUser.isBanned ? (
+      ) : currentUser.isBanned || isBanned ? (
         <StreamPlaceHolder>
           <StreamPlaceHolderText>
             Хмммм, схоже що ви були нечемні! <br />
@@ -372,6 +379,7 @@ export const StreamTest = () => {
                     socket={socketRef.current}
                     messages={messages}
                     isChatOpen={isChatOpen}
+                    currentUser={currentUser}
                   />
                 )}
               </ChatBox>
@@ -421,12 +429,12 @@ export const StreamTest = () => {
                     }}
                   />
                   <ChatLoginValidation>
-                      {!isUserNameValid
-                        ? "Ім'я та прізвище обов'язкові!"
-                        : !isMoreThanOneWord
-                        ? "Прізвище та ім'я, будь ласка, 2 слова!"
-                        : ''}
-                    </ChatLoginValidation>
+                    {!isUserNameValid
+                      ? "Ім'я та прізвище обов'язкові!"
+                      : !isMoreThanOneWord
+                      ? "Прізвище та ім'я, будь ласка, 2 слова!"
+                      : ''}
+                  </ChatLoginValidation>
                   <ChatLoginButton>Готово!</ChatLoginButton>
                 </ChatLoginForm>
               ) : (
@@ -434,6 +442,7 @@ export const StreamTest = () => {
                   socket={socketRef.current}
                   messages={messages}
                   isChatOpen={isChatOpen}
+                  currentUser={currentUser}
                 />
               )}
             </ChatBox>
