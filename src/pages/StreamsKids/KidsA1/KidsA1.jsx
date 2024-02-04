@@ -196,7 +196,9 @@ export const KidsA1 = () => {
     socketRef.current.on('user:banned', async (userID, userIP) => {
       console.log(userID);
       console.log(userIP);
-      setIsBanned(true);
+      if (userID === currentUser.userID) {
+        setIsBanned(true);
+      }
     });
 
     return () => {
@@ -204,7 +206,7 @@ export const KidsA1 = () => {
       socketRef.current.off('message');
       socketRef.current.disconnect();
     };
-  }, []);
+  }, [currentUser]);
 
   return (
     <>

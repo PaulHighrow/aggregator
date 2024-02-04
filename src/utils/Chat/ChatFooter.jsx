@@ -17,7 +17,11 @@ export const ChatFooter = ({ socket, currentUser }) => {
   const handleSendMessage = async e => {
     e.preventDefault();
     const ip = await axios.get('https://jsonip.com/');
-    if (message.trim() && localStorage.getItem('userName') && currentUser.id) {
+    if (
+      message.trim() &&
+      localStorage.getItem('userName') &&
+      currentUser.userID
+    ) {
       socket.emit('message', {
         text: message,
         username: localStorage.getItem('userName'),

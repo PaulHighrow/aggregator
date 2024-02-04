@@ -136,6 +136,7 @@ export const StreamTest = () => {
 
   useEffect(() => {
     document.title = 'Test Page | AP Education';
+    console.log(1);
 
     socketRef.current = io('https://ap-chat.onrender.com/');
     checkLogin();
@@ -225,7 +226,9 @@ export const StreamTest = () => {
     socketRef.current.on('user:banned', async (userID, userIP) => {
       console.log(userID);
       console.log(userIP);
-      setIsBanned(true);
+      if (userID === currentUser.userID) {
+        setIsBanned(true);
+      }
     });
 
     return () => {
@@ -235,7 +238,7 @@ export const StreamTest = () => {
       socketRef.current.off('message:pin');
       socketRef.current.disconnect();
     };
-  }, []);
+  }, [currentUser]);
 
   return (
     <>
