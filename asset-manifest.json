@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.b14cbce7.css",
-    "main.js": "/aggregator/static/js/main.3a3f15ed.js",
+    "main.js": "/aggregator/static/js/main.a55f705a.js",
     "Homepage.css": "/aggregator/static/css/Homepage.6ec31e0e.chunk.css",
     "Homepage.js": "/aggregator/static/js/Homepage.94a68926.chunk.js",
     "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.1a08d92b.chunk.js",
@@ -132,7 +132,7 @@
     "static/media/invertedDownArrow.svg": "/aggregator/static/media/invertedDownArrow.81d2e354f4424bf21d20b96a031591ce.svg",
     "static/media/downArrow.svg": "/aggregator/static/media/downArrow.3d74cb9d6d38fab26c47bbadb8e4f56d.svg",
     "main.b14cbce7.css.map": "/aggregator/static/css/main.b14cbce7.css.map",
-    "main.3a3f15ed.js.map": "/aggregator/static/js/main.3a3f15ed.js.map",
+    "main.a55f705a.js.map": "/aggregator/static/js/main.a55f705a.js.map",
     "Homepage.6ec31e0e.chunk.css.map": "/aggregator/static/css/Homepage.6ec31e0e.chunk.css.map",
     "Homepage.94a68926.chunk.js.map": "/aggregator/static/js/Homepage.94a68926.chunk.js.map",
     "Inverted Homepage.1a08d92b.chunk.js.map": "/aggregator/static/js/Inverted Homepage.1a08d92b.chunk.js.map",
@@ -169,6 +169,6 @@
   },
   "entrypoints": [
     "static/css/main.b14cbce7.css",
-    "static/js/main.3a3f15ed.js"
+    "static/js/main.a55f705a.js"
   ]
 }
