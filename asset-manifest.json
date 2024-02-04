@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.b14cbce7.css",
-    "main.js": "/aggregator/static/js/main.8722ec2f.js",
+    "main.js": "/aggregator/static/js/main.3a3f15ed.js",
     "Homepage.css": "/aggregator/static/css/Homepage.6ec31e0e.chunk.css",
     "Homepage.js": "/aggregator/static/js/Homepage.94a68926.chunk.js",
     "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.1a08d92b.chunk.js",
-    "Streams page.js": "/aggregator/static/js/Streams page.0a6c395f.chunk.js",
-    "Streams Kids page.js": "/aggregator/static/js/Streams Kids page.29194d5a.chunk.js",
+    "Streams page.js": "/aggregator/static/js/Streams page.e84a1cb8.chunk.js",
+    "Streams Kids page.js": "/aggregator/static/js/Streams Kids page.fdd95480.chunk.js",
     "English trials page.js": "/aggregator/static/js/English trials page.bc1f244b.chunk.js",
     "Kids trials page.js": "/aggregator/static/js/Kids trials page.4cf400e5.chunk.js",
     "Deutsch trials page.js": "/aggregator/static/js/Deutsch trials page.e50a043a.chunk.js",
@@ -132,12 +132,12 @@
     "static/media/invertedDownArrow.svg": "/aggregator/static/media/invertedDownArrow.81d2e354f4424bf21d20b96a031591ce.svg",
     "static/media/downArrow.svg": "/aggregator/static/media/downArrow.3d74cb9d6d38fab26c47bbadb8e4f56d.svg",
     "main.b14cbce7.css.map": "/aggregator/static/css/main.b14cbce7.css.map",
-    "main.8722ec2f.js.map": "/aggregator/static/js/main.8722ec2f.js.map",
+    "main.3a3f15ed.js.map": "/aggregator/static/js/main.3a3f15ed.js.map",
     "Homepage.6ec31e0e.chunk.css.map": "/aggregator/static/css/Homepage.6ec31e0e.chunk.css.map",
     "Homepage.94a68926.chunk.js.map": "/aggregator/static/js/Homepage.94a68926.chunk.js.map",
     "Inverted Homepage.1a08d92b.chunk.js.map": "/aggregator/static/js/Inverted Homepage.1a08d92b.chunk.js.map",
-    "Streams page.0a6c395f.chunk.js.map": "/aggregator/static/js/Streams page.0a6c395f.chunk.js.map",
-    "Streams Kids page.29194d5a.chunk.js.map": "/aggregator/static/js/Streams Kids page.29194d5a.chunk.js.map",
+    "Streams page.e84a1cb8.chunk.js.map": "/aggregator/static/js/Streams page.e84a1cb8.chunk.js.map",
+    "Streams Kids page.fdd95480.chunk.js.map": "/aggregator/static/js/Streams Kids page.fdd95480.chunk.js.map",
     "English trials page.bc1f244b.chunk.js.map": "/aggregator/static/js/English trials page.bc1f244b.chunk.js.map",
     "Kids trials page.4cf400e5.chunk.js.map": "/aggregator/static/js/Kids trials page.4cf400e5.chunk.js.map",
     "Deutsch trials page.e50a043a.chunk.js.map": "/aggregator/static/js/Deutsch trials page.e50a043a.chunk.js.map",
@@ -169,6 +169,6 @@
   },
   "entrypoints": [
     "static/css/main.b14cbce7.css",
-    "static/js/main.8722ec2f.js"
+    "static/js/main.3a3f15ed.js"
   ]
 }
