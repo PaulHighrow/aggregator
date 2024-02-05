@@ -140,7 +140,6 @@ export const VideoBox = styled.div`
 
 export const ChatBox = styled.div`
   position: absolute;
-  background-color: white;
   top: 0;
   right: 0;
   height: 100vh;
@@ -148,7 +147,7 @@ export const ChatBox = styled.div`
   min-width: 300px;
 
   font-family: var(--streams-font-family);
-
+  background-color: var(--chat-background-color);
   box-shadow: -10px -10px 30px 0px rgba(0, 0, 0, 0.25);
 
   /* transition: transform var(--animation-global); */
@@ -290,13 +289,13 @@ export const KahootLogo = styled(KahootIcon)`
 `;
 
 export const ChatLogo = styled(ChatIcon)`
-  width: 40px;
-  height: 40px;
+  width: 25px;
+  height: 25px;
   z-index: 5;
 
   @media screen and (min-width: 768px) {
-    width: 58px;
-    height: 58px;
+    width: 40px;
+    height: 40px;
   }
 `;
 

@@ -121,6 +121,7 @@ export const TestKahootForm = () => {
               <AdminInput
                 type="text"
                 name="test_1"
+                autocomplete="off"
                 placeholder="Перший кахут для тестової сторінки (не чіпати)"
               />
             </Label>
@@ -128,6 +129,7 @@ export const TestKahootForm = () => {
               <AdminInput
                 type="text"
                 name="test_2"
+                autocomplete="off"
                 placeholder="Другий кахут для тестової сторінки (не чіпати)"
               />
             </Label>
@@ -135,6 +137,7 @@ export const TestKahootForm = () => {
               <AdminInput
                 type="text"
                 name="test_3"
+                autocomplete="off"
                 placeholder="Третій кахут для тестової сторінки (не чіпати)"
               />
             </Label>
@@ -142,6 +145,7 @@ export const TestKahootForm = () => {
               <AdminInput
                 type="text"
                 name="test_4"
+                autocomplete="off"
                 placeholder="Четвертий кахут для тестової сторінки (не чіпати)"
               />
             </Label>
@@ -149,6 +153,7 @@ export const TestKahootForm = () => {
               <AdminInput
                 type="text"
                 name="test_5"
+                autocomplete="off"
                 placeholder="П'ятий кахут для тестової сторінки (не чіпати)"
               />
             </Label>

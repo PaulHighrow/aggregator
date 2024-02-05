@@ -46,7 +46,7 @@ export const ChatFooter = ({ socket, currentUser }) => {
       <ChatMessageForm className="form" onSubmit={handleSendMessage}>
         <СhatMessageInput
           type="text"
-          placeholder="Введіть повідомлення"
+          placeholder="Введіть ваше повідомлення..."
           value={message}
           onChange={e => setMessage(e.target.value)}
         />

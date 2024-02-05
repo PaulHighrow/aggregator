@@ -131,6 +131,7 @@ export const A2KidsKahootForm = () => {
               <AdminInput
                 type="text"
                 name="a2kids_1"
+                autocomplete="off"
                 placeholder="Перший кахут для дітей рівня А2"
               />
             </Label>
@@ -138,6 +139,7 @@ export const A2KidsKahootForm = () => {
               <AdminInput
                 type="text"
                 name="a2kids_2"
+                autocomplete="off"
                 placeholder="Другий кахут для дітей рівня А2"
               />
             </Label>
@@ -145,6 +147,7 @@ export const A2KidsKahootForm = () => {
               <AdminInput
                 type="text"
                 name="a2kids_3"
+                autocomplete="off"
                 placeholder="Третій кахут для дітей рівня А2"
               />
             </Label>
@@ -152,6 +155,7 @@ export const A2KidsKahootForm = () => {
               <AdminInput
                 type="text"
                 name="a2kids_4"
+                autocomplete="off"
                 placeholder="Четвертий кахут для дітей рівня А2"
               />
             </Label>
@@ -159,6 +163,7 @@ export const A2KidsKahootForm = () => {
               <AdminInput
                 type="text"
                 name="a2kids_5"
+                autocomplete="off"
                 placeholder="П'ятий кахут для дітей рівня А2"
               />
             </Label>
@@ -166,6 +171,7 @@ export const A2KidsKahootForm = () => {
               <AdminInput
                 type="text"
                 name="a2kids_6"
+                autocomplete="off"
                 placeholder="Шостий кахут для дітей рівня А2"
               />
             </Label>
@@ -173,6 +179,7 @@ export const A2KidsKahootForm = () => {
               <AdminInput
                 type="text"
                 name="a2kids_7"
+                autocomplete="off"
                 placeholder="Сьомий кахут для дітей рівня А2"
               />
             </Label>
@@ -180,6 +187,7 @@ export const A2KidsKahootForm = () => {
               <AdminInput
                 type="text"
                 name="a2kids_8"
+                autocomplete="off"
                 placeholder="Восьмий кахут для дітей рівня А2"
               />
             </Label>
@@ -187,6 +195,7 @@ export const A2KidsKahootForm = () => {
               <AdminInput
                 type="text"
                 name="a2kids_9"
+                autocomplete="off"
                 placeholder="Дев'ятий кахут для дітей рівня А2"
               />
             </Label>
@@ -194,6 +203,7 @@ export const A2KidsKahootForm = () => {
               <AdminInput
                 type="text"
                 name="a2kids_10"
+                autocomplete="off"
                 placeholder="Десятий кахут для дітей рівня А2"
               />
             </Label>

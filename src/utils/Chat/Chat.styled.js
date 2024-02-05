@@ -1,11 +1,12 @@
 import styled from 'styled-components';
-import mobile1xBGPng from '../../img/bg/mobile-bg@1x.png';
-import mobile1xBGWebp from '../../img/bg/mobile-bg@1x.webp';
+import chat1xBGPng from '../../img/bg/chat-bg@1x.png';
+import chat1xBGWebp from '../../img/bg/chat-bg@1x.webp';
 import { ReactComponent as ChatSendIcon } from '../../img/svg/sendIcon.svg';
 import { ReactComponent as ChatScrollDownArrow } from '../../img/svg/downArrow.svg';
 import { ReactComponent as PinnedMessageIcon } from '../../img/svg/pinnedMessage.svg';
 import { ReactComponent as DeleteMessageIcon } from '../../img/svg/deleteMessage.svg';
 import { ReactComponent as BanUserIcon } from '../../img/svg/banUser.svg';
+import { ChatLogo } from 'components/Stream/Stream.styled';
 
 export const ChatLoginForm = styled.form`
   width: 100%;
@@ -17,8 +18,8 @@ export const ChatLoginForm = styled.form`
   align-items: center;
 
   background-image: image-set(
-    url(${mobile1xBGWebp}) type('image/webp'),
-    url(${mobile1xBGPng}) type('image/png')
+    url(${chat1xBGWebp}) type('image/webp'),
+    url(${chat1xBGPng}) type('image/png')
   );
   background-size: 100% auto;
   background-position: top 40% center;
@@ -31,7 +32,7 @@ export const ChatLoginForm = styled.form`
 
 export const ChatLoginHeader = styled.h2`
   font-size: 30px;
-  color: var(--main-color);
+  color: var(--chat-font-color);
 `;
 
 export const ChatLoginLabel = styled.label`
@@ -94,18 +95,19 @@ export const ChatContainer = styled.div`
   align-items: center;
 
   background-image: image-set(
-    url(${mobile1xBGWebp}) type('image/webp'),
-    url(${mobile1xBGPng}) type('image/png')
+    url(${chat1xBGWebp}) type('image/webp'),
+    url(${chat1xBGPng}) type('image/png')
   );
   background-size: auto 40%;
-  background-position: bottom 50px right 10px;
+  background-position: top 30px right -44px;
   background-repeat: no-repeat;
+  background-color: var(--chat-background-color);
 
   @media screen and (orientation: landscape) {
     max-width: 300px;
 
     background-size: 100% auto;
-    background-position: bottom -30px right -50px;
+    background-position: top 30px right -44px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -113,7 +115,7 @@ export const ChatContainer = styled.div`
     max-width: 300px;
 
     background-size: 100% auto;
-    background-position: bottom -30px right -50px;
+    background-position: top 30px right -44px;
   }
 `;
 
@@ -129,9 +131,13 @@ export const ChatWindowedContainer = styled(ChatContainer)`
 export const ChatMessagesBox = styled.div`
   width: 100%;
   height: 95%;
-  padding: 14px;
+  padding: 10px;
+  padding-top: 0;
   overflow-x: hidden;
   overflow-y: scroll;
+
+  scrollbar-width: thin;
+  scrollbar-gutter: stable;
 
   @media screen and (min-width: 1280px) {
     height: 95vh;
@@ -148,13 +154,16 @@ export const ChatMessageWrapper = styled.div`
 `;
 
 export const ChatMessageYou = styled.p`
+  color: #7c7c7c;
   text-align: right;
   font-size: 12px;
   margin-bottom: 1px;
 `;
 
 export const ChatMessageUsername = styled.p`
+  color: #7c7c7c;
   font-size: 12px;
+  font-weight: 500;
   margin-bottom: 1px;
 `;
 
@@ -219,12 +228,18 @@ export const ChatWindowedMessageUserCloud = styled(ChatMessageUserCloud)`
   }
 `;
 
+export const ChatMessagePinnedCloud = styled(ChatMessageUserCloud)`
+  background-color: transparent;
+  max-width: 95%;
+`;
+
 export const ChatMessageText = styled.p`
   word-wrap: break-word;
   white-space: normal;
+  color: var(--chat-font-color);
 
   & > a {
-    color: var(--main-color);
+    color: var(--link-color);
   }
 `;
 
@@ -245,7 +260,6 @@ export const ChatMessageTime = styled.p`
 export const ChatFooterBox = styled.div`
   width: 100%;
   padding: 10px;
-  background-color: #f9f5eb;
   height: 5vh;
   min-height: 48px;
 `;
@@ -267,20 +281,30 @@ export const СhatMessageInput = styled.input`
   outline: none;
   padding: 15px;
 
+  font-family: var(--streams-secondary-font-family);
+  font-weight: 500;
+  font-size: 12px;
+
   word-wrap: break-word;
   white-space: normal;
+  background-color: var(--chat-background-color);
+  color: var(--chat-font-color);
+
+  &::placeholder {
+    color: var(--chat-font-color);
+  }
 `;
 
 export const ChatSend = styled(ChatSendIcon)`
   width: 24px;
   height: 24px;
-  fill: var(--main-color);
+  fill: var(--accent-color);
 
   transition: fill var(--animation-global);
 `;
 
 export const СhatSendMessageButton = styled.button`
-  background-color: var(--accent-transparent-color);
+  background-color: var(--main-color);
   padding: 10px;
   border: none;
   border-radius: 50%;
@@ -295,20 +319,18 @@ export const СhatSendMessageButton = styled.button`
 
   &:hover,
   &:focus {
-    background-color: var(--main-color);
     box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.5);
   }
 
   &:hover > svg,
   &:focus > svg {
-    fill: var(--accent-color);
+    fill: var(--chat-background-color);
   }
 `;
 
 export const ChatFastScrollButton = styled(СhatSendMessageButton)`
   position: absolute;
-  bottom: 65px;
-  right: 35px;
+  bottom: 75px;
   z-index: 5;
 
   width: 36px;
@@ -339,7 +361,7 @@ export const ChatPinnedMessage = styled.div`
 
   width: 100%;
 
-  background-color: var(--accent-color);
+  background-color: var(--pinned-message-color);
 
   border-radius: 10px;
 
@@ -375,7 +397,8 @@ export const ChatPinnedMessage = styled.div`
 export const ChatPinnedMessageIcon = styled(PinnedMessageIcon)`
   position: absolute;
   top: 2px;
-  right: 0;
+  right: 1px;
+  z-index: 5;
 
   width: 22px;
   height: 22px;
@@ -435,4 +458,33 @@ export const ChatWindowedBanUser = styled(BanUserIcon)`
   &:focus {
     fill: var(--accent-color);
   }
+`;
+
+export const ChatHeader = styled.header`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  padding: 8px 12px;
+`;
+
+export const ChatHeading = styled.h2`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: var(--chat-font-color);
+  font-size: 12px;
+  font-family: var(--streams-secondary-font-family);
+`;
+
+export const ChatHeaderLogo = styled(ChatLogo)`
+  width: 20px;
+  height: 20px;
+`;
+
+export const ToggleContainer = styled.div`
+  width: max-content;
+  transform: scale(0.7);
 `;

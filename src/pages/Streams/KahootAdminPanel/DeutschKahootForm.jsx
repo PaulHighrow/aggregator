@@ -121,6 +121,7 @@ export const DeutschKahootForm = () => {
               <AdminInput
                 type="text"
                 name="deutsch_1"
+                autocomplete="off"
                 placeholder="Перший кахут для вебінарів з німецької"
               />
             </Label>
@@ -128,6 +129,7 @@ export const DeutschKahootForm = () => {
               <AdminInput
                 type="text"
                 name="deutsch_2"
+                autocomplete="off"
                 placeholder="Другий кахут для вебінарів з німецької"
               />
             </Label>
@@ -135,6 +137,7 @@ export const DeutschKahootForm = () => {
               <AdminInput
                 type="text"
                 name="deutsch_3"
+                autocomplete="off"
                 placeholder="Третій кахут для вебінарів з німецької"
               />
             </Label>
@@ -142,6 +145,7 @@ export const DeutschKahootForm = () => {
               <AdminInput
                 type="text"
                 name="deutsch_4"
+                autocomplete="off"
                 placeholder="Четвертий кахут для вебінарів з німецької"
               />
             </Label>
@@ -149,6 +153,7 @@ export const DeutschKahootForm = () => {
               <AdminInput
                 type="text"
                 name="deutsch_5"
+                autocomplete="off"
                 placeholder="П'ятий кахут для вебінарів з німецької"
               />
             </Label>

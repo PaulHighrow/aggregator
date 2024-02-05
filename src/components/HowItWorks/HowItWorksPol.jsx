@@ -93,11 +93,11 @@ export const HowItWorksPol = () => {
             muted={true}
           >
             <source
-              src="https://ap.education/static/video/trailers/HowItWorks.webm"
+              src="https://ap.education/static/video/trailers/HowItWorksPL.webm"
               type="video/webm"
             />
             <source
-              src="https://ap.education/static/video/trailers/HowItWorks.mp4"
+              src="https://ap.education/static/video/trailers/HowItWorksPL.mp4"
               type="video/mp4"
             />
           </Video>

@@ -4,6 +4,7 @@ import { useLocation } from 'react-router';
 import { animateScroll } from 'react-scroll';
 import {
   ChatFastScrollButton,
+  ChatMessagePinnedCloud,
   ChatMessageText,
   ChatMessageUserCloud,
   ChatMessageUsername,
@@ -64,6 +65,10 @@ export const ChatBody = ({ messages, isChatOpen }) => {
         onScroll={calculateHeights}
       >
         <ChatPinnedMessage className={arePinnedShown ? '' : 'minimized'}>
+          <ChatPinnedMessageIcon
+            onClick={togglePins}
+            className={arePinnedShown ? '' : 'minimized'}
+          />
           {messages
             .filter(
               message =>
@@ -72,11 +77,7 @@ export const ChatBody = ({ messages, isChatOpen }) => {
             .map(message => (
               <ChatMessageWrapper key={`${message.id}_pin`}>
                 <ChatMessageUsername>{message.username}</ChatMessageUsername>
-                <ChatPinnedMessageIcon
-                  onClick={togglePins}
-                  className={arePinnedShown ? '' : 'minimized'}
-                />
-                <ChatMessageUserCloud className="message__recipient">
+                <ChatMessagePinnedCloud>
                   <ChatMessageText
                     dangerouslySetInnerHTML={{
                       __html: message.text.replace(
@@ -89,7 +90,7 @@ export const ChatBody = ({ messages, isChatOpen }) => {
                   {/* <ChatMessageTime>
                     {new Date(message.createdAt).toLocaleTimeString('uk-UA')}
                   </ChatMessageTime> */}
-                </ChatMessageUserCloud>
+                </ChatMessagePinnedCloud>
               </ChatMessageWrapper>
             ))}
         </ChatPinnedMessage>

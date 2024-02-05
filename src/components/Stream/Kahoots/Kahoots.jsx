@@ -25,6 +25,7 @@ import {
   KahootBox,
   KahootDisclaimerBackground,
   KahootDisclaimerBox,
+  KahootDisclaimerHeader,
   KahootDisclaimerItem,
   KahootDisclaimerList,
   KahootDisclaimerText,
@@ -396,10 +397,13 @@ export const Kahoots = ({
               }
             >
               <KahootDisclaimerBox>
+                <KahootDisclaimerHeader>
+                  Привіт! Це вікно Кахутів.
+                </KahootDisclaimerHeader>
                 <KahootDisclaimerText>
-                  Привіт! Це вікно Кахутів. Ми постійно працюємо над розширенням
-                  функціоналу нашого сайту, щоб ваші заняття залишалися для вас
-                  приємним досвідом, тому внесли декілька важливих змін:
+                  Ми постійно працюємо над розширенням функціоналу нашого сайту,
+                  щоб ваші заняття залишалися для вас приємним досвідом, тому
+                  внесли декілька важливих змін:
                 </KahootDisclaimerText>
                 <KahootDisclaimerList>
                   <KahootDisclaimerItem>

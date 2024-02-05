@@ -80,18 +80,17 @@ export const KahootDisclaimerBox = styled.div`
   }
 `;
 
+export const KahootDisclaimerHeader = styled.h3`
+  font-size: 16px;
+  margin-bottom: 12px;
+  font-weight: 700;
+  font-family: var(--streams-secondary-font-family);
+`;
+
 export const KahootDisclaimerText = styled.p`
   font-family: var(--streams-font-family);
-  font-size: 16px;
-  font-weight: 600;
-
-  @media screen and (min-width: 768px) {
-    font-size: 18px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    font-size: 21px;
-  }
+  font-size: 14px;
+  font-weight: 500;
 `;
 
 export const KahootDisclaimerList = styled.ul`

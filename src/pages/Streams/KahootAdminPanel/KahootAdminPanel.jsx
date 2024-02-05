@@ -5,6 +5,13 @@ import { Formik } from 'formik';
 import { useState } from 'react';
 import * as yup from 'yup';
 import { A0KahootForm } from './A0KahootForm';
+import { A1KahootForm } from './A1KahootForm';
+import { A1KidsKahootForm } from './A1KidsKahootForm';
+import { A2KahootForm } from './A2KahootForm';
+import { A2KidsKahootForm } from './A2KidsKahootForm';
+import { B1KahootForm } from './B1KahootForm';
+import { B1KidsKahootForm } from './B1KidsKahootForm';
+import { DeutschKahootForm } from './DeutschKahootForm';
 import {
   AdminFormBtn,
   AdminInput,
@@ -15,19 +22,12 @@ import {
   KahootLvlBtnBox,
   LoginForm,
 } from './KahootAdminPanel.styled';
-import { A1KahootForm } from './A1KahootForm';
-import { A2KahootForm } from './A2KahootForm';
-import { B1KahootForm } from './B1KahootForm';
-import { DeutschKahootForm } from './DeutschKahootForm';
 import { PolskiKahootForm } from './PolskiKahootForm';
+import { TestKahootForm } from './TestKahootForm';
+import { TrialsDeKahootForm } from './TrialsDeKahootForm';
 import { TrialsEngKahootForm } from './TrialsEngKahootForm';
 import { TrialsKidsKahootForm } from './TrialsKidsKahootForm';
-import { TrialsDeKahootForm } from './TrialsDeKahootForm';
 import { TrialsPlKahootForm } from './TrialsPlKahootForm';
-import { A1KidsKahootForm } from './A1KidsKahootForm';
-import { A2KidsKahootForm } from './A2KidsKahootForm';
-import { B1KidsKahootForm } from './B1KidsKahootForm';
-import { TestKahootForm } from './TestKahootForm';
 
 axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
 const setAuthToken = token => {

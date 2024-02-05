@@ -121,6 +121,7 @@ export const TrialsPlKahootForm = () => {
               <AdminInput
                 type="text"
                 name="trials_pl_1"
+                autocomplete="off"
                 placeholder="Перший кахут для пробних вебінарів з польської"
               />
             </Label>
@@ -128,6 +129,7 @@ export const TrialsPlKahootForm = () => {
               <AdminInput
                 type="text"
                 name="trials_pl_2"
+                autocomplete="off"
                 placeholder="Другий кахут для пробних вебінарів з польської"
               />
             </Label>
@@ -135,6 +137,7 @@ export const TrialsPlKahootForm = () => {
               <AdminInput
                 type="text"
                 name="trials_pl_3"
+                autocomplete="off"
                 placeholder="Третій кахут для пробних вебінарів з польської"
               />
             </Label>
@@ -142,6 +145,7 @@ export const TrialsPlKahootForm = () => {
               <AdminInput
                 type="text"
                 name="trials_pl_4"
+                autocomplete="off"
                 placeholder="Четвертий кахут для пробних вебінарів з польської"
               />
             </Label>
@@ -149,6 +153,7 @@ export const TrialsPlKahootForm = () => {
               <AdminInput
                 type="text"
                 name="trials_pl_5"
+                autocomplete="off"
                 placeholder="П'ятий кахут для пробних вебінарів з польської"
               />
             </Label>

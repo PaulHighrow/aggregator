@@ -121,6 +121,7 @@ export const A1KahootForm = () => {
               <AdminInput
                 type="text"
                 name="a1_1"
+                autocomplete="off"
                 placeholder="Перший кахут для рівня А1"
               />
             </Label>
@@ -128,6 +129,7 @@ export const A1KahootForm = () => {
               <AdminInput
                 type="text"
                 name="a1_2"
+                autocomplete="off"
                 placeholder="Другий кахут для рівня А1"
               />
             </Label>
@@ -135,6 +137,7 @@ export const A1KahootForm = () => {
               <AdminInput
                 type="text"
                 name="a1_3"
+                autocomplete="off"
                 placeholder="Третій кахут для рівня А1"
               />
             </Label>
@@ -142,6 +145,7 @@ export const A1KahootForm = () => {
               <AdminInput
                 type="text"
                 name="a1_4"
+                autocomplete="off"
                 placeholder="Четвертий кахут для рівня А1"
               />
             </Label>
@@ -149,6 +153,7 @@ export const A1KahootForm = () => {
               <AdminInput
                 type="text"
                 name="a1_5"
+                autocomplete="off"
                 placeholder="П'ятий кахут для рівня А1"
               />
             </Label>
