@@ -5,14 +5,30 @@ import { animateScroll } from 'react-scroll';
 import {
   ChatFooterBox,
   ChatMessageForm,
+  ChatMessageLabel,
   ChatSend,
+  EmojiPickerContainer,
+  EmojiPickerSwitch,
   СhatMessageInput,
   СhatSendMessageButton,
 } from './Chat.styled';
+import EmojiPicker from 'emoji-picker-react';
 
-export const ChatFooter = ({ socket, currentUser }) => {
+export const ChatFooter = ({ socket, currentUser, theme }) => {
   const [message, setMessage] = useState('');
+  const [isPickerOpen, setIsPickerOpen] = useState(false);
   const location = useLocation();
+
+  const toggleEmojiPicker = () => {
+    setIsPickerOpen(isOpen => !isOpen);
+  };
+  const onEmojiClick = emojiObject => {
+    setMessage(message => message + emojiObject.emoji);
+  };
+
+  // const closeEmojiPicker = () => {
+  //   setIsPickerOpen(false);
+  // };
 
   const handleSendMessage = async e => {
     e.preventDefault();
@@ -44,12 +60,25 @@ export const ChatFooter = ({ socket, currentUser }) => {
   return (
     <ChatFooterBox>
       <ChatMessageForm className="form" onSubmit={handleSendMessage}>
-        <СhatMessageInput
-          type="text"
-          placeholder="Введіть ваше повідомлення..."
-          value={message}
-          onChange={e => setMessage(e.target.value)}
-        />
+        <ChatMessageLabel>
+          <СhatMessageInput
+            type="text"
+            placeholder="Введіть ваше повідомлення..."
+            value={message}
+            onChange={e => setMessage(e.target.value)}
+          />
+          <EmojiPickerSwitch onClick={toggleEmojiPicker} />
+        </ChatMessageLabel>
+
+        <EmojiPickerContainer className={isPickerOpen ? 'shown' : 'hidden'}>
+          <EmojiPicker
+            theme={theme}
+            open={true}
+            lazyLoadEmojis={true}
+            onEmojiClick={onEmojiClick}
+          />
+        </EmojiPickerContainer>
+
         <СhatSendMessageButton>
           <ChatSend />
         </СhatSendMessageButton>

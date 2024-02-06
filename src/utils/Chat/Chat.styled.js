@@ -6,6 +6,7 @@ import { ReactComponent as ChatScrollDownArrow } from '../../img/svg/downArrow.s
 import { ReactComponent as PinnedMessageIcon } from '../../img/svg/pinnedMessage.svg';
 import { ReactComponent as DeleteMessageIcon } from '../../img/svg/deleteMessage.svg';
 import { ReactComponent as BanUserIcon } from '../../img/svg/banUser.svg';
+import { ReactComponent as EmojiSwitchIcon } from '../../img/svg/emojiPicker.svg';
 import { ChatLogo } from 'components/Stream/Stream.styled';
 
 export const ChatLoginForm = styled.form`
@@ -288,12 +289,12 @@ export const ChatMessageForm = styled.form`
 `;
 
 export const СhatMessageInput = styled.input`
-  width: 90%;
+  width: 100%;
   height: 100%;
   border-radius: 10px;
   border: 1px solid #ddd;
   outline: none;
-  padding: 15px 8px;
+  padding: 8px;
 
   font-family: var(--streams-secondary-font-family);
   font-weight: 500;
@@ -481,6 +482,28 @@ export const ChatWindowedBanUser = styled(BanUserIcon)`
   }
 `;
 
+export const EmojiPickerSwitch = styled(EmojiSwitchIcon)`
+  width: 16px;
+  height: 16px;
+
+  position: absolute;
+  top: 50%;
+  right: 6px;
+
+  transform: translateY(-50%);
+
+  fill: var(--link-color);
+
+  &:hover,
+  &:focus {
+    fill: var(--accent-color);
+  }
+`;
+
+export const ChatMessageLabel = styled.label`
+  position: relative;
+`;
+
 export const ChatHeader = styled.header`
   display: flex;
   align-items: center;
@@ -508,4 +531,27 @@ export const ChatHeaderLogo = styled(ChatLogo)`
 export const ToggleContainer = styled.div`
   width: max-content;
   transform: scale(0.7);
+`;
+
+export const EmojiPickerContainer = styled.div`
+  position: absolute;
+  bottom: 5vh;
+  right: 0;
+
+  transition: all var(--animation-global);
+
+  &.hidden {
+    transform: translateY(-25%);
+
+    overflow: hidden;
+    opacity: 0;
+    z-index: -2;
+    pointer-events: none;
+  }
+
+  &.shown {
+    transform: translateY(0);
+    opacity: 1;
+    z-index: 6;
+  }
 `;
