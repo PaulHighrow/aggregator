@@ -7,14 +7,15 @@ import {
   ChatMessageUsername,
   ChatMessageWrapper,
   ChatMessageYou,
-  ChatMessagesBox,
   ChatScrollDownIcon,
+  ChatUsernameBox,
   ChatWindowedBanUser,
   ChatWindowedDeleteMessage,
   ChatWindowedDeleteYourMessage,
   ChatWindowedMessageText,
   ChatWindowedMessageUserCloud,
   ChatWindowedMessageYouCloud,
+  ChatWindowedMessagesBox,
   ChatWindowedPinnedMessageIcon,
 } from '../Chat.styled';
 
@@ -69,7 +70,7 @@ export const ChatWindowedBody = ({ messages, socket }) => {
 
   return (
     <>
-      <ChatMessagesBox
+      <ChatWindowedMessagesBox
         id="chat-box"
         ref={ChatBodyEl}
         onScroll={calculateHeights}
@@ -110,10 +111,12 @@ export const ChatWindowedBody = ({ messages, socket }) => {
             ) : (
               <ChatMessageWrapper key={message.id}>
                 <ChatMessageUsername>
-                  {message.username}
-                  <ChatWindowedBanUser
-                    onClick={() => banUser(message.userID, message.userIP)}
-                  />
+                  <ChatUsernameBox>
+                    {message.username}
+                    <ChatWindowedBanUser
+                      onClick={() => banUser(message.userID, message.userIP)}
+                    />
+                  </ChatUsernameBox>
                 </ChatMessageUsername>
                 <ChatWindowedMessageUserCloud className="message__recipient">
                   <ChatWindowedDeleteMessage
@@ -137,7 +140,7 @@ export const ChatWindowedBody = ({ messages, socket }) => {
             )
           ) : null
         )}
-      </ChatMessagesBox>
+      </ChatWindowedMessagesBox>
       {!scroll && (
         <ChatFastScrollButton onClick={arrowScroll}>
           <ChatScrollDownIcon />

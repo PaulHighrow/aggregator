@@ -39,6 +39,10 @@ export const ChatBody = ({ messages, isChatOpen }) => {
     );
   };
 
+  const pinnedMessages = messages
+    .filter(message => message.roomLocation === location.pathname)
+    .some(message => message.isPinned);
+
   const togglePins = () => {
     setArePinnedShown(shown => !shown);
   };
@@ -64,36 +68,40 @@ export const ChatBody = ({ messages, isChatOpen }) => {
         ref={ChatBodyEl}
         onScroll={calculateHeights}
       >
-        <ChatPinnedMessage className={arePinnedShown ? '' : 'minimized'}>
-          <ChatPinnedMessageIcon
-            onClick={togglePins}
-            className={arePinnedShown ? '' : 'minimized'}
-          />
-          {messages
-            .filter(
-              message =>
-                message.isPinned && message.roomLocation === location.pathname
-            )
-            .map(message => (
-              <ChatMessageWrapper key={`${message.id}_pin`}>
-                <ChatMessageUsername>{message.username}</ChatMessageUsername>
-                <ChatMessagePinnedCloud>
-                  <ChatMessageText
-                    dangerouslySetInnerHTML={{
-                      __html: message.text.replace(
-                        linksRegex,
-                        match =>
-                          `<a href="${match}" target="_blank">${match}</a>`
-                      ),
-                    }}
-                  ></ChatMessageText>
-                  {/* <ChatMessageTime>
-                    {new Date(message.createdAt).toLocaleTimeString('uk-UA')}
-                  </ChatMessageTime> */}
-                </ChatMessagePinnedCloud>
-              </ChatMessageWrapper>
-            ))}
-        </ChatPinnedMessage>
+        {pinnedMessages && (
+          <ChatPinnedMessage className={arePinnedShown ? '' : 'minimized'}>
+            <ChatPinnedMessageIcon
+              onClick={togglePins}
+              className={arePinnedShown ? '' : 'minimized'}
+            />
+            {messages
+              .filter(
+                message =>
+                  message.isPinned && message.roomLocation === location.pathname
+              )
+              .map(message => (
+                <ChatMessageWrapper key={`${message.id}_pin`}>
+                  <ChatMessageUsername>{message.username}</ChatMessageUsername>
+                  <ChatMessagePinnedCloud>
+                    <ChatMessageText
+                      dangerouslySetInnerHTML={{
+                        __html: message.text.replace(
+                          linksRegex,
+                          match =>
+                            `<a href="${match}" target="_blank">${match}</a>`
+                        ),
+                      }}
+                    ></ChatMessageText>
+                    {/* <ChatMessageTime>
+                      {new Date(message.createdAt).toLocaleTimeString(
+                        'uk-UA'
+                      ) || new Date(Date.now()).toLocaleTimeString('uk-UA')}
+                    </ChatMessageTime> */}
+                  </ChatMessagePinnedCloud>
+                </ChatMessageWrapper>
+              ))}
+          </ChatPinnedMessage>
+        )}
         {messages.map(message =>
           message.roomLocation === location.pathname ||
           message.roomLocation === location.pathname.split('-chat')[0] ? (

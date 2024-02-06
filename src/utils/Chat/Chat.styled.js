@@ -123,6 +123,7 @@ export const ChatWindowedContainer = styled(ChatContainer)`
   position: relative;
 
   background-image: unset;
+  background-color: #0f0f0f;
 
   height: 100vh;
   max-width: none;
@@ -145,6 +146,7 @@ export const ChatMessagesBox = styled.div`
 `;
 
 export const ChatWindowedMessagesBox = styled(ChatMessagesBox)`
+  padding-top: 8px;
   height: 95vh;
 `;
 
@@ -165,6 +167,16 @@ export const ChatMessageUsername = styled.p`
   font-size: 12px;
   font-weight: 500;
   margin-bottom: 1px;
+`;
+
+export const ChatUsernameBox = styled.p`
+  color: #7c7c7c;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 1px;
+
+  display: flex;
+  gap: 6px;
 `;
 
 export const ChatMessageYouCloud = styled.div`
@@ -244,6 +256,8 @@ export const ChatMessageText = styled.p`
 `;
 
 export const ChatWindowedMessageText = styled(ChatMessageText)`
+  color: #ffffffdd;
+
   & > a {
     color: var(--accent-color);
   }
@@ -279,11 +293,11 @@ export const СhatMessageInput = styled.input`
   border-radius: 10px;
   border: 1px solid #ddd;
   outline: none;
-  padding: 15px;
+  padding: 15px 8px;
 
   font-family: var(--streams-secondary-font-family);
   font-weight: 500;
-  font-size: 12px;
+  font-size: 16px;
 
   word-wrap: break-word;
   white-space: normal;
@@ -292,6 +306,18 @@ export const СhatMessageInput = styled.input`
 
   &::placeholder {
     color: var(--chat-font-color);
+    font-size: 12px;
+  }
+`;
+
+export const ChatWindowedMessageInput = styled(СhatMessageInput)`
+  width: calc(100% - 54px);
+
+  background-color: #0f0f0f;
+  color: #ffffffdd;
+
+  &::placeholder {
+    color: #ffffffdd;
   }
 `;
 
@@ -375,8 +401,6 @@ export const ChatPinnedMessage = styled.div`
     width: 25px;
     height: 25px;
 
-    background-color: #f9c8389e;
-
     right: 0;
 
     border-radius: 50%;
@@ -403,7 +427,7 @@ export const ChatPinnedMessageIcon = styled(PinnedMessageIcon)`
   width: 22px;
   height: 22px;
 
-  fill: var(--main-color);
+  fill: var(--pin-icon-fill);
 
   transition: transform var(--animation-global);
 
@@ -446,9 +470,6 @@ export const ChatWindowedDeleteYourMessage = styled(ChatWindowedDeleteMessage)`
 `;
 
 export const ChatWindowedBanUser = styled(BanUserIcon)`
-  position: absolute;
-  left: 100px;
-
   width: 12px;
   height: 12px;
 

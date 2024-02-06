@@ -1,14 +1,14 @@
+import axios from 'axios';
 import { useState } from 'react';
 import { useLocation } from 'react-router';
+import { animateScroll } from 'react-scroll';
 import {
   ChatFooterBox,
   ChatMessageForm,
   ChatSend,
-  СhatMessageInput,
+  ChatWindowedMessageInput,
   СhatSendMessageButton,
 } from '../Chat.styled';
-import { animateScroll } from 'react-scroll';
-import axios from 'axios';
 
 export const ChatWindowedFooter = ({ socket }) => {
   const [message, setMessage] = useState('');
@@ -42,7 +42,7 @@ export const ChatWindowedFooter = ({ socket }) => {
   return (
     <ChatFooterBox>
       <ChatMessageForm className="form" onSubmit={handleSendMessage}>
-        <СhatMessageInput
+        <ChatWindowedMessageInput
           type="text"
           placeholder="Введіть повідомлення"
           value={message}
