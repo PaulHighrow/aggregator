@@ -16,7 +16,7 @@
     "ag-grid-react": "^31.0.1",
     "animate.css": "^4.1.1",
     "axios": "^1.4.0",
-    "emoji-mart": "^5.5.2",
+    "emoji-picker-react": "^4.7.12",
     "formik": "^2.4.3",
     "formik-mui": "^5.0.0-alpha.0",
     "modern-normalize": "^2.0.0",

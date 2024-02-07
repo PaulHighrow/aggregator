@@ -1,4 +1,5 @@
 import axios from 'axios';
+import EmojiPicker from 'emoji-picker-react';
 import { useState } from 'react';
 import { useLocation } from 'react-router';
 import { animateScroll } from 'react-scroll';
@@ -12,7 +13,6 @@ import {
   СhatMessageInput,
   СhatSendMessageButton,
 } from './Chat.styled';
-import EmojiPicker from 'emoji-picker-react';
 
 export const ChatFooter = ({ socket, currentUser, theme }) => {
   const [message, setMessage] = useState('');
