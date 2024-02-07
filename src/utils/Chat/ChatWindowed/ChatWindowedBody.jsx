@@ -44,14 +44,14 @@ export const ChatWindowedBody = ({ messages, socket }) => {
   const scrollToBottom = () => {
     if (scroll) {
       animateScroll.scrollToBottom({
-        containerId: 'chat-box',
+        containerId: 'chat-box', duration: 150,
       });
     }
   };
 
   const arrowScroll = () => {
     animateScroll.scrollToBottom({
-      containerId: 'chat-box',
+      containerId: 'chat-box', duration: 150,
     });
   };
 

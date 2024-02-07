@@ -32,11 +32,11 @@ export const ChatWindowedFooter = ({ socket }) => {
     }
     console.log({ userName: localStorage.getItem('userName'), message });
     setMessage('');
-    setTimeout(() => {
-      animateScroll.scrollToBottom({
-        containerId: 'chat-box',
-      });
-    }, 500);
+
+    animateScroll.scrollToBottom({
+      containerId: 'chat-box',
+      duration: 150,
+    });
   };
 
   return (

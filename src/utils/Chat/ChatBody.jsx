@@ -51,6 +51,7 @@ export const ChatBody = ({ messages, isChatOpen }) => {
     if (scroll) {
       animateScroll.scrollToBottom({
         containerId: 'chat-box',
+        duration: 150,
       });
     }
   };
@@ -58,6 +59,7 @@ export const ChatBody = ({ messages, isChatOpen }) => {
   const arrowScroll = () => {
     animateScroll.scrollToBottom({
       containerId: 'chat-box',
+      duration: 150,
     });
   };
 

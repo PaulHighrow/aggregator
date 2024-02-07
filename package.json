@@ -1,11 +1,12 @@
 {
   "name": "ap-education-english",
-  "version": "1.4.15",
+  "version": "1.4.16",
   "private": true,
   "homepage": "https://PaulHighrow.github.io/aggregator/",
   "dependencies": {
     "@emoji-mart/data": "^1.1.2",
     "@emoji-mart/react": "^1.1.1",
+    "@mui/base": "^5.0.0-beta.35",
     "@react-google-maps/api": "^2.19.2",
     "@react-hook/size": "^2.1.2",
     "@testing-library/jest-dom": "^5.16.3",

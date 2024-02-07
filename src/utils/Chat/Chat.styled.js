@@ -138,11 +138,19 @@ export const ChatMessagesBox = styled.div`
   overflow-x: hidden;
   overflow-y: scroll;
 
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+
   scrollbar-width: thin;
   scrollbar-gutter: stable;
 
   @media screen and (min-width: 1280px) {
     height: 95vh;
+  }
+  
+  & > :first-child {
+    margin-top: auto !important;
   }
 `;
 
@@ -306,6 +314,8 @@ export const СhatMessageInput = styled.input`
   color: var(--chat-font-color);
 
   &::placeholder {
+    user-select: none;
+
     color: var(--chat-font-color);
     font-size: 12px;
   }
@@ -483,8 +493,8 @@ export const ChatWindowedBanUser = styled(BanUserIcon)`
 `;
 
 export const EmojiPickerSwitch = styled(EmojiSwitchIcon)`
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
 
   position: absolute;
   top: 50%;
@@ -496,12 +506,13 @@ export const EmojiPickerSwitch = styled(EmojiSwitchIcon)`
 
   &:hover,
   &:focus {
-    fill: var(--accent-color);
+    fill: var(--pinned-message-color);
   }
 `;
 
 export const ChatMessageLabel = styled.label`
   position: relative;
+  width: 100%;
 `;
 
 export const ChatHeader = styled.header`
@@ -536,7 +547,11 @@ export const ToggleContainer = styled.div`
 export const EmojiPickerContainer = styled.div`
   position: absolute;
   bottom: 5vh;
-  right: 0;
+  left: 4px;
+  right: 14px;
+
+  display: flex;
+  justify-content: center;
 
   transition: all var(--animation-global);
 
