@@ -15,7 +15,7 @@ import {
   SectionTitle,
   SectionWrapper,
   Video,
-  VideoSoundBtn
+  VideoSoundBtn,
 } from './HowItWorks.styled';
 
 export const HowItWorks = () => {
@@ -51,18 +51,18 @@ export const HowItWorks = () => {
   });
 
   const listItems = [
-    { to: 'howitworks', service: 'Мотивація' },
-    { to: 'platform', service: 'Навчальна платформа' },
-    { to: 'reviews', service: 'Відгуки про курс' },
-    { to: 'aboutus', service: 'Про нас' },
+    { to: 'howitworks-anchor', service: 'Мотивація' },
+    { to: 'platform-anchor', service: 'Навчальна платформа' },
+    { to: 'reviews-anchor', service: 'Відгуки про курс' },
+    { to: 'aboutus-anchor', service: 'Про нас' },
   ];
   // eslint-disable-next-line
   const [width, _] = useSize(document.body);
 
   const props =
-    width < 768
-      ? { spy: true, smooth: true, offset: -73 }
-      : { spy: true, smooth: true };
+    width > 768
+      ? { spy: true, smooth: true, offset: -120 }
+      : { spy: true, smooth: true, offset: -70 };
 
   return (
     <HowItWorksSection id="howitworks">
@@ -83,7 +83,11 @@ export const HowItWorks = () => {
             ))}
           </PageNavigation>
         </SectionWrapper>
-        <PlayerLimiter ref={videoRef} onClick={toggleVideoModal}>
+        <PlayerLimiter
+          ref={videoRef}
+          onClick={toggleVideoModal}
+          id="howitworks-anchor"
+        >
           <VideoSoundBtn />
           <Video
             loop

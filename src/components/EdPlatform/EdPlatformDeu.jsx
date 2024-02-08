@@ -56,7 +56,7 @@ export const EdPlatformDeu = () => {
     <EdPlatformBackground>
       <EdPlatformSection id="platform" ref={edPlatformEl}>
         <Box>
-          <EdPlatformTitle>
+          <EdPlatformTitle id="platform-anchor">
             НАВЧАЛЬНА <EdPlatformSubTitle>ПЛАТФОРМА</EdPlatformSubTitle>
           </EdPlatformTitle>
           <EdPlatformWrapper>

@@ -149,7 +149,7 @@ export const ChatMessagesBox = styled.div`
     height: 95vh;
   }
   
-  & > :first-child {
+  & > :nth-child(2) {
     margin-top: auto !important;
   }
 `;
@@ -303,6 +303,7 @@ export const СhatMessageInput = styled.input`
   border: 1px solid #ddd;
   outline: none;
   padding: 8px;
+  padding-right: 32px;
 
   font-family: var(--streams-secondary-font-family);
   font-weight: 500;

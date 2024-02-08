@@ -232,6 +232,8 @@ export const VideoSoundBtn = styled(IoVolumeMute)`
   height: 20px;
   opacity: 0.7;
 
+  cursor: pointer;
+  
   position: absolute;
   z-index: 5;
   top: 10px;

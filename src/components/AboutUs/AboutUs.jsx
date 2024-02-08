@@ -12,7 +12,7 @@ import {
   NavigationDesc,
   NavigationWrapper,
   Video,
-  VideoLimiter
+  VideoLimiter,
 } from 'components/AboutUs/AboutUs.styled';
 import { Box } from 'components/Box/Box.styled';
 import {
@@ -27,10 +27,10 @@ import { useInView } from 'react-intersection-observer';
 import { VideoModal } from './VideoModal/VideoModal';
 
 const navListItems = [
-  { to: 'howitworks', service: 'Мотивація' },
-  { to: 'platform', service: 'Навчальна платформа' },
-  { to: 'reviews', service: 'Відгуки про курс' },
-  { to: 'aboutus', service: 'Про нас' },
+  { to: 'howitworks-anchor', service: 'Мотивація' },
+  { to: 'platform-anchor', service: 'Навчальна платформа' },
+  { to: 'reviews-anchor', service: 'Відгуки про курс' },
+  { to: 'aboutus-anchor', service: 'Про нас' },
 ];
 
 export const AboutUs = () => {
@@ -74,15 +74,15 @@ export const AboutUs = () => {
   const [videoRef, videoInView] = useInView();
 
   const props =
-    width < 768
-      ? { spy: true, smooth: true, offset: -73 }
-      : { spy: true, smooth: true };
+    width > 768
+      ? { spy: true, smooth: true, offset: -120 }
+      : { spy: true, smooth: true, offset: -70 };
 
   return (
     <AboutUsBackground>
       <AboutUsSection id="aboutus">
         <Box>
-          <AboutUsTitle>
+          <AboutUsTitle id="aboutus-anchor">
             ПРО <AboutUsSubTitle>НАС</AboutUsSubTitle>
           </AboutUsTitle>
           <AboutUsWrapper>

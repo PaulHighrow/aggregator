@@ -35,7 +35,8 @@ export const ChatBody = ({ messages, isChatOpen }) => {
       scroll =>
         (scroll =
           height ===
-          ChatBodyEl.current.scrollHeight - ChatBodyEl.current.scrollTop)
+          ChatBodyEl.current.scrollHeight -
+            Math.ceil(ChatBodyEl.current.scrollTop))
     );
   };
 

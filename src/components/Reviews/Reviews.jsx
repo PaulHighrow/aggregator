@@ -58,7 +58,7 @@ export const Reviews = ({ toggleModal }) => {
     <ReviewsBackground>
       <ReviewsSection id="reviews" ref={ref}>
         <ReviewsBox>
-          <ReviewsTitle>
+          <ReviewsTitle id="reviews-anchor">
             <ReviewsSubTitle>ВІДГУКИ</ReviewsSubTitle> ПРО КУРС
           </ReviewsTitle>
           <ReviewsVideoWrapper>
