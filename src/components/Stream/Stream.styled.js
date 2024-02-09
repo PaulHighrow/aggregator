@@ -4,6 +4,8 @@ import { ReactComponent as ChatIcon } from '../../img/svg/youTubeChat.svg';
 import { ReactComponent as SupportIcon } from '../../img/svg/supportIcon.svg';
 import { ReactComponent as SupportArrowIcon } from '../../img/svg/supportIcons/supportArrow.svg';
 import { ReactComponent as SupportPointerIcon } from '../../img/svg/supportIcons/supportPointer.svg';
+import { ReactComponent as BoxSwitchLeft } from '../../img/svg/btnbox-switch-left.svg';
+import { ReactComponent as BoxSwitchRight } from '../../img/svg/btnbox-switch-right.svg';
 
 export const StreamSection = styled.section`
   position: relative;
@@ -213,11 +215,17 @@ export const ChatWindowedBox = styled(ChatBox)`
 export const ButtonBox = styled.div`
   position: absolute;
   top: 60px;
-  left: 12px;
+  left: 25px;
   z-index: 100;
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  transition: transform var(--animation-global);
+
+  &.hidden {
+    transform: translateX(calc(-100% - 30px));
+  }
 `;
 
 export const ChatBtn = styled.button`
@@ -311,6 +319,46 @@ export const SupportLogo = styled(SupportIcon)`
     width: 48px;
     height: 48px;
   }
+`;
+
+export const BoxHideSwitch = styled.div`
+  position: absolute;
+  top: 118px;
+  left: 0;
+
+  filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.09));
+
+  z-index: 10;
+
+  width: 12px;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #fff;
+
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+
+  &:hover * {
+    stroke: var(--accent-color);
+  }
+
+  @media screen and (min-width: 768px) {
+    top: 155px;
+  }
+`;
+
+export const BoxHideLeftSwitch = styled(BoxSwitchLeft)`
+stroke: var(--main-color);
+  transition: stroke var(--animation-global);
+`;
+
+export const BoxHideRightSwitch = styled(BoxSwitchRight)`
+stroke: var(--main-color);
+  transition: stroke var(--animation-global);
 `;
 
 export const SupportArrow = styled(SupportArrowIcon)`

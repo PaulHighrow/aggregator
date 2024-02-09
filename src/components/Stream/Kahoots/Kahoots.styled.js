@@ -252,7 +252,7 @@ export const ClipBoardNotification = styled.div`
 
 export const ClipBoardFormText = styled.p`
   color: var(--main-color);
-  font-size: 19px;
+  font-size: 14px;
   font-weight: 700;
 `;
 
@@ -293,9 +293,10 @@ export const ClipBoardInput = styled.input`
 export const ClipBoardSubmitBtn = styled.button`
   display: block;
   margin: 0 auto;
-  font-size: 19px;
+  font-size: 16px;
   font-weight: 700;
-  width: 50%;
+  width: max-content;
+  max-width: 70%;
 `;
 
 export const ClipBoardAdd = styled(ClipBoardAddIcon)`

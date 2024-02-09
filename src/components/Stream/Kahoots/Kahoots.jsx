@@ -192,8 +192,11 @@ export const Kahoots = ({
           </ClipBoardFormDismissBtn>
           <ClipBoardFormText>
             Введіть ваше ім'я в це поле, щоб вам не доводилося вводити його
-            декілька разів під час уроку. Будь ласка, вводьте повне ім'я без
-            скорочень, щоб ми могли правильно зарахувати ваші бали!
+            декілька разів під час уроку.
+          </ClipBoardFormText>
+          <ClipBoardFormText>
+            Будь ласка, вводьте повне ім'я без скорочень, щоб ми могли правильно
+            зарахувати ваші бали!
           </ClipBoardFormText>
           <ClipBoardInput
             name="username"
@@ -259,15 +262,15 @@ export const Kahoots = ({
 
           <ClipBoardFormText>
             Випадково помилились? Натисніть на цю кнопку:{' '}
-            <ClipBoardSubmitBtn
-              onClick={() => {
-                toast.dismiss(t.id);
-                createNameInput(btn);
-              }}
-            >
-              Виправити
-            </ClipBoardSubmitBtn>
           </ClipBoardFormText>
+          <ClipBoardSubmitBtn
+            onClick={() => {
+              toast.dismiss(t.id);
+              createNameInput(btn);
+            }}
+          >
+            Виправити помилку
+          </ClipBoardSubmitBtn>
         </ClipBoardNotification>
       ),
       { duration: 3000 }
@@ -275,6 +278,7 @@ export const Kahoots = ({
   };
 
   const reverseAndCopyToClipboard = btn => {
+    toast.dismiss();
     navigator.clipboard.writeText(localStorage.getItem('userName'));
     toast.success(
       t => (
@@ -290,15 +294,17 @@ export const Kahoots = ({
 
           <ClipBoardFormText>
             Треба виправити помилку? Натисніть на цю кнопку:{' '}
-            <ClipBoardSubmitBtn
+            
+          </ClipBoardFormText>
+
+          <ClipBoardSubmitBtn
               onClick={() => {
                 toast.dismiss(t.id);
                 createNameInput(btn);
               }}
             >
-              Виправити
+              Виправити помилку
             </ClipBoardSubmitBtn>
-          </ClipBoardFormText>
         </ClipBoardNotification>
       ),
       { duration: 3000 }

@@ -46,11 +46,11 @@ const StreamTrialDeutsch = lazy(() =>
     /* webpackChunkName: "Deutsch trials page" */ '../pages/Trials/StreamTrialDeutsch'
   )
 );
-const StreamTrialDeutschSprechclub = lazy(() =>
-  import(
-    /* webpackChunkName: "Deutsch Sprechclub pilot page" */ '../pages/Trials/StreamTrialDeutschSprechclub'
-  )
-);
+// const StreamTrialDeutschSprechclub = lazy(() =>
+//   import(
+//     /* webpackChunkName: "Deutsch Sprechclub pilot page" */ '../pages/Trials/StreamTrialDeutschSprechclub'
+//   )
+// );
 // const StreamTrialB1SpeakingClub = lazy(() =>
 //   import(
 //     /* webpackChunkName: "B1 Speaking pilot page" */ '../pages/Trials/StreamTrialB1SpeakingClub'
@@ -157,13 +157,20 @@ export const App = () => {
         </Route>
         <Route path="streams" element={<Streams />}>
           <Route path="a0" element={<StreamA0 />} />
+          <Route path="a0-chat" element={<WindowedChat />} />
           <Route path="a1" element={<StreamA1 />} />
+          <Route path="a1-chat" element={<WindowedChat />} />
           <Route path="a2" element={<StreamA2 />} />
+          <Route path="a2-chat" element={<WindowedChat />} />
           <Route path="b1" element={<StreamB1 />} />
+          <Route path="b1-chat" element={<WindowedChat />} />
           <Route path="deutsch" element={<StreamDeutsch />} />
+          <Route path="deutsch-chat" element={<WindowedChat />} />
           <Route path="polski" element={<StreamPolski />} />
+          <Route path="polski-chat" element={<WindowedChat />} />
           <Route path="test" element={<StreamTest />} />
-          <Route path="test1" element={<StreamTest />} />
+          <Route path="test-chat" element={<WindowedChat />} />
+          {/* <Route path="test1" element={<StreamTest />} /> */}
           <Route path="stream-admin-panel" element={<AdminPanel />} />
           <Route path="kahoot-admin-panel" element={<KahootAdminPanel />} />
         </Route>
@@ -178,7 +185,7 @@ export const App = () => {
         <Route path="trial-en" element={<StreamTrialEnglish />} />
         <Route path="trial-pl" element={<StreamTrialPolski />} />
         <Route path="trial-de" element={<StreamTrialDeutsch />} />
-        <Route path="pilot-dsc" element={<StreamTrialDeutschSprechclub />} />
+        {/* <Route path="pilot-dsc" element={<StreamTrialDeutschSprechclub />} /> */}
         {/* <Route path="pilot-scb1" element={<StreamTrialB1SpeakingClub />} /> */}
         <Route path="trial-kids" element={<StreamTrialKids />} />
       </Routes>

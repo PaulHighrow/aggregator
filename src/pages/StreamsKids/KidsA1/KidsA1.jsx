@@ -17,6 +17,9 @@ import {
   ChatLoginValidation,
 } from 'utils/Chat/Chat.styled';
 import {
+  BoxHideLeftSwitch,
+  BoxHideRightSwitch,
+  BoxHideSwitch,
   ButtonBox,
   ChatBox,
   ChatBtn,
@@ -41,6 +44,7 @@ export const KidsA1 = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isKahootOpen, setIsKahootOpen] = useState(false);
   const [isSupportOpen, setIsSupportOpen] = useState(false);
+  const [isButtonBoxOpen, setIsButtonBoxOpen] = useState(true);
   const [isOpenedLast, setIsOpenedLast] = useState('');
   const [isAnimated, setIsAnimated] = useState(false);
   const [animatedID, setAnimationID] = useState('');
@@ -63,6 +67,7 @@ export const KidsA1 = () => {
       : setIsOpenedLast(isOpenedLast => '');
   };
   const toggleChat = () => {
+    checkLogin();
     setIsChatOpen(isChatOpen => !isChatOpen);
     isKahootOpen || isSupportOpen
       ? setIsOpenedLast(isOpenedLast => 'chat')
@@ -75,6 +80,9 @@ export const KidsA1 = () => {
       ? setIsOpenedLast(isOpenedLast => 'support')
       : setIsOpenedLast(isOpenedLast => '');
   };
+  const toggleButtonBox = () => {
+    setIsButtonBoxOpen(isOpen => !isOpen);
+  };
   const handleSupportClick = data_id => {
     setAnimationID(id => (id = data_id));
     if (!isAnimated) {
@@ -85,7 +93,7 @@ export const KidsA1 = () => {
   const videoBoxWidth =
     chatWidth === 0 && width > height ? width - 300 : width - chatWidth;
 
-  const checkLogin = e => {
+  const checkLogin = () => {
     const name = localStorage.getItem('userName');
     const id = localStorage.getItem('userID');
     const isLogged = localStorage.getItem('APLoggedIn');
@@ -286,7 +294,7 @@ export const KidsA1 = () => {
               />
             </VideoBox>
 
-            <ButtonBox>
+            <ButtonBox className={!isButtonBoxOpen ? 'hidden' : ''}>
               <KahootBtn
                 onClick={toggleKahoot}
                 className={
@@ -309,6 +317,10 @@ export const KidsA1 = () => {
                 <SupportLogo />
               </SupportBtn>
             </ButtonBox>
+
+            <BoxHideSwitch id="no-transform" onClick={toggleButtonBox}>
+              {isButtonBoxOpen ? <BoxHideLeftSwitch /> : <BoxHideRightSwitch />}
+            </BoxHideSwitch>
 
             {height > width && (
               <ChatBox

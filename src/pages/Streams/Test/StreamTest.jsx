@@ -18,6 +18,9 @@ import {
   ChatLoginValidation,
 } from 'utils/Chat/Chat.styled';
 import {
+  BoxHideLeftSwitch,
+  BoxHideRightSwitch,
+  BoxHideSwitch,
   ButtonBox,
   ChatBox,
   ChatBtn,
@@ -42,6 +45,7 @@ export const StreamTest = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isKahootOpen, setIsKahootOpen] = useState(false);
   const [isSupportOpen, setIsSupportOpen] = useState(false);
+  const [isButtonBoxOpen, setIsButtonBoxOpen] = useState(true);
   const [isOpenedLast, setIsOpenedLast] = useState('');
   const [isAnimated, setIsAnimated] = useState(false);
   const [animatedID, setAnimationID] = useState('');
@@ -66,6 +70,7 @@ export const StreamTest = () => {
       : setIsOpenedLast(isOpenedLast => '');
   };
   const toggleChat = () => {
+    checkLogin();
     setIsChatOpen(isChatOpen => !isChatOpen);
     isKahootOpen || isSupportOpen
       ? setIsOpenedLast(isOpenedLast => 'chat')
@@ -77,6 +82,9 @@ export const StreamTest = () => {
     isKahootOpen || isChatOpen
       ? setIsOpenedLast(isOpenedLast => 'support')
       : setIsOpenedLast(isOpenedLast => '');
+  };
+  const toggleButtonBox = () => {
+    setIsButtonBoxOpen(isOpen => !isOpen);
   };
   const handleSupportClick = data_id => {
     setAnimationID(id => (id = data_id));
@@ -318,7 +326,7 @@ export const StreamTest = () => {
               />
             </VideoBox>
 
-            <ButtonBox>
+            <ButtonBox className={!isButtonBoxOpen ? 'hidden' : ''}>
               <KahootBtn
                 onClick={toggleKahoot}
                 className={
@@ -341,6 +349,10 @@ export const StreamTest = () => {
                 <SupportLogo />
               </SupportBtn>
             </ButtonBox>
+
+            <BoxHideSwitch id="no-transform" onClick={toggleButtonBox}>
+              {isButtonBoxOpen ? <BoxHideLeftSwitch /> : <BoxHideRightSwitch />}
+            </BoxHideSwitch>
 
             {height > width && (
               <ChatBox

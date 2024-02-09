@@ -72,7 +72,7 @@ export const ChatBody = ({ messages, isChatOpen }) => {
         onScroll={calculateHeights}
       >
         {pinnedMessages && (
-          <ChatPinnedMessage className={arePinnedShown ? '' : 'minimized'}>
+          <ChatPinnedMessage id='chat-pin' className={arePinnedShown ? '' : 'minimized'}>
             <ChatPinnedMessageIcon
               onClick={togglePins}
               className={arePinnedShown ? '' : 'minimized'}

@@ -148,15 +148,31 @@ export const ChatMessagesBox = styled.div`
   @media screen and (min-width: 1280px) {
     height: 95vh;
   }
-  
-  & > :nth-child(2) {
-    margin-top: auto !important;
+
+  & :first-child:not(#chat-pin) {
+    margin-top: auto;
+  }
+
+  & :nth-child(2) {
+    margin-top: auto;
+  }
+
+  & #chat-pin {
+    margin-top: 0;
   }
 `;
 
 export const ChatWindowedMessagesBox = styled(ChatMessagesBox)`
   padding-top: 8px;
   height: 95vh;
+
+  & :first-child {
+    margin-top: auto !important;
+  }
+
+  & :nth-child(2) {
+    margin-top: 0;
+  }
 `;
 
 export const ChatMessageWrapper = styled.div`
