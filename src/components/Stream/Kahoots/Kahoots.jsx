@@ -67,7 +67,7 @@ export const Kahoots = ({
   const trialsSwitch = path => {
     switch (path) {
       case 'pilot':
-        return 'deutsch';
+        return 'a1kids';
       case 'test1':
         return 'test';
       case 'trial-en':
@@ -83,7 +83,9 @@ export const Kahoots = ({
     }
   };
 
-  const page = location.pathname.includes('streams-kids')
+  const page = location.pathname.includes('pilot')
+    ? trialsSwitch(location.pathname.match(/\/([^/]+)\/?$/)[1])
+    : location.pathname.includes('streams-kids')
     ? location.pathname.match(/\/([^/]+)\/?$/)[1] + 'kids'
     : location.pathname.includes('trial') ||
       location.pathname.includes('pilot') ||
@@ -294,17 +296,16 @@ export const Kahoots = ({
 
           <ClipBoardFormText>
             Треба виправити помилку? Натисніть на цю кнопку:{' '}
-            
           </ClipBoardFormText>
 
           <ClipBoardSubmitBtn
-              onClick={() => {
-                toast.dismiss(t.id);
-                createNameInput(btn);
-              }}
-            >
-              Виправити помилку
-            </ClipBoardSubmitBtn>
+            onClick={() => {
+              toast.dismiss(t.id);
+              createNameInput(btn);
+            }}
+          >
+            Виправити помилку
+          </ClipBoardSubmitBtn>
         </ClipBoardNotification>
       ),
       { duration: 3000 }

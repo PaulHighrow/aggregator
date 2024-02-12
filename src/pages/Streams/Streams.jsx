@@ -34,8 +34,13 @@ const Streams = () => {
 
   const detectUser = async () => {
     try {
-      const ip = (await axios.get('https://jsonip.com/')).data.ip;
-      console.log(ip);
+      let ip;
+      try {
+        ip = (await axios.get('https://jsonip.com/')).data.ip;
+        console.log(ip);
+      } catch (error) {
+        console.log(error);
+      }
       const id = localStorage.getItem('userID');
       const user = await axios.get(`https://ap-chat.onrender.com/users/${id}`);
       setCurrentUser(
@@ -43,6 +48,7 @@ const Streams = () => {
           (currentUser = user.data || {
             username: 'User Is Not Logged In',
             isBanned: false,
+            ip: ip || 'user has disabled ip tracker',
           })
       );
     } catch (error) {
@@ -78,7 +84,7 @@ const Streams = () => {
         ) : (
           ''
         )}
-        <Outlet context={[links, isLoading, currentUser]} />
+        <Outlet context={[links, isLoading, currentUser, setCurrentUser]} />
         {isLoading && (
           <LoaderWrapper>
             <Loader />

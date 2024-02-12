@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { ClickAwayListener } from '@mui/base';
 import EmojiPicker from 'emoji-picker-react';
 import { useState } from 'react';
 import { useLocation } from 'react-router';
@@ -13,9 +13,8 @@ import {
   СhatMessageInput,
   СhatSendMessageButton,
 } from './Chat.styled';
-import { ClickAwayListener } from '@mui/base';
 
-export const ChatFooter = ({ socket, theme }) => {
+export const ChatFooter = ({ socket, theme, currentUser }) => {
   const [message, setMessage] = useState('');
   const [isPickerOpen, setIsPickerOpen] = useState(false);
   const location = useLocation();
@@ -37,16 +36,21 @@ export const ChatFooter = ({ socket, theme }) => {
   const handleSendMessage = async e => {
     e.preventDefault();
     isPickerOpen && closeEmojiPicker();
-    const ip = await axios.get('https://jsonip.com/');
+
+    let pilotLocation = '';
+    if (location.pathname.includes('pilot')) {
+      pilotLocation = "/streams-kids/a1"
+    }
+
     if (message.trim() && localStorage.getItem('userName')) {
       socket.emit('message', {
         text: message,
         username: localStorage.getItem('userName'),
         userID: localStorage.getItem('userID'),
-        userIP: ip.data.ip,
+        userIP: currentUser.ip,
         id: `${socket.id}${Math.random()}`,
         socketID: socket.id,
-        roomLocation: location.pathname.split('-chat')[0],
+        roomLocation: pilotLocation || location.pathname.split('-chat')[0],
       });
     }
     console.log({ userName: localStorage.getItem('userName'), message });

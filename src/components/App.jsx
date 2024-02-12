@@ -176,6 +176,7 @@ export const App = () => {
         </Route>
         <Route path="streams-kids" element={<StreamsKids />}>
           <Route path="a1" element={<KidsA1 />} />
+          <Route path="pilot" element={<KidsA1 />} />
           <Route path="a1-chat" element={<WindowedChat />} />
           <Route path="a2" element={<KidsA2 />} />
           <Route path="a2-chat" element={<WindowedChat />} />

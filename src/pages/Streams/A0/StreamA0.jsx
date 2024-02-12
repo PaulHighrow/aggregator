@@ -48,7 +48,7 @@ export const StreamA0 = () => {
   const [isOpenedLast, setIsOpenedLast] = useState('');
   const [isAnimated, setIsAnimated] = useState(false);
   const [animatedID, setAnimationID] = useState('');
-  const [links, isLoading, currentUser] = useOutletContext();
+  const [links, isLoading, currentUser, setCurrentUser] = useOutletContext();
   const chatEl = useRef();
   // eslint-disable-next-line
   const [chatWidth, chatHeight] = useSize(chatEl);
@@ -122,14 +122,14 @@ export const StreamA0 = () => {
       localStorage.setItem('userID', idGen);
       localStorage.setItem('APLoggedIn', true);
       try {
-        const ip = (await axios.get('https://jsonip.com/')).data.ip;
         const newUser = {
           username: userName.trim(),
           userID: idGen,
-          userIP: ip,
+          userIP: currentUser.ip,
           isAdmin: false,
         };
         await axios.post('https://ap-chat.onrender.com/users', newUser);
+        setCurrentUser(user => (user = newUser));
         setIsLoggedToChat(isLogged => !isLogged);
       } catch (error) {
         console.log(error);

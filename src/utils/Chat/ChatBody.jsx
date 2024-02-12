@@ -30,6 +30,10 @@ export const ChatBody = ({ messages, isChatOpen }) => {
     scrollToBottom();
   });
 
+  const room = location.pathname.includes('pilot')
+    ? '/streams-kids/a1'
+    : location.pathname;
+
   const calculateHeights = () => {
     setScroll(
       scroll =>
@@ -41,7 +45,7 @@ export const ChatBody = ({ messages, isChatOpen }) => {
   };
 
   const pinnedMessages = messages
-    .filter(message => message.roomLocation === location.pathname)
+    .filter(message => message.roomLocation === room)
     .some(message => message.isPinned);
 
   const togglePins = () => {
@@ -72,15 +76,17 @@ export const ChatBody = ({ messages, isChatOpen }) => {
         onScroll={calculateHeights}
       >
         {pinnedMessages && (
-          <ChatPinnedMessage id='chat-pin' className={arePinnedShown ? '' : 'minimized'}>
+          <ChatPinnedMessage
+            id="chat-pin"
+            className={arePinnedShown ? '' : 'minimized'}
+          >
             <ChatPinnedMessageIcon
               onClick={togglePins}
               className={arePinnedShown ? '' : 'minimized'}
             />
             {messages
               .filter(
-                message =>
-                  message.isPinned && message.roomLocation === location.pathname
+                message => message.isPinned && message.roomLocation === room
               )
               .map(message => (
                 <ChatMessageWrapper key={`${message.id}_pin`}>
@@ -106,7 +112,7 @@ export const ChatBody = ({ messages, isChatOpen }) => {
           </ChatPinnedMessage>
         )}
         {messages.map(message =>
-          message.roomLocation === location.pathname ||
+          message.roomLocation === room ||
           message.roomLocation === location.pathname.split('-chat')[0] ? (
             message.username === localStorage.getItem('userName') &&
             message.userID === localStorage.getItem('userID') ? (
