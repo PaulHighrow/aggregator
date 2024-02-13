@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.a3ac824d.css",
-    "main.js": "/aggregator/static/js/main.b149f3dc.js",
+    "main.js": "/aggregator/static/js/main.e44318c0.js",
     "Homepage.css": "/aggregator/static/css/Homepage.6ec31e0e.chunk.css",
     "Homepage.js": "/aggregator/static/js/Homepage.b311269a.chunk.js",
     "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.006bb49e.chunk.js",
@@ -16,6 +16,7 @@
     "Polski courses page.js": "/aggregator/static/js/Polski courses page.c63293e5.chunk.js",
     "Deutsch courses page.css": "/aggregator/static/css/Deutsch courses page.6ec31e0e.chunk.css",
     "Deutsch courses page.js": "/aggregator/static/js/Deutsch courses page.11961f88.chunk.js",
+    "Teacher Page.js": "/aggregator/static/js/Teacher Page.2f642a96.chunk.js",
     "Not Found.js": "/aggregator/static/js/Not Found.acc1a783.chunk.js",
     "reactPlayerYouTube.js": "/aggregator/static/js/reactPlayerYouTube.a26a0e93.chunk.js",
     "reactPlayerSoundCloud.js": "/aggregator/static/js/reactPlayerSoundCloud.08d87338.chunk.js",
@@ -33,7 +34,7 @@
     "static/js/27.f9260ebf.chunk.js": "/aggregator/static/js/27.f9260ebf.chunk.js",
     "static/js/307.69b48d3e.chunk.js": "/aggregator/static/js/307.69b48d3e.chunk.js",
     "static/js/172.cd487fd1.chunk.js": "/aggregator/static/js/172.cd487fd1.chunk.js",
-    "static/js/311.f02b0048.chunk.js": "/aggregator/static/js/311.f02b0048.chunk.js",
+    "static/js/786.d9f5e3b6.chunk.js": "/aggregator/static/js/786.d9f5e3b6.chunk.js",
     "static/js/294.d1eb2727.chunk.js": "/aggregator/static/js/294.d1eb2727.chunk.js",
     "static/media/LTJournalCrayon-Regular.eot": "/aggregator/static/media/LTJournalCrayon-Regular.4e01f9d2a8b68d2b8f20.eot",
     "static/media/LTJournalCrayon-Regular.ttf": "/aggregator/static/media/LTJournalCrayon-Regular.6f92c12d932b03431110.ttf",
@@ -137,7 +138,7 @@
     "static/media/btnbox-switch-left.svg": "/aggregator/static/media/btnbox-switch-left.41ecbf13fa59a984cfe935e54d276421.svg",
     "static/media/btnbox-switch-right.svg": "/aggregator/static/media/btnbox-switch-right.c2062beab8ed3d828de36754c3279d60.svg",
     "main.a3ac824d.css.map": "/aggregator/static/css/main.a3ac824d.css.map",
-    "main.b149f3dc.js.map": "/aggregator/static/js/main.b149f3dc.js.map",
+    "main.e44318c0.js.map": "/aggregator/static/js/main.e44318c0.js.map",
     "Homepage.6ec31e0e.chunk.css.map": "/aggregator/static/css/Homepage.6ec31e0e.chunk.css.map",
     "Homepage.b311269a.chunk.js.map": "/aggregator/static/js/Homepage.b311269a.chunk.js.map",
     "Inverted Homepage.006bb49e.chunk.js.map": "/aggregator/static/js/Inverted Homepage.006bb49e.chunk.js.map",
@@ -152,6 +153,7 @@
     "Polski courses page.c63293e5.chunk.js.map": "/aggregator/static/js/Polski courses page.c63293e5.chunk.js.map",
     "Deutsch courses page.6ec31e0e.chunk.css.map": "/aggregator/static/css/Deutsch courses page.6ec31e0e.chunk.css.map",
     "Deutsch courses page.11961f88.chunk.js.map": "/aggregator/static/js/Deutsch courses page.11961f88.chunk.js.map",
+    "Teacher Page.2f642a96.chunk.js.map": "/aggregator/static/js/Teacher Page.2f642a96.chunk.js.map",
     "Not Found.acc1a783.chunk.js.map": "/aggregator/static/js/Not Found.acc1a783.chunk.js.map",
     "reactPlayerYouTube.a26a0e93.chunk.js.map": "/aggregator/static/js/reactPlayerYouTube.a26a0e93.chunk.js.map",
     "reactPlayerSoundCloud.08d87338.chunk.js.map": "/aggregator/static/js/reactPlayerSoundCloud.08d87338.chunk.js.map",
@@ -169,11 +171,11 @@
     "27.f9260ebf.chunk.js.map": "/aggregator/static/js/27.f9260ebf.chunk.js.map",
     "307.69b48d3e.chunk.js.map": "/aggregator/static/js/307.69b48d3e.chunk.js.map",
     "172.cd487fd1.chunk.js.map": "/aggregator/static/js/172.cd487fd1.chunk.js.map",
-    "311.f02b0048.chunk.js.map": "/aggregator/static/js/311.f02b0048.chunk.js.map",
+    "786.d9f5e3b6.chunk.js.map": "/aggregator/static/js/786.d9f5e3b6.chunk.js.map",
     "294.d1eb2727.chunk.js.map": "/aggregator/static/js/294.d1eb2727.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a3ac824d.css",
-    "static/js/main.b149f3dc.js"
+    "static/js/main.e44318c0.js"
   ]
 }
