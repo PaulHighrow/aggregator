@@ -160,7 +160,7 @@ export const ChatBox = styled.div`
     left: 0;
     right: auto;
     width: 100%;
-    height: 45%;
+    height: 38%;
   }
 
   @media screen and (min-width: 768px) {
@@ -352,12 +352,12 @@ export const BoxHideSwitch = styled.div`
 `;
 
 export const BoxHideLeftSwitch = styled(BoxSwitchLeft)`
-stroke: var(--main-color);
+  stroke: var(--main-color);
   transition: stroke var(--animation-global);
 `;
 
 export const BoxHideRightSwitch = styled(BoxSwitchRight)`
-stroke: var(--main-color);
+  stroke: var(--main-color);
   transition: stroke var(--animation-global);
 `;
 

@@ -101,6 +101,11 @@ const Deutsch = lazy(() =>
 //     /* webpackChunkName: "Career and admission page" */ '../pages/Career/Career'
 //   )
 // );
+const TeacherPage = lazy(() =>
+  import(
+    /* webpackChunkName: "Teacher Page" */ '../pages/TeacherPage/TeacherPage'
+  )
+);
 const NotFound = lazy(() =>
   import(/* webpackChunkName: "Not Found" */ '../pages/NotFound/NotFound')
 );
@@ -189,6 +194,7 @@ export const App = () => {
         {/* <Route path="pilot-dsc" element={<StreamTrialDeutschSprechclub />} /> */}
         {/* <Route path="pilot-scb1" element={<StreamTrialB1SpeakingClub />} /> */}
         <Route path="trial-kids" element={<StreamTrialKids />} />
+        <Route path="test-teacher-page" element={<TeacherPage />} />
       </Routes>
     </>
   );

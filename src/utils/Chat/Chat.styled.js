@@ -425,6 +425,16 @@ export const ChatPinnedMessage = styled.div`
     margin-bottom: 0;
   }
 
+  & > p {
+    font-size: 12px;
+    transition: font-size var(--animation-global);
+  }
+
+  & div {
+    font-size: 15px;
+    transition: font-size var(--animation-global);
+  }
+
   &.minimized {
     width: 25px;
     height: 25px;
@@ -433,11 +443,11 @@ export const ChatPinnedMessage = styled.div`
 
     border-radius: 50%;
 
-    overflow: hidden;
-
     & p,
     & div {
-      visibility: hidden;
+      font-size: 0px;
+      margin: 0px;
+      opacity: 0;
     }
 
     & svg {
