@@ -1,96 +1,25 @@
-import useSize from '@react-hook/size';
-import { KahootBackground } from 'components/Stream/Kahoots/Kahoots.styled';
-import {
-  BoxHideLeftSwitch,
-  BoxHideRightSwitch,
-  BoxHideSwitch,
-  ButtonBox,
-  ChatBtn,
-  ChatLogo,
-  KahootBtn,
-  KahootLogo,
-  SupportBtn,
-  SupportLogo,
-} from 'components/Stream/Stream.styled';
-import { Support } from 'components/Stream/Support/Support';
-import { useState } from 'react';
+import styled from 'styled-components';
 
-const TeacherPage = () => {
-  const [isChatOpen, setIsChatOpen] = useState(false);
-  const [isKahootOpen, setIsKahootOpen] = useState(false);
-  const [isSupportOpen, setIsSupportOpen] = useState(false);
-  const [isButtonBoxOpen, setIsButtonBoxOpen] = useState(true);
-  const [isOpenedLast, setIsOpenedLast] = useState('');
-  // eslint-disable-next-line
-  const [width, height] = useSize(document.body);
+export const KeyboardBox = styled.div`
 
-  const toggleKahoot = e => {
-    setIsKahootOpen(isKahootOpen => !isKahootOpen);
-    isChatOpen || isSupportOpen
-      ? setIsOpenedLast(isOpenedLast => 'kahoot')
-      : setIsOpenedLast(isOpenedLast => '');
-  };
-  const toggleChat = () => {
-    setIsChatOpen(isChatOpen => !isChatOpen);
-    isKahootOpen || isSupportOpen
-      ? setIsOpenedLast(isOpenedLast => 'chat')
-      : setIsOpenedLast(isOpenedLast => '');
-  };
-  const toggleSupport = () => {
-    setIsSupportOpen(isSupportOpen => !isSupportOpen);
-    isKahootOpen || isChatOpen
-      ? setIsOpenedLast(isOpenedLast => 'support')
-      : setIsOpenedLast(isOpenedLast => '');
-  };
-  const toggleButtonBox = () => {
-    setIsButtonBoxOpen(isOpen => !isOpen);
-  };
+scrollbar-width: thin;
+scrollbar-gutter: stable;
 
-  return (
-    <>
-      <KahootBackground height="100vh">
-        <iframe
-          id="kahoot-window"
-          title="kahoot-pin"
-          src="https://kahoot.com/?utm_name=controller_app&utm_source=controller&utm_campaign=controller_app&utm_medium=link"
-          width="100%"
-          height="100%"
-        ></iframe>
-      </KahootBackground>
+background-color: white;
+position: absolute;
+border-radius: 20px;
+bottom: 0;
+right: 0;
+left: 0;
 
-      <ButtonBox className={!isButtonBoxOpen ? 'hidden' : ''}>
-        <KahootBtn onClick={toggleKahoot}>
-          <KahootLogo />
-        </KahootBtn>
+font-family: var(--streams-font-family);
 
-        <ChatBtn onClick={toggleChat}>
-          <ChatLogo />
-        </ChatBtn>
+transition: transform var(--animation-global);
 
-        <SupportBtn onClick={toggleSupport}>
-          <SupportLogo />
-        </SupportBtn>
-      </ButtonBox>
-      <BoxHideSwitch id="no-transform" onClick={toggleButtonBox}>
-        {isButtonBoxOpen ? <BoxHideLeftSwitch /> : <BoxHideRightSwitch />}
-      </BoxHideSwitch>
-      <Support
-        sectionWidth={width}
-        isSupportOpen={isSupportOpen}
-        isOpenedLast={isOpenedLast}
-        openKahoot={toggleKahoot}
-        isKahootOpen={isKahootOpen}
-      >
-        <iframe
-          id="kahoot-window"
-          title="kahoot-pin"
-          src="https://kahoot.com/?utm_name=controller_app&utm_source=controller&utm_campaign=controller_app&utm_medium=link"
-          width="100%"
-          height="100%"
-        ></iframe>
-      </Support>
-    </>
-  );
-};
+&.hidden {
+  transform: translateY(100%);
+}
 
-export default TeacherPage;
+&.shown {
+  transform: translateY(0);
+}`

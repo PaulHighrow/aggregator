@@ -20,6 +20,9 @@ export const SupportBox = styled.div`
   top: 0;
   left: 0;
 
+  scrollbar-width: thin;
+  scrollbar-gutter: stable;
+
   font-family: var(--streams-font-family);
 
   transition: transform var(--animation-global);
