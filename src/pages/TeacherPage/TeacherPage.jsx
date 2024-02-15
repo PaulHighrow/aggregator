@@ -88,7 +88,7 @@ const TeacherPage = () => {
         isOpenedLast={isOpenedLast}
       />
       <KeyboardBox className={isKeyboardOpen ? 'shown' : 'hidden'}>
-        <Keyboard onChange={onChange} onKeyPress={onKeyPress} />
+        <Keyboard onChange={onChange} onKeyPress={onKeyPress} physicalKeyboardHighlight={true}/>
       </KeyboardBox>
     </StreamSection>
   );

@@ -1,14 +1,23 @@
+import {
+  KahootExitFullScreenIcon,
+  KahootFullScreenBtn,
+  KahootFullScreenIcon,
+} from 'components/Stream/Kahoots/Kahoots.styled';
 import { ViewerBox } from './Viewer.styled';
+import { useState } from 'react';
 
 export const Viewer = ({ isViewerOpen, isOpenedLast, sectionWidth }) => {
-  const desktopWidth = sectionWidth / 2;
-  const mobileWidth = (sectionWidth / 3) * 2;
+  const [isFullScreen, setIsFullScreen] = useState(false);
 
   const supportBoxStylesHandler = () => {
     return {
       zIndex: isOpenedLast === 'support' ? '4' : '1',
-      width: sectionWidth > 1280 ? `${desktopWidth}px` : `${mobileWidth}px`,
+      width: isFullScreen ? sectionWidth : sectionWidth / 2,
     };
+  };
+
+  const toggleFullScreen = () => {
+    setIsFullScreen(isFullScreen => (isFullScreen = !isFullScreen));
   };
 
   return (
@@ -17,6 +26,13 @@ export const Viewer = ({ isViewerOpen, isOpenedLast, sectionWidth }) => {
         className={isViewerOpen ? 'shown' : 'hidden'}
         style={{ ...supportBoxStylesHandler() }}
       >
+        <KahootFullScreenBtn onClick={toggleFullScreen}>
+          {isFullScreen ? (
+            <KahootExitFullScreenIcon />
+          ) : (
+            <KahootFullScreenIcon />
+          )}
+        </KahootFullScreenBtn>
         <iframe
           id="3d-window"
           title="3d-pin"

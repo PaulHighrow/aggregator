@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const KeyboardBox = styled.div`
+width: 50vw;
+margin:  0 auto;
 
 scrollbar-width: thin;
 scrollbar-gutter: stable;
