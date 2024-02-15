@@ -151,7 +151,7 @@ export const StreamTest = () => {
 
     socketRef.current.on('connected', (connected, handshake) => {
       console.log(connected);
-      console.log(handshake);
+      console.log(handshake.time);
     });
 
     const getMessages = async () => {
@@ -173,6 +173,21 @@ export const StreamTest = () => {
     // создаем экземпляр сокета, передаем ему адрес сервера
     // и записываем объект с названием комнаты в строку запроса "рукопожатия"
     // socket.handshake.query.roomId
+
+    const getBannedUsers = async () => {
+      try {
+        const users = await axios.get('https://ap-chat.onrender.com/users');
+        const bannedUsers = users.data
+          .filter(user => user.isBanned === true)
+          .map(bannedUser => bannedUser.userIP);
+        if (bannedUsers.includes(currentUser.userIP)) {
+          setIsBanned(true);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getBannedUsers();
 
     socketRef.current.on('message', async data => {
       setMessages(messages => (messages = [...messages, data]));

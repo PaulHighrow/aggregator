@@ -35,12 +35,15 @@ export const ChatBody = ({ messages, isChatOpen }) => {
     : location.pathname;
 
   const calculateHeights = () => {
+    // console.log('scroll:', scroll);
+    // console.log('height:', height);
+    // console.log('scrollHeight:', ChatBodyEl.current.scrollHeight);
+    // console.log('scrollTop:', Math.ceil(ChatBodyEl.current.scrollTop));
+
     setScroll(
-      scroll =>
-        (scroll =
-          height ===
-          ChatBodyEl.current.scrollHeight -
-            Math.ceil(ChatBodyEl.current.scrollTop))
+      height ===
+        ChatBodyEl.current.scrollHeight -
+          Math.ceil(ChatBodyEl.current.scrollTop)
     );
   };
 
@@ -56,7 +59,7 @@ export const ChatBody = ({ messages, isChatOpen }) => {
     if (scroll) {
       animateScroll.scrollToBottom({
         containerId: 'chat-box',
-        duration: 150,
+        duration: 50,
       });
     }
   };
@@ -64,7 +67,7 @@ export const ChatBody = ({ messages, isChatOpen }) => {
   const arrowScroll = () => {
     animateScroll.scrollToBottom({
       containerId: 'chat-box',
-      duration: 150,
+      duration: 50,
     });
   };
 

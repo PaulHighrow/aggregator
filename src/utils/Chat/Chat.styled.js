@@ -184,12 +184,14 @@ export const ChatMessageYou = styled.p`
   color: #7c7c7c;
   text-align: right;
   font-size: 12px;
+  line-height: 14px;
   margin-bottom: 1px;
 `;
 
 export const ChatMessageUsername = styled.p`
   color: #7c7c7c;
   font-size: 12px;
+  line-height: 14px;
   font-weight: 500;
   margin-bottom: 1px;
 `;
@@ -197,6 +199,7 @@ export const ChatMessageUsername = styled.p`
 export const ChatUsernameBox = styled.p`
   color: #7c7c7c;
   font-size: 12px;
+  line-height: 14px;
   font-weight: 500;
   margin-bottom: 1px;
 
@@ -212,6 +215,7 @@ export const ChatMessageYouCloud = styled.div`
   border-radius: 10px;
   margin-left: auto;
   font-size: 15px;
+  line-height: 18px;
 
   @media screen and (orientation: landscape) {
     max-width: 230px;
@@ -225,6 +229,7 @@ export const ChatMessageYouCloud = styled.div`
 export const ChatWindowedMessageYouCloud = styled(ChatMessageYouCloud)`
   max-width: 95%;
   font-size: 26px;
+  line-height: 32px;
 
   @media screen and (orientation: landscape) {
     max-width: 95%;
@@ -242,6 +247,7 @@ export const ChatMessageUserCloud = styled.div`
   padding: 8px;
   border-radius: 10px;
   font-size: 15px;
+  line-height: 18px;
 
   @media screen and (orientation: landscape) {
     max-width: 230px;
@@ -255,6 +261,7 @@ export const ChatMessageUserCloud = styled.div`
 export const ChatWindowedMessageUserCloud = styled(ChatMessageUserCloud)`
   max-width: 95%;
   font-size: 26px;
+  line-height: 32px;
 
   @media screen and (orientation: landscape) {
     max-width: 95%;
@@ -427,11 +434,13 @@ export const ChatPinnedMessage = styled.div`
 
   & > p {
     font-size: 12px;
+    line-height: 14px;
     transition: font-size var(--animation-global);
   }
 
   & div {
     font-size: 15px;
+    line-height: 18px;
     transition: font-size var(--animation-global);
   }
 
