@@ -1,14 +1,19 @@
+import { KahootExitFullScreenIcon, KahootFullScreenBtn, KahootFullScreenIcon } from 'components/Stream/Kahoots/Kahoots.styled';
 import { PlatformBox } from './Platform.styled';
+import { useState } from 'react';
 
 export const Platform = ({ isPlatformOpen, isOpenedLast, sectionWidth }) => {
-  const desktopWidth = sectionWidth / 2;
-  const mobileWidth = (sectionWidth / 3) * 2;
+  const [isFullScreen, setIsFullScreen] = useState(false);
 
   const supportBoxStylesHandler = () => {
     return {
       zIndex: isOpenedLast === 'support' ? '4' : '1',
-      width: sectionWidth > 1280 ? `${desktopWidth}px` : `${mobileWidth}px`,
+      width: isFullScreen ? sectionWidth : sectionWidth / 10 * 4,
     };
+  };
+
+  const toggleFullScreen = () => {
+    setIsFullScreen(isFullScreen => (isFullScreen = !isFullScreen));
   };
 
   return (
@@ -17,6 +22,13 @@ export const Platform = ({ isPlatformOpen, isOpenedLast, sectionWidth }) => {
         className={isPlatformOpen ? 'shown' : 'hidden'}
         style={{ ...supportBoxStylesHandler() }}
       >
+        <KahootFullScreenBtn onClick={toggleFullScreen}>
+          {isFullScreen ? (
+            <KahootExitFullScreenIcon />
+          ) : (
+            <KahootFullScreenIcon />
+          )}
+        </KahootFullScreenBtn>
         <iframe
           id="platform-window"
           title="platform-pin"

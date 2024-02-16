@@ -288,7 +288,7 @@ const StreamTrialDeutschSprechclub = () => {
               !links.trials_de.includes('youtube') &&
               !links.trials_de.includes('youtu.be')
                 ? window.location.replace(
-                    'https://us06web.zoom.us/j/81182390469?pwd=dgu8giaan9uiyt5ITCFciSmIxjhVEg.1'
+                    'https://us06web.zoom.us/j/81182390469?pwd=dgu8giaan9uiyt5ITCFciSmIxjhVEg.1#success'
                   )
                 : null}
               {height > width && (

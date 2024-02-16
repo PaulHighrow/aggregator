@@ -288,7 +288,7 @@ const StreamTrialB1SpeakingClub = () => {
               !links.trials_de.includes('youtube') &&
               !links.trials_de.includes('youtu.be')
                 ? window.location.replace(
-                    'https://us06web.zoom.us/j/82820194872?pwd=5Y0Hy0Y8dFJcW8fWwZDfv0C2w8SJlO.1'
+                    'https://us06web.zoom.us/j/82820194872?pwd=5Y0Hy0Y8dFJcW8fWwZDfv0C2w8SJlO.1#success'
                   )
                 : null}
               {height > width && (

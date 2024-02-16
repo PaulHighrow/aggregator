@@ -6,18 +6,16 @@ import {
   ButtonBox,
   ChatBtn,
   ChatLogo,
-  KahootBtn,
-  KahootLogo,
   StreamSection,
   SupportBtn,
-  SupportLogo,
+  SupportLogo
 } from 'components/Stream/Stream.styled';
 import { useState } from 'react';
 import Keyboard from 'react-simple-keyboard';
 import 'react-simple-keyboard/build/css/index.css';
 import { Platform } from './Platform/Platform';
+import { KeyboardBox, ViewerBtn, ViewerLogo } from './TeacherPage.styled';
 import { Viewer } from './Viewer/Viewer';
-import { KeyboardBox } from './TeacherPage.styled';
 
 const TeacherPage = () => {
   const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
@@ -61,9 +59,9 @@ const TeacherPage = () => {
   return (
     <StreamSection>
       <ButtonBox className={!isButtonBoxOpen ? 'hidden' : ''}>
-        <KahootBtn onClick={toggleViewer}>
-          <KahootLogo />
-        </KahootBtn>
+        <ViewerBtn onClick={toggleViewer}>
+          <ViewerLogo />
+        </ViewerBtn>
 
         <ChatBtn onClick={toggleKeyboard}>
           <ChatLogo />

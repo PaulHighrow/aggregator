@@ -11,8 +11,8 @@ export const Viewer = ({ isViewerOpen, isOpenedLast, sectionWidth }) => {
 
   const supportBoxStylesHandler = () => {
     return {
-      zIndex: isOpenedLast === 'support' ? '4' : '1',
-      width: isFullScreen ? sectionWidth : sectionWidth / 2,
+      zIndex: isOpenedLast === 'viewer' ? '4' : '1',
+      width: isFullScreen ? sectionWidth : sectionWidth / 10 * 4,
     };
   };
 
