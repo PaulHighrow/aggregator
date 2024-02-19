@@ -36,19 +36,20 @@ export const Title = styled.h1`
   width: 280px;
   color: var(--main-color);
   font-family: var(--title-font-family);
-  font-size: 40px;
+  font-size: 35px;
   font-weight: 700;
   letter-spacing: 2px;
   text-align: center;
   -webkit-text-stroke: 1px var(--main-color);
-  margin: 0 auto 30px auto;
+  margin: 0 auto 15px auto;
 
   @media screen and (min-width: 360px) {
     width: 300px;
+    font-size: 38px;
   }
 
   @media screen and (min-width: 768px) {
-    margin-bottom: 60px;
+    margin-bottom: 30px;
     letter-spacing: 3.5px;
     width: 700px;
     font-size: 70px;

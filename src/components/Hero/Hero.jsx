@@ -1,7 +1,8 @@
+import useSize from '@react-hook/size';
 import { Box } from 'components/Box/Box.styled';
 import { HeroSwiper } from 'components/Hero/HeroSwiper/HeroSwiper';
-import { useEffect, useState } from 'react';
-import { useInView } from 'react-intersection-observer';
+import { LeadBtn } from 'components/Menu/Menu.styled';
+import { useState } from 'react';
 import {
   Description,
   DescriptionMoreText,
@@ -10,51 +11,55 @@ import {
   DescriptionUnderlineLong,
   DescriptionUnderlineShort,
   HeroSection,
-  HeroVector,
-  SubTitle,
-  Title,
-  TitleBlock,
-  TitleSketch,
+  Title
 } from './Hero.styled';
 
 export const Hero = ({ toggleModal }) => {
   const [isMore, setIsMore] = useState(false);
-  const [isSketchHidden, setIsSketchHidden] = useState(true);
-  const [isSubtitleHidden, setIsSubtitleHidden] = useState(true);
+  // const [isSketchHidden, setIsSketchHidden] = useState(true);
+  // const [isSubtitleHidden, setIsSubtitleHidden] = useState(true);
+  // eslint-disable-next-line
+  const [width, _] = useSize(document.body);
 
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-  });
+  // const { ref, inView } = useInView({
+  //   triggerOnce: true,
+  // });
 
   const showMore = () => {
     setIsMore(isMore => !isMore);
   };
 
-  useEffect(() => {
-    const showSubtitle = setTimeout(() => {
-      setIsSubtitleHidden(isHidden => (isHidden = false));
-    }, 1500);
+  // useEffect(() => {
+  //   // const showSubtitle = setTimeout(() => {
+  //   //   setIsSubtitleHidden(isHidden => (isHidden = false));
+  //   // }, 1500);
 
-    const showSketch = setTimeout(() => {
-      setIsSketchHidden(isHidden => (isHidden = false));
-    }, 3000);
+  //   // const showSketch = setTimeout(() => {
+  //   //   setIsSketchHidden(isHidden => (isHidden = false));
+  //   // }, 3000);
 
-    return () => {
-      clearTimeout(showSubtitle);
-      clearTimeout(showSketch);
-    };
-  }, []);
+  //   // return () => {
+  //   //   clearTimeout(showSubtitle);
+  //   //   clearTimeout(showSketch);
+  //   // };
+  // }, []);
 
   return (
     <HeroSection id="hero">
       <Box>
         <Title>
-          <TitleBlock>ONE STEP</TitleBlock> FROM ZERO TO{' '}
+          ВИВЧЕННЯ АНГЛІЙСЬКОЇ З НУЛЯ
+          {/* <TitleBlock>ONE STEP</TitleBlock> FROM ZERO TO{' '}
           <SubTitle ref={ref}>
             HERO{inView && !isSketchHidden && <TitleSketch />}
             {!isSubtitleHidden && <HeroVector />}
-          </SubTitle>
+          </SubTitle> */}
         </Title>
+
+        <LeadBtn onClick={toggleModal}>
+          {width >= 400 ? 'ШВИДКА КОНСУЛЬТАЦІЯ' : 'КОНСУЛЬТАЦІЯ'}
+        </LeadBtn>
+
         <Description>
           <span>
             Ласкаво просимо до AP Education Center! Обравши нас, ви обираєте

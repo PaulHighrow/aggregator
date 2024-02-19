@@ -10,20 +10,16 @@ export const StyledNavigation = styled.nav`
   font-size: 20px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
   z-index: 5;
   background-color: var(--secondary-color);
   transition: opacity var(--animation-global), transform var(--animation-global);
 
   @media screen and (min-width: 768px) {
     position: absolute;
-    top: 75px;
     left: 0%;
     font-weight: 500;
-  }
-
-  @media screen and (min-width: 1280px) {
-    top: 90px;
   }
 `;
 

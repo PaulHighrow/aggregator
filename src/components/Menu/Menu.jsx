@@ -7,13 +7,12 @@ import {
   Header,
   HeaderText,
   HeaderWrapper,
-  LeadBtn,
   Logo,
   LogoRoute,
   MobileMenuBtn,
   MobileMenuIcon,
   NavContainer,
-  PlatformLink,
+  PlatformLink
 } from './Menu.styled';
 
 export const Menu = ({ toggleModal }) => {
@@ -36,12 +35,6 @@ export const Menu = ({ toggleModal }) => {
             <Logo />
           </LogoRoute>
 
-          {width < 768 && (
-            <LeadBtn onClick={toggleModal}>
-              {width >= 400 ? 'ШВИДКА КОНСУЛЬТАЦІЯ' : 'КОНСУЛЬТАЦІЯ'}{' '}
-            </LeadBtn>
-          )}
-
           <MobileMenuBtn onClick={toggleMenu}>
             {width >= 768 ? (
               <>
@@ -52,9 +45,9 @@ export const Menu = ({ toggleModal }) => {
             )}
           </MobileMenuBtn>
         </HeaderWrapper>
-        {width >= 768 && (
+        {/* {width >= 768 && (
           <LeadBtn onClick={toggleModal}> ШВИДКА КОНСУЛЬТАЦІЯ </LeadBtn>
-        )}
+        )} */}
         {width >= 768 && (
           <PlatformLink href="https://online.ap.education/" target="_blank">
             <HeaderText>УВІЙТИ</HeaderText> <LoginIcon />

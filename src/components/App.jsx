@@ -106,6 +106,11 @@ const TeacherPage = lazy(() =>
     /* webpackChunkName: "Teacher Page" */ '../pages/TeacherPage/TeacherPage'
   )
 );
+const MyAP = lazy(() =>
+  import(
+    /* webpackChunkName: "My AP Page" */ '../pages/MyAP/MyAP'
+  )
+);
 const NotFound = lazy(() =>
   import(/* webpackChunkName: "Not Found" */ '../pages/NotFound/NotFound')
 );
@@ -158,6 +163,7 @@ export const App = () => {
           <Route path="examination" element={<Examination utms={utms} />} />
           <Route path="translation" element={<Translation utms={utms} />} />
           <Route path="career" element={<Career utms={utms} />} /> */}
+          <Route path="my-ap" element={<MyAP />} />
           <Route path="*" element={<NotFound />} />
         </Route>
         <Route path="streams" element={<Streams />}>

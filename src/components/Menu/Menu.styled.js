@@ -30,12 +30,10 @@ export const Header = styled.header`
 
   @media screen and (min-width: 768px) {
     padding: 0 42px;
-    height: 75px;
   }
 
   @media screen and (min-width: 1280px) {
     padding: 0 55px;
-    height: 90px;
   }
 
   &.hidden {
@@ -121,14 +119,6 @@ export const Logo = styled(LogoIcon)`
     transform: scale(1.2);
     filter: drop-shadow(0px 0px 0.5px #00000054);
   }
-
-  @media screen and (min-width: 768px) {
-    width: 58px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    width: 72px;
-  }
 `;
 
 export const wobblyOutline = keyframes`
@@ -156,6 +146,10 @@ export const wobblyOutline = keyframes`
 `;
 
 export const LeadBtn = styled.button`
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+
   padding: 10px 10px;
   font-size: 20px;
   font-weight: 600;
