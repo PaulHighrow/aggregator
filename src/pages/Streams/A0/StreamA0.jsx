@@ -125,7 +125,7 @@ export const StreamA0 = () => {
         const newUser = {
           username: userName.trim(),
           userID: idGen,
-          userIP: currentUser.ip,
+          userIP: currentUser.userIP,
           isAdmin: false,
         };
         await axios.post('https://ap-chat.onrender.com/users', newUser);
