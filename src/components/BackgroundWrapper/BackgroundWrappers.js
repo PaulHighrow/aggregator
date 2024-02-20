@@ -68,6 +68,8 @@ export const BackgroundWrapper = styled.div`
 `;
 
 export const StreamsBackgroundWrapper = styled.div`
+  font-family: var(--streams-font-family);
+
   height: 100vh;
   background-position: right -70px top 0px;
   background-image: image-set(

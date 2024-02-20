@@ -61,6 +61,29 @@ export const Title = styled.h1`
   }
 `;
 
+export const LesserTitle = styled.p`
+  position: relative;
+  z-index: 1;
+
+  color: var(--main-color);
+  font-family: var(--title-font-family);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-align: center;
+  -webkit-text-stroke: 1px var(--main-color);
+  margin: 0 auto 15px auto;
+
+  @media screen and (min-width: 360px) {
+    font-size: 32px;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 30px;
+    font-size: 42px;
+  }
+`;
+
 const sketchAnimation = keyframes`
   0%{
     stroke-dashoffset: 746;

@@ -16,6 +16,8 @@ import { Route, Routes, useSearchParams } from 'react-router-dom';
 import ScrollToTop from 'utils/ScrollToTop/ScrollToTop';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { WindowedChat } from 'utils/Chat/ChatWindowed/WindowedChat';
+import ViberRedirect from 'pages/Service/ViberRedirect/ViberRedirect';
+import TelegramRedirect from 'pages/Service/TelegramRedirect/TelegramRedirect';
 
 const Home = lazy(() =>
   import(/* webpackChunkName: "Homepage" */ '../pages/Home/Home')
@@ -25,6 +27,9 @@ const Clone = lazy(() =>
 );
 const Streams = lazy(() =>
   import(/* webpackChunkName: "Streams page" */ '../pages/Streams/Streams')
+);
+const Service = lazy(() =>
+  import(/* webpackChunkName: "Service page" */ '../pages/Service/Service')
 );
 const StreamsKids = lazy(() =>
   import(
@@ -107,9 +112,7 @@ const TeacherPage = lazy(() =>
   )
 );
 const MyAP = lazy(() =>
-  import(
-    /* webpackChunkName: "My AP Page" */ '../pages/MyAP/MyAP'
-  )
+  import(/* webpackChunkName: "My AP Page" */ '../pages/MyAP/MyAP')
 );
 const NotFound = lazy(() =>
   import(/* webpackChunkName: "Not Found" */ '../pages/NotFound/NotFound')
@@ -193,6 +196,10 @@ export const App = () => {
           <Route path="a2-chat" element={<WindowedChat />} />
           <Route path="b1" element={<KidsB1 />} />
           <Route path="b1-chat" element={<WindowedChat />} />
+        </Route>
+        <Route path="service" element={<Service />}>
+          <Route path="viber" element={<ViberRedirect />} />
+          <Route path="tg" element={<TelegramRedirect />} />
         </Route>
         <Route path="trial-en" element={<StreamTrialEnglish />} />
         <Route path="trial-pl" element={<StreamTrialPolski />} />

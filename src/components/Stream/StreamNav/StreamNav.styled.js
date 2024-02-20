@@ -26,6 +26,8 @@ export const StreamNavigationBox = styled.section`
 export const StreamNavigation = styled.div`
   display: flex;
   flex-direction: column;
+  
+  font-family: var(--streams-font-family);
   gap: 15px;
 
   @media screen and (min-width: 768px) {

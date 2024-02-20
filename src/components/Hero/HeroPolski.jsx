@@ -1,8 +1,6 @@
 import { Box } from 'components/Box/Box.styled';
-import { useEffect, useState } from 'react';
-import { useInView } from 'react-intersection-observer';
+import { useState } from 'react';
 import {
-  BohateraVector,
   Description,
   DescriptionMoreText,
   DescriptionSiteText,
@@ -10,51 +8,56 @@ import {
   DescriptionUnderlineLong,
   DescriptionUnderlineShort,
   HeroSection,
-  SubTitle,
   Title,
-  TitleBlock,
-  TitleSketchPol,
 } from './Hero.styled';
 import { HeroSwiperPol } from './HeroSwiper/HeroSwiperPol';
+import useSize from '@react-hook/size';
+import { LeadBtn } from 'components/Menu/Menu.styled';
 
 export const HeroPolski = ({ toggleModal }) => {
   const [isMore, setIsMore] = useState(false);
-  const [isSketchHidden, setIsSketchHidden] = useState(true);
-  const [isSubtitleHidden, setIsSubtitleHidden] = useState(true);
+  // const [isSketchHidden, setIsSketchHidden] = useState(true);
+  // const [isSubtitleHidden, setIsSubtitleHidden] = useState(true);
+  // eslint-disable-next-line
+  const [width, _] = useSize(document.body);
 
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-  });
+  // const { ref, inView } = useInView({
+  //   triggerOnce: true,
+  // });
 
   const showMore = () => {
     setIsMore(isMore => !isMore);
   };
 
-  useEffect(() => {
-    const showSubtitle = setTimeout(() => {
-      setIsSubtitleHidden(isHidden => (isHidden = false));
-    }, 1500);
+  // useEffect(() => {
+  //   const showSubtitle = setTimeout(() => {
+  //     setIsSubtitleHidden(isHidden => (isHidden = false));
+  //   }, 1500);
 
-    const showSketch = setTimeout(() => {
-      setIsSketchHidden(isHidden => (isHidden = false));
-    }, 4300);
+  //   const showSketch = setTimeout(() => {
+  //     setIsSketchHidden(isHidden => (isHidden = false));
+  //   }, 4300);
 
-    return () => {
-      clearTimeout(showSubtitle);
-      clearTimeout(showSketch);
-    };
-  }, []);
+  //   return () => {
+  //     clearTimeout(showSubtitle);
+  //     clearTimeout(showSketch);
+  //   };
+  // }, []);
 
   return (
     <HeroSection id="hero">
       <Box>
         <Title>
-          <TitleBlock>OD ZERA DO</TitleBlock>{' '}
+          ВИВЧЕННЯ ПОЛЬСЬКОЇ З НУЛЯ
+          {/* <TitleBlock>OD ZERA DO</TitleBlock>{' '}
           <SubTitle ref={ref}>
             BOHATERA{inView && !isSketchHidden && <TitleSketchPol />}
             {!isSubtitleHidden && <BohateraVector />}
-          </SubTitle>
+          </SubTitle> */}
         </Title>
+        <LeadBtn onClick={toggleModal}>
+          {width >= 400 ? 'ШВИДКА КОНСУЛЬТАЦІЯ' : 'КОНСУЛЬТАЦІЯ'}
+        </LeadBtn>
         <Description>
           <span>
             Ласкаво просимо до AP Education Center! Обравши нас, ви обираєте
