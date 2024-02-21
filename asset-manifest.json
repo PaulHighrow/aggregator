@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.a3ac824d.css",
-    "main.js": "/aggregator/static/js/main.68b15831.js",
+    "main.js": "/aggregator/static/js/main.1c911d7e.js",
     "Homepage.css": "/aggregator/static/css/Homepage.ddbfcb81.chunk.css",
     "Homepage.js": "/aggregator/static/js/Homepage.cba1d553.chunk.js",
     "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.006bb49e.chunk.js",
     "Streams page.js": "/aggregator/static/js/Streams page.2a785fe0.chunk.js",
-    "Service page.js": "/aggregator/static/js/Service page.a7bcfc75.chunk.js",
+    "Service page.js": "/aggregator/static/js/Service page.03a9d9a5.chunk.js",
     "Streams Kids page.js": "/aggregator/static/js/Streams Kids page.724cce54.chunk.js",
     "English trials page.js": "/aggregator/static/js/English trials page.18cf31c1.chunk.js",
     "Kids trials page.js": "/aggregator/static/js/Kids trials page.bd298552.chunk.js",
@@ -42,7 +42,7 @@
     "static/js/172.cd487fd1.chunk.js": "/aggregator/static/js/172.cd487fd1.chunk.js",
     "static/js/786.210a1985.chunk.js": "/aggregator/static/js/786.210a1985.chunk.js",
     "static/js/294.d1eb2727.chunk.js": "/aggregator/static/js/294.d1eb2727.chunk.js",
-    "static/js/27.2cb5b75c.chunk.js": "/aggregator/static/js/27.2cb5b75c.chunk.js",
+    "static/js/27.54c96e15.chunk.js": "/aggregator/static/js/27.54c96e15.chunk.js",
     "static/media/LTJournalCrayon-Regular.eot": "/aggregator/static/media/LTJournalCrayon-Regular.4e01f9d2a8b68d2b8f20.eot",
     "static/media/LTJournalCrayon-Regular.ttf": "/aggregator/static/media/LTJournalCrayon-Regular.6f92c12d932b03431110.ttf",
     "static/media/LTJournalCrayon-Regular.woff": "/aggregator/static/media/LTJournalCrayon-Regular.ad68ffb639193095ad33.woff",
@@ -148,12 +148,12 @@
     "static/media/btnbox-switch-left.svg": "/aggregator/static/media/btnbox-switch-left.41ecbf13fa59a984cfe935e54d276421.svg",
     "static/media/btnbox-switch-right.svg": "/aggregator/static/media/btnbox-switch-right.c2062beab8ed3d828de36754c3279d60.svg",
     "main.a3ac824d.css.map": "/aggregator/static/css/main.a3ac824d.css.map",
-    "main.68b15831.js.map": "/aggregator/static/js/main.68b15831.js.map",
+    "main.1c911d7e.js.map": "/aggregator/static/js/main.1c911d7e.js.map",
     "Homepage.ddbfcb81.chunk.css.map": "/aggregator/static/css/Homepage.ddbfcb81.chunk.css.map",
     "Homepage.cba1d553.chunk.js.map": "/aggregator/static/js/Homepage.cba1d553.chunk.js.map",
     "Inverted Homepage.006bb49e.chunk.js.map": "/aggregator/static/js/Inverted Homepage.006bb49e.chunk.js.map",
     "Streams page.2a785fe0.chunk.js.map": "/aggregator/static/js/Streams page.2a785fe0.chunk.js.map",
-    "Service page.a7bcfc75.chunk.js.map": "/aggregator/static/js/Service page.a7bcfc75.chunk.js.map",
+    "Service page.03a9d9a5.chunk.js.map": "/aggregator/static/js/Service page.03a9d9a5.chunk.js.map",
     "Streams Kids page.724cce54.chunk.js.map": "/aggregator/static/js/Streams Kids page.724cce54.chunk.js.map",
     "English trials page.18cf31c1.chunk.js.map": "/aggregator/static/js/English trials page.18cf31c1.chunk.js.map",
     "Kids trials page.bd298552.chunk.js.map": "/aggregator/static/js/Kids trials page.bd298552.chunk.js.map",
@@ -189,10 +189,10 @@
     "172.cd487fd1.chunk.js.map": "/aggregator/static/js/172.cd487fd1.chunk.js.map",
     "786.210a1985.chunk.js.map": "/aggregator/static/js/786.210a1985.chunk.js.map",
     "294.d1eb2727.chunk.js.map": "/aggregator/static/js/294.d1eb2727.chunk.js.map",
-    "27.2cb5b75c.chunk.js.map": "/aggregator/static/js/27.2cb5b75c.chunk.js.map"
+    "27.54c96e15.chunk.js.map": "/aggregator/static/js/27.54c96e15.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a3ac824d.css",
-    "static/js/main.68b15831.js"
+    "static/js/main.1c911d7e.js"
   ]
 }
