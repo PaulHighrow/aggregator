@@ -4,7 +4,6 @@ import {
 } from 'components/Stream/StreamNav/StreamNav.styled';
 import {
   ServiceNavDescription,
-  ServiceNavDescriptionHighlight,
   ServiceNavItem,
   ServiceNavLink,
   ServiceNavList,

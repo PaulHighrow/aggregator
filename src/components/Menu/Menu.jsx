@@ -43,11 +43,13 @@ export const Menu = ({ toggleModal }) => {
               <BurgerMenuIcon />
             )}
           </MobileMenuBtn>
-          <Navigation
-            toggleMenu={toggleMenu}
-            toggleModal={toggleModal}
-            className={isMenuOpen ? 'nav-open' : 'nav-closed'}
-          />
+          {width >= 1280 && (
+            <Navigation
+              toggleMenu={toggleMenu}
+              toggleModal={toggleModal}
+              className={isMenuOpen ? 'nav-open' : 'nav-closed'}
+            />
+          )}
         </HeaderWrapper>
         {/* {width >= 768 && (
           <LeadBtn onClick={toggleModal}> ШВИДКА КОНСУЛЬТАЦІЯ </LeadBtn>

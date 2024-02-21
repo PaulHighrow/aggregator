@@ -2,16 +2,21 @@ import { Box } from 'components/Box/Box.styled';
 import {
   FacebookBtn,
   Footer,
+  FooterBottomContainer,
   FooterBox,
+  FooterCopyright,
+  FooterFileLink,
   FooterLeadBtn,
   FooterLeftBox,
   FooterLink,
+  FooterLinksContainer,
   FooterList,
   FooterListItem,
   FooterLogo,
   FooterLogoLink,
   FooterNavLink,
   FooterSocials,
+  FooterTopContainer,
   IconBox,
   InstagramBtn,
   LeadDesc,
@@ -51,53 +56,54 @@ export const MainFooter = ({ toggleModal }) => {
     <Footer>
       <Box>
         <FooterBox>
-          <FooterLeftBox>
-            <IconBox>
-              <FooterLogoLink to="/">
-                <FooterLogo />
-              </FooterLogoLink>
-              <FooterSocials>
-                <SocialLogoLink
-                  href="https://www.instagram.com/ap.education/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <InstagramBtn />
-                </SocialLogoLink>
-                <SocialLogoLink
-                  href="https://www.facebook.com/ap.edu.centre/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FacebookBtn />
-                </SocialLogoLink>
-                <SocialLogoLink
-                  href="https://www.tiktok.com/@ap_education"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <TikTokBtn />
-                </SocialLogoLink>
-                <SocialLogoLink
-                  href="https://www.youtube.com/channel/UC3XSGAVLhPXXlMN5-Gebtvw"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <YouTubeBtn />
-                </SocialLogoLink>
-              </FooterSocials>
-            </IconBox>
-            <LeadWrapper>
-              <LeadDesc>... якщо залишились запитання </LeadDesc>
-              <FooterLeadBtn onClick={toggleModal}>
-                {' '}
-                ЗАЛИШИТИ ЗАЯВКУ{' '}
-              </FooterLeadBtn>
-              <MonoPawIcon />
-            </LeadWrapper>
-          </FooterLeftBox>
-          <FooterList>
-            {/* <FooterListItem>
+          <FooterTopContainer>
+            <FooterLeftBox>
+              <IconBox>
+                <FooterLogoLink to="/">
+                  <FooterLogo />
+                </FooterLogoLink>
+                <FooterSocials>
+                  <SocialLogoLink
+                    href="https://www.instagram.com/ap.education/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <InstagramBtn />
+                  </SocialLogoLink>
+                  <SocialLogoLink
+                    href="https://www.facebook.com/ap.edu.centre/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FacebookBtn />
+                  </SocialLogoLink>
+                  <SocialLogoLink
+                    href="https://www.tiktok.com/@ap_education"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <TikTokBtn />
+                  </SocialLogoLink>
+                  <SocialLogoLink
+                    href="https://www.youtube.com/channel/UC3XSGAVLhPXXlMN5-Gebtvw"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <YouTubeBtn />
+                  </SocialLogoLink>
+                </FooterSocials>
+              </IconBox>
+              <LeadWrapper>
+                <LeadDesc>... якщо залишились запитання </LeadDesc>
+                <FooterLeadBtn onClick={toggleModal}>
+                  {' '}
+                  ЗАЛИШИТИ ЗАЯВКУ{' '}
+                </FooterLeadBtn>
+              </LeadWrapper>
+            </FooterLeftBox>
+
+            <FooterList>
+              {/* <FooterListItem>
               <LinkListTitle>Наші послуги</LinkListTitle>
               <LinkList>
                 {footerServicesItems.map((item, i) => (
@@ -109,29 +115,44 @@ export const MainFooter = ({ toggleModal }) => {
                 ))}
               </LinkList>
             </FooterListItem> */}
-            <FooterListItem>
-              <LinkListTitle>Курси</LinkListTitle>
-              <LinkList>
-                {footerCoursesItems.map((item, i) => (
-                  <LinkListItem key={i}>
-                    <FooterNavLink to={item.to}>{item.course}</FooterNavLink>
-                  </LinkListItem>
-                ))}
-              </LinkList>
-            </FooterListItem>
-            <FooterListItem>
-              <LinkListTitle id="contacts">Контакти</LinkListTitle>
-              <LinkList>
-                {footerContactsItems.map((item, i) => (
-                  <LinkListItem key={i}>
-                    <FooterLink href={item.href} target="_blank">
-                      {item.contact}
-                    </FooterLink>
-                  </LinkListItem>
-                ))}
-              </LinkList>
-            </FooterListItem>
-          </FooterList>
+              <FooterListItem>
+                <LinkListTitle>Курси</LinkListTitle>
+                <LinkList>
+                  {footerCoursesItems.map((item, i) => (
+                    <LinkListItem key={i}>
+                      <FooterNavLink to={item.to}>{item.course}</FooterNavLink>
+                    </LinkListItem>
+                  ))}
+                </LinkList>
+              </FooterListItem>
+              <FooterListItem>
+                <LinkListTitle id="contacts">Контакти</LinkListTitle>
+                <LinkList>
+                  {footerContactsItems.map((item, i) => (
+                    <LinkListItem key={i}>
+                      <FooterLink href={item.href} target="_blank">
+                        {item.contact}
+                      </FooterLink>
+                    </LinkListItem>
+                  ))}
+                </LinkList>
+              </FooterListItem>
+            </FooterList>
+          </FooterTopContainer>
+          <FooterBottomContainer>
+            <FooterCopyright>
+              ©2024 AP Education Center. All rights reserved
+            </FooterCopyright>
+            <FooterLinksContainer>
+              <FooterFileLink to={'https://ap.education/static/docs/privacy_policy.docx'}>
+                Політика конфіденційності
+              </FooterFileLink>
+              <FooterFileLink to={'https://ap.education/static/docs/public_offer.docx'}>
+                Публічна оферта
+              </FooterFileLink>
+              <MonoPawIcon />
+            </FooterLinksContainer>
+          </FooterBottomContainer>
         </FooterBox>
       </Box>
       <Map />

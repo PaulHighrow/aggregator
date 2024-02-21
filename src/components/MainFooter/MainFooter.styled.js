@@ -24,8 +24,6 @@ export const FooterBox = styled.div`
 
   @media screen and (min-width: 1280px) {
     padding: 40px 55px;
-    display: flex;
-    justify-content: space-between;
   }
 `;
 
@@ -124,7 +122,6 @@ export const YouTubeBtn = styled(YouTubeIcon)`
 `;
 
 export const MonoPawIcon = styled(MonoIcon)`
-
   height: 40px;
   width: 140px;
 `;
@@ -178,7 +175,7 @@ export const FooterList = styled.ul`
   }
 
   @media screen and (min-width: 1280px) {
-    gap: 113px;
+    gap: 63px;
   }
 `;
 
@@ -208,7 +205,7 @@ export const LinkList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  max-width: 160px;
+  max-width: 140px;
 `;
 
 export const LinkListItem = styled.li`
@@ -278,3 +275,46 @@ export const MapPointer = styled(PiMapPinDuotone)`
   width: 30px;
   height: 30px;
 `;
+
+export const FooterCopyright = styled.p`
+  color: var(--main-color);
+  vertical-align: middle;
+  font-size: 18px;
+  font-weight: 600;
+`;
+
+export const FooterTopContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const FooterBottomContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-weight: 600;
+  padding-top: 20px;
+
+  border-top: 1px solid #00000010;
+`;
+
+export const FooterLinksContainer = styled.div`
+  display: flex;
+  gap: 40px;
+  align-items: center;
+
+  font-size: 18px;
+`;
+
+export const FooterFileLink = styled(Link)`
+  color: var(--main-color);
+  cursor: pointer;
+  text-decoration: none;
+  transition: color var(--animation-global);
+
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+  }
+`
