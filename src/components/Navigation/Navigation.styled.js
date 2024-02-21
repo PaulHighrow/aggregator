@@ -17,9 +17,11 @@ export const StyledNavigation = styled.nav`
   transition: opacity var(--animation-global), transform var(--animation-global);
 
   @media screen and (min-width: 768px) {
-    position: absolute;
-    left: 0%;
-    font-weight: 500;
+    position: static;
+    display: flex;
+    max-width: fit-content;
+
+    box-shadow: none;
   }
 `;
 
@@ -40,12 +42,19 @@ export const NavigationList = styled.ul`
   flex-direction: column;
   overflow: hidden;
 
+  color: var(--secondary-color);
+  justify-content: center;
+
   @media screen and (min-width: 768px) {
     border: none;
   }
 
-  color: var(--secondary-color);
-  justify-content: center;
+  @media screen and (min-width: 1280px) {
+    margin: 0 auto;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+  }
 `;
 
 export const NavigationItem = styled.li`
@@ -53,6 +62,12 @@ export const NavigationItem = styled.li`
 
   &:not(:last-child) {
     border-bottom: 0.5px solid var(--main-color);
+  }
+
+  @media screen and (min-width: 1280px) {
+    &:not(:last-child) {
+      border-bottom: none;
+    }
   }
 `;
 
@@ -66,6 +81,11 @@ export const NavigationLink = styled(Link)`
     background-color var(--animation-global),
     text-shadow var(--animation-global);
   padding: 10px 16px;
+
+  @media screen and (min-width: 1280px) {
+    padding: 0px;
+    display: inline;
+  }
 
   &:hover,
   &:focus,

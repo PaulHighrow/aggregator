@@ -1,18 +1,30 @@
 import {
-    StreamNavDescription,
-    StreamNavTitle,
-    StreamNavigation,
-    StreamNavigationBox
+  StreamNavigation,
+  StreamNavigationBox,
 } from 'components/Stream/StreamNav/StreamNav.styled';
-import { ServiceNavItem, ServiceNavLink, ServiceNavList, TelegramLogo, ViberLogo } from './ServiceNav.styled';
+import {
+  ServiceNavDescription,
+  ServiceNavDescriptionHighlight,
+  ServiceNavItem,
+  ServiceNavLink,
+  ServiceNavList,
+  ServiceNavTitle,
+  TelegramLogo,
+  ViberLogo,
+} from './ServiceNav.styled';
 
 export const ServiceNav = () => {
   return (
     <>
       <StreamNavigationBox>
         <StreamNavigation>
-          <StreamNavTitle>У вас проблеми? Розкажіть нам про них!</StreamNavTitle>
-          <StreamNavDescription>Для цього скористайтесь одним з наших чат-ботів:</StreamNavDescription>
+          <ServiceNavTitle>
+            Оберіть месенджер, в якому вам буде зручно спілкуватись з менеджером
+            сервісу:
+          </ServiceNavTitle>
+          <ServiceNavDescription>
+            Не забудьте написати ваше прізвище та ім'я першим повідомленням!
+          </ServiceNavDescription>
           <ServiceNavList>
             <ServiceNavItem>
               <ServiceNavLink to={'/service/viber'}>

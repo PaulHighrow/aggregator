@@ -11,8 +11,7 @@ import {
   LogoRoute,
   MobileMenuBtn,
   MobileMenuIcon,
-  NavContainer,
-  PlatformLink
+  PlatformLink,
 } from './Menu.styled';
 
 export const Menu = ({ toggleModal }) => {
@@ -44,6 +43,11 @@ export const Menu = ({ toggleModal }) => {
               <BurgerMenuIcon />
             )}
           </MobileMenuBtn>
+          <Navigation
+            toggleMenu={toggleMenu}
+            toggleModal={toggleModal}
+            className={isMenuOpen ? 'nav-open' : 'nav-closed'}
+          />
         </HeaderWrapper>
         {/* {width >= 768 && (
           <LeadBtn onClick={toggleModal}> ШВИДКА КОНСУЛЬТАЦІЯ </LeadBtn>
@@ -54,13 +58,11 @@ export const Menu = ({ toggleModal }) => {
           </PlatformLink>
         )}
       </Header>
-      <NavContainer className={show ? 'shown' : 'hidden'}>
-        <Navigation
-          toggleMenu={toggleMenu}
-          toggleModal={toggleModal}
-          className={isMenuOpen ? 'nav-open' : 'nav-closed'}
-        />
-      </NavContainer>
+      <Navigation
+        toggleMenu={toggleMenu}
+        toggleModal={toggleModal}
+        className={isMenuOpen ? 'nav-open' : 'nav-closed'}
+      />
     </>
   );
 };

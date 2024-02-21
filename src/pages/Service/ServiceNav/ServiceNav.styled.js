@@ -3,10 +3,43 @@ import { ReactComponent as ViberIcon } from '../../../img/svg/social-links/viber
 import { ReactComponent as TelegramIcon } from '../../../img/svg/social-links/telegram.svg';
 import { NavLink } from 'react-router-dom';
 
+export const ServiceNavTitle = styled.h2`
+  text-align: center;
+  color: var(--main-color);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 1.8px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 28px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 32px;
+  }
+`;
+
+export const ServiceNavDescription = styled.p`
+  text-align: center;
+  color: red;
+
+  font-size: 24px;
+  font-weight: 500;
+
+  @media screen and (min-width: 768px) {
+    font-size: 26px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 28px;
+  }
+`;
+
 export const ServiceNavList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   gap: 40px;
 `;
 
@@ -53,7 +86,7 @@ export const TelegramLogo = styled(TelegramIcon)`
 export const RedirectDescription = styled.p`
   position: absolute;
   text-align: center;
-  
+
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
