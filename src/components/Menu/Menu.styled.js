@@ -52,13 +52,10 @@ export const NavContainer = styled.div`
 `;
 
 export const HeaderWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-
-  @media screen and (min-width: 768px) {
-    width: auto;
-    gap: 24px;
+  @media screen and (max-width: 1279px) {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
   }
 `;
 
@@ -87,7 +84,7 @@ export const MobileMenuBtn = styled.button`
 `;
 
 export const MobileMenuIcon = styled(MenuDownArrow)`
-  color: var(--main-color);
+  color: currentColor;
   flex-shrink: 0;
   stroke-width: 1;
 

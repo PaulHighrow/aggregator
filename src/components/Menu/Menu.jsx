@@ -10,7 +10,6 @@ import {
   Logo,
   LogoRoute,
   MobileMenuBtn,
-  MobileMenuIcon,
   PlatformLink,
 } from './Menu.styled';
 
@@ -34,37 +33,36 @@ export const Menu = ({ toggleModal }) => {
             <Logo />
           </LogoRoute>
 
-          <MobileMenuBtn onClick={toggleMenu}>
-            {width >= 768 ? (
-              <>
-                <HeaderText>МЕНЮ</HeaderText> <MobileMenuIcon />
-              </>
-            ) : (
+          {width < 1280 && (
+            <MobileMenuBtn onClick={toggleMenu}>
               <BurgerMenuIcon />
-            )}
-          </MobileMenuBtn>
-          {width >= 1280 && (
-            <Navigation
-              toggleMenu={toggleMenu}
-              toggleModal={toggleModal}
-              className={isMenuOpen ? 'nav-open' : 'nav-closed'}
-            />
+            </MobileMenuBtn>
           )}
         </HeaderWrapper>
         {/* {width >= 768 && (
           <LeadBtn onClick={toggleModal}> ШВИДКА КОНСУЛЬТАЦІЯ </LeadBtn>
         )} */}
-        {width >= 768 && (
+        {width >= 1280 && (
+          <Navigation
+            toggleMenu={toggleMenu}
+            toggleModal={toggleModal}
+            className={'nav-open'}
+          />
+        )}
+
+        {width >= 1280 && (
           <PlatformLink href="https://online.ap.education/" target="_blank">
             <HeaderText>УВІЙТИ</HeaderText> <LoginIcon />
           </PlatformLink>
         )}
       </Header>
-      <Navigation
-        toggleMenu={toggleMenu}
-        toggleModal={toggleModal}
-        className={isMenuOpen ? 'nav-open' : 'nav-closed'}
-      />
+      {width < 1280 && (
+        <Navigation
+          toggleMenu={toggleMenu}
+          toggleModal={toggleModal}
+          className={isMenuOpen ? 'nav-open' : 'nav-closed'}
+        />
+      )}
     </>
   );
 };

@@ -131,7 +131,7 @@ export const LeadWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 18px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 
   @media screen and (min-width: 768px) {
     gap: 20px;
@@ -169,6 +169,7 @@ export const FooterList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 36px;
+  padding-bottom: 20px;
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
@@ -176,6 +177,7 @@ export const FooterList = styled.ul`
 
   @media screen and (min-width: 1280px) {
     gap: 63px;
+    padding-bottom: 0;
   }
 `;
 
@@ -279,6 +281,7 @@ export const MapPointer = styled(PiMapPinDuotone)`
 export const FooterCopyright = styled.p`
   color: var(--main-color);
   vertical-align: middle;
+  text-align: center;
   font-size: 18px;
   font-weight: 600;
 `;
@@ -286,6 +289,10 @@ export const FooterCopyright = styled.p`
 export const FooterTopContainer = styled.div`
   display: flex;
   justify-content: space-between;
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+  }
 `;
 
 export const FooterBottomContainer = styled.div`
@@ -297,6 +304,11 @@ export const FooterBottomContainer = styled.div`
   padding-top: 20px;
 
   border-top: 1px solid #00000010;
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    gap: 20px;
+  }
 `;
 
 export const FooterLinksContainer = styled.div`
@@ -305,6 +317,11 @@ export const FooterLinksContainer = styled.div`
   align-items: center;
 
   font-size: 18px;
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    gap: 20px;
+  }
 `;
 
 export const FooterFileLink = styled(Link)`
@@ -317,4 +334,4 @@ export const FooterFileLink = styled(Link)`
   &:focus {
     color: var(--accent-color);
   }
-`
+`;
