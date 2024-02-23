@@ -203,12 +203,12 @@ export const App = () => {
           <Route path="b1-chat" element={<WindowedChat />} />
         </Route>
         <Route path="service" element={<Service />}>
-          <Route path="viber" element={<ViberHRRedirect />} />
-          <Route path="tg" element={<TelegramHRRedirect />} />
-        </Route>
-        <Route path="hr" element={<HR />}>
           <Route path="viber" element={<ViberRedirect />} />
           <Route path="tg" element={<TelegramRedirect />} />
+        </Route>
+        <Route path="hr" element={<HR />}>
+          <Route path="viber" element={<ViberHRRedirect />} />
+          <Route path="tg" element={<TelegramHRRedirect />} />
         </Route>
         <Route path="trial-en" element={<StreamTrialEnglish />} />
         <Route path="trial-pl" element={<StreamTrialPolski />} />
