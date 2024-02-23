@@ -18,6 +18,8 @@ import { SharedLayout } from './SharedLayout/SharedLayout';
 import { WindowedChat } from 'utils/Chat/ChatWindowed/WindowedChat';
 import ViberRedirect from 'pages/Service/ViberRedirect/ViberRedirect';
 import TelegramRedirect from 'pages/Service/TelegramRedirect/TelegramRedirect';
+import ViberHRRedirect from 'pages/HR/ViberHRRedirect/ViberHRRedirect';
+import TelegramHRRedirect from 'pages/HR/TelegramHRRedirect/TelegramHRRedirect';
 
 const Home = lazy(() =>
   import(/* webpackChunkName: "Homepage" */ '../pages/Home/Home')
@@ -30,6 +32,9 @@ const Streams = lazy(() =>
 );
 const Service = lazy(() =>
   import(/* webpackChunkName: "Service page" */ '../pages/Service/Service')
+);
+const HR = lazy(() =>
+  import(/* webpackChunkName: "HR page" */ '../pages/HR/HR')
 );
 const StreamsKids = lazy(() =>
   import(
@@ -198,6 +203,10 @@ export const App = () => {
           <Route path="b1-chat" element={<WindowedChat />} />
         </Route>
         <Route path="service" element={<Service />}>
+          <Route path="viber" element={<ViberHRRedirect />} />
+          <Route path="tg" element={<TelegramHRRedirect />} />
+        </Route>
+        <Route path="hr" element={<HR />}>
           <Route path="viber" element={<ViberRedirect />} />
           <Route path="tg" element={<TelegramRedirect />} />
         </Route>

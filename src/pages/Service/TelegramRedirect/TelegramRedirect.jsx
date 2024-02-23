@@ -8,7 +8,7 @@ const TelegramRedirect = () => {
 
   return (
     <RedirectDescription>
-      Зачекайте, перенаправляємо вас в наш Telegram-бот...
+      Зачекайте, перенаправляємо Вас в наш Telegram-бот...
     </RedirectDescription>
   );
 };

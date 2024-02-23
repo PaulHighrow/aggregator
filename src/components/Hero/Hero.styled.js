@@ -67,20 +67,20 @@ export const LesserTitle = styled.p`
 
   color: var(--main-color);
   font-family: var(--title-font-family);
-  font-size: 24px;
-  font-weight: 700;
+  font-size: 20px;
+  font-weight: 500;
   letter-spacing: 2px;
   text-align: center;
   -webkit-text-stroke: 1px var(--main-color);
   margin: 0 auto 15px auto;
 
   @media screen and (min-width: 360px) {
-    font-size: 32px;
+    font-size: 22px;
   }
 
   @media screen and (min-width: 768px) {
     margin-bottom: 30px;
-    font-size: 42px;
+    font-size: 32px;
   }
 `;
 
@@ -214,13 +214,14 @@ export const Description = styled.p`
   @media screen and (min-width: 768px) {
     font-size: 22px;
     padding: 0 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   @media screen and (min-width: 1280px) {
     padding: 0 55px;
-    max-width: 60%;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 900px;
   }
 `;
 

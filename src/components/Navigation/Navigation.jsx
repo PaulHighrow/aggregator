@@ -4,9 +4,12 @@ import {
   MobileMenuIcon,
   PlatformLink,
 } from 'components/Menu/Menu.styled';
+import { useState } from 'react';
 import { ReactComponent as LoginIcon } from '../../img/svg/invertedLoginIcon.svg';
 import {
   MenuButtonsWrapper,
+  MenuCoursesArrowLeft,
+  MenuCoursesArrowRight,
   MenuCoursesWrapper,
   NavigationItem,
   NavigationLink,
@@ -15,9 +18,8 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
   NavigationNavLink,
-  StyledNavigation,
+  StyledNavigation
 } from './Navigation.styled';
-import { useState } from 'react';
 
 export const Navigation = ({ toggleMenu, className }) => {
   // eslint-disable-next-line
@@ -33,7 +35,8 @@ export const Navigation = ({ toggleMenu, className }) => {
 
   const filteredNodeList = nodeList.filter(
     node =>
-      !!node.className && node.id !== 'hero' &&
+      !!node.className &&
+      node.id !== 'hero' &&
       (node.nodeName === 'HEADER' ||
         node.nodeName === 'SECTION' ||
         node.nodeName === 'H4')
@@ -55,10 +58,14 @@ export const Navigation = ({ toggleMenu, className }) => {
       )}
       <MenuCoursesWrapper>
         <NavigationMenu onClick={toggleCourseList}>
-          НАШІ КУРСИ <MobileMenuIcon />
+          {width < 1280 && width > 500 && <MenuCoursesArrowLeft />} НАШІ КУРСИ
+          {width < 500 && <MenuCoursesArrowRight />}
+          {width >= 1280 && <MobileMenuIcon />}
         </NavigationMenu>
         <NavigationMenuList
-          className={isCourseListOpen ? 'nav-open' : 'nav-closed'}
+          className={
+            isCourseListOpen ? 'course-list-open' : 'course-list-closed'
+          }
         >
           <NavigationMenuItem>
             <NavigationNavLink to={'/'}>Англійська</NavigationNavLink>

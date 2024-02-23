@@ -3,41 +3,38 @@ import {
   StreamNavigationBox,
 } from 'components/Stream/StreamNav/StreamNav.styled';
 import {
-  ServiceNavDescription,
   ServiceNavItem,
   ServiceNavLink,
   ServiceNavList,
   ServiceNavTitle,
   TelegramLogo,
-  ViberLogo,
-} from './ServiceNav.styled';
+  ViberLogo
+} from './HRNav.styled';
 
-export const ServiceNav = () => {
+export const HRNav = () => {
   return (
     <>
       <StreamNavigationBox>
         <StreamNavigation>
           <ServiceNavTitle>
-            Оберіть месенджер, в якому Вам буде зручно спілкуватись з менеджером
-            сервісу:
+            Оберіть месенджер, в якому Вам буде зручно спілкуватись з нашим HR-менеджером:
           </ServiceNavTitle>
-          <ServiceNavDescription>
+          {/* <ServiceNavDescription>
             Не забудьте написати Ваше прізвище та ім'я першим повідомленням!
-          </ServiceNavDescription>
+          </ServiceNavDescription> */}
           <ServiceNavList>
             <ServiceNavItem>
-              <ServiceNavLink to={'/service/viber'}>
+              <ServiceNavLink to={'/hr/viber'}>
                 <ViberLogo />
               </ServiceNavLink>
             </ServiceNavItem>
             <ServiceNavItem>
-              <ServiceNavLink to={'/service/tg'}>
+              <ServiceNavLink to={'/hr/tg'}>
                 <TelegramLogo />
               </ServiceNavLink>
             </ServiceNavItem>
           </ServiceNavList>
         </StreamNavigation>
-        {/* <Schedule /> */}
       </StreamNavigationBox>
     </>
   );

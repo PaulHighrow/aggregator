@@ -8,7 +8,7 @@ const ViberRedirect = () => {
 
   return (
     <RedirectDescription>
-      Зачекайте, перенаправляємо вас в наш Viber-бот...
+      Зачекайте, перенаправляємо Вас в наш Viber-бот...
     </RedirectDescription>
   );
 };

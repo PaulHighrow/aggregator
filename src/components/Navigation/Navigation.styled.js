@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { Link } from 'react-scroll';
 import { NavLink } from 'react-router-dom';
+import { ReactComponent as CoursesArrowLeft } from '../../img/svg/coursesArrowLeft.svg';
+import { ReactComponent as CoursesArrowRight } from '../../img/svg/coursesArrowRight.svg';
 
 export const StyledNavigation = styled.nav`
   position: fixed;
@@ -94,7 +96,7 @@ export const NavigationLink = styled(Link)`
 
   &:hover,
   &:focus,
-  &:active {
+  &.active {
     color: var(--accent-color);
 
     @media screen and (min-width: 1280px) {
@@ -112,6 +114,24 @@ export const MenuCoursesWrapper = styled.div`
   @media screen and (min-width: 1280px) {
     border-bottom: none;
     margin-right: 12px;
+  }
+`;
+
+export const MenuCoursesArrowLeft = styled(CoursesArrowLeft)`
+  color: currentColor;
+
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+  }
+`;
+
+export const MenuCoursesArrowRight = styled(CoursesArrowRight)`
+  color: currentColor;
+
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
   }
 `;
 
@@ -142,6 +162,7 @@ export const NavigationMenu = styled.button`
   &:focus {
     color: var(--accent-color);
     fill: var(--accent-color);
+    stroke: var(--accent-color);
   }
 
   @media screen and (max-width: 1279px) {
@@ -152,25 +173,58 @@ export const NavigationMenu = styled.button`
 export const NavigationMenuList = styled.ul`
   text-align: start;
   position: absolute;
-  top: 102%;
-  left: 0;
+  width: 120px;
 
-  width: max-content;
+  top: 0;
+  left: -120px;
 
   display: flex;
   flex-direction: column;
+  border-top-right-radius: 8px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 
+  transition: opacity var(--animation-global), transform var(--animation-global);
+
   background-color: var(--secondary-color);
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 1px 10px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+
+  @media screen and (min-width: 500px) {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 0;
+  }
 
   @media screen and (min-width: 1280px) {
-    transition: opacity var(--animation-global),
-      transform var(--animation-global);
+    top: 102%;
+    left: 0;
 
-    box-shadow: rgba(0, 0, 0, 0.06) 0px 1px 10px 0px,
-      rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    width: max-content;
+
     clip-path: inset(2px -10px -10px -10px);
+  }
+
+  &.course-list-open {
+    opacity: 1;
+    transform: translateX(280px);
+
+    @media screen and (min-width: 500px) {
+      transform: translateX(0%);
+    }
+
+    @media screen and (min-width: 1280px) {
+      transform: translateY(0%);
+    }
+  }
+
+  &.course-list-closed {
+    pointer-events: none;
+    opacity: 0;
+    transform: translateX(100%);
+
+    @media screen and (min-width: 1280px) {
+      transform: translateY(-100%);
+    }
   }
 `;
 
@@ -178,18 +232,19 @@ export const NavigationMenuItem = styled.li`
   padding: 10px 8px;
 
   &:not(:last-child) {
-    border-bottom: 0.5px solid var(--main-transparent-color);
+    border-bottom: 0.5px solid var(--main-color);
   }
 `;
 
 export const NavigationNavLink = styled(NavLink)`
   display: block;
+  font-weight: 600;
   text-decoration: none;
   text-transform: uppercase;
   color: var(--main-color);
 
   transition: color var(--animation-global);
-  padding: 10px 16px;
+  /* padding: 10px 16px; */
 
   @media screen and (min-width: 1280px) {
     padding: 0px;
@@ -198,12 +253,11 @@ export const NavigationNavLink = styled(NavLink)`
 
   &:hover,
   &:focus,
-  &:active {
+  &.active {
     color: var(--accent-color);
 
     @media screen and (min-width: 1280px) {
       cursor: pointer;
-      color: var(--accent-color);
     }
   }
 `;

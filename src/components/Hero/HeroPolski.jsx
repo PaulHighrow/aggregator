@@ -8,6 +8,7 @@ import {
   DescriptionUnderlineLong,
   DescriptionUnderlineShort,
   HeroSection,
+  LesserTitle,
   Title,
 } from './Hero.styled';
 import { HeroSwiperPol } from './HeroSwiper/HeroSwiperPol';
@@ -48,32 +49,46 @@ export const HeroPolski = ({ toggleModal }) => {
     <HeroSection id="hero">
       <Box>
         <Title>
-          ВИВЧЕННЯ ПОЛЬСЬКОЇ З НУЛЯ
+          Польська мова з нуля
           {/* <TitleBlock>OD ZERA DO</TitleBlock>{' '}
           <SubTitle ref={ref}>
             BOHATERA{inView && !isSketchHidden && <TitleSketchPol />}
             {!isSubtitleHidden && <BohateraVector />}
           </SubTitle> */}
         </Title>
+        <LesserTitle>Інтерактивні онлайн-уроки</LesserTitle>
         <LeadBtn onClick={toggleModal}>
           {width >= 400 ? 'ШВИДКА КОНСУЛЬТАЦІЯ' : 'КОНСУЛЬТАЦІЯ'}
         </LeadBtn>
         <Description>
           <span>
-            Ласкаво просимо до AP Education Center! Обравши нас, ви обираєте
-            особливий шлях навчання {isMore ? ',' : '...'}
+            Ласкаво просимо до AP Education Center
+            {isMore ? '!' : '! Обравши наш онлайн-курс польської  мови...'}
           </span>
           <DescriptionMoreText
             className={isMore ? 'more-shown' : 'more-hidden'}
           >
             {' '}
-            де кожен етап – це унікальне відкриття. Від оформлення заявки до
-            отримання навчального ноутбука ми пильнуємо, щоб ваша подорож з нами
-            була не лише легкою, але й повною приємних бонусів.{' '}
             <DescriptionSiteText>
-              На нашому веб-сайті ви знайдете всю необхідну інформацію, що
-              стосується нашого освітнього центру. Приєднуйтеся до нас зараз та
-              розпочніть Ваш унікальний шлях навчання!
+              Обравши наш онлайн-курс польської мови, Ви обираєте особливе
+              навчання, де з кожним уроком Ви відкриватимете для себе новий
+              формат вивчення польської мови.{' '}
+            </DescriptionSiteText>
+            <DescriptionSiteText>
+              У Вас буде можливість обрати зручний формат навчання: самостійне
+              вивчення, навчання в групах або індивідуальне з репетитором.{' '}
+            </DescriptionSiteText>
+            <DescriptionSiteText>
+              Наше навчання підходить як для дорослих, так і для дітей. Ми
+              піклуємося про наших студентів, тому ми{' '}
+              <b>даруємо навчальний ноутбук</b> для зручного доступу та
+              комфортного навчання.{' '}
+            </DescriptionSiteText>
+            <DescriptionSiteText>
+              На нашому веб-сайті Ви знайдете всю необхідну інформацію, що
+              стосується нашого освітнього центру. Приєднуйтеся до нас вже
+              сьогодні та розпочніть свою захоплюючу подорож у світ польської
+              мови!
             </DescriptionSiteText>
           </DescriptionMoreText>
         </Description>
