@@ -7,7 +7,7 @@ const ViberHRRedirect = () => {
   useEffect(() => {
     const replace = () => {
       browserRegexp.test(navigator.userAgent)
-        ? window.location.replace('viber://add?number=+380962304176')
+        ? window.location.replace('viber://contact?number=380962304176')
         : window.location.replace('viber://chat?number=+380962304176');
     };
     replace();
