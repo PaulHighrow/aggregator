@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.a3ac824d.css",
-    "main.js": "/aggregator/static/js/main.82e8e2ab.js",
+    "main.js": "/aggregator/static/js/main.0b36ef0d.js",
     "Homepage.css": "/aggregator/static/css/Homepage.ddbfcb81.chunk.css",
-    "Homepage.js": "/aggregator/static/js/Homepage.cba1d553.chunk.js",
+    "Homepage.js": "/aggregator/static/js/Homepage.4bed67cc.chunk.js",
     "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.006bb49e.chunk.js",
     "Streams page.js": "/aggregator/static/js/Streams page.2a785fe0.chunk.js",
     "Service page.js": "/aggregator/static/js/Service page.1c021c0c.chunk.js",
@@ -151,9 +151,9 @@
     "static/media/btnbox-switch-left.svg": "/aggregator/static/media/btnbox-switch-left.41ecbf13fa59a984cfe935e54d276421.svg",
     "static/media/btnbox-switch-right.svg": "/aggregator/static/media/btnbox-switch-right.c2062beab8ed3d828de36754c3279d60.svg",
     "main.a3ac824d.css.map": "/aggregator/static/css/main.a3ac824d.css.map",
-    "main.82e8e2ab.js.map": "/aggregator/static/js/main.82e8e2ab.js.map",
+    "main.0b36ef0d.js.map": "/aggregator/static/js/main.0b36ef0d.js.map",
     "Homepage.ddbfcb81.chunk.css.map": "/aggregator/static/css/Homepage.ddbfcb81.chunk.css.map",
-    "Homepage.cba1d553.chunk.js.map": "/aggregator/static/js/Homepage.cba1d553.chunk.js.map",
+    "Homepage.4bed67cc.chunk.js.map": "/aggregator/static/js/Homepage.4bed67cc.chunk.js.map",
     "Inverted Homepage.006bb49e.chunk.js.map": "/aggregator/static/js/Inverted Homepage.006bb49e.chunk.js.map",
     "Streams page.2a785fe0.chunk.js.map": "/aggregator/static/js/Streams page.2a785fe0.chunk.js.map",
     "Service page.1c021c0c.chunk.js.map": "/aggregator/static/js/Service page.1c021c0c.chunk.js.map",
@@ -197,6 +197,6 @@
   },
   "entrypoints": [
     "static/css/main.a3ac824d.css",
-    "static/js/main.82e8e2ab.js"
+    "static/js/main.0b36ef0d.js"
   ]
 }
