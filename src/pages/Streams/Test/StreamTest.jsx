@@ -190,6 +190,21 @@ export const StreamTest = () => {
   useEffect(() => {
     document.title = 'Test Page | AP Education';
 
+    const refreshToken = async () => {
+      console.log('token refresher');
+      try {
+        const res = await axios.post(
+          'https://aggregator-server.onrender.com/users/refresh',
+          { mail: localStorage.getItem('mail') }
+        );
+        setIsUserLogged(isLogged => (isLogged = true));
+        console.log(res);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    refreshToken();
+
     socketRef.current = io('https://ap-chat.onrender.com/');
     checkLogin();
 
