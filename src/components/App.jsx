@@ -1,3 +1,7 @@
+import TelegramHRRedirect from 'pages/HR/TelegramHRRedirect/TelegramHRRedirect';
+import ViberHRRedirect from 'pages/HR/ViberHRRedirect/ViberHRRedirect';
+import TelegramRedirect from 'pages/Service/TelegramRedirect/TelegramRedirect';
+import ViberRedirect from 'pages/Service/ViberRedirect/ViberRedirect';
 import { StreamA0 } from 'pages/Streams/A0/StreamA0';
 import { StreamA1 } from 'pages/Streams/A1/StreamA1';
 import { StreamA2 } from 'pages/Streams/A2/StreamA2';
@@ -13,13 +17,10 @@ import { KidsB1 } from 'pages/StreamsKids/KidsB1/KidsB1';
 import { lazy } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { Route, Routes, useSearchParams } from 'react-router-dom';
+import { WindowedChat } from 'utils/Chat/ChatWindowed/WindowedChat';
 import ScrollToTop from 'utils/ScrollToTop/ScrollToTop';
 import { SharedLayout } from './SharedLayout/SharedLayout';
-import { WindowedChat } from 'utils/Chat/ChatWindowed/WindowedChat';
-import ViberRedirect from 'pages/Service/ViberRedirect/ViberRedirect';
-import TelegramRedirect from 'pages/Service/TelegramRedirect/TelegramRedirect';
-import ViberHRRedirect from 'pages/HR/ViberHRRedirect/ViberHRRedirect';
-import TelegramHRRedirect from 'pages/HR/TelegramHRRedirect/TelegramHRRedirect';
+import { UserAdminPanel } from 'pages/Streams/UserAdminPanel/UserAdminPanel';
 
 const Home = lazy(() =>
   import(/* webpackChunkName: "Homepage" */ '../pages/Home/Home')
@@ -182,6 +183,7 @@ export const App = () => {
           <Route path="a2" element={<StreamA2 />} />
           <Route path="a2-chat" element={<WindowedChat />} />
           <Route path="b1" element={<StreamB1 />} />
+          <Route path="pilot" element={<StreamB1 />} />
           <Route path="b1-chat" element={<WindowedChat />} />
           <Route path="deutsch" element={<StreamDeutsch />} />
           <Route path="deutsch-chat" element={<WindowedChat />} />
@@ -192,10 +194,10 @@ export const App = () => {
           {/* <Route path="test1" element={<StreamTest />} /> */}
           <Route path="stream-admin-panel" element={<AdminPanel />} />
           <Route path="kahoot-admin-panel" element={<KahootAdminPanel />} />
+          <Route path="user-admin-panel" element={<UserAdminPanel />} />
         </Route>
         <Route path="streams-kids" element={<StreamsKids />}>
           <Route path="a1" element={<KidsA1 />} />
-          <Route path="pilot" element={<KidsA1 />} />
           <Route path="a1-chat" element={<WindowedChat />} />
           <Route path="a2" element={<KidsA2 />} />
           <Route path="a2-chat" element={<WindowedChat />} />

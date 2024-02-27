@@ -39,7 +39,7 @@ export const ChatFooter = ({ socket, theme, currentUser }) => {
 
     let pilotLocation = '';
     if (location.pathname.includes('pilot')) {
-      pilotLocation = "/streams-kids/a1"
+      pilotLocation = '/streams/b1';
     }
 
     if (message.trim() && localStorage.getItem('userName')) {

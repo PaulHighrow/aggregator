@@ -69,7 +69,7 @@ export const HowItWorks = () => {
       <Box>
         <SectionWrapper>
           <SectionTitle>
-            HOW IT <SectionSubTitle>WORKS?</SectionSubTitle>
+            HOW IT <SectionSubTitle>WORKS</SectionSubTitle>
           </SectionTitle>
           <PageNavigation>
             {listItems.map((item, i) => (

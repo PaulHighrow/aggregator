@@ -88,11 +88,12 @@ export const AdminPanel = () => {
       const response = await axios.patch('/links', values);
       console.log(response);
       resetForm();
+      alert('Лінки замінилися, молодець');
     } catch (error) {
       console.error(error);
+      alert('Щось не прокнуло!');
     } finally {
       setIsLoading(isLoading => (isLoading = false));
-      alert('Замінив, молодець');
     }
   };
 

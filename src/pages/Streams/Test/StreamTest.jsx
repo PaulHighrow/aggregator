@@ -316,6 +316,10 @@ export const StreamTest = () => {
           validationSchema={loginSchema}
         >
           <LoginForm>
+            <StreamPlaceHolderText>
+              Привіт! Ця сторінка тимчасово недоступна для неавторизованих
+              користувачів і нічого цікавого тут, власне, поки не відбувається.
+            </StreamPlaceHolderText>
             <Label>
               <AdminInput type="text" name="mail" placeholder="Login" />
               <AdminInputNote component="p" name="mail" type="email" />

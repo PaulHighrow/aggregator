@@ -58,7 +58,7 @@ export const A0KahootForm = () => {
             </WarningDismissBtn>
             <WarningText>
               Краще не відправляти пусту форму, бо так затруться ВСІ лінки. Якщо
-              так і треба, клацай "Затерти лінки" і відправ форму знов.
+              так і треба, клацай "Затерти все" і відправ форму знов.
             </WarningText>
             <WarningBtnBox>
               <WarningBtn

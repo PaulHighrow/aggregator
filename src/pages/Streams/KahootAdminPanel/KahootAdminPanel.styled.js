@@ -101,7 +101,9 @@ export const AdminInputNote = styled(InputNote)`
   bottom: -1.1em;
 `;
 
-export const WarningBox = styled.div``;
+export const WarningBox = styled.div`
+  font-family: var(--streams-font-family);
+`;
 
 export const WarningDismissBtn = styled(ClipBoardFormDismissBtn)``;
 

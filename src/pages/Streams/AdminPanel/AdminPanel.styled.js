@@ -18,6 +18,7 @@ export const LoginForm = styled(Form)`
 
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 35px;
 `;
 
@@ -38,6 +39,7 @@ export const AdminInput = styled(Input)`
 `;
 
 export const AdminInputNote = styled(InputNote)`
+  position: static;
   color: var(--main-color);
   font-size: 24px;
   font-weight: 700;
