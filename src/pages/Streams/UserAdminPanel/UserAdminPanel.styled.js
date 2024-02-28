@@ -41,5 +41,20 @@ export const AdminInputNote = styled(InputNote)`
   color: var(--main-color);
   font-size: 24px;
   font-weight: 700;
-  bottom: -1.1em;
+  position: static;
+`;
+
+export const UserDBTable = styled.table`
+  max-width: 50vw;
+  text-align: center;
+  border-collapse: collapse;
+`;
+
+export const UserDBCaption = styled.caption`
+  caption-side: top;
+  margin-bottom: 20px;
+`;
+
+export const UserDBItemValue = styled.span`
+  font-size: 12px;
 `;

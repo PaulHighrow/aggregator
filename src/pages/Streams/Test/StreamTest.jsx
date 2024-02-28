@@ -3,7 +3,6 @@ import { Kahoots } from 'components/Stream/Kahoots/Kahoots';
 import { Support } from 'components/Stream/Support/Support';
 import { nanoid } from 'nanoid';
 import * as yup from 'yup';
-// eslint-disable-next-line
 import axios from 'axios';
 import { Formik } from 'formik';
 import { useEffect, useRef, useState } from 'react';

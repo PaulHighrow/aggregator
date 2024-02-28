@@ -73,6 +73,10 @@ svg {
   flex-shrink: 0;
 }
 
+iframe {
+  border: none;
+}
+
 .swiper-wrapper {
   transition-timing-function: linear;
 }

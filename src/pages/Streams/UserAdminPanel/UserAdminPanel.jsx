@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Label } from 'components/LeadForm/LeadForm.styled';
 import { Loader } from 'components/SharedLayout/Loaders/Loader';
 import { Formik } from 'formik';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import * as yup from 'yup';
 import {
   AdminFormBtn,
@@ -11,6 +11,8 @@ import {
   AdminPanelSection,
   LinksForm,
   LoginForm,
+  UserDBCaption,
+  UserDBTable
 } from './UserAdminPanel.styled';
 
 axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
@@ -21,6 +23,24 @@ const setAuthToken = token => {
 export const UserAdminPanel = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isUserAdmin, setIsUserAdmin] = useState(false);
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    const getUsers = async () => {
+      try {
+        if (isUserAdmin) {
+          const response = await axios.get('/users/admin/', {
+            params: { isAdmin: isUserAdmin },
+          });
+          setUsers(users => (users = [...response.data]));
+          console.log(response);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    getUsers();
+  }, [isUserAdmin]);
 
   const initialLoginValues = {
     login: '',
@@ -55,9 +75,13 @@ export const UserAdminPanel = () => {
   };
 
   const usersSchema = yup.object().shape({
-    name: yup.string().required(),
-    mail: yup.string().required(),
-    password: yup.string().required(),
+    name: yup
+      .string()
+      .required(
+        "Ім'я - обов'язкове поле, якщо імені з якоїсь причини ми не знаємо, введіть N/A"
+      ),
+    mail: yup.string().required("Пошта - обов'язкове поле!"),
+    password: yup.string().required("Пароль - обов'язкове поле!"),
     points: yup.string().optional(),
   });
 
@@ -134,6 +158,29 @@ export const UserAdminPanel = () => {
               <AdminFormBtn type="submit">Додати юзера</AdminFormBtn>
             </LinksForm>
           </Formik>
+        )}
+        {isUserAdmin && users && (
+          <UserDBTable>
+            <UserDBCaption>Список юзерів з доступом до уроків</UserDBCaption>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Ім'я</th>
+                <th>Пароль</th>
+                <th>Відвідини</th>
+              </tr>
+            </thead>
+            <tbody>
+              {users.map(user => (
+                <tr key={user._id}>
+                  <td>{user._id}</td>
+                  <td>{user.name}</td>
+                  <td>{user.password}</td>
+                  <td>{user.updatedAt}</td>
+                </tr>
+              ))}
+            </tbody>
+          </UserDBTable>
         )}
         {isLoading && <Loader />}
       </AdminPanelSection>

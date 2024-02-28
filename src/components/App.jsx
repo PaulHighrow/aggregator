@@ -172,9 +172,9 @@ export const App = () => {
           <Route path="examination" element={<Examination utms={utms} />} />
           <Route path="translation" element={<Translation utms={utms} />} />
           <Route path="career" element={<Career utms={utms} />} /> */}
-          <Route path="my-ap" element={<MyAP />} />
           <Route path="*" element={<NotFound />} />
         </Route>
+        <Route path="my-ap" element={<MyAP />} />
         <Route path="streams" element={<Streams />}>
           <Route path="a0" element={<StreamA0 />} />
           <Route path="a0-chat" element={<WindowedChat />} />

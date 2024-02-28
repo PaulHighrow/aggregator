@@ -18,7 +18,6 @@ export const Header = styled.header`
   background-color: var(--secondary-color);
   box-shadow: rgba(0, 0, 0, 0.06) 0px 0.5px 5px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 0.5px;
-  /* box-shadow: rgba(0, 0, 0, 0.06) 0px 1px 10px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px; */
   display: flex;
   align-items: center;
   justify-content: space-between;
