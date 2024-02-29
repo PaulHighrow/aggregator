@@ -1,4 +1,5 @@
 import { MarqueeSoundBtn } from 'components/Reviews/ReviewsMarquee/ReviewsMarquee.styled';
+import { ReactComponent as MarqueeTextArrow } from '../../../img/svg/heroMarqueeTextArrow.svg';
 import Marquee from 'react-fast-marquee';
 import styled from 'styled-components';
 
@@ -33,6 +34,32 @@ export const MarqueeChild = styled.div`
   }
 `;
 
+export const MarqueeChildNew = styled.div`
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-right: 16px;
+  transition: transform var(--animation-global);
+  width: 210px;
+  height: 320px;
+
+  @media screen and (min-width: 768px) {
+    margin-right: 40px;
+    width: 360px;
+    height: 400px;
+  }
+
+  &:hover > *,
+  &:focus > * {
+    background-color: transparent;
+  }
+
+  &:hover span,
+  &:focus span {
+    background-color: #00000080;
+  }
+`;
+
 export const MarqueeOverlay = styled.div`
   position: absolute;
   user-select: none;
@@ -57,6 +84,17 @@ export const MarqueeVideo = styled.video`
   }
 `;
 
+export const MarqueeVideoNew = styled.video`
+  object-fit: cover;
+  width: 210px;
+  height: 320px;
+
+  @media screen and (min-width: 768px) {
+    width: 360px;
+    height: 400px;
+  }
+`;
+
 export const MarqueeText = styled.span`
   position: absolute;
   top: 50%;
@@ -73,6 +111,33 @@ export const MarqueeText = styled.span`
 
   transition: background-color var(--animation-global),
     transform var(--animation-global);
+`;
+
+export const MarqueeTextNew = styled.p`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  height: 68px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  font-family: var(--new-font-family);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--secondary-color);
+  background-color: #00000090;
+
+  transition: background-color var(--animation-global),
+    transform var(--animation-global);
+`;
+
+export const HeroMarqueeTextIcon = styled(MarqueeTextArrow)`
+  width: 24px;
+  height: 24px;
 `;
 
 export const HeroMarqueeSoundBtn = styled(MarqueeSoundBtn)`

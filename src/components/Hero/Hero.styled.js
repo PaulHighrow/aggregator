@@ -8,6 +8,8 @@ import { ReactComponent as HeroSVG } from '../../img/svg/hero-caveat.svg';
 import { ReactComponent as HeldenSVG } from '../../img/svg/helden-caveat.svg';
 import { ReactComponent as BohateraSVG } from '../../img/svg/bohatera-caveat.svg';
 
+import heroStarIcon from 'img/svg/heroStar.svg';
+
 export const HeroSection = styled.section`
   position: relative;
   min-height: 500px;
@@ -24,6 +26,23 @@ export const HeroSection = styled.section`
   @media screen and (min-width: 1280px) {
     padding: 55px 0;
     padding-top: 145px;
+  }
+`;
+
+export const HeroSectionNew = styled.section`
+  position: relative;
+  min-height: 500px;
+  padding-top: 94px;
+  padding-bottom: 30px;
+
+  @media screen and (min-width: 768px) {
+    padding-bottom: 40px;
+    margin: 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding: 55px 0;
+    padding-top: 247px;
   }
 `;
 
@@ -59,6 +78,96 @@ export const Title = styled.h1`
   @media screen and (min-width: 960px) {
     width: 900px;
   }
+`;
+
+export const TitleNew = styled.h1`
+  position: relative;
+  z-index: 1;
+
+  width: 93%;
+  font-family: var(--new-font-family);
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.1;
+  margin: 0 auto 32px auto;
+
+  @media screen and (min-width: 360px) {
+    font-size: 38px;
+    max-width: 640px;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin: 0 auto 40px auto;
+    font-size: 64px;
+    line-height: 1.2;
+    max-width: 1265px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 80px;
+  }
+
+  &:before {
+    content: url(${heroStarIcon});
+    position: absolute;
+    top: -64px;
+    right: 52px;
+    width: 77px;
+    height: 77px;
+  }
+`;
+
+export const ButtonBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: 24px;
+    margin-bottom: 170px;
+  }
+`;
+
+export const LeadBtnNew = styled.button`
+  display: flex;
+  padding: 20px 60px;
+  justify-content: center;
+  width: 93%;
+  max-width: 346px;
+
+  border-radius: 50px;
+  border: none;
+  background: linear-gradient(322deg, #0f645b 23.22%, #09c6cc 110.01%), #0f645b;
+  font-family: var(--new-font-family);
+  color: var(--secondary-color);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.48px;
+`;
+
+export const AddBtnNew = styled.button`
+  display: flex;
+  padding: 20px 60px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 93%;
+  max-width: 346px;
+
+  background: none;
+  border-radius: 50px;
+  border: 2px solid #0f645b;
+  font-family: var(--new-font-family);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.48px;
 `;
 
 export const LesserTitle = styled.p`

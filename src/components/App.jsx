@@ -28,6 +28,9 @@ const Home = lazy(() =>
 const Clone = lazy(() =>
   import(/* webpackChunkName: "Inverted Homepage" */ '../pages/Clone/Clone')
 );
+const NewDesign = lazy(() =>
+  import(/* webpackChunkName: "New Design Homepage" */ '../pages/Home/NewDesign')
+);
 const Streams = lazy(() =>
   import(/* webpackChunkName: "Streams page" */ '../pages/Streams/Streams')
 );
@@ -162,6 +165,7 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<SharedLayout utms={utms} />}>
           <Route index element={<Home utms={utms} />} />
+          <Route path="new" element={<NewDesign utms={utms} />} />
           <Route path="clone" element={<Clone utms={utms} />} />
           <Route path="reviews" element={<AllReviews />} />
           <Route path="deutsch" element={<Deutsch utms={utms} />} />
