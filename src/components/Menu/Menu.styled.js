@@ -1,6 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 import { ReactComponent as MenuDownArrow } from '../../img/svg/invertedDownArrow.svg';
 import { ReactComponent as LogoIcon } from '../../img/svg/invertedLogo.svg';
+import { ReactComponent as LogoNewIcon } from '../../img/svg/logoNew.svg';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import sketchOutline from 'img/svg/sketchOutline.svg';
 import sketchOutlineNarrow from 'img/svg/sketchOutlineNarrow.svg';
@@ -15,6 +16,46 @@ export const Header = styled.header`
   width: 100%;
   padding: 0 16px;
   height: 60px;
+  background-color: var(--secondary-color);
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 0.5px 5px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform var(--animation-global);
+
+  @media screen and (min-width: 400px) {
+    padding: 0 30px;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 0 42px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding: 0 55px;
+  }
+
+  &.hidden {
+    transform: translateY(-90px);
+  }
+
+  &.shown {
+    transform: translateY(0px);
+  }
+`;
+
+export const HeaderNew = styled.header`
+  position: fixed;
+
+  font-family: var(--new-font-family);
+
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  padding: 0 16px;
+  height: 44px;
   background-color: var(--secondary-color);
   box-shadow: rgba(0, 0, 0, 0.06) 0px 0.5px 5px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 0.5px;
@@ -114,6 +155,31 @@ export const Logo = styled(LogoIcon)`
   ${LogoRoute}:hover & {
     transform: scale(1.2);
     filter: drop-shadow(0px 0px 0.5px #00000054);
+  }
+`;
+
+export const LogoNew = styled(LogoNewIcon)`
+  z-index: 10;
+  width: 121px;
+  display: block;
+  flex-shrink: 0;
+  height: 100%;
+
+  @media screen and (min-width: 768px) {
+    width: 150px;
+  }
+
+  /* @media screen and (min-width: 1280px) {
+    width: 183px;
+  } */
+
+  & > path#star {
+    transform-origin: center bottom -2px;
+    transition: transform var(--animation-global);
+  }
+
+  ${LogoRoute}:hover &>path#star {
+    transform: translate(4px, 2px) scale(1.2);
   }
 `;
 

@@ -99,22 +99,26 @@ export const TitleNew = styled.h1`
 
   @media screen and (min-width: 768px) {
     margin: 0 auto 40px auto;
-    font-size: 64px;
+    font-size: 60px;
     line-height: 1.2;
-    max-width: 1265px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    font-size: 80px;
+    max-width: 950px;
   }
 
   &:before {
     content: url(${heroStarIcon});
+
     position: absolute;
-    top: -64px;
-    right: 52px;
-    width: 77px;
-    height: 77px;
+    top: -29px;
+    right: 15px;
+    width: 27px;
+    height: 27px;
+
+    @media screen and (min-width: 768px) {
+      top: -88px;
+      right: -48px;
+      width: 77px;
+      height: 77px;
+    }
   }
 `;
 
@@ -149,6 +153,10 @@ export const LeadBtnNew = styled.button`
   font-weight: 700;
   line-height: 1;
   letter-spacing: 0.48px;
+
+  @media screen and (min-width: 768px) {
+    max-width: 265px;
+  }
 `;
 
 export const AddBtnNew = styled.button`
@@ -168,6 +176,10 @@ export const AddBtnNew = styled.button`
   font-weight: 700;
   line-height: 1;
   letter-spacing: 0.48px;
+
+  @media screen and (min-width: 768px) {
+    max-width: 265px;
+  }
 `;
 
 export const LesserTitle = styled.p`

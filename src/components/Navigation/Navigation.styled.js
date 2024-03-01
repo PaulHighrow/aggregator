@@ -31,6 +31,33 @@ export const StyledNavigation = styled.nav`
   }
 `;
 
+export const StyledNavigationNew = styled.nav`
+  position: fixed;
+  width: 100%;
+  max-width: 360px;
+  top: 60px;
+  right: 0%;
+  font-size: 18px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  z-index: 6;
+  background-color: var(--secondary-color);
+  transition: opacity var(--animation-global), transform var(--animation-global);
+
+  @media screen and (min-width: 1280px) {
+    position: relative;
+    top: 0;
+    right: 0;
+    display: flex;
+    max-width: fit-content;
+    height: 100%;
+
+    box-shadow: none;
+  }
+`;
+
 export const MenuButtonsWrapper = styled.div`
   padding: 20px 0;
   display: flex;
@@ -97,13 +124,117 @@ export const NavigationLink = styled(Link)`
   &:hover,
   &:focus,
   &.active {
-    color: var(--accent-color);
-
     @media screen and (min-width: 1280px) {
       cursor: pointer;
       color: var(--main-color);
       text-shadow: 0.5px 0px 0.5px rgba(0, 0, 0, 0.75);
     }
+  }
+`;
+
+export const NavigationAnchor = styled(Link)`
+  display: block;
+  text-decoration: none;
+  color: #000;
+
+  transition: color var(--animation-global),
+    background-color var(--animation-global),
+    text-shadow var(--animation-global);
+  padding: 10px 16px;
+
+  @media screen and (min-width: 1280px) {
+    padding: 0px;
+    display: block;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: var(--main-color);
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform-origin: left;
+    transform: scaleX(0);
+
+    transition: transform var(--animation-global);
+  }
+
+  &:hover,
+  &:focus,
+  &.active {
+    @media screen and (min-width: 1280px) {
+      cursor: pointer;
+    }
+  }
+
+  &:hover::after,
+  &:focus::after {
+    transform: scaleX(1);
+  }
+`;
+
+export const NavigationLinkNew = styled(NavLink)`
+  display: block;
+  position: relative;
+  text-decoration: none;
+
+  transition: color var(--animation-global),
+    background-color var(--animation-global),
+    text-shadow var(--animation-global), font-weight var(--animation-global);
+  padding: 10px 16px;
+
+  @media screen and (min-width: 1280px) {
+    padding: 5px 0;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: var(--main-color);
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform-origin: left;
+    transform: scaleX(0);
+
+    transition: transform var(--animation-global);
+  }
+
+  &:hover,
+  &:focus {
+    @media screen and (min-width: 1280px) {
+      cursor: pointer;
+      stroke-width: 0.5px;
+    }
+  }
+
+  &:hover::after,
+  &:focus::after {
+    transform: scaleX(1);
+  }
+
+  &.active {
+    font-weight: 700;
+  }
+
+  &:visited {
+    color: #000;
+  }
+`;
+
+export const MenuCoursesWrapperNew = styled.div`
+  position: relative;
+  border-bottom: 0.5px solid var(--main-color);
+
+  @media screen and (min-width: 1280px) {
+    border-bottom: none;
   }
 `;
 
@@ -147,6 +278,41 @@ export const NavigationMenu = styled.button`
   gap: 8px;
 
   color: var(--main-color);
+  font-weight: 600;
+  align-self: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+
+  transition: color var(--animation-global), fill var(--animation-global);
+
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+    fill: var(--accent-color);
+    stroke: var(--accent-color);
+  }
+
+  @media screen and (max-width: 1279px) {
+    padding: 10px 16px;
+  }
+`;
+
+export const NavigationMenuNew = styled.button`
+  position: relative;
+
+  height: 100%;
+
+  border: none;
+  border-radius: 8px;
+  background-color: transparent;
+  display: flex;
+  gap: 8px;
+
+  color: #000;
   font-weight: 600;
   align-self: center;
 
