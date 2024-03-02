@@ -29,7 +29,9 @@ const Clone = lazy(() =>
   import(/* webpackChunkName: "Inverted Homepage" */ '../pages/Clone/Clone')
 );
 const NewDesign = lazy(() =>
-  import(/* webpackChunkName: "New Design Homepage" */ '../pages/Home/NewDesign')
+  import(
+    /* webpackChunkName: "New Design Homepage" */ '../pages/Home/NewDesign'
+  )
 );
 const Streams = lazy(() =>
   import(/* webpackChunkName: "Streams page" */ '../pages/Streams/Streams')
@@ -187,9 +189,9 @@ export const App = () => {
           <Route path="a2" element={<StreamA2 />} />
           <Route path="a2-chat" element={<WindowedChat />} />
           <Route path="b1" element={<StreamB1 />} />
-          <Route path="pilot" element={<StreamB1 />} />
           <Route path="b1-chat" element={<WindowedChat />} />
           <Route path="deutsch" element={<StreamDeutsch />} />
+          <Route path="pilot" element={<StreamDeutsch />} />
           <Route path="deutsch-chat" element={<WindowedChat />} />
           <Route path="polski" element={<StreamPolski />} />
           <Route path="polski-chat" element={<WindowedChat />} />

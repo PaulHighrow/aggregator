@@ -31,7 +31,7 @@ export const ChatBody = ({ messages, isChatOpen }) => {
   });
 
   const room = location.pathname.includes('pilot')
-    ? '/streams/b1'
+    ? '/streams/deutsch'
     : location.pathname;
 
   const calculateHeights = () => {

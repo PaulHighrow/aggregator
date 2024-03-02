@@ -15,12 +15,11 @@ import {
   NavigationItem,
   NavigationLinkNew,
   NavigationList,
-  NavigationMenu,
   NavigationMenuItem,
   NavigationMenuList,
   NavigationMenuNew,
   NavigationNavLink,
-  StyledNavigationNew
+  StyledNavigationNew,
 } from './Navigation.styled';
 
 export const NavigationNew = ({ toggleMenu, className }) => {
@@ -52,12 +51,10 @@ export const NavigationNew = ({ toggleMenu, className }) => {
           <NavigationLinkNew to={'/new'}>Головна</NavigationLinkNew>
         </NavigationItem>
         <NavigationItem key={1}>
-          <NavigationLinkNew to={'/school'} >
-            AP School
-          </NavigationLinkNew>
+          <NavigationLinkNew to={'/school'}>AP School</NavigationLinkNew>
         </NavigationItem>
         <NavigationItem key={2}>
-          <NavigationLinkNew to={'/university'} >
+          <NavigationLinkNew to={'/university'}>
             AP University
           </NavigationLinkNew>
         </NavigationItem>
