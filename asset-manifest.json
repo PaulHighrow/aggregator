@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.81899c8f.css",
-    "main.js": "/aggregator/static/js/main.f81c6389.js",
+    "main.js": "/aggregator/static/js/main.356693a8.js",
     "Homepage.css": "/aggregator/static/css/Homepage.aab45c92.chunk.css",
     "Homepage.js": "/aggregator/static/js/Homepage.c064e2ac.chunk.js",
     "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.11cc6144.chunk.js",
@@ -153,7 +153,7 @@
     "static/media/btnbox-switch-left.svg": "/aggregator/static/media/btnbox-switch-left.41ecbf13fa59a984cfe935e54d276421.svg",
     "static/media/btnbox-switch-right.svg": "/aggregator/static/media/btnbox-switch-right.c2062beab8ed3d828de36754c3279d60.svg",
     "main.81899c8f.css.map": "/aggregator/static/css/main.81899c8f.css.map",
-    "main.f81c6389.js.map": "/aggregator/static/js/main.f81c6389.js.map",
+    "main.356693a8.js.map": "/aggregator/static/js/main.356693a8.js.map",
     "Homepage.aab45c92.chunk.css.map": "/aggregator/static/css/Homepage.aab45c92.chunk.css.map",
     "Homepage.c064e2ac.chunk.js.map": "/aggregator/static/js/Homepage.c064e2ac.chunk.js.map",
     "Inverted Homepage.11cc6144.chunk.js.map": "/aggregator/static/js/Inverted Homepage.11cc6144.chunk.js.map",
@@ -198,6 +198,6 @@
   },
   "entrypoints": [
     "static/css/main.81899c8f.css",
-    "static/js/main.f81c6389.js"
+    "static/js/main.356693a8.js"
   ]
 }
