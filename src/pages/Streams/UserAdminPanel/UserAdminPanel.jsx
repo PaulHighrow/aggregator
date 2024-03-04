@@ -11,8 +11,11 @@ import {
   AdminPanelSection,
   LinksForm,
   LoginForm,
+  UserBanButton,
   UserDBCaption,
-  UserDBTable
+  UserDBRow,
+  UserDBTable,
+  UserDeleteButton,
 } from './UserAdminPanel.styled';
 
 axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
@@ -26,6 +29,20 @@ export const UserAdminPanel = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
+    const refreshToken = async () => {
+      console.log('token refresher');
+      try {
+        if (localStorage.getItem('isAdmin')) {
+          const res = await axios.post('admins/refresh/users/', {});
+          console.log(res);
+          setIsUserAdmin(isAdmin => (isAdmin = true));
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    refreshToken();
+
     const getUsers = async () => {
       try {
         if (isUserAdmin) {
@@ -40,7 +57,7 @@ export const UserAdminPanel = () => {
       }
     };
     getUsers();
-  }, [isUserAdmin]);
+  }, [isUserAdmin, isLoading]);
 
   const initialLoginValues = {
     login: '',
@@ -59,6 +76,7 @@ export const UserAdminPanel = () => {
       const response = await axios.post('/admins/login/users', values);
       setAuthToken(response.data.token);
       setIsUserAdmin(isAdmin => (isAdmin = true));
+      localStorage.setItem('isAdmin', true);
       resetForm();
     } catch (error) {
       console.error(error);
@@ -95,7 +113,46 @@ export const UserAdminPanel = () => {
       alert('Юзера додано');
     } catch (error) {
       console.error(error);
-      alert('Десь якась проблема');
+      alert(
+        'Десь якась проблема - клацай F12, роби скрін консолі, відправляй Кирилу'
+      );
+    } finally {
+      setIsLoading(isLoading => (isLoading = false));
+    }
+  };
+
+  const handleDelete = async id => {
+    setIsLoading(isLoading => (isLoading = true));
+
+    try {
+      const response = await axios.delete(`/users/${id}`);
+      console.log(response);
+      alert('Юзера видалено');
+    } catch (error) {
+      console.error(error);
+      alert(
+        'Десь якась проблема - клацай F12, роби скрін консолі, відправляй Кирилу'
+      );
+    } finally {
+      setIsLoading(isLoading => (isLoading = false));
+    }
+  };
+
+  const handleBan = async (id, isBanned) => {
+    setIsLoading(isLoading => (isLoading = true));
+
+    try {
+      const response = await axios.patch(
+        `/users/${id}`,
+        isBanned ? { isBanned: false } : { isBanned: true }
+      );
+      console.log(response);
+      isBanned ? alert('Юзера розблоковано') : alert('Юзера заблоковано');
+    } catch (error) {
+      console.error(error);
+      alert(
+        'Десь якась проблема - клацай F12, роби скрін консолі, відправляй Кирилу'
+      );
     } finally {
       setIsLoading(isLoading => (isLoading = false));
     }
@@ -136,14 +193,18 @@ export const UserAdminPanel = () => {
           >
             <LinksForm>
               <Label>
-                <AdminInput type="text" name="name" placeholder="Ім'я" />
+                <AdminInput
+                  type="text"
+                  name="name"
+                  placeholder="Прізвище та ім'я"
+                />
                 <AdminInputNote component="p" name="name" />
               </Label>
               <Label>
                 <AdminInput
                   type="email"
                   name="mail"
-                  placeholder="Електронна пошта"
+                  placeholder="Електронна пошта (логін)"
                 />
                 <AdminInputNote component="p" name="mail" />
               </Label>
@@ -163,21 +224,42 @@ export const UserAdminPanel = () => {
           <UserDBTable>
             <UserDBCaption>Список юзерів з доступом до уроків</UserDBCaption>
             <thead>
-              <tr>
+              <UserDBRow>
                 <th>ID</th>
                 <th>Ім'я</th>
+                <th>Пошта (логін)</th>
                 <th>Пароль</th>
                 <th>Відвідини</th>
-              </tr>
+                <th>Delete</th>
+                <th>Ban</th>
+              </UserDBRow>
             </thead>
             <tbody>
               {users.map(user => (
-                <tr key={user._id}>
+                <UserDBRow key={user._id}>
                   <td>{user._id}</td>
                   <td>{user.name}</td>
+                  <td>{user.mail}</td>
                   <td>{user.password}</td>
                   <td>{user.updatedAt}</td>
-                </tr>
+                  <td>
+                    {user.name === 'Dev Acc' ? null : (
+                      <UserDeleteButton onClick={() => handleDelete(user._id)}>
+                        Del
+                      </UserDeleteButton>
+                    )}
+                  </td>
+                  <td>
+                    {user.name === 'Dev Acc' ? null : (
+                      <UserBanButton
+                        className={user.isBanned ? 'banned' : 'not_banned'}
+                        onClick={() => handleBan(user._id, user.isBanned)}
+                      >
+                        {user.isBanned ? 'Unban' : 'Ban'}
+                      </UserBanButton>
+                    )}
+                  </td>
+                </UserDBRow>
               ))}
             </tbody>
           </UserDBTable>

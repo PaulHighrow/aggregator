@@ -46,6 +46,8 @@ export const AdminInputNote = styled(InputNote)`
 
 export const UserDBTable = styled.table`
   max-width: 50vw;
+  margin: 0 auto;
+
   text-align: center;
   border-collapse: collapse;
 `;
@@ -57,4 +59,23 @@ export const UserDBCaption = styled.caption`
 
 export const UserDBItemValue = styled.span`
   font-size: 12px;
+`;
+
+export const UserDBRow = styled.tr`
+
+`
+
+export const UserDeleteButton = styled.button`
+  background-color: transparent;
+  border: 1px solid var(--main-color);
+  border-radius: 5px;
+`;
+
+export const UserBanButton = styled(UserDeleteButton)`
+  &.banned {
+    border-color: #023020;
+  }
+  &.not_banned {
+    border-color: #8B0000;
+  }
 `;
