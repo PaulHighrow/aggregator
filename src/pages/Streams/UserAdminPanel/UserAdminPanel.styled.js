@@ -6,8 +6,7 @@ export const AdminPanelSection = styled.section`
   height: max-content;
   padding: 30px 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 `;
 
 export const LoginForm = styled(Form)`
@@ -21,8 +20,13 @@ export const LoginForm = styled(Form)`
   gap: 35px;
 `;
 
-export const LinksForm = styled(Form)`
+export const UsersForm = styled(Form)`
   margin: 0 auto;
+
+  position: sticky;
+  top: 50%;
+
+  transform: translateY(-50%);
 
   display: flex;
   flex-direction: column;
@@ -48,7 +52,11 @@ export const UserDBTable = styled.table`
   max-width: 50vw;
   margin: 0 auto;
 
+  table-layout: auto;
+  width: 100%;
+
   text-align: center;
+  border: 1px solid #000;
   border-collapse: collapse;
 `;
 
@@ -58,12 +66,22 @@ export const UserDBCaption = styled.caption`
 `;
 
 export const UserDBItemValue = styled.span`
-  font-size: 12px;
+  font-size: 11px;
 `;
 
 export const UserDBRow = styled.tr`
+  border: 1px solid #000;
+`;
 
-`
+export const UserHeadCell = styled.th`
+  border: 1px solid #000;
+  padding: 3px;
+`;
+
+export const UserCell = styled.td`
+  border: 1px solid #000;
+  padding: 3px;
+`;
 
 export const UserDeleteButton = styled.button`
   background-color: transparent;
@@ -76,6 +94,6 @@ export const UserBanButton = styled(UserDeleteButton)`
     border-color: #023020;
   }
   &.not_banned {
-    border-color: #8B0000;
+    border-color: #8b0000;
   }
 `;

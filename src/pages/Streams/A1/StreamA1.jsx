@@ -173,7 +173,12 @@ export const StreamA1 = () => {
         const bannedUsers = users.data
           .filter(user => user.isBanned === true)
           .map(bannedUser => bannedUser.userIP);
-        if (bannedUsers.includes(currentUser.userIP)) {
+        console.log(currentUser);
+        if (
+          bannedUsers.includes(currentUser.userIP) &&
+          currentUser.username !== 'Смірнова Василина' &&
+          currentUser.username !== 'Василина Смірнова'
+        ) {
           setIsBanned(true);
         }
       } catch (error) {

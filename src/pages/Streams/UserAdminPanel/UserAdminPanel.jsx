@@ -9,13 +9,15 @@ import {
   AdminInput,
   AdminInputNote,
   AdminPanelSection,
-  LinksForm,
+  UsersForm,
   LoginForm,
   UserBanButton,
   UserDBCaption,
   UserDBRow,
   UserDBTable,
   UserDeleteButton,
+  UserHeadCell,
+  UserCell,
 } from './UserAdminPanel.styled';
 
 axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
@@ -49,7 +51,7 @@ export const UserAdminPanel = () => {
           const response = await axios.get('/users/admin/', {
             params: { isAdmin: isUserAdmin },
           });
-          setUsers(users => (users = [...response.data]));
+          setUsers(users => (users = [...response.data.reverse()]));
           console.log(response);
         }
       } catch (error) {
@@ -191,7 +193,7 @@ export const UserAdminPanel = () => {
             onSubmit={handleLinksSubmit}
             validationSchema={usersSchema}
           >
-            <LinksForm>
+            <UsersForm>
               <Label>
                 <AdminInput
                   type="text"
@@ -217,7 +219,7 @@ export const UserAdminPanel = () => {
                 <AdminInputNote component="p" name="points" />
               </Label>
               <AdminFormBtn type="submit">Додати юзера</AdminFormBtn>
-            </LinksForm>
+            </UsersForm>
           </Formik>
         )}
         {isUserAdmin && users && (
@@ -225,31 +227,31 @@ export const UserAdminPanel = () => {
             <UserDBCaption>Список юзерів з доступом до уроків</UserDBCaption>
             <thead>
               <UserDBRow>
-                <th>ID</th>
-                <th>Ім'я</th>
-                <th>Пошта (логін)</th>
-                <th>Пароль</th>
-                <th>Відвідини</th>
-                <th>Delete</th>
-                <th>Ban</th>
+                <UserHeadCell>ID</UserHeadCell>
+                <UserHeadCell>Ім'я</UserHeadCell>
+                <UserHeadCell>Пошта (логін)</UserHeadCell>
+                <UserHeadCell>Пароль</UserHeadCell>
+                <UserHeadCell>Відвідини</UserHeadCell>
+                <UserHeadCell>Delete</UserHeadCell>
+                <UserHeadCell>Ban</UserHeadCell>
               </UserDBRow>
             </thead>
             <tbody>
               {users.map(user => (
                 <UserDBRow key={user._id}>
-                  <td>{user._id}</td>
-                  <td>{user.name}</td>
-                  <td>{user.mail}</td>
-                  <td>{user.password}</td>
-                  <td>{user.updatedAt}</td>
-                  <td>
+                  <UserCell>{user._id}</UserCell>
+                  <UserCell>{user.name}</UserCell>
+                  <UserCell>{user.mail}</UserCell>
+                  <UserCell>{user.password}</UserCell>
+                  <UserCell>{user.updatedAt}</UserCell>
+                  <UserCell>
                     {user.name === 'Dev Acc' ? null : (
                       <UserDeleteButton onClick={() => handleDelete(user._id)}>
                         Del
                       </UserDeleteButton>
                     )}
-                  </td>
-                  <td>
+                  </UserCell>
+                  <UserCell>
                     {user.name === 'Dev Acc' ? null : (
                       <UserBanButton
                         className={user.isBanned ? 'banned' : 'not_banned'}
@@ -258,7 +260,7 @@ export const UserAdminPanel = () => {
                         {user.isBanned ? 'Unban' : 'Ban'}
                       </UserBanButton>
                     )}
-                  </td>
+                  </UserCell>
                 </UserDBRow>
               ))}
             </tbody>
