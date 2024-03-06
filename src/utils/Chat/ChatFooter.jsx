@@ -70,6 +70,7 @@ export const ChatFooter = ({ socket, theme, currentUser }) => {
             <СhatMessageInput
               type="text"
               placeholder="Введіть повідомлення..."
+              maxLength={250}
               value={message}
               onChange={e => {
                 setMessage(e.target.value);

@@ -243,7 +243,7 @@ export const UserAdminPanel = () => {
                   <UserCell>{user.name}</UserCell>
                   <UserCell>{user.mail}</UserCell>
                   <UserCell>{user.password}</UserCell>
-                  <UserCell>{user.updatedAt}</UserCell>
+                  <UserCell>{new Date(user.updatedAt).toLocaleString('uk-UA')}</UserCell>
                   <UserCell>
                     {user.name === 'Dev Acc' ? null : (
                       <UserDeleteButton onClick={() => handleDelete(user._id)}>

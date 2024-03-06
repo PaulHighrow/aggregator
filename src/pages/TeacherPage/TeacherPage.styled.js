@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { ReactComponent as ViewerIcon } from '../../img/svg/viewerIcon.svg';
+import { ReactComponent as WhiteBoardIcon } from '../../img/svg/whiteBoardIcon.svg';
 import { ChatBtn } from 'components/Stream/Stream.styled';
 
 export const KeyboardBox = styled.div`
@@ -33,6 +34,19 @@ export const KeyboardBox = styled.div`
 export const ViewerBtn = styled(ChatBtn)``;
 
 export const ViewerLogo = styled(ViewerIcon)`
+  width: 25px;
+  height: 25px;
+  z-index: 5;
+
+  @media screen and (min-width: 768px) {
+    width: 40px;
+    height: 40px;
+  }
+`;
+
+export const WhiteBoardBtn = styled(ChatBtn)``;
+
+export const WhiteBoardLogo = styled(WhiteBoardIcon)`
   width: 25px;
   height: 25px;
   z-index: 5;

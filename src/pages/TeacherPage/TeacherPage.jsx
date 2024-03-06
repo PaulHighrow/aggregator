@@ -4,21 +4,23 @@ import {
   BoxHideRightSwitch,
   BoxHideSwitch,
   ButtonBox,
-  ChatBtn,
-  ChatLogo,
   StreamSection,
   SupportBtn,
   SupportLogo
 } from 'components/Stream/Stream.styled';
 import { useState } from 'react';
-import Keyboard from 'react-simple-keyboard';
-import 'react-simple-keyboard/build/css/index.css';
 import { Platform } from './Platform/Platform';
-import { KeyboardBox, ViewerBtn, ViewerLogo } from './TeacherPage.styled';
+import {
+  ViewerBtn,
+  ViewerLogo,
+  WhiteBoardBtn,
+  WhiteBoardLogo
+} from './TeacherPage.styled';
 import { Viewer } from './Viewer/Viewer';
+import { WhiteBoard } from './WhiteBoard/WhiteBoard';
 
 const TeacherPage = () => {
-  const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
+  const [isWhiteBoardOpen, setIsWhiteBoardOpen] = useState(false);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
   const [isPlatformOpen, setIsPlatformOpen] = useState(false);
   const [isButtonBoxOpen, setIsButtonBoxOpen] = useState(true);
@@ -26,29 +28,21 @@ const TeacherPage = () => {
   // eslint-disable-next-line
   const [width, height] = useSize(document.body);
 
-  const onChange = input => {
-    console.log('Input changed', input);
-  };
-
-  const onKeyPress = button => {
-    console.log('Button pressed', button);
-  };
-
   const toggleViewer = e => {
     setIsViewerOpen(isViewerOpen => !isViewerOpen);
-    isKeyboardOpen || isPlatformOpen
+    isWhiteBoardOpen || isPlatformOpen
       ? setIsOpenedLast(isOpenedLast => 'viewer')
       : setIsOpenedLast(isOpenedLast => '');
   };
-  const toggleKeyboard = () => {
-    setIsKeyboardOpen(isChatOpen => !isChatOpen);
+  const toggleWhiteBoard = e => {
+    setIsWhiteBoardOpen(isWhiteBoardOpen => !isWhiteBoardOpen);
     isViewerOpen || isPlatformOpen
-      ? setIsOpenedLast(isOpenedLast => 'keyboard')
+      ? setIsOpenedLast(isOpenedLast => 'whiteboard')
       : setIsOpenedLast(isOpenedLast => '');
   };
   const togglePlatform = () => {
     setIsPlatformOpen(isPlatformOpen => !isPlatformOpen);
-    isViewerOpen || isKeyboardOpen
+    isViewerOpen || isWhiteBoardOpen
       ? setIsOpenedLast(isOpenedLast => 'platform')
       : setIsOpenedLast(isOpenedLast => '');
   };
@@ -63,9 +57,9 @@ const TeacherPage = () => {
           <ViewerLogo />
         </ViewerBtn>
 
-        <ChatBtn onClick={toggleKeyboard}>
-          <ChatLogo />
-        </ChatBtn>
+        <WhiteBoardBtn onClick={toggleWhiteBoard}>
+          <WhiteBoardLogo />
+        </WhiteBoardBtn>
 
         <SupportBtn onClick={togglePlatform}>
           <SupportLogo />
@@ -80,14 +74,17 @@ const TeacherPage = () => {
         isOpenedLast={isOpenedLast}
       />
 
+      <WhiteBoard
+        sectionWidth={width}
+        isWhiteBoardOpen={isWhiteBoardOpen}
+        isOpenedLast={isOpenedLast}
+      />
+
       <Platform
         sectionWidth={width}
         isPlatformOpen={isPlatformOpen}
         isOpenedLast={isOpenedLast}
       />
-      <KeyboardBox className={isKeyboardOpen ? 'shown' : 'hidden'}>
-        <Keyboard onChange={onChange} onKeyPress={onKeyPress} physicalKeyboardHighlight={true}/>
-      </KeyboardBox>
     </StreamSection>
   );
 };
