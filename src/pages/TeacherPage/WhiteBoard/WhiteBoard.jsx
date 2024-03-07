@@ -11,7 +11,7 @@ export const WhiteBoard = ({
   isOpenedLast,
   sectionWidth,
 }) => {
-  const [isFullScreen, setIsFullScreen] = useState(false);
+  const [isFullScreen, setIsFullScreen] = useState(true);
 
   const supportBoxStylesHandler = () => {
     return {
