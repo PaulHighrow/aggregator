@@ -1,6 +1,9 @@
 import axios from 'axios';
 import { Label } from 'components/LeadForm/LeadForm.styled';
-import { StreamPlaceHolderText, StreamSection } from 'components/Stream/Stream.styled';
+import {
+  StreamPlaceHolderText,
+  StreamSection,
+} from 'components/Stream/Stream.styled';
 import { Formik } from 'formik';
 import {
   AdminFormBtn,
@@ -11,13 +14,27 @@ import {
 import { useEffect, useState } from 'react';
 import * as yup from 'yup';
 import { MyPlatform } from './My Platform/MyPlatform';
+import { LessonFinder } from './LessonFinder/LessonFinder';
 
 const MyAP = () => {
   const [isUserLogged, setIsUserLogged] = useState(false);
+  const [lessons, setLessons] = useState(false);
   axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
 
   useEffect(() => {
     document.title = 'My AP | AP Education';
+
+    const getLessons = async () => {
+      console.log('lessons getter');
+      try {
+        const res = await axios.get('/lessons');
+        console.log(res);
+        setLessons(lessons => (lessons = [...res.data]));
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getLessons();
 
     const refreshToken = async () => {
       console.log('token refresher');
@@ -32,7 +49,7 @@ const MyAP = () => {
       }
     };
     refreshToken();
-  });
+  }, []);
 
   const setAuthToken = token => {
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
@@ -100,7 +117,9 @@ const MyAP = () => {
         </Formik>
       ) : (
         <>
+          <LessonFinder lessons={lessons} />
           <MyPlatform />
+
         </>
       )}
     </StreamSection>

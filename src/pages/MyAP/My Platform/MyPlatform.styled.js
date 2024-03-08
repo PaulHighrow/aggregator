@@ -6,9 +6,7 @@ export const MyPlatformBox = styled.div`
 
   overflow: hidden;
 
-  background-color: white;
   position: absolute;
-  border-radius: 20px;
   top: 0;
   left: 0;
 
