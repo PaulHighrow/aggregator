@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.81899c8f.css",
-    "main.js": "/aggregator/static/js/main.010e45dc.js",
+    "main.js": "/aggregator/static/js/main.a04c9f8a.js",
     "Homepage.css": "/aggregator/static/css/Homepage.aab45c92.chunk.css",
     "Homepage.js": "/aggregator/static/js/Homepage.c064e2ac.chunk.js",
     "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.11cc6144.chunk.js",
@@ -20,8 +20,8 @@
     "Polski courses page.js": "/aggregator/static/js/Polski courses page.2506bb75.chunk.js",
     "Deutsch courses page.css": "/aggregator/static/css/Deutsch courses page.aab45c92.chunk.css",
     "Deutsch courses page.js": "/aggregator/static/js/Deutsch courses page.35e23c32.chunk.js",
-    "Teacher Page.js": "/aggregator/static/js/Teacher Page.f25bbd27.chunk.js",
-    "My AP Page.js": "/aggregator/static/js/My AP Page.b9f11f86.chunk.js",
+    "Teacher Page.js": "/aggregator/static/js/Teacher Page.5714c7be.chunk.js",
+    "My AP Page.js": "/aggregator/static/js/My AP Page.1590ea9e.chunk.js",
     "Not Found.js": "/aggregator/static/js/Not Found.2bc59c3e.chunk.js",
     "reactPlayerYouTube.js": "/aggregator/static/js/reactPlayerYouTube.a26a0e93.chunk.js",
     "reactPlayerSoundCloud.js": "/aggregator/static/js/reactPlayerSoundCloud.08d87338.chunk.js",
@@ -152,7 +152,7 @@
     "static/media/btnbox-switch-left.svg": "/aggregator/static/media/btnbox-switch-left.41ecbf13fa59a984cfe935e54d276421.svg",
     "static/media/btnbox-switch-right.svg": "/aggregator/static/media/btnbox-switch-right.c2062beab8ed3d828de36754c3279d60.svg",
     "main.81899c8f.css.map": "/aggregator/static/css/main.81899c8f.css.map",
-    "main.010e45dc.js.map": "/aggregator/static/js/main.010e45dc.js.map",
+    "main.a04c9f8a.js.map": "/aggregator/static/js/main.a04c9f8a.js.map",
     "Homepage.aab45c92.chunk.css.map": "/aggregator/static/css/Homepage.aab45c92.chunk.css.map",
     "Homepage.c064e2ac.chunk.js.map": "/aggregator/static/js/Homepage.c064e2ac.chunk.js.map",
     "Inverted Homepage.11cc6144.chunk.js.map": "/aggregator/static/js/Inverted Homepage.11cc6144.chunk.js.map",
@@ -171,8 +171,8 @@
     "Polski courses page.2506bb75.chunk.js.map": "/aggregator/static/js/Polski courses page.2506bb75.chunk.js.map",
     "Deutsch courses page.aab45c92.chunk.css.map": "/aggregator/static/css/Deutsch courses page.aab45c92.chunk.css.map",
     "Deutsch courses page.35e23c32.chunk.js.map": "/aggregator/static/js/Deutsch courses page.35e23c32.chunk.js.map",
-    "Teacher Page.f25bbd27.chunk.js.map": "/aggregator/static/js/Teacher Page.f25bbd27.chunk.js.map",
-    "My AP Page.b9f11f86.chunk.js.map": "/aggregator/static/js/My AP Page.b9f11f86.chunk.js.map",
+    "Teacher Page.5714c7be.chunk.js.map": "/aggregator/static/js/Teacher Page.5714c7be.chunk.js.map",
+    "My AP Page.1590ea9e.chunk.js.map": "/aggregator/static/js/My AP Page.1590ea9e.chunk.js.map",
     "Not Found.2bc59c3e.chunk.js.map": "/aggregator/static/js/Not Found.2bc59c3e.chunk.js.map",
     "reactPlayerYouTube.a26a0e93.chunk.js.map": "/aggregator/static/js/reactPlayerYouTube.a26a0e93.chunk.js.map",
     "reactPlayerSoundCloud.08d87338.chunk.js.map": "/aggregator/static/js/reactPlayerSoundCloud.08d87338.chunk.js.map",
@@ -195,6 +195,6 @@
   },
   "entrypoints": [
     "static/css/main.81899c8f.css",
-    "static/js/main.010e45dc.js"
+    "static/js/main.a04c9f8a.js"
   ]
 }
