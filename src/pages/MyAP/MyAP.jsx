@@ -15,6 +15,7 @@ import { useEffect, useState } from 'react';
 import * as yup from 'yup';
 import { MyPlatform } from './My Platform/MyPlatform';
 import { LessonFinder } from './LessonFinder/LessonFinder';
+import { MyAPPanel } from './MyAPPanel/MyAPPanel';
 
 const MyAP = () => {
   const [isUserLogged, setIsUserLogged] = useState(false);
@@ -117,9 +118,10 @@ const MyAP = () => {
         </Formik>
       ) : (
         <>
-          <LessonFinder lessons={lessons} />
+          <MyAPPanel>
+            <LessonFinder lessons={lessons} />
+          </MyAPPanel>
           <MyPlatform />
-
         </>
       )}
     </StreamSection>

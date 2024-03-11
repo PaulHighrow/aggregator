@@ -4,7 +4,7 @@ import {
   MobileMenuIcon,
   PlatformLink,
 } from 'components/Menu/Menu.styled';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ReactComponent as LoginIcon } from '../../img/svg/invertedLoginIcon.svg';
 import {
   MenuButtonsWrapper,
@@ -18,7 +18,7 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
   NavigationNavLink,
-  StyledNavigation
+  StyledNavigation,
 } from './Navigation.styled';
 
 export const Navigation = ({ toggleMenu, className }) => {
@@ -32,6 +32,20 @@ export const Navigation = ({ toggleMenu, className }) => {
   const toggleCourseList = () => {
     setIsCourseListOpen(isOpen => !isOpen);
   };
+
+  useEffect(() => {
+    const onEscapeClose = event => {
+      if (event.code === 'Escape' && isCourseListOpen) {
+        toggleCourseList();
+      }
+    };
+
+    window.addEventListener('keydown', onEscapeClose);
+
+    return () => {
+      window.removeEventListener('keydown', onEscapeClose);
+    };
+  });
 
   const filteredNodeList = nodeList.filter(
     node =>
@@ -68,13 +82,19 @@ export const Navigation = ({ toggleMenu, className }) => {
           }
         >
           <NavigationMenuItem>
-            <NavigationNavLink to={'/'}>Англійська</NavigationNavLink>
+            <NavigationNavLink to={'/'} onClick={toggleCourseList}>
+              Англійська
+            </NavigationNavLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationNavLink to={'/deutsch'}>Німецька</NavigationNavLink>
+            <NavigationNavLink to={'/deutsch'} onClick={toggleCourseList}>
+              Німецька
+            </NavigationNavLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationNavLink to={'/polski'}>Польська</NavigationNavLink>
+            <NavigationNavLink to={'/polski'} onClick={toggleCourseList}>
+              Польська
+            </NavigationNavLink>
           </NavigationMenuItem>
         </NavigationMenuList>
       </MenuCoursesWrapper>

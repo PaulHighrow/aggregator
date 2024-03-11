@@ -106,7 +106,7 @@ export const HowItWorksPol = () => {
       {isVideoModalOpen && (
         <VideoModal
           closeVideoModal={closeVideoModal}
-          url={'https://youtu.be/LZwObb9wZ4c'}
+          url={'https://youtu.be/zy6AFxRhT28'}
         />
       )}
     </HowItWorksSection>

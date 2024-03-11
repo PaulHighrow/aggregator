@@ -110,7 +110,7 @@ export const HowItWorks = () => {
       {isVideoModalOpen && (
         <VideoModal
           closeVideoModal={closeVideoModal}
-          url={'https://youtu.be/ncDw4CGMn2o?si=TLiw7DOmUaf9-cef'}
+          url={'https://youtu.be/fWYAkhLjpYE'}
         />
       )}
     </HowItWorksSection>
