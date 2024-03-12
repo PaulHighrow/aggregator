@@ -11,6 +11,8 @@ import { A2KahootForm } from './A2KahootForm';
 import { A2KidsKahootForm } from './A2KidsKahootForm';
 import { B1KahootForm } from './B1KahootForm';
 import { B1KidsKahootForm } from './B1KidsKahootForm';
+import { B2KahootForm } from './B2KahootForm';
+import { B2KidsKahootForm } from './B2KidsKahootForm';
 import { DeutschKahootForm } from './DeutschKahootForm';
 import {
   AdminFormBtn,
@@ -103,6 +105,7 @@ export const KahootAdminPanel = () => {
             <KahootLvlBtn onClick={() => handleBtnClick('a1')}>A1</KahootLvlBtn>
             <KahootLvlBtn onClick={() => handleBtnClick('a2')}>A2</KahootLvlBtn>
             <KahootLvlBtn onClick={() => handleBtnClick('b1')}>B1</KahootLvlBtn>
+            <KahootLvlBtn onClick={() => handleBtnClick('b2')}>B2</KahootLvlBtn>
             <KahootLvlBtn onClick={() => handleBtnClick('de')}>DE</KahootLvlBtn>
             <KahootLvlBtn onClick={() => handleBtnClick('pl')}>PL</KahootLvlBtn>
             <KahootLvlBtn onClick={() => handleBtnClick('trial-en')}>
@@ -126,6 +129,9 @@ export const KahootAdminPanel = () => {
             <KahootLvlBtn onClick={() => handleBtnClick('b1kids')}>
               B1 Kids
             </KahootLvlBtn>
+            <KahootLvlBtn onClick={() => handleBtnClick('b2kids')}>
+              B2 Kids
+            </KahootLvlBtn>
             <KahootLvlBtn onClick={() => handleBtnClick('test')}>
               Test
             </KahootLvlBtn>
@@ -136,6 +142,7 @@ export const KahootAdminPanel = () => {
           {levels.includes('a1') && <A1KahootForm />}
           {levels.includes('a2') && <A2KahootForm />}
           {levels.includes('b1') && <B1KahootForm />}
+          {levels.includes('b2') && <B2KahootForm />}
           {levels.includes('de') && <DeutschKahootForm />}
           {levels.includes('pl') && <PolskiKahootForm />}
           {levels.includes('trial-en') && <TrialsEngKahootForm />}
@@ -145,6 +152,7 @@ export const KahootAdminPanel = () => {
           {levels.includes('a1kids') && <A1KidsKahootForm />}
           {levels.includes('a2kids') && <A2KidsKahootForm />}
           {levels.includes('b1kids') && <B1KidsKahootForm />}
+          {levels.includes('b2kids') && <B2KidsKahootForm />}
           {levels.includes('test') && <TestKahootForm />}
         </KahootFormBox>
         {isLoading && <Loader />}
