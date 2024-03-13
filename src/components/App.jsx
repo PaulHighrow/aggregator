@@ -7,20 +7,22 @@ import { StreamA1 } from 'pages/Streams/A1/StreamA1';
 import { StreamA2 } from 'pages/Streams/A2/StreamA2';
 import { AdminPanel } from 'pages/Streams/AdminPanel/AdminPanel';
 import { StreamB1 } from 'pages/Streams/B1/StreamB1';
+import { StreamB2 } from 'pages/Streams/B2/StreamB2';
 import { StreamDeutsch } from 'pages/Streams/Deutsch/StreamDeutsch';
 import { KahootAdminPanel } from 'pages/Streams/KahootAdminPanel/KahootAdminPanel';
 import { StreamPolski } from 'pages/Streams/Polski/StreamPolski';
 import { StreamTest } from 'pages/Streams/Test/StreamTest';
+import { UserAdminPanel } from 'pages/Streams/UserAdminPanel/UserAdminPanel';
 import { KidsA1 } from 'pages/StreamsKids/KidsA1/KidsA1';
 import { KidsA2 } from 'pages/StreamsKids/KidsA2/KidsA2';
 import { KidsB1 } from 'pages/StreamsKids/KidsB1/KidsB1';
+import { KidsB2 } from 'pages/StreamsKids/KidsB2/KidsB2';
 import { lazy } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { Route, Routes, useSearchParams } from 'react-router-dom';
 import { WindowedChat } from 'utils/Chat/ChatWindowed/WindowedChat';
 import ScrollToTop from 'utils/ScrollToTop/ScrollToTop';
 import { SharedLayout } from './SharedLayout/SharedLayout';
-import { UserAdminPanel } from 'pages/Streams/UserAdminPanel/UserAdminPanel';
 
 const Home = lazy(() =>
   import(/* webpackChunkName: "Homepage" */ '../pages/Home/Home')
@@ -185,11 +187,14 @@ export const App = () => {
           <Route path="a0" element={<StreamA0 />} />
           <Route path="a0-chat" element={<WindowedChat />} />
           <Route path="a1" element={<StreamA1 />} />
+          <Route path="pilot-a1" element={<StreamA1 />} />
           <Route path="a1-chat" element={<WindowedChat />} />
           <Route path="a2" element={<StreamA2 />} />
           <Route path="a2-chat" element={<WindowedChat />} />
           <Route path="b1" element={<StreamB1 />} />
           <Route path="b1-chat" element={<WindowedChat />} />
+          <Route path="b2" element={<StreamB2 />} />
+          <Route path="b2-chat" element={<WindowedChat />} />
           <Route path="deutsch" element={<StreamDeutsch />} />
           <Route path="pilot" element={<StreamDeutsch />} />
           <Route path="deutsch-chat" element={<WindowedChat />} />
@@ -209,6 +214,8 @@ export const App = () => {
           <Route path="a2-chat" element={<WindowedChat />} />
           <Route path="b1" element={<KidsB1 />} />
           <Route path="b1-chat" element={<WindowedChat />} />
+          <Route path="b2" element={<KidsB2 />} />
+          <Route path="b2-chat" element={<WindowedChat />} />
         </Route>
         <Route path="service" element={<Service />}>
           <Route path="viber" element={<ViberRedirect />} />

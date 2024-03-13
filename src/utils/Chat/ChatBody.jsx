@@ -30,7 +30,9 @@ export const ChatBody = ({ messages, isChatOpen }) => {
     scrollToBottom();
   });
 
-  const room = location.pathname.includes('pilot')
+  const room = location.pathname.includes('pilot-a1')
+    ? '/streams/a1'
+    : location.pathname.includes('pilot')
     ? '/streams/deutsch'
     : location.pathname;
 

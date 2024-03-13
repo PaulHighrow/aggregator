@@ -68,6 +68,8 @@ export const Kahoots = ({
     switch (path) {
       case 'pilot':
         return 'deutsch';
+      case 'pilot-a1':
+        return 'a1';
       case 'test1':
         return 'test';
       case 'trial-en':

@@ -41,6 +41,9 @@ export const ChatFooter = ({ socket, theme, currentUser }) => {
     if (location.pathname.includes('pilot')) {
       pilotLocation = '/streams/deutsch';
     }
+    if (location.pathname.includes('pilot-a1')) {
+      pilotLocation = '/streams/a1';
+    }
 
     if (message.trim() && localStorage.getItem('userName')) {
       socket.emit('message', {

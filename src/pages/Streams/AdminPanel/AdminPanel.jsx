@@ -52,6 +52,7 @@ export const AdminPanel = () => {
     a1: '',
     a2: '',
     b1: '',
+    b2: '',
     deutsch: '',
     polski: '',
     trials: '',
@@ -61,6 +62,7 @@ export const AdminPanel = () => {
     a1kids: '',
     a2kids: '',
     b1kids: '',
+    b2kids: '',
     test: '',
   };
 
@@ -69,6 +71,7 @@ export const AdminPanel = () => {
     a1: yup.string().optional(),
     a2: yup.string().optional(),
     b1: yup.string().optional(),
+    b2: yup.string().optional(),
     deutsch: yup.string().optional(),
     polski: yup.string().optional(),
     trials: yup.string().optional(),
@@ -78,6 +81,7 @@ export const AdminPanel = () => {
     a1kids: yup.string().optional(),
     a2kids: yup.string().optional(),
     b1kids: yup.string().optional(),
+    b2kids: yup.string().optional(),
     test: yup.string().optional(),
   });
 
@@ -131,10 +135,10 @@ export const AdminPanel = () => {
             validationSchema={linksSchema}
           >
             <LinksForm>
-              {/* <Label>
+              <Label>
                 <AdminInput type="text" name="a0" placeholder="A0 link" />
                 <AdminInputNote component="p" name="a0" />
-              </Label> */}
+              </Label>
               <Label>
                 <AdminInput type="text" name="a1" placeholder="A1 link" />
                 <AdminInputNote component="p" name="a1" />
@@ -148,10 +152,22 @@ export const AdminPanel = () => {
                 <AdminInputNote component="p" name="b1" />
               </Label>
               <Label>
+                <AdminInput type="text" name="b2" placeholder="B2 link" />
+                <AdminInputNote component="p" name="b2" />
+              </Label>
+              <Label>
                 <AdminInput
                   type="text"
                   name="deutsch"
-                  placeholder="Deutsch link"
+                  placeholder="Deutsch A1 link"
+                />
+                <AdminInputNote component="p" name="deutsch" />
+              </Label>
+              <Label>
+                <AdminInput
+                  type="text"
+                  name="deutsch"
+                  placeholder="Deutsch A2 link"
                 />
                 <AdminInputNote component="p" name="deutsch" />
               </Label>
@@ -159,7 +175,15 @@ export const AdminPanel = () => {
                 <AdminInput
                   type="text"
                   name="polski"
-                  placeholder="Polski link"
+                  placeholder="Polski A1 link"
+                />
+                <AdminInputNote component="p" name="polski" />
+              </Label>
+              <Label>
+                <AdminInput
+                  type="text"
+                  name="polski"
+                  placeholder="Polski A2 link"
                 />
                 <AdminInputNote component="p" name="polski" />
               </Label>
@@ -218,6 +242,14 @@ export const AdminPanel = () => {
                   placeholder="B1 Kids link"
                 />
                 <AdminInputNote component="p" name="b1kids" />
+              </Label>
+              <Label>
+                <AdminInput
+                  type="text"
+                  name="b2kids"
+                  placeholder="B2 Kids link"
+                />
+                <AdminInputNote component="p" name="b2kids" />
               </Label>
               <Label>
                 <AdminInput
