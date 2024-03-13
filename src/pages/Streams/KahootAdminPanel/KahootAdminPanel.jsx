@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Label } from 'components/LeadForm/LeadForm.styled';
 import { Loader } from 'components/SharedLayout/Loaders/Loader';
 import { Formik } from 'formik';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import * as yup from 'yup';
 import { A0KahootForm } from './A0KahootForm';
 import { A1KahootForm } from './A1KahootForm';
@@ -43,6 +43,22 @@ export const KahootAdminPanel = () => {
   const [isUserAdmin, setIsUserAdmin] = useState(false);
   const [levels, setLevels] = useState([]);
 
+  useEffect(() => {
+    const refreshToken = async () => {
+      console.log('token refresher');
+      try {
+        if (localStorage.getItem('isAdmin')) {
+          const res = await axios.post('admins/refresh/kahoot/', {});
+          console.log(res);
+          setIsUserAdmin(isAdmin => (isAdmin = true));
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    refreshToken();
+  }, [isUserAdmin]);
+
   const initialLoginValues = {
     login: '',
     password: '',
@@ -66,6 +82,7 @@ export const KahootAdminPanel = () => {
       const response = await axios.post('/admins/login/kahoot', values);
       setAuthToken(response.data.token);
       setIsUserAdmin(isAdmin => (isAdmin = true));
+      localStorage.setItem('isAdmin', true);
       resetForm();
     } catch (error) {
       console.error(error);
@@ -109,9 +126,13 @@ export const KahootAdminPanel = () => {
             <KahootLvlBtn onClick={() => handleBtnClick('b1')}>B1</KahootLvlBtn>
             <KahootLvlBtn onClick={() => handleBtnClick('b2')}>B2</KahootLvlBtn>
             <KahootLvlBtn onClick={() => handleBtnClick('de')}>DE</KahootLvlBtn>
-            <KahootLvlBtn onClick={() => handleBtnClick('de-a2')}>DE A2</KahootLvlBtn>
+            <KahootLvlBtn onClick={() => handleBtnClick('de-a2')}>
+              DE A2
+            </KahootLvlBtn>
             <KahootLvlBtn onClick={() => handleBtnClick('pl')}>PL</KahootLvlBtn>
-            <KahootLvlBtn onClick={() => handleBtnClick('pl-a2')}>PL A2</KahootLvlBtn>
+            <KahootLvlBtn onClick={() => handleBtnClick('pl-a2')}>
+              PL A2
+            </KahootLvlBtn>
             <KahootLvlBtn onClick={() => handleBtnClick('trial-en')}>
               Trial EN
             </KahootLvlBtn>

@@ -1,11 +1,13 @@
+import { Input, InputNote } from 'components/LeadForm/LeadForm.styled';
 import styled, { keyframes } from 'styled-components';
+import { ReactComponent as BoxSwitchLeft } from '../../img/svg/btnbox-switch-left.svg';
+import { ReactComponent as BoxSwitchRight } from '../../img/svg/btnbox-switch-right.svg';
 import { ReactComponent as KahootIcon } from '../../img/svg/kahootIcon.svg';
-import { ReactComponent as ChatIcon } from '../../img/svg/youTubeChat.svg';
+import { ReactComponent as LogoClean } from '../../img/svg/myap/logo-clean.svg';
 import { ReactComponent as SupportIcon } from '../../img/svg/supportIcon.svg';
 import { ReactComponent as SupportArrowIcon } from '../../img/svg/supportIcons/supportArrow.svg';
 import { ReactComponent as SupportPointerIcon } from '../../img/svg/supportIcons/supportPointer.svg';
-import { ReactComponent as BoxSwitchLeft } from '../../img/svg/btnbox-switch-left.svg';
-import { ReactComponent as BoxSwitchRight } from '../../img/svg/btnbox-switch-right.svg';
+import { ReactComponent as ChatIcon } from '../../img/svg/youTubeChat.svg';
 
 export const StreamSection = styled.section`
   position: relative;
@@ -419,4 +421,73 @@ export const StreamPlaceHolder = styled.div`
 export const StreamPlaceHolderText = styled.p`
   text-align: center;
   font-size: 32px;
+`;
+
+export const LoginLogo = styled(LogoClean)`
+  width: 240px;
+
+  @media screen and (min-width: 768px) {
+    width: 360px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 452px;
+  }
+`;
+
+export const StreamAuthText = styled.p`
+  text-align: center;
+  font-family: var(--new-font-family);
+  font-size: 18px;
+  width: 92%;
+  max-width: 420px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+    max-width: 630px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    max-width: 840px;
+  }
+`;
+
+export const StreamAuthTextHello = styled.span`
+  display: block;
+`;
+
+export const LoginInput = styled(Input)`
+  border: 2px solid var(--main-color);
+  border-radius: 50px;
+  padding: 12px 20px;
+  
+  @media screen and (min-width: 768px) {
+    /* padding: 25px 40px; */
+  }
+
+  &::placeholder {
+    font-size: 20px;
+    color: #000;
+  }
+
+  &:-webkit-autofill {
+    &,
+    &:hover,
+    &:focus {
+      font-family: var(--new-font-family);
+      -webkit-text-fill-color: var(--main-color);
+      -webkit-box-shadow: 0 0 0px 50px var(--accent-semi-transparent-color) inset;
+    }
+  }
+`;
+
+export const LoginInputNote = styled(InputNote)`
+  position: static;
+  color: var(--main-color);
+  font-size: 18px;
+  bottom: -1.1em;
+
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+  }
 `;

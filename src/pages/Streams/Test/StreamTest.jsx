@@ -1,10 +1,10 @@
 import useSize from '@react-hook/size';
+import axios from 'axios';
+import { Label } from 'components/LeadForm/LeadForm.styled';
 import { Kahoots } from 'components/Stream/Kahoots/Kahoots';
 import { Support } from 'components/Stream/Support/Support';
-import { nanoid } from 'nanoid';
-import * as yup from 'yup';
-import axios from 'axios';
 import { Formik } from 'formik';
+import { nanoid } from 'nanoid';
 import { useEffect, useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { useOutletContext } from 'react-router-dom';
@@ -18,6 +18,7 @@ import {
   ChatLoginLabel,
   ChatLoginValidation,
 } from 'utils/Chat/Chat.styled';
+import * as yup from 'yup';
 import {
   BoxHideLeftSwitch,
   BoxHideRightSwitch,
@@ -28,8 +29,13 @@ import {
   ChatLogo,
   KahootBtn,
   KahootLogo,
+  LoginInput,
+  LoginInputNote,
+  LoginLogo,
   MoldingNoClick,
   MoldingNoClickSecondary,
+  StreamAuthText,
+  StreamAuthTextHello,
   StreamPlaceHolder,
   StreamPlaceHolderText,
   StreamSection,
@@ -41,12 +47,9 @@ import {
   SupportPointer,
   VideoBox,
 } from '../../../components/Stream/Stream.styled';
-import { Label } from 'components/LeadForm/LeadForm.styled';
 import {
   AdminFormBtn,
-  AdminInput,
-  AdminInputNote,
-  LoginForm,
+  LoginForm
 } from '../AdminPanel/AdminPanel.styled';
 
 export const StreamTest = () => {
@@ -330,21 +333,24 @@ export const StreamTest = () => {
           validationSchema={loginSchema}
         >
           <LoginForm>
-            <StreamPlaceHolderText>
-              Привіт! Ця сторінка тимчасово недоступна для неавторизованих
-              користувачів і нічого цікавого тут, власне, поки не відбувається.
-            </StreamPlaceHolderText>
+            <LoginLogo />
+            <StreamAuthText>
+              <StreamAuthTextHello>Привіт!</StreamAuthTextHello>
+              Ця сторінка недоступна для неавторизованих користувачів. Але, якщо
+              ви маєте доступ до нашої платформи, то й до цієї сторінки теж.
+              Введіть дані, які ви використовуєте для входу на платформу.
+            </StreamAuthText>
             <Label>
-              <AdminInput type="text" name="mail" placeholder="Login" />
-              <AdminInputNote component="p" name="mail" type="email" />
+              <LoginInput type="text" name="mail" placeholder="Login" />
+              <LoginInputNote component="p" name="mail" type="email" />
             </Label>
             <Label>
-              <AdminInput
+              <LoginInput
                 type="password"
                 name="password"
                 placeholder="Password"
               />
-              <AdminInputNote component="p" name="password" />
+              <LoginInputNote component="p" name="password" />
             </Label>
             <AdminFormBtn type="submit">Увійти</AdminFormBtn>
           </LoginForm>
