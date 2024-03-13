@@ -2,6 +2,7 @@ import axios from 'axios';
 import { Label } from 'components/LeadForm/LeadForm.styled';
 import { Loader } from 'components/SharedLayout/Loaders/Loader';
 import { Formik } from 'formik';
+// eslint-disable-next-line
 import { useEffect, useState } from 'react';
 import * as yup from 'yup';
 import { A0KahootForm } from './A0KahootForm';
@@ -43,22 +44,22 @@ export const KahootAdminPanel = () => {
   const [isUserAdmin, setIsUserAdmin] = useState(false);
   const [levels, setLevels] = useState([]);
 
-  useEffect(() => {
-    const refreshToken = async () => {
-      console.log('token refresher');
-      try {
-        if (localStorage.getItem('isAdmin')) {
-          const res = await axios.post('admins/refresh/kahoot/', {});
-          console.log(res);
-          setIsUserAdmin(isAdmin => (isAdmin = true));
-          setAuthToken(res.data.token);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    refreshToken();
-  }, [isUserAdmin]);
+  // useEffect(() => {
+  //   const refreshToken = async () => {
+  //     console.log('token refresher');
+  //     try {
+  //       if (localStorage.getItem('isAdmin')) {
+  //         const res = await axios.post('admins/refresh/kahoot/', {});
+  //         console.log(res);
+  //         setIsUserAdmin(isAdmin => (isAdmin = true));
+  //         setAuthToken(res.data.token);
+  //       }
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  //   refreshToken();
+  // }, [isUserAdmin]);
 
   const initialLoginValues = {
     login: '',

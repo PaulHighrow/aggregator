@@ -2,6 +2,7 @@ import axios from 'axios';
 import { Label } from 'components/LeadForm/LeadForm.styled';
 import { Loader } from 'components/SharedLayout/Loaders/Loader';
 import { Formik } from 'formik';
+// eslint-disable-next-line
 import { useEffect, useState } from 'react';
 import * as yup from 'yup';
 import {
@@ -22,22 +23,22 @@ export const AdminPanel = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isUserAdmin, setIsUserAdmin] = useState(false);
 
-  useEffect(() => {
-    const refreshToken = async () => {
-      console.log('token refresher');
-      try {
-        if (localStorage.getItem('isAdmin')) {
-          const res = await axios.post('admins/refresh/', {});
-          console.log(res);
-          setIsUserAdmin(isAdmin => (isAdmin = true));
-          setAuthToken(res.data.token);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    refreshToken();
-  }, [isUserAdmin]);
+  // useEffect(() => {
+  //   const refreshToken = async () => {
+  //     console.log('token refresher');
+  //     try {
+  //       if (localStorage.getItem('isAdmin')) {
+  //         const res = await axios.post('admins/refresh/', {});
+  //         console.log(res);
+  //         setIsUserAdmin(isAdmin => (isAdmin = true));
+  //         setAuthToken(res.data.token);
+  //       }
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  //   refreshToken();
+  // }, [isUserAdmin]);
 
   const initialLoginValues = {
     login: '',
