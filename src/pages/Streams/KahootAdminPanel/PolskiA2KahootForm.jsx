@@ -20,25 +20,25 @@ import {
   WarningText,
 } from './KahootAdminPanel.styled';
 
-export const DeutschKahootForm = () => {
+export const PolskiA2KahootForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [confirmation, setConfirmation] = useState(false);
 
   const initialLinksValues = {
-    deutsch_1: '',
-    deutsch_2: '',
-    deutsch_3: '',
-    deutsch_4: '',
-    deutsch_5: '',
+    polskia2_1: '',
+    polskia2_2: '',
+    polskia2_3: '',
+    polskia2_4: '',
+    polskia2_5: '',
     replace: true,
   };
 
   const linksSchema = yup.object().shape({
-    deutsch_1: yup.string().optional(),
-    deutsch_2: yup.string().optional(),
-    deutsch_3: yup.string().optional(),
-    deutsch_4: yup.string().optional(),
-    deutsch_5: yup.string().optional(),
+    polskia2_1: yup.string().optional(),
+    polskia2_2: yup.string().optional(),
+    polskia2_3: yup.string().optional(),
+    polskia2_4: yup.string().optional(),
+    polskia2_5: yup.string().optional(),
     replace: yup.bool().required(),
   });
 
@@ -83,16 +83,16 @@ export const DeutschKahootForm = () => {
       );
 
     if (!emptyValues || confirmation) {
-      const deutschlinks = { deutsch: { links: {} } };
+      const polskia2links = { polskia2: { links: {} } };
       for (const [key, value] of Object.entries(values)) {
         if (value && key !== 'replace') {
-          deutschlinks.deutsch.links[key] = value;
+          polskia2links.polskia2.links[key] = value;
         } else {
-          deutschlinks.deutsch.replace = value;
+          polskia2links.polskia2.replace = value;
         }
       }
       try {
-        const response = await axios.patch('/kahoots', deutschlinks);
+        const response = await axios.patch('/kahoots', polskia2links);
         console.log(response);
         resetForm();
         alert('Лінки замінилися, молодець');
@@ -120,41 +120,41 @@ export const DeutschKahootForm = () => {
             <Label>
               <AdminInput
                 type="text"
-                name="deutsch_1"
+                name="polskia2_1"
                 autocomplete="off"
-                placeholder="Перший кахут для A1 з німецької"
+                placeholder="Перший кахут для A2 з польської"
               />
             </Label>
             <Label>
               <AdminInput
                 type="text"
-                name="deutsch_2"
+                name="polskia2_2"
                 autocomplete="off"
-                placeholder="Другий кахут для A1 з німецької"
+                placeholder="Другий кахут для A2 з польської"
               />
             </Label>
             <Label>
               <AdminInput
                 type="text"
-                name="deutsch_3"
+                name="polskia2_3"
                 autocomplete="off"
-                placeholder="Третій кахут для A1 з німецької"
+                placeholder="Третій кахут для A2 з польської"
               />
             </Label>
             <Label>
               <AdminInput
                 type="text"
-                name="deutsch_4"
+                name="polskia2_4"
                 autocomplete="off"
-                placeholder="Четвертий кахут для A1 з німецької"
+                placeholder="Четвертий кахут для A2 з польської"
               />
             </Label>
             <Label>
               <AdminInput
                 type="text"
-                name="deutsch_5"
+                name="polskia2_5"
                 autocomplete="off"
-                placeholder="П'ятий кахут для A1 з німецької"
+                placeholder="П'ятий кахут для A2 з польської"
               />
             </Label>
             <LabelCheckBox>

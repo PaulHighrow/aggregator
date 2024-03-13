@@ -54,7 +54,9 @@ export const AdminPanel = () => {
     b1: '',
     b2: '',
     deutsch: '',
+    deutscha2: '',
     polski: '',
+    polskia2: '',
     trials: '',
     trials_kids: '',
     trials_de: '',
@@ -73,7 +75,9 @@ export const AdminPanel = () => {
     b1: yup.string().optional(),
     b2: yup.string().optional(),
     deutsch: yup.string().optional(),
+    deutscha2: yup.string().optional(),
     polski: yup.string().optional(),
+    polskia2: yup.string().optional(),
     trials: yup.string().optional(),
     trials_kids: yup.string().optional(),
     trials_de: yup.string().optional(),
@@ -166,10 +170,10 @@ export const AdminPanel = () => {
               <Label>
                 <AdminInput
                   type="text"
-                  name="deutsch"
+                  name="deutscha2"
                   placeholder="Deutsch A2 link"
                 />
-                <AdminInputNote component="p" name="deutsch" />
+                <AdminInputNote component="p" name="deutscha2" />
               </Label>
               <Label>
                 <AdminInput
@@ -182,10 +186,10 @@ export const AdminPanel = () => {
               <Label>
                 <AdminInput
                   type="text"
-                  name="polski"
+                  name="polskia2"
                   placeholder="Polski A2 link"
                 />
-                <AdminInputNote component="p" name="polski" />
+                <AdminInputNote component="p" name="polskia2" />
               </Label>
               <Label>
                 <AdminInput

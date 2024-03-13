@@ -40,7 +40,7 @@ import {
   VideoBox,
 } from '../../../components/Stream/Stream.styled';
 
-export const StreamA1 = () => {
+export const StreamPolskiA2 = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isKahootOpen, setIsKahootOpen] = useState(false);
   const [isSupportOpen, setIsSupportOpen] = useState(false);
@@ -140,7 +140,7 @@ export const StreamA1 = () => {
   const socketRef = useRef(null);
 
   useEffect(() => {
-    document.title = 'A1 English | AP Education';
+    document.title = 'Polski A2 | AP Education';
 
     socketRef.current = io('https://ap-chat.onrender.com/');
     checkLogin();
@@ -173,7 +173,6 @@ export const StreamA1 = () => {
         const bannedUsers = users.data
           .filter(user => user.isBanned === true)
           .map(bannedUser => bannedUser.userIP);
-        console.log(currentUser);
         if (bannedUsers.includes(currentUser.userIP)) {
           setIsBanned(true);
         }
@@ -234,7 +233,7 @@ export const StreamA1 = () => {
 
   return (
     <>
-      {(links.a1 === undefined || links.a1[0] < 10) && !isLoading ? (
+      {(links.polskia2 === undefined || links.polskia2[0] < 10) && !isLoading ? (
         <StreamPlaceHolder>
           <StreamPlaceHolderText>
             Поки що трансляції тут немає! <br />
@@ -306,7 +305,7 @@ export const StreamA1 = () => {
                 }}
                 width="100%"
                 height="100vh"
-                url={links.a1}
+                url={links.polskia2}
               />
             </VideoBox>
 

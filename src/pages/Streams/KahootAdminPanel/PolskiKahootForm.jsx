@@ -122,7 +122,7 @@ export const PolskiKahootForm = () => {
                 type="text"
                 name="polski_1"
                 autocomplete="off"
-                placeholder="Перший кахут для вебінарів з польської"
+                placeholder="Перший кахут для A1 з польської"
               />
             </Label>
             <Label>
@@ -130,7 +130,7 @@ export const PolskiKahootForm = () => {
                 type="text"
                 name="polski_2"
                 autocomplete="off"
-                placeholder="Другий кахут для вебінарів з польської"
+                placeholder="Другий кахут для A1 з польської"
               />
             </Label>
             <Label>
@@ -138,7 +138,7 @@ export const PolskiKahootForm = () => {
                 type="text"
                 name="polski_3"
                 autocomplete="off"
-                placeholder="Третій кахут для вебінарів з польської"
+                placeholder="Третій кахут для A1 з польської"
               />
             </Label>
             <Label>
@@ -146,7 +146,7 @@ export const PolskiKahootForm = () => {
                 type="text"
                 name="polski_4"
                 autocomplete="off"
-                placeholder="Четвертий кахут для вебінарів з польської"
+                placeholder="Четвертий кахут для A1 з польської"
               />
             </Label>
             <Label>
@@ -154,7 +154,7 @@ export const PolskiKahootForm = () => {
                 type="text"
                 name="polski_5"
                 autocomplete="off"
-                placeholder="П'ятий кахут для вебінарів з польської"
+                placeholder="П'ятий кахут для A1 з польської"
               />
             </Label>
             <LabelCheckBox>

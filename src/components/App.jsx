@@ -8,8 +8,10 @@ import { StreamA2 } from 'pages/Streams/A2/StreamA2';
 import { AdminPanel } from 'pages/Streams/AdminPanel/AdminPanel';
 import { StreamB1 } from 'pages/Streams/B1/StreamB1';
 import { StreamB2 } from 'pages/Streams/B2/StreamB2';
+import { StreamDeutschA2 } from 'pages/Streams/Deutsch A2/StreamDeutschA2';
 import { StreamDeutsch } from 'pages/Streams/Deutsch/StreamDeutsch';
 import { KahootAdminPanel } from 'pages/Streams/KahootAdminPanel/KahootAdminPanel';
+import { StreamPolskiA2 } from 'pages/Streams/Polski A2/StreamPolskiA2';
 import { StreamPolski } from 'pages/Streams/Polski/StreamPolski';
 import { StreamTest } from 'pages/Streams/Test/StreamTest';
 import { UserAdminPanel } from 'pages/Streams/UserAdminPanel/UserAdminPanel';
@@ -198,8 +200,12 @@ export const App = () => {
           <Route path="deutsch" element={<StreamDeutsch />} />
           <Route path="pilot" element={<StreamDeutsch />} />
           <Route path="deutsch-chat" element={<WindowedChat />} />
+          <Route path="deutscha2" element={<StreamDeutschA2 />} />
+          <Route path="deutscha2-chat" element={<WindowedChat />} />
           <Route path="polski" element={<StreamPolski />} />
           <Route path="polski-chat" element={<WindowedChat />} />
+          <Route path="polskia2" element={<StreamPolskiA2 />} />
+          <Route path="polskia2-chat" element={<WindowedChat />} />
           <Route path="test" element={<StreamTest />} />
           <Route path="test-chat" element={<WindowedChat />} />
           {/* <Route path="test1" element={<StreamTest />} /> */}

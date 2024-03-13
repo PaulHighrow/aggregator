@@ -13,6 +13,7 @@ import { B1KahootForm } from './B1KahootForm';
 import { B1KidsKahootForm } from './B1KidsKahootForm';
 import { B2KahootForm } from './B2KahootForm';
 import { B2KidsKahootForm } from './B2KidsKahootForm';
+import { DeutschA2KahootForm } from './DeutschA2KahootForm';
 import { DeutschKahootForm } from './DeutschKahootForm';
 import {
   AdminFormBtn,
@@ -24,6 +25,7 @@ import {
   KahootLvlBtnBox,
   LoginForm,
 } from './KahootAdminPanel.styled';
+import { PolskiA2KahootForm } from './PolskiA2KahootForm';
 import { PolskiKahootForm } from './PolskiKahootForm';
 import { TestKahootForm } from './TestKahootForm';
 import { TrialsDeKahootForm } from './TrialsDeKahootForm';
@@ -107,7 +109,9 @@ export const KahootAdminPanel = () => {
             <KahootLvlBtn onClick={() => handleBtnClick('b1')}>B1</KahootLvlBtn>
             <KahootLvlBtn onClick={() => handleBtnClick('b2')}>B2</KahootLvlBtn>
             <KahootLvlBtn onClick={() => handleBtnClick('de')}>DE</KahootLvlBtn>
+            <KahootLvlBtn onClick={() => handleBtnClick('de-a2')}>DE A2</KahootLvlBtn>
             <KahootLvlBtn onClick={() => handleBtnClick('pl')}>PL</KahootLvlBtn>
+            <KahootLvlBtn onClick={() => handleBtnClick('pl-a2')}>PL A2</KahootLvlBtn>
             <KahootLvlBtn onClick={() => handleBtnClick('trial-en')}>
               Trial EN
             </KahootLvlBtn>
@@ -144,7 +148,9 @@ export const KahootAdminPanel = () => {
           {levels.includes('b1') && <B1KahootForm />}
           {levels.includes('b2') && <B2KahootForm />}
           {levels.includes('de') && <DeutschKahootForm />}
+          {levels.includes('de-a2') && <DeutschA2KahootForm />}
           {levels.includes('pl') && <PolskiKahootForm />}
+          {levels.includes('pl-a2') && <PolskiA2KahootForm />}
           {levels.includes('trial-en') && <TrialsEngKahootForm />}
           {levels.includes('trial-kids') && <TrialsKidsKahootForm />}
           {levels.includes('trial-de') && <TrialsDeKahootForm />}
