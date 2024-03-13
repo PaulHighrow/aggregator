@@ -51,6 +51,7 @@ export const KahootAdminPanel = () => {
           const res = await axios.post('admins/refresh/kahoot/', {});
           console.log(res);
           setIsUserAdmin(isAdmin => (isAdmin = true));
+          setAuthToken(res.data.token);
         }
       } catch (error) {
         console.log(error);

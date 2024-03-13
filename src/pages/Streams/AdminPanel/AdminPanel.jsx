@@ -30,6 +30,7 @@ export const AdminPanel = () => {
           const res = await axios.post('admins/refresh/', {});
           console.log(res);
           setIsUserAdmin(isAdmin => (isAdmin = true));
+          setAuthToken(res.data.token);
         }
       } catch (error) {
         console.log(error);
