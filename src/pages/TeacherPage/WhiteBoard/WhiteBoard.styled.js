@@ -6,7 +6,7 @@ export const WhiteBoardBox = styled.div`
   scrollbar-width: thin;
   scrollbar-gutter: stable;
 
-  background-color: white;
+  background-color: transparent;
   position: absolute;
   top: 0;
   right: 0;

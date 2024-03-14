@@ -1,18 +1,34 @@
 import axios from 'axios';
 import { StreamsBackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
+import { Label } from 'components/LeadForm/LeadForm.styled';
 import { Loader } from 'components/SharedLayout/Loaders/Loader';
 import { LoaderWrapper } from 'components/SharedLayout/Loaders/Loader.styled';
 import { StreamNav } from 'components/Stream/StreamNav/StreamNav';
+import { Formik } from 'formik';
 import { useLayoutEffect, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
+import * as yup from 'yup';
+import {
+  LoginInput,
+  LoginInputNote,
+  LoginLogo,
+  StreamAuthText,
+  StreamAuthTextHello,
+} from '../../components/Stream/Stream.styled';
+import { AdminFormBtn, LoginForm } from './AdminPanel/AdminPanel.styled';
 
 axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
+
+const setAuthToken = token => {
+  axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+};
 
 const Streams = () => {
   let location = useLocation();
   const [isLoading, setIsLoading] = useState(false);
   const [links, setLinks] = useState({});
   const [currentUser, setCurrentUser] = useState({});
+  const [isUserLogged, setIsUserLogged] = useState(false);
 
   const wakeupRequest = async () => {
     try {
@@ -56,6 +72,37 @@ const Streams = () => {
     }
   };
 
+  const initialLoginValues = {
+    mail: '',
+    password: '',
+  };
+
+  const loginSchema = yup.object().shape({
+    mail: yup
+      .string()
+      .required('Вкажіть пошту, за якою ви зареєстровані на нашій платформі!'),
+    password: yup
+      .string()
+      .required(
+        'Введіть пароль, який ви використовуєте для входу на нашу платформу!'
+      ),
+  });
+
+  const handleLoginSubmit = async (values, { resetForm }) => {
+    console.log(isUserLogged);
+    try {
+      const response = await axios.post('/users/login', values);
+      console.log(values);
+      console.log(response);
+      setAuthToken(response.data.token);
+      setIsUserLogged(isLogged => (isLogged = true));
+      localStorage.setItem('mail', values.mail);
+      resetForm();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useLayoutEffect(() => {
     resetLogin();
     wakeupRequest();
@@ -73,18 +120,62 @@ const Streams = () => {
     };
 
     getLinksRequest();
+
+    const refreshToken = async () => {
+      console.log('token refresher');
+      try {
+        const res = await axios.post(
+          'https://aggregator-server.onrender.com/users/refresh',
+          { mail: localStorage.getItem('mail') }
+        );
+        setIsUserLogged(isLogged => (isLogged = true));
+        console.log(res);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    refreshToken();
   }, []);
 
   return (
     <>
       <StreamsBackgroundWrapper>
-        {location.pathname === '/streams' ||
-        location.pathname === '/streams/' ? (
+        {!isUserLogged ? (
+          <Formik
+            initialValues={initialLoginValues}
+            onSubmit={handleLoginSubmit}
+            validationSchema={loginSchema}
+          >
+            <LoginForm>
+              <LoginLogo />
+              <StreamAuthText>
+                <StreamAuthTextHello>Привіт!</StreamAuthTextHello>
+                Ця сторінка недоступна для неавторизованих користувачів. Але,
+                якщо ви маєте доступ до нашої платформи, то й до цієї сторінки
+                теж. Введіть дані, які ви використовуєте для входу на платформу.
+              </StreamAuthText>
+              <Label>
+                <LoginInput type="text" name="mail" placeholder="Login" />
+                <LoginInputNote component="p" name="mail" type="email" />
+              </Label>
+              <Label>
+                <LoginInput
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                />
+                <LoginInputNote component="p" name="password" />
+              </Label>
+              <AdminFormBtn type="submit">Увійти</AdminFormBtn>
+            </LoginForm>
+          </Formik>
+        ) : location.pathname === '/streams' ||
+          location.pathname === '/streams/' ? (
           <StreamNav />
         ) : (
-          ''
+          <Outlet context={[links, isLoading, currentUser, setCurrentUser]} />
         )}
-        <Outlet context={[links, isLoading, currentUser, setCurrentUser]} />
+
         {isLoading && (
           <LoaderWrapper>
             <Loader />
