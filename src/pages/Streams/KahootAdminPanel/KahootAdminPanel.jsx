@@ -44,22 +44,22 @@ export const KahootAdminPanel = () => {
   const [isUserAdmin, setIsUserAdmin] = useState(false);
   const [levels, setLevels] = useState([]);
 
-  // useEffect(() => {
-  //   const refreshToken = async () => {
-  //     console.log('token refresher');
-  //     try {
-  //       if (localStorage.getItem('isAdmin')) {
-  //         const res = await axios.post('admins/refresh/kahoot/', {});
-  //         console.log(res);
-  //         setIsUserAdmin(isAdmin => (isAdmin = true));
-  //         setAuthToken(res.data.token);
-  //       }
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-  //   refreshToken();
-  // }, [isUserAdmin]);
+  useEffect(() => {
+    const refreshToken = async () => {
+      console.log('token refresher');
+      try {
+        if (localStorage.getItem('isAdmin')) {
+          const res = await axios.post('admins/refresh/kahoot/', {});
+          console.log(res);
+          setIsUserAdmin(isAdmin => (isAdmin = true));
+          setAuthToken(res.data.newToken);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    refreshToken();
+  }, [isUserAdmin]);
 
   const initialLoginValues = {
     login: '',
