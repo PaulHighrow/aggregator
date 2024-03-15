@@ -16,7 +16,7 @@ export const WhiteBoard = ({
   const supportBoxStylesHandler = () => {
     return {
       zIndex: isOpenedLast === 'whiteboard' ? '4' : '1',
-      width: isFullScreen ? sectionWidth * 0.99 : (sectionWidth / 10) * 4,
+      width: isFullScreen ? sectionWidth : (sectionWidth / 10) * 4,
     };
   };
 

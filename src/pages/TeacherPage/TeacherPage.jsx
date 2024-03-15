@@ -1,16 +1,14 @@
 import useSize from '@react-hook/size';
-import {
-  BoxHideLeftSwitch,
-  BoxHideRightSwitch,
-  BoxHideSwitch,
-  ButtonBox,
-  StreamSection,
-  SupportBtn,
-  SupportLogo
-} from 'components/Stream/Stream.styled';
 import { useState } from 'react';
 import { Platform } from './Platform/Platform';
 import {
+  BoxHideDownSwitch,
+  BoxHideUpSwitch,
+  PlatformBtn,
+  PlatformLogo,
+  TeacherButtonBox,
+  TeacherButtonBoxHideSwitch,
+  TeacherPageSection,
   ViewerBtn,
   ViewerLogo,
   WhiteBoardBtn,
@@ -51,8 +49,8 @@ const TeacherPage = () => {
   };
 
   return (
-    <StreamSection>
-      <ButtonBox className={!isButtonBoxOpen ? 'hidden' : ''}>
+    <TeacherPageSection>
+      <TeacherButtonBox className={!isButtonBoxOpen ? 'hidden' : ''}>
         <ViewerBtn onClick={toggleViewer}>
           <ViewerLogo />
         </ViewerBtn>
@@ -61,13 +59,13 @@ const TeacherPage = () => {
           <WhiteBoardLogo />
         </WhiteBoardBtn>
 
-        <SupportBtn onClick={togglePlatform}>
-          <SupportLogo />
-        </SupportBtn>
-      </ButtonBox>
-      <BoxHideSwitch id="no-transform" onClick={toggleButtonBox}>
-        {isButtonBoxOpen ? <BoxHideLeftSwitch /> : <BoxHideRightSwitch />}
-      </BoxHideSwitch>
+        <PlatformBtn onClick={togglePlatform}>
+          <PlatformLogo />
+        </PlatformBtn>
+      </TeacherButtonBox>
+      <TeacherButtonBoxHideSwitch id="no-transform" onClick={toggleButtonBox}>
+        {isButtonBoxOpen ? <BoxHideDownSwitch /> : <BoxHideUpSwitch />}
+      </TeacherButtonBoxHideSwitch>
       <Viewer
         sectionWidth={width}
         isViewerOpen={isViewerOpen}
@@ -85,7 +83,7 @@ const TeacherPage = () => {
         isPlatformOpen={isPlatformOpen}
         isOpenedLast={isOpenedLast}
       />
-    </StreamSection>
+    </TeacherPageSection>
   );
 };
 

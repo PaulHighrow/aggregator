@@ -5,17 +5,17 @@ import { Formik } from 'formik';
 // eslint-disable-next-line
 import { useEffect, useState } from 'react';
 import * as yup from 'yup';
-import { A0KahootForm } from './A0KahootForm';
-import { A1KahootForm } from './A1KahootForm';
-import { A1KidsKahootForm } from './A1KidsKahootForm';
-import { A2KahootForm } from './A2KahootForm';
-import { A2KidsKahootForm } from './A2KidsKahootForm';
-import { B1KahootForm } from './B1KahootForm';
-import { B1KidsKahootForm } from './B1KidsKahootForm';
-import { B2KahootForm } from './B2KahootForm';
-import { B2KidsKahootForm } from './B2KidsKahootForm';
-import { DeutschA2KahootForm } from './DeutschA2KahootForm';
-import { DeutschKahootForm } from './DeutschKahootForm';
+import { A0KahootForm } from '../KahootAdminPanel/A0KahootForm';
+import { A1KahootForm } from '../KahootAdminPanel/A1KahootForm';
+import { A1KidsKahootForm } from '../KahootAdminPanel/A1KidsKahootForm';
+import { A2KahootForm } from '../KahootAdminPanel/A2KahootForm';
+import { A2KidsKahootForm } from '../KahootAdminPanel/A2KidsKahootForm';
+import { B1KahootForm } from '../KahootAdminPanel/B1KahootForm';
+import { B1KidsKahootForm } from '../KahootAdminPanel/B1KidsKahootForm';
+import { B2KahootForm } from '../KahootAdminPanel/B2KahootForm';
+import { B2KidsKahootForm } from '../KahootAdminPanel/B2KidsKahootForm';
+import { DeutschA2KahootForm } from '../KahootAdminPanel/DeutschA2KahootForm';
+import { DeutschKahootForm } from '../KahootAdminPanel/DeutschKahootForm';
 import {
   AdminFormBtn,
   AdminInput,
@@ -25,14 +25,14 @@ import {
   KahootLvlBtn,
   KahootLvlBtnBox,
   LoginForm,
-} from './KahootAdminPanel.styled';
-import { PolskiA2KahootForm } from './PolskiA2KahootForm';
-import { PolskiKahootForm } from './PolskiKahootForm';
-import { TestKahootForm } from './TestKahootForm';
-import { TrialsDeKahootForm } from './TrialsDeKahootForm';
-import { TrialsEngKahootForm } from './TrialsEngKahootForm';
-import { TrialsKidsKahootForm } from './TrialsKidsKahootForm';
-import { TrialsPlKahootForm } from './TrialsPlKahootForm';
+} from '../KahootAdminPanel/KahootAdminPanel.styled';
+import { PolskiA2KahootForm } from '../KahootAdminPanel/PolskiA2KahootForm';
+import { PolskiKahootForm } from '../KahootAdminPanel/PolskiKahootForm';
+import { TestKahootForm } from '../KahootAdminPanel/TestKahootForm';
+import { TrialsDeKahootForm } from '../KahootAdminPanel/TrialsDeKahootForm';
+import { TrialsEngKahootForm } from '../KahootAdminPanel/TrialsEngKahootForm';
+import { TrialsKidsKahootForm } from '../KahootAdminPanel/TrialsKidsKahootForm';
+import { TrialsPlKahootForm } from '../KahootAdminPanel/TrialsPlKahootForm';
 import { useLocation } from 'react-router-dom';
 
 axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
@@ -40,7 +40,7 @@ const setAuthToken = token => {
   axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 };
 
-export const KahootAdminPanel = () => {
+export const HostKahootAdminPanel = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isUserAdmin, setIsUserAdmin] = useState(false);
   const [levels, setLevels] = useState([]);

@@ -25,6 +25,7 @@ import { Route, Routes, useSearchParams } from 'react-router-dom';
 import { WindowedChat } from 'utils/Chat/ChatWindowed/WindowedChat';
 import ScrollToTop from 'utils/ScrollToTop/ScrollToTop';
 import { SharedLayout } from './SharedLayout/SharedLayout';
+import { HostKahootAdminPanel } from 'pages/Streams/HostKahootAdminPanel/HostKahootAdminPanel';
 
 const Home = lazy(() =>
   import(/* webpackChunkName: "Homepage" */ '../pages/Home/Home')
@@ -211,6 +212,7 @@ export const App = () => {
           {/* <Route path="test1" element={<StreamTest />} /> */}
           <Route path="stream-admin-panel" element={<AdminPanel />} />
           <Route path="kahoot-admin-panel" element={<KahootAdminPanel />} />
+          <Route path="host-kahoot-admin-panel" element={<HostKahootAdminPanel />} />
           <Route path="user-admin-panel" element={<UserAdminPanel />} />
         </Route>
         <Route path="streams-kids" element={<StreamsKids />}>

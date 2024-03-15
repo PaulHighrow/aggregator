@@ -460,7 +460,7 @@ export const LoginInput = styled(Input)`
   border: 2px solid var(--main-color);
   border-radius: 50px;
   padding: 12px 20px;
-  
+
   @media screen and (min-width: 768px) {
     /* padding: 25px 40px; */
   }
@@ -476,7 +476,8 @@ export const LoginInput = styled(Input)`
     &:focus {
       font-family: var(--new-font-family);
       -webkit-text-fill-color: var(--main-color);
-      -webkit-box-shadow: 0 0 0px 50px var(--accent-semi-transparent-color) inset;
+      -webkit-box-shadow: 0 0 0px 50px var(--accent-semi-transparent-color)
+        inset;
     }
   }
 `;

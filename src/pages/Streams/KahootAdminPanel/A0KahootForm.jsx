@@ -20,9 +20,11 @@ import {
   WarningText,
 } from './KahootAdminPanel.styled';
 
-export const A0KahootForm = () => {
+export const A0KahootForm = ({ location }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [confirmation, setConfirmation] = useState(false);
+
+  console.log(location);
 
   const initialLinksValues = {
     a0_1: '',
