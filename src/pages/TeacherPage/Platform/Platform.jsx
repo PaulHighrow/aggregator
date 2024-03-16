@@ -1,4 +1,8 @@
-import { KahootExitFullScreenIcon, KahootFullScreenBtn, KahootFullScreenIcon } from 'components/Stream/Kahoots/Kahoots.styled';
+import {
+  KahootExitFullScreenIcon,
+  KahootFullScreenBtn,
+  KahootFullScreenIcon,
+} from 'components/Stream/Kahoots/Kahoots.styled';
 import { PlatformBox } from './Platform.styled';
 import { useState } from 'react';
 
@@ -7,8 +11,8 @@ export const Platform = ({ isPlatformOpen, isOpenedLast, sectionWidth }) => {
 
   const supportBoxStylesHandler = () => {
     return {
-      zIndex: isOpenedLast === 'support' ? '4' : '1',
-      width: isFullScreen ? sectionWidth : sectionWidth / 10 * 4,
+      zIndex: isOpenedLast === 'platform' ? '4' : '1',
+      width: isFullScreen ? sectionWidth : (sectionWidth / 10) * 4,
     };
   };
 

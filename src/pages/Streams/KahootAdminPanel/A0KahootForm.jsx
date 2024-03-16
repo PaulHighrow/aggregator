@@ -20,11 +20,11 @@ import {
   WarningText,
 } from './KahootAdminPanel.styled';
 
-export const A0KahootForm = ({ location }) => {
+export const A0KahootForm = ({ destination }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [confirmation, setConfirmation] = useState(false);
 
-  console.log(location);
+  console.log(destination);
 
   const initialLinksValues = {
     a0_1: '',
@@ -94,7 +94,7 @@ export const A0KahootForm = ({ location }) => {
         }
       }
       try {
-        const response = await axios.patch('/kahoots', a0links);
+        const response = await axios.patch(destination, a0links);
         console.log(response);
         resetForm();
         alert('Лінки замінилися, молодець');
@@ -123,7 +123,7 @@ export const A0KahootForm = ({ location }) => {
               <AdminInput
                 type="text"
                 name="a0_1"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Перший кахут для рівня А0"
               />
             </Label>
@@ -131,7 +131,7 @@ export const A0KahootForm = ({ location }) => {
               <AdminInput
                 type="text"
                 name="a0_2"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Другий кахут для рівня А0"
               />
             </Label>
@@ -139,7 +139,7 @@ export const A0KahootForm = ({ location }) => {
               <AdminInput
                 type="text"
                 name="a0_3"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Третій кахут для рівня А0"
               />
             </Label>
@@ -147,7 +147,7 @@ export const A0KahootForm = ({ location }) => {
               <AdminInput
                 type="text"
                 name="a0_4"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Четвертий кахут для рівня А0"
               />
             </Label>
@@ -155,7 +155,7 @@ export const A0KahootForm = ({ location }) => {
               <AdminInput
                 type="text"
                 name="a0_5"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="П'ятий кахут для рівня А0"
               />
             </Label>

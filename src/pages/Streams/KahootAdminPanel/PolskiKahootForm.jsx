@@ -20,7 +20,7 @@ import {
   WarningText,
 } from './KahootAdminPanel.styled';
 
-export const PolskiKahootForm = () => {
+export const PolskiKahootForm = ({ destination }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [confirmation, setConfirmation] = useState(false);
 
@@ -92,7 +92,7 @@ export const PolskiKahootForm = () => {
         }
       }
       try {
-        const response = await axios.patch('/kahoots', polskilinks);
+        const response = await axios.patch(destination, polskilinks);
         console.log(response);
         resetForm();
         alert('Лінки замінилися, молодець');
@@ -121,7 +121,7 @@ export const PolskiKahootForm = () => {
               <AdminInput
                 type="text"
                 name="polski_1"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Перший кахут для A1 з польської"
               />
             </Label>
@@ -129,7 +129,7 @@ export const PolskiKahootForm = () => {
               <AdminInput
                 type="text"
                 name="polski_2"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Другий кахут для A1 з польської"
               />
             </Label>
@@ -137,7 +137,7 @@ export const PolskiKahootForm = () => {
               <AdminInput
                 type="text"
                 name="polski_3"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Третій кахут для A1 з польської"
               />
             </Label>
@@ -145,7 +145,7 @@ export const PolskiKahootForm = () => {
               <AdminInput
                 type="text"
                 name="polski_4"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Четвертий кахут для A1 з польської"
               />
             </Label>
@@ -153,7 +153,7 @@ export const PolskiKahootForm = () => {
               <AdminInput
                 type="text"
                 name="polski_5"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="П'ятий кахут для A1 з польської"
               />
             </Label>

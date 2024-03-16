@@ -20,7 +20,7 @@ import {
   WarningText,
 } from './KahootAdminPanel.styled';
 
-export const A1KidsKahootForm = () => {
+export const A1KidsKahootForm = ({ destination }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [confirmation, setConfirmation] = useState(false);
 
@@ -102,7 +102,7 @@ export const A1KidsKahootForm = () => {
         }
       }
       try {
-        const response = await axios.patch('/kahoots', a1kidslinks);
+        const response = await axios.patch(destination, a1kidslinks);
         console.log(response);
         resetForm();
         alert('Лінки замінилися, молодець');
@@ -131,7 +131,7 @@ export const A1KidsKahootForm = () => {
               <AdminInput
                 type="text"
                 name="a1kids_1"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Перший кахут для дітей рівня А1"
               />
             </Label>
@@ -139,7 +139,7 @@ export const A1KidsKahootForm = () => {
               <AdminInput
                 type="text"
                 name="a1kids_2"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Другий кахут для дітей рівня А1"
               />
             </Label>
@@ -147,7 +147,7 @@ export const A1KidsKahootForm = () => {
               <AdminInput
                 type="text"
                 name="a1kids_3"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Третій кахут для дітей рівня А1"
               />
             </Label>
@@ -155,7 +155,7 @@ export const A1KidsKahootForm = () => {
               <AdminInput
                 type="text"
                 name="a1kids_4"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Четвертий кахут для дітей рівня А1"
               />
             </Label>
@@ -163,7 +163,7 @@ export const A1KidsKahootForm = () => {
               <AdminInput
                 type="text"
                 name="a1kids_5"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="П'ятий кахут для дітей рівня А1"
               />
             </Label>
@@ -171,7 +171,7 @@ export const A1KidsKahootForm = () => {
               <AdminInput
                 type="text"
                 name="a1kids_6"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Шостий кахут для дітей рівня А1"
               />
             </Label>
@@ -179,7 +179,7 @@ export const A1KidsKahootForm = () => {
               <AdminInput
                 type="text"
                 name="a1kids_7"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Сьомий кахут для дітей рівня А1"
               />
             </Label>
@@ -187,7 +187,7 @@ export const A1KidsKahootForm = () => {
               <AdminInput
                 type="text"
                 name="a1kids_8"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Восьмий кахут для дітей рівня А1"
               />
             </Label>
@@ -195,7 +195,7 @@ export const A1KidsKahootForm = () => {
               <AdminInput
                 type="text"
                 name="a1kids_9"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Дев'ятий кахут для дітей рівня А1"
               />
             </Label>
@@ -203,7 +203,7 @@ export const A1KidsKahootForm = () => {
               <AdminInput
                 type="text"
                 name="a1kids_10"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Десятий кахут для дітей рівня А1"
               />
             </Label>

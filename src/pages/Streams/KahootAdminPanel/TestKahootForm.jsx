@@ -20,7 +20,7 @@ import {
   WarningText,
 } from './KahootAdminPanel.styled';
 
-export const TestKahootForm = () => {
+export const TestKahootForm = ({ destination }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [confirmation, setConfirmation] = useState(false);
 
@@ -92,7 +92,7 @@ export const TestKahootForm = () => {
         }
       }
       try {
-        const response = await axios.patch('/kahoots', testlinks);
+        const response = await axios.patch(destination, testlinks);
         console.log(response);
         resetForm();
         alert('Лінки замінилися, молодець');
@@ -121,7 +121,7 @@ export const TestKahootForm = () => {
               <AdminInput
                 type="text"
                 name="test_1"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Перший кахут для тестової сторінки (не чіпати)"
               />
             </Label>
@@ -129,7 +129,7 @@ export const TestKahootForm = () => {
               <AdminInput
                 type="text"
                 name="test_2"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Другий кахут для тестової сторінки (не чіпати)"
               />
             </Label>
@@ -137,7 +137,7 @@ export const TestKahootForm = () => {
               <AdminInput
                 type="text"
                 name="test_3"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Третій кахут для тестової сторінки (не чіпати)"
               />
             </Label>
@@ -145,7 +145,7 @@ export const TestKahootForm = () => {
               <AdminInput
                 type="text"
                 name="test_4"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Четвертий кахут для тестової сторінки (не чіпати)"
               />
             </Label>
@@ -153,7 +153,7 @@ export const TestKahootForm = () => {
               <AdminInput
                 type="text"
                 name="test_5"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="П'ятий кахут для тестової сторінки (не чіпати)"
               />
             </Label>

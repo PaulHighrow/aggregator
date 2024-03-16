@@ -20,7 +20,7 @@ import {
   WarningText,
 } from './KahootAdminPanel.styled';
 
-export const A1KahootForm = () => {
+export const A1KahootForm = ({ destination }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [confirmation, setConfirmation] = useState(false);
 
@@ -92,7 +92,7 @@ export const A1KahootForm = () => {
         }
       }
       try {
-        const response = await axios.patch('/kahoots', a1links);
+        const response = await axios.patch(destination, a1links);
         console.log(response);
         resetForm();
         alert('Лінки замінилися, молодець');
@@ -121,7 +121,7 @@ export const A1KahootForm = () => {
               <AdminInput
                 type="text"
                 name="a1_1"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Перший кахут для рівня А1"
               />
             </Label>
@@ -129,7 +129,7 @@ export const A1KahootForm = () => {
               <AdminInput
                 type="text"
                 name="a1_2"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Другий кахут для рівня А1"
               />
             </Label>
@@ -137,7 +137,7 @@ export const A1KahootForm = () => {
               <AdminInput
                 type="text"
                 name="a1_3"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Третій кахут для рівня А1"
               />
             </Label>
@@ -145,7 +145,7 @@ export const A1KahootForm = () => {
               <AdminInput
                 type="text"
                 name="a1_4"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Четвертий кахут для рівня А1"
               />
             </Label>
@@ -153,7 +153,7 @@ export const A1KahootForm = () => {
               <AdminInput
                 type="text"
                 name="a1_5"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="П'ятий кахут для рівня А1"
               />
             </Label>

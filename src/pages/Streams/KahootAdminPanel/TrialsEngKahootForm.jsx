@@ -20,7 +20,7 @@ import {
   WarningText,
 } from './KahootAdminPanel.styled';
 
-export const TrialsEngKahootForm = () => {
+export const TrialsEngKahootForm = ({ destination }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [confirmation, setConfirmation] = useState(false);
 
@@ -92,7 +92,7 @@ export const TrialsEngKahootForm = () => {
         }
       }
       try {
-        const response = await axios.patch('/kahoots', trialslinks);
+        const response = await axios.patch(destination, trialslinks);
         console.log(response);
         resetForm();
         alert('Лінки замінилися, молодець');
@@ -121,7 +121,7 @@ export const TrialsEngKahootForm = () => {
               <AdminInput
                 type="text"
                 name="trials_1"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Перший кахут для пробних вебінарів з англійської"
               />
             </Label>
@@ -129,7 +129,7 @@ export const TrialsEngKahootForm = () => {
               <AdminInput
                 type="text"
                 name="trials_2"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Другий кахут для пробних вебінарів з англійської"
               />
             </Label>
@@ -137,7 +137,7 @@ export const TrialsEngKahootForm = () => {
               <AdminInput
                 type="text"
                 name="trials_3"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Третій кахут для пробних вебінарів з англійської"
               />
             </Label>
@@ -145,7 +145,7 @@ export const TrialsEngKahootForm = () => {
               <AdminInput
                 type="text"
                 name="trials_4"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Четвертий кахут для пробних вебінарів з англійської"
               />
             </Label>
@@ -153,7 +153,7 @@ export const TrialsEngKahootForm = () => {
               <AdminInput
                 type="text"
                 name="trials_5"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="П'ятий кахут для пробних вебінарів з англійської"
               />
             </Label>

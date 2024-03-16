@@ -1,5 +1,7 @@
 import useSize from '@react-hook/size';
+import { KahootBtn, KahootLogo } from 'components/Stream/Stream.styled';
 import { useState } from 'react';
+import { HostKahoots } from './HostKahoots/HostKahoots';
 import { Platform } from './Platform/Platform';
 import {
   BoxHideDownSwitch,
@@ -12,7 +14,7 @@ import {
   ViewerBtn,
   ViewerLogo,
   WhiteBoardBtn,
-  WhiteBoardLogo
+  WhiteBoardLogo,
 } from './TeacherPage.styled';
 import { Viewer } from './Viewer/Viewer';
 import { WhiteBoard } from './WhiteBoard/WhiteBoard';
@@ -21,6 +23,7 @@ const TeacherPage = () => {
   const [isWhiteBoardOpen, setIsWhiteBoardOpen] = useState(false);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
   const [isPlatformOpen, setIsPlatformOpen] = useState(false);
+  const [isKahootOpen, setIsKahootOpen] = useState(false);
   const [isButtonBoxOpen, setIsButtonBoxOpen] = useState(true);
   const [isOpenedLast, setIsOpenedLast] = useState('');
   // eslint-disable-next-line
@@ -28,20 +31,26 @@ const TeacherPage = () => {
 
   const toggleViewer = e => {
     setIsViewerOpen(isViewerOpen => !isViewerOpen);
-    isWhiteBoardOpen || isPlatformOpen
+    isWhiteBoardOpen || isPlatformOpen || isKahootOpen
       ? setIsOpenedLast(isOpenedLast => 'viewer')
       : setIsOpenedLast(isOpenedLast => '');
   };
   const toggleWhiteBoard = e => {
     setIsWhiteBoardOpen(isWhiteBoardOpen => !isWhiteBoardOpen);
-    isViewerOpen || isPlatformOpen
+    isViewerOpen || isPlatformOpen || isKahootOpen
       ? setIsOpenedLast(isOpenedLast => 'whiteboard')
       : setIsOpenedLast(isOpenedLast => '');
   };
   const togglePlatform = () => {
     setIsPlatformOpen(isPlatformOpen => !isPlatformOpen);
-    isViewerOpen || isWhiteBoardOpen
+    isViewerOpen || isWhiteBoardOpen || isKahootOpen
       ? setIsOpenedLast(isOpenedLast => 'platform')
+      : setIsOpenedLast(isOpenedLast => '');
+  };
+  const toggleKahoot = e => {
+    setIsKahootOpen(isKahootOpen => !isKahootOpen);
+    isPlatformOpen || isWhiteBoardOpen || isViewerOpen
+      ? setIsOpenedLast(isOpenedLast => 'kahoot')
       : setIsOpenedLast(isOpenedLast => '');
   };
   const toggleButtonBox = () => {
@@ -62,6 +71,10 @@ const TeacherPage = () => {
         <PlatformBtn onClick={togglePlatform}>
           <PlatformLogo />
         </PlatformBtn>
+
+        <KahootBtn onClick={toggleKahoot}>
+          <KahootLogo />
+        </KahootBtn>
       </TeacherButtonBox>
       <TeacherButtonBoxHideSwitch id="no-transform" onClick={toggleButtonBox}>
         {isButtonBoxOpen ? <BoxHideDownSwitch /> : <BoxHideUpSwitch />}
@@ -81,6 +94,13 @@ const TeacherPage = () => {
       <Platform
         sectionWidth={width}
         isPlatformOpen={isPlatformOpen}
+        isOpenedLast={isOpenedLast}
+      />
+
+      <HostKahoots
+        sectionWidth={width}
+        sectionHeight={height}
+        isKahootOpen={isKahootOpen}
         isOpenedLast={isOpenedLast}
       />
     </TeacherPageSection>

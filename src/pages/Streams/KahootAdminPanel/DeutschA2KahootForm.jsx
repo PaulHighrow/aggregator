@@ -20,7 +20,7 @@ import {
   WarningText,
 } from './KahootAdminPanel.styled';
 
-export const DeutschA2KahootForm = () => {
+export const DeutschA2KahootForm = ({ destination }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [confirmation, setConfirmation] = useState(false);
 
@@ -92,7 +92,7 @@ export const DeutschA2KahootForm = () => {
         }
       }
       try {
-        const response = await axios.patch('/kahoots', deutscha2links);
+        const response = await axios.patch(destination, deutscha2links);
         console.log(response);
         resetForm();
         alert('Лінки замінилися, молодець');
@@ -121,7 +121,7 @@ export const DeutschA2KahootForm = () => {
               <AdminInput
                 type="text"
                 name="deutscha2_1"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Перший кахут для A2 з німецької"
               />
             </Label>
@@ -129,7 +129,7 @@ export const DeutschA2KahootForm = () => {
               <AdminInput
                 type="text"
                 name="deutscha2_2"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Другий кахут для A2 з німецької"
               />
             </Label>
@@ -137,7 +137,7 @@ export const DeutschA2KahootForm = () => {
               <AdminInput
                 type="text"
                 name="deutscha2_3"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Третій кахут для A2 з німецької"
               />
             </Label>
@@ -145,7 +145,7 @@ export const DeutschA2KahootForm = () => {
               <AdminInput
                 type="text"
                 name="deutscha2_4"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Четвертий кахут для A2 з німецької"
               />
             </Label>
@@ -153,7 +153,7 @@ export const DeutschA2KahootForm = () => {
               <AdminInput
                 type="text"
                 name="deutscha2_5"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="П'ятий кахут для A2 з німецької"
               />
             </Label>

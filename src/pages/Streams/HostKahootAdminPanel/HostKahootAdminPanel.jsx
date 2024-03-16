@@ -33,7 +33,6 @@ import { TrialsDeKahootForm } from '../KahootAdminPanel/TrialsDeKahootForm';
 import { TrialsEngKahootForm } from '../KahootAdminPanel/TrialsEngKahootForm';
 import { TrialsKidsKahootForm } from '../KahootAdminPanel/TrialsKidsKahootForm';
 import { TrialsPlKahootForm } from '../KahootAdminPanel/TrialsPlKahootForm';
-import { useLocation } from 'react-router-dom';
 
 axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
 const setAuthToken = token => {
@@ -44,9 +43,7 @@ export const HostKahootAdminPanel = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isUserAdmin, setIsUserAdmin] = useState(false);
   const [levels, setLevels] = useState([]);
-  const location = useLocation().pathname;
-
-  console.log(location);
+  const destination = '/host-kahoots';
 
   useEffect(() => {
     const refreshToken = async () => {
@@ -126,135 +123,93 @@ export const HostKahootAdminPanel = () => {
 
         {isUserAdmin && (
           <KahootLvlBtnBox>
-            <KahootLvlBtn
-              onClick={() => handleBtnClick('a0')}
-              location={location}
-            >
-              A0
-            </KahootLvlBtn>
-            <KahootLvlBtn
-              onClick={() => handleBtnClick('a1')}
-              location={location}
-            >
-              A1
-            </KahootLvlBtn>
-            <KahootLvlBtn
-              onClick={() => handleBtnClick('a2')}
-              location={location}
-            >
-              A2
-            </KahootLvlBtn>
-            <KahootLvlBtn
-              onClick={() => handleBtnClick('b1')}
-              location={location}
-            >
-              B1
-            </KahootLvlBtn>
-            <KahootLvlBtn
-              onClick={() => handleBtnClick('b2')}
-              location={location}
-            >
-              B2
-            </KahootLvlBtn>
-            <KahootLvlBtn
-              onClick={() => handleBtnClick('de')}
-              location={location}
-            >
-              DE
-            </KahootLvlBtn>
-            <KahootLvlBtn
-              onClick={() => handleBtnClick('de-a2')}
-              location={location}
-            >
+            <KahootLvlBtn onClick={() => handleBtnClick('a0')}>A0</KahootLvlBtn>
+            <KahootLvlBtn onClick={() => handleBtnClick('a1')}>A1</KahootLvlBtn>
+            <KahootLvlBtn onClick={() => handleBtnClick('a2')}>A2</KahootLvlBtn>
+            <KahootLvlBtn onClick={() => handleBtnClick('b1')}>B1</KahootLvlBtn>
+            <KahootLvlBtn onClick={() => handleBtnClick('b2')}>B2</KahootLvlBtn>
+            <KahootLvlBtn onClick={() => handleBtnClick('de')}>DE</KahootLvlBtn>
+            <KahootLvlBtn onClick={() => handleBtnClick('de-a2')}>
               DE A2
             </KahootLvlBtn>
-            <KahootLvlBtn
-              onClick={() => handleBtnClick('pl')}
-              location={location}
-            >
-              PL
-            </KahootLvlBtn>
-            <KahootLvlBtn
-              onClick={() => handleBtnClick('pl-a2')}
-              location={location}
-            >
+            <KahootLvlBtn onClick={() => handleBtnClick('pl')}>PL</KahootLvlBtn>
+            <KahootLvlBtn onClick={() => handleBtnClick('pl-a2')}>
               PL A2
             </KahootLvlBtn>
-            <KahootLvlBtn
-              onClick={() => handleBtnClick('trial-en')}
-              location={location}
-            >
+            <KahootLvlBtn onClick={() => handleBtnClick('trial-en')}>
               Trial EN
             </KahootLvlBtn>
-            <KahootLvlBtn
-              onClick={() => handleBtnClick('trial-kids')}
-              location={location}
-            >
+            <KahootLvlBtn onClick={() => handleBtnClick('trial-kids')}>
               Trial Kids
             </KahootLvlBtn>
-            <KahootLvlBtn
-              onClick={() => handleBtnClick('trial-de')}
-              location={location}
-            >
+            <KahootLvlBtn onClick={() => handleBtnClick('trial-de')}>
               Trial DE
             </KahootLvlBtn>
-            <KahootLvlBtn
-              onClick={() => handleBtnClick('trial-pl')}
-              location={location}
-            >
+            <KahootLvlBtn onClick={() => handleBtnClick('trial-pl')}>
               Trial PL
             </KahootLvlBtn>
-            <KahootLvlBtn
-              onClick={() => handleBtnClick('a1kids')}
-              location={location}
-            >
+            <KahootLvlBtn onClick={() => handleBtnClick('a1kids')}>
               A1 Kids
             </KahootLvlBtn>
-            <KahootLvlBtn
-              onClick={() => handleBtnClick('a2kids')}
-              location={location}
-            >
+            <KahootLvlBtn onClick={() => handleBtnClick('a2kids')}>
               A2 Kids
             </KahootLvlBtn>
-            <KahootLvlBtn
-              onClick={() => handleBtnClick('b1kids')}
-              location={location}
-            >
+            <KahootLvlBtn onClick={() => handleBtnClick('b1kids')}>
               B1 Kids
             </KahootLvlBtn>
-            <KahootLvlBtn
-              onClick={() => handleBtnClick('b2kids')}
-              location={location}
-            >
+            <KahootLvlBtn onClick={() => handleBtnClick('b2kids')}>
               B2 Kids
             </KahootLvlBtn>
-            <KahootLvlBtn
-              onClick={() => handleBtnClick('test')}
-              location={location}
-            >
+            <KahootLvlBtn onClick={() => handleBtnClick('test')}>
               Test
             </KahootLvlBtn>
           </KahootLvlBtnBox>
         )}
         <KahootFormBox>
-          {levels.includes('a0') && <A0KahootForm />}
-          {levels.includes('a1') && <A1KahootForm />}
-          {levels.includes('a2') && <A2KahootForm />}
-          {levels.includes('b1') && <B1KahootForm />}
-          {levels.includes('b2') && <B2KahootForm />}
-          {levels.includes('de') && <DeutschKahootForm />}
-          {levels.includes('de-a2') && <DeutschA2KahootForm />}
-          {levels.includes('pl') && <PolskiKahootForm />}
-          {levels.includes('pl-a2') && <PolskiA2KahootForm />}
-          {levels.includes('trial-en') && <TrialsEngKahootForm />}
-          {levels.includes('trial-kids') && <TrialsKidsKahootForm />}
-          {levels.includes('trial-de') && <TrialsDeKahootForm />}
-          {levels.includes('trial-pl') && <TrialsPlKahootForm />}
-          {levels.includes('a1kids') && <A1KidsKahootForm />}
-          {levels.includes('a2kids') && <A2KidsKahootForm />}
-          {levels.includes('b1kids') && <B1KidsKahootForm />}
-          {levels.includes('b2kids') && <B2KidsKahootForm />}
-          {levels.includes('test') && <TestKahootForm />}
+          {levels.includes('a0') && <A0KahootForm destination={destination} />}
+          {levels.includes('a1') && <A1KahootForm destination={destination} />}
+          {levels.includes('a2') && <A2KahootForm destination={destination} />}
+          {levels.includes('b1') && <B1KahootForm destination={destination} />}
+          {levels.includes('b2') && <B2KahootForm destination={destination} />}
+          {levels.includes('de') && (
+            <DeutschKahootForm destination={destination} />
+          )}
+          {levels.includes('de-a2') && (
+            <DeutschA2KahootForm destination={destination} />
+          )}
+          {levels.includes('pl') && (
+            <PolskiKahootForm destination={destination} />
+          )}
+          {levels.includes('pl-a2') && (
+            <PolskiA2KahootForm destination={destination} />
+          )}
+          {levels.includes('trial-en') && (
+            <TrialsEngKahootForm destination={destination} />
+          )}
+          {levels.includes('trial-kids') && (
+            <TrialsKidsKahootForm destination={destination} />
+          )}
+          {levels.includes('trial-de') && (
+            <TrialsDeKahootForm destination={destination} />
+          )}
+          {levels.includes('trial-pl') && (
+            <TrialsPlKahootForm destination={destination} />
+          )}
+          {levels.includes('a1kids') && (
+            <A1KidsKahootForm destination={destination} />
+          )}
+          {levels.includes('a2kids') && (
+            <A2KidsKahootForm destination={destination} />
+          )}
+          {levels.includes('b1kids') && (
+            <B1KidsKahootForm destination={destination} />
+          )}
+          {levels.includes('b2kids') && (
+            <B2KidsKahootForm destination={destination} />
+          )}
+          {levels.includes('test') && (
+            <TestKahootForm destination={destination} />
+          )}
         </KahootFormBox>
         {isLoading && <Loader />}
       </AdminPanelSection>

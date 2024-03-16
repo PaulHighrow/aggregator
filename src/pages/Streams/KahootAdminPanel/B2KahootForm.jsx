@@ -20,7 +20,7 @@ import {
   WarningText,
 } from './KahootAdminPanel.styled';
 
-export const B2KahootForm = () => {
+export const B2KahootForm = ({ destination }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [confirmation, setConfirmation] = useState(false);
 
@@ -92,7 +92,7 @@ export const B2KahootForm = () => {
         }
       }
       try {
-        const response = await axios.patch('/kahoots', b2links);
+        const response = await axios.patch(destination, b2links);
         console.log(response);
         resetForm();
         alert('Лінки замінилися, молодець');
@@ -121,7 +121,7 @@ export const B2KahootForm = () => {
               <AdminInput
                 type="text"
                 name="b2_1"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Перший кахут для рівня B2"
               />
             </Label>
@@ -129,7 +129,7 @@ export const B2KahootForm = () => {
               <AdminInput
                 type="text"
                 name="b2_2"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Другий кахут для рівня B2"
               />
             </Label>
@@ -137,7 +137,7 @@ export const B2KahootForm = () => {
               <AdminInput
                 type="text"
                 name="b2_3"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Третій кахут для рівня B2"
               />
             </Label>
@@ -145,7 +145,7 @@ export const B2KahootForm = () => {
               <AdminInput
                 type="text"
                 name="b2_4"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Четвертий кахут для рівня B2"
               />
             </Label>
@@ -153,7 +153,7 @@ export const B2KahootForm = () => {
               <AdminInput
                 type="text"
                 name="b2_5"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="П'ятий кахут для рівня B2"
               />
             </Label>

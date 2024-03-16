@@ -20,7 +20,7 @@ import {
   WarningText,
 } from './KahootAdminPanel.styled';
 
-export const TrialsKidsKahootForm = () => {
+export const TrialsKidsKahootForm = ({ destination }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [confirmation, setConfirmation] = useState(false);
 
@@ -92,7 +92,7 @@ export const TrialsKidsKahootForm = () => {
         }
       }
       try {
-        const response = await axios.patch('/kahoots', trials_kidslinks);
+        const response = await axios.patch(destination, trials_kidslinks);
         console.log(response);
         resetForm();
         alert('Лінки замінилися, молодець');
@@ -121,7 +121,7 @@ export const TrialsKidsKahootForm = () => {
               <AdminInput
                 type="text"
                 name="trials_kids_1"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Перший кахут для дитячих пробних вебінарів з англійської"
               />
             </Label>
@@ -129,7 +129,7 @@ export const TrialsKidsKahootForm = () => {
               <AdminInput
                 type="text"
                 name="trials_kids_2"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Другий кахут для дитячих пробних вебінарів з англійської"
               />
             </Label>
@@ -137,7 +137,7 @@ export const TrialsKidsKahootForm = () => {
               <AdminInput
                 type="text"
                 name="trials_kids_3"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Третій кахут для дитячих пробних вебінарів з англійської"
               />
             </Label>
@@ -145,7 +145,7 @@ export const TrialsKidsKahootForm = () => {
               <AdminInput
                 type="text"
                 name="trials_kids_4"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Четвертий кахут для дитячих пробних вебінарів з англійської"
               />
             </Label>
@@ -153,7 +153,7 @@ export const TrialsKidsKahootForm = () => {
               <AdminInput
                 type="text"
                 name="trials_kids_5"
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="П'ятий кахут для дитячих пробних вебінарів з англійської"
               />
             </Label>
