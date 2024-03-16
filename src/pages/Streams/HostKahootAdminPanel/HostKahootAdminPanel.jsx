@@ -20,7 +20,6 @@ import {
   AdminFormBtn,
   AdminInput,
   AdminInputNote,
-  AdminPanelSection,
   KahootFormBox,
   KahootLvlBtn,
   KahootLvlBtnBox,
@@ -33,6 +32,7 @@ import { TrialsDeKahootForm } from '../KahootAdminPanel/TrialsDeKahootForm';
 import { TrialsEngKahootForm } from '../KahootAdminPanel/TrialsEngKahootForm';
 import { TrialsKidsKahootForm } from '../KahootAdminPanel/TrialsKidsKahootForm';
 import { TrialsPlKahootForm } from '../KahootAdminPanel/TrialsPlKahootForm';
+import { HostAdminPanelSection } from './HostKahootAdminPanel.styled';
 
 axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
 const setAuthToken = token => {
@@ -96,7 +96,7 @@ export const HostKahootAdminPanel = () => {
 
   return (
     <>
-      <AdminPanelSection>
+      <HostAdminPanelSection>
         {!isUserAdmin && (
           <Formik
             initialValues={initialLoginValues}
@@ -212,7 +212,7 @@ export const HostKahootAdminPanel = () => {
           )}
         </KahootFormBox>
         {isLoading && <Loader />}
-      </AdminPanelSection>
+      </HostAdminPanelSection>
     </>
   );
 };

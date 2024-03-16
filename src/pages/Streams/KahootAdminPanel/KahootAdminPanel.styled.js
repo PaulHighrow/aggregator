@@ -61,6 +61,10 @@ export const KahootFormBox = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   gap: 60px;
+
+  background-color: #ffffffd9;
+  padding: 1px 20px;
+  border-radius: 20px;
 `;
 
 export const LinksForm = styled(Form)`

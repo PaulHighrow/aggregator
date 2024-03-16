@@ -14,14 +14,14 @@ export const KahootBox = styled.div`
   background-color: white;
   position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
 
   outline: transparent;
 
   transition: transform var(--animation-global);
 
   &.hidden {
-    transform: translateX(100%);
+    transform: translateX(-100%);
   }
 
   &.shown {

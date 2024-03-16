@@ -1,6 +1,6 @@
 {
   "name": "ap-education",
-  "version": "1.4.45",
+  "version": "1.4.45a",
   "private": true,
   "homepage": "https://PaulHighrow.github.io/aggregator/",
   "dependencies": {
@@ -17,6 +17,7 @@
     "ag-grid-react": "^31.0.1",
     "animate.css": "^4.1.1",
     "axios": "^1.4.0",
+    "caniuse-lite": "^1.0.30001597",
     "emoji-picker-react": "^4.7.12",
     "formik": "^2.4.3",
     "formik-mui": "^5.0.0-alpha.0",
