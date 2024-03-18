@@ -89,7 +89,7 @@ const Streams = () => {
   });
 
   const handleLoginSubmit = async (values, { resetForm }) => {
-    console.log(isUserLogged);
+    values.mail = values.mail.toLowerCase()
     try {
       const response = await axios.post('/users/login', values);
       console.log(values);
