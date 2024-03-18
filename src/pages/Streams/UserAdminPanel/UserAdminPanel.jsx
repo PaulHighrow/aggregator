@@ -73,7 +73,6 @@ export const UserAdminPanel = () => {
 
   const handleLoginSubmit = async (values, { resetForm }) => {
     setIsLoading(isLoading => (isLoading = true));
-
     try {
       const response = await axios.post('/admins/login/users', values);
       setAuthToken(response.data.token);
@@ -105,9 +104,11 @@ export const UserAdminPanel = () => {
     points: yup.string().optional(),
   });
 
-  const handleLinksSubmit = async (values, { resetForm }) => {
+  const handleUserSubmit = async (values, { resetForm }) => {
     setIsLoading(isLoading => (isLoading = true));
-
+    values.name = values.name.trim();
+    values.mail = values.mail.toLowerCase().trim();
+    values.password = values.password.trim();
     try {
       const response = await axios.post('/users/new', values);
       console.log(response);
@@ -190,7 +191,7 @@ export const UserAdminPanel = () => {
         {isUserAdmin && (
           <Formik
             initialValues={initialUserValues}
-            onSubmit={handleLinksSubmit}
+            onSubmit={handleUserSubmit}
             validationSchema={usersSchema}
           >
             <UsersForm>
@@ -243,7 +244,9 @@ export const UserAdminPanel = () => {
                   <UserCell>{user.name}</UserCell>
                   <UserCell>{user.mail}</UserCell>
                   <UserCell>{user.password}</UserCell>
-                  <UserCell>{new Date(user.updatedAt).toLocaleString('uk-UA')}</UserCell>
+                  <UserCell>
+                    {new Date(user.updatedAt).toLocaleString('uk-UA')}
+                  </UserCell>
                   <UserCell>
                     {user.name === 'Dev Acc' ? null : (
                       <UserDeleteButton onClick={() => handleDelete(user._id)}>
