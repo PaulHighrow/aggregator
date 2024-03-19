@@ -7,6 +7,7 @@ import { ReactComponent as ClipBoardAddIcon } from '../../../img/svg/clipBoardAd
 import { ReactComponent as ClipBoardCopyIcon } from '../../../img/svg/clipBoardCopy.svg';
 import { ReactComponent as NameReverseIcon } from '../../../img/svg/nameReverse.svg';
 import { ReactComponent as KahootPickerIcon } from '../../../img/svg/kahootPickerIcon.svg';
+import { ReactComponent as KahootArrow } from '../../../img/svg/kahoot-arrow.svg';
 import { CloseIcon, FormCloseBtn } from 'components/LeadForm/LeadForm.styled';
 import { ChatLoginValidation } from 'utils/Chat/Chat.styled';
 
@@ -18,7 +19,7 @@ export const KahootBox = styled.div`
 
   outline: transparent;
 
-  transition: transform var(--animation-global);
+  transition: all var(--animation-global);
 
   &.hidden {
     transform: translateX(-100%);
@@ -28,8 +29,20 @@ export const KahootBox = styled.div`
     transform: translateX(0);
   }
 
-  &.fullscreen iframe {
-    width: 100%;
+  &.minimized {
+    width: 124px;
+    height: 70px;
+    top: unset;
+    bottom: 25px;
+    left: 50%;
+    transform: translate(-50%);
+
+    border-radius: 20px;
+  }
+
+  &.hidden.minimized {
+    transform: translateX(-100vw);
+    z-index: -1;
   }
 
   & iframe {
@@ -37,6 +50,53 @@ export const KahootBox = styled.div`
     display: block;
     transition: width var(--animation-global);
   }
+
+  &.minimized iframe {
+    border-radius: 20px;
+  }
+`;
+
+export const KahootPlaceholder = styled.div`
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 20px;
+
+  display: none;
+
+  outline: transparent;
+
+  .minimized & {
+    display: block;
+    pointer-events: none;
+    z-index: 6;
+    width: 100%;
+    height: 70px;
+  }
+`;
+
+export const KahootPlaceholderUpperHalf = styled.div`
+  position: absolute;
+  top: 0;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background-color: white;
+  pointer-events: none;
+  opacity: 1;
+  width: 100%;
+  height: 70%;
+`;
+
+export const ClickDisabler = styled.div`
+  background-color: white;
+  position: absolute;
+  bottom: 0;
+  opacity: 1;
+  width: 100%;
+  height: 30%;
 `;
 
 export const KahootBackground = styled(StreamsBackgroundWrapper)`
@@ -57,6 +117,10 @@ export const KahootBackground = styled(StreamsBackgroundWrapper)`
     top: 0;
     left: 0;
     z-index: inherit;
+  }
+
+  .minimized & {
+    background: unset;
   }
 `;
 
@@ -163,6 +227,10 @@ export const KahootPicker = styled.div`
     }
   }
 
+  .minimized & {
+    display: none;
+  }
+
   &.shown {
     transform: translateX(0px);
 
@@ -203,6 +271,11 @@ export const KahootFullScreenBtn = styled(KahootBtn)`
   @media screen and (min-width: 768px) {
     top: 60px;
     right: 16px;
+  }
+
+  .minimized & {
+    top: -18px;
+    right: -30px;
   }
 `;
 
@@ -332,4 +405,10 @@ export const KahootNameValidation = styled(ChatLoginValidation)`
   font-family: var(--streams-font-family);
 
   width: 100%;
+`;
+
+export const ArrowFakeButton = styled(KahootArrow)`
+  width: 42px;
+  height: 32px;
+  fill: var(--main-color);
 `;

@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { useLayoutEffect, useState } from 'react';
 import {
+  ArrowFakeButton,
+  ClickDisabler,
   KahootBackground,
   KahootBox,
   KahootExitFullScreenIcon,
@@ -8,20 +10,24 @@ import {
   KahootFullScreenIcon,
   KahootNumbersBtn,
   KahootPicker,
+  KahootPlaceholder,
+  KahootPlaceholderLowerHalf,
+  KahootPlaceholderUpperHalf,
 } from './HostKahoots.styled';
 
 export const HostKahoots = ({
   sectionWidth,
   sectionHeight,
   isKahootOpen,
-  isChatOpen,
   isOpenedLast,
 }) => {
-  const [isFullScreen, setIsFullScreen] = useState(false);
+  const [isMinimized, setIsMinimized] = useState(false);
   const [kahoots, setKahoots] = useState({});
   const [activeKahoot, setActiveKahoot] = useState(1);
 
-  const kahootWidth = isFullScreen ? sectionWidth : (sectionWidth / 10) * 4;
+  const kahootWidth = (sectionWidth / 10) * 4;
+  const minimizedWidth = '124px';
+  const minimizedHeight = '70px';
 
   const getLinksForLocation = () => {
     const entries = [];
@@ -44,6 +50,13 @@ export const HostKahoots = ({
     setActiveKahoot(kahootNumber);
   };
 
+  const classNames = () => {
+    let style = '';
+    style = isKahootOpen ? 'shown' : 'hidden';
+    style = isMinimized ? style + ' minimized' : style;
+    return style;
+  };
+
   useLayoutEffect(() => {
     const getLinksRequest = async () => {
       try {
@@ -56,25 +69,33 @@ export const HostKahoots = ({
     getLinksRequest();
   }, []);
 
-  const toggleFullScreen = () => {
-    setIsFullScreen(isFullScreen => (isFullScreen = !isFullScreen));
+  const toggleMinimize = () => {
+    setIsMinimized(isMinimized => (isMinimized = !isMinimized));
   };
 
   return (
     <>
       {Object.keys(kahoots).length && (
         <KahootBox
-          width={isChatOpen ? kahootWidth - 300 : kahootWidth}
-          height={sectionHeight}
-          className={isKahootOpen ? 'shown' : 'hidden'}
+          width={isMinimized ? minimizedWidth : kahootWidth}
+          height={!isMinimized ? sectionHeight : minimizedHeight}
+          className={classNames()}
           style={isOpenedLast === 'kahoot' ? { zIndex: '3' } : { zIndex: '1' }}
           onTransitionEnd={kahootLinksRefresher}
         >
-          <KahootFullScreenBtn onClick={toggleFullScreen}>
-            {isFullScreen ? (
-              <KahootExitFullScreenIcon />
-            ) : (
+          {isMinimized && (
+            <KahootPlaceholder>
+              <KahootPlaceholderUpperHalf>
+                <ArrowFakeButton />
+              </KahootPlaceholderUpperHalf>
+              <ClickDisabler></ClickDisabler>
+            </KahootPlaceholder>
+          )}
+          <KahootFullScreenBtn onClick={toggleMinimize}>
+            {isMinimized ? (
               <KahootFullScreenIcon />
+            ) : (
+              <KahootExitFullScreenIcon />
             )}
           </KahootFullScreenBtn>
           <KahootPicker>
@@ -98,14 +119,8 @@ export const HostKahoots = ({
                 id={`host-kahoot-window-${i + 1}`}
                 title={`host-kahoot-${i + 1}`}
                 src={link}
-                width={
-                  !isChatOpen
-                    ? kahootWidth
-                    : isFullScreen
-                    ? kahootWidth - 300
-                    : kahootWidth
-                }
-                height={sectionHeight}
+                width={isMinimized ? minimizedWidth : kahootWidth}
+                height={!isMinimized ? sectionHeight : minimizedHeight}
               ></iframe>
             </KahootBackground>
           ))}
