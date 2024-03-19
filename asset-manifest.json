@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.ea1a9672.css",
-    "main.js": "/aggregator/static/js/main.2d3111bb.js",
+    "main.js": "/aggregator/static/js/main.c3416912.js",
     "Homepage.css": "/aggregator/static/css/Homepage.f8e4d2c9.chunk.css",
     "Homepage.js": "/aggregator/static/js/Homepage.8addd21d.chunk.js",
     "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.1863c044.chunk.js",
     "New Design Homepage.css": "/aggregator/static/css/New Design Homepage.f8e4d2c9.chunk.css",
     "New Design Homepage.js": "/aggregator/static/js/New Design Homepage.a95ae50b.chunk.js",
-    "Streams page.js": "/aggregator/static/js/Streams page.72be9f1e.chunk.js",
+    "Streams page.js": "/aggregator/static/js/Streams page.9ad0588d.chunk.js",
     "Service page.js": "/aggregator/static/js/Service page.f36777f4.chunk.js",
     "HR page.js": "/aggregator/static/js/HR page.91c33303.chunk.js",
     "Streams Kids page.js": "/aggregator/static/js/Streams Kids page.96213c5e.chunk.js",
@@ -161,13 +161,13 @@
     "static/media/btnbox-switch-left.svg": "/aggregator/static/media/btnbox-switch-left.41ecbf13fa59a984cfe935e54d276421.svg",
     "static/media/btnbox-switch-right.svg": "/aggregator/static/media/btnbox-switch-right.c2062beab8ed3d828de36754c3279d60.svg",
     "main.ea1a9672.css.map": "/aggregator/static/css/main.ea1a9672.css.map",
-    "main.2d3111bb.js.map": "/aggregator/static/js/main.2d3111bb.js.map",
+    "main.c3416912.js.map": "/aggregator/static/js/main.c3416912.js.map",
     "Homepage.f8e4d2c9.chunk.css.map": "/aggregator/static/css/Homepage.f8e4d2c9.chunk.css.map",
     "Homepage.8addd21d.chunk.js.map": "/aggregator/static/js/Homepage.8addd21d.chunk.js.map",
     "Inverted Homepage.1863c044.chunk.js.map": "/aggregator/static/js/Inverted Homepage.1863c044.chunk.js.map",
     "New Design Homepage.f8e4d2c9.chunk.css.map": "/aggregator/static/css/New Design Homepage.f8e4d2c9.chunk.css.map",
     "New Design Homepage.a95ae50b.chunk.js.map": "/aggregator/static/js/New Design Homepage.a95ae50b.chunk.js.map",
-    "Streams page.72be9f1e.chunk.js.map": "/aggregator/static/js/Streams page.72be9f1e.chunk.js.map",
+    "Streams page.9ad0588d.chunk.js.map": "/aggregator/static/js/Streams page.9ad0588d.chunk.js.map",
     "Service page.f36777f4.chunk.js.map": "/aggregator/static/js/Service page.f36777f4.chunk.js.map",
     "HR page.91c33303.chunk.js.map": "/aggregator/static/js/HR page.91c33303.chunk.js.map",
     "Streams Kids page.96213c5e.chunk.js.map": "/aggregator/static/js/Streams Kids page.96213c5e.chunk.js.map",
@@ -205,6 +205,6 @@
   },
   "entrypoints": [
     "static/css/main.ea1a9672.css",
-    "static/js/main.2d3111bb.js"
+    "static/js/main.c3416912.js"
   ]
 }
