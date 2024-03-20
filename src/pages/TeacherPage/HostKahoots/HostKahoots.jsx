@@ -11,7 +11,6 @@ import {
   KahootNumbersBtn,
   KahootPicker,
   KahootPlaceholder,
-  KahootPlaceholderLowerHalf,
   KahootPlaceholderUpperHalf,
 } from './HostKahoots.styled';
 
@@ -80,7 +79,13 @@ export const HostKahoots = ({
           width={isMinimized ? minimizedWidth : kahootWidth}
           height={!isMinimized ? sectionHeight : minimizedHeight}
           className={classNames()}
-          style={isOpenedLast === 'kahoot' ? { zIndex: '3' } : { zIndex: '1' }}
+          style={
+            isOpenedLast === 'kahoot'
+              ? { zIndex: '3' }
+              : isMinimized
+              ? { zIndex: '5' }
+              : { zIndex: '1' }
+          }
           onTransitionEnd={kahootLinksRefresher}
         >
           {isMinimized && (
@@ -88,7 +93,7 @@ export const HostKahoots = ({
               <KahootPlaceholderUpperHalf>
                 <ArrowFakeButton />
               </KahootPlaceholderUpperHalf>
-              <ClickDisabler></ClickDisabler>
+              <ClickDisabler />
             </KahootPlaceholder>
           )}
           <KahootFullScreenBtn onClick={toggleMinimize}>

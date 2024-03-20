@@ -49,6 +49,13 @@ export const Viewer = ({ isViewerOpen, isOpenedLast, sectionWidth }) => {
           height="100%"
         ></iframe>
         {/* <iframe
+          id="platform-window"
+          title="platform-pin"
+          src="https://online.ap.education/school/"
+          width="100%"
+          height="100%"
+        ></iframe> */}
+        {/* <iframe
           title="19th Century Viennese silver & enamel nef ship"
           frameborder="0"
           allowfullscreen

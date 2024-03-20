@@ -34,14 +34,14 @@ export const KahootBox = styled.div`
     height: 70px;
     top: unset;
     bottom: 25px;
-    left: 50%;
-    transform: translate(-50%);
+    left: 25px;
 
     border-radius: 20px;
+    box-shadow: -1px -1px 3px 0px rgba(0, 0, 0, 0.25);
   }
 
   &.hidden.minimized {
-    transform: translateX(-100vw);
+    transform: translateX(-50vw);
     z-index: -1;
   }
 

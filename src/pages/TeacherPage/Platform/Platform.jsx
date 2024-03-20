@@ -37,7 +37,6 @@ export const Platform = ({ isPlatformOpen, isOpenedLast, sectionWidth }) => {
           id="platform-window"
           title="platform-pin"
           src="https://online.ap.education/school/"
-          // src="https://play.kahoot.it/v2/?quizId=16e6e8dd-e2c6-4a20-a1f8-2ee3e04e275d&hostId=83f139cf-a515-4a63-a3ae-4e592634d7a4"
           width="100%"
           height="100%"
         ></iframe>

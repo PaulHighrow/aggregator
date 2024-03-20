@@ -13,7 +13,7 @@ export const TeacherPageSection = styled(StreamSection)`
 export const TeacherButtonBox = styled.div`
   position: absolute;
   bottom: 25px;
-  left: 85px;
+  left: 180px;
   z-index: 100;
   display: flex;
   gap: 20px;
@@ -28,7 +28,7 @@ export const TeacherButtonBox = styled.div`
 export const TeacherButtonBoxHideSwitch = styled.div`
   position: absolute;
   bottom: 0;
-  left: 180px;
+  left: 320px;
 
   filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.09));
 
