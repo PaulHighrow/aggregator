@@ -93,7 +93,10 @@ export const HostKahoots = ({
               <ClickDisabler />
             </KahootPlaceholder>
           )}
-          <KahootFullScreenBtn onClick={toggleMinimize}>
+          <KahootFullScreenBtn
+            onClick={toggleMinimize}
+            className={isKahootOpen ? '' : 'hidden'}
+          >
             {isMinimized ? <KahootMaximizeIcon /> : <KahootMinimizeIcon />}
           </KahootFullScreenBtn>
           <KahootPicker>

@@ -34,7 +34,7 @@ export const KahootBox = styled.div`
     height: 70px;
     top: unset;
     bottom: 25px;
-    left: 25px;
+    left: 30%;
 
     border-radius: 20px;
     box-shadow: -1px -1px 3px 0px rgba(0, 0, 0, 0.25);
@@ -257,35 +257,38 @@ export const KahootNumbersBtn = styled(KahootBtn)`
 
 export const KahootFullScreenBtn = styled(KahootBtn)`
   position: absolute;
-  top: 16px;
-  right: 60px;
+  top: 90vh;
+  right: -80px;
   z-index: 9;
-  width: 32px;
-  height: 32px;
+  width: 70px;
+  height: 70px;
   background-color: white;
   cursor: pointer;
   box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.5);
 
-  @media screen and (min-width: 768px) {
-    top: 60px;
-    right: 16px;
-  }
+  transition: all var(--animation-global);
 
   .minimized & {
-    top: -18px;
-    right: -30px;
+    top: 0%;
+    right: -80px;
+  }
+
+  &.hidden {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
   }
 `;
 
 export const KahootMinimizeIcon = styled(MinimizeIcon)`
-  width: 22px;
-  height: 22px;
+  width: 44px;
+  height: 44px;
   stroke: var(--main-color);
 `;
 
 export const KahootMaximizeIcon = styled(MaximizeIcon)`
-  width: 22px;
-  height: 22px;
+  width: 44px;
+  height: 44px;
   stroke: var(--main-color);
 `;
 

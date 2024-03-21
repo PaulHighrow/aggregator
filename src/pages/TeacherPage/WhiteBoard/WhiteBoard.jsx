@@ -41,6 +41,7 @@ export const WhiteBoard = ({
           id="whiteboard window"
           title="whiteboard-pin"
           src="https://wbo.ophir.dev/boards/i8c4m8cMJhPjy-dWWrMDFLtvhUgmWyM0i77LB19sHmw-"
+          // src="https://onlineboard.eu/b/npYA785A"
           width="100%"
           height="100%"
         ></iframe>

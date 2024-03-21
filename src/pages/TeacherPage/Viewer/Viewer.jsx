@@ -33,7 +33,7 @@ export const Viewer = ({ isViewerOpen, isOpenedLast, sectionWidth }) => {
             <KahootFullScreenIcon />
           )}
         </KahootFullScreenBtn>
-        <iframe
+        {/* <iframe
           src="https://sketchfab.com/playlists/embed?collection=50a0ac28542842fba993aea82915bfa1&autostart=0"
           title="CARS 3D MODELS"
           frameborder="0"
@@ -47,7 +47,7 @@ export const Viewer = ({ isViewerOpen, isOpenedLast, sectionWidth }) => {
           web-share
           width="100%"
           height="100%"
-        ></iframe>
+        ></iframe> */}
         {/* <iframe
           id="platform-window"
           title="platform-pin"
@@ -55,7 +55,7 @@ export const Viewer = ({ isViewerOpen, isOpenedLast, sectionWidth }) => {
           width="100%"
           height="100%"
         ></iframe> */}
-        {/* <iframe
+        <iframe
           title="19th Century Viennese silver & enamel nef ship"
           frameborder="0"
           allowfullscreen
@@ -69,7 +69,7 @@ export const Viewer = ({ isViewerOpen, isOpenedLast, sectionWidth }) => {
           src="https://sketchfab.com/models/878710b7dd6a48998351f3301df7bcab/embed"
           width="100%"
           height="100%"
-        ></iframe> */}
+        ></iframe>
       </ViewerBox>
     </>
   );
