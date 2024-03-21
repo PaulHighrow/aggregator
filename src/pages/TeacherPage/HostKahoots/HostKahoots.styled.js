@@ -1,8 +1,8 @@
 import { StreamsBackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
 import styled from 'styled-components';
 import { KahootBtn } from '../../../components/Stream/Stream.styled';
-import { ReactComponent as FullscreenIcon } from '../../../img/svg/fullScreen.svg';
-import { ReactComponent as ExitFullscreenIcon } from '../../../img/svg/fullScreenExit.svg';
+import { ReactComponent as MinimizeIcon } from '../../../img/svg/minimize.svg';
+import { ReactComponent as MaximizeIcon } from '../../../img/svg/maximize.svg';
 import { ReactComponent as ClipBoardAddIcon } from '../../../img/svg/clipBoardAdd.svg';
 import { ReactComponent as ClipBoardCopyIcon } from '../../../img/svg/clipBoardCopy.svg';
 import { ReactComponent as NameReverseIcon } from '../../../img/svg/nameReverse.svg';
@@ -53,6 +53,8 @@ export const KahootBox = styled.div`
 
   &.minimized iframe {
     border-radius: 20px;
+    overflow: hidden;
+    scrollbar-width: none;
   }
 `;
 
@@ -76,27 +78,23 @@ export const KahootPlaceholder = styled.div`
   }
 `;
 
-export const KahootPlaceholderUpperHalf = styled.div`
+export const ClickDisablerRight = styled.div`
+  background-color: #19645b;
   position: absolute;
-  top: 0;
-
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  background-color: white;
-  pointer-events: none;
+  bottom: 0;
+  right: 0;
   opacity: 1;
-  width: 100%;
-  height: 70%;
+  width: 20px;
+  height: 100%;
 `;
 
 export const ClickDisabler = styled.div`
-  background-color: white;
+  background-color: #19645b;
   position: absolute;
   bottom: 0;
   opacity: 1;
   width: 100%;
-  height: 30%;
+  height: 20px;
 `;
 
 export const KahootBackground = styled(StreamsBackgroundWrapper)`
@@ -279,17 +277,15 @@ export const KahootFullScreenBtn = styled(KahootBtn)`
   }
 `;
 
-export const KahootFullScreenIcon = styled(FullscreenIcon)`
+export const KahootMinimizeIcon = styled(MinimizeIcon)`
   width: 22px;
   height: 22px;
-  fill: var(--main-color);
   stroke: var(--main-color);
 `;
 
-export const KahootExitFullScreenIcon = styled(ExitFullscreenIcon)`
+export const KahootMaximizeIcon = styled(MaximizeIcon)`
   width: 22px;
   height: 22px;
-  fill: var(--main-color);
   stroke: var(--main-color);
 `;
 

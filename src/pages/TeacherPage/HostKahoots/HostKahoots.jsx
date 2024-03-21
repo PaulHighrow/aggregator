@@ -1,17 +1,16 @@
 import axios from 'axios';
 import { useLayoutEffect, useState } from 'react';
 import {
-  ArrowFakeButton,
   ClickDisabler,
+  ClickDisablerRight,
   KahootBackground,
   KahootBox,
-  KahootExitFullScreenIcon,
   KahootFullScreenBtn,
-  KahootFullScreenIcon,
+  KahootMaximizeIcon,
+  KahootMinimizeIcon,
   KahootNumbersBtn,
   KahootPicker,
   KahootPlaceholder,
-  KahootPlaceholderUpperHalf,
 } from './HostKahoots.styled';
 
 export const HostKahoots = ({
@@ -90,18 +89,12 @@ export const HostKahoots = ({
         >
           {isMinimized && (
             <KahootPlaceholder>
-              <KahootPlaceholderUpperHalf>
-                <ArrowFakeButton />
-              </KahootPlaceholderUpperHalf>
+              <ClickDisablerRight />
               <ClickDisabler />
             </KahootPlaceholder>
           )}
           <KahootFullScreenBtn onClick={toggleMinimize}>
-            {isMinimized ? (
-              <KahootFullScreenIcon />
-            ) : (
-              <KahootExitFullScreenIcon />
-            )}
+            {isMinimized ? <KahootMaximizeIcon /> : <KahootMinimizeIcon />}
           </KahootFullScreenBtn>
           <KahootPicker>
             {Object.values(kahoots.test.links).map((link, i) => (
