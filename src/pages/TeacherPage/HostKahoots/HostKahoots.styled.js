@@ -34,7 +34,7 @@ export const KahootBox = styled.div`
     height: 70px;
     top: unset;
     bottom: 25px;
-    left: 30%;
+    left: 20px;
 
     border-radius: 20px;
     box-shadow: -1px -1px 3px 0px rgba(0, 0, 0, 0.25);
@@ -258,7 +258,7 @@ export const KahootNumbersBtn = styled(KahootBtn)`
 export const KahootFullScreenBtn = styled(KahootBtn)`
   position: absolute;
   top: 90vh;
-  right: -80px;
+  left: 155px;
   z-index: 9;
   width: 70px;
   height: 70px;
@@ -270,6 +270,7 @@ export const KahootFullScreenBtn = styled(KahootBtn)`
 
   .minimized & {
     top: 0%;
+    left: unset;
     right: -80px;
   }
 

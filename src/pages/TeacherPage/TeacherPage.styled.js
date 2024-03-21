@@ -13,7 +13,7 @@ export const TeacherPageSection = styled(StreamSection)`
 export const TeacherButtonBox = styled.div`
   position: absolute;
   bottom: 25px;
-  left: 180px;
+  left: 260px;
   z-index: 100;
   display: flex;
   gap: 20px;
@@ -28,14 +28,14 @@ export const TeacherButtonBox = styled.div`
 export const TeacherButtonBoxHideSwitch = styled.div`
   position: absolute;
   bottom: 0;
-  left: 320px;
+  left: 385px;
 
   filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.09));
 
   z-index: 10;
 
-  width: 60px;
-  height: 12px;
+  width: 90px;
+  height: 18px;
 
   display: flex;
   align-items: center;
@@ -48,11 +48,15 @@ export const TeacherButtonBoxHideSwitch = styled.div`
 `;
 
 export const BoxHideUpSwitch = styled(BoxSwitchUp)`
+  width: 18px;
+  height: 12px;
   stroke: var(--main-color);
   transition: stroke var(--animation-global);
 `;
 
 export const BoxHideDownSwitch = styled(BoxSwitchDown)`
+  width: 18px;
+  height: 12px;
   stroke: var(--main-color);
   transition: stroke var(--animation-global);
 `;
