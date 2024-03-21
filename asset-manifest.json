@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.ea1a9672.css",
-    "main.js": "/aggregator/static/js/main.d6e06d04.js",
+    "main.js": "/aggregator/static/js/main.f5b1c5aa.js",
     "Homepage.css": "/aggregator/static/css/Homepage.f8e4d2c9.chunk.css",
     "Homepage.js": "/aggregator/static/js/Homepage.8addd21d.chunk.js",
     "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.1863c044.chunk.js",
@@ -21,7 +21,7 @@
     "Polski courses page.js": "/aggregator/static/js/Polski courses page.514dc8f9.chunk.js",
     "Deutsch courses page.css": "/aggregator/static/css/Deutsch courses page.f8e4d2c9.chunk.css",
     "Deutsch courses page.js": "/aggregator/static/js/Deutsch courses page.569b4182.chunk.js",
-    "Teacher Page.js": "/aggregator/static/js/Teacher Page.1ad02158.chunk.js",
+    "Teacher Page.js": "/aggregator/static/js/Teacher Page.321a85fb.chunk.js",
     "My AP Page.js": "/aggregator/static/js/My AP Page.314bf41f.chunk.js",
     "Not Found.js": "/aggregator/static/js/Not Found.27f89af4.chunk.js",
     "reactPlayerYouTube.js": "/aggregator/static/js/reactPlayerYouTube.074f9284.chunk.js",
@@ -141,6 +141,8 @@
     "static/media/emojiPicker.svg": "/aggregator/static/media/emojiPicker.f6a3de2be652bd99fc719d10cc52347a.svg",
     "static/media/sketchTitleDeu.svg": "/aggregator/static/media/sketchTitleDeu.6beb004f3f64e59569cc89d9d0693484.svg",
     "static/media/exam-underline-medium.svg": "/aggregator/static/media/exam-underline-medium.c31427019bb2f687b913ae90bd50213b.svg",
+    "static/media/btnbox-switch-down.svg": "/aggregator/static/media/btnbox-switch-down.f05f0a2070c4ecdb0cb48853f4b8dbb1.svg",
+    "static/media/btnbox-switch-up.svg": "/aggregator/static/media/btnbox-switch-up.e178ab20df1d387c7ad3fad99e84a2c2.svg",
     "static/media/sketchTitle.svg": "/aggregator/static/media/sketchTitle.e0df9213771982a06aa71be5ae87eebd.svg",
     "static/media/exam-underline-long.svg": "/aggregator/static/media/exam-underline-long.d9cff05e493bc433b810e0bc6f13c6b5.svg",
     "static/media/hero-underline-long.svg": "/aggregator/static/media/hero-underline-long.7c2a251c1ddf8e281ed16416ecaa76f5.svg",
@@ -148,8 +150,6 @@
     "static/media/exam-underline-short.svg": "/aggregator/static/media/exam-underline-short.600c098c8973950d92dadc132a7d8fad.svg",
     "static/media/hero-underline-short.svg": "/aggregator/static/media/hero-underline-short.90b175d84589869326a2fcaeaf166b8d.svg",
     "static/media/supportArrow.svg": "/aggregator/static/media/supportArrow.75ff8f1ef4bfe65d44ee6a6571c60181.svg",
-    "static/media/btnbox-switch-down.svg": "/aggregator/static/media/btnbox-switch-down.f1ffd6337dbace91dd0aeba147b688fc.svg",
-    "static/media/btnbox-switch-up.svg": "/aggregator/static/media/btnbox-switch-up.c4fb28dbaf675ee308256a40d1e1eef9.svg",
     "static/media/search.svg": "/aggregator/static/media/search.f41d2e3a90d8ce3830559a45bf083eaa.svg",
     "static/media/sendIcon.svg": "/aggregator/static/media/sendIcon.42abc20dd8919f45b472e4b6e88759f9.svg",
     "static/media/loopyLineNormal.svg": "/aggregator/static/media/loopyLineNormal.3f52ff46fcb8a8de0d74fb0c0841253a.svg",
@@ -164,7 +164,7 @@
     "static/media/btnbox-switch-left.svg": "/aggregator/static/media/btnbox-switch-left.41ecbf13fa59a984cfe935e54d276421.svg",
     "static/media/btnbox-switch-right.svg": "/aggregator/static/media/btnbox-switch-right.c2062beab8ed3d828de36754c3279d60.svg",
     "main.ea1a9672.css.map": "/aggregator/static/css/main.ea1a9672.css.map",
-    "main.d6e06d04.js.map": "/aggregator/static/js/main.d6e06d04.js.map",
+    "main.f5b1c5aa.js.map": "/aggregator/static/js/main.f5b1c5aa.js.map",
     "Homepage.f8e4d2c9.chunk.css.map": "/aggregator/static/css/Homepage.f8e4d2c9.chunk.css.map",
     "Homepage.8addd21d.chunk.js.map": "/aggregator/static/js/Homepage.8addd21d.chunk.js.map",
     "Inverted Homepage.1863c044.chunk.js.map": "/aggregator/static/js/Inverted Homepage.1863c044.chunk.js.map",
@@ -184,7 +184,7 @@
     "Polski courses page.514dc8f9.chunk.js.map": "/aggregator/static/js/Polski courses page.514dc8f9.chunk.js.map",
     "Deutsch courses page.f8e4d2c9.chunk.css.map": "/aggregator/static/css/Deutsch courses page.f8e4d2c9.chunk.css.map",
     "Deutsch courses page.569b4182.chunk.js.map": "/aggregator/static/js/Deutsch courses page.569b4182.chunk.js.map",
-    "Teacher Page.1ad02158.chunk.js.map": "/aggregator/static/js/Teacher Page.1ad02158.chunk.js.map",
+    "Teacher Page.321a85fb.chunk.js.map": "/aggregator/static/js/Teacher Page.321a85fb.chunk.js.map",
     "My AP Page.314bf41f.chunk.js.map": "/aggregator/static/js/My AP Page.314bf41f.chunk.js.map",
     "Not Found.27f89af4.chunk.js.map": "/aggregator/static/js/Not Found.27f89af4.chunk.js.map",
     "reactPlayerYouTube.074f9284.chunk.js.map": "/aggregator/static/js/reactPlayerYouTube.074f9284.chunk.js.map",
@@ -208,6 +208,6 @@
   },
   "entrypoints": [
     "static/css/main.ea1a9672.css",
-    "static/js/main.d6e06d04.js"
+    "static/js/main.f5b1c5aa.js"
   ]
 }
