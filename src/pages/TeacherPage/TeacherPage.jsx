@@ -29,26 +29,38 @@ const TeacherPage = () => {
   // eslint-disable-next-line
   const [width, height] = useSize(document.body);
 
-  const toggleViewer = e => {
-    setIsViewerOpen(isViewerOpen => !isViewerOpen);
+  const toggleViewer = () => {
+    !isOpenedLast
+      ? setIsViewerOpen(isViewerOpen => !isViewerOpen)
+      : isOpenedLast === 'viewer' &&
+        setIsViewerOpen(isViewerOpen => !isViewerOpen);
     isWhiteBoardOpen || isPlatformOpen || isKahootOpen
       ? setIsOpenedLast(isOpenedLast => 'viewer')
       : setIsOpenedLast(isOpenedLast => '');
   };
-  const toggleWhiteBoard = e => {
-    setIsWhiteBoardOpen(isWhiteBoardOpen => !isWhiteBoardOpen);
+  const toggleWhiteBoard = () => {
+    !isOpenedLast
+      ? setIsWhiteBoardOpen(isWhiteBoardOpen => !isWhiteBoardOpen)
+      : isOpenedLast === 'whiteboard' &&
+        setIsWhiteBoardOpen(isWhiteBoardOpen => !isWhiteBoardOpen);
     isViewerOpen || isPlatformOpen || isKahootOpen
       ? setIsOpenedLast(isOpenedLast => 'whiteboard')
       : setIsOpenedLast(isOpenedLast => '');
   };
   const togglePlatform = () => {
-    setIsPlatformOpen(isPlatformOpen => !isPlatformOpen);
+    !isOpenedLast
+      ? setIsPlatformOpen(isPlatformOpen => !isPlatformOpen)
+      : isOpenedLast === 'platform' &&
+        setIsPlatformOpen(isPlatformOpen => !isPlatformOpen);
     isViewerOpen || isWhiteBoardOpen || isKahootOpen
       ? setIsOpenedLast(isOpenedLast => 'platform')
       : setIsOpenedLast(isOpenedLast => '');
   };
-  const toggleKahoot = e => {
-    setIsKahootOpen(isKahootOpen => !isKahootOpen);
+  const toggleKahoot = () => {
+    !isOpenedLast
+      ? setIsKahootOpen(isKahootOpen => !isKahootOpen)
+      : isOpenedLast === 'kahoot' &&
+        setIsKahootOpen(isKahootOpen => !isKahootOpen);
     isPlatformOpen || isWhiteBoardOpen || isViewerOpen
       ? setIsOpenedLast(isOpenedLast => 'kahoot')
       : setIsOpenedLast(isOpenedLast => '');

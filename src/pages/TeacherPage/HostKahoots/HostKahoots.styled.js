@@ -34,7 +34,7 @@ export const KahootBox = styled.div`
     height: 70px;
     top: unset;
     bottom: 25px;
-    left: 20px;
+    left: 10px;
 
     border-radius: 20px;
     box-shadow: -1px -1px 3px 0px rgba(0, 0, 0, 0.25);
@@ -205,16 +205,17 @@ export const KahootPicker = styled.div`
 
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 16px;
 
   transition: all var(--animation-global);
 
   @media screen and (min-width: 768px) {
-    flex-direction: row;
-    top: 16px;
-    left: 50%;
+    flex-direction: column;
+    top: calc(30vh - 70px);
+    right: 16px;
 
-    transform: translateX(-50%);
+    transform: translateY(-50%);
   }
 
   &.hidden {
@@ -240,25 +241,28 @@ export const KahootPicker = styled.div`
 
 export const KahootNumbersBtn = styled(KahootBtn)`
   position: static;
-  width: 32px;
-  height: 32px;
+  width: 44px;
+  height: 44px;
   background-color: white;
   cursor: pointer;
   flex-shrink: 0;
   margin: 0;
   box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.5);
 
+  font-size: 32px;
   font-weight: 700;
 
   &.active {
     background-color: var(--accent-color);
+    width: 56px;
+    height: 56px;
   }
 `;
 
-export const KahootFullScreenBtn = styled(KahootBtn)`
+export const KahootMinimizerBtn = styled(KahootBtn)`
   position: absolute;
-  top: 90vh;
-  left: 155px;
+  top: calc(100vh - 95px);
+  left: 140px;
   z-index: 9;
   width: 70px;
   height: 70px;

@@ -5,7 +5,7 @@ import {
   ClickDisablerRight,
   KahootBackground,
   KahootBox,
-  KahootFullScreenBtn,
+  KahootMinimizerBtn,
   KahootMaximizeIcon,
   KahootMinimizeIcon,
   KahootNumbersBtn,
@@ -93,12 +93,12 @@ export const HostKahoots = ({
               <ClickDisabler />
             </KahootPlaceholder>
           )}
-          <KahootFullScreenBtn
+          <KahootMinimizerBtn
             onClick={toggleMinimize}
             className={isKahootOpen ? '' : 'hidden'}
           >
             {isMinimized ? <KahootMaximizeIcon /> : <KahootMinimizeIcon />}
-          </KahootFullScreenBtn>
+          </KahootMinimizerBtn>
           <KahootPicker>
             {Object.values(kahoots.test.links).map((link, i) => (
               <KahootNumbersBtn
