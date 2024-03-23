@@ -52,6 +52,9 @@ const StreamsKids = lazy(() =>
     /* webpackChunkName: "Streams Kids page" */ '../pages/StreamsKids/StreamsKids'
   )
 );
+const Teacher = lazy(() =>
+  import(/* webpackChunkName: "Teacher layout" */ '../pages/Teacher/Teacher')
+);
 const StreamTrialEnglish = lazy(() =>
   import(
     /* webpackChunkName: "English trials page" */ '../pages/Trials/StreamTrialEnglish'
@@ -212,7 +215,10 @@ export const App = () => {
           {/* <Route path="test1" element={<StreamTest />} /> */}
           <Route path="stream-admin-panel" element={<AdminPanel />} />
           <Route path="kahoot-admin-panel" element={<KahootAdminPanel />} />
-          <Route path="host-kahoot-admin-panel" element={<HostKahootAdminPanel />} />
+          <Route
+            path="host-kahoot-admin-panel"
+            element={<HostKahootAdminPanel />}
+          />
           <Route path="user-admin-panel" element={<UserAdminPanel />} />
         </Route>
         <Route path="streams-kids" element={<StreamsKids />}>
@@ -239,7 +245,22 @@ export const App = () => {
         {/* <Route path="pilot-dsc" element={<StreamTrialDeutschSprechclub />} /> */}
         <Route path="pilot-scb1" element={<StreamTrialB1SpeakingClub />} />
         <Route path="trial-kids" element={<StreamTrialKids />} />
-        <Route path="test-teacher-page" element={<TeacherPage />} />
+        <Route path="teacher" element={<Teacher />}>
+          <Route path="a0" element={<TeacherPage />} />
+          <Route path="a1" element={<TeacherPage />} />
+          <Route path="a2" element={<TeacherPage />} />
+          <Route path="b1" element={<TeacherPage />} />
+          <Route path="b2" element={<TeacherPage />} />
+          <Route path="a1kids" element={<TeacherPage />} />
+          <Route path="a2kids" element={<TeacherPage />} />
+          <Route path="b1kids" element={<TeacherPage />} />
+          <Route path="b2kids" element={<TeacherPage />} />
+          <Route path="deutsch-a1" element={<TeacherPage />} />
+          <Route path="deutsch-a2" element={<TeacherPage />} />
+          <Route path="polski-a1" element={<TeacherPage />} />
+          <Route path="polski-a2" element={<TeacherPage />} />
+          <Route path="test" element={<TeacherPage />} />
+        </Route>
       </Routes>
     </>
   );

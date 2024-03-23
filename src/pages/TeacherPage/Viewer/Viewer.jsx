@@ -56,7 +56,9 @@ export const Viewer = ({ isViewerOpen, isOpenedLast, sectionWidth }) => {
           height="100%"
         ></iframe> */}
         <iframe
-          title="19th Century Viennese silver & enamel nef ship"
+          title="Black Pig"
+          width="100%"
+          height="100%"
           frameborder="0"
           allowfullscreen
           mozallowfullscreen="true"
@@ -66,10 +68,10 @@ export const Viewer = ({ isViewerOpen, isOpenedLast, sectionWidth }) => {
           execution-while-out-of-viewport
           execution-while-not-rendered
           web-share
-          src="https://sketchfab.com/models/878710b7dd6a48998351f3301df7bcab/embed"
-          width="100%"
-          height="100%"
-        ></iframe>
+          src="https://sketchfab.com/models/4fc11b4aede6413d896f5a18a8f7be1e/embed"
+        >
+          {' '}
+        </iframe>
       </ViewerBox>
     </>
   );

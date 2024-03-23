@@ -10,7 +10,6 @@ import {
   PlatformLogo,
   TeacherButtonBox,
   TeacherButtonBoxHideSwitch,
-  TeacherPageSection,
   ViewerBtn,
   ViewerLogo,
   WhiteBoardBtn,
@@ -70,7 +69,7 @@ const TeacherPage = () => {
   };
 
   return (
-    <TeacherPageSection>
+    <>
       <TeacherButtonBox className={!isButtonBoxOpen ? 'hidden' : ''}>
         <ViewerBtn onClick={toggleViewer}>
           <ViewerLogo />
@@ -115,7 +114,7 @@ const TeacherPage = () => {
         isKahootOpen={isKahootOpen}
         isOpenedLast={isOpenedLast}
       />
-    </TeacherPageSection>
+    </>
   );
 };
 
