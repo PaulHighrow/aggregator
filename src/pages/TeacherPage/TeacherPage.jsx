@@ -17,6 +17,7 @@ import {
 } from './TeacherPage.styled';
 import { Viewer } from './Viewer/Viewer';
 import { WhiteBoard } from './WhiteBoard/WhiteBoard';
+import { useLocation } from 'react-router-dom';
 
 const TeacherPage = () => {
   const [isWhiteBoardOpen, setIsWhiteBoardOpen] = useState(false);
@@ -27,6 +28,23 @@ const TeacherPage = () => {
   const [isOpenedLast, setIsOpenedLast] = useState('');
   // eslint-disable-next-line
   const [width, height] = useSize(document.body);
+  const location = useLocation().pathname.split('/teacher/')[1];
+
+  const getLocation = location => {
+    switch (location) {
+      case 'deutsch-a1':
+        return 'deutsch';
+      case 'deutsch-a2':
+        return 'deutscha2';
+      case 'polski-a1':
+        return 'polski';
+      case 'polski-a2':
+        return 'polskia2';
+      default:
+        return location;
+    }
+  };
+  const page = getLocation(location);
 
   const toggleViewer = () => {
     !isOpenedLast
@@ -97,6 +115,7 @@ const TeacherPage = () => {
       />
 
       <WhiteBoard
+        page={page}
         sectionWidth={width}
         isWhiteBoardOpen={isWhiteBoardOpen}
         isOpenedLast={isOpenedLast}
@@ -109,6 +128,7 @@ const TeacherPage = () => {
       />
 
       <HostKahoots
+        page={page}
         sectionWidth={width}
         sectionHeight={height}
         isKahootOpen={isKahootOpen}

@@ -12,9 +12,9 @@ import {
   KahootPicker,
   KahootPlaceholder,
 } from './HostKahoots.styled';
-import { useLocation } from 'react-router-dom';
 
 export const HostKahoots = ({
+  page,
   sectionWidth,
   sectionHeight,
   isKahootOpen,
@@ -23,24 +23,6 @@ export const HostKahoots = ({
   const [isMinimized, setIsMinimized] = useState(false);
   const [kahoots, setKahoots] = useState({});
   const [activeKahoot, setActiveKahoot] = useState(1);
-  const location = useLocation().pathname.split('/teacher/')[1];
-  console.log(location);
-
-  const getLocation = location => {
-    switch (location) {
-      case 'deutsch-a1':
-        return 'deutsch';
-      case 'deutsch-a2':
-        return 'deutscha2';
-      case 'polski-a1':
-        return 'polski';
-      case 'polski-a2':
-        return 'polskia2';
-      default:
-        return location;
-    }
-  };
-  const page = getLocation(location);
 
   const kahootWidth = (sectionWidth / 10) * 4;
   const minimizedWidth = '124px';
