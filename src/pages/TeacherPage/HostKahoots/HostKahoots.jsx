@@ -11,6 +11,7 @@ import {
   KahootNumbersBtn,
   KahootPicker,
   KahootPlaceholder,
+  KahootEnlargeButton,
 } from './HostKahoots.styled';
 
 export const HostKahoots = ({
@@ -21,10 +22,11 @@ export const HostKahoots = ({
   isOpenedLast,
 }) => {
   const [isMinimized, setIsMinimized] = useState(false);
+  const [isLinkSize, setIsLinkSize] = useState(false);
   const [kahoots, setKahoots] = useState({});
   const [activeKahoot, setActiveKahoot] = useState(1);
 
-  const kahootWidth = (sectionWidth / 10) * 4;
+  const kahootWidth = isLinkSize ? '1024px' : (sectionWidth / 10) * 4;
   const minimizedWidth = '124px';
   const minimizedHeight = '70px';
 
@@ -47,6 +49,10 @@ export const HostKahoots = ({
     const kahootNumber = parseInt(e.currentTarget.innerText);
     setKahoots((await axios.get('/host-kahoots')).data);
     setActiveKahoot(kahootNumber);
+  };
+
+  const toggleKahootWidth = () => {
+    setIsLinkSize(!isLinkSize);
   };
 
   const classNames = () => {
@@ -100,6 +106,9 @@ export const HostKahoots = ({
           >
             {isMinimized ? <KahootMaximizeIcon /> : <KahootMinimizeIcon />}
           </KahootMinimizerBtn>
+          <KahootEnlargeButton onClick={toggleKahootWidth}>
+            +
+          </KahootEnlargeButton>
           <KahootPicker>
             {Object.values(kahoots[page].links).map((link, i) => (
               <KahootNumbersBtn

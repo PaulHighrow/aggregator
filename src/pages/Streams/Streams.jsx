@@ -30,6 +30,8 @@ const Streams = () => {
   const [currentUser, setCurrentUser] = useState({});
   const [isUserLogged, setIsUserLogged] = useState(false);
 
+  const room = location.pathname;
+
   const wakeupRequest = async () => {
     try {
       const wake = await axios.get('/');
@@ -174,7 +176,9 @@ const Streams = () => {
           location.pathname === '/streams/' ? (
           <StreamNav />
         ) : (
-          <Outlet context={[links, isLoading, currentUser, setCurrentUser]} />
+          <Outlet
+            context={[links, isLoading, currentUser, setCurrentUser, room]}
+          />
         )}
 
         {isLoading && (

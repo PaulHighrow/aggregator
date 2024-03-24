@@ -416,3 +416,25 @@ export const ArrowFakeButton = styled(KahootArrow)`
   height: 32px;
   fill: var(--main-color);
 `;
+
+export const KahootEnlargeButton = styled.button`
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--accent-color);
+  background-color: var(--main-color);
+  border: none;
+  border-radius: 20px;
+  outline: transparent;
+
+  font-size: 24px;
+  font-weight: 700;
+`;

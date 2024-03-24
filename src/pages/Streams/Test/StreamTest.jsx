@@ -47,10 +47,7 @@ import {
   SupportPointer,
   VideoBox,
 } from '../../../components/Stream/Stream.styled';
-import {
-  AdminFormBtn,
-  LoginForm
-} from '../AdminPanel/AdminPanel.styled';
+import { AdminFormBtn, LoginForm } from '../AdminPanel/AdminPanel.styled';
 
 export const StreamTest = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -60,7 +57,8 @@ export const StreamTest = () => {
   const [isOpenedLast, setIsOpenedLast] = useState('');
   const [isAnimated, setIsAnimated] = useState(false);
   const [animatedID, setAnimationID] = useState('');
-  const [links, isLoading, currentUser, setCurrentUser] = useOutletContext();
+  const [links, isLoading, currentUser, setCurrentUser, room] =
+    useOutletContext();
   const chatEl = useRef();
   // eslint-disable-next-line
   const [chatWidth, chatHeight] = useSize(chatEl);
@@ -218,7 +216,12 @@ export const StreamTest = () => {
     const getMessages = async () => {
       try {
         const dbMessages = await axios.get(
-          'https://ap-chat.onrender.com/messages'
+          `https://ap-chat.onrender.com/messages/room`,
+          {
+            params: {
+              room,
+            },
+          }
         );
         const todayMessages = dbMessages.data.filter(
           message =>
@@ -322,7 +325,7 @@ export const StreamTest = () => {
       socketRef.current.off('message:pin');
       socketRef.current.disconnect();
     };
-  }, [currentUser]);
+  }, [currentUser, room]);
 
   return (
     <>

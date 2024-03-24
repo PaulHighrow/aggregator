@@ -1,4 +1,3 @@
-import useSize from '@react-hook/size';
 import { useEffect, useRef, useState } from 'react';
 import { animateScroll } from 'react-scroll';
 import {
@@ -16,18 +15,18 @@ import {
   ChatWindowedMessageYouCloud,
   ChatWindowedMessagesBox,
   ChatWindowedPinnedMessageIcon,
-} from '../Chat.styled';
+} from './TeacherChat.styled';
 
-export const ChatWindowedBody = ({ messages, socket, room }) => {
+export const TeacherChatBody = ({ messages, socket, room }) => {
   const ChatBodyEl = useRef();
-  // eslint-disable-next-line
-  const [_, height] = useSize(ChatBodyEl);
   const [scroll, setScroll] = useState(true);
   const linksRegex = /\b(?:https?|ftp):\/\/\S+\b/g;
 
   useEffect(() => {
     scrollToBottom();
   });
+
+  console.log(room);
 
   const calculateHeights = () => {
     setScroll(

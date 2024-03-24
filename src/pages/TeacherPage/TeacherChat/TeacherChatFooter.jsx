@@ -7,9 +7,9 @@ import {
   ChatSend,
   ChatWindowedMessageInput,
   СhatSendMessageButton,
-} from '../Chat.styled';
+} from './TeacherChat.styled';
 
-export const ChatWindowedFooter = ({ socket, room }) => {
+export const TeacherChatFooter = ({ socket, room }) => {
   const [message, setMessage] = useState('');
 
   const handleSendMessage = async e => {

@@ -9,19 +9,33 @@ import {
   ChatLoginInput,
   ChatLoginLabel,
 } from 'utils/Chat/Chat.styled';
-import { ChatWindowed } from 'utils/Chat/ChatWindowed/ChatWindowed';
-import { ChatWindowedBox } from '../../../components/Stream/Stream.styled';
-import { useLocation } from 'react-router-dom';
+import {
+  ChatHideLeftSwitch,
+  ChatHideRightSwitch,
+  TeacherChatBox,
+  TeacherChatSwitch,
+} from './TeacherChat.styled';
+import { TeacherChatContainer } from './TeacherChatContainer';
 
-export const WindowedChat = () => {
+export const TeacherChat = ({ page }) => {
   const [userName, setUserName] = useState('');
   // eslint-disable-next-line
   const [userID, setUserID] = useState('');
   const [isLoggedToChat, setIsLoggedToChat] = useState(false);
+  const [isChatOpen, setIsChatOpen] = useState(false);
   const [messages, setMessages] = useState([]);
 
-  const room = useLocation().pathname.split('-chat')[0];
+  const toggleChat = () => {
+    setIsChatOpen(!isChatOpen);
+  };
 
+  console.log(page);
+  const getMessagesByPage = page =>
+    page.includes('kids')
+      ? '/streams-kids/' + page.split('kids')[0]
+      : '/streams/' + page;
+
+  const room = getMessagesByPage(page);
   console.log(room);
 
   const checkLogin = e => {
@@ -163,7 +177,10 @@ export const WindowedChat = () => {
 
   return (
     <>
-      <ChatWindowedBox>
+      <TeacherChatBox className={isChatOpen ? 'shown' : 'hidden'}>
+        <TeacherChatSwitch onClick={toggleChat}>
+          {isChatOpen ? <ChatHideRightSwitch /> : <ChatHideLeftSwitch />}
+        </TeacherChatSwitch>
         {!isLoggedToChat ? (
           <ChatLoginForm onSubmit={handleSubmit}>
             <ChatLoginHeader>AP Open Chat</ChatLoginHeader>
@@ -181,13 +198,13 @@ export const WindowedChat = () => {
             <ChatLoginButton>Готово!</ChatLoginButton>
           </ChatLoginForm>
         ) : (
-          <ChatWindowed
+          <TeacherChatContainer
             socket={socketRef.current}
             messages={messages}
             room={room}
           />
         )}
-      </ChatWindowedBox>
+      </TeacherChatBox>
     </>
   );
 };

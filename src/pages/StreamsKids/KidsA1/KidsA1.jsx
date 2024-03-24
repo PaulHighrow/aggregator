@@ -48,7 +48,8 @@ export const KidsA1 = () => {
   const [isOpenedLast, setIsOpenedLast] = useState('');
   const [isAnimated, setIsAnimated] = useState(false);
   const [animatedID, setAnimationID] = useState('');
-  const [links, isLoading, currentUser, setCurrentUser] = useOutletContext();
+  const [links, isLoading, currentUser, setCurrentUser, room] =
+    useOutletContext();
   const chatEl = useRef();
   // eslint-disable-next-line
   const [chatWidth, chatHeight] = useSize(chatEl);
@@ -154,12 +155,18 @@ export const KidsA1 = () => {
       console.log('get');
       try {
         const dbMessages = await axios.get(
-          'https://ap-chat.onrender.com/messages'
+          `https://ap-chat.onrender.com/messages/room`,
+          {
+            params: {
+              room,
+            },
+          }
         );
         const todayMessages = dbMessages.data.filter(
           message =>
             new Date(message.createdAt).getDate() === new Date().getDate()
         );
+                console.log(todayMessages);
         setMessages(messages => (messages = todayMessages));
       } catch (error) {
         console.log(error);
@@ -229,7 +236,7 @@ export const KidsA1 = () => {
       socketRef.current.off('message');
       socketRef.current.disconnect();
     };
-  }, [currentUser]);
+  }, [currentUser, room]);
 
   return (
     <>

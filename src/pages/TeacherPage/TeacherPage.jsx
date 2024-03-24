@@ -18,6 +18,7 @@ import {
 import { Viewer } from './Viewer/Viewer';
 import { WhiteBoard } from './WhiteBoard/WhiteBoard';
 import { useLocation } from 'react-router-dom';
+import { TeacherChat } from './TeacherChat/TeacherChat';
 
 const TeacherPage = () => {
   const [isWhiteBoardOpen, setIsWhiteBoardOpen] = useState(false);
@@ -113,20 +114,17 @@ const TeacherPage = () => {
         isViewerOpen={isViewerOpen}
         isOpenedLast={isOpenedLast}
       />
-
       <WhiteBoard
         page={page}
         sectionWidth={width}
         isWhiteBoardOpen={isWhiteBoardOpen}
         isOpenedLast={isOpenedLast}
       />
-
       <Platform
         sectionWidth={width}
         isPlatformOpen={isPlatformOpen}
         isOpenedLast={isOpenedLast}
       />
-
       <HostKahoots
         page={page}
         sectionWidth={width}
@@ -134,6 +132,7 @@ const TeacherPage = () => {
         isKahootOpen={isKahootOpen}
         isOpenedLast={isOpenedLast}
       />
+      <TeacherChat page={page} />
     </>
   );
 };

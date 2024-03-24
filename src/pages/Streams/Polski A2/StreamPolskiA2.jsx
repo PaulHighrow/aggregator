@@ -48,7 +48,8 @@ export const StreamPolskiA2 = () => {
   const [isOpenedLast, setIsOpenedLast] = useState('');
   const [isAnimated, setIsAnimated] = useState(false);
   const [animatedID, setAnimationID] = useState('');
-  const [links, isLoading, currentUser, setCurrentUser] = useOutletContext();
+  const [links, isLoading, currentUser, setCurrentUser, room] =
+    useOutletContext();
   const chatEl = useRef();
   // eslint-disable-next-line
   const [chatWidth, chatHeight] = useSize(chatEl);
@@ -154,7 +155,12 @@ export const StreamPolskiA2 = () => {
       console.log('get');
       try {
         const dbMessages = await axios.get(
-          'https://ap-chat.onrender.com/messages'
+          `https://ap-chat.onrender.com/messages/room`,
+          {
+            params: {
+              room,
+            },
+          }
         );
         const todayMessages = dbMessages.data.filter(
           message =>
@@ -229,11 +235,12 @@ export const StreamPolskiA2 = () => {
       socketRef.current.off('message');
       socketRef.current.disconnect();
     };
-  }, [currentUser]);
+  }, [currentUser, room]);
 
   return (
     <>
-      {(links.polskia2 === undefined || links.polskia2[0] < 10) && !isLoading ? (
+      {(links.polskia2 === undefined || links.polskia2[0] < 10) &&
+      !isLoading ? (
         <StreamPlaceHolder>
           <StreamPlaceHolderText>
             Поки що трансляції тут немає! <br />
