@@ -212,7 +212,7 @@ export const KahootPicker = styled.div`
 
   @media screen and (min-width: 768px) {
     flex-direction: column;
-    top: calc(30vh - 70px);
+    top: calc(40vh - 70px);
     right: 16px;
 
     transform: translateY(-50%);
