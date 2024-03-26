@@ -5,6 +5,7 @@ import { Loader } from 'components/SharedLayout/Loaders/Loader';
 import { LoaderWrapper } from 'components/SharedLayout/Loaders/Loader.styled';
 import { StreamNav } from 'components/Stream/StreamNav/StreamNav';
 import { Formik } from 'formik';
+import { nanoid } from 'nanoid';
 import { useLayoutEffect, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import * as yup from 'yup';
@@ -38,15 +39,6 @@ const Streams = () => {
       console.log(wake.data);
     } catch (error) {
       console.log(error);
-    }
-  };
-
-  const resetLogin = () => {
-    localStorage.removeItem('AP_logged_in');
-    const isLoggedIn = localStorage.getItem('APLoggedIn');
-    if (!isLoggedIn) {
-      localStorage.removeItem('userID');
-      localStorage.removeItem('userName');
     }
   };
 
@@ -99,7 +91,10 @@ const Streams = () => {
       console.log(response);
       setAuthToken(response.data.token);
       setIsUserLogged(isLogged => (isLogged = true));
+      setCurrentUser(currentUser => currentUser = response.data.user)
+      localStorage.setItem('userID', nanoid(8))
       localStorage.setItem('mail', values.mail);
+      localStorage.setItem('userName', response.data.user.name);
       resetForm();
     } catch (error) {
       console.error(error);
@@ -107,7 +102,6 @@ const Streams = () => {
   };
 
   useLayoutEffect(() => {
-    resetLogin();
     wakeupRequest();
     detectUser();
 
@@ -121,7 +115,6 @@ const Streams = () => {
         setIsLoading(isLoading => (isLoading = false));
       }
     };
-
     getLinksRequest();
 
     const refreshToken = async () => {
@@ -132,6 +125,11 @@ const Streams = () => {
           { mail: localStorage.getItem('mail') }
         );
         setIsUserLogged(isLogged => (isLogged = true));
+        const id = nanoid(8);
+        if (!localStorage.getItem('userID')) {
+          localStorage.setItem('userID', id)
+        }
+        localStorage.setItem('userName', res.data.user.name);
         console.log(res);
       } catch (error) {
         console.log(error);
@@ -177,7 +175,7 @@ const Streams = () => {
           <StreamNav />
         ) : (
           <Outlet
-            context={[links, isLoading, currentUser, setCurrentUser, room]}
+            context={[links, isLoading, currentUser, room]}
           />
         )}
 

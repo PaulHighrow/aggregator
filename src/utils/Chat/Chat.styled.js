@@ -149,7 +149,7 @@ export const ChatMessagesBox = styled.div`
     height: 95vh;
   }
 
-  & :first-child:not(#chat-pin) {
+  & :first-child:not(#chat-pin):not(svg) {
     margin-top: auto;
   }
 
@@ -166,7 +166,7 @@ export const ChatWindowedMessagesBox = styled(ChatMessagesBox)`
   padding-top: 8px;
   height: 95vh;
 
-  & :first-child {
+  & :first-child:not(svg) {
     margin-top: auto !important;
   }
 
@@ -196,15 +196,16 @@ export const ChatMessageUsername = styled.p`
   margin-bottom: 1px;
 `;
 
-export const ChatUsernameBox = styled.p`
-  color: #7c7c7c;
-  font-size: 12px;
-  line-height: 14px;
+export const ChatUsernameBox = styled.span`
+  color: #fff;
+  font-size: 18px;
+  line-height: 22px;
   font-weight: 500;
   margin-bottom: 1px;
 
   display: flex;
   gap: 6px;
+  align-items: center;
 `;
 
 export const ChatMessageYouCloud = styled.div`

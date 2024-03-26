@@ -6,8 +6,8 @@ import { ReactComponent as ChatScrollDownArrow } from '../../../img/svg/downArro
 import { ReactComponent as EmojiSwitchIcon } from '../../../img/svg/emojiPicker.svg';
 import { ReactComponent as PinnedMessageIcon } from '../../../img/svg/pinnedMessage.svg';
 import { ReactComponent as ChatSendIcon } from '../../../img/svg/sendIcon.svg';
-import { ReactComponent as BoxSwitchLeft } from '../../../img/svg/btnbox-switch-left.svg';
-import { ReactComponent as BoxSwitchRight } from '../../../img/svg/btnbox-switch-right.svg';
+import { ReactComponent as BoxSwitchLeft } from '../../../img/svg/btnbox-switch-left-large.svg';
+import { ReactComponent as BoxSwitchRight } from '../../../img/svg/btnbox-switch-right-large.svg';
 
 export const TeacherChatBox = styled.div`
   position: absolute;
@@ -170,7 +170,7 @@ export const ChatMessageWrapper = styled.div`
 `;
 
 export const ChatMessageYou = styled.p`
-  color: #7c7c7c;
+  color: #fff;
   text-align: right;
   font-size: 18px;
   line-height: 22px;
@@ -178,7 +178,7 @@ export const ChatMessageYou = styled.p`
 `;
 
 export const ChatMessageUsername = styled.p`
-  color: #7c7c7c;
+  color: #fff;
   font-size: 18px;
   line-height: 22px;
   font-weight: 500;
@@ -186,7 +186,7 @@ export const ChatMessageUsername = styled.p`
 `;
 
 export const ChatUsernameBox = styled.span`
-  color: #7c7c7c;
+  color: #fff;
   font-size: 18px;
   line-height: 22px;
   font-weight: 500;
@@ -568,7 +568,7 @@ export const ChatHeaderLogo = styled(ChatLogo)`
 export const TeacherChatSwitch = styled.button`
   position: absolute;
   top: 15px;
-  left: -14px;
+  left: -40px;
 
   border: none;
   outline: transparent;
@@ -581,7 +581,7 @@ export const TeacherChatSwitch = styled.button`
   justify-content: center;
 
   height: 60px;
-  width: 16px;
+  width: 42px;
 `;
 
 export const ChatHideLeftSwitch = styled(BoxSwitchLeft)`

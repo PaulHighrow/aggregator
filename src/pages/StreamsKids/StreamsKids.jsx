@@ -5,6 +5,7 @@ import { Loader } from 'components/SharedLayout/Loaders/Loader';
 import { LoaderWrapper } from 'components/SharedLayout/Loaders/Loader.styled';
 import { StreamNavKids } from 'components/Stream/StreamNavKids/StreamNavKids';
 import { Formik } from 'formik';
+import { nanoid } from 'nanoid';
 import { useLayoutEffect, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import * as yup from 'yup';
@@ -41,15 +42,6 @@ const StreamsKids = () => {
       console.log(wake.data);
     } catch (error) {
       console.log(error);
-    }
-  };
-
-  const resetLogin = () => {
-    localStorage.removeItem('AP_logged_in');
-    const isLoggedIn = localStorage.getItem('APLoggedIn');
-    if (!isLoggedIn) {
-      localStorage.removeItem('userID');
-      localStorage.removeItem('userName');
     }
   };
 
@@ -94,14 +86,18 @@ const StreamsKids = () => {
   });
 
   const handleLoginSubmit = async (values, { resetForm }) => {
-    values.mail = values.mail.toLowerCase();
+    values.mail = values.mail.toLowerCase().trim();
+    values.password = values.password.trim();
     try {
       const response = await axios.post('/users/login', values);
       console.log(values);
       console.log(response);
       setAuthToken(response.data.token);
       setIsUserLogged(isLogged => (isLogged = true));
+      setCurrentUser(currentUser => (currentUser = response.data.user));
+      localStorage.setItem('userID', nanoid(8));
       localStorage.setItem('mail', values.mail);
+      localStorage.setItem('userName', response.data.user.name);
       resetForm();
     } catch (error) {
       console.error(error);
@@ -109,7 +105,6 @@ const StreamsKids = () => {
   };
 
   useLayoutEffect(() => {
-    resetLogin();
     wakeupRequest();
     detectUser();
 
@@ -133,6 +128,11 @@ const StreamsKids = () => {
           { mail: localStorage.getItem('mail') }
         );
         setIsUserLogged(isLogged => (isLogged = true));
+        const id = nanoid(8);
+        if (!localStorage.getItem('userID')) {
+          localStorage.setItem('userID', id);
+        }
+        localStorage.setItem('userName', res.data.user.name);
         console.log(res);
       } catch (error) {
         console.log(error);
@@ -178,7 +178,7 @@ const StreamsKids = () => {
           <StreamNavKids />
         ) : (
           <Outlet
-            context={[links, isLoading, currentUser, setCurrentUser, room]}
+            context={[links, isLoading, currentUser, room]}
           />
         )}
 

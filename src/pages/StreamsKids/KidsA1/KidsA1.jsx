@@ -2,20 +2,11 @@ import useSize from '@react-hook/size';
 import axios from 'axios';
 import { Kahoots } from 'components/Stream/Kahoots/Kahoots';
 import { Support } from 'components/Stream/Support/Support';
-import { nanoid } from 'nanoid';
 import { useEffect, useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { useOutletContext } from 'react-router-dom';
 import { io } from 'socket.io-client';
 import { Chat } from 'utils/Chat/Chat';
-import {
-  ChatLoginButton,
-  ChatLoginForm,
-  ChatLoginHeader,
-  ChatLoginInput,
-  ChatLoginLabel,
-  ChatLoginValidation,
-} from 'utils/Chat/Chat.styled';
 import {
   BoxHideLeftSwitch,
   BoxHideRightSwitch,
@@ -48,18 +39,13 @@ export const KidsA1 = () => {
   const [isOpenedLast, setIsOpenedLast] = useState('');
   const [isAnimated, setIsAnimated] = useState(false);
   const [animatedID, setAnimationID] = useState('');
-  const [links, isLoading, currentUser, setCurrentUser, room] =
-    useOutletContext();
+  const [links, isLoading, currentUser, room] = useOutletContext();
   const chatEl = useRef();
   // eslint-disable-next-line
   const [chatWidth, chatHeight] = useSize(chatEl);
   const [width, height] = useSize(document.body);
-  const [userName, setUserName] = useState('');
-  const [isLoggedToChat, setIsLoggedToChat] = useState(false);
   const [isBanned, setIsBanned] = useState(false);
   const [messages, setMessages] = useState([]);
-  const [isUserNameValid, setIsUserNameValid] = useState(true);
-  const [isMoreThanOneWord, setIsMoreThanOneWord] = useState(true);
 
   const toggleKahoot = e => {
     setIsKahootOpen(isKahootOpen => !isKahootOpen);
@@ -68,7 +54,6 @@ export const KidsA1 = () => {
       : setIsOpenedLast(isOpenedLast => '');
   };
   const toggleChat = () => {
-    checkLogin();
     setIsChatOpen(isChatOpen => !isChatOpen);
     isKahootOpen || isSupportOpen
       ? setIsOpenedLast(isOpenedLast => 'chat')
@@ -94,57 +79,12 @@ export const KidsA1 = () => {
   const videoBoxWidth =
     chatWidth === 0 && width > height ? width - 300 : width - chatWidth;
 
-  const checkLogin = () => {
-    const name = localStorage.getItem('userName');
-    const id = localStorage.getItem('userID');
-    const isLogged = localStorage.getItem('APLoggedIn');
-
-    if (!id && name) {
-      const idGen = nanoid(8);
-      localStorage.setItem('userID', idGen);
-    }
-
-    if (id && name && isLogged) {
-      setIsLoggedToChat(isLogged => (isLogged = true));
-    }
-  };
-
-  const handleSubmit = async e => {
-    e.preventDefault();
-    const idGen = nanoid(8);
-    if (!userName) {
-      setIsUserNameValid(false);
-      return;
-    } else if (userName.trim().split(' ').length < 2) {
-      setIsMoreThanOneWord(false);
-      return;
-    } else {
-      localStorage.setItem('userName', userName.trim());
-      localStorage.setItem('userID', idGen);
-      localStorage.setItem('APLoggedIn', true);
-      try {
-        const newUser = {
-          username: userName.trim(),
-          userID: idGen,
-          userIP: currentUser.userIP,
-          isAdmin: false,
-        };
-        await axios.post('https://ap-chat.onrender.com/users', newUser);
-        setCurrentUser(user => (user = newUser));
-        setIsLoggedToChat(isLogged => !isLogged);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  };
-
   const socketRef = useRef(null);
 
   useEffect(() => {
     document.title = 'A1 English Kids | AP Education';
 
     socketRef.current = io('https://ap-chat.onrender.com/');
-    checkLogin();
 
     socketRef.current.on('connected', (connected, handshake) => {
       console.log(connected);
@@ -152,7 +92,6 @@ export const KidsA1 = () => {
     });
 
     const getMessages = async () => {
-      console.log('get');
       try {
         const dbMessages = await axios.get(
           `https://ap-chat.onrender.com/messages/room`,
@@ -166,28 +105,13 @@ export const KidsA1 = () => {
           message =>
             new Date(message.createdAt).getDate() === new Date().getDate()
         );
-                console.log(todayMessages);
+        console.log(todayMessages);
         setMessages(messages => (messages = todayMessages));
       } catch (error) {
         console.log(error);
       }
     };
     getMessages();
-
-    const getBannedUsers = async () => {
-      try {
-        const users = await axios.get('https://ap-chat.onrender.com/users');
-        const bannedUsers = users.data
-          .filter(user => user.isBanned === true)
-          .map(bannedUser => bannedUser.userIP);
-        if (bannedUsers.includes(currentUser.userIP)) {
-          setIsBanned(true);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getBannedUsers();
 
     socketRef.current.on('message', async data => {
       setMessages(messages => (messages = [...messages, data]));
@@ -352,41 +276,12 @@ export const KidsA1 = () => {
                   isOpenedLast === 'chat' ? { zIndex: '2' } : { zIndex: '1' }
                 }
               >
-                {!isLoggedToChat ? (
-                  <ChatLoginForm onSubmit={handleSubmit}>
-                    <ChatLoginHeader>AP Open Chat</ChatLoginHeader>
-                    <ChatLoginLabel htmlFor="username">
-                      Введіть ваше ім'я та прізвище повністю
-                    </ChatLoginLabel>
-                    <ChatLoginInput
-                      type="text"
-                      minLength="5"
-                      name="username"
-                      id="username"
-                      value={userName}
-                      onChange={e => {
-                        setIsUserNameValid(true);
-                        setIsMoreThanOneWord(true);
-                        setUserName(e.target.value);
-                      }}
-                    />
-                    <ChatLoginValidation>
-                      {!isUserNameValid
-                        ? "Ім'я та прізвище обов'язкові!"
-                        : !isMoreThanOneWord
-                        ? "Прізвище та ім'я, будь ласка, 2 слова!"
-                        : ''}
-                    </ChatLoginValidation>
-                    <ChatLoginButton>Готово!</ChatLoginButton>
-                  </ChatLoginForm>
-                ) : (
-                  <Chat
-                    socket={socketRef.current}
-                    messages={messages}
-                    isChatOpen={isChatOpen}
-                    currentUser={currentUser}
-                  />
-                )}
+                <Chat
+                  socket={socketRef.current}
+                  messages={messages}
+                  isChatOpen={isChatOpen}
+                  currentUser={currentUser}
+                />
               </ChatBox>
             )}
 
@@ -415,41 +310,12 @@ export const KidsA1 = () => {
                 isOpenedLast === 'chat' ? { zIndex: '2' } : { zIndex: '1' }
               }
             >
-              {!isLoggedToChat ? (
-                <ChatLoginForm onSubmit={handleSubmit}>
-                  <ChatLoginHeader>AP Open Chat</ChatLoginHeader>
-                  <ChatLoginLabel htmlFor="username">
-                    Введіть ваше ім'я та прізвище повністю
-                  </ChatLoginLabel>
-                  <ChatLoginInput
-                    type="text"
-                    minLength="5"
-                    name="username"
-                    id="username"
-                    value={userName}
-                    onChange={e => {
-                      setIsUserNameValid(true);
-                      setIsMoreThanOneWord(true);
-                      setUserName(e.target.value);
-                    }}
-                  />
-                  <ChatLoginValidation>
-                    {!isUserNameValid
-                      ? "Ім'я та прізвище обов'язкові!"
-                      : !isMoreThanOneWord
-                      ? "Прізвище та ім'я, будь ласка, 2 слова, через пробіл"
-                      : ''}
-                  </ChatLoginValidation>
-                  <ChatLoginButton>Готово!</ChatLoginButton>
-                </ChatLoginForm>
-              ) : (
-                <Chat
-                  socket={socketRef.current}
-                  messages={messages}
-                  isChatOpen={isChatOpen}
-                  currentUser={currentUser}
-                />
-              )}
+              <Chat
+                socket={socketRef.current}
+                messages={messages}
+                isChatOpen={isChatOpen}
+                currentUser={currentUser}
+              />
             </ChatBox>
           )}
         </>
