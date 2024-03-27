@@ -31,6 +31,8 @@ export const UserAdminPanel = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
+    document.title = 'User Admin Panel | AP Education';
+
     const refreshToken = async () => {
       console.log('token refresher');
       try {
@@ -106,9 +108,9 @@ export const UserAdminPanel = () => {
 
   const handleUserSubmit = async (values, { resetForm }) => {
     setIsLoading(isLoading => (isLoading = true));
-    values.name = values.name.trim();
-    values.mail = values.mail.toLowerCase().trim();
-    values.password = values.password.trim();
+    values.name = values.name.trim().trimStart();
+    values.mail = values.mail.toLowerCase().trim().trimStart();
+    values.password = values.password.trim().trimStart();
     try {
       const response = await axios.post('/users/new', values);
       console.log(response);

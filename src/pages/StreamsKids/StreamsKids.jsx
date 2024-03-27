@@ -86,8 +86,8 @@ const StreamsKids = () => {
   });
 
   const handleLoginSubmit = async (values, { resetForm }) => {
-    values.mail = values.mail.toLowerCase().trim();
-    values.password = values.password.trim();
+    values.mail = values.mail.toLowerCase().trim().trimStart();
+    values.password = values.password.trim().trimStart();
     try {
       const response = await axios.post('/users/login', values);
       console.log(values);

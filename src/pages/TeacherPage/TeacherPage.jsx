@@ -1,6 +1,6 @@
 import useSize from '@react-hook/size';
 import { KahootBtn, KahootLogo } from 'components/Stream/Stream.styled';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { HostKahoots } from './HostKahoots/HostKahoots';
 import { Platform } from './Platform/Platform';
 import {
@@ -46,6 +46,10 @@ const TeacherPage = () => {
     }
   };
   const page = getLocation(location);
+
+  useEffect(() => {
+    document.title = `Teacher ${page.toLocaleUpperCase()} | AP Education`;
+  }, [page]);
 
   const toggleViewer = () => {
     !isOpenedLast

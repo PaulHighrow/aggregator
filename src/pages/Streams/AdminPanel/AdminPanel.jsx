@@ -24,6 +24,8 @@ export const AdminPanel = () => {
   const [isUserAdmin, setIsUserAdmin] = useState(false);
 
   useEffect(() => {
+    document.title = 'Link Admin Panel | AP Education';
+
     const refreshToken = async () => {
       console.log('token refresher');
       try {

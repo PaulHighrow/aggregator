@@ -46,6 +46,8 @@ export const HostKahootAdminPanel = () => {
   const destination = '/host-kahoots';
 
   useEffect(() => {
+    document.title = 'Host Kahoot Admin Panel | AP Education';
+
     const refreshToken = async () => {
       console.log('token refresher');
       try {
