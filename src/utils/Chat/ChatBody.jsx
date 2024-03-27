@@ -44,8 +44,16 @@ export const ChatBody = ({ messages, isChatOpen }) => {
 
     setScroll(
       height ===
-        ChatBodyEl.current.scrollHeight -
-          Math.ceil(ChatBodyEl.current.scrollTop)
+            ChatBodyEl.current.scrollHeight -
+              Math.ceil(ChatBodyEl.current.scrollTop) ||
+          (ChatBodyEl.current.scrollHeight -
+            Math.floor(ChatBodyEl.current.scrollTop) &&
+            ChatBodyEl.current.scrollHeight -
+              Math.ceil(ChatBodyEl.current.scrollTop) <=
+              height &&
+            ChatBodyEl.current.scrollHeight -
+              Math.floor(ChatBodyEl.current.scrollTop) <=
+              height)
     );
   };
 

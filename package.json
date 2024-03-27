@@ -1,8 +1,8 @@
 {
   "name": "ap-education",
-  "version": "1.4.52",
+  "version": "1.4.52a",
   "private": true,
-  "homepage": "https://PaulHighrow.github.io/aggregator/",
+  "homepage": "https://ap.education/",
   "dependencies": {
     "@emoji-mart/data": "^1.1.2",
     "@emoji-mart/react": "^1.1.1",

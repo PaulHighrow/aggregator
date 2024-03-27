@@ -33,7 +33,7 @@ export const TeacherChatFooter = ({ socket, room }) => {
 
     animateScroll.scrollToBottom({
       containerId: 'chat-box',
-      duration: 150,
+      duration: 0,
     });
   };
 

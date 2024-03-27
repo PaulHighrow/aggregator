@@ -61,7 +61,7 @@ export const ChatFooter = ({ socket, theme, currentUser }) => {
 
     animateScroll.scrollToBottom({
       containerId: 'chat-box',
-      duration: 150,
+      duration: 0,
     });
   };
 

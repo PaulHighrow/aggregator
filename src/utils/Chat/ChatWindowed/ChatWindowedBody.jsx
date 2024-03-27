@@ -30,12 +30,33 @@ export const ChatWindowedBody = ({ messages, socket, room }) => {
   });
 
   const calculateHeights = () => {
+    // console.log(height, 'height');
+    // console.log(ChatBodyEl.current.offsetHeight, 'offsetHeight');
+    // console.log(ChatBodyEl.current.scrollHeight, 'scrollHeight');
+    // console.log(ChatBodyEl.current.scrollTop, 'scrollTop');
+    // console.log(Math.ceil(ChatBodyEl.current.scrollTop), 'scrollTop.ceil');
+    // console.log(Math.floor(ChatBodyEl.current.scrollTop), 'scrollTop.floor');
+    // console.log(
+    //   ChatBodyEl.current.scrollHeight - Math.ceil(ChatBodyEl.current.scrollTop)
+    // );
+    // console.log(
+    //   ChatBodyEl.current.scrollHeight - Math.floor(ChatBodyEl.current.scrollTop)
+    // );
+
     setScroll(
       scroll =>
         (scroll =
-          ChatBodyEl.current.offsetHeight ===
-          ChatBodyEl.current.scrollHeight -
-            Math.ceil(ChatBodyEl.current.scrollTop))
+          height ===
+            ChatBodyEl.current.scrollHeight -
+              Math.ceil(ChatBodyEl.current.scrollTop) ||
+          (ChatBodyEl.current.scrollHeight -
+            Math.floor(ChatBodyEl.current.scrollTop) &&
+            ChatBodyEl.current.scrollHeight -
+              Math.ceil(ChatBodyEl.current.scrollTop) <=
+              height &&
+            ChatBodyEl.current.scrollHeight -
+              Math.floor(ChatBodyEl.current.scrollTop) <=
+              height))
     );
   };
 
@@ -43,7 +64,7 @@ export const ChatWindowedBody = ({ messages, socket, room }) => {
     if (scroll) {
       animateScroll.scrollToBottom({
         containerId: 'chat-box',
-        duration: 50,
+        duration: 0,
       });
     }
   };
@@ -51,7 +72,7 @@ export const ChatWindowedBody = ({ messages, socket, room }) => {
   const arrowScroll = () => {
     animateScroll.scrollToBottom({
       containerId: 'chat-box',
-      duration: 50,
+      duration: 0,
     });
   };
 

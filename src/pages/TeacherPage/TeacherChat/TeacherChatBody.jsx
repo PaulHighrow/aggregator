@@ -33,8 +33,16 @@ export const TeacherChatBody = ({ messages, socket, room }) => {
       scroll =>
         (scroll =
           ChatBodyEl.current.offsetHeight ===
-          ChatBodyEl.current.scrollHeight -
-            Math.ceil(ChatBodyEl.current.scrollTop))
+            ChatBodyEl.current.scrollHeight -
+              Math.ceil(ChatBodyEl.current.scrollTop) ||
+          (ChatBodyEl.current.scrollHeight -
+            Math.floor(ChatBodyEl.current.scrollTop) &&
+            ChatBodyEl.current.scrollHeight -
+              Math.ceil(ChatBodyEl.current.scrollTop) <=
+              ChatBodyEl.current.offsetHeight &&
+            ChatBodyEl.current.scrollHeight -
+              Math.floor(ChatBodyEl.current.scrollTop) <=
+              ChatBodyEl.current.offsetHeight))
     );
   };
 
@@ -42,7 +50,7 @@ export const TeacherChatBody = ({ messages, socket, room }) => {
     if (scroll) {
       animateScroll.scrollToBottom({
         containerId: 'chat-box',
-        duration: 50,
+        duration: 0,
       });
     }
   };
@@ -50,7 +58,7 @@ export const TeacherChatBody = ({ messages, socket, room }) => {
   const arrowScroll = () => {
     animateScroll.scrollToBottom({
       containerId: 'chat-box',
-      duration: 50,
+      duration: 0,
     });
   };
 
