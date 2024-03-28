@@ -12,10 +12,7 @@ import { CloseIcon, FormCloseBtn } from 'components/LeadForm/LeadForm.styled';
 import { ChatLoginValidation } from 'utils/Chat/Chat.styled';
 
 export const KahootBox = styled.div`
-  background-color: white;
-  position: absolute;
-  top: 0;
-  left: 0;
+
 
   outline: transparent;
 
@@ -27,6 +24,9 @@ export const KahootBox = styled.div`
 
   &.shown {
     transform: translateX(0);
+    position: absolute;
+  top: 0;
+  left: 0;
   }
 
   &.minimized {
@@ -98,15 +98,7 @@ export const ClickDisabler = styled.div`
 `;
 
 export const KahootBackground = styled(StreamsBackgroundWrapper)`
-  background-position: right -70px top 0px;
-
-  @media screen and (min-width: 768px) {
-    background-position: center top 0px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    background-position: right -215px top 0;
-  }
+  background: unset;
 
   transition: transform var(--animation-global);
 

@@ -26,6 +26,7 @@ import { WindowedChat } from 'utils/Chat/ChatWindowed/WindowedChat';
 import ScrollToTop from 'utils/ScrollToTop/ScrollToTop';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { HostKahootAdminPanel } from 'pages/Streams/HostKahootAdminPanel/HostKahootAdminPanel';
+import TeacherTrialPage from 'pages/TeacherPage/TeacherTrialPage';
 
 const Home = lazy(() =>
   import(/* webpackChunkName: "Homepage" */ '../pages/Home/Home')
@@ -260,6 +261,10 @@ export const App = () => {
           <Route path="polski-a1" element={<TeacherPage />} />
           <Route path="polski-a2" element={<TeacherPage />} />
           <Route path="test" element={<TeacherPage />} />
+          <Route path="trials" element={<TeacherTrialPage />} />
+          <Route path="trials-kids" element={<TeacherTrialPage />} />
+          <Route path="trials-pl" element={<TeacherTrialPage />} />
+          <Route path="trials-de" element={<TeacherTrialPage />} />
         </Route>
       </Routes>
     </>

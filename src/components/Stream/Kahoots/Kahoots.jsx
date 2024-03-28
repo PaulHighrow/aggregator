@@ -154,7 +154,7 @@ export const Kahoots = ({
             if (!userName) {
               createValidationEmptyInput();
               return;
-            } else if (userName.trim().split(' ').length < 2) {
+            } else if (userName.trim().trimStart().split(' ').length < 2) {
               createValidationNotEnoughWords();
               return;
             } else {
@@ -168,19 +168,6 @@ export const Kahoots = ({
                 copyToClipboard(btn);
               }
               localStorage.setItem('userID', nanoid(8));
-              try {
-                const ip = (await axios.get('https://jsonip.com/')).data.ip;
-                const newUser = {
-                  username: localStorage.getItem('userName'),
-                  userID: localStorage.getItem('userID'),
-                  userIP: ip,
-                  isAdmin: false,
-                };
-                await axios.post('https://ap-chat.onrender.com/users', newUser);
-                localStorage.setItem('APLoggedIn', true);
-              } catch (error) {
-                console.log(error);
-              }
             }
           }}
         >
@@ -320,7 +307,7 @@ export const Kahoots = ({
   };
 
   const handleUsernameReverseBtn = e => {
-    const reverseUsername = username.split(' ').reverse().join(' ');
+    const reverseUsername = username.trim().trimStart().split(' ').reverse().join(' ');
     localStorage.setItem('userName', reverseUsername);
     setUsername(username => (username = reverseUsername));
     reverseAndCopyToClipboard(e.currentTarget);

@@ -1,3 +1,4 @@
+import { StreamsBackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
 import styled from 'styled-components';
 
 export const PlatformBox = styled.div`
@@ -22,5 +23,23 @@ export const PlatformBox = styled.div`
 
   &.shown {
     transform: translateX(0);
+  }
+`;
+
+export const PlatformBackground = styled(StreamsBackgroundWrapper)`
+  background: unset;
+
+  transition: transform var(--animation-global);
+
+  &.active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: inherit;
+    width: 100%;
+  }
+
+  .minimized & {
+    background: unset;
   }
 `;

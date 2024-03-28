@@ -6,7 +6,7 @@ import { LoaderWrapper } from 'components/SharedLayout/Loaders/Loader.styled';
 import { StreamNav } from 'components/Stream/StreamNav/StreamNav';
 import { Formik } from 'formik';
 import { nanoid } from 'nanoid';
-import { useLayoutEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import * as yup from 'yup';
 import {
@@ -53,6 +53,7 @@ const Streams = () => {
       }
       const id = localStorage.getItem('userID');
       const user = await axios.get(`https://ap-chat.onrender.com/users/${id}`);
+      console.log(user.data, 'detect');
       setCurrentUser(
         currentUser =>
           (currentUser = user.data || {
@@ -91,8 +92,8 @@ const Streams = () => {
       console.log(response);
       setAuthToken(response.data.token);
       setIsUserLogged(isLogged => (isLogged = true));
-      setCurrentUser(currentUser => currentUser = response.data.user)
-      localStorage.setItem('userID', nanoid(8))
+      setCurrentUser(currentUser => (currentUser = response.data.user));
+      localStorage.setItem('userID', nanoid(8));
       localStorage.setItem('mail', values.mail);
       localStorage.setItem('userName', response.data.user.name);
       resetForm();
@@ -103,7 +104,6 @@ const Streams = () => {
 
   useLayoutEffect(() => {
     wakeupRequest();
-    detectUser();
 
     const getLinksRequest = async () => {
       try {
@@ -127,7 +127,7 @@ const Streams = () => {
         setIsUserLogged(isLogged => (isLogged = true));
         const id = nanoid(8);
         if (!localStorage.getItem('userID')) {
-          localStorage.setItem('userID', id)
+          localStorage.setItem('userID', id);
         }
         localStorage.setItem('userName', res.data.user.name);
         console.log(res);
@@ -137,6 +137,10 @@ const Streams = () => {
     };
     refreshToken();
   }, []);
+
+  useEffect(() => {
+    detectUser();
+  }, [isLoading]);
 
   return (
     <>
@@ -174,9 +178,7 @@ const Streams = () => {
           location.pathname === '/streams/' ? (
           <StreamNav />
         ) : (
-          <Outlet
-            context={[links, isLoading, currentUser, room]}
-          />
+          <Outlet context={[links, isLoading, currentUser, room]} />
         )}
 
         {isLoading && (
