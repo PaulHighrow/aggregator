@@ -16,6 +16,7 @@ import * as yup from 'yup';
 import { MyPlatform } from './My Platform/MyPlatform';
 import { LessonFinder } from './LessonFinder/LessonFinder';
 import { MyAPPanel } from './MyAPPanel/MyAPPanel';
+import { Points } from './Points/Points';
 
 const MyAP = () => {
   const [isUserLogged, setIsUserLogged] = useState(false);
@@ -121,6 +122,7 @@ const MyAP = () => {
           <MyAPPanel>
             <LessonFinder lessons={lessons} />
           </MyAPPanel>
+          <Points />
           <MyPlatform />
         </>
       )}
