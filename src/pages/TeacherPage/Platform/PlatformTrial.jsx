@@ -17,7 +17,7 @@ export const PlatformTrial = ({
     trials: {
       links: {
         trials_1:
-          'https://online.ap.education/school/marathons?marathonId=50784',
+          'https://online.ap.education/school/marathons?marathonId=49509',
         trials_2:
           'https://online.ap.education/school/courses/lesson-edit?lessonId=4063074&marathonId=37835&marathonLessonId=524894',
         trials_3:
@@ -27,7 +27,7 @@ export const PlatformTrial = ({
         trials_5:
           'https://online.ap.education/school/courses/lesson-edit?lessonId=3911972&marathonId=37835&marathonLessonId=512252',
         trials_6:
-          'https://online.ap.education/school/marathons?marathonId=50784',
+          'https://online.ap.education/school/marathons?marathonId=49509',
         trials_7:
           'https://online.ap.education/school/courses/lesson-edit?lessonId=5902708&marathonId=49509&marathonLessonId=736287',
       },
