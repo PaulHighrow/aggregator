@@ -2,9 +2,8 @@ import useSize from '@react-hook/size';
 import { KahootBtn, KahootLogo } from 'components/Stream/Stream.styled';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { HostKahoots } from './HostKahoots/HostKahoots';
+import { HostKahootsTrial } from './HostKahoots/HostKahootsTrial';
 import { PlatformTrial } from './Platform/PlatformTrial';
-import { TeacherChat } from './TeacherChat/TeacherChat';
 import {
   BoxHideDownSwitch,
   BoxHideUpSwitch,
@@ -31,18 +30,14 @@ const TeacherTrialPage = () => {
   const [width, height] = useSize(document.body);
   const location = useLocation().pathname.split('/teacher/')[1];
 
-  console.log(location);
-
   const getLocation = location => {
     switch (location) {
-      case 'deutsch-a1':
-        return 'deutsch';
-      case 'deutsch-a2':
-        return 'deutscha2';
-      case 'polski-a1':
-        return 'polski';
-      case 'polski-a2':
-        return 'polskia2';
+      case 'trials-kids':
+        return 'trials_kids';
+      case 'trials-pl':
+        return 'trials_pl';
+      case 'trials-de':
+        return 'trials_de';
       default:
         return location;
     }
@@ -127,18 +122,18 @@ const TeacherTrialPage = () => {
         isOpenedLast={isOpenedLast}
       />
       <PlatformTrial
+        page={page}
         sectionWidth={width}
         isPlatformOpen={isPlatformOpen}
         isOpenedLast={isOpenedLast}
       />
-      <HostKahoots
+      <HostKahootsTrial
         page={page}
         sectionWidth={width}
         sectionHeight={height}
         isKahootOpen={isKahootOpen}
         isOpenedLast={isOpenedLast}
       />
-      <TeacherChat page={page} />
     </>
   );
 };

@@ -1,19 +1,17 @@
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import {
   KahootNumbersBtn,
-  KahootPicker
+  KahootPicker,
 } from '../HostKahoots/HostKahoots.styled';
 import { PlatformBackground, PlatformBox } from './Platform.styled';
 
 export const PlatformTrial = ({
+  page,
   isPlatformOpen,
   isOpenedLast,
   sectionWidth,
 }) => {
   const [activeLesson, setActiveLesson] = useState(1);
-  const page = useLocation().pathname.split('/teacher/')[1];
-  console.log(page);
 
   const PLATFORM_LINKS = {
     trials: {
@@ -44,14 +42,24 @@ export const PlatformTrial = ({
     },
     trials_pl: {
       links: {
-        trials_pl_1: '',
-        trials_pl_2: '',
+        trials_pl_1:
+          'https://online.ap.education/school/marathons?marathonId=41057',
+        trials_pl_2:
+          'https://online.ap.education/school/courses/lesson-edit?lessonId=4563093&marathonId=41057&marathonLessonId=576687',
+        trials_pl_3:
+          'https://online.ap.education/school/marathons?marathonId=41057',
+        trials_pl_4:
+          'https://online.ap.education/school/courses/lesson-edit?lessonId=5238417&marathonId=41057&marathonLessonId=666529',
       },
     },
     trials_de: {
       links: {
-        trials_de_1: '',
-        trials_de_2: '',
+        trials_de_1:
+          'https://online.ap.education/school/marathons?marathonId=41534',
+        trials_de_2:
+          'https://online.ap.education/school/courses/lesson-edit?lessonId=4505690&marathonId=41534&marathonLessonId=569844',
+        trials_de_3:
+          'https://online.ap.education/school/marathons?marathonId=41534',
       },
     },
   };

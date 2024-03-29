@@ -29,6 +29,10 @@ export const WhiteBoard = ({
     deutscha2: 'https://onlnbrd.com/b/sIDizJvB',
     polski: 'https://onlnbrd.com/b/X0PgN0TM',
     polskia2: 'https://onlnbrd.com/b/P1ofJtqX',
+    trials: 'https://onlnbrd.com/b/vumI6Uoj',
+    trials_kids: 'https://onlnbrd.com/b/ahsFje2Q',
+    trials_pl: 'https://onlnbrd.com/b/BPCRiX0e',
+    trials_de: 'https://onlnbrd.com/b/dp7h6qIf',
   };
 
   const supportBoxStylesHandler = () => {

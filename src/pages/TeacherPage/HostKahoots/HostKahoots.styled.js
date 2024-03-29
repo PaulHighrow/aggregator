@@ -12,8 +12,6 @@ import { CloseIcon, FormCloseBtn } from 'components/LeadForm/LeadForm.styled';
 import { ChatLoginValidation } from 'utils/Chat/Chat.styled';
 
 export const KahootBox = styled.div`
-
-
   outline: transparent;
 
   transition: all var(--animation-global);
