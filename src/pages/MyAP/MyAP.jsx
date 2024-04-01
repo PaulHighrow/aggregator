@@ -13,8 +13,8 @@ import {
 } from 'pages/Streams/AdminPanel/AdminPanel.styled';
 import { useEffect, useState } from 'react';
 import * as yup from 'yup';
-import { MyPlatform } from './My Platform/MyPlatform';
 import { LessonFinder } from './LessonFinder/LessonFinder';
+import { MyPlatform } from './My Platform/MyPlatform';
 import { MyAPPanel } from './MyAPPanel/MyAPPanel';
 import { Points } from './Points/Points';
 
@@ -22,6 +22,8 @@ const MyAP = () => {
   const [isUserLogged, setIsUserLogged] = useState(false);
   const [lessons, setLessons] = useState(false);
   axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
+
+  console.log(window.location);
 
   useEffect(() => {
     document.title = 'My AP | AP Education';
