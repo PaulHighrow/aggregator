@@ -144,7 +144,7 @@ const StreamsKids = () => {
   return (
     <>
       <StreamsBackgroundWrapper>
-        {!isUserLogged ? (
+        {!isUserLogged && !location.pathname.includes('-chat') ? (
           <Formik
             initialValues={initialLoginValues}
             onSubmit={handleLoginSubmit}

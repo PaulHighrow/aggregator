@@ -145,7 +145,7 @@ const Streams = () => {
   return (
     <>
       <StreamsBackgroundWrapper>
-        {!isUserLogged && !location.pathname.includes('admin-panel') ? (
+        {!isUserLogged && !location.pathname.includes('admin-panel') && !location.pathname.includes('-chat') ? (
           <Formik
             initialValues={initialLoginValues}
             onSubmit={handleLoginSubmit}
