@@ -24,6 +24,38 @@ export const PlatformBox = styled.div`
   &.shown {
     transform: translateX(0);
   }
+
+  & > iframe {
+    position: absolute;
+    z-index: 4;
+    top: 100%;
+  }
+
+  & > iframe.active {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+  }
+`;
+
+export const AddLessonBtn = styled.button`
+  position: absolute;
+  z-index: 6;
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--main-color);
+  border: none;
+  border-radius: 50%;
+  outline: transparent;
+
+  color: var(--accent-color);
+  font-size: 26px;
+  font-weight: 700;
 `;
 
 export const PlatformBackground = styled(StreamsBackgroundWrapper)`

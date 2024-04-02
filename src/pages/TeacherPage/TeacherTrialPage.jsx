@@ -18,6 +18,9 @@ import {
 } from './TeacherPage.styled';
 import { Viewer } from './Viewer/Viewer';
 import { WhiteBoard } from './WhiteBoard/WhiteBoard';
+import { LoaderWrapper } from 'components/SharedLayout/Loaders/Loader.styled';
+import { Loader } from 'components/SharedLayout/Loaders/Loader';
+import axios from 'axios';
 
 const TeacherTrialPage = () => {
   const [isWhiteBoardOpen, setIsWhiteBoardOpen] = useState(false);
@@ -26,6 +29,8 @@ const TeacherTrialPage = () => {
   const [isKahootOpen, setIsKahootOpen] = useState(false);
   const [isButtonBoxOpen, setIsButtonBoxOpen] = useState(true);
   const [isOpenedLast, setIsOpenedLast] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [collection, setCollection] = useState({});
   // eslint-disable-next-line
   const [width, height] = useSize(document.body);
   const location = useLocation().pathname.split('/teacher/')[1];
@@ -46,6 +51,18 @@ const TeacherTrialPage = () => {
 
   useEffect(() => {
     document.title = `Teacher ${page.toLocaleUpperCase()} | AP Education`;
+
+    const getCollectionsRequest = async () => {
+      try {
+        setIsLoading(isLoading => (isLoading = true));
+        setCollection((await axios.get('/collections')).data);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsLoading(isLoading => (isLoading = false));
+      }
+    };
+    getCollectionsRequest();
   }, [page]);
 
   const toggleViewer = () => {
@@ -110,11 +127,15 @@ const TeacherTrialPage = () => {
       <TeacherButtonBoxHideSwitch id="no-transform" onClick={toggleButtonBox}>
         {isButtonBoxOpen ? <BoxHideDownSwitch /> : <BoxHideUpSwitch />}
       </TeacherButtonBoxHideSwitch>
-      <Viewer
-        sectionWidth={width}
-        isViewerOpen={isViewerOpen}
-        isOpenedLast={isOpenedLast}
-      />
+      {collection.length && (
+        <Viewer
+          page={page}
+          collection={collection}
+          sectionWidth={width}
+          isViewerOpen={isViewerOpen}
+          isOpenedLast={isOpenedLast}
+        />
+      )}
       <WhiteBoard
         page={page}
         sectionWidth={width}
@@ -134,6 +155,11 @@ const TeacherTrialPage = () => {
         isKahootOpen={isKahootOpen}
         isOpenedLast={isOpenedLast}
       />
+      {isLoading && (
+        <LoaderWrapper>
+          <Loader />
+        </LoaderWrapper>
+      )}
     </>
   );
 };

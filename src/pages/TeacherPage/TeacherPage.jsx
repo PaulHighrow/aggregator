@@ -55,7 +55,7 @@ const TeacherPage = () => {
   useEffect(() => {
     document.title = `Teacher ${page.toLocaleUpperCase()} | AP Education`;
 
-    const getLinksRequest = async () => {
+    const getCollectionsRequest = async () => {
       try {
         setIsLoading(isLoading => (isLoading = true));
         setCollection((await axios.get('/collections')).data);
@@ -65,7 +65,7 @@ const TeacherPage = () => {
         setIsLoading(isLoading => (isLoading = false));
       }
     };
-    getLinksRequest();
+    getCollectionsRequest();
   }, [page]);
 
   const toggleViewer = () => {
