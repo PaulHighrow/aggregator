@@ -1,20 +1,23 @@
 import React, { useState } from 'react';
 import {
+  FinderBox,
+  FinderIcon,
   FinderInput,
+  FinderLabel,
   FinderLessons,
   LessonBox,
   LessonBoxItem,
   LessonValuesItem,
   LessonValuesList,
+  LessonVideoBox,
 } from './LessonFinder.styled';
 import ReactPlayer from 'react-player/youtube';
-import { VideoBox } from 'components/HowItWorks/HowItWorks.styled';
 
 export const LessonFinder = ({ lessons }) => {
   const [lessonsFound, setLessonsFound] = useState([...lessons]);
 
   const findLesson = e => {
-    const value = e.target.value;
+    const value = e.target.value.toLowerCase().trim().trimStart();
     console.log(lessonsFound);
     value !== ''
       ? setLessonsFound(lessonsFound => [
@@ -28,8 +31,11 @@ export const LessonFinder = ({ lessons }) => {
   };
 
   return (
-    <>
-      <FinderInput onChange={findLesson} />
+    <FinderBox>
+      <FinderLabel>
+        <FinderIcon />
+        <FinderInput onChange={findLesson} />
+      </FinderLabel>
       <FinderLessons>
         <LessonBox>
           {lessonsFound.map(lesson => (
@@ -41,7 +47,7 @@ export const LessonFinder = ({ lessons }) => {
                 <LessonValuesItem>{lesson.topic}</LessonValuesItem>
                 {lesson.video[0] && (
                   <LessonValuesItem>
-                    <VideoBox>
+                    <LessonVideoBox>
                       <ReactPlayer
                         loop={true}
                         muted={false}
@@ -56,16 +62,15 @@ export const LessonFinder = ({ lessons }) => {
                         height="100%"
                         url={lesson.video[0]}
                       />
-                    </VideoBox>
+                    </LessonVideoBox>
+                    {lesson.pdf}
                   </LessonValuesItem>
                 )}
-                {/* {lesson.video}
-              {lesson.pdf} */}
               </LessonValuesList>
             </LessonBoxItem>
           ))}
         </LessonBox>
       </FinderLessons>
-    </>
+    </FinderBox>
   );
 };

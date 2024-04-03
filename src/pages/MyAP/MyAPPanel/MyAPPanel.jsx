@@ -7,20 +7,39 @@ import {
   PanelBackdrop,
   SearchBtnIcon,
 } from './MyAPPanel.styled';
+import { LessonFinder } from '../LessonFinder/LessonFinder';
 
-export const MyAPPanel = () => {
+export const MyAPPanel = ({ lessons }) => {
   const [isBackdropShown, setIsBackdropShown] = useState(false);
+  const [isLessonFinderShown, setIsLessonFinderShown] = useState(false);
+  const [isRatingShown, setIsRatingShown] = useState(false);
+  const [isCalendarShown, setIsCalendarShown] = useState(false);
 
   const toggleSearch = () => {
-    setIsBackdropShown(isBackdropShown => !isBackdropShown);
+    !isBackdropShown &&
+      (!isRatingShown || !isCalendarShown) &&
+      setIsBackdropShown(isBackdropShown => !isBackdropShown);
+    setIsRatingShown(false);
+    setIsCalendarShown(false);
+    setIsLessonFinderShown(isLessonFinderShown => !isLessonFinderShown);
   };
 
   const toggleRating = () => {
-    setIsBackdropShown(isBackdropShown => !isBackdropShown);
+    !isBackdropShown &&
+      (!isLessonFinderShown || !isCalendarShown) &&
+      setIsBackdropShown(isBackdropShown => !isBackdropShown);
+    setIsLessonFinderShown(false);
+    setIsCalendarShown(false);
+    setIsRatingShown(isRatingShown => !isRatingShown);
   };
 
   const toggleCalendar = () => {
-    setIsBackdropShown(isBackdropShown => !isBackdropShown);
+    !isBackdropShown &&
+      (!isRatingShown || !isLessonFinderShown) &&
+      setIsBackdropShown(isBackdropShown => !isBackdropShown);
+    setIsLessonFinderShown(false);
+    setIsRatingShown(false);
+    setIsCalendarShown(isCalendarShown => !isCalendarShown);
   };
 
   return (
@@ -37,6 +56,8 @@ export const MyAPPanel = () => {
           <CalendarBtnIcon />
         </APPanelBtn>
       </APPanel>
+
+      {isLessonFinderShown && <LessonFinder lessons={lessons} />}
     </>
   );
 };

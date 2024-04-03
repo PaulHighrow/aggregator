@@ -23,8 +23,8 @@ export const KahootBox = styled.div`
   &.shown {
     transform: translateX(0);
     position: absolute;
-  top: 0;
-  left: 0;
+    top: 0;
+    left: 0;
   }
 
   &.minimized {
@@ -202,7 +202,7 @@ export const KahootPicker = styled.div`
 
   @media screen and (min-width: 768px) {
     flex-direction: column;
-    top: calc(40vh - 70px);
+    top: calc(70vh - 70px);
     right: 16px;
 
     transform: translateY(-50%);
@@ -231,21 +231,32 @@ export const KahootPicker = styled.div`
 
 export const KahootNumbersBtn = styled(KahootBtn)`
   position: static;
-  width: 44px;
-  height: 44px;
+  border-radius: 12px;
+  width: 48px;
+  height: 48px;
   background-color: white;
+  font-family: var(--my-ap-font-family);
+  color: #000;
   cursor: pointer;
+
   flex-shrink: 0;
+
   margin: 0;
-  box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
 
   font-size: 32px;
   font-weight: 700;
 
   &.active {
     background-color: var(--accent-color);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
     width: 56px;
     height: 56px;
+  }
+
+  &:focus,
+  &:hover {
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
   }
 `;
 

@@ -92,6 +92,8 @@ export const UserAdminPanel = () => {
     name: '',
     mail: '',
     password: '',
+    lang: '',
+    course: '',
     points: '',
   };
 
@@ -103,6 +105,8 @@ export const UserAdminPanel = () => {
       ),
     mail: yup.string().required("Пошта - обов'язкове поле!"),
     password: yup.string().required("Пароль - обов'язкове поле!"),
+    lang: yup.string().optional(),
+    course: yup.string().optional(),
     points: yup.string().optional(),
   });
 
@@ -216,6 +220,14 @@ export const UserAdminPanel = () => {
               <Label>
                 <AdminInput type="text" name="password" placeholder="Пароль" />
                 <AdminInputNote component="p" name="password" />
+              </Label>
+              <Label>
+                <AdminInput type="text" name="lang" placeholder="Мова" />
+                <AdminInputNote component="p" name="lang" />
+              </Label>
+              <Label>
+                <AdminInput type="text" name="course" placeholder="Потік" />
+                <AdminInputNote component="p" name="course" />
               </Label>
               <Label>
                 <AdminInput type="text" name="points" placeholder="Бали" />

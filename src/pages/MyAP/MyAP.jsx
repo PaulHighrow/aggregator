@@ -13,7 +13,6 @@ import {
 } from 'pages/Streams/AdminPanel/AdminPanel.styled';
 import { useEffect, useState } from 'react';
 import * as yup from 'yup';
-import { LessonFinder } from './LessonFinder/LessonFinder';
 import { MyPlatform } from './My Platform/MyPlatform';
 import { MyAPPanel } from './MyAPPanel/MyAPPanel';
 import { Points } from './Points/Points';
@@ -121,9 +120,8 @@ const MyAP = () => {
         </Formik>
       ) : (
         <>
-          <MyAPPanel>
-            <LessonFinder lessons={lessons} />
-          </MyAPPanel>
+          <MyAPPanel lessons={lessons} />
+
           <Points />
           <MyPlatform />
         </>
