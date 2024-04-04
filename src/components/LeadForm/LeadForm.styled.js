@@ -82,7 +82,6 @@ export const Input = styled(Field)`
     &,
     &:hover,
     &:focus {
-      font-family: var(--main-font-family);
       -webkit-text-fill-color: var(--main-color);
       -webkit-box-shadow: 0 0 0px 1000px var(--accent-color) inset;
     }

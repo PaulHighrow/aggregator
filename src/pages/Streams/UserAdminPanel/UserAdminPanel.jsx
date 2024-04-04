@@ -92,9 +92,11 @@ export const UserAdminPanel = () => {
     name: '',
     mail: '',
     password: '',
+    age: '',
     lang: '',
     course: '',
     points: '',
+    knowledge: '',
   };
 
   const usersSchema = yup.object().shape({
@@ -105,9 +107,15 @@ export const UserAdminPanel = () => {
       ),
     mail: yup.string().required("Пошта - обов'язкове поле!"),
     password: yup.string().required("Пароль - обов'язкове поле!"),
+    age: yup
+      .string()
+      .required(
+        "Вік - обов'язкове поле, якщо віку з якоїсь причини ми не знаємо, введіть N/A"
+      ),
     lang: yup.string().optional(),
     course: yup.string().optional(),
     points: yup.string().optional(),
+    knowledge: yup.string().optional(),
   });
 
   const handleUserSubmit = async (values, { resetForm }) => {
@@ -115,6 +123,9 @@ export const UserAdminPanel = () => {
     values.name = values.name.trim().trimStart();
     values.mail = values.mail.toLowerCase().trim().trimStart();
     values.password = values.password.trim().trimStart();
+    values.age = values.age.trim().trimStart();
+    values.lang = values.lang.toLowerCase().trim().trimStart();
+    values.knowledge = values.knowledge.toLowerCase().trim().trimStart();
     try {
       const response = await axios.post('/users/new', values);
       console.log(response);
@@ -222,6 +233,10 @@ export const UserAdminPanel = () => {
                 <AdminInputNote component="p" name="password" />
               </Label>
               <Label>
+                <AdminInput type="text" name="age" placeholder="Вік" />
+                <AdminInputNote component="p" name="age" />
+              </Label>
+              <Label>
                 <AdminInput type="text" name="lang" placeholder="Мова" />
                 <AdminInputNote component="p" name="lang" />
               </Label>
@@ -232,6 +247,14 @@ export const UserAdminPanel = () => {
               <Label>
                 <AdminInput type="text" name="points" placeholder="Бали" />
                 <AdminInputNote component="p" name="points" />
+              </Label>
+              <Label>
+                <AdminInput
+                  type="text"
+                  name="knowledge"
+                  placeholder="Рівень знань"
+                />
+                <AdminInputNote component="p" name="knowledge" />
               </Label>
               <AdminFormBtn type="submit">Додати юзера</AdminFormBtn>
             </UsersForm>

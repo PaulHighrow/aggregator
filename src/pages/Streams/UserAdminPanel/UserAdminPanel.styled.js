@@ -30,7 +30,7 @@ export const UsersForm = styled(Form)`
 
   display: flex;
   flex-direction: column;
-  gap: 35px;
+  gap: 20px;
 `;
 
 export const AdminFormBtn = styled(FormBtn)`
@@ -38,14 +38,28 @@ export const AdminFormBtn = styled(FormBtn)`
 `;
 
 export const AdminInput = styled(Input)`
+  width: 240px;
+  padding: 8px 4px;
+  font-size: 20px;
+  -webkit-text-stroke: 0px;
+
   border: 2px solid var(--main-color);
+
+  @media screen and (min-width: 768px) {
+    width: 360px;
+  }
 `;
 
 export const AdminInputNote = styled(InputNote)`
   color: var(--main-color);
-  font-size: 24px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 500;
   position: static;
+  max-width: 240px;
+
+  @media screen and (min-width: 768px) {
+    max-width: 360px;
+  }
 `;
 
 export const UserDBTable = styled.table`
