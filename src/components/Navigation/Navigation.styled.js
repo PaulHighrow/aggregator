@@ -3,6 +3,7 @@ import { Link } from 'react-scroll';
 import { NavLink } from 'react-router-dom';
 import { ReactComponent as CoursesArrowLeft } from '../../img/svg/coursesArrowLeft.svg';
 import { ReactComponent as CoursesArrowRight } from '../../img/svg/coursesArrowRight.svg';
+import { ReactComponent as MyAPIcon } from '../../img/svg/my-ap.svg';
 
 export const StyledNavigation = styled.nav`
   position: fixed;
@@ -34,10 +35,12 @@ export const StyledNavigation = styled.nav`
 export const StyledNavigationNew = styled.nav`
   position: fixed;
   width: 100%;
-  max-width: 360px;
-  top: 60px;
+  height: 100vh;
+  max-width: 100vw;
+  top: 44px;
   right: 0%;
   font-size: 18px;
+  font-family: var(--new-font-family);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
@@ -70,6 +73,29 @@ export const MenuButtonsWrapper = styled.div`
   }
 `;
 
+export const NavigationListNew = styled.ul`
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  gap: 24px;
+  padding: 52px 20px;
+
+  color: var(--secondary-color);
+  justify-content: center;
+
+  @media screen and (min-width: 768px) {
+    border: none;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin: 0 auto;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+`;
+
 export const NavigationList = styled.ul`
   display: flex;
   flex-direction: column;
@@ -95,7 +121,22 @@ export const NavigationItem = styled.li`
   overflow: hidden;
 
   &:not(:last-child) {
-    border-bottom: 0.5px solid var(--main-color);
+    border-bottom: 0.5px solid #0f645b33;
+  }
+
+  @media screen and (min-width: 1280px) {
+    &:not(:last-child) {
+      border-bottom: none;
+    }
+  }
+`;
+
+export const NavigationItemNew = styled.li`
+  overflow: hidden;
+
+  &:not(:last-child) {
+    padding-bottom: 24px;
+    border-bottom: 0.5px solid #0f645b33;
   }
 
   @media screen and (min-width: 1280px) {
@@ -137,10 +178,60 @@ export const NavigationAnchor = styled(Link)`
   text-decoration: none;
   color: #000;
 
+  font-size: 30px;
+  font-weight: 500;
+
   transition: color var(--animation-global),
     background-color var(--animation-global),
     text-shadow var(--animation-global);
   padding: 10px 16px;
+
+  @media screen and (min-width: 1280px) {
+    padding: 0px;
+    display: block;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: var(--main-color);
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform-origin: left;
+    transform: scaleX(0);
+
+    transition: transform var(--animation-global);
+  }
+
+  &:hover,
+  &:focus,
+  &.active {
+    @media screen and (min-width: 1280px) {
+      cursor: pointer;
+    }
+  }
+
+  &:hover::after,
+  &:focus::after {
+    transform: scaleX(1);
+  }
+`;
+
+export const NavigationAnchorNew = styled(Link)`
+  display: block;
+  text-decoration: none;
+  color: #000;
+
+  font-size: 30px;
+  font-weight: 500;
+
+  transition: color var(--animation-global),
+    background-color var(--animation-global),
+    text-shadow var(--animation-global);
 
   @media screen and (min-width: 1280px) {
     padding: 0px;
@@ -182,10 +273,12 @@ export const NavigationLinkNew = styled(NavLink)`
   position: relative;
   text-decoration: none;
 
+  font-size: 30px;
+  font-weight: 500;
+
   transition: color var(--animation-global),
     background-color var(--animation-global),
     text-shadow var(--animation-global), font-weight var(--animation-global);
-  padding: 10px 16px;
 
   @media screen and (min-width: 1280px) {
     padding: 5px 0;
@@ -231,7 +324,6 @@ export const NavigationLinkNew = styled(NavLink)`
 
 export const MenuCoursesWrapperNew = styled.div`
   position: relative;
-  border-bottom: 0.5px solid var(--main-color);
 
   @media screen and (min-width: 1280px) {
     border-bottom: none;
@@ -303,6 +395,8 @@ export const NavigationMenu = styled.button`
 
 export const NavigationMenuNew = styled.button`
   position: relative;
+  font-size: 30px;
+  font-weight: 500;
 
   height: 100%;
 
@@ -313,7 +407,6 @@ export const NavigationMenuNew = styled.button`
   gap: 8px;
 
   color: #000;
-  font-weight: 600;
   align-self: center;
 
   display: flex;
@@ -332,7 +425,7 @@ export const NavigationMenuNew = styled.button`
   }
 
   @media screen and (max-width: 1279px) {
-    padding: 10px 16px;
+    padding: 0
   }
 `;
 
@@ -425,5 +518,22 @@ export const NavigationNavLink = styled(NavLink)`
     @media screen and (min-width: 1280px) {
       cursor: pointer;
     }
+  }
+`;
+
+export const MyAPLogin = styled(MyAPIcon)`
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  color: #fff;
+
+  @media screen and (min-width: 768px) {
+    width: 20px;
+    height: 20px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 20px;
+    height: 20px;
   }
 `;

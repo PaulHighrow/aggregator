@@ -1,18 +1,17 @@
 import useSize from '@react-hook/size';
-import { Navigation } from 'components/Navigation/Navigation';
+import { NavigationNew } from 'components/Navigation/NavigationNew';
 import { useRef, useState } from 'react';
 import { ReactComponent as LoginIcon } from '../../img/svg/invertedLoginIcon.svg';
 import {
-  BurgerMenuIcon,
   HeaderNew,
   HeaderText,
   HeaderWrapper,
   LogoNew,
   LogoRoute,
-  MobileMenuBtn,
+  MenuBurgerIcon,
+  NewMobileMenuBtn,
   PlatformLink
 } from './Menu.styled';
-import { NavigationNew } from 'components/Navigation/NavigationNew';
 
 export const MenuNew = ({ toggleModal }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,9 +34,9 @@ export const MenuNew = ({ toggleModal }) => {
           </LogoRoute>
 
           {width < 1280 && (
-            <MobileMenuBtn onClick={toggleMenu}>
-              <BurgerMenuIcon />
-            </MobileMenuBtn>
+            <NewMobileMenuBtn onClick={toggleMenu}>
+              <MenuBurgerIcon />
+            </NewMobileMenuBtn>
           )}
         </HeaderWrapper>
         {/* {width >= 768 && (
@@ -58,7 +57,7 @@ export const MenuNew = ({ toggleModal }) => {
         )}
       </HeaderNew>
       {width < 1280 && (
-        <Navigation
+        <NavigationNew
           toggleMenu={toggleMenu}
           toggleModal={toggleModal}
           className={isMenuOpen ? 'nav-open' : 'nav-closed'}

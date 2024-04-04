@@ -2,6 +2,7 @@ import styled, { keyframes } from 'styled-components';
 import { ReactComponent as MenuDownArrow } from '../../img/svg/invertedDownArrow.svg';
 import { ReactComponent as LogoIcon } from '../../img/svg/invertedLogo.svg';
 import { ReactComponent as LogoNewIcon } from '../../img/svg/logoNew.svg';
+import { ReactComponent as MenuIcon } from '../../img/svg/burger-menu.svg';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import sketchOutline from 'img/svg/sketchOutline.svg';
 import sketchOutlineNarrow from 'img/svg/sketchOutlineNarrow.svg';
@@ -123,6 +124,24 @@ export const MobileMenuBtn = styled.button`
   }
 `;
 
+export const NewMobileMenuBtn = styled.button`
+  border: none;
+  background-color: transparent;
+  outline: transparent;
+  align-self: center;
+  padding: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+
+  @media screen and (min-width: 1280px) {
+    display: none;
+  }
+`;
+
 export const MobileMenuIcon = styled(MenuDownArrow)`
   color: currentColor;
   flex-shrink: 0;
@@ -131,6 +150,10 @@ export const MobileMenuIcon = styled(MenuDownArrow)`
   @media screen and (min-width: 768px) {
     stroke-width: 2;
   }
+`;
+export const MenuBurgerIcon = styled(MenuIcon)`
+  color: currentColor;
+  flex-shrink: 0;
 `;
 
 export const BurgerMenuIcon = styled(RxHamburgerMenu)`
@@ -289,12 +312,47 @@ export const PlatformLink = styled.a`
   }
 `;
 
+export const PlatformLinkNew = styled.a`
+  border-radius: 50px;
+  background: linear-gradient(322deg, #0f645b 23.22%, #09c6cc 110.01%);
+  padding: 14px 60px;
+  text-decoration: none;
+  height: 58px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: baseline;
+
+  position: relative;
+
+  &:hover,
+  &:focus {
+    background-color: var(--main-transparent-color);
+  }
+`;
+
 export const HeaderText = styled.span`
   font-size: 20px;
   line-height: 1.45;
 
   margin-right: 8px;
   color: var(--main-color);
+
+  @media screen and (min-width: 768px) {
+    font-weight: 600;
+  }
+`;
+
+export const HeaderTextNew = styled.span`
+
+  font-size: 18px;
+  line-height: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  margin-right: 10px;
+  color: #fff;
 
   @media screen and (min-width: 768px) {
     font-weight: 600;

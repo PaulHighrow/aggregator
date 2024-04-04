@@ -1,25 +1,26 @@
 import useSize from '@react-hook/size';
 import {
-  HeaderText,
+  HeaderTextNew,
   MobileMenuIcon,
-  PlatformLink,
+  PlatformLinkNew,
 } from 'components/Menu/Menu.styled';
 import { useState } from 'react';
-import { ReactComponent as LoginIcon } from '../../img/svg/invertedLoginIcon.svg';
+
 import {
   MenuButtonsWrapper,
   MenuCoursesArrowLeft,
   MenuCoursesArrowRight,
   MenuCoursesWrapperNew,
-  NavigationAnchor,
-  NavigationItem,
+  MyAPLogin,
+  NavigationAnchorNew,
+  NavigationItemNew,
   NavigationLinkNew,
-  NavigationList,
+  NavigationListNew,
   NavigationMenuItem,
   NavigationMenuList,
   NavigationMenuNew,
   NavigationNavLink,
-  StyledNavigationNew,
+  StyledNavigationNew
 } from './Navigation.styled';
 
 export const NavigationNew = ({ toggleMenu, className }) => {
@@ -38,27 +39,19 @@ export const NavigationNew = ({ toggleMenu, className }) => {
 
   return (
     <StyledNavigationNew className={className}>
-      {width < 1280 && (
-        <MenuButtonsWrapper>
-          <PlatformLink href="https://online.ap.education/" target="_blank">
-            <HeaderText>УВІЙТИ</HeaderText> <LoginIcon />
-          </PlatformLink>
-        </MenuButtonsWrapper>
-      )}
-
-      <NavigationList>
-        <NavigationItem key={0}>
+      <NavigationListNew>
+        <NavigationItemNew key={0}>
           <NavigationLinkNew to={'/new'}>Головна</NavigationLinkNew>
-        </NavigationItem>
-        <NavigationItem key={1}>
+        </NavigationItemNew>
+        <NavigationItemNew key={1}>
           <NavigationLinkNew to={'/school'}>AP School</NavigationLinkNew>
-        </NavigationItem>
-        <NavigationItem key={2}>
+        </NavigationItemNew>
+        <NavigationItemNew key={2}>
           <NavigationLinkNew to={'/university'}>
             AP University
           </NavigationLinkNew>
-        </NavigationItem>
-        <NavigationItem key={3}>
+        </NavigationItemNew>
+        <NavigationItemNew key={3}>
           <MenuCoursesWrapperNew>
             <NavigationMenuNew onClick={toggleCourseList}>
               {width < 1280 && width > 500 && <MenuCoursesArrowLeft />} Мовні
@@ -82,18 +75,25 @@ export const NavigationNew = ({ toggleMenu, className }) => {
               </NavigationMenuItem>
             </NavigationMenuList>
           </MenuCoursesWrapperNew>
-        </NavigationItem>
-        <NavigationItem key={4}>
-          <NavigationAnchor to={'aboutus'} {...props}>
+        </NavigationItemNew>
+        <NavigationItemNew key={4}>
+          <NavigationAnchorNew to={'aboutus'} {...props}>
             Про нас
-          </NavigationAnchor>
-        </NavigationItem>
-        <NavigationItem key={5}>
-          <NavigationAnchor to={'contacts'} {...props}>
+          </NavigationAnchorNew>
+        </NavigationItemNew>
+        <NavigationItemNew key={5}>
+          <NavigationAnchorNew to={'contacts'} {...props}>
             Контакти
-          </NavigationAnchor>
-        </NavigationItem>
-      </NavigationList>
+          </NavigationAnchorNew>
+        </NavigationItemNew>
+      </NavigationListNew>
+      {width < 1280 && (
+        <MenuButtonsWrapper>
+          <PlatformLinkNew href="https://online.ap.education/" target="_blank">
+            <HeaderTextNew>Увійти</HeaderTextNew> <MyAPLogin />
+          </PlatformLinkNew>
+        </MenuButtonsWrapper>
+      )}
     </StyledNavigationNew>
   );
 };
