@@ -3,6 +3,7 @@ import { ReactComponent as MenuDownArrow } from '../../img/svg/invertedDownArrow
 import { ReactComponent as LogoIcon } from '../../img/svg/invertedLogo.svg';
 import { ReactComponent as LogoNewIcon } from '../../img/svg/logoNew.svg';
 import { ReactComponent as MenuIcon } from '../../img/svg/burger-menu.svg';
+import { ReactComponent as CloseMenuIcon } from '../../img/svg/burger-menu-close.svg';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import sketchOutline from 'img/svg/sketchOutline.svg';
 import sketchOutlineNarrow from 'img/svg/sketchOutlineNarrow.svg';
@@ -71,6 +72,7 @@ export const HeaderNew = styled.header`
 
   @media screen and (min-width: 768px) {
     padding: 0 42px;
+    height: 60px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -152,6 +154,11 @@ export const MobileMenuIcon = styled(MenuDownArrow)`
   }
 `;
 export const MenuBurgerIcon = styled(MenuIcon)`
+  color: currentColor;
+  flex-shrink: 0;
+`;
+
+export const MenuBurgerCloseIcon = styled(CloseMenuIcon)`
   color: currentColor;
   flex-shrink: 0;
 `;

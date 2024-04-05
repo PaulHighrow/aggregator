@@ -3,6 +3,7 @@ import { Link } from 'react-scroll';
 import { NavLink } from 'react-router-dom';
 import { ReactComponent as CoursesArrowLeft } from '../../img/svg/coursesArrowLeft.svg';
 import { ReactComponent as CoursesArrowRight } from '../../img/svg/coursesArrowRight.svg';
+import { ReactComponent as CoursesArrowDown } from '../../img/svg/coursesArrowDown.svg';
 import { ReactComponent as MyAPIcon } from '../../img/svg/my-ap.svg';
 
 export const StyledNavigation = styled.nav`
@@ -35,19 +36,25 @@ export const StyledNavigation = styled.nav`
 export const StyledNavigationNew = styled.nav`
   position: fixed;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 44px);
+  overflow: auto;
   max-width: 100vw;
   top: 44px;
   right: 0%;
   font-size: 18px;
   font-family: var(--new-font-family);
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
-    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
   z-index: 6;
   background-color: var(--secondary-color);
   transition: opacity var(--animation-global), transform var(--animation-global);
+
+  @media screen and (min-width: 768px) {
+    width: 256px;
+    height: auto;
+    top: 60px;
+
+    border-radius: 0px 0px 0px 24px;
+    box-shadow: -2px 0px 3px 0px rgba(0, 0, 0, 0.18);
+  }
 
   @media screen and (min-width: 1280px) {
     position: relative;
@@ -56,17 +63,24 @@ export const StyledNavigationNew = styled.nav`
     display: flex;
     max-width: fit-content;
     height: 100%;
-
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+      rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     box-shadow: none;
   }
 `;
 
 export const MenuButtonsWrapper = styled.div`
-  padding: 20px 0;
+  padding: 28px 0 80px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
+
+  @media screen and (min-width: 768px) {
+    padding: 32px 0 50px 0;
+  }
 
   @media screen and (min-width: 1280px) {
     display: none;
@@ -85,6 +99,7 @@ export const NavigationListNew = styled.ul`
 
   @media screen and (min-width: 768px) {
     border: none;
+    padding: 50px auto;
   }
 
   @media screen and (min-width: 1280px) {
@@ -122,6 +137,10 @@ export const NavigationItem = styled.li`
 
   &:not(:last-child) {
     border-bottom: 0.5px solid #0f645b33;
+
+    @media screen and (min-width: 768px) {
+      border: none;
+    }
   }
 
   @media screen and (min-width: 1280px) {
@@ -233,6 +252,10 @@ export const NavigationAnchorNew = styled(Link)`
     background-color var(--animation-global),
     text-shadow var(--animation-global);
 
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
+
   @media screen and (min-width: 1280px) {
     padding: 0px;
     display: block;
@@ -272,6 +295,7 @@ export const NavigationLinkNew = styled(NavLink)`
   display: block;
   position: relative;
   text-decoration: none;
+  color: #000;
 
   font-size: 30px;
   font-weight: 500;
@@ -279,6 +303,10 @@ export const NavigationLinkNew = styled(NavLink)`
   transition: color var(--animation-global),
     background-color var(--animation-global),
     text-shadow var(--animation-global), font-weight var(--animation-global);
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
 
   @media screen and (min-width: 1280px) {
     padding: 5px 0;
@@ -333,6 +361,9 @@ export const MenuCoursesWrapperNew = styled.div`
 export const MenuCoursesWrapper = styled.div`
   position: relative;
   border-bottom: 0.5px solid var(--main-color);
+  height: auto;
+
+  transition: all var(--animation-global);
 
   @media screen and (min-width: 1280px) {
     border-bottom: none;
@@ -350,6 +381,15 @@ export const MenuCoursesArrowLeft = styled(CoursesArrowLeft)`
 `;
 
 export const MenuCoursesArrowRight = styled(CoursesArrowRight)`
+  color: currentColor;
+
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+  }
+`;
+
+export const MenuCoursesArrowDown = styled(CoursesArrowDown)`
   color: currentColor;
 
   &:hover,
@@ -424,8 +464,12 @@ export const NavigationMenuNew = styled.button`
     stroke: var(--accent-color);
   }
 
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
+
   @media screen and (max-width: 1279px) {
-    padding: 0
+    padding: 0;
   }
 `;
 
@@ -487,6 +531,63 @@ export const NavigationMenuList = styled.ul`
   }
 `;
 
+export const NavigationMenuListNew = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-top: 24px;
+
+  transition: all var(--animation-global);
+
+  background-color: transparent;
+
+  @media screen and (min-width: 500px) {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: max-content;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 1px 10px 0px,
+      rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    clip-path: inset(2px -10px -10px -10px);
+  }
+
+  &.course-list-open {
+    opacity: 1;
+
+    @media screen and (min-width: 500px) {
+      transform: translateX(0%);
+    }
+
+    @media screen and (min-width: 1280px) {
+      transform: translateY(0%);
+    }
+  }
+
+  &.course-list-closed {
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all var(--animation-global);
+
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    margin: -1px;
+
+    @media screen and (min-width: 1280px) {
+      transform: translateY(-100%);
+    }
+  }
+`;
+
 export const NavigationMenuItem = styled.li`
   padding: 10px 8px;
 
@@ -494,6 +595,8 @@ export const NavigationMenuItem = styled.li`
     border-bottom: 0.5px solid var(--main-color);
   }
 `;
+
+export const NavigationMenuItemNew = styled.li``;
 
 export const NavigationNavLink = styled(NavLink)`
   display: block;
@@ -521,6 +624,32 @@ export const NavigationNavLink = styled(NavLink)`
   }
 `;
 
+export const NavigationNavLinkNew = styled(NavLink)`
+  display: block;
+  font-size: 24px;
+  font-weight: 400;
+  text-decoration: none;
+  color: #000;
+
+  transition: color var(--animation-global);
+  /* padding: 10px 16px; */
+
+  @media screen and (min-width: 1280px) {
+    padding: 0px;
+    display: inline;
+  }
+
+  &:hover,
+  &:focus,
+  &.active {
+    color: var(--accent-color);
+
+    @media screen and (min-width: 1280px) {
+      cursor: pointer;
+    }
+  }
+`;
+
 export const MyAPLogin = styled(MyAPIcon)`
   flex-shrink: 0;
   width: 30px;
@@ -528,11 +657,6 @@ export const MyAPLogin = styled(MyAPIcon)`
   color: #fff;
 
   @media screen and (min-width: 768px) {
-    width: 20px;
-    height: 20px;
-  }
-
-  @media screen and (min-width: 1280px) {
     width: 20px;
     height: 20px;
   }

@@ -8,19 +8,19 @@ import { useState } from 'react';
 
 import {
   MenuButtonsWrapper,
+  MenuCoursesArrowDown,
   MenuCoursesArrowLeft,
-  MenuCoursesArrowRight,
   MenuCoursesWrapperNew,
   MyAPLogin,
   NavigationAnchorNew,
   NavigationItemNew,
   NavigationLinkNew,
   NavigationListNew,
-  NavigationMenuItem,
-  NavigationMenuList,
+  NavigationMenuItemNew,
+  NavigationMenuListNew,
   NavigationMenuNew,
-  NavigationNavLink,
-  StyledNavigationNew
+  NavigationNavLinkNew,
+  StyledNavigationNew,
 } from './Navigation.styled';
 
 export const NavigationNew = ({ toggleMenu, className }) => {
@@ -30,6 +30,10 @@ export const NavigationNew = ({ toggleMenu, className }) => {
 
   const toggleCourseList = () => {
     setIsCourseListOpen(isOpen => !isOpen);
+  };
+
+  const toggleScroll = () => {
+    document.body.style.overflowY = 'auto'
   };
 
   const props =
@@ -56,24 +60,30 @@ export const NavigationNew = ({ toggleMenu, className }) => {
             <NavigationMenuNew onClick={toggleCourseList}>
               {width < 1280 && width > 500 && <MenuCoursesArrowLeft />} Мовні
               курси
-              {width < 500 && <MenuCoursesArrowRight />}
+              {width < 500 && <MenuCoursesArrowDown />}
               {width >= 1280 && <MobileMenuIcon />}
             </NavigationMenuNew>
-            <NavigationMenuList
+            <NavigationMenuListNew
               className={
                 isCourseListOpen ? 'course-list-open' : 'course-list-closed'
               }
             >
-              <NavigationMenuItem>
-                <NavigationNavLink to={'/'}>Англійська</NavigationNavLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationNavLink to={'/deutsch'}>Німецька</NavigationNavLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationNavLink to={'/polski'}>Польська</NavigationNavLink>
-              </NavigationMenuItem>
-            </NavigationMenuList>
+              <NavigationMenuItemNew>
+                <NavigationNavLinkNew onClick={toggleScroll} to={'/'}>
+                  Англійська мова
+                </NavigationNavLinkNew>
+              </NavigationMenuItemNew>
+              <NavigationMenuItemNew>
+                <NavigationNavLinkNew onClick={toggleScroll} to={'/deutsch'}>
+                  Німецька мова
+                </NavigationNavLinkNew>
+              </NavigationMenuItemNew>
+              <NavigationMenuItemNew>
+                <NavigationNavLinkNew onClick={toggleScroll} to={'/polski'}>
+                  Польська мова
+                </NavigationNavLinkNew>
+              </NavigationMenuItemNew>
+            </NavigationMenuListNew>
           </MenuCoursesWrapperNew>
         </NavigationItemNew>
         <NavigationItemNew key={4}>

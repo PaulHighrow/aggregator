@@ -1,6 +1,6 @@
 import useSize from '@react-hook/size';
 import { NavigationNew } from 'components/Navigation/NavigationNew';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ReactComponent as LoginIcon } from '../../img/svg/invertedLoginIcon.svg';
 import {
   HeaderNew,
@@ -8,9 +8,10 @@ import {
   HeaderWrapper,
   LogoNew,
   LogoRoute,
+  MenuBurgerCloseIcon,
   MenuBurgerIcon,
   NewMobileMenuBtn,
-  PlatformLink
+  PlatformLink,
 } from './Menu.styled';
 
 export const MenuNew = ({ toggleModal }) => {
@@ -25,9 +26,19 @@ export const MenuNew = ({ toggleModal }) => {
     setIsMenuOpen(isOpen => !isOpen);
   };
 
+  useEffect(() => {
+    document.body.style.overflowY !== 'hidden'
+      ? (document.body.style.overflowY = 'hidden')
+      : (document.body.style.overflowY = '');
+  }, [isMenuOpen]);
+
   return (
     <>
-      <HeaderNew id="header" ref={headerEl} className={show ? 'shown' : 'hidden'}>
+      <HeaderNew
+        id="header"
+        ref={headerEl}
+        className={show ? 'shown' : 'hidden'}
+      >
         <HeaderWrapper>
           <LogoRoute to="/">
             <LogoNew />
@@ -35,7 +46,7 @@ export const MenuNew = ({ toggleModal }) => {
 
           {width < 1280 && (
             <NewMobileMenuBtn onClick={toggleMenu}>
-              <MenuBurgerIcon />
+              {!isMenuOpen ? <MenuBurgerIcon /> : <MenuBurgerCloseIcon />}
             </NewMobileMenuBtn>
           )}
         </HeaderWrapper>
