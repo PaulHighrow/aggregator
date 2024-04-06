@@ -37,7 +37,6 @@ export const StyledNavigationNew = styled.nav`
   position: fixed;
   width: 100%;
   height: calc(100vh - 44px);
-  overflow: auto;
   max-width: 100vw;
   top: 44px;
   right: 0%;
@@ -50,7 +49,7 @@ export const StyledNavigationNew = styled.nav`
   @media screen and (min-width: 768px) {
     width: 256px;
     height: auto;
-    top: 60px;
+    top: 59px;
 
     border-radius: 0px 0px 0px 24px;
     box-shadow: -2px 0px 3px 0px rgba(0, 0, 0, 0.18);
@@ -60,13 +59,9 @@ export const StyledNavigationNew = styled.nav`
     position: relative;
     top: 0;
     right: 0;
+    width: auto;
     display: flex;
-    max-width: fit-content;
-    height: 100%;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
-      rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    border-radius: 0;
     box-shadow: none;
   }
 `;
@@ -99,15 +94,18 @@ export const NavigationListNew = styled.ul`
 
   @media screen and (min-width: 768px) {
     border: none;
-    padding: 50px auto;
+    padding: 50px 20px;
   }
 
   @media screen and (min-width: 1280px) {
+    height: 100%;
+    padding: 0;
     margin: 0 auto;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 40px;
+    overflow: visible;
   }
 `;
 
@@ -158,9 +156,20 @@ export const NavigationItemNew = styled.li`
     border-bottom: 0.5px solid #0f645b33;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 768px) {
     &:not(:last-child) {
       border-bottom: none;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    overflow: visible;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child) {
+      padding: 0;
     }
   }
 `;
@@ -242,6 +251,7 @@ export const NavigationAnchor = styled(Link)`
 
 export const NavigationAnchorNew = styled(Link)`
   display: block;
+  position: relative;
   text-decoration: none;
   color: #000;
 
@@ -257,24 +267,26 @@ export const NavigationAnchorNew = styled(Link)`
   }
 
   @media screen and (min-width: 1280px) {
-    padding: 0px;
+    padding: 5px 0;
     display: block;
   }
 
   &::after {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 1px;
-    background-color: var(--main-color);
+    @media screen and (min-width: 1280px) {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: var(--main-color);
 
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    transform-origin: left;
-    transform: scaleX(0);
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      transform-origin: left;
+      transform: scaleX(0);
 
-    transition: transform var(--animation-global);
+      transition: transform var(--animation-global);
+    }
   }
 
   &:hover,
@@ -313,19 +325,21 @@ export const NavigationLinkNew = styled(NavLink)`
   }
 
   &::after {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 1px;
-    background-color: var(--main-color);
+    @media screen and (min-width: 1280px) {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: var(--main-color);
 
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    transform-origin: left;
-    transform: scaleX(0);
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      transform-origin: left;
+      transform: scaleX(0);
 
-    transition: transform var(--animation-global);
+      transition: transform var(--animation-global);
+    }
   }
 
   &:hover,
@@ -391,6 +405,14 @@ export const MenuCoursesArrowRight = styled(CoursesArrowRight)`
 
 export const MenuCoursesArrowDown = styled(CoursesArrowDown)`
   color: currentColor;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+
+  @media screen and (min-width: 768px) {
+    width: 20px;
+    height: 20px;
+  }
 
   &:hover,
   &:focus {
@@ -457,19 +479,47 @@ export const NavigationMenuNew = styled.button`
 
   transition: color var(--animation-global), fill var(--animation-global);
 
-  &:hover,
-  &:focus {
-    color: var(--accent-color);
-    fill: var(--accent-color);
-    stroke: var(--accent-color);
-  }
-
   @media screen and (min-width: 768px) {
     font-size: 18px;
   }
 
   @media screen and (max-width: 1279px) {
     padding: 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding: 5px 0;
+  }
+
+  &:hover,
+  &:focus,
+  &.active {
+    @media screen and (min-width: 1280px) {
+      cursor: pointer;
+    }
+  }
+
+  &::after {
+    @media screen and (min-width: 1280px) {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: var(--main-color);
+
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      transform-origin: left;
+      transform: scaleX(0);
+
+      transition: transform var(--animation-global);
+    }
+  }
+
+  &:hover::after,
+  &:focus::after {
+    transform: scaleX(1);
   }
 `;
 
@@ -537,53 +587,59 @@ export const NavigationMenuListNew = styled.ul`
   gap: 24px;
   padding-top: 24px;
 
+  transform: translateY(-100%);
+
   transition: all var(--animation-global);
 
   background-color: transparent;
 
-  @media screen and (min-width: 500px) {
-    border-top-left-radius: 8px;
-    border-top-right-radius: 0;
-  }
-
   @media screen and (min-width: 1280px) {
     width: max-content;
-    box-shadow: rgba(0, 0, 0, 0.06) 0px 1px 10px 0px,
-      rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-    clip-path: inset(2px -10px -10px -10px);
+    position: absolute;
+    top: 45px;
+    left: -25px;
+    z-index: 9;
+
+    padding: 16px 21px;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 3px 0px;
   }
 
   &.course-list-open {
     opacity: 1;
+    transition: all var(--animation-global);
 
     @media screen and (min-width: 500px) {
-      transform: translateX(0%);
+      transform: translateY(0%);
     }
 
     @media screen and (min-width: 1280px) {
+      width: max-content;
+      gap: 0;
+      clip-path: inset(2px -10px -10px -10px);
       transform: translateY(0%);
     }
   }
 
   &.course-list-closed {
-    pointer-events: none;
-    opacity: 0;
-    transform: translateY(-100%);
-    transition: all var(--animation-global);
+    @media screen and (max-width: 1279px) {
+      pointer-events: none;
+      opacity: 0;
+      transition: all var(--animation-global);
 
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    border: 0;
-    padding: 0;
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    margin: -1px;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      border: 0;
+      padding: 0;
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      margin: -1px;
+    }
 
     @media screen and (min-width: 1280px) {
-      transform: translateY(-100%);
+      transform: translateY(-200%);
     }
   }
 `;
@@ -596,7 +652,15 @@ export const NavigationMenuItem = styled.li`
   }
 `;
 
-export const NavigationMenuItemNew = styled.li``;
+export const NavigationMenuItemNew = styled.li`
+  @media screen and (min-width: 1280px) {
+    padding: 12px 0;
+
+    &:not(:last-child) {
+      border-bottom: 0.5px solid #0f645b33;
+    }
+  }
+`;
 
 export const NavigationNavLink = styled(NavLink)`
   display: block;
@@ -634,6 +698,10 @@ export const NavigationNavLinkNew = styled(NavLink)`
   transition: color var(--animation-global);
   /* padding: 10px 16px; */
 
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
+
   @media screen and (min-width: 1280px) {
     padding: 0px;
     display: inline;
@@ -656,8 +724,15 @@ export const MyAPLogin = styled(MyAPIcon)`
   height: 30px;
   color: #fff;
 
+  transition: color var(--animation-global);
+
   @media screen and (min-width: 768px) {
     width: 20px;
     height: 20px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 22px;
+    height: 22px;
+    color: #000;
   }
 `;

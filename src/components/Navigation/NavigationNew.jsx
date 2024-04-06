@@ -9,7 +9,6 @@ import { useState } from 'react';
 import {
   MenuButtonsWrapper,
   MenuCoursesArrowDown,
-  MenuCoursesArrowLeft,
   MenuCoursesWrapperNew,
   MyAPLogin,
   NavigationAnchorNew,
@@ -33,7 +32,7 @@ export const NavigationNew = ({ toggleMenu, className }) => {
   };
 
   const toggleScroll = () => {
-    document.body.style.overflowY = 'auto'
+    document.body.style.overflowY = 'auto';
   };
 
   const props =
@@ -58,9 +57,8 @@ export const NavigationNew = ({ toggleMenu, className }) => {
         <NavigationItemNew key={3}>
           <MenuCoursesWrapperNew>
             <NavigationMenuNew onClick={toggleCourseList}>
-              {width < 1280 && width > 500 && <MenuCoursesArrowLeft />} Мовні
-              курси
-              {width < 500 && <MenuCoursesArrowDown />}
+              Мовні курси
+              {width < 1280 && <MenuCoursesArrowDown />}
               {width >= 1280 && <MobileMenuIcon />}
             </NavigationMenuNew>
             <NavigationMenuListNew

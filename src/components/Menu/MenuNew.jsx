@@ -1,17 +1,17 @@
 import useSize from '@react-hook/size';
+import { MyAPLogin } from 'components/Navigation/Navigation.styled';
 import { NavigationNew } from 'components/Navigation/NavigationNew';
 import { useEffect, useRef, useState } from 'react';
-import { ReactComponent as LoginIcon } from '../../img/svg/invertedLoginIcon.svg';
 import {
   HeaderNew,
-  HeaderText,
+  HeaderTextNew,
   HeaderWrapper,
   LogoNew,
   LogoRoute,
   MenuBurgerCloseIcon,
   MenuBurgerIcon,
   NewMobileMenuBtn,
-  PlatformLink,
+  PlatformLinkNew,
 } from './Menu.styled';
 
 export const MenuNew = ({ toggleModal }) => {
@@ -27,10 +27,10 @@ export const MenuNew = ({ toggleModal }) => {
   };
 
   useEffect(() => {
-    document.body.style.overflowY !== 'hidden'
+    document.body.style.overflowY !== 'hidden' && width < 768 && isMenuOpen
       ? (document.body.style.overflowY = 'hidden')
       : (document.body.style.overflowY = '');
-  }, [isMenuOpen]);
+  }, [isMenuOpen, width]);
 
   return (
     <>
@@ -62,9 +62,9 @@ export const MenuNew = ({ toggleModal }) => {
         )}
 
         {width >= 1280 && (
-          <PlatformLink href="https://online.ap.education/" target="_blank">
-            <HeaderText>УВІЙТИ</HeaderText> <LoginIcon />
-          </PlatformLink>
+          <PlatformLinkNew href="https://online.ap.education/" target="_blank">
+            <HeaderTextNew>Увійти</HeaderTextNew> <MyAPLogin />
+          </PlatformLinkNew>
         )}
       </HeaderNew>
       {width < 1280 && (

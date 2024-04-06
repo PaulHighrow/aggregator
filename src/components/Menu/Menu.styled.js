@@ -59,8 +59,7 @@ export const HeaderNew = styled.header`
   padding: 0 16px;
   height: 44px;
   background-color: var(--secondary-color);
-  box-shadow: rgba(0, 0, 0, 0.06) 0px 0.5px 5px 0px,
-    rgba(0, 0, 0, 0.06) 0px 0px 0px 0.5px;
+  box-shadow: rgba(0, 0, 0, 0.18) 0 2px 3px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -199,9 +198,9 @@ export const LogoNew = styled(LogoNewIcon)`
     width: 150px;
   }
 
-  /* @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1280px) {
     width: 183px;
-  } */
+  }
 
   & > path#star {
     transform-origin: center bottom -2px;
@@ -337,6 +336,26 @@ export const PlatformLinkNew = styled.a`
   &:focus {
     background-color: var(--main-transparent-color);
   }
+
+  @media screen and (min-width: 1280px) {
+    padding: 0;
+    background: unset;
+
+    &:hover,
+    &:focus {
+      background: unset;
+    }
+
+    &:hover span,
+    &:focus span {
+      color: var(--accent-color);
+    }
+
+    &:hover svg,
+    &:focus svg {
+      color: var(--accent-color);
+    }
+  }
 `;
 
 export const HeaderText = styled.span`
@@ -352,16 +371,23 @@ export const HeaderText = styled.span`
 `;
 
 export const HeaderTextNew = styled.span`
-
   font-size: 18px;
-  line-height: 16px;
+  line-height: 20px;
   font-weight: 700;
   text-transform: uppercase;
 
   margin-right: 10px;
   color: #fff;
 
+  transition: color var(--animation-global);
+
   @media screen and (min-width: 768px) {
     font-weight: 600;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-weight: 500;
+    text-transform: unset;
+    color: #000;
   }
 `;
