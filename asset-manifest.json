@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.51a9f3d2.css",
-    "main.js": "/aggregator/static/js/main.c707d4e5.js",
+    "main.js": "/aggregator/static/js/main.e8c2c857.js",
     "Homepage.css": "/aggregator/static/css/Homepage.f8e4d2c9.chunk.css",
     "Homepage.js": "/aggregator/static/js/Homepage.bb85c82c.chunk.js",
     "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.9a076bca.chunk.js",
     "New Design Homepage.css": "/aggregator/static/css/New Design Homepage.f8e4d2c9.chunk.css",
-    "New Design Homepage.js": "/aggregator/static/js/New Design Homepage.b55550c7.chunk.js",
+    "New Design Homepage.js": "/aggregator/static/js/New Design Homepage.d1ef1508.chunk.js",
     "Streams page.js": "/aggregator/static/js/Streams page.f61f6ec8.chunk.js",
     "Service page.js": "/aggregator/static/js/Service page.f36777f4.chunk.js",
     "HR page.js": "/aggregator/static/js/HR page.91c33303.chunk.js",
@@ -161,22 +161,22 @@
     "static/media/heroStar.svg": "/aggregator/static/media/heroStar.fa8fe78a0b473d886511a640a4f5f9e1.svg",
     "static/media/deleteMessage.svg": "/aggregator/static/media/deleteMessage.3ee8b625dce1b237bb6f44389e1148d1.svg",
     "static/media/upArrow.svg": "/aggregator/static/media/upArrow.cb79521fe2260cdd8005ea4102e8a2c5.svg",
-    "static/media/coursesArrowDown.svg": "/aggregator/static/media/coursesArrowDown.b36118925c085c92bd464b5e3b960cc9.svg",
     "static/media/invertedDownArrow.svg": "/aggregator/static/media/invertedDownArrow.b617753eb8ffcdc4a82af9d899f8105f.svg",
     "static/media/downArrow.svg": "/aggregator/static/media/downArrow.3d74cb9d6d38fab26c47bbadb8e4f56d.svg",
     "static/media/coursesArrowLeft.svg": "/aggregator/static/media/coursesArrowLeft.ce1f22af37b7c0268a143ed1e39c0e30.svg",
     "static/media/coursesArrowRight.svg": "/aggregator/static/media/coursesArrowRight.1e896337e3a51201f53d7bd1f5e8d015.svg",
+    "static/media/coursesArrowDown.svg": "/aggregator/static/media/coursesArrowDown.e923aecd1e96caeaafc33d39c2938cd0.svg",
     "static/media/btnbox-switch-left-large.svg": "/aggregator/static/media/btnbox-switch-left-large.30d01b072d5ba40a6c9542efcec84ca4.svg",
     "static/media/btnbox-switch-left.svg": "/aggregator/static/media/btnbox-switch-left.41ecbf13fa59a984cfe935e54d276421.svg",
     "static/media/btnbox-switch-right-large.svg": "/aggregator/static/media/btnbox-switch-right-large.d4edfcc5f338a2d51c7d6695947ffc4e.svg",
     "static/media/btnbox-switch-right.svg": "/aggregator/static/media/btnbox-switch-right.c2062beab8ed3d828de36754c3279d60.svg",
     "main.51a9f3d2.css.map": "/aggregator/static/css/main.51a9f3d2.css.map",
-    "main.c707d4e5.js.map": "/aggregator/static/js/main.c707d4e5.js.map",
+    "main.e8c2c857.js.map": "/aggregator/static/js/main.e8c2c857.js.map",
     "Homepage.f8e4d2c9.chunk.css.map": "/aggregator/static/css/Homepage.f8e4d2c9.chunk.css.map",
     "Homepage.bb85c82c.chunk.js.map": "/aggregator/static/js/Homepage.bb85c82c.chunk.js.map",
     "Inverted Homepage.9a076bca.chunk.js.map": "/aggregator/static/js/Inverted Homepage.9a076bca.chunk.js.map",
     "New Design Homepage.f8e4d2c9.chunk.css.map": "/aggregator/static/css/New Design Homepage.f8e4d2c9.chunk.css.map",
-    "New Design Homepage.b55550c7.chunk.js.map": "/aggregator/static/js/New Design Homepage.b55550c7.chunk.js.map",
+    "New Design Homepage.d1ef1508.chunk.js.map": "/aggregator/static/js/New Design Homepage.d1ef1508.chunk.js.map",
     "Streams page.f61f6ec8.chunk.js.map": "/aggregator/static/js/Streams page.f61f6ec8.chunk.js.map",
     "Service page.f36777f4.chunk.js.map": "/aggregator/static/js/Service page.f36777f4.chunk.js.map",
     "HR page.91c33303.chunk.js.map": "/aggregator/static/js/HR page.91c33303.chunk.js.map",
@@ -216,6 +216,6 @@
   },
   "entrypoints": [
     "static/css/main.51a9f3d2.css",
-    "static/js/main.c707d4e5.js"
+    "static/js/main.e8c2c857.js"
   ]
 }
