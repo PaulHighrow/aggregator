@@ -31,6 +31,18 @@ export const NavigationNew = ({ toggleMenu, className }) => {
     setIsCourseListOpen(isOpen => !isOpen);
   };
 
+  const openCourseListOnHover = () => {
+    if (!isCourseListOpen) {
+      setIsCourseListOpen(isOpen => !isOpen);
+    }
+  };
+
+  const closeCourseListOnMouseOut = () => {
+    if (isCourseListOpen) {
+      setIsCourseListOpen(isOpen => !isOpen);
+    }
+  };
+
   const toggleScroll = () => {
     document.body.style.overflowY = 'auto';
   };
@@ -55,7 +67,10 @@ export const NavigationNew = ({ toggleMenu, className }) => {
           </NavigationLinkNew>
         </NavigationItemNew>
         <NavigationItemNew key={3}>
-          <MenuCoursesWrapperNew>
+          <MenuCoursesWrapperNew
+            onMouseEnter={openCourseListOnHover}
+            onMouseLeave={closeCourseListOnMouseOut}
+          >
             <NavigationMenuNew onClick={toggleCourseList}>
               Мовні курси
               {width < 1280 && <MenuCoursesArrowDown />}
