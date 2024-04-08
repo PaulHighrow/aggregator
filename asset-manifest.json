@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.51a9f3d2.css",
-    "main.js": "/aggregator/static/js/main.4e6cc04d.js",
+    "main.js": "/aggregator/static/js/main.894a578a.js",
     "Homepage.css": "/aggregator/static/css/Homepage.f8e4d2c9.chunk.css",
-    "Homepage.js": "/aggregator/static/js/Homepage.bb85c82c.chunk.js",
+    "Homepage.js": "/aggregator/static/js/Homepage.3e28ab0e.chunk.js",
     "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.9a076bca.chunk.js",
     "New Design Homepage.css": "/aggregator/static/css/New Design Homepage.f8e4d2c9.chunk.css",
-    "New Design Homepage.js": "/aggregator/static/js/New Design Homepage.d1ef1508.chunk.js",
+    "New Design Homepage.js": "/aggregator/static/js/New Design Homepage.4be90d67.chunk.js",
     "Streams page.js": "/aggregator/static/js/Streams page.f61f6ec8.chunk.js",
     "Service page.js": "/aggregator/static/js/Service page.f36777f4.chunk.js",
     "HR page.js": "/aggregator/static/js/HR page.91c33303.chunk.js",
@@ -40,7 +40,7 @@
     "reactPlayerPreview.js": "/aggregator/static/js/reactPlayerPreview.b1998349.chunk.js",
     "static/js/27.129f8ad6.chunk.js": "/aggregator/static/js/27.129f8ad6.chunk.js",
     "static/js/307.2f4b395d.chunk.js": "/aggregator/static/js/307.2f4b395d.chunk.js",
-    "static/js/172.f3eeb5a9.chunk.js": "/aggregator/static/js/172.f3eeb5a9.chunk.js",
+    "static/js/172.311893b6.chunk.js": "/aggregator/static/js/172.311893b6.chunk.js",
     "static/js/786.99413374.chunk.js": "/aggregator/static/js/786.99413374.chunk.js",
     "static/js/727.52caa885.chunk.js": "/aggregator/static/js/727.52caa885.chunk.js",
     "static/media/LTJournalCrayon-Regular.eot": "/aggregator/static/media/LTJournalCrayon-Regular.4e01f9d2a8b68d2b8f20.eot",
@@ -171,12 +171,12 @@
     "static/media/btnbox-switch-right-large.svg": "/aggregator/static/media/btnbox-switch-right-large.d4edfcc5f338a2d51c7d6695947ffc4e.svg",
     "static/media/btnbox-switch-right.svg": "/aggregator/static/media/btnbox-switch-right.c2062beab8ed3d828de36754c3279d60.svg",
     "main.51a9f3d2.css.map": "/aggregator/static/css/main.51a9f3d2.css.map",
-    "main.4e6cc04d.js.map": "/aggregator/static/js/main.4e6cc04d.js.map",
+    "main.894a578a.js.map": "/aggregator/static/js/main.894a578a.js.map",
     "Homepage.f8e4d2c9.chunk.css.map": "/aggregator/static/css/Homepage.f8e4d2c9.chunk.css.map",
-    "Homepage.bb85c82c.chunk.js.map": "/aggregator/static/js/Homepage.bb85c82c.chunk.js.map",
+    "Homepage.3e28ab0e.chunk.js.map": "/aggregator/static/js/Homepage.3e28ab0e.chunk.js.map",
     "Inverted Homepage.9a076bca.chunk.js.map": "/aggregator/static/js/Inverted Homepage.9a076bca.chunk.js.map",
     "New Design Homepage.f8e4d2c9.chunk.css.map": "/aggregator/static/css/New Design Homepage.f8e4d2c9.chunk.css.map",
-    "New Design Homepage.d1ef1508.chunk.js.map": "/aggregator/static/js/New Design Homepage.d1ef1508.chunk.js.map",
+    "New Design Homepage.4be90d67.chunk.js.map": "/aggregator/static/js/New Design Homepage.4be90d67.chunk.js.map",
     "Streams page.f61f6ec8.chunk.js.map": "/aggregator/static/js/Streams page.f61f6ec8.chunk.js.map",
     "Service page.f36777f4.chunk.js.map": "/aggregator/static/js/Service page.f36777f4.chunk.js.map",
     "HR page.91c33303.chunk.js.map": "/aggregator/static/js/HR page.91c33303.chunk.js.map",
@@ -210,12 +210,12 @@
     "reactPlayerPreview.b1998349.chunk.js.map": "/aggregator/static/js/reactPlayerPreview.b1998349.chunk.js.map",
     "27.129f8ad6.chunk.js.map": "/aggregator/static/js/27.129f8ad6.chunk.js.map",
     "307.2f4b395d.chunk.js.map": "/aggregator/static/js/307.2f4b395d.chunk.js.map",
-    "172.f3eeb5a9.chunk.js.map": "/aggregator/static/js/172.f3eeb5a9.chunk.js.map",
+    "172.311893b6.chunk.js.map": "/aggregator/static/js/172.311893b6.chunk.js.map",
     "786.99413374.chunk.js.map": "/aggregator/static/js/786.99413374.chunk.js.map",
     "727.52caa885.chunk.js.map": "/aggregator/static/js/727.52caa885.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.51a9f3d2.css",
-    "static/js/main.4e6cc04d.js"
+    "static/js/main.894a578a.js"
   ]
 }
