@@ -33,7 +33,7 @@ export const HeroSectionNew = styled.section`
   position: relative;
   min-height: 500px;
   padding-top: 94px;
-  padding-bottom: 30px;
+  padding-bottom: 0px;
 
   @media screen and (min-width: 768px) {
     padding-bottom: 40px;

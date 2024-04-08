@@ -16,6 +16,19 @@ export const HowItWorksSection = styled.section`
   }
 `;
 
+export const HowItWorksSectionNew = styled.section`
+  position: relative;
+  padding: 50px 20px 0 20px;
+
+  @media screen and (min-width: 768px) {
+    padding: 42px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding: 55px;
+  }
+`;
+
 export const SectionWrapper = styled.div`
   margin: 0 auto;
   margin-bottom: 20px;
@@ -59,6 +72,34 @@ export const SectionTitle = styled.h2`
   }
 `;
 
+export const SectionTitleNew = styled.h2`
+  width: 200px;
+  font-family: var(--new-font-family);
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 8px;
+
+  @media screen and (min-width: 768px) {
+    margin: 0;
+    letter-spacing: 3.5px;
+    width: 400px;
+    font-size: 55px;
+    -webkit-text-stroke: 2px var(--main-color);
+
+    text-align: center;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 70px;
+  }
+`;
+
+export const SectionDescription = styled.p`
+  font-family: var(--new-font-family);
+  margin-bottom: 24px;
+  line-height: 1.2;
+`;
+
 export const SectionSubTitle = styled.span`
   font-family: var(--secondary-font-family);
   font-size: 42px;
@@ -94,6 +135,41 @@ export const PageNavigation = styled.ul`
   }
 `;
 
+export const WhoAreWeList = styled.ul`
+  font-size: 16px;
+  font-weight: 500;
+  font-family: var(--new-font-family);
+
+  line-height: 1;
+  text-transform: uppercase;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  position: relative;
+
+  @media screen and (min-width: 768px) {
+    font-size: 32px;
+    gap: 10px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 36px;
+  }
+
+  &::before {
+    content: '';
+    height: 100%;
+    width: 3px;
+    background-color: #eeeef0;
+    position: absolute;
+    top: -1px;
+    left: 0;
+    border-radius: 2px;
+  }
+`;
+
 export const arrowAnimation = keyframes`
   0%{
     stroke-dashoffset: -435;
@@ -106,6 +182,12 @@ export const arrowAnimation = keyframes`
 
 export const PageNavigationItem = styled.li`
   z-index: 1;
+`;
+
+export const WhoAreWeItem = styled.li`
+  z-index: 1;
+  padding-left: 16px;
+  vertical-align: baseline;
 `;
 
 export const PageNavigationLink = styled(Link)`
@@ -142,6 +224,43 @@ export const PageNavigationLink = styled(Link)`
     animation-timing-function: linear;
     animation-iteration-count: 1;
   }
+`;
+
+export const WhoAreWeTrigger = styled.a`
+  position: relative;
+  display: block;
+  z-index: 1;
+  transition: color var(--animation-global), opacity var(--animation-global);
+
+  @media screen and (min-width: 1280px) {
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 1279px) {
+    user-select: none;
+  }
+
+  &:active {
+    color: var(--accent-color);
+  }
+
+  &:hover > span,
+  &:focus > span {
+    opacity: 1;
+    transition: opacity var(--animation-global) 250ms;
+  }
+`;
+
+export const WhoAreWePointer = styled.div`
+  width: 3px;
+  height: 25px;
+  background-color: var(--main-color);
+
+  border-radius: 2px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
 `;
 
 export const PageNavigationArrow = styled(MenuArrow)`
@@ -212,6 +331,23 @@ export const PlayerLimiter = styled.div`
   }
 `;
 
+export const PlayerLimiterNew = styled.div`
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 640px;
+  border-radius: 8px;
+  background-color: #d9d9d9;
+  overflow: hidden;
+
+  @media screen and (min-width: 768px) {
+    max-width: 960px;
+  }
+  @media screen and (min-width: 1280px) {
+    max-width: 1280px;
+  }
+`;
+
 export const VideoBox = styled.div`
   position: relative;
   padding-top: 56.25%;
@@ -233,7 +369,7 @@ export const VideoSoundBtn = styled(IoVolumeMute)`
   opacity: 0.7;
 
   cursor: pointer;
-  
+
   position: absolute;
   z-index: 5;
   top: 10px;

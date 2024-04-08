@@ -68,8 +68,8 @@ export const NavigationNew = ({ toggleMenu, className }) => {
         </NavigationItemNew>
         <NavigationItemNew key={3}>
           <MenuCoursesWrapperNew
-            onMouseEnter={openCourseListOnHover}
-            onMouseLeave={closeCourseListOnMouseOut}
+            onMouseEnter={width >= 1280 ? openCourseListOnHover : null}
+            onMouseLeave={width >= 1280 ? closeCourseListOnMouseOut: null}
           >
             <NavigationMenuNew onClick={toggleCourseList}>
               Мовні курси

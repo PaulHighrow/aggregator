@@ -57,6 +57,7 @@ export const StyledNavigationNew = styled.nav`
 
   @media screen and (min-width: 1280px) {
     position: relative;
+    height: 100%;
     top: 0;
     right: 0;
     width: auto;
@@ -101,6 +102,7 @@ export const NavigationListNew = styled.ul`
     height: 100%;
     padding: 0;
     margin: 0 auto;
+    z-index: 6;
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -167,6 +169,7 @@ export const NavigationItemNew = styled.li`
     height: 100%;
     display: flex;
     align-items: center;
+    z-index: 6;
 
     &:not(:last-child) {
       padding: 0;
@@ -369,13 +372,13 @@ export const MenuCoursesWrapperNew = styled.div`
 
   @media screen and (min-width: 1280px) {
     border-bottom: none;
+    height: 100%;
   }
 `;
 
 export const MenuCoursesWrapper = styled.div`
   position: relative;
   border-bottom: 0.5px solid var(--main-color);
-  height: auto;
 
   transition: all var(--animation-global);
 
@@ -498,29 +501,6 @@ export const NavigationMenuNew = styled.button`
       cursor: pointer;
     }
   }
-
-  &::after {
-    @media screen and (min-width: 1280px) {
-      content: '';
-      display: block;
-      width: 100%;
-      height: 1px;
-      background-color: var(--main-color);
-
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      transform-origin: left;
-      transform: scaleX(0);
-
-      transition: transform var(--animation-global);
-    }
-  }
-
-  &:hover::after,
-  &:focus::after {
-    transform: scaleX(1);
-  }
 `;
 
 export const NavigationMenuList = styled.ul`
@@ -587,18 +567,17 @@ export const NavigationMenuListNew = styled.ul`
   gap: 24px;
   padding-top: 24px;
 
-  transform: translateY(-100%);
+  transition: all 350ms cubic-bezier(.17,.22,.2,1);
 
-  transition: all var(--animation-global);
-
-  background-color: transparent;
+  background-color: #fff;
 
   @media screen and (min-width: 1280px) {
     width: max-content;
     position: absolute;
-    top: 45px;
+    top: 59px;
     left: -25px;
-    z-index: 9;
+
+    transform: translateY(-150%);
 
     padding: 16px 21px;
     box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 3px 0px;
@@ -606,7 +585,7 @@ export const NavigationMenuListNew = styled.ul`
 
   &.course-list-open {
     opacity: 1;
-    transition: all var(--animation-global);
+    transition: all 350ms cubic-bezier(.17,.22,.2,1);
 
     @media screen and (min-width: 500px) {
       transform: translateY(0%);
@@ -614,9 +593,9 @@ export const NavigationMenuListNew = styled.ul`
 
     @media screen and (min-width: 1280px) {
       width: max-content;
+      z-index: 3;
       gap: 0;
       clip-path: inset(2px -10px -10px -10px);
-      transform: translateY(0%);
     }
   }
 
@@ -624,7 +603,6 @@ export const NavigationMenuListNew = styled.ul`
     @media screen and (max-width: 1279px) {
       pointer-events: none;
       opacity: 0;
-      transition: all var(--animation-global);
 
       position: absolute;
       white-space: nowrap;
@@ -639,7 +617,7 @@ export const NavigationMenuListNew = styled.ul`
     }
 
     @media screen and (min-width: 1280px) {
-      transform: translateY(-200%);
+      transform: translateY(-150%);
     }
   }
 `;

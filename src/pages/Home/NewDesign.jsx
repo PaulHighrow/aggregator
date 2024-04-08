@@ -1,9 +1,8 @@
 import { AboutUs } from 'components/AboutUs/AboutUs';
-import { BackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
 import { Consent } from 'components/Consent/Consent';
-import { EdPlatform } from 'components/EdPlatform/EdPlatform';
+import { ApSchool } from 'components/EdPlatform/ApSchool';
 import { HeroNew } from 'components/Hero/HeroNew';
-import { HowItWorks } from 'components/HowItWorks/HowItWorks';
+import { HowItWorksNew } from 'components/HowItWorks/HowItWorksNew';
 import { LeadForm } from 'components/LeadForm/LeadForm';
 import { Reviews } from 'components/Reviews/Reviews';
 import { useEffect, useState } from 'react';
@@ -43,11 +42,9 @@ const NewDesign = ({ utms }) => {
 
   return (
     <>
-      <BackgroundWrapper>
-        <HeroNew toggleModal={toggleModal} />
-        <HowItWorks />
-      </BackgroundWrapper>
-      <EdPlatform />
+      <HeroNew toggleModal={toggleModal} />
+      <HowItWorksNew />
+      <ApSchool />
       {/* <Admission /> */}
       {/* <Translations utms={utms} /> */}
       <Reviews toggleModal={toggleModal} />
