@@ -36,13 +36,13 @@ export const HeroSectionNew = styled.section`
   padding-bottom: 0px;
 
   @media screen and (min-width: 768px) {
-    padding-bottom: 40px;
     margin: 0;
+    padding-top: 160px;
   }
 
   @media screen and (min-width: 1280px) {
-    padding: 55px 0;
     padding-top: 247px;
+    padding-bottom: 0;
   }
 `;
 
@@ -98,8 +98,15 @@ export const TitleNew = styled.h1`
   }
 
   @media screen and (min-width: 768px) {
+    margin: 0 auto 32px auto;
+    font-size: 35px;
+    line-height: 1.2;
+    max-width: 950px;
+  }
+
+  @media screen and (min-width: 768px) {
     margin: 0 auto 40px auto;
-    font-size: 60px;
+    font-size: 35px;
     line-height: 1.2;
     max-width: 950px;
   }

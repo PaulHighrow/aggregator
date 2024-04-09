@@ -1,5 +1,5 @@
 import { VideoModal } from 'components/AboutUs/VideoModal/VideoModal';
-import { Box } from 'components/Box/Box.styled';
+import { BoxNew } from 'components/Box/Box.styled';
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import {
@@ -7,7 +7,8 @@ import {
   PlayerLimiterNew,
   SectionDescription,
   SectionTitleNew,
-  SectionWrapper,
+  SectionWrapperNew,
+  TitleBox,
   Video,
   VideoSoundBtn,
   WhoAreWeItem,
@@ -52,21 +53,23 @@ export const HowItWorksNew = () => {
 
   return (
     <HowItWorksSectionNew id="howitworks">
-      <Box>
-        <SectionWrapper>
-          <SectionTitleNew>Хто ми?</SectionTitleNew>
-          <SectionDescription>
-            Дізнайся більше про нас та наш досвід
-          </SectionDescription>
+      <BoxNew>
+        <SectionWrapperNew>
+          <TitleBox>
+            <SectionTitleNew>Хто ми?</SectionTitleNew>
+            <SectionDescription>
+              Дізнайся більше про нас та наш досвід
+            </SectionDescription>
+          </TitleBox>
           <WhoAreWeList>
             <WhoAreWePointer />
             {listItems.map((item, i) => (
               <WhoAreWeItem key={i}>
-                <WhoAreWeTrigger >{item}</WhoAreWeTrigger>
+                <WhoAreWeTrigger>{item}</WhoAreWeTrigger>
               </WhoAreWeItem>
             ))}
           </WhoAreWeList>
-        </SectionWrapper>
+        </SectionWrapperNew>
         <PlayerLimiterNew
           ref={videoRef}
           onClick={toggleVideoModal}
@@ -90,7 +93,7 @@ export const HowItWorksNew = () => {
             />
           </Video>
         </PlayerLimiterNew>
-      </Box>
+      </BoxNew>
       {isVideoModalOpen && (
         <VideoModal
           closeVideoModal={closeVideoModal}

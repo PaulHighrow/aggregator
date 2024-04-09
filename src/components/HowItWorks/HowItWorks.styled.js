@@ -21,11 +21,14 @@ export const HowItWorksSectionNew = styled.section`
   padding: 50px 20px 0 20px;
 
   @media screen and (min-width: 768px) {
-    padding: 42px;
+    padding: 100px 40px 0 40px;
   }
 
   @media screen and (min-width: 1280px) {
-    padding: 55px;
+    padding: 60px;
+    padding-top: 150px;
+    padding-bottom: 0;
+    display: flex;
   }
 `;
 
@@ -44,6 +47,34 @@ export const SectionWrapper = styled.div`
   @media screen and (min-width: 1280px) {
     padding-right: 120px;
     margin-bottom: 80px;
+  }
+`;
+
+export const SectionWrapperNew = styled.div`
+  margin: 0 auto;
+  margin-bottom: 32px;
+  max-width: 1280px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    flex-direction: column;
+    flex-grow: 0;
+    gap: 40px;
+    margin: 0;
+    width: 351px;
+  }
+`;
+
+export const TitleBox = styled.div`
+  margin-bottom: 24px;
+
+  @media screen and (min-width: 1280px) {
+    margin: 0;
   }
 `;
 
@@ -73,31 +104,32 @@ export const SectionTitle = styled.h2`
 `;
 
 export const SectionTitleNew = styled.h2`
-  width: 200px;
   font-family: var(--new-font-family);
   font-size: 30px;
   font-weight: 700;
   margin-bottom: 8px;
+  line-height: 1;
 
   @media screen and (min-width: 768px) {
-    margin: 0;
-    letter-spacing: 3.5px;
-    width: 400px;
-    font-size: 55px;
-    -webkit-text-stroke: 2px var(--main-color);
-
-    text-align: center;
+    font-size: 40px;
   }
 
   @media screen and (min-width: 1280px) {
-    font-size: 70px;
+    font-size: 50px;
+    margin-bottom: 16px;
   }
 `;
 
 export const SectionDescription = styled.p`
   font-family: var(--new-font-family);
-  margin-bottom: 24px;
+  font-size: 16px;
   line-height: 1.2;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 1.3;
+    max-width: 382px;
+  }
 `;
 
 export const SectionSubTitle = styled.span`
@@ -150,12 +182,13 @@ export const WhoAreWeList = styled.ul`
   position: relative;
 
   @media screen and (min-width: 768px) {
-    font-size: 32px;
-    gap: 10px;
+    width: 200px;
+    font-size: 14px;
+    gap: 0;
   }
 
   @media screen and (min-width: 1280px) {
-    font-size: 36px;
+    font-size: 20px;
   }
 
   &::before {
@@ -188,6 +221,18 @@ export const WhoAreWeItem = styled.li`
   z-index: 1;
   padding-left: 16px;
   vertical-align: baseline;
+
+  @media screen and (min-width: 768px) {
+    width: 200px;
+    font-size: 14px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 35px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 20px;
+  }
 `;
 
 export const PageNavigationLink = styled(Link)`
@@ -261,6 +306,14 @@ export const WhoAreWePointer = styled.div`
   position: absolute;
   top: 0;
   left: 0;
+
+  @media screen and (min-width: 768px) {
+    height: 34px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    height: 40px;
+  }
 `;
 
 export const PageNavigationArrow = styled(MenuArrow)`
@@ -342,6 +395,7 @@ export const PlayerLimiterNew = styled.div`
 
   @media screen and (min-width: 768px) {
     max-width: 960px;
+    border-radius: 17px;
   }
   @media screen and (min-width: 1280px) {
     max-width: 1280px;

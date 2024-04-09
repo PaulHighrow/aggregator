@@ -28,6 +28,7 @@ import { Route, Routes, useSearchParams } from 'react-router-dom';
 import { WindowedChat } from 'utils/Chat/ChatWindowed/WindowedChat';
 import ScrollToTop from 'utils/ScrollToTop/ScrollToTop';
 import { SharedLayout } from './SharedLayout/SharedLayout';
+import { ThankYouPage } from 'pages/ThankYouPage/ThankYouPage';
 
 const Home = lazy(() =>
   import(/* webpackChunkName: "Homepage" */ '../pages/Home/Home')
@@ -222,7 +223,10 @@ export const App = () => {
             element={<HostKahootAdminPanel />}
           />
           <Route path="user-admin-panel" element={<UserAdminPanel />} />
-          <Route path="collection-admin-panel" element={<CollectionsAdminPanel />} />
+          <Route
+            path="collection-admin-panel"
+            element={<CollectionsAdminPanel />}
+          />
         </Route>
         <Route path="streams-kids" element={<StreamsKids />}>
           <Route path="a1" element={<KidsA1 />} />
@@ -268,6 +272,7 @@ export const App = () => {
           <Route path="trials-pl" element={<TeacherTrialPage />} />
           <Route path="trials-de" element={<TeacherTrialPage />} />
         </Route>
+        <Route path="thankyou" element={<ThankYouPage />} />
       </Routes>
     </>
   );

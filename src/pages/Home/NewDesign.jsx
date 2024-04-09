@@ -1,6 +1,6 @@
 import { AboutUs } from 'components/AboutUs/AboutUs';
 import { Consent } from 'components/Consent/Consent';
-import { ApSchool } from 'components/EdPlatform/ApSchool';
+import { APSchool } from 'components/APSchool/APSchool';
 import { HeroNew } from 'components/Hero/HeroNew';
 import { HowItWorksNew } from 'components/HowItWorks/HowItWorksNew';
 import { LeadForm } from 'components/LeadForm/LeadForm';
@@ -44,7 +44,7 @@ const NewDesign = ({ utms }) => {
     <>
       <HeroNew toggleModal={toggleModal} />
       <HowItWorksNew />
-      <ApSchool />
+      <APSchool />
       {/* <Admission /> */}
       {/* <Translations utms={utms} /> */}
       <Reviews toggleModal={toggleModal} />
