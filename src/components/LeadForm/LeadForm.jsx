@@ -1,8 +1,9 @@
 import axios from 'axios';
 import { Backdrop } from 'components/LeadForm/Backdrop/Backdrop.styled';
+import { Loader } from 'components/SharedLayout/Loaders/Loader';
 import { Formik } from 'formik';
 import { useState } from 'react';
-import { Loader } from 'components/SharedLayout/Loaders/Loader';
+import { useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
 import {
   CloseIcon,
@@ -20,6 +21,7 @@ axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
 
 export const LeadForm = ({ closeModal, utms }) => {
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   const initialValues = {
     name: '',
@@ -74,10 +76,10 @@ export const LeadForm = ({ closeModal, utms }) => {
     values.utm_source = utms.utm_source;
     values.utm_term = utms.utm_term;
     values.utm_referrer = utms.utm_referrer;
-    values.referrer=utms.referrer;
-    values.gclientid=utms.gclientid;
-    values.gclid=utms.gclid;
-    values.fbclid=utms.fbclid;
+    values.referrer = utms.referrer;
+    values.gclientid = utms.gclientid;
+    values.gclid = utms.gclid;
+    values.fbclid = utms.fbclid;
     setIsLoading(isLoading => (isLoading = true));
 
     try {
@@ -85,6 +87,7 @@ export const LeadForm = ({ closeModal, utms }) => {
       console.log(response);
       resetForm();
       closeModal();
+      navigate('/thankyou');
     } catch (error) {
       console.error(error);
     } finally {
