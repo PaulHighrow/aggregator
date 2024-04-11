@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const APSchoolSection = styled.section`
+export const APCoursesSection = styled.section`
   position: relative;
   padding: 50px 20px 0 20px;
 
@@ -15,7 +15,7 @@ export const APSchoolSection = styled.section`
   }
 `;
 
-export const APSchoolWrapper = styled.div`
+export const APCoursesWrapper = styled.div`
   margin: 0 auto;
   margin-bottom: 32px;
   max-width: 1280px;

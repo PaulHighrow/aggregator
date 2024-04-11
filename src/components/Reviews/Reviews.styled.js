@@ -29,6 +29,19 @@ export const ReviewsSection = styled.section`
   }
 `;
 
+export const ReviewsSectionNew = styled.section`
+  position: relative;
+  padding-top: 50px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 100px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding-top: 150px;
+  }
+`;
+
 export const ReviewsBox = styled(Box)`
   padding: 0 30px;
 
@@ -42,6 +55,18 @@ export const ReviewsBox = styled(Box)`
 
   @media screen and (min-width: 1920px) {
     padding: 0;
+  }
+`;
+
+export const ReviewsDescription = styled.p`
+  font-family: var(--new-font-family);
+  font-size: 16px;
+  line-height: 1.2;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 1.3;
+    max-width: 728px;
   }
 `;
 
@@ -92,6 +117,24 @@ export const ReviewsTitle = styled.h2`
   @media screen and (min-width: 1280px) {
     max-width: 871px;
     font-size: 70px;
+  }
+`;
+
+export const ReviewsTitleBox = styled.div`
+  width: calc(100% - 40px);
+  max-width: 480px;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 50px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 100px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    max-width: 728px;
+    min-width: 340px;
+    margin-bottom: 150px;
   }
 `;
 

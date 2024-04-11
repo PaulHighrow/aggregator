@@ -75,6 +75,7 @@ export const TitleBox = styled.div`
 
   @media screen and (min-width: 1280px) {
     margin: 0;
+    min-width: 340px;
   }
 `;
 
@@ -188,6 +189,7 @@ export const WhoAreWeList = styled.ul`
   }
 
   @media screen and (min-width: 1280px) {
+    width: auto;
     font-size: 20px;
   }
 
@@ -223,7 +225,7 @@ export const WhoAreWeItem = styled.li`
   vertical-align: baseline;
 
   @media screen and (min-width: 768px) {
-    width: 200px;
+    width: max-content;
     font-size: 14px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -231,6 +233,7 @@ export const WhoAreWeItem = styled.li`
   }
 
   @media screen and (min-width: 1280px) {
+    width: auto;
     font-size: 20px;
   }
 `;

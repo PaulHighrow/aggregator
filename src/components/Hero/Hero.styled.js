@@ -93,7 +93,6 @@ export const TitleNew = styled.h1`
   margin: 0 auto 32px auto;
 
   @media screen and (min-width: 360px) {
-    font-size: 38px;
     max-width: 640px;
   }
 
@@ -104,11 +103,9 @@ export const TitleNew = styled.h1`
     max-width: 950px;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1280px) {
     margin: 0 auto 40px auto;
-    font-size: 35px;
-    line-height: 1.2;
-    max-width: 950px;
+    font-size: 50px;
   }
 
   &:before {

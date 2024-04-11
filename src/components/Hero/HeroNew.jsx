@@ -26,7 +26,7 @@ export const HeroNew = ({ toggleModal }) => {
       'ЗЛОЇБУЧЕ КНОПІЩЕ',
       'Please, try again later',
       'Зараз би в паб',
-      'Натисність сюди, щоб усвідомити без',
+      'Натисність сюди, щоб усвідомити, наскільки ця кнопка тут непотрібна',
     ];
     e.target.textContent =
       sillyTexts[Math.floor(Math.random() * sillyTexts.length)];

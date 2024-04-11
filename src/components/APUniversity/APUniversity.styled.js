@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const APSchoolSection = styled.section`
+export const APUniversitySection = styled.section`
   position: relative;
   padding: 50px 20px 0 20px;
 
@@ -15,7 +15,7 @@ export const APSchoolSection = styled.section`
   }
 `;
 
-export const APSchoolWrapper = styled.div`
+export const APUniversityWrapper = styled.div`
   margin: 0 auto;
   margin-bottom: 32px;
   max-width: 1280px;
@@ -28,7 +28,7 @@ export const APSchoolWrapper = styled.div`
 
   @media screen and (min-width: 1280px) {
     flex-direction: column;
-    /* flex-grow: 0; */
+    flex-grow: 0;
     gap: 40px;
     margin: 0;
     width: 351px;

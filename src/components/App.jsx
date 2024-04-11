@@ -29,6 +29,7 @@ import { WindowedChat } from 'utils/Chat/ChatWindowed/WindowedChat';
 import ScrollToTop from 'utils/ScrollToTop/ScrollToTop';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { ThankYouPage } from 'pages/ThankYouPage/ThankYouPage';
+import StreamTrialDeutschSprechclub from 'pages/Trials/StreamTrialDeutschSprechclub';
 
 const Home = lazy(() =>
   import(/* webpackChunkName: "Homepage" */ '../pages/Home/Home')
@@ -205,6 +206,7 @@ export const App = () => {
           <Route path="b2" element={<StreamB2 />} />
           <Route path="b2-chat" element={<WindowedChat />} />
           <Route path="deutsch" element={<StreamDeutsch />} />
+          <Route path="pilot-dsc" element={<StreamTrialDeutschSprechclub />} />
           {/* <Route path="pilot" element={<StreamDeutsch />} /> */}
           <Route path="deutsch-chat" element={<WindowedChat />} />
           <Route path="deutscha2" element={<StreamDeutschA2 />} />
@@ -249,7 +251,6 @@ export const App = () => {
         <Route path="trial-en" element={<StreamTrialEnglish />} />
         <Route path="trial-pl" element={<StreamTrialPolski />} />
         <Route path="trial-de" element={<StreamTrialDeutsch />} />
-        {/* <Route path="pilot-dsc" element={<StreamTrialDeutschSprechclub />} /> */}
         <Route path="pilot-scb1" element={<StreamTrialB1SpeakingClub />} />
         <Route path="trial-kids" element={<StreamTrialKids />} />
         <Route path="teacher" element={<Teacher />}>

@@ -1,6 +1,6 @@
 import Marquee from 'react-fast-marquee';
 import styled from 'styled-components';
-import { IoVolumeMute } from 'react-icons/io5';
+import { ReactComponent as IoVolumeMute } from '../../../img/svg/volume.svg';
 
 export const StyledMarquee = styled(Marquee)`
   margin: 0 auto;
@@ -63,8 +63,6 @@ export const MarqueeVideo = styled.video`
 `;
 
 export const MarqueeSoundBtn = styled(IoVolumeMute)`
-  fill: var(--accent-color);
-  stroke: var(--accent-color);
   width: 40px;
   height: 40px;
   opacity: 0.7;
