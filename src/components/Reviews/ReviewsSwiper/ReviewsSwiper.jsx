@@ -10,13 +10,17 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import useSize from '@react-hook/size';
 import { Autoplay } from 'swiper/modules';
 import { ReviewModal } from '../ReviewsMarquee/ReviewModal/ReviewModal';
+import {
+  HeroMarqueeTextIcon,
+  MarqueeTextNew,
+} from 'components/Hero/HeroMarquee/HeroMarquee.styled';
 
 export const ReviewsSwiper = ({ toggleModal }) => {
   const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
   const reviewId = useRef(0);
   const { ref, inView } = useInView();
   // eslint-disable-next-line
-const [width, _] = useSize(document.body);
+  const [width, _] = useSize(document.body);
 
   const handleToggleModal = e => {
     reviewId.current = e.currentTarget.id;
@@ -58,7 +62,7 @@ const [width, _] = useSize(document.body);
       <Swiper
         ref={ref}
         slidesPerView={'auto'}
-        spaceBetween={30}
+        spaceBetween={width < 768 ? 16 : 40}
         speed={4000}
         autoplay={{
           delay: 500,
@@ -70,11 +74,15 @@ const [width, _] = useSize(document.body);
         modules={[Autoplay]}
       >
         <SwiperSlide
-          style={width < 768 ? { maxWidth: '240px' } : { maxWidth: '320px' }}
+          style={width < 768 ? { maxWidth: '210px' } : { maxWidth: '360px' }}
         >
           <MarqueeChild id={0} onClick={handleToggleModal}>
             <MarqueeOverlay>
               <MarqueeSoundBtn />
+              <MarqueeTextNew>
+                Відгук
+                <HeroMarqueeTextIcon />
+              </MarqueeTextNew>
             </MarqueeOverlay>
             <MarqueeVideo
               autoplay={inView ? 'true' : 'false'}
@@ -94,11 +102,15 @@ const [width, _] = useSize(document.body);
           </MarqueeChild>
         </SwiperSlide>
         <SwiperSlide
-          style={width < 768 ? { maxWidth: '240px' } : { maxWidth: '320px' }}
+          style={width < 768 ? { maxWidth: '210px' } : { maxWidth: '360px' }}
         >
           <MarqueeChild id={1} onClick={handleToggleModal}>
             <MarqueeOverlay>
               <MarqueeSoundBtn />
+              <MarqueeTextNew>
+                Відгук
+                <HeroMarqueeTextIcon />
+              </MarqueeTextNew>
             </MarqueeOverlay>
             <MarqueeVideo
               autoplay={inView ? 'true' : 'false'}
@@ -118,11 +130,15 @@ const [width, _] = useSize(document.body);
           </MarqueeChild>
         </SwiperSlide>
         <SwiperSlide
-          style={width < 768 ? { maxWidth: '240px' } : { maxWidth: '320px' }}
+          style={width < 768 ? { maxWidth: '210px' } : { maxWidth: '360px' }}
         >
           <MarqueeChild id={2} onClick={handleToggleModal}>
             <MarqueeOverlay>
               <MarqueeSoundBtn />
+              <MarqueeTextNew>
+                Відгук
+                <HeroMarqueeTextIcon />
+              </MarqueeTextNew>
             </MarqueeOverlay>
             <MarqueeVideo
               autoplay={inView ? 'true' : 'false'}
@@ -142,11 +158,15 @@ const [width, _] = useSize(document.body);
           </MarqueeChild>
         </SwiperSlide>
         <SwiperSlide
-          style={width < 768 ? { maxWidth: '240px' } : { maxWidth: '320px' }}
+          style={width < 768 ? { maxWidth: '210px' } : { maxWidth: '360px' }}
         >
           <MarqueeChild id={3} onClick={handleToggleModal}>
             <MarqueeOverlay>
               <MarqueeSoundBtn />
+              <MarqueeTextNew>
+                Відгук
+                <HeroMarqueeTextIcon />
+              </MarqueeTextNew>
             </MarqueeOverlay>
             <MarqueeVideo
               autoplay={inView ? 'true' : 'false'}
@@ -166,11 +186,15 @@ const [width, _] = useSize(document.body);
           </MarqueeChild>
         </SwiperSlide>
         <SwiperSlide
-          style={width < 768 ? { maxWidth: '240px' } : { maxWidth: '320px' }}
+          style={width < 768 ? { maxWidth: '210px' } : { maxWidth: '360px' }}
         >
           <MarqueeChild id={4} onClick={handleToggleModal}>
             <MarqueeOverlay>
               <MarqueeSoundBtn />
+              <MarqueeTextNew>
+                Відгук
+                <HeroMarqueeTextIcon />
+              </MarqueeTextNew>
             </MarqueeOverlay>
             <MarqueeVideo
               autoplay={inView ? 'true' : 'false'}
@@ -190,11 +214,15 @@ const [width, _] = useSize(document.body);
           </MarqueeChild>
         </SwiperSlide>
         <SwiperSlide
-          style={width < 768 ? { maxWidth: '240px' } : { maxWidth: '320px' }}
+          style={width < 768 ? { maxWidth: '210px' } : { maxWidth: '360px' }}
         >
           <MarqueeChild id={5} onClick={handleToggleModal}>
             <MarqueeOverlay>
               <MarqueeSoundBtn />
+              <MarqueeTextNew>
+                Відгук
+                <HeroMarqueeTextIcon />
+              </MarqueeTextNew>
             </MarqueeOverlay>
             <MarqueeVideo
               autoplay={inView ? 'true' : 'false'}
@@ -214,11 +242,15 @@ const [width, _] = useSize(document.body);
           </MarqueeChild>
         </SwiperSlide>
         <SwiperSlide
-          style={width < 768 ? { maxWidth: '240px' } : { maxWidth: '320px' }}
+          style={width < 768 ? { maxWidth: '210px' } : { maxWidth: '360px' }}
         >
           <MarqueeChild id={6} onClick={handleToggleModal}>
             <MarqueeOverlay>
               <MarqueeSoundBtn />
+              <MarqueeTextNew>
+                Відгук
+                <HeroMarqueeTextIcon />
+              </MarqueeTextNew>
             </MarqueeOverlay>
             <MarqueeVideo
               autoplay={inView ? 'true' : 'false'}
@@ -238,11 +270,15 @@ const [width, _] = useSize(document.body);
           </MarqueeChild>
         </SwiperSlide>
         <SwiperSlide
-          style={width < 768 ? { maxWidth: '240px' } : { maxWidth: '320px' }}
+          style={width < 768 ? { maxWidth: '210px' } : { maxWidth: '360px' }}
         >
           <MarqueeChild id={7} onClick={handleToggleModal}>
             <MarqueeOverlay>
               <MarqueeSoundBtn />
+              <MarqueeTextNew>
+                Відгук
+                <HeroMarqueeTextIcon />
+              </MarqueeTextNew>
             </MarqueeOverlay>
             <MarqueeVideo
               autoplay={inView ? 'true' : 'false'}
@@ -262,11 +298,15 @@ const [width, _] = useSize(document.body);
           </MarqueeChild>
         </SwiperSlide>
         <SwiperSlide
-          style={width < 768 ? { maxWidth: '240px' } : { maxWidth: '320px' }}
+          style={width < 768 ? { maxWidth: '210px' } : { maxWidth: '360px' }}
         >
           <MarqueeChild id={8} onClick={handleToggleModal}>
             <MarqueeOverlay>
               <MarqueeSoundBtn />
+              <MarqueeTextNew>
+                Відгук
+                <HeroMarqueeTextIcon />
+              </MarqueeTextNew>
             </MarqueeOverlay>
             <MarqueeVideo
               autoplay={inView ? 'true' : 'false'}
@@ -286,11 +326,15 @@ const [width, _] = useSize(document.body);
           </MarqueeChild>
         </SwiperSlide>
         <SwiperSlide
-          style={width < 768 ? { maxWidth: '240px' } : { maxWidth: '320px' }}
+          style={width < 768 ? { maxWidth: '210px' } : { maxWidth: '360px' }}
         >
           <MarqueeChild id={9} onClick={handleToggleModal}>
             <MarqueeOverlay>
               <MarqueeSoundBtn />
+              <MarqueeTextNew>
+                Відгук
+                <HeroMarqueeTextIcon />
+              </MarqueeTextNew>
             </MarqueeOverlay>
             <MarqueeVideo
               autoplay={inView ? 'true' : 'false'}

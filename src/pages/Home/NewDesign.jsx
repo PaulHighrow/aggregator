@@ -1,11 +1,11 @@
 import { APCourses } from 'components/APCourses/APCourses';
 import { APSchool } from 'components/APSchool/APSchool';
 import { APUniversity } from 'components/APUniversity/APUniversity';
-import { AboutUs } from 'components/AboutUs/AboutUs';
 import { Consent } from 'components/Consent/Consent';
 import { HeroNew } from 'components/Hero/HeroNew';
 import { HowItWorksNew } from 'components/HowItWorks/HowItWorksNew';
 import { LeadForm } from 'components/LeadForm/LeadForm';
+import { PageFormNew } from 'components/PageFormNew/PageFormNew';
 import { ReviewsNew } from 'components/Reviews/ReviewsNew';
 import { useEffect, useState } from 'react';
 
@@ -52,8 +52,8 @@ const NewDesign = ({ utms }) => {
       {/* <Admission /> */}
       {/* <Translations utms={utms} /> */}
       <ReviewsNew />
+      <PageFormNew />
       {/* <ExamCenter toggleModal={toggleModal} closeModal={closeModal} /> */}
-      <AboutUs />
       <Consent />
       {isOpenModal && <LeadForm closeModal={closeModal} utms={utms} />}
     </>

@@ -1,6 +1,6 @@
 import Marquee from 'react-fast-marquee';
 import styled from 'styled-components';
-import { ReactComponent as IoVolumeMute } from '../../../img/svg/volume.svg';
+import { ReactComponent as VolumeMute } from '../../../img/svg/volume.svg';
 
 export const StyledMarquee = styled(Marquee)`
   margin: 0 auto;
@@ -11,14 +11,15 @@ export const MarqueeChild = styled.div`
   position: relative;
   border-radius: 20px;
   overflow: hidden;
-  margin-right: 30px;
+  margin-right: 16px;
   transition: transform var(--animation-global);
-  width: 240px;
-  height: 240px;
+  width: 210px;
+  height: 210px;
 
   @media screen and (min-width: 768px) {
-    width: 320px;
-    height: 320px;
+    width: 360px;
+    height: 360px;
+    margin-right: 40px;
   }
 
   &:hover > *,
@@ -53,25 +54,23 @@ export const MarqueeOverlay = styled.div`
 
 export const MarqueeVideo = styled.video`
   object-fit: cover;
-  width: 240px;
-  height: 240px;
+  width: 210px;
+  height: 210px;
 
   @media screen and (min-width: 768px) {
-    width: 320px;
-    height: 320px;
+    width: 360px;
+    height: 360px;
   }
 `;
 
-export const MarqueeSoundBtn = styled(IoVolumeMute)`
-  width: 40px;
-  height: 40px;
-  opacity: 0.7;
+export const MarqueeSoundBtn = styled(VolumeMute)`
+  width: 24px;
+  height: 24px;
   z-index: 5;
 
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 10px;
+  right: 10px;
 
   transition: opacity var(--animation-global);
 `;

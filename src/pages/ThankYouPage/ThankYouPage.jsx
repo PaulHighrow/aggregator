@@ -1,11 +1,12 @@
 import { HeaderWrapper, LogoNew, LogoRoute } from 'components/Menu/Menu.styled';
+import thankYouPersonPNG from '../../img/bg/thank-you-person.png';
+import thankYouPersonWebp from '../../img/bg/thank-you-person.webp';
 import {
   ButtonBox,
   FacebookBtn,
   HeroBottomStar,
   HeroTopStar,
   InstagramBtn,
-  LinkBtn,
   MainLinkBtn,
   SocialLogoLink,
   SocialsBox,
@@ -20,10 +21,8 @@ import {
   ThankYouSection,
   ThankYouTextWrapper,
   TikTokBtn,
-  YouTubeBtn,
+  YouTubeBtn
 } from './ThankYouPage.styled';
-import thankYouPersonPNG from '../../img/bg/thank-you-person.png';
-import thankYouPersonWebp from '../../img/bg/thank-you-person.webp';
 
 export const ThankYouPage = () => {
   return (
@@ -41,14 +40,14 @@ export const ThankYouPage = () => {
           <ThankYouArrow />
           <ThankYouHeading> Дякуємо, що заповнили форму!</ThankYouHeading>
           <ThankYouDesc>
-            Ви можете повернутися на головну, а також переглянути наші інші
+            Ви можете повернутися на головну, щоб переглянути наші інші
             напрямки роботи!
           </ThankYouDesc>
 
           <ButtonBox>
             <MainLinkBtn to={'/'}>Головна</MainLinkBtn>
-            <LinkBtn to={'/school'}>AP SCHOOL</LinkBtn>
-            <LinkBtn to={'/university'}>AP UNIVERSITY</LinkBtn>
+            {/* <LinkBtn to={'/school'}>AP SCHOOL</LinkBtn> */}
+            {/* <LinkBtn to={'/university'}>AP UNIVERSITY</LinkBtn> */}
           </ButtonBox>
         </ThankYouTextWrapper>
 
