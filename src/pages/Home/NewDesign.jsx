@@ -52,7 +52,7 @@ const NewDesign = ({ utms }) => {
       {/* <Admission /> */}
       {/* <Translations utms={utms} /> */}
       <ReviewsNew />
-      <PageFormNew />
+      <PageFormNew utms={utms}/>
       {/* <ExamCenter toggleModal={toggleModal} closeModal={closeModal} /> */}
       <Consent />
       {isOpenModal && <LeadForm closeModal={closeModal} utms={utms} />}

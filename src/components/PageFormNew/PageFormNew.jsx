@@ -1,19 +1,23 @@
 import axios from 'axios';
+import { SectionTitleNew } from 'components/HowItWorks/HowItWorks.styled';
 import {
-    SectionTitleNew
-} from 'components/HowItWorks/HowItWorks.styled';
-import {
-    FormBtn,
-    HiddenInput,
-    InputNote,
-    Label
+  HiddenInput,
+  InputNote
 } from 'components/LeadForm/LeadForm.styled';
 import { Loader } from 'components/SharedLayout/Loaders/Loader';
 import { Formik } from 'formik';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
-import { PageFormDescription, PageFormInput, PageFormNewSection, PageFormTitleBox, StyledFormNew } from './PageFormNew.styled';
+import {
+  PageFormDescription,
+  PageFormInput,
+  PageFormLabel,
+  PageFormLeadBtn,
+  PageFormNewSection,
+  PageFormTitleBox,
+  StyledFormNew,
+} from './PageFormNew.styled';
 
 axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
 
@@ -41,7 +45,7 @@ export const PageFormNew = ({ utms }) => {
       .string()
       .required("Будь ласка, вкажіть своє ім'я!")
       .matches(
-        /^[A-Za-zА-Яа-яіІїЇ]+(?:[-'\s][A-Za-zА-Яа-яіІїЇ]+)*$/,
+        /^[A-Za-zА-Яа-яіІїЇ]+(?:[-'\s][A-Za-zА-Яа-яіІїЇєЄ]+)*$/,
         "Ім'я не має містити цифр та спецсимволів!"
       )
       .min(2, "Ім'я має складатися не менше ніж з 2 символів!")
@@ -107,14 +111,14 @@ export const PageFormNew = ({ utms }) => {
         validationSchema={leadSchema}
       >
         <StyledFormNew>
-          <Label>
+          <PageFormLabel>
             <PageFormInput type="text" name="name" placeholder="Ім'я" />
             <InputNote component="p" name="name" />
-          </Label>
-          <Label>
+          </PageFormLabel>
+          <PageFormLabel>
             <PageFormInput type="tel" name="phone" placeholder="Телефон" />
             <InputNote component="p" name="phone" />
-          </Label>
+          </PageFormLabel>
           <HiddenInput type="text" name="utm_content" />
           <HiddenInput type="text" name="utm_medium" />
           <HiddenInput type="text" name="utm_campaign" />
@@ -125,7 +129,7 @@ export const PageFormNew = ({ utms }) => {
           <HiddenInput type="text" name="gclientid" />
           <HiddenInput type="text" name="gclid" />
           <HiddenInput type="text" name="fbclid" />
-          <FormBtn type="submit">Надіслати</FormBtn>
+          <PageFormLeadBtn type="submit">Надіслати</PageFormLeadBtn>
           {isLoading && <Loader />}
         </StyledFormNew>
       </Formik>

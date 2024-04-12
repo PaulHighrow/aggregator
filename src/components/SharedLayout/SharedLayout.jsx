@@ -8,12 +8,13 @@ import { Outlet, useLocation } from 'react-router-dom';
 import { OffsetLoader } from './Loaders/OffsetLoader';
 import { SuspenseBox, SuspenseTitle } from './SharedLayout.styled';
 import { MenuNew } from 'components/Menu/MenuNew';
+import { MainFooterNew } from 'components/MainFooter/MainFooterNew';
 
 axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
 
 export const SharedLayout = ({ utms }) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const location = useLocation()
+  const location = useLocation();
   console.log(location);
 
   const toggleModal = () => {
@@ -66,8 +67,11 @@ export const SharedLayout = ({ utms }) => {
 
   return (
     <>
-      {location.pathname === 
-      "/new" ? <MenuNew toggleModal={toggleModal} /> : <Menu toggleModal={toggleModal} />}
+      {location.pathname === '/new' ? (
+        <MenuNew toggleModal={toggleModal} />
+      ) : (
+        <Menu toggleModal={toggleModal} />
+      )}
 
       <Suspense
         fallback={
@@ -80,7 +84,11 @@ export const SharedLayout = ({ utms }) => {
         <Outlet />
       </Suspense>
 
-      <MainFooter toggleModal={toggleModal} />
+      {location.pathname === '/new' ? (
+        <MainFooterNew toggleModal={toggleModal} />
+      ) : (
+        <MainFooter toggleModal={toggleModal} />
+      )}
 
       <UpButton />
 

@@ -25,7 +25,11 @@ export const StyledFormNew = styled(Form)`
   font-family: var(--new-font-family);
   width: 100%;
   margin: 0 auto;
-  gap: 36px;
+  gap: 16px;
+
+  @media screen and (min-width: 1280px) {
+    flex-direction: row;
+  }
 `;
 
 export const PageFormTitleBox = styled.div`
@@ -52,7 +56,7 @@ export const PageFormDescription = styled(SectionDescription)`
   max-width: unset;
 `;
 
-export const Label = styled.label`
+export const PageFormLabel = styled.label`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -64,14 +68,14 @@ export const Label = styled.label`
     max-width: 450px;
   }
 
-  @media screen and (min-width: 768px) {
-    width: 500px;
+  @media screen and (min-width: 1280px) {
+    width: 400px;
   }
 `;
 
 export const PageFormInput = styled(Field)`
   width: 100%;
-  padding: 20px;
+  padding: 19px 20px;
   font-size: 14px;
   color: var(--main-color);
   border: 2px solid var(--main-color);
@@ -81,8 +85,8 @@ export const PageFormInput = styled(Field)`
     max-width: 450px;
   }
 
-  @media screen and (min-width: 768px) {
-    width: 500px;
+  @media screen and (min-width: 1280px) {
+    width: 400px;
   }
 
   &:hover,
@@ -117,4 +121,36 @@ export const InputNote = styled(ErrorMessage)`
     bottom: -28px;
     font-size: 22px;
   }
+`;
+
+export const PageFormLeadBtn = styled.button`
+  display: block;
+  margin: 0 auto;
+  margin-top: 16px;
+  width: 100%;
+  height: 58px;
+  padding: 19px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  background: linear-gradient(322deg, #0f645b 23.22%, #09c6cc 110.01%), #0f645b;
+  color: #fff;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 50px;
+
+  @media screen and (min-width: 360px) {
+    max-width: 450px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin: 0;
+    margin-left: 8px;
+    width: 230px;
+  }
+
+  text-align: center;
+  position: relative;
+  outline: transparent;
+  transition: box-shadow var(--animation-global),
+    transform var(--animation-global);
 `;
