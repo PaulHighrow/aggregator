@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.b44409d2.css",
-    "main.js": "/aggregator/static/js/main.cfe57caf.js",
+    "main.js": "/aggregator/static/js/main.133a9244.js",
     "Homepage.css": "/aggregator/static/css/Homepage.f8e4d2c9.chunk.css",
     "Homepage.js": "/aggregator/static/js/Homepage.28354185.chunk.js",
     "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.9dd62127.chunk.js",
     "New Design Homepage.css": "/aggregator/static/css/New Design Homepage.f8e4d2c9.chunk.css",
-    "New Design Homepage.js": "/aggregator/static/js/New Design Homepage.864ab79b.chunk.js",
+    "New Design Homepage.js": "/aggregator/static/js/New Design Homepage.a5e268a0.chunk.js",
     "Streams page.js": "/aggregator/static/js/Streams page.f61f6ec8.chunk.js",
     "Service page.js": "/aggregator/static/js/Service page.f36777f4.chunk.js",
     "HR page.js": "/aggregator/static/js/HR page.91c33303.chunk.js",
@@ -84,6 +84,7 @@
     "static/media/tablet-bg@1x.webp": "/aggregator/static/media/tablet-bg@1x.ff332dbb2e5cfc7b04e7.webp",
     "static/media/desktop-bg-inv@2x.webp": "/aggregator/static/media/desktop-bg-inv@2x.a6f82dc4a3071bc282dc.webp",
     "static/media/hero-caveat.svg": "/aggregator/static/media/hero-caveat.fcf1172f9c41480c02011920088ade29.svg",
+    "static/media/logoNewWhite.svg": "/aggregator/static/media/logoNewWhite.d420f9a07895edb0c0604d054e97b8bd.svg",
     "static/media/desktop-bg-inv@1x.png": "/aggregator/static/media/desktop-bg-inv@1x.99862da6eaf6d93bd6fb.png",
     "static/media/mobile-bg@1x.png": "/aggregator/static/media/mobile-bg@1x.63b0a483f731acc05fc0.png",
     "static/media/mobile-bg-inv@2x.png": "/aggregator/static/media/mobile-bg-inv@2x.44ead7d9e90b86580234.png",
@@ -99,6 +100,7 @@
     "static/media/mobile-bg-inv@2x.webp": "/aggregator/static/media/mobile-bg-inv@2x.c48bd06db2006d529b3d.webp",
     "static/media/chat-bg@1x.png": "/aggregator/static/media/chat-bg@1x.e40c87725563cc682cba.png",
     "static/media/monoPaw.svg": "/aggregator/static/media/monoPaw.74d8d0148fe0f5dd7ce256ac6bdc0b08.svg",
+    "static/media/monoPawWhite.svg": "/aggregator/static/media/monoPawWhite.a0a9a0d5f8d45e35dd5b19faac2664af.svg",
     "static/media/mobile-bg-inv@1x.png": "/aggregator/static/media/mobile-bg-inv@1x.b165322665a1587048ae.png",
     "static/media/invertedLogo.svg": "/aggregator/static/media/invertedLogo.af551277e0a22f7c3a5b28c32549db12.svg",
     "static/media/tablet-bg-inv@1x.webp": "/aggregator/static/media/tablet-bg-inv@1x.cae5b57d35484b82bd0a.webp",
@@ -181,12 +183,12 @@
     "static/media/btnbox-switch-right-large.svg": "/aggregator/static/media/btnbox-switch-right-large.d4edfcc5f338a2d51c7d6695947ffc4e.svg",
     "static/media/btnbox-switch-right.svg": "/aggregator/static/media/btnbox-switch-right.c2062beab8ed3d828de36754c3279d60.svg",
     "main.b44409d2.css.map": "/aggregator/static/css/main.b44409d2.css.map",
-    "main.cfe57caf.js.map": "/aggregator/static/js/main.cfe57caf.js.map",
+    "main.133a9244.js.map": "/aggregator/static/js/main.133a9244.js.map",
     "Homepage.f8e4d2c9.chunk.css.map": "/aggregator/static/css/Homepage.f8e4d2c9.chunk.css.map",
     "Homepage.28354185.chunk.js.map": "/aggregator/static/js/Homepage.28354185.chunk.js.map",
     "Inverted Homepage.9dd62127.chunk.js.map": "/aggregator/static/js/Inverted Homepage.9dd62127.chunk.js.map",
     "New Design Homepage.f8e4d2c9.chunk.css.map": "/aggregator/static/css/New Design Homepage.f8e4d2c9.chunk.css.map",
-    "New Design Homepage.864ab79b.chunk.js.map": "/aggregator/static/js/New Design Homepage.864ab79b.chunk.js.map",
+    "New Design Homepage.a5e268a0.chunk.js.map": "/aggregator/static/js/New Design Homepage.a5e268a0.chunk.js.map",
     "Streams page.f61f6ec8.chunk.js.map": "/aggregator/static/js/Streams page.f61f6ec8.chunk.js.map",
     "Service page.f36777f4.chunk.js.map": "/aggregator/static/js/Service page.f36777f4.chunk.js.map",
     "HR page.91c33303.chunk.js.map": "/aggregator/static/js/HR page.91c33303.chunk.js.map",
@@ -226,6 +228,6 @@
   },
   "entrypoints": [
     "static/css/main.b44409d2.css",
-    "static/js/main.cfe57caf.js"
+    "static/js/main.133a9244.js"
   ]
 }
