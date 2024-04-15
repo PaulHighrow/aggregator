@@ -69,39 +69,6 @@ export const MainFooterNew = ({ toggleModal }) => {
                 </FooterLeadBtnNew>
               </LeadWrapperNew>
             </FooterLeftBox>
-            {width < 768 && (
-              <SocialsLinkWrapperNew>
-                <SocialLogoLink
-                  href="https://www.youtube.com/channel/UC3XSGAVLhPXXlMN5-Gebtvw"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <YouTubeBtnNew />
-                </SocialLogoLink>
-
-                <SocialLogoLink
-                  href="https://www.facebook.com/ap.edu.centre/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FacebookBtnNew />
-                </SocialLogoLink>
-                <SocialLogoLink
-                  href="https://www.instagram.com/ap.education/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <InstagramBtnNew />
-                </SocialLogoLink>
-                <SocialLogoLink
-                  href="https://www.tiktok.com/@ap_education"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <TikTokBtnNew />
-                </SocialLogoLink>
-              </SocialsLinkWrapperNew>
-            )}
 
             <LeadSocialWrapper>
               <FooterListNew>
@@ -142,7 +109,7 @@ export const MainFooterNew = ({ toggleModal }) => {
                   </LinkList>
                 </FooterListItemNew>
               </FooterListNew>
-              {width >= 768 && (
+
               <SocialsLinkWrapperNew>
                 <SocialLogoLink
                   href="https://www.youtube.com/channel/UC3XSGAVLhPXXlMN5-Gebtvw"
@@ -174,7 +141,6 @@ export const MainFooterNew = ({ toggleModal }) => {
                   <TikTokBtnNew />
                 </SocialLogoLink>
               </SocialsLinkWrapperNew>
-            )}
             </LeadSocialWrapper>
           </FooterTopContainer>
           <FooterBottomContainerNew>

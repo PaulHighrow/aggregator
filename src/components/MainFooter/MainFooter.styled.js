@@ -58,6 +58,10 @@ export const FooterLeftBox = styled.div`
   @media screen and (min-width: 768px) {
     gap: 88px;
   }
+
+  @media screen and (min-width: 1280px) {
+    gap: 117px;
+  }
 `;
 
 export const IconBox = styled.div`
@@ -136,7 +140,7 @@ export const FooterLogoNew = styled(LogoNew)`
   }
 
   @media screen and (min-width: 1280px) {
-    margin-bottom: 0;
+    width: 372px;
   }
 `;
 
@@ -159,6 +163,12 @@ export const SocialsLinkWrapperNew = styled.div`
   width: max-content;
   gap: 16px;
   margin-bottom: 40px;
+
+  @media screen and (min-width: 768px) {
+    margin-left: auto;
+    margin-top: 47px;
+    margin-bottom: 0;
+  }
 `;
 
 const socialBtnStyles =
@@ -263,6 +273,11 @@ export const MonoPawIcon = styled(MonoIcon)`
 export const MonoPawIconWhite = styled(MonoIconWhite)`
   height: 40px;
   width: 140px;
+
+  @media screen and (min-width: 768px) {
+    height: 27px;
+  width: 91px;
+  }
 `;
 
 export const LeadWrapper = styled.div`
@@ -301,8 +316,10 @@ export const LeadWrapperNew = styled.div`
 `;
 
 export const LeadSocialWrapper = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
+
   @media screen and (min-width: 768px) {
-    display: flex;
     flex-direction: column;
     gap: 20px;
   }
@@ -331,8 +348,7 @@ export const LeadDescNew = styled.p`
   color: var(--secondary-color);
 
   @media screen and (min-width: 1280px) {
-    font-size: 22px;
-    text-align: left;
+    font-size: 16px;
   }
 `;
 
@@ -397,11 +413,12 @@ export const FooterListNew = styled.ul`
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
+    padding-bottom: 0;
+    gap: 24px;
   }
 
   @media screen and (min-width: 1280px) {
     gap: 63px;
-    padding-bottom: 0;
   }
 `;
 
@@ -575,7 +592,7 @@ export const FooterCopyright = styled.p`
   font-weight: 600;
 `;
 
-export const FooterCopyrightNew = styled.p`
+export const FooterCopyrightNew = styled.span`
   color: var(--secondary-color);
   font-size: 12px;
 
