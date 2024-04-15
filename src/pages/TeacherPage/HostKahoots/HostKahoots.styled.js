@@ -12,6 +12,9 @@ import { CloseIcon, FormCloseBtn } from 'components/LeadForm/LeadForm.styled';
 import { ChatLoginValidation } from 'utils/Chat/Chat.styled';
 
 export const KahootBox = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
   outline: transparent;
 
   transition: all var(--animation-global);
@@ -22,8 +25,6 @@ export const KahootBox = styled.div`
 
   &.shown {
     transform: translateX(0);
-    position: absolute;
-    top: 0;
     left: 0;
   }
 

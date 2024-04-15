@@ -5,7 +5,12 @@ import {
   KahootPicker,
 } from '../HostKahoots/HostKahoots.styled';
 
-export const Platform = ({ isPlatformOpen, isOpenedLast, sectionWidth }) => {
+export const Platform = ({
+  page,
+  isPlatformOpen,
+  isOpenedLast,
+  sectionWidth,
+}) => {
   const [lessons, setLessons] = useState(1);
   const [activeLesson, setActiveLesson] = useState(1);
   const [picker, setPicker] = useState([lessons]);
@@ -31,6 +36,12 @@ export const Platform = ({ isPlatformOpen, isOpenedLast, sectionWidth }) => {
         {lessons === 1 && (
           <AddLessonBtn
             onClick={() => {
+              if (page.includes('polski')) {
+                setLessons(lessons => lessons + 2);
+                setPicker(picker => {
+                  return [...picker, lessons + 2];
+                });
+              }
               setLessons(lessons => lessons + 1);
               setPicker(picker => {
                 return [...picker, lessons + 1];
@@ -69,6 +80,17 @@ export const Platform = ({ isPlatformOpen, isOpenedLast, sectionWidth }) => {
           <iframe
             className={activeLesson === 2 && 'active'}
             key={lessons + 1}
+            id={`platform-window-${lessons}`}
+            title={`platform-pin-${lessons}`}
+            src="https://online.ap.education/school/"
+            width="100%"
+            height="100%"
+          ></iframe>
+        )}
+        {lessons > 2 && (
+          <iframe
+            className={activeLesson === 3 && 'active'}
+            key={lessons + 2}
             id={`platform-window-${lessons}`}
             title={`platform-pin-${lessons}`}
             src="https://online.ap.education/school/"

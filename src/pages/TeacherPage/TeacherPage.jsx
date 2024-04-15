@@ -146,6 +146,7 @@ const TeacherPage = () => {
         isOpenedLast={isOpenedLast}
       />
       <Platform
+        page={page}
         sectionWidth={width}
         isPlatformOpen={isPlatformOpen}
         isOpenedLast={isOpenedLast}

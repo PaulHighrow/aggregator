@@ -10,6 +10,8 @@ import {
   KahootMinimizeIcon,
   KahootPlaceholder,
   KahootEnlargeButton,
+  KahootPicker,
+  KahootNumbersBtn,
 } from './HostKahoots.styled';
 
 export const HostKahootsTrial = ({
@@ -22,6 +24,7 @@ export const HostKahootsTrial = ({
   const [isMinimized, setIsMinimized] = useState(false);
   const [isLinkSize, setIsLinkSize] = useState(false);
   const [kahoots, setKahoots] = useState({});
+  const [activeKahoot, setActiveKahoot] = useState(1);
 
   const kahootWidth = isLinkSize ? '1024px' : (sectionWidth / 10) * 4;
   const minimizedWidth = '124px';
@@ -30,6 +33,7 @@ export const HostKahootsTrial = ({
   const getLinksForLocation = () => {
     const entries = [];
     Object.values(kahoots[page].links).map(entry => {
+      console.log(entry);
       entries.push(entry);
       return entries;
     });
@@ -41,6 +45,12 @@ export const HostKahootsTrial = ({
     if (e.target === e.currentTarget) {
       setKahoots((await axios.get('/host-kahoots')).data);
     }
+  };
+
+  const setKahootNumber = async e => {
+    const kahootNumber = parseInt(e.currentTarget.innerText);
+    setKahoots((await axios.get('/host-kahoots')).data);
+    setActiveKahoot(kahootNumber);
   };
 
   const toggleKahootWidth = () => {
@@ -101,11 +111,33 @@ export const HostKahootsTrial = ({
           <KahootEnlargeButton onClick={toggleKahootWidth}>
             +
           </KahootEnlargeButton>
+          {Object.values(kahoots[page].links).length > 1 && (
+            <KahootPicker>
+              {Object.values(kahoots[page].links).map((link, i) => (
+                <KahootNumbersBtn
+                  key={i}
+                  onClick={setKahootNumber}
+                  className={activeKahoot === i + 1 ? 'active' : ''}
+                  tabIndex={-1}
+                >
+                  {i + 1}
+                </KahootNumbersBtn>
+              ))}
+            </KahootPicker>
+          )}
           {getLinksForLocation().map((link, i) => (
-            <KahootBackground key={i}>
+            <KahootBackground
+              key={i}
+              className={
+                activeKahoot === i + 1 &&
+                Object.values(kahoots[page].links).length !== 1
+                  ? 'active'
+                  : ''
+              }
+            >
               <iframe
-                id="host-kahoot-window"
-                title="host-kahoot"
+                id={`host-kahoot-window-${i + 1}`}
+                title={`host-kahoot-${i + 1}`}
                 src={link}
                 width={isMinimized ? minimizedWidth : kahootWidth}
                 height={!isMinimized ? sectionHeight : minimizedHeight}
