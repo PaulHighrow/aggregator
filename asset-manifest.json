@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.b44409d2.css",
-    "main.js": "/aggregator/static/js/main.133a9244.js",
+    "main.js": "/aggregator/static/js/main.74293502.js",
     "Homepage.css": "/aggregator/static/css/Homepage.f8e4d2c9.chunk.css",
     "Homepage.js": "/aggregator/static/js/Homepage.28354185.chunk.js",
     "Inverted Homepage.js": "/aggregator/static/js/Inverted Homepage.9dd62127.chunk.js",
@@ -22,7 +22,7 @@
     "Polski courses page.js": "/aggregator/static/js/Polski courses page.bf77fa7c.chunk.js",
     "Deutsch courses page.css": "/aggregator/static/css/Deutsch courses page.f8e4d2c9.chunk.css",
     "Deutsch courses page.js": "/aggregator/static/js/Deutsch courses page.62cb4fe3.chunk.js",
-    "Teacher Page.js": "/aggregator/static/js/Teacher Page.48cf4245.chunk.js",
+    "Teacher Page.js": "/aggregator/static/js/Teacher Page.9d8aacc5.chunk.js",
     "My AP Page.js": "/aggregator/static/js/My AP Page.2965a969.chunk.js",
     "Not Found.js": "/aggregator/static/js/Not Found.eaa0fef5.chunk.js",
     "reactPlayerYouTube.js": "/aggregator/static/js/reactPlayerYouTube.074f9284.chunk.js",
@@ -183,7 +183,7 @@
     "static/media/btnbox-switch-right-large.svg": "/aggregator/static/media/btnbox-switch-right-large.d4edfcc5f338a2d51c7d6695947ffc4e.svg",
     "static/media/btnbox-switch-right.svg": "/aggregator/static/media/btnbox-switch-right.c2062beab8ed3d828de36754c3279d60.svg",
     "main.b44409d2.css.map": "/aggregator/static/css/main.b44409d2.css.map",
-    "main.133a9244.js.map": "/aggregator/static/js/main.133a9244.js.map",
+    "main.74293502.js.map": "/aggregator/static/js/main.74293502.js.map",
     "Homepage.f8e4d2c9.chunk.css.map": "/aggregator/static/css/Homepage.f8e4d2c9.chunk.css.map",
     "Homepage.28354185.chunk.js.map": "/aggregator/static/js/Homepage.28354185.chunk.js.map",
     "Inverted Homepage.9dd62127.chunk.js.map": "/aggregator/static/js/Inverted Homepage.9dd62127.chunk.js.map",
@@ -204,7 +204,7 @@
     "Polski courses page.bf77fa7c.chunk.js.map": "/aggregator/static/js/Polski courses page.bf77fa7c.chunk.js.map",
     "Deutsch courses page.f8e4d2c9.chunk.css.map": "/aggregator/static/css/Deutsch courses page.f8e4d2c9.chunk.css.map",
     "Deutsch courses page.62cb4fe3.chunk.js.map": "/aggregator/static/js/Deutsch courses page.62cb4fe3.chunk.js.map",
-    "Teacher Page.48cf4245.chunk.js.map": "/aggregator/static/js/Teacher Page.48cf4245.chunk.js.map",
+    "Teacher Page.9d8aacc5.chunk.js.map": "/aggregator/static/js/Teacher Page.9d8aacc5.chunk.js.map",
     "My AP Page.2965a969.chunk.js.map": "/aggregator/static/js/My AP Page.2965a969.chunk.js.map",
     "Not Found.eaa0fef5.chunk.js.map": "/aggregator/static/js/Not Found.eaa0fef5.chunk.js.map",
     "reactPlayerYouTube.074f9284.chunk.js.map": "/aggregator/static/js/reactPlayerYouTube.074f9284.chunk.js.map",
@@ -228,6 +228,6 @@
   },
   "entrypoints": [
     "static/css/main.b44409d2.css",
-    "static/js/main.133a9244.js"
+    "static/js/main.74293502.js"
   ]
 }
