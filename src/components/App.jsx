@@ -184,6 +184,8 @@ export const App = () => {
           <Route path="reviews" element={<AllReviews />} />
           <Route path="deutsch" element={<Deutsch utms={utms} />} />
           <Route path="polski" element={<Polski utms={utms} />} />
+          <Route path="school" element={<NewDesign utms={utms} />} />
+          <Route path="university" element={<NewDesign utms={utms} />} />
           {/* <Route path="english" element={<English utms={utms} />} />
           
           <Route path="education" element={<Education utms={utms} />} />

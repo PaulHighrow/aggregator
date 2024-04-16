@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
 
 export const ModalWindow = styled.div`
+  font-family: var(--new-font-family);
   position: fixed;
   top: 50%;
   left: 50%;
@@ -50,7 +51,7 @@ export const MarqueeCloseBtn = styled(FormCloseBtn)`
 
 export const ModalHeader = styled.h4`
   color: var(--accent-color);
-  font-family: var(--secondary-font-family);
+  font-family: var(--new-font-family);
   font-size: 24px;
   text-transform: uppercase;
 

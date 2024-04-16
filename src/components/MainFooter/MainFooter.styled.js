@@ -169,6 +169,10 @@ export const SocialsLinkWrapperNew = styled.div`
     margin-top: 47px;
     margin-bottom: 0;
   }
+
+  @media screen and (min-width: 1280px) {
+    margin-top: 86px;
+  }
 `;
 
 const socialBtnStyles =
@@ -276,7 +280,12 @@ export const MonoPawIconWhite = styled(MonoIconWhite)`
 
   @media screen and (min-width: 768px) {
     height: 27px;
-  width: 91px;
+    width: 91px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    height: 45px;
+    width: 155px;
   }
 `;
 
@@ -418,7 +427,7 @@ export const FooterListNew = styled.ul`
   }
 
   @media screen and (min-width: 1280px) {
-    gap: 63px;
+    gap: 60px;
   }
 `;
 
@@ -454,7 +463,7 @@ export const LinkListTitleNew = styled.h4`
   margin-bottom: 16px;
 
   @media screen and (min-width: 1280px) {
-    margin-bottom: 1px;
+    margin-bottom: 21px;
     font-size: 22px;
     text-align: left;
   }
@@ -465,6 +474,10 @@ export const LinkList = styled.ul`
   flex-direction: column;
   gap: 10px;
   max-width: 140px;
+
+  @media screen and (min-width: 1280px) {
+    max-width: 200px;
+  }
 `;
 
 export const LinkListNew = styled.ul`
@@ -610,6 +623,10 @@ export const FooterTopContainer = styled.div`
     flex-direction: row;
     align-items: flex-start;
   }
+
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 32px;
+  }
 `;
 
 export const FooterBottomContainer = styled.div`
@@ -693,5 +710,9 @@ export const FooterFileLinkNew = styled(Link)`
   &:hover,
   &:focus {
     color: var(--accent-color);
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 16px;
   }
 `;

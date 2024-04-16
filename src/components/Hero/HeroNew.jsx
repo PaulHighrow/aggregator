@@ -9,30 +9,8 @@ import {
 } from './Hero.styled';
 import { HeroSwiperNew } from './HeroSwiper/HeroSwiperNew';
 
-export const HeroNew = ({ toggleModal }) => {
-  const swapBtnText = e => {
-    const sillyTexts = [
-      'Кнопка (щоб кнопать)',
-      'Кніпка',
-      'Хіп-хопка',
-      'Гоп-стопка',
-      'Женя не знає, нащо ця кнопка, тому вона (кнопка) робить хуйню',
-      'Віхтур блядь, що ця кнопка має робити',
-      'Думаємо про хот-доги',
-      'Куди йдем обідати',
-      'КНОПЦІЯ',
-      'Баттон',
-      'Knopka',
-      'ЗЛОЇБУЧЕ КНОПІЩЕ',
-      'Please, try again later',
-      'Зараз би в паб',
-      'Натисність сюди, щоб усвідомити, наскільки ця кнопка тут непотрібна',
-    ];
-    e.target.textContent =
-      sillyTexts[Math.floor(Math.random() * sillyTexts.length)];
-  };
-
-  useEffect(() => {}, []);
+export const HeroNew = ({ toggleModal, toggleTrialModal }) => {
+    useEffect(() => {}, []);
 
   return (
     <HeroSectionNew id="hero">
@@ -42,7 +20,7 @@ export const HeroNew = ({ toggleModal }) => {
         <ButtonBox>
           <LeadBtnNew onClick={toggleModal}>КОНСУЛЬТАЦІЯ</LeadBtnNew>
 
-          <AddBtnNew onClick={swapBtnText}>КНОПКА</AddBtnNew>
+          <AddBtnNew onClick={toggleTrialModal}>ПРОБНИЙ УРОК</AddBtnNew>
         </ButtonBox>
 
         {/* <Description>

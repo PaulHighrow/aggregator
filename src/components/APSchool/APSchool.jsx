@@ -1,19 +1,19 @@
-import useSize from '@react-hook/size';
 import { BoxSchool } from 'components/Box/Box.styled';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
+import { VideoModal } from 'components/AboutUs/VideoModal/VideoModal';
 import {
   PlayerLimiterNew,
   SectionDescription,
   SectionTitleNew,
   TitleBox,
   Video,
-  VideoSoundBtn,
   WhoAreWeItem,
   WhoAreWeList,
   WhoAreWePointer,
   WhoAreWeTrigger
 } from 'components/HowItWorks/HowItWorks.styled';
+import { MarqueeSoundBtn } from 'components/Reviews/ReviewsMarquee/ReviewsMarquee.styled';
 import { useInView } from 'react-intersection-observer';
 import { APSchoolSection, APSchoolWrapper } from './APSchool.styled';
 
@@ -25,24 +25,16 @@ export const APSchool = () => {
     'VIP-Пакет',
   ];
   const videoUrls = [
-    'https://youtu.be/-axzcvYXKgk?si=yxFfIYIU1r8BKsTu?t=17',
-    'https://youtu.be/-axzcvYXKgk?si=yxFfIYIU1r8BKsTu?t=240',
-    'https://youtu.be/-axzcvYXKgk?si=yxFfIYIU1r8BKsTu?t=409',
-    'https://youtu.be/-axzcvYXKgk?si=yxFfIYIU1r8BKsTu?t=433',
+    'https://youtu.be/ro-MrZVgywg?si=GCBIw9hOttw6XaKM?t=30',
+    'https://youtu.be/ro-MrZVgywg?si=GCBIw9hOttw6XaKM?t=83',
+    'https://youtu.be/ro-MrZVgywg?si=GCBIw9hOttw6XaKM?t=97',
+    'https://youtu.be/ro-MrZVgywg?si=GCBIw9hOttw6XaKM?t=114',
   ];
-  const [timeCode, setTimeCode] = useState('Англійська мова');
-  // eslint-disable-next-line
-  const [videoUrl, setVideoUrl] = useState(videoUrls[0]);
-  const schoolEl = useRef();
-  // eslint-disable-next-line
-  const [width, _] = useSize(schoolEl);
+  
   const [videoRef, videoInView] = useInView();
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
-
-  const toggleTimeCode = (item, i) => {
-    setTimeCode(timeCode => (timeCode = item));
-    setVideoUrl(videoUrl => (videoUrl = videoUrls[i]));
-  };
+  const [activeTimeCode, setActiveTimeCode] = useState(0);
+  const [topPosition, setTopPosition] = useState('0%');
 
   const toggleVideoModal = () => {
     setIsVideoModalOpen(isOpen => !isOpen);
@@ -72,8 +64,12 @@ export const APSchool = () => {
     };
   });
 
+  const calculatePointerPosition = i => {
+    setTopPosition(topPosition => (topPosition = `${i * 25}%`));
+  };
+
   return (
-    <APSchoolSection id="school" ref={schoolEl}>
+    <APSchoolSection id="school">
       <BoxSchool>
         <APSchoolWrapper>
           <TitleBox>
@@ -84,12 +80,15 @@ export const APSchool = () => {
             </SectionDescription>
           </TitleBox>
           <WhoAreWeList>
-            <WhoAreWePointer />
+            <WhoAreWePointer style={{ top: topPosition }}/>
             {listItems.map((item, i) => (
               <WhoAreWeItem key={i}>
                 <WhoAreWeTrigger
-                  className={timeCode === item ? 'selected' : ''}
-                  onClick={() => toggleTimeCode(item, i)}
+                  onClick={() => {
+                    calculatePointerPosition(i);
+                    setActiveTimeCode(i);
+                    toggleVideoModal();
+                  }}
                 >
                   {item}
                 </WhoAreWeTrigger>
@@ -102,7 +101,7 @@ export const APSchool = () => {
           onClick={toggleVideoModal}
           id="howitworks-anchor"
         >
-          <VideoSoundBtn />
+          <MarqueeSoundBtn />
           <Video
             loop
             controls={false}
@@ -121,6 +120,12 @@ export const APSchool = () => {
           </Video>
         </PlayerLimiterNew>
       </BoxSchool>
+      {isVideoModalOpen && (
+        <VideoModal
+          closeVideoModal={closeVideoModal}
+          url={videoUrls[activeTimeCode]}
+        />
+      )}
     </APSchoolSection>
   );
 };

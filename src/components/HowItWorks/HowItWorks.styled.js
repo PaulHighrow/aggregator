@@ -395,6 +395,7 @@ export const PlayerLimiterNew = styled.div`
   border-radius: 8px;
   background-color: #d9d9d9;
   overflow: hidden;
+  filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.25));
 
   @media screen and (min-width: 768px) {
     max-width: 960px;

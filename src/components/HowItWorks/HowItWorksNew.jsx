@@ -1,5 +1,6 @@
 import { VideoModal } from 'components/AboutUs/VideoModal/VideoModal';
 import { BoxNew } from 'components/Box/Box.styled';
+import { MarqueeSoundBtn } from 'components/Reviews/ReviewsMarquee/ReviewsMarquee.styled';
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import {
@@ -10,7 +11,6 @@ import {
   SectionWrapperNew,
   TitleBox,
   Video,
-  VideoSoundBtn,
   WhoAreWeItem,
   WhoAreWeList,
   WhoAreWePointer,
@@ -20,6 +20,8 @@ import {
 export const HowItWorksNew = () => {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [videoRef, videoInView] = useInView();
+  const [activeTimeCode, setActiveTimeCode] = useState(0);
+  const [topPosition, setTopPosition] = useState('0%');
 
   const toggleVideoModal = () => {
     setIsVideoModalOpen(isOpen => !isOpen);
@@ -49,7 +51,17 @@ export const HowItWorksNew = () => {
     };
   });
 
+  const calculatePointerPosition = i => {
+    setTopPosition(topPosition => (topPosition = `${i * 25}%`));
+  };
+
   const listItems = ['Досвід', 'формат', 'наша освіта', 'можливості'];
+  const videoUrls = [
+    'https://youtu.be/fjXji90Uf3U?si=CqN_Jyg3C78mb1k4?t=7',
+    'https://youtu.be/fjXji90Uf3U?si=CqN_Jyg3C78mb1k4?t=30',
+    'https://youtu.be/fjXji90Uf3U?si=CqN_Jyg3C78mb1k4?t=57',
+    'https://youtu.be/fjXji90Uf3U?si=CqN_Jyg3C78mb1k4?t=75',
+  ];
 
   return (
     <HowItWorksSectionNew id="howitworks">
@@ -62,10 +74,18 @@ export const HowItWorksNew = () => {
             </SectionDescription>
           </TitleBox>
           <WhoAreWeList>
-            <WhoAreWePointer />
+            <WhoAreWePointer style={{ top: topPosition }} />
             {listItems.map((item, i) => (
               <WhoAreWeItem key={i}>
-                <WhoAreWeTrigger>{item}</WhoAreWeTrigger>
+                <WhoAreWeTrigger
+                  onClick={() => {
+                    calculatePointerPosition(i);
+                    setActiveTimeCode(i);
+                    toggleVideoModal();
+                  }}
+                >
+                  {item}
+                </WhoAreWeTrigger>
               </WhoAreWeItem>
             ))}
           </WhoAreWeList>
@@ -75,7 +95,7 @@ export const HowItWorksNew = () => {
           onClick={toggleVideoModal}
           id="howitworks-anchor"
         >
-          <VideoSoundBtn />
+          <MarqueeSoundBtn />
           <Video
             loop
             controls={false}
@@ -97,7 +117,7 @@ export const HowItWorksNew = () => {
       {isVideoModalOpen && (
         <VideoModal
           closeVideoModal={closeVideoModal}
-          url={'https://youtu.be/fWYAkhLjpYE'}
+          url={videoUrls[activeTimeCode]}
         />
       )}
     </HowItWorksSectionNew>

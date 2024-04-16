@@ -46,10 +46,10 @@ export const MainFooterNew = ({ toggleModal }) => {
   ];
   const footerContactsItems = [
     { href: 'mailto:info@ap.education', contact: 'info@ap.education' },
-    { href: 'tel:+380671047700', contact: '+38 (067) 104-77-00' },
+    { href: 'tel:+380671047700', contact: '+38 (067) 104 77 00' },
     {
       href: 'https://goo.gl/maps/AvneSaz3ikRAaKUD6',
-      contact: 'м.Львів, вул.Братів Рогатинців, 18',
+      contact: 'м. Львів, вул. Братів Рогатинців, 18',
     },
   ];
 

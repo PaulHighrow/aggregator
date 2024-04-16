@@ -1,21 +1,24 @@
-import useSize from '@react-hook/size';
 import { BoxNew } from 'components/Box/Box.styled';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
+import { VideoModal } from 'components/AboutUs/VideoModal/VideoModal';
 import {
   PlayerLimiterNew,
   SectionDescription,
   SectionTitleNew,
   TitleBox,
   Video,
-  VideoSoundBtn,
   WhoAreWeItem,
   WhoAreWeList,
   WhoAreWePointer,
-  WhoAreWeTrigger,
+  WhoAreWeTrigger
 } from 'components/HowItWorks/HowItWorks.styled';
+import { MarqueeSoundBtn } from 'components/Reviews/ReviewsMarquee/ReviewsMarquee.styled';
 import { useInView } from 'react-intersection-observer';
-import { APUniversitySection, APUniversityWrapper } from './APUniversity.styled';
+import {
+  APUniversitySection,
+  APUniversityWrapper,
+} from './APUniversity.styled';
 
 export const APUniversity = () => {
   const listItems = [
@@ -25,24 +28,16 @@ export const APUniversity = () => {
     'європейський диплом',
   ];
   const videoUrls = [
-    'https://youtu.be/-axzcvYXKgk?si=yxFfIYIU1r8BKsTu?t=17',
-    'https://youtu.be/-axzcvYXKgk?si=yxFfIYIU1r8BKsTu?t=240',
-    'https://youtu.be/-axzcvYXKgk?si=yxFfIYIU1r8BKsTu?t=409',
-    'https://youtu.be/-axzcvYXKgk?si=yxFfIYIU1r8BKsTu?t=433',
+    'https://youtu.be/lhSFzStANAA?si=bcXDaa0shcLmq_T7?t=28',
+    'https://youtu.be/lhSFzStANAA?si=bcXDaa0shcLmq_T7?t=47',
+    'https://youtu.be/lhSFzStANAA?si=bcXDaa0shcLmq_T7?t=69',
+    'https://youtu.be/lhSFzStANAA?si=bcXDaa0shcLmq_T7?t=82',
   ];
-  const [timeCode, setTimeCode] = useState('Англійська мова');
-  // eslint-disable-next-line
-  const [videoUrl, setVideoUrl] = useState(videoUrls[0]);
-  const schoolEl = useRef();
-  // eslint-disable-next-line
-  const [width, _] = useSize(schoolEl);
+
   const [videoRef, videoInView] = useInView();
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
-
-  const toggleTimeCode = (item, i) => {
-    setTimeCode(timeCode => (timeCode = item));
-    setVideoUrl(videoUrl => (videoUrl = videoUrls[i]));
-  };
+  const [activeTimeCode, setActiveTimeCode] = useState(0);
+  const [topPosition, setTopPosition] = useState('0%');
 
   const toggleVideoModal = () => {
     setIsVideoModalOpen(isOpen => !isOpen);
@@ -72,8 +67,12 @@ export const APUniversity = () => {
     };
   });
 
+  const calculatePointerPosition = i => {
+    setTopPosition(topPosition => (topPosition = `${i * 25}%`));
+  };
+
   return (
-    <APUniversitySection id="school" ref={schoolEl}>
+    <APUniversitySection id="university">
       <BoxNew>
         <APUniversityWrapper>
           <TitleBox>
@@ -83,12 +82,15 @@ export const APUniversity = () => {
             </SectionDescription>
           </TitleBox>
           <WhoAreWeList>
-            <WhoAreWePointer />
+            <WhoAreWePointer style={{ top: topPosition }} />
             {listItems.map((item, i) => (
               <WhoAreWeItem key={i}>
                 <WhoAreWeTrigger
-                  className={timeCode === item ? 'selected' : ''}
-                  onClick={() => toggleTimeCode(item, i)}
+                  onClick={() => {
+                    calculatePointerPosition(i);
+                    setActiveTimeCode(i);
+                    toggleVideoModal();
+                  }}
                 >
                   {item}
                 </WhoAreWeTrigger>
@@ -101,7 +103,7 @@ export const APUniversity = () => {
           onClick={toggleVideoModal}
           id="howitworks-anchor"
         >
-          <VideoSoundBtn />
+          <MarqueeSoundBtn />
           <Video
             loop
             controls={false}
@@ -120,6 +122,12 @@ export const APUniversity = () => {
           </Video>
         </PlayerLimiterNew>
       </BoxNew>
+      {isVideoModalOpen && (
+        <VideoModal
+          closeVideoModal={closeVideoModal}
+          url={videoUrls[activeTimeCode]}
+        />
+      )}
     </APUniversitySection>
   );
 };

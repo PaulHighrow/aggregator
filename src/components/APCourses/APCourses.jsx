@@ -1,48 +1,39 @@
-import useSize from '@react-hook/size';
 import { BoxSchool } from 'components/Box/Box.styled';
-import { useEffect, useRef, useState } from 'react';
-
+import { useEffect, useState } from 'react';
+import { VideoModal } from 'components/AboutUs/VideoModal/VideoModal';
 import {
   PlayerLimiterNew,
   SectionDescription,
   SectionTitleNew,
   TitleBox,
   Video,
-  VideoSoundBtn,
   WhoAreWeItem,
   WhoAreWeList,
   WhoAreWePointer,
-  WhoAreWeTrigger
+  WhoAreWeTrigger,
 } from 'components/HowItWorks/HowItWorks.styled';
+import { MarqueeSoundBtn } from 'components/Reviews/ReviewsMarquee/ReviewsMarquee.styled';
 import { useInView } from 'react-intersection-observer';
 import { APCoursesSection, APCoursesWrapper } from './APCourses.styled';
 
 export const APCourses = () => {
   const listItems = [
-    'Тайм-код 1',
-    'Тайм-код 2',
-    'Тайм-код 3',
-    'Тайм-код 4',
+    'наші курси',
+    'платформа',
+    'програма навчання',
+    'мотивація',
   ];
   const videoUrls = [
-    'https://youtu.be/-axzcvYXKgk?si=yxFfIYIU1r8BKsTu?t=17',
-    'https://youtu.be/-axzcvYXKgk?si=yxFfIYIU1r8BKsTu?t=240',
-    'https://youtu.be/-axzcvYXKgk?si=yxFfIYIU1r8BKsTu?t=409',
-    'https://youtu.be/-axzcvYXKgk?si=yxFfIYIU1r8BKsTu?t=433',
+    'https://youtu.be/j8gfGGHPpUs?si=JfXvX32loeMr97Fm?t=13',
+    'https://youtu.be/j8gfGGHPpUs?si=JfXvX32loeMr97Fm?t=74',
+    'https://youtu.be/j8gfGGHPpUs?si=JfXvX32loeMr97Fm?t=105',
+    'https://youtu.be/j8gfGGHPpUs?si=JfXvX32loeMr97Fm?t=117',
   ];
-  const [timeCode, setTimeCode] = useState('Англійська мова');
-  // eslint-disable-next-line
-  const [videoUrl, setVideoUrl] = useState(videoUrls[0]);
-  const schoolEl = useRef();
-  // eslint-disable-next-line
-  const [width, _] = useSize(schoolEl);
+
   const [videoRef, videoInView] = useInView();
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
-
-  const toggleTimeCode = (item, i) => {
-    setTimeCode(timeCode => (timeCode = item));
-    setVideoUrl(videoUrl => (videoUrl = videoUrls[i]));
-  };
+  const [activeTimeCode, setActiveTimeCode] = useState(0);
+  const [topPosition, setTopPosition] = useState('0%');
 
   const toggleVideoModal = () => {
     setIsVideoModalOpen(isOpen => !isOpen);
@@ -72,23 +63,32 @@ export const APCourses = () => {
     };
   });
 
+  const calculatePointerPosition = i => {
+    setTopPosition(topPosition => (topPosition = `${i * 25}%`));
+  };
+
   return (
-    <APCoursesSection id="school" ref={schoolEl}>
+    <APCoursesSection id="courses">
       <BoxSchool>
         <APCoursesWrapper>
           <TitleBox>
             <SectionTitleNew>Мовні курси</SectionTitleNew>
             <SectionDescription>
-            А якщо ми скажемо, що тобі потрібний лише рік, щоб вивчити іноземну мову до рівня B2? У цьому відео ми розкажемо, що для цього потрібно.
+              А якщо ми скажемо, що тобі потрібний лише рік, щоб вивчити
+              іноземну мову до рівня B2? У цьому відео ми розкажемо, що для
+              цього потрібно.
             </SectionDescription>
           </TitleBox>
           <WhoAreWeList>
-            <WhoAreWePointer />
+            <WhoAreWePointer style={{ top: topPosition }} />
             {listItems.map((item, i) => (
               <WhoAreWeItem key={i}>
                 <WhoAreWeTrigger
-                  className={timeCode === item ? 'selected' : ''}
-                  onClick={() => toggleTimeCode(item, i)}
+                  onClick={() => {
+                    calculatePointerPosition(i);
+                    setActiveTimeCode(i);
+                    toggleVideoModal();
+                  }}
                 >
                   {item}
                 </WhoAreWeTrigger>
@@ -101,7 +101,7 @@ export const APCourses = () => {
           onClick={toggleVideoModal}
           id="howitworks-anchor"
         >
-          <VideoSoundBtn />
+          <MarqueeSoundBtn />
           <Video
             loop
             controls={false}
@@ -120,6 +120,12 @@ export const APCourses = () => {
           </Video>
         </PlayerLimiterNew>
       </BoxSchool>
+      {isVideoModalOpen && (
+        <VideoModal
+          closeVideoModal={closeVideoModal}
+          url={videoUrls[activeTimeCode]}
+        />
+      )}
     </APCoursesSection>
   );
 };
