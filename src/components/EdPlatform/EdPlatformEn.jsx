@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import { VideoModal } from 'components/AboutUs/VideoModal/VideoModal';
 import {
   PlayerLimiterNew,
-  SectionDescription,
   SectionTitleNew,
   TitleBox,
   Video,
@@ -15,20 +14,20 @@ import {
 } from 'components/HowItWorks/HowItWorks.styled';
 import { MarqueeSoundBtn } from 'components/Reviews/ReviewsMarquee/ReviewsMarquee.styled';
 import { useInView } from 'react-intersection-observer';
-import { APSchoolSection, APSchoolWrapper } from './APSchool.styled';
+import { APSchoolSection, APSchoolWrapper } from '../APSchool/APSchool.styled';
 
-export const APSchool = () => {
+export const EdPlatformEn = () => {
   const listItems = [
-    'про нас',
-    'можливості',
-    'інтерактивне навчання',
-    'VIP-Пакет',
+    'Платформа',
+    'Онлайн-словник',
+    'Інтерактивні уроки',
+    'Призи для учнів',
   ];
   const videoUrls = [
-    'https://youtu.be/ro-MrZVgywg?si=GCBIw9hOttw6XaKM?t=30',
-    'https://youtu.be/ro-MrZVgywg?si=GCBIw9hOttw6XaKM?t=83',
-    'https://youtu.be/ro-MrZVgywg?si=GCBIw9hOttw6XaKM?t=97',
-    'https://youtu.be/ro-MrZVgywg?si=GCBIw9hOttw6XaKM?t=114',
+    'https://youtu.be/-axzcvYXKgk?si=yxFfIYIU1r8BKsTu?t=17',
+    'https://youtu.be/-axzcvYXKgk?si=yxFfIYIU1r8BKsTu?t=240',
+    'https://youtu.be/-axzcvYXKgk?si=yxFfIYIU1r8BKsTu?t=409',
+    'https://youtu.be/-axzcvYXKgk?si=yxFfIYIU1r8BKsTu?t=433',
   ];
   
   const [videoRef, videoInView] = useInView();
@@ -73,11 +72,7 @@ export const APSchool = () => {
       <BoxSchool>
         <APSchoolWrapper>
           <TitleBox>
-            <SectionTitleNew>AP School</SectionTitleNew>
-            <SectionDescription>
-              Дистанційна школа з індивідуальним підходом. Навчаємо учнів 1-11
-              класів. Видаємо державний атестат.
-            </SectionDescription>
+            <SectionTitleNew>Навчальна платформа</SectionTitleNew>
           </TitleBox>
           <WhoAreWeList>
             <WhoAreWePointer style={{ top: topPosition }}/>

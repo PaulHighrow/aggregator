@@ -97,7 +97,7 @@ export const PageFormNew = ({ utms }) => {
   };
 
   return (
-    <PageFormNewSection>
+    <PageFormNewSection id='form-anchor'>
       <PageFormTitleBox>
         <SectionTitleNew>Бажаєте отримати консультацію?</SectionTitleNew>
         <PageFormDescription>

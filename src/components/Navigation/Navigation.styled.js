@@ -36,7 +36,8 @@ export const StyledNavigation = styled.nav`
 export const StyledNavigationNew = styled.nav`
   position: fixed;
   width: 100%;
-  height: calc(100vh - 44px);
+  height: calc(100lvh - 44px);
+  overflow-y: scroll;
   max-width: 100vw;
   top: 44px;
   right: 0%;
@@ -50,6 +51,7 @@ export const StyledNavigationNew = styled.nav`
     width: 256px;
     height: auto;
     top: 59px;
+    overflow-y: visible;
 
     border-radius: 0px 0px 0px 24px;
     box-shadow: -2px 0px 3px 0px rgba(0, 0, 0, 0.18);

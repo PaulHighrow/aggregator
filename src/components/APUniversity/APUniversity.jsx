@@ -36,7 +36,7 @@ export const APUniversity = () => {
 
   const [videoRef, videoInView] = useInView();
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
-  const [activeTimeCode, setActiveTimeCode] = useState(0);
+  const [activeTimeCode, setActiveTimeCode] = useState('https://youtu.be/lhSFzStANAA?si=bcXDaa0shcLmq_T7');
   const [topPosition, setTopPosition] = useState('0%');
 
   const toggleVideoModal = () => {
@@ -125,7 +125,7 @@ export const APUniversity = () => {
       {isVideoModalOpen && (
         <VideoModal
           closeVideoModal={closeVideoModal}
-          url={videoUrls[activeTimeCode]}
+          url={videoUrls[activeTimeCode] || activeTimeCode}
         />
       )}
     </APUniversitySection>

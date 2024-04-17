@@ -67,7 +67,7 @@ export const SharedLayout = ({ utms }) => {
 
   return (
     <>
-      {location.pathname === '/new' || location.pathname === '/school' || location.pathname === '/university' ? (
+      {location.pathname === '/new' || location.pathname === '/english' || location.pathname === '/school' || location.pathname === '/university' ? (
         <MenuNew toggleModal={toggleModal} />
       ) : (
         <Menu toggleModal={toggleModal} />
@@ -84,7 +84,7 @@ export const SharedLayout = ({ utms }) => {
         <Outlet />
       </Suspense>
 
-      {location.pathname === '/new' || location.pathname === '/school' || location.pathname === '/university' ? (
+      {location.pathname === '/new' || location.pathname === '/english' || location.pathname === '/school' || location.pathname === '/university' ? (
         <MainFooterNew toggleModal={toggleModal} />
       ) : (
         <MainFooter toggleModal={toggleModal} />

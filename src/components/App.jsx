@@ -30,6 +30,7 @@ import ScrollToTop from 'utils/ScrollToTop/ScrollToTop';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { ThankYouPage } from 'pages/ThankYouPage/ThankYouPage';
 import StreamTrialDeutschSprechclub from 'pages/Trials/StreamTrialDeutschSprechclub';
+import English from 'pages/English/English';
 
 const Home = lazy(() =>
   import(/* webpackChunkName: "Homepage" */ '../pages/Home/Home')
@@ -182,6 +183,7 @@ export const App = () => {
           <Route path="new" element={<NewDesign utms={utms} />} />
           <Route path="clone" element={<Clone utms={utms} />} />
           <Route path="reviews" element={<AllReviews />} />
+          <Route path="english" element={<English utms={utms} />} />
           <Route path="deutsch" element={<Deutsch utms={utms} />} />
           <Route path="polski" element={<Polski utms={utms} />} />
           <Route path="school" element={<NewDesign utms={utms} />} />

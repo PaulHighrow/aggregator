@@ -40,7 +40,7 @@ export const MainFooterNew = ({ toggleModal }) => {
     { to: '/university', service: 'AP University' },
   ];
   const footerCoursesItems = [
-    { to: '/', course: 'Англійська мова' },
+    { to: '/english', course: 'Англійська мова' },
     { to: '/polski', course: 'Польська мова' },
     { to: '/deutsch', course: 'Німецька мова' },
   ];

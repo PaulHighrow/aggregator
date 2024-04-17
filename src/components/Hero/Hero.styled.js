@@ -153,6 +153,7 @@ export const LeadBtnNew = styled.button`
   background: linear-gradient(322deg, #0f645b 23.22%, #09c6cc 110.01%), #0f645b;
   font-family: var(--new-font-family);
   color: var(--secondary-color);
+  cursor: pointer;
   font-size: 16px;
   font-weight: 700;
   line-height: 1;
@@ -176,6 +177,8 @@ export const AddBtnNew = styled.button`
   border-radius: 50px;
   border: 2px solid #0f645b;
   font-family: var(--new-font-family);
+  color: #000;
+  cursor: pointer;
   font-size: 16px;
   font-weight: 700;
   line-height: 1;

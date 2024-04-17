@@ -1,7 +1,7 @@
-import { LeadBtn } from 'components/Menu/Menu.styled';
 import { ErrorMessage, Field, Form } from 'formik';
-import { IoClose } from 'react-icons/io5/';
 import styled from 'styled-components';
+import { ReactComponent as CircleCloseIcon } from '../../img/svg/close-circle.svg';
+import { ReactComponent as FormBackgroundStar } from '../../img/svg/heroStar.svg';
 
 export const StyledForm = styled(Form)`
   position: fixed;
@@ -9,33 +9,64 @@ export const StyledForm = styled(Form)`
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 100;
+  overflow-x: hidden;
 
-  background-color: var(--main-color);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 320px;
-  padding: 40px 20px;
-  border-radius: 20px;
+  width: 100%;
+  max-width: 375px;
+  padding: 80px 20px 50px 20px;
   margin: 0 auto;
-  gap: 36px;
+
+  font-family: var(--new-font-family);
+  border-radius: 24px;
+  background-color: var(--secondary-color);
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.18);
 
   @media screen and (min-width: 768px) {
-    width: 640px;
-    padding: 50px 20px;
+    max-width: 530px;
+    padding: 50px 39px;
+  }
+`;
+
+export const FormTitleBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 40px;
+
+  @media screen and (min-width: 768px) {
+    gap: 16px;
+    margin-bottom: 32px;
   }
 `;
 
 export const FormTitle = styled.h3`
-  color: var(--secondary-color);
-  font-size: 24px;
+  font-family: var(--new-font-family);
+  font-size: 30px;
   font-weight: 700;
   text-align: center;
+  line-height: 1.2;
 
   @media screen and (min-width: 768px) {
     font-size: 32px;
   }
+`;
+
+export const FormSubTitle = styled.p`
+  font-family: var(--new-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
+`;
+
+export const FormInputBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
 `;
 
 export const Label = styled.label`
@@ -44,32 +75,22 @@ export const Label = styled.label`
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  width: 260px;
-
-  @media screen and (min-width: 360px) {
-    width: 300px;
-  }
-
-  @media screen and (min-width: 768px) {
-    width: 500px;
-  }
+  width: 100%;
 `;
 
 export const Input = styled(Field)`
-  width: 280px;
-  padding: 10px 5px;
-  font-size: 22px;
-  color: var(--main-color);
-  -webkit-text-stroke: 0.5px var(--main-color);
-  border-color: transparent;
-  border-radius: 15px;
-
-  @media screen and (min-width: 360px) {
-    width: 300px;
-  }
+  width: 100%;
+  height: 58px;
+  padding: 22px 20px;
+  font-size: 14px;
+  border: 2px solid var(--main-color);
+  border-radius: 50px;
+  line-height: 1;
 
   @media screen and (min-width: 768px) {
-    width: 500px;
+    height: 59px;
+    padding: 20px 40px;
+    font-size: 19px;
   }
 
   &:hover,
@@ -82,14 +103,46 @@ export const Input = styled(Field)`
     &,
     &:hover,
     &:focus {
-      -webkit-text-fill-color: var(--main-color);
-      -webkit-box-shadow: 0 0 0px 1000px var(--accent-color) inset;
+      -webkit-box-shadow: 0 0 0px 1000px var(--accent-semi-transparent-color)
+        inset;
     }
   }
 
   &::placeholder {
-    color: var(--main-color);
-    -webkit-text-stroke: 0.5px var(--main-color);
+  }
+`;
+
+export const InputSelect = styled(Field)`
+  width: 100%;
+  height: 58px;
+  padding: 22px 20px;
+  font-size: 14px;
+  border: 2px solid var(--main-color);
+  border-radius: 50px;
+  line-height: 1;
+
+  @media screen and (min-width: 768px) {
+    height: 59px;
+    padding: 20px 40px;
+    font-size: 19px;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: var(--secondary-burnt-color);
+    outline: transparent;
+  }
+
+  &:-webkit-autofill {
+    &,
+    &:hover,
+    &:focus {
+      -webkit-box-shadow: 0 0 0px 1000px var(--accent-semi-transparent-color)
+        inset;
+    }
+  }
+
+  &::placeholder {
   }
 `;
 
@@ -127,38 +180,85 @@ export const HiddenInput = styled(Field)`
 export const FormCloseBtn = styled.button`
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 20px;
   background-color: transparent;
   border: 2px solid var(--secondary-color);
   border-radius: 50%;
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
 
   display: flex;
   align-items: center;
   justify-content: center;
+
+  transition: border-color var(--animation-global);
 
   &:hover {
     border-color: var(--accent-color);
   }
 `;
 
-export const CloseIcon = styled(IoClose)`
+export const CloseIcon = styled(CircleCloseIcon)`
   fill: var(--secondary-color);
-  width: 26px;
-  height: 26px;
+  width: 40px;
+  height: 40px;
   flex-shrink: 0;
+`;
 
-  ${FormCloseBtn}:hover & {
-    fill: var(--accent-color);
+export const TopFormBackgroundStar = styled(FormBackgroundStar)`
+  position: absolute;
+  top: 99px;
+  left: -58px;
+
+  opacity: 0.1;
+  width: 116px;
+  height: 116px;
+
+  @media screen and (min-width: 768px) {
+    width: 190px;
+    height: 190px;
+    top: -6px;
+    left: -101px;
   }
 `;
 
-export const FormBtn = styled(LeadBtn)`
-  font-size: 24px;
+export const BottomFormBackgroundStar = styled(FormBackgroundStar)`
+  position: absolute;
+  bottom: 10px;
+  right: -21px;
+
+  opacity: 0.1;
+  width: 40px;
+  height: 40px;
+`;
+
+export const FormBtn = styled.button`
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+
+  padding: 20px;
+  font-size: 16px;
   font-weight: 700;
 
+  text-transform: uppercase;
+  color: var(--secondary-color);
+  border-radius: 50px;
+  background: linear-gradient(322deg, #0f645b 23.22%, #09c6cc 110.01%), #0f645b;
+  border: none;
+  flex-shrink: 0;
+  cursor: pointer;
+
+  outline: transparent;
+
   @media screen and (min-width: 768px) {
-    font-size: 28px;
+    font-size: 20px;
+    letter-spacing: 0.6px;
+    height: 70px;
+  }
+
+  &:hover,
+  &:focus {
   }
 `;

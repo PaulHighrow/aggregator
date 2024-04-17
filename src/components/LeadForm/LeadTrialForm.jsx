@@ -1,21 +1,27 @@
 import axios from 'axios';
 import { Backdrop } from 'components/LeadForm/Backdrop/Backdrop.styled';
 import { Loader } from 'components/SharedLayout/Loaders/Loader';
-import { Field, Formik } from 'formik';
+import { Formik } from 'formik';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import * as yup from 'yup';
 import {
+  BottomFormBackgroundStar,
   CloseIcon,
   FormBtn,
   FormCloseBtn,
+  FormInputBox,
+  FormSubTitle,
   FormTitle,
+  FormTitleBox,
   HiddenInput,
   Input,
   InputNote,
+  InputSelect,
   Label,
   StyledForm,
+  TopFormBackgroundStar,
 } from './LeadForm.styled';
 
 axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
@@ -112,20 +118,29 @@ export const LeadTrialForm = ({ closeTrialModal, utms }) => {
           <FormCloseBtn type="button" onClick={closeTrialModal}>
             <CloseIcon />
           </FormCloseBtn>
-          <FormTitle>Залишіть заявку і наш менеджер вам зателефонує</FormTitle>
-          <Label>
-            <Input type="text" name="name" placeholder="Ім'я" />
-            <InputNote component="p" name="name" />
-          </Label>
-          <Label>
-            <Input type="tel" name="phone" placeholder="Телефон" />
-            <InputNote component="p" name="phone" />
-          </Label>
-          <Field component="select" id="lang" name="lang">
-            <option value="Пробний урок, Англійська">Англійська мова</option>
-            <option value="Пробний урок, Німецька">Німецька мова</option>
-            <option value="Пробний урок, Польська">Польська мова</option>
-          </Field>
+          <FormTitleBox>
+            <TopFormBackgroundStar />
+            <BottomFormBackgroundStar />
+            <FormTitle>Бажаєте записатися на пробний урок?</FormTitle>
+            <FormSubTitle>
+              Залишіть заявку і наш менеджер вам зателефонує
+            </FormSubTitle>
+          </FormTitleBox>
+          <FormInputBox>
+            <Label>
+              <Input type="text" name="name" placeholder="Ім'я*" />
+              <InputNote component="p" name="name" />
+            </Label>
+            <Label>
+              <Input type="tel" name="phone" placeholder="Телефон*" />
+              <InputNote component="p" name="phone" />
+            </Label>
+            <InputSelect component="select" id="lang" name="lang">
+              <option value="Пробний урок, Англійська">Англійська мова</option>
+              <option value="Пробний урок, Німецька">Німецька мова</option>
+              <option value="Пробний урок, Польська">Польська мова</option>
+            </InputSelect>
+          </FormInputBox>
 
           <HiddenInput type="text" name="utm_content" />
           <HiddenInput type="text" name="utm_medium" />

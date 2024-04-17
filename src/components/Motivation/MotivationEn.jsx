@@ -1,3 +1,4 @@
+import useSize from '@react-hook/size';
 import { VideoModal } from 'components/AboutUs/VideoModal/VideoModal';
 import { BoxNew } from 'components/Box/Box.styled';
 import { MarqueeSoundBtn } from 'components/Reviews/ReviewsMarquee/ReviewsMarquee.styled';
@@ -5,8 +6,8 @@ import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import {
   HowItWorksSectionNew,
+  MotivationNavigationLink,
   PlayerLimiterNew,
-  SectionDescription,
   SectionTitleNew,
   SectionWrapperNew,
   TitleBox,
@@ -14,13 +15,14 @@ import {
   WhoAreWeItem,
   WhoAreWeList,
   WhoAreWePointer,
-  WhoAreWeTrigger
-} from './HowItWorks.styled';
+} from './Motivation.styled';
 
-export const HowItWorksNew = () => {
+export const MotivationEn = () => {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [videoRef, videoInView] = useInView();
-  const [activeTimeCode, setActiveTimeCode] = useState('https://youtu.be/fjXji90Uf3U?si=CqN_Jyg3C78mb1k4');
+  const [activeTimeCode, setActiveTimeCode] = useState(
+    'https://youtu.be/fjXji90Uf3U?si=CqN_Jyg3C78mb1k4'
+  );
   const [topPosition, setTopPosition] = useState('0%');
 
   const toggleVideoModal = () => {
@@ -51,11 +53,19 @@ export const HowItWorksNew = () => {
     };
   });
 
-  const calculatePointerPosition = i => {
-    setTopPosition(topPosition => (topPosition = `${i * 25}%`));
-  };
+  const listItems = [
+    { to: 'motivation-anchor', service: 'Мотивація' },
+    { to: 'platform-anchor', service: 'Навчальна платформа' },
+    { to: 'reviews-anchor', service: 'Відгуки про курс' },
+    { to: 'form-anchor', service: 'Консультація' },
+  ];
+  // eslint-disable-next-line
+  const [width, _] = useSize(document.body);
+  const props =
+    width > 768
+      ? { spy: true, smooth: true, offset: -50 }
+      : { spy: true, smooth: true, offset: -34 };
 
-  const listItems = ['Досвід', 'формат', 'наша освіта', 'можливості'];
   const videoUrls = [
     'https://youtu.be/fjXji90Uf3U?si=CqN_Jyg3C78mb1k4?t=7',
     'https://youtu.be/fjXji90Uf3U?si=CqN_Jyg3C78mb1k4?t=30',
@@ -64,37 +74,24 @@ export const HowItWorksNew = () => {
   ];
 
   return (
-    <HowItWorksSectionNew id="howitworks">
+    <HowItWorksSectionNew id="motivation-anchor">
       <BoxNew>
         <SectionWrapperNew>
           <TitleBox>
-            <SectionTitleNew>Хто ми?</SectionTitleNew>
-            <SectionDescription>
-              Дізнайся більше про нас та наш досвід
-            </SectionDescription>
+            <SectionTitleNew>Мотивація</SectionTitleNew>
           </TitleBox>
           <WhoAreWeList>
             <WhoAreWePointer style={{ top: topPosition }} />
             {listItems.map((item, i) => (
               <WhoAreWeItem key={i}>
-                <WhoAreWeTrigger
-                  onClick={() => {
-                    calculatePointerPosition(i);
-                    setActiveTimeCode(i);
-                    toggleVideoModal();
-                  }}
-                >
-                  {item}
-                </WhoAreWeTrigger>
+                <MotivationNavigationLink to={item.to} {...props}>
+                  {item.service}
+                </MotivationNavigationLink>
               </WhoAreWeItem>
             ))}
           </WhoAreWeList>
         </SectionWrapperNew>
-        <PlayerLimiterNew
-          ref={videoRef}
-          onClick={toggleVideoModal}
-          id="howitworks-anchor"
-        >
+        <PlayerLimiterNew ref={videoRef} onClick={toggleVideoModal}>
           <MarqueeSoundBtn />
           <Video
             loop

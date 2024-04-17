@@ -6,15 +6,20 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
 import {
+  BottomFormBackgroundStar,
   CloseIcon,
   FormBtn,
   FormCloseBtn,
+  FormInputBox,
+  FormSubTitle,
   FormTitle,
+  FormTitleBox,
   HiddenInput,
   Input,
   InputNote,
   Label,
   StyledForm,
+  TopFormBackgroundStar,
 } from './LeadForm.styled';
 
 axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
@@ -107,15 +112,24 @@ export const LeadForm = ({ closeModal, utms }) => {
           <FormCloseBtn onClick={closeModal}>
             <CloseIcon />
           </FormCloseBtn>
-          <FormTitle>Залишіть заявку і наш менеджер вам зателефонує</FormTitle>
-          <Label>
-            <Input type="text" name="name" placeholder="Ім'я" />
-            <InputNote component="p" name="name" />
-          </Label>
-          <Label>
-            <Input type="tel" name="phone" placeholder="Телефон" />
-            <InputNote component="p" name="phone" />
-          </Label>
+          <FormTitleBox>
+            <TopFormBackgroundStar />
+            <BottomFormBackgroundStar />
+            <FormTitle>Бажаєте отримати консультацію?</FormTitle>
+            <FormSubTitle>
+              Залишіть заявку і наш менеджер вам зателефонує
+            </FormSubTitle>
+          </FormTitleBox>
+          <FormInputBox>
+            <Label>
+              <Input type="text" name="name" placeholder="Ім'я*" />
+              <InputNote component="p" name="name" />
+            </Label>
+            <Label>
+              <Input type="tel" name="phone" placeholder="Телефон*" />
+              <InputNote component="p" name="phone" />
+            </Label>
+          </FormInputBox>
           <HiddenInput type="text" name="utm_content" />
           <HiddenInput type="text" name="utm_medium" />
           <HiddenInput type="text" name="utm_campaign" />
