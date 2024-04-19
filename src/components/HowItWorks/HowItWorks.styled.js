@@ -317,6 +317,16 @@ export const WhoAreWePointer = styled.div`
   @media screen and (min-width: 1280px) {
     height: 40px;
   }
+
+  transition: transform 250ms var(--animation-global);
+`;
+
+export const WhoAreWePointerSchool = styled(WhoAreWePointer)`
+  background-color: var(--school-color);
+`;
+
+export const WhoAreWePointerUniversity = styled(WhoAreWePointer)`
+  background-color: var(--university-color);
 `;
 
 export const PageNavigationArrow = styled(MenuArrow)`

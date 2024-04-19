@@ -32,7 +32,9 @@ export const APCourses = () => {
 
   const [videoRef, videoInView] = useInView();
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
-  const [activeTimeCode, setActiveTimeCode] = useState("https://youtu.be/j8gfGGHPpUs?si=JfXvX32loeMr97Fm");
+  const [activeTimeCode, setActiveTimeCode] = useState(
+    'https://youtu.be/j8gfGGHPpUs?si=JfXvX32loeMr97Fm'
+  );
   const [topPosition, setTopPosition] = useState('0%');
 
   const toggleVideoModal = () => {
@@ -64,7 +66,7 @@ export const APCourses = () => {
   });
 
   const calculatePointerPosition = i => {
-    setTopPosition(topPosition => (topPosition = `${i * 25}%`));
+    setTopPosition(topPosition => (topPosition = `${i * 100}%`));
   };
 
   return (
@@ -80,7 +82,9 @@ export const APCourses = () => {
             </SectionDescription>
           </TitleBox>
           <WhoAreWeList>
-            <WhoAreWePointer style={{ top: topPosition }} />
+            <WhoAreWePointer
+              style={{ transform: `translateY(${topPosition})` }}
+            />
             {listItems.map((item, i) => (
               <WhoAreWeItem key={i}>
                 <WhoAreWeTrigger

@@ -9,7 +9,8 @@ export const SuspenseBox = styled.div`
 `;
 
 export const SuspenseTitle = styled(Title)`
- position: absolute;
+  position: absolute;
+  font-family: var(--new-font-family);
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);

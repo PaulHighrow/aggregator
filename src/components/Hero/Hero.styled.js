@@ -9,6 +9,8 @@ import { ReactComponent as HeldenSVG } from '../../img/svg/helden-caveat.svg';
 import { ReactComponent as BohateraSVG } from '../../img/svg/bohatera-caveat.svg';
 
 import heroStarIcon from 'img/svg/heroStar.svg';
+import heroSchoolStarIcon from 'img/svg/heroSchoolStar.svg';
+import heroUniversityStarIcon from 'img/svg/heroUniversityStar.svg';
 
 export const HeroSection = styled.section`
   position: relative;
@@ -126,6 +128,33 @@ export const TitleNew = styled.h1`
   }
 `;
 
+export const TitleSchool = styled(TitleNew)`
+  margin: 0 auto 16px auto;
+
+  &:before {
+    content: url(${heroSchoolStarIcon});
+  }
+`;
+
+export const TitleUniversity = styled(TitleNew)`
+  margin: 0 auto 16px auto;
+
+  &:before {
+    content: url(${heroUniversityStarIcon});
+  }
+`;
+
+export const TitleDescription = styled.p`
+  font-family: var(--new-font-family);
+  text-align: center;
+  font-size: 16px;
+  margin: 0 auto 32px auto;
+
+  @media screen and (min-width: 1280px) {
+    margin: 0 auto 40px auto;
+  }
+`;
+
 export const ButtonBox = styled.div`
   display: flex;
   flex-direction: column;
@@ -187,6 +216,22 @@ export const AddBtnNew = styled.button`
   @media screen and (min-width: 768px) {
     max-width: 265px;
   }
+`;
+
+export const LeadBtnSchool = styled(LeadBtnNew)`
+  background: linear-gradient(321.77deg, #4b0082 3.2%, #924dff 93.86%);
+`;
+
+export const AddBtnSchool = styled(AddBtnNew)`
+  border: 2px solid #924dff;
+`;
+
+export const LeadBtnUniversity = styled(LeadBtnNew)`
+  background: linear-gradient(321.96deg, #002395 -5.61%, #352ce8 93.88%);
+`;
+
+export const AddBtnUniversity = styled(AddBtnNew)`
+  border: 2px solid #352ce8;
 `;
 
 export const LesserTitle = styled.p`

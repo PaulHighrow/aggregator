@@ -7,7 +7,7 @@ export const serviceListNew = [
   {
     title: 'AP University',
     videoUrl: 'https://youtu.be/CL7G3z_5CHg?si=I4h4IA3aPbe-RZLJ',
-    desc: 'Дистанційний університ, який піклується про твоє майбутнє!',
+    desc: 'Дистанційний університет, який піклується про твоє майбутнє!',
   },
   {
     title: 'Мовні курси',

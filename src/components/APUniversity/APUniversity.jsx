@@ -11,7 +11,7 @@ import {
   WhoAreWeItem,
   WhoAreWeList,
   WhoAreWePointer,
-  WhoAreWeTrigger
+  WhoAreWeTrigger,
 } from 'components/HowItWorks/HowItWorks.styled';
 import { MarqueeSoundBtn } from 'components/Reviews/ReviewsMarquee/ReviewsMarquee.styled';
 import { useInView } from 'react-intersection-observer';
@@ -36,7 +36,9 @@ export const APUniversity = () => {
 
   const [videoRef, videoInView] = useInView();
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
-  const [activeTimeCode, setActiveTimeCode] = useState('https://youtu.be/lhSFzStANAA?si=bcXDaa0shcLmq_T7');
+  const [activeTimeCode, setActiveTimeCode] = useState(
+    'https://youtu.be/lhSFzStANAA?si=bcXDaa0shcLmq_T7'
+  );
   const [topPosition, setTopPosition] = useState('0%');
 
   const toggleVideoModal = () => {
@@ -68,7 +70,7 @@ export const APUniversity = () => {
   });
 
   const calculatePointerPosition = i => {
-    setTopPosition(topPosition => (topPosition = `${i * 25}%`));
+    setTopPosition(topPosition => (topPosition = `${i * 100}%`));
   };
 
   return (
@@ -82,7 +84,9 @@ export const APUniversity = () => {
             </SectionDescription>
           </TitleBox>
           <WhoAreWeList>
-            <WhoAreWePointer style={{ top: topPosition }} />
+            <WhoAreWePointer
+              style={{ transform: `translateY(${topPosition})` }}
+            />
             {listItems.map((item, i) => (
               <WhoAreWeItem key={i}>
                 <WhoAreWeTrigger

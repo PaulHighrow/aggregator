@@ -1,18 +1,25 @@
-import { AboutUs } from 'components/AboutUs/AboutUs';
-import { BackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
-import { Consent } from 'components/Consent/Consent';
-import { EdPlatformDeu } from 'components/EdPlatform/EdPlatformDeu';
+import { EdPlatformDe } from 'components/EdPlatform/EdPlatformDe';
 import { HeroDeutsch } from 'components/Hero/HeroDeutsch';
-import { HowItWorksDeu } from 'components/HowItWorks/HowItWorksDeu';
 import { LeadForm } from 'components/LeadForm/LeadForm';
-import { Reviews } from 'components/Reviews/Reviews';
+import { LeadTrialForm } from 'components/LeadForm/LeadTrialForm';
+import { MotivationDe } from 'components/Motivation/MotivationDe';
+import { PageFormNew } from 'components/PageFormNew/PageFormNew';
+import { ReviewsNew } from 'components/Reviews/ReviewsNew';
 import { useEffect, useState } from 'react';
 
 const Deutsch = ({ utms }) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
+  const [isOpenTrialModal, setIsOpenTrialModal] = useState(false);
 
   const toggleModal = () => {
     setIsOpenModal(isOpen => !isOpen);
+    if (!document.body.style.overflowY) {
+      document.body.style.overflowY = 'hidden';
+    }
+  };
+
+  const toggleTrialModal = () => {
+    setIsOpenTrialModal(isOpen => !isOpen);
     if (!document.body.style.overflowY) {
       document.body.style.overflowY = 'hidden';
     }
@@ -25,14 +32,22 @@ const Deutsch = ({ utms }) => {
       : (document.body.style.overflowY = '');
   };
 
+  const closeTrialModal = () => {
+    setIsOpenTrialModal(isOpen => (isOpen = false));
+    !document.body.style.overflowY && isOpenTrialModal
+      ? (document.body.style.overflowY = 'hidden')
+      : (document.body.style.overflowY = '');
+  };
+
   useEffect(() => {
     const onEscapeClose = event => {
       if (event.code === 'Escape' && isOpenModal) {
         closeModal();
       }
+      if (event.code === 'Escape' && isOpenTrialModal) {
+        closeTrialModal();
+      }
     };
-
-    console.log(window.screen);
 
     window.addEventListener('keydown', onEscapeClose);
 
@@ -43,15 +58,18 @@ const Deutsch = ({ utms }) => {
 
   return (
     <>
-      <BackgroundWrapper>
-        <HeroDeutsch toggleModal={toggleModal} />
-        <HowItWorksDeu />
-      </BackgroundWrapper>
-      <EdPlatformDeu />
-      <Reviews toggleModal={toggleModal} />
-      <AboutUs />
-      <Consent />
+      <HeroDeutsch
+        toggleModal={toggleModal}
+        toggleTrialModal={toggleTrialModal}
+      />
+      <MotivationDe />
+      <EdPlatformDe />
+      <ReviewsNew />
+      <PageFormNew utms={utms} />
       {isOpenModal && <LeadForm closeModal={closeModal} utms={utms} />}
+      {isOpenTrialModal && (
+        <LeadTrialForm closeTrialModal={closeTrialModal} utms={utms} />
+      )}
     </>
   );
 };

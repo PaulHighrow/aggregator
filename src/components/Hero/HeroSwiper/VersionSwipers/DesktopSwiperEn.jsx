@@ -12,7 +12,7 @@ import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { StyledSlide } from '../HeroSwiper.styled';
-import { HeroSwiperModalNew } from '../HeroSwiperModal/HeroSwiperModalNew';
+import { HeroSwiperModalEn } from '../HeroSwiperModal/HeroSwiperModalEn';
 
 export const DesktopSwiperEn = ({ toggleModal }) => {
   const modalId = useRef(NaN);
@@ -50,7 +50,7 @@ export const DesktopSwiperEn = ({ toggleModal }) => {
   return (
     <>
       {isMarqueeModalOpen && (
-        <HeroSwiperModalNew
+        <HeroSwiperModalEn
           closeMarqueeModal={closeMarqueeModal}
           toggleModal={toggleModal}
           id={modalId.current}
@@ -105,7 +105,7 @@ export const DesktopSwiperEn = ({ toggleModal }) => {
               <MarqueeOverlay>
                 <HeroMarqueeSoundBtn />
                 <MarqueeTextNew>
-                  Close to You
+                  Навчальна платформа
                   <HeroMarqueeTextIcon />
                 </MarqueeTextNew>
               </MarqueeOverlay>
@@ -192,7 +192,7 @@ export const DesktopSwiperEn = ({ toggleModal }) => {
               <MarqueeOverlay>
                 <HeroMarqueeSoundBtn />
                 <MarqueeTextNew>
-                  Навчальна платформа
+                  Close to You
                   <HeroMarqueeTextIcon />
                 </MarqueeTextNew>
               </MarqueeOverlay>
@@ -251,7 +251,7 @@ export const DesktopSwiperEn = ({ toggleModal }) => {
               <MarqueeOverlay>
                 <HeroMarqueeSoundBtn />
                 <MarqueeTextNew>
-                  Close to You
+                  Навчальна платформа
                   <HeroMarqueeTextIcon />
                 </MarqueeTextNew>
               </MarqueeOverlay>
@@ -338,7 +338,7 @@ export const DesktopSwiperEn = ({ toggleModal }) => {
               <MarqueeOverlay>
                 <HeroMarqueeSoundBtn />
                 <MarqueeTextNew>
-                  Навчальна платформа
+                  Close to You
                   <HeroMarqueeTextIcon />
                 </MarqueeTextNew>
               </MarqueeOverlay>
@@ -397,7 +397,7 @@ export const DesktopSwiperEn = ({ toggleModal }) => {
               <MarqueeOverlay>
                 <HeroMarqueeSoundBtn />
                 <MarqueeTextNew>
-                  Close to You
+                  Навчальна платформа
                   <HeroMarqueeTextIcon />
                 </MarqueeTextNew>
               </MarqueeOverlay>
@@ -484,7 +484,7 @@ export const DesktopSwiperEn = ({ toggleModal }) => {
               <MarqueeOverlay>
                 <HeroMarqueeSoundBtn />
                 <MarqueeTextNew>
-                  Навчальна платформа
+                  Close to You
                   <HeroMarqueeTextIcon />
                 </MarqueeTextNew>
               </MarqueeOverlay>
@@ -543,7 +543,7 @@ export const DesktopSwiperEn = ({ toggleModal }) => {
               <MarqueeOverlay>
                 <HeroMarqueeSoundBtn />
                 <MarqueeTextNew>
-                  Close to You
+                  Навчальна платформа
                   <HeroMarqueeTextIcon />
                 </MarqueeTextNew>
               </MarqueeOverlay>
@@ -630,7 +630,7 @@ export const DesktopSwiperEn = ({ toggleModal }) => {
               <MarqueeOverlay>
                 <HeroMarqueeSoundBtn />
                 <MarqueeTextNew>
-                  Навчальна платформа
+                  Close to You
                   <HeroMarqueeTextIcon />
                 </MarqueeTextNew>
               </MarqueeOverlay>

@@ -56,7 +56,7 @@ export const NavigationNew = ({ toggleMenu, className }) => {
     <StyledNavigationNew className={className}>
       <NavigationListNew>
         <NavigationItemNew key={0}>
-          <NavigationLinkNew to={'/new'}>Головна</NavigationLinkNew>
+          <NavigationLinkNew to={'/'}>Головна</NavigationLinkNew>
         </NavigationItemNew>
         <NavigationItemNew key={1}>
           <NavigationLinkNew to={'/school'}>AP School</NavigationLinkNew>
@@ -69,7 +69,7 @@ export const NavigationNew = ({ toggleMenu, className }) => {
         <NavigationItemNew key={3}>
           <MenuCoursesWrapperNew
             onMouseEnter={width >= 1280 ? openCourseListOnHover : null}
-            onMouseLeave={width >= 1280 ? closeCourseListOnMouseOut: null}
+            onMouseLeave={width >= 1280 ? closeCourseListOnMouseOut : null}
           >
             <NavigationMenuNew onClick={toggleCourseList}>
               Мовні курси
@@ -82,7 +82,7 @@ export const NavigationNew = ({ toggleMenu, className }) => {
               }
             >
               <NavigationMenuItemNew>
-                <NavigationNavLinkNew onClick={toggleScroll} to={'/'}>
+                <NavigationNavLinkNew onClick={toggleScroll} to={'/english'}>
                   Англійська мова
                 </NavigationNavLinkNew>
               </NavigationMenuItemNew>

@@ -1,17 +1,8 @@
 import { Box } from 'components/Box/Box.styled';
-import { useEffect } from 'react';
-import {
-  AddBtnNew,
-  ButtonBox,
-  HeroSectionNew,
-  LeadBtnNew,
-  TitleNew,
-} from './Hero.styled';
+import { ButtonBox, HeroSectionNew, LeadBtnNew, TitleNew } from './Hero.styled';
 import { HeroSwiperNew } from './HeroSwiper/HeroSwiperNew';
 
 export const HeroNew = ({ toggleModal, toggleTrialModal }) => {
-    useEffect(() => {}, []);
-
   return (
     <HeroSectionNew id="hero">
       <Box>
@@ -20,7 +11,7 @@ export const HeroNew = ({ toggleModal, toggleTrialModal }) => {
         <ButtonBox>
           <LeadBtnNew onClick={toggleModal}>КОНСУЛЬТАЦІЯ</LeadBtnNew>
 
-          <AddBtnNew onClick={toggleTrialModal}>ПРОБНИЙ УРОК</AddBtnNew>
+          {/* <AddBtnNew onClick={toggleTrialModal}>ПРОБНИЙ УРОК</AddBtnNew> */}
         </ButtonBox>
 
         {/* <Description>

@@ -336,6 +336,8 @@ export const WhoAreWePointer = styled.div`
   top: 0;
   left: 0;
 
+  transition: transform 250ms var(--animation-global);
+
   @media screen and (min-width: 768px) {
     height: 34px;
   }

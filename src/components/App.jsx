@@ -30,17 +30,24 @@ import ScrollToTop from 'utils/ScrollToTop/ScrollToTop';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { ThankYouPage } from 'pages/ThankYouPage/ThankYouPage';
 import StreamTrialDeutschSprechclub from 'pages/Trials/StreamTrialDeutschSprechclub';
-import English from 'pages/English/English';
 
-const Home = lazy(() =>
-  import(/* webpackChunkName: "Homepage" */ '../pages/Home/Home')
-);
-const Clone = lazy(() =>
-  import(/* webpackChunkName: "Inverted Homepage" */ '../pages/Clone/Clone')
-);
+// const Home = lazy(() =>
+//   import(/* webpackChunkName: "Homepage" */ '../pages/Home/Home')
+// );
+// const Clone = lazy(() =>
+//   import(/* webpackChunkName: "Inverted Homepage" */ '../pages/Clone/Clone')
+// );
 const NewDesign = lazy(() =>
   import(
     /* webpackChunkName: "New Design Homepage" */ '../pages/Home/NewDesign'
+  )
+);
+const School = lazy(() =>
+  import(/* webpackChunkName: "School epage" */ '../pages/School/School')
+);
+const University = lazy(() =>
+  import(
+    /* webpackChunkName: "University page" */ '../pages/University/University'
   )
 );
 const Streams = lazy(() =>
@@ -90,18 +97,17 @@ const StreamTrialPolski = lazy(() =>
     /* webpackChunkName: "Polska trials page" */ '../pages/Trials/StreamTrialPolski'
   )
 );
-const AllReviews = lazy(() =>
-  import(
-    /* webpackChunkName: "All reviews page" */ '../pages/AllReviews/AllReviews'
-  )
-);
-
-// const English = lazy(() =>
+// const AllReviews = lazy(() =>
 //   import(
-//     /* webpackChunkName: "English courses page" */ '../pages/English/English'
+//     /* webpackChunkName: "All reviews page" */ '../pages/AllReviews/AllReviews'
 //   )
 // );
 
+const English = lazy(() =>
+  import(
+    /* webpackChunkName: "English courses page" */ '../pages/English/English'
+  )
+);
 const Polski = lazy(() =>
   import(/* webpackChunkName: "Polski courses page" */ '../pages/Polski/Polski')
 );
@@ -179,15 +185,15 @@ export const App = () => {
       />
       <Routes>
         <Route path="/" element={<SharedLayout utms={utms} />}>
-          <Route index element={<Home utms={utms} />} />
-          <Route path="new" element={<NewDesign utms={utms} />} />
-          <Route path="clone" element={<Clone utms={utms} />} />
-          <Route path="reviews" element={<AllReviews />} />
+          <Route index element={<NewDesign utms={utms} />} />
+          {/* <Route path="new" element={<NewDesign utms={utms} />} /> */}
+          {/* <Route path="clone" element={<Clone utms={utms} />} /> */}
+          {/* <Route path="reviews" element={<AllReviews />} /> */}
           <Route path="english" element={<English utms={utms} />} />
           <Route path="deutsch" element={<Deutsch utms={utms} />} />
           <Route path="polski" element={<Polski utms={utms} />} />
-          <Route path="school" element={<NewDesign utms={utms} />} />
-          <Route path="university" element={<NewDesign utms={utms} />} />
+          <Route path="school" element={<School utms={utms} />} />
+          <Route path="university" element={<University utms={utms} />} />
           {/* <Route path="english" element={<English utms={utms} />} />
           
           <Route path="education" element={<Education utms={utms} />} />

@@ -1,6 +1,3 @@
-import { APCourses } from 'components/APCourses/APCourses';
-import { APUniversity } from 'components/APUniversity/APUniversity';
-import { Consent } from 'components/Consent/Consent';
 import { EdPlatformEn } from 'components/EdPlatform/EdPlatformEn';
 import { HeroEnglish } from 'components/Hero/HeroEnglish';
 import { LeadForm } from 'components/LeadForm/LeadForm';
@@ -52,8 +49,6 @@ const English = ({ utms }) => {
       }
     };
 
-    console.log(window.screen);
-
     window.addEventListener('keydown', onEscapeClose);
 
     return () => {
@@ -63,14 +58,14 @@ const English = ({ utms }) => {
 
   return (
     <>
-      <HeroEnglish toggleModal={toggleModal} toggleTrialModal={toggleTrialModal} />
+      <HeroEnglish
+        toggleModal={toggleModal}
+        toggleTrialModal={toggleTrialModal}
+      />
       <MotivationEn />
       <EdPlatformEn />
-      <APUniversity />
-      <APCourses />
       <ReviewsNew />
       <PageFormNew utms={utms} />
-      <Consent />
       {isOpenModal && <LeadForm closeModal={closeModal} utms={utms} />}
       {isOpenTrialModal && (
         <LeadTrialForm closeTrialModal={closeTrialModal} utms={utms} />

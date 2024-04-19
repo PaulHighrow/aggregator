@@ -1,11 +1,9 @@
-import {
-  SectionTitleNew
-} from 'components/HowItWorks/HowItWorks.styled';
+import { SectionTitleNew } from 'components/HowItWorks/HowItWorks.styled';
 import { useInView } from 'react-intersection-observer';
 import {
   ReviewsDescription,
   ReviewsSectionNew,
-  ReviewsTitleBox
+  ReviewsTitleBox,
 } from './Reviews.styled';
 import { ReviewsSwiper } from './ReviewsSwiper/ReviewsSwiper';
 
@@ -15,7 +13,7 @@ export const ReviewsNew = () => {
   });
 
   return (
-    <ReviewsSectionNew id="reviews" ref={ref}>
+    <ReviewsSectionNew id="reviews-anchor" ref={ref}>
       <ReviewsTitleBox>
         <SectionTitleNew>Відгуки</SectionTitleNew>
         <ReviewsDescription>

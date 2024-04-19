@@ -2,7 +2,7 @@
 @import '../node_modules/modern-normalize/modern-normalize.css';
 
 :root {
-  --main-color: #0F645B;
+  --main-color: #0f645b;
   --secondary-color: #ffffff;
   --secondary-burnt-color: #fffffff0;
   --main-transparent-color: #0f645b1c;
@@ -11,6 +11,8 @@
   --accent-color: #f9c838;
   --accent-semi-transparent-color: #f9c8389e;
   --accent-transparent-color: #fad0542a;
+  --school-color: #924dff;
+  --university-color: #352ce8;
 
   --main-font-family: 'LT Journal', sans-serif;
   --new-font-family: 'Fixel Display', sans-serif;

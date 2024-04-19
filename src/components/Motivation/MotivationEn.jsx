@@ -20,10 +20,11 @@ import {
 export const MotivationEn = () => {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [videoRef, videoInView] = useInView();
-  const [activeTimeCode, setActiveTimeCode] = useState(
-    'https://youtu.be/fjXji90Uf3U?si=CqN_Jyg3C78mb1k4'
-  );
   const [topPosition, setTopPosition] = useState('0%');
+
+  const calculatePointerPosition = i => {
+    setTopPosition(topPosition => (topPosition = `${i * 100}%`));
+  };
 
   const toggleVideoModal = () => {
     setIsVideoModalOpen(isOpen => !isOpen);
@@ -66,13 +67,6 @@ export const MotivationEn = () => {
       ? { spy: true, smooth: true, offset: -50 }
       : { spy: true, smooth: true, offset: -34 };
 
-  const videoUrls = [
-    'https://youtu.be/fjXji90Uf3U?si=CqN_Jyg3C78mb1k4?t=7',
-    'https://youtu.be/fjXji90Uf3U?si=CqN_Jyg3C78mb1k4?t=30',
-    'https://youtu.be/fjXji90Uf3U?si=CqN_Jyg3C78mb1k4?t=57',
-    'https://youtu.be/fjXji90Uf3U?si=CqN_Jyg3C78mb1k4?t=75',
-  ];
-
   return (
     <HowItWorksSectionNew id="motivation-anchor">
       <BoxNew>
@@ -81,10 +75,18 @@ export const MotivationEn = () => {
             <SectionTitleNew>Мотивація</SectionTitleNew>
           </TitleBox>
           <WhoAreWeList>
-            <WhoAreWePointer style={{ top: topPosition }} />
+            <WhoAreWePointer
+              style={{ transform: `translateY(${topPosition})` }}
+            />
             {listItems.map((item, i) => (
               <WhoAreWeItem key={i}>
-                <MotivationNavigationLink to={item.to} {...props}>
+                <MotivationNavigationLink
+                  to={item.to}
+                  {...props}
+                  onClick={() => {
+                    calculatePointerPosition(i);
+                  }}
+                >
                   {item.service}
                 </MotivationNavigationLink>
               </WhoAreWeItem>
@@ -101,11 +103,11 @@ export const MotivationEn = () => {
             muted={true}
           >
             <source
-              src="https://ap.education/static/video/trailers/new-home/home-who-we-are.webm"
+              src="https://ap.education/static/video/trailers/HowItWorks.webm"
               type="video/webm"
             />
             <source
-              src="https://ap.education/static/video/trailers/new-home/home-who-we-are.mp4"
+              src="https://ap.education/static/video/trailers/HowItWorks.mp4"
               type="video/mp4"
             />
           </Video>
@@ -114,7 +116,7 @@ export const MotivationEn = () => {
       {isVideoModalOpen && (
         <VideoModal
           closeVideoModal={closeVideoModal}
-          url={videoUrls[activeTimeCode] || activeTimeCode}
+          url={'https://youtu.be/fWYAkhLjpYE?si=PMebEUM0_uNHegZN'}
         />
       )}
     </HowItWorksSectionNew>

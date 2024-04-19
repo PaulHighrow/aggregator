@@ -308,6 +308,18 @@ export const NavigationAnchorNew = styled(Link)`
   }
 `;
 
+export const NavigationAnchorSchool = styled(NavigationAnchorNew)`
+  &::after {
+    background-color: var(--school-color);
+  }
+`;
+
+export const NavigationAnchorUniversity = styled(NavigationAnchorNew)`
+  &::after {
+    background-color: var(--university-color);
+  }
+`;
+
 export const NavigationLinkNew = styled(NavLink)`
   display: block;
   position: relative;
@@ -366,6 +378,22 @@ export const NavigationLinkNew = styled(NavLink)`
 
   &:visited {
     color: #000;
+  }
+`;
+
+export const NavigationLinkSchool = styled(NavigationLinkNew)`
+  &::after {
+    @media screen and (min-width: 1280px) {
+      background-color: var(--school-color);
+    }
+  }
+`;
+
+export const NavigationLinkUniversity = styled(NavigationLinkNew)`
+  &::after {
+    @media screen and (min-width: 1280px) {
+      background-color: var(--university-color);
+    }
   }
 `;
 
@@ -569,14 +597,14 @@ export const NavigationMenuListNew = styled.ul`
   gap: 24px;
   padding-top: 24px;
 
-  transition: all 350ms cubic-bezier(.17,.22,.2,1);
+  transition: all 350ms cubic-bezier(0.17, 0.22, 0.2, 1);
 
   background-color: #fff;
 
   @media screen and (min-width: 1280px) {
     width: max-content;
     position: absolute;
-    top: 59px;
+    top: 58px;
     left: -25px;
 
     transform: translateY(-150%);
@@ -587,7 +615,7 @@ export const NavigationMenuListNew = styled.ul`
 
   &.course-list-open {
     opacity: 1;
-    transition: all 350ms cubic-bezier(.17,.22,.2,1);
+    transition: all 350ms cubic-bezier(0.17, 0.22, 0.2, 1);
 
     @media screen and (min-width: 500px) {
       transform: translateY(0%);

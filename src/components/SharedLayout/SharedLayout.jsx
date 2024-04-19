@@ -1,14 +1,17 @@
 import axios from 'axios';
+import { Consent } from 'components/Consent/Consent';
 import { LeadForm } from 'components/LeadForm/LeadForm';
-import { MainFooter } from 'components/MainFooter/MainFooter';
-import { Menu } from 'components/Menu/Menu';
+import { MainFooterNew } from 'components/MainFooter/MainFooterNew';
+import { MenuNew } from 'components/Menu/MenuNew';
+import { MenuSchool } from 'components/Menu/MenuSchool';
+import { MenuUniversity } from 'components/Menu/MenuUniversity';
 import { UpButton } from 'components/UpButton/UpButton';
 import { Suspense, useEffect, useLayoutEffect, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { OffsetLoader } from './Loaders/OffsetLoader';
 import { SuspenseBox, SuspenseTitle } from './SharedLayout.styled';
-import { MenuNew } from 'components/Menu/MenuNew';
-import { MainFooterNew } from 'components/MainFooter/MainFooterNew';
+import { MainFooterUniversity } from 'components/MainFooter/MainFooterUniversity';
+import { MainFooterSchool } from 'components/MainFooter/MainFooterSchool';
 
 axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
 
@@ -67,10 +70,12 @@ export const SharedLayout = ({ utms }) => {
 
   return (
     <>
-      {location.pathname === '/new' || location.pathname === '/english' || location.pathname === '/school' || location.pathname === '/university' ? (
-        <MenuNew toggleModal={toggleModal} />
+      {location.pathname === '/school' ? (
+        <MenuSchool toggleModal={toggleModal} />
+      ) : location.pathname === '/university' ? (
+        <MenuUniversity toggleModal={toggleModal} />
       ) : (
-        <Menu toggleModal={toggleModal} />
+        <MenuNew toggleModal={toggleModal} />
       )}
 
       <Suspense
@@ -84,12 +89,14 @@ export const SharedLayout = ({ utms }) => {
         <Outlet />
       </Suspense>
 
-      {location.pathname === '/new' || location.pathname === '/english' || location.pathname === '/school' || location.pathname === '/university' ? (
-        <MainFooterNew toggleModal={toggleModal} />
+      {location.pathname === '/school' ? (
+        <MainFooterSchool toggleModal={toggleModal} />
+      ) : location.pathname === '/university' ? (
+        <MainFooterUniversity toggleModal={toggleModal} />
       ) : (
-        <MainFooter toggleModal={toggleModal} />
+        <MainFooterNew toggleModal={toggleModal} />
       )}
-
+      <Consent />
       <UpButton />
 
       {isOpenModal && <LeadForm closeModal={closeModal} utms={utms} />}

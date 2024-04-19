@@ -82,7 +82,7 @@ export const Navigation = ({ toggleMenu, className }) => {
           }
         >
           <NavigationMenuItem>
-            <NavigationNavLink to={'/'} onClick={toggleCourseList}>
+            <NavigationNavLink to={'/english'} onClick={toggleCourseList}>
               Англійська
             </NavigationNavLink>
           </NavigationMenuItem>

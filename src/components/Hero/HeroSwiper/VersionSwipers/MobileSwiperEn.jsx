@@ -12,7 +12,7 @@ import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { StyledSlide } from '../HeroSwiper.styled';
-import { HeroSwiperModalNew } from '../HeroSwiperModal/HeroSwiperModalNew';
+import { HeroSwiperModalEn } from '../HeroSwiperModal/HeroSwiperModalEn';
 
 export const MobileSwiperEn = ({ toggleModal }) => {
   const modalId = useRef(NaN);
@@ -50,7 +50,7 @@ export const MobileSwiperEn = ({ toggleModal }) => {
   return (
     <>
       {isMarqueeModalOpen && (
-        <HeroSwiperModalNew
+        <HeroSwiperModalEn
           closeMarqueeModal={closeMarqueeModal}
           toggleModal={toggleModal}
           id={modalId.current}
@@ -75,7 +75,10 @@ export const MobileSwiperEn = ({ toggleModal }) => {
             <MarqueeChildNew>
               <MarqueeOverlay>
                 <HeroMarqueeSoundBtn />
-                <MarqueeTextNew>From Zero to Hero<HeroMarqueeTextIcon/></MarqueeTextNew>
+                <MarqueeTextNew>
+                  From Zero to Hero
+                  <HeroMarqueeTextIcon />
+                </MarqueeTextNew>
               </MarqueeOverlay>
               <MarqueeVideoNew
                 autoplay={inView ? 'true' : 'false'}
@@ -101,7 +104,10 @@ export const MobileSwiperEn = ({ toggleModal }) => {
             <MarqueeChildNew>
               <MarqueeOverlay>
                 <HeroMarqueeSoundBtn />
-                <MarqueeTextNew>AP University<HeroMarqueeTextIcon/></MarqueeTextNew>
+                <MarqueeTextNew>
+                  Навчальна платформа
+                  <HeroMarqueeTextIcon />
+                </MarqueeTextNew>
               </MarqueeOverlay>
               <MarqueeVideoNew
                 autoplay={inView ? 'true' : 'false'}
@@ -127,7 +133,10 @@ export const MobileSwiperEn = ({ toggleModal }) => {
             <MarqueeChildNew>
               <MarqueeOverlay>
                 <HeroMarqueeSoundBtn />
-                <MarqueeTextNew>Мовні курси<HeroMarqueeTextIcon/></MarqueeTextNew>
+                <MarqueeTextNew>
+                  Письмова гарантія
+                  <HeroMarqueeTextIcon />
+                </MarqueeTextNew>
               </MarqueeOverlay>
               <MarqueeVideoNew
                 autoplay={inView ? 'true' : 'false'}
@@ -153,7 +162,10 @@ export const MobileSwiperEn = ({ toggleModal }) => {
             <MarqueeChildNew>
               <MarqueeOverlay>
                 <HeroMarqueeSoundBtn />
-                <MarqueeTextNew>Англійська мова<HeroMarqueeTextIcon/></MarqueeTextNew>
+                <MarqueeTextNew>
+                  Ноутбук в подарунок
+                  <HeroMarqueeTextIcon />
+                </MarqueeTextNew>
               </MarqueeOverlay>
               <MarqueeVideoNew
                 autoplay={inView ? 'true' : 'false'}
@@ -179,7 +191,10 @@ export const MobileSwiperEn = ({ toggleModal }) => {
             <MarqueeChildNew>
               <MarqueeOverlay>
                 <HeroMarqueeSoundBtn />
-                <MarqueeTextNew>Німецька мова<HeroMarqueeTextIcon/></MarqueeTextNew>
+                <MarqueeTextNew>
+                  Close to You
+                  <HeroMarqueeTextIcon />
+                </MarqueeTextNew>
               </MarqueeOverlay>
               <MarqueeVideoNew
                 autoplay={inView ? 'true' : 'false'}

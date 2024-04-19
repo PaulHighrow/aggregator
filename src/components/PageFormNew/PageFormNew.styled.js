@@ -123,6 +123,14 @@ export const InputNote = styled(ErrorMessage)`
   }
 `;
 
+export const PageFormInputSchool = styled(PageFormInput)`
+  border: 2px solid var(--school-color);
+`;
+
+export const PageFormInputUniversity = styled(PageFormInput)`
+  border: 2px solid var(--university-color);
+`;
+
 export const PageFormLeadBtn = styled.button`
   display: block;
   margin: 0 auto;
@@ -153,4 +161,12 @@ export const PageFormLeadBtn = styled.button`
   outline: transparent;
   transition: box-shadow var(--animation-global),
     transform var(--animation-global);
+`;
+
+export const PageFormLeadBtnSchool = styled(PageFormLeadBtn)`
+  background: linear-gradient(321.77deg, #4b0082 3.2%, #924dff 93.86%);
+`;
+
+export const PageFormLeadBtnUniversity = styled(PageFormLeadBtn)`
+  background: linear-gradient(321.96deg, #002395 -5.61%, #352ce8 93.88%);
 `;

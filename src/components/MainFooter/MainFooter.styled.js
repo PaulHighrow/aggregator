@@ -25,6 +25,12 @@ export const FooterNew = styled.footer`
   background-color: var(--main-color);
   font-family: var(--new-font-family);
 `;
+export const FooterSchool = styled(FooterNew)`
+  background-color: var(--school-color);
+`;
+export const FooterUniversity = styled(FooterNew)`
+  background-color: var(--university-color);
+`;
 
 export const FooterBox = styled.div`
   padding: 30px 32px;
