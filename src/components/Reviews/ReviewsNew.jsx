@@ -17,8 +17,8 @@ export const ReviewsNew = () => {
       <ReviewsTitleBox>
         <SectionTitleNew>Відгуки</SectionTitleNew>
         <ReviewsDescription>
-          Дякуємо, що обираєте навчання у нас. Кожне ваше повідомлення, фото чи
-          відео про ваш успіх та навчання потрапляє у саме сердечко.
+          Ми піклуємося про наших студентів, тому ми даруємо навчальний ноутбук
+          для зручного доступу та комфортного навчання.
         </ReviewsDescription>
       </ReviewsTitleBox>
       {inView && <ReviewsSwiper />}

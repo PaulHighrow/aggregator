@@ -2,6 +2,8 @@ import styled, { keyframes } from 'styled-components';
 import { ReactComponent as MenuDownArrow } from '../../img/svg/invertedDownArrow.svg';
 import { ReactComponent as LogoIcon } from '../../img/svg/invertedLogo.svg';
 import { ReactComponent as LogoNewIcon } from '../../img/svg/logoNew.svg';
+import { ReactComponent as LogoSchoolIcon } from '../../img/svg/logoSchool.svg';
+import { ReactComponent as LogoUniversityIcon } from '../../img/svg/logoUniversity.svg';
 import { ReactComponent as MenuIcon } from '../../img/svg/burger-menu.svg';
 import { ReactComponent as CloseMenuIcon } from '../../img/svg/burger-menu-close.svg';
 import { RxHamburgerMenu } from 'react-icons/rx';
@@ -200,6 +202,56 @@ export const LogoNew = styled(LogoNewIcon)`
 
   @media screen and (min-width: 1280px) {
     width: 183px;
+  }
+
+  & > path#star {
+    transform-origin: center bottom -2px;
+    transition: transform var(--animation-global);
+  }
+
+  ${LogoRoute}:hover &>path#star {
+    transform: translate(4px, 2px) scale(1.2);
+  }
+`;
+
+export const LogoSchool = styled(LogoSchoolIcon)`
+  z-index: 10;
+  width: 99px;
+  display: block;
+  flex-shrink: 0;
+  height: 100%;
+
+  @media screen and (min-width: 768px) {
+    width: 122px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 149px;
+  }
+
+  & > path#star {
+    transform-origin: center bottom -2px;
+    transition: transform var(--animation-global);
+  }
+
+  ${LogoRoute}:hover &>path#star {
+    transform: translate(4px, 2px) scale(1.2);
+  }
+`;
+
+export const LogoUniversity = styled(LogoUniversityIcon)`
+  z-index: 10;
+  width: 119px;
+  display: block;
+  flex-shrink: 0;
+  height: 100%;
+
+  @media screen and (min-width: 768px) {
+    width: 148px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 180px;
   }
 
   & > path#star {

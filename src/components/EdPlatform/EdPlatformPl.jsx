@@ -1,6 +1,7 @@
 import { BoxSchool } from 'components/Box/Box.styled';
 import {
   PlayerLimiterNew,
+  SectionDescription,
   SectionTitleNew,
   TitleBox,
   WhoAreWeItem,
@@ -49,6 +50,9 @@ export const EdPlatformPl = () => {
         <APSchoolWrapper>
           <TitleBox>
             <SectionTitleNew>Навчальна платформа</SectionTitleNew>
+            <SectionDescription>
+            У Вас буде можливість обрати зручний формат навчання: самостійне вивчення, навчання в групах або індивідуальні заняття з польської мови з репетитором.
+            </SectionDescription>
           </TitleBox>
           <WhoAreWeList>
             <WhoAreWePointer

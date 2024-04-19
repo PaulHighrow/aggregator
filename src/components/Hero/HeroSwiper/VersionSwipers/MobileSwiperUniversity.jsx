@@ -134,7 +134,7 @@ export const MobileSwiperUniversity = ({ toggleModal }) => {
               <MarqueeOverlay>
                 <HeroMarqueeSoundBtn />
                 <MarqueeTextNew>
-                  Гарантоване працевлаштування
+                  Гарантія працевлаштування
                   <HeroMarqueeTextIcon />
                 </MarqueeTextNew>
               </MarqueeOverlay>

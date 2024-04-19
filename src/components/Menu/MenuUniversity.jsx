@@ -6,12 +6,12 @@ import {
   HeaderNew,
   HeaderTextNew,
   HeaderWrapper,
-  LogoNew,
   LogoRoute,
+  LogoUniversity,
   MenuBurgerCloseIcon,
   MenuBurgerIcon,
   NewMobileMenuBtn,
-  PlatformLinkNew,
+  PlatformLinkNew
 } from './Menu.styled';
 
 export const MenuUniversity = ({ toggleModal }) => {
@@ -41,7 +41,7 @@ export const MenuUniversity = ({ toggleModal }) => {
       >
         <HeaderWrapper>
           <LogoRoute to="/">
-            <LogoNew />
+            <LogoUniversity />
           </LogoRoute>
 
           {width < 1280 && (

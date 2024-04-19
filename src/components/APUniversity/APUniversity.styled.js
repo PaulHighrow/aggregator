@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { ReactComponent as UniversityStarIcon } from '../../img/svg/heroUniversityStar.svg';
 
 export const APUniversitySection = styled.section`
   position: relative;
@@ -16,6 +17,7 @@ export const APUniversitySection = styled.section`
 `;
 
 export const APUniversityWrapper = styled.div`
+  position: relative;
   margin: 0 auto;
   margin-bottom: 32px;
   max-width: 1280px;
@@ -32,5 +34,30 @@ export const APUniversityWrapper = styled.div`
     gap: 40px;
     margin: 0;
     width: 351px;
+  }
+`;
+
+export const UniversityStar = styled(UniversityStarIcon)`
+  position: absolute;
+  top: -39px;
+  left: 204px;
+
+  width: 44px;
+  height: 44px;
+
+  @media screen and (min-width: 768px) {
+    top: -50px;
+    left: 264px;
+
+    width: 50px;
+    height: 50px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    top: -93px;
+    left: -37px;
+
+    width: 73px;
+    height: 73px;
   }
 `;

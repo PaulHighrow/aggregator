@@ -14,7 +14,8 @@ import {
   WhoAreWeItem,
   WhoAreWeList,
   WhoAreWePointer,
-  WhoAreWeTrigger
+  WhoAreWeTrigger,
+  WhoWeAreStar
 } from './HowItWorks.styled';
 
 export const HowItWorksNew = () => {
@@ -73,6 +74,7 @@ export const HowItWorksNew = () => {
               Дізнайся більше про нас та наш досвід
             </SectionDescription>
           </TitleBox>
+          <WhoWeAreStar/>
           <WhoAreWeList>
             <WhoAreWePointer style={{ top: topPosition }} />
             {listItems.map((item, i) => (

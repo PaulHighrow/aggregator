@@ -15,7 +15,11 @@ import {
 } from 'components/HowItWorks/HowItWorks.styled';
 import { MarqueeSoundBtn } from 'components/Reviews/ReviewsMarquee/ReviewsMarquee.styled';
 import { useInView } from 'react-intersection-observer';
-import { APSchoolSection, APSchoolWrapper } from './APSchool.styled';
+import {
+  APSchoolSection,
+  APSchoolWrapper,
+  SchoolStar,
+} from './APSchool.styled';
 
 export const APSchool = () => {
   const listItems = [
@@ -74,6 +78,7 @@ export const APSchool = () => {
     <APSchoolSection id="school">
       <BoxSchool>
         <APSchoolWrapper>
+          <SchoolStar />
           <TitleBox>
             <SectionTitleNew>AP School</SectionTitleNew>
             <SectionDescription>

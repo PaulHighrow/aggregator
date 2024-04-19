@@ -95,19 +95,20 @@ export const TitleNew = styled.h1`
   margin: 0 auto 32px auto;
 
   @media screen and (min-width: 360px) {
-    max-width: 640px;
+    max-width: 560px;
   }
 
   @media screen and (min-width: 768px) {
     margin: 0 auto 32px auto;
     font-size: 35px;
     line-height: 1.2;
-    max-width: 950px;
+    max-width: 640px;
   }
 
   @media screen and (min-width: 1280px) {
     margin: 0 auto 40px auto;
     font-size: 50px;
+    max-width: 960px;
   }
 
   &:before {
@@ -145,13 +146,21 @@ export const TitleUniversity = styled(TitleNew)`
 `;
 
 export const TitleDescription = styled.p`
+  padding: 0 20px;
   font-family: var(--new-font-family);
   text-align: center;
   font-size: 16px;
+  font-weight: 500;
   margin: 0 auto 32px auto;
+  max-width: 480px;
+
+  @media screen and (min-width: 768px) {
+    max-width: 540px;
+  }
 
   @media screen and (min-width: 1280px) {
     margin: 0 auto 40px auto;
+    max-width: 768px;
   }
 `;
 
@@ -379,17 +388,17 @@ export const SubTitle = styled.span`
 
 export const Description = styled.p`
   text-align: center;
-  font-size: 20px;
-  color: var(--main-color);
-  margin-bottom: 5px;
+  font-size: 14px;
+  margin-bottom: 20px;
   padding: 0 30px;
 
   @media screen and (min-width: 768px) {
-    font-size: 22px;
+    font-size: 16px;
     padding: 0 40px;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 32px;
   }
 
   @media screen and (min-width: 1280px) {

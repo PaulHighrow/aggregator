@@ -35,12 +35,15 @@ export const UsersForm = styled(Form)`
 
 export const AdminFormBtn = styled(FormBtn)`
   margin: 0 auto;
+  height: 48px;
+  padding: 0;
 `;
 
 export const AdminInput = styled(Input)`
   width: 240px;
   padding: 8px 4px;
-  font-size: 20px;
+  font-size: 16px;
+  height: 40px;
   -webkit-text-stroke: 0px;
 
   border: 2px solid var(--main-color);
@@ -52,7 +55,7 @@ export const AdminInput = styled(Input)`
 
 export const AdminInputNote = styled(InputNote)`
   color: var(--main-color);
-  font-size: 18px;
+  font-size: 12px;
   font-weight: 500;
   position: static;
   max-width: 240px;

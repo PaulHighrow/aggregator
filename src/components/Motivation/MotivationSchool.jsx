@@ -6,8 +6,8 @@ import {
   TitleBox,
   WhoAreWeItem,
   WhoAreWeList,
-  WhoAreWePointer,
-  WhoAreWeTrigger,
+  WhoAreWePointerSchool,
+  WhoAreWeTrigger
 } from 'components/HowItWorks/HowItWorks.styled';
 import { MarqueeSoundBtn } from 'components/Reviews/ReviewsMarquee/ReviewsMarquee.styled';
 import { useEffect, useState } from 'react';
@@ -79,7 +79,7 @@ export const MotivationSchool = () => {
             </SectionDescription>
           </TitleBox>
           <WhoAreWeList>
-            <WhoAreWePointer
+            <WhoAreWePointerSchool
               style={{ transform: `translateY(${topPosition})` }}
             />
             {listItems.map((item, i) => (

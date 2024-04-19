@@ -8,6 +8,7 @@ import {
   HowItWorksSectionNew,
   MotivationNavigationLink,
   PlayerLimiterNew,
+  SectionDescription,
   SectionTitleNew,
   SectionWrapperNew,
   TitleBox,
@@ -73,6 +74,9 @@ export const MotivationEn = () => {
         <SectionWrapperNew>
           <TitleBox>
             <SectionTitleNew>Мотивація</SectionTitleNew>
+            <SectionDescription>
+            Обравши наш онлайн-курс англійської мови, Ви обираєте особливе навчання, де з кожним уроком відкриваєте для себе новий формат вивчення англійської мови.
+            </SectionDescription>
           </TitleBox>
           <WhoAreWeList>
             <WhoAreWePointer

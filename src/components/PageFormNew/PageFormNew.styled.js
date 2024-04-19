@@ -125,10 +125,18 @@ export const InputNote = styled(ErrorMessage)`
 
 export const PageFormInputSchool = styled(PageFormInput)`
   border: 2px solid var(--school-color);
+
+  &::placeholder {
+    color: var(--school-color);
+  }
 `;
 
 export const PageFormInputUniversity = styled(PageFormInput)`
   border: 2px solid var(--university-color);
+
+  &::placeholder {
+    color: var(--university-color);
+  }
 `;
 
 export const PageFormLeadBtn = styled.button`

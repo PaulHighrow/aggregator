@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { ReactComponent as SchoolStarIcon } from '../../img/svg/heroSchoolStar.svg';
 
 export const APSchoolSection = styled.section`
   position: relative;
@@ -16,6 +17,7 @@ export const APSchoolSection = styled.section`
 `;
 
 export const APSchoolWrapper = styled.div`
+  position: relative;
   margin: 0 auto;
   margin-bottom: 32px;
   max-width: 1280px;
@@ -32,5 +34,31 @@ export const APSchoolWrapper = styled.div`
     gap: 40px;
     margin: 0;
     width: 351px;
+  }
+`;
+
+export const SchoolStar = styled(SchoolStarIcon)`
+  position: absolute;
+  top: -39px;
+  left: 151px;
+
+  width: 43px;
+  height: 43px;
+
+  @media screen and (min-width: 768px) {
+    top: -39px;
+    left: 240px;
+
+    width: 41px;
+    height: 41px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    top: -85px;
+    left: unset;
+    right: 0;
+
+    width: 63px;
+    height: 63px;
   }
 `;

@@ -2,6 +2,7 @@ import { IoVolumeMute } from 'react-icons/io5';
 import { Link } from 'react-scroll';
 import styled, { keyframes } from 'styled-components';
 import { ReactComponent as MenuArrow } from '../../img/svg/menu-arrow.svg';
+import { ReactComponent as HeroStarIcon } from '../../img/svg/heroStar.svg';
 
 export const HowItWorksSection = styled.section`
   position: relative;
@@ -51,6 +52,7 @@ export const SectionWrapper = styled.div`
 `;
 
 export const SectionWrapperNew = styled.div`
+  position: relative;
   margin: 0 auto;
   margin-bottom: 32px;
   max-width: 1280px;
@@ -73,8 +75,11 @@ export const SectionWrapperNew = styled.div`
 export const TitleBox = styled.div`
   margin-bottom: 24px;
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 768px) {
     margin: 0;
+  }
+
+  @media screen and (min-width: 1280px) {
     min-width: 340px;
   }
 `;
@@ -463,4 +468,30 @@ export const YouTubeVideoSoundBtn = styled(VideoSoundBtn)`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+`;
+
+export const WhoWeAreStar = styled(HeroStarIcon)`
+  position: absolute;
+  top: 102px;
+  right: -25px;
+
+  width: 49px;
+  height: 49px;
+
+  @media screen and (min-width: 768px) {
+    top: -74px;
+    right: unset;
+    left: -26px;
+
+    width: 53px;
+    height: 53px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    top: -110px;
+    left: -45px;
+
+    width: 91px;
+    height: 91px;
+  }
 `;

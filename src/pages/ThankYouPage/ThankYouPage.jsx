@@ -7,6 +7,7 @@ import {
   HeroBottomStar,
   HeroTopStar,
   InstagramBtn,
+  LinkBtn,
   MainLinkBtn,
   SocialLogoLink,
   SocialsBox,
@@ -21,7 +22,7 @@ import {
   ThankYouSection,
   ThankYouTextWrapper,
   TikTokBtn,
-  YouTubeBtn
+  YouTubeBtn,
 } from './ThankYouPage.styled';
 
 export const ThankYouPage = () => {
@@ -40,14 +41,14 @@ export const ThankYouPage = () => {
           <ThankYouArrow />
           <ThankYouHeading> Дякуємо, що заповнили форму!</ThankYouHeading>
           <ThankYouDesc>
-            Ви можете повернутися на головну, щоб переглянути наші інші
-            напрямки роботи!
+            Ви можете повернутися на головну, щоб переглянути наші інші напрямки
+            роботи!
           </ThankYouDesc>
 
           <ButtonBox>
             <MainLinkBtn to={'/'}>Головна</MainLinkBtn>
-            {/* <LinkBtn to={'/school'}>AP SCHOOL</LinkBtn> */}
-            {/* <LinkBtn to={'/university'}>AP UNIVERSITY</LinkBtn> */}
+            <LinkBtn to={'/school'}>AP SCHOOL</LinkBtn>
+            <LinkBtn to={'/university'}>AP UNIVERSITY</LinkBtn>
           </ButtonBox>
         </ThankYouTextWrapper>
 

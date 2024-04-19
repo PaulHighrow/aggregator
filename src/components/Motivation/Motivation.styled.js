@@ -73,8 +73,11 @@ export const SectionWrapperNew = styled.div`
 export const TitleBox = styled.div`
   margin-bottom: 24px;
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 768px) {
     margin: 0;
+  }
+
+  @media screen and (min-width: 1280px) {
     min-width: 340px;
   }
 `;

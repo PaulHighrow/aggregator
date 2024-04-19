@@ -18,6 +18,7 @@ import { useInView } from 'react-intersection-observer';
 import {
   APUniversitySection,
   APUniversityWrapper,
+  UniversityStar,
 } from './APUniversity.styled';
 
 export const APUniversity = () => {
@@ -77,6 +78,7 @@ export const APUniversity = () => {
     <APUniversitySection id="university">
       <BoxNew>
         <APUniversityWrapper>
+        <UniversityStar />
           <TitleBox>
             <SectionTitleNew>AP University</SectionTitleNew>
             <SectionDescription>

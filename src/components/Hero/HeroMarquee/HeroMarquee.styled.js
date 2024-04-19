@@ -126,13 +126,17 @@ export const MarqueeTextNew = styled.p`
   gap: 10px;
 
   font-family: var(--new-font-family);
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 500;
   color: var(--secondary-color);
   background-color: #00000090;
 
   transition: background-color var(--animation-global),
     transform var(--animation-global);
+
+    @media screen and (min-width: 768px) {
+      font-size: 16px;
+  }
 `;
 
 export const HeroMarqueeTextIcon = styled(MarqueeTextArrow)`
