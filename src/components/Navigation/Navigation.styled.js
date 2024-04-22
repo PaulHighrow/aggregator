@@ -38,6 +38,7 @@ export const StyledNavigationNew = styled.nav`
   width: 100%;
   height: calc(100lvh - 44px);
   overflow-y: scroll;
+  scrollbar-gutter: stable;
   max-width: 100vw;
   top: 44px;
   right: 0%;

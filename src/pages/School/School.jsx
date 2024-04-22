@@ -41,6 +41,8 @@ const School = ({ utms }) => {
   };
 
   useEffect(() => {
+    document.title = 'AP School';
+
     const onEscapeClose = event => {
       if (event.code === 'Escape' && isOpenModal) {
         closeModal();

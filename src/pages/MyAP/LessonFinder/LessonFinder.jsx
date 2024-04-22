@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import ReactPlayer from 'react-player/youtube';
+import { ReactComponent as LessonCopyIcon } from '../../../img/svg/lessonCopyIcon.svg';
 import {
   FinderBox,
   FinderIcon,
@@ -7,11 +9,12 @@ import {
   FinderLessons,
   LessonBox,
   LessonBoxItem,
-  LessonValuesItem,
-  LessonValuesList,
-  LessonVideoBox,
+  LessonCopyNameButton,
+  LessonValueName,
+  LessonValueTopic,
+  LessonValuesLogo,
+  LessonVideoBox
 } from './LessonFinder.styled';
-import ReactPlayer from 'react-player/youtube';
 
 export const LessonFinder = ({ lessons }) => {
   const [lessonsFound, setLessonsFound] = useState([...lessons]);
@@ -40,33 +43,37 @@ export const LessonFinder = ({ lessons }) => {
         <LessonBox>
           {lessonsFound.map(lesson => (
             <LessonBoxItem key={lesson._id}>
-              <LessonValuesList>
-                <LessonValuesItem>
-                  {lesson.level} {lesson.lesson}
-                </LessonValuesItem>
-                <LessonValuesItem>{lesson.topic}</LessonValuesItem>
-                {lesson.video[0] && (
-                  <LessonValuesItem>
-                    <LessonVideoBox>
-                      <ReactPlayer
-                        loop={true}
-                        muted={false}
-                        controls={true}
-                        style={{
-                          display: 'block',
-                          position: 'absolute',
-                          top: 0,
-                          left: 0,
-                        }}
-                        width="100%"
-                        height="100%"
-                        url={lesson.video[0]}
-                      />
-                    </LessonVideoBox>
-                    {lesson.pdf}
-                  </LessonValuesItem>
-                )}
-              </LessonValuesList>
+              <LessonValuesLogo>
+                {lesson.level + lesson.lesson.replace('Lesson', ' -')}
+              </LessonValuesLogo>
+              {/* <LessonValuesBox> */}
+              <LessonValueName>
+                {lesson.level} {lesson.lesson}
+              </LessonValueName>
+              <LessonCopyNameButton>
+                <LessonCopyIcon />
+              </LessonCopyNameButton>
+              <LessonValueTopic>{lesson.topic}</LessonValueTopic>
+              {/* </LessonValuesBox> */}
+              {lesson.video[0] && (
+                <LessonVideoBox>
+                  <ReactPlayer
+                    loop={true}
+                    muted={false}
+                    controls={true}
+                    style={{
+                      display: 'block',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                    }}
+                    width="100%"
+                    height="100%"
+                    url={lesson.video[0]}
+                  />
+                </LessonVideoBox>
+              )}
+              {lesson.pdf}
             </LessonBoxItem>
           ))}
         </LessonBox>

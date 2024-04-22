@@ -27,6 +27,7 @@ export const MenuUniversity = ({ toggleModal }) => {
   };
 
   useEffect(() => {
+    console.log('menuunivesityproc');
     document.body.style.overflowY !== 'hidden' && width < 768 && isMenuOpen
       ? (document.body.style.overflowY = 'hidden')
       : (document.body.style.overflowY = '');

@@ -27,6 +27,8 @@ export const MenuSchool = ({ toggleModal }) => {
   };
 
   useEffect(() => {
+    console.log('menuschoolproc');
+    console.log(width);
     document.body.style.overflowY !== 'hidden' && width < 768 && isMenuOpen
       ? (document.body.style.overflowY = 'hidden')
       : (document.body.style.overflowY = '');

@@ -85,6 +85,28 @@ export const LessonBoxItem = styled.li`
   color: #000;
   padding: 4px;
   border-bottom: 1px solid #0000000d;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
+
+export const LessonValuesLogo = styled.div`
+  display: flex;
+  height: 30px;
+  width: 30px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 7.5px;
+  font-weight: 700;
+  color: var(--secondary-color);
+  text-shadow: 0px 1.527px 1.527px rgba(0, 0, 0, 0.25);
+
+  border-radius: 6px;
+  background: linear-gradient(322deg, #0f645b -5.61%, #09c6cc 93.88%);
 `;
 
 export const LessonValuesList = styled.ul`
@@ -94,8 +116,34 @@ export const LessonValuesList = styled.ul`
   gap: 4px;
 `;
 
+export const LessonTextValuesBox = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 export const LessonValuesItem = styled.li`
-  display: block;
+  position: relative;
+`;
+
+export const LessonValueName = styled.p`
+color: #525266;
+font-size: 14px;
+font-weight: 500;
+`
+
+export const LessonValueTopic = styled.p`
+color: #BEBECC;
+font-size: 12px;
+`
+
+export const LessonCopyNameButton = styled.button`
+  border: none;
+  outline: transparent;
+  background-color: transparent;
+
+  position: absolute;
+  top: 0;
+  right: 0;
 `;
 
 export const LessonVideoBox = styled.div`

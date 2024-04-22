@@ -42,6 +42,8 @@ const University = ({ utms }) => {
   };
 
   useEffect(() => {
+    document.title = 'AP University';
+
     const onEscapeClose = event => {
       if (event.code === 'Escape' && isOpenModal) {
         closeModal();

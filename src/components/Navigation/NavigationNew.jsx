@@ -82,17 +82,35 @@ export const NavigationNew = ({ toggleMenu, className }) => {
               }
             >
               <NavigationMenuItemNew>
-                <NavigationNavLinkNew onClick={toggleScroll} to={'/english'}>
+                <NavigationNavLinkNew
+                  onClick={() => {
+                    toggleScroll();
+                    toggleMenu();
+                  }}
+                  to={'/english'}
+                >
                   Англійська мова
                 </NavigationNavLinkNew>
               </NavigationMenuItemNew>
               <NavigationMenuItemNew>
-                <NavigationNavLinkNew onClick={toggleScroll} to={'/deutsch'}>
+                <NavigationNavLinkNew
+                  onClick={() => {
+                    toggleScroll();
+                    toggleMenu();
+                  }}
+                  to={'/deutsch'}
+                >
                   Німецька мова
                 </NavigationNavLinkNew>
               </NavigationMenuItemNew>
               <NavigationMenuItemNew>
-                <NavigationNavLinkNew onClick={toggleScroll} to={'/polski'}>
+                <NavigationNavLinkNew
+                  onClick={() => {
+                    toggleScroll();
+                    toggleMenu();
+                  }}
+                  to={'/polski'}
+                >
                   Польська мова
                 </NavigationNavLinkNew>
               </NavigationMenuItemNew>
