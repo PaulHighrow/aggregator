@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { SearchBtnIcon } from '../MyAPPanel/MyAPPanel.styled';
+import { CupBtnIcon } from '../MyAPPanel/MyAPPanel.styled';
 
-export const FinderBox = styled.div`
+export const PointsBox = styled.div`
   position: absolute;
   top: 142px;
   right: 120px;
@@ -13,21 +13,23 @@ export const FinderBox = styled.div`
 
   overflow: hidden;
   border-radius: 20px;
-  min-height: 442px;
+  padding: 0 20px;
+  min-height: 556px;
 `;
 
-export const FinderLabel = styled.label`
-  display: block;
-  position: relative;
+export const PointsBoxHeading = styled.h3`
+  padding: 9px 0;
+
+  color: #525266;
+  font-size: 20px;
+  font-weight: 400;
+
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
 `;
 
-export const FinderIcon = styled(SearchBtnIcon)`
-  position: absolute;
-  top: 50%;
-  left: 20px;
-
-  transform: translateY(-50%);
-`;
+export const CupIcon = styled(CupBtnIcon)``;
 
 export const FinderInput = styled.input`
   height: 48px;

@@ -1,19 +1,28 @@
 import { useState } from 'react';
 import ReactPlayer from 'react-player/youtube';
 import { ReactComponent as LessonCopyIcon } from '../../../img/svg/lessonCopyIcon.svg';
+import { ReactComponent as PdfDownload } from '../../../img/svg/pdf-download.svg';
+import { ReactComponent as PdfIcon } from '../../../img/svg/pdf-icon.svg';
+
+import parse from 'html-react-parser';
 import {
   FinderBox,
   FinderIcon,
   FinderInput,
   FinderLabel,
   FinderLessons,
+  FinderMolding,
   LessonBox,
   LessonBoxItem,
   LessonCopyNameButton,
+  LessonTextValuesBox,
+  LessonTopBox,
   LessonValueName,
+  LessonValuePdfLink,
   LessonValueTopic,
   LessonValuesLogo,
-  LessonVideoBox
+  LessonVideoBox,
+  PdfWrapper,
 } from './LessonFinder.styled';
 
 export const LessonFinder = ({ lessons }) => {
@@ -33,6 +42,10 @@ export const LessonFinder = ({ lessons }) => {
       : setLessonsFound(lessonsFound => [...lessons]);
   };
 
+  const copyLessonName = lesson => {
+    navigator.clipboard.writeText(lesson);
+  };
+
   return (
     <FinderBox>
       <FinderLabel>
@@ -43,18 +56,24 @@ export const LessonFinder = ({ lessons }) => {
         <LessonBox>
           {lessonsFound.map(lesson => (
             <LessonBoxItem key={lesson._id}>
-              <LessonValuesLogo>
-                {lesson.level + lesson.lesson.replace('Lesson', ' -')}
-              </LessonValuesLogo>
-              {/* <LessonValuesBox> */}
-              <LessonValueName>
-                {lesson.level} {lesson.lesson}
-              </LessonValueName>
-              <LessonCopyNameButton>
-                <LessonCopyIcon />
-              </LessonCopyNameButton>
-              <LessonValueTopic>{lesson.topic}</LessonValueTopic>
-              {/* </LessonValuesBox> */}
+              <LessonTopBox>
+                <LessonValuesLogo>
+                  {lesson.level + lesson.lesson.replace('Lesson', ' -')}
+                </LessonValuesLogo>
+                <LessonTextValuesBox>
+                  <LessonValueName>
+                    {lesson.level} {lesson.lesson}
+                  </LessonValueName>
+                  <LessonCopyNameButton
+                    onClick={() =>
+                      copyLessonName(lesson.level + ' ' + lesson.lesson)
+                    }
+                  >
+                    <LessonCopyIcon />
+                  </LessonCopyNameButton>
+                  <LessonValueTopic>{lesson.topic}</LessonValueTopic>
+                </LessonTextValuesBox>
+              </LessonTopBox>
               {lesson.video[0] && (
                 <LessonVideoBox>
                   <ReactPlayer
@@ -73,11 +92,25 @@ export const LessonFinder = ({ lessons }) => {
                   />
                 </LessonVideoBox>
               )}
-              {lesson.pdf}
+              {lesson.pdf.map((pdf, i) => (
+                <PdfWrapper>
+                  <PdfIcon />
+                  <LessonValuePdfLink
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    to={parse(pdf)}
+                    key={i}
+                  >
+                    Граматика {i + 1}
+                    <PdfDownload />
+                  </LessonValuePdfLink>
+                </PdfWrapper>
+              ))}
             </LessonBoxItem>
           ))}
         </LessonBox>
       </FinderLessons>
+      <FinderMolding />
     </FinderBox>
   );
 };

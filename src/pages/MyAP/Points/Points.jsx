@@ -1,10 +1,14 @@
 import { nanoid } from 'nanoid';
 import points from './pointsFebruary.json';
+import { CupIcon, PointsBox, PointsBoxHeading } from './Points.styled';
 console.log(points.february);
 
 export const Points = () => {
   return (
-    <div>
+    <PointsBox>
+      <PointsBoxHeading>
+        <CupIcon />Рейтинг
+      </PointsBoxHeading>
       <ul>
         {points.february.map(user => {
           // console.log(user);
@@ -15,6 +19,6 @@ export const Points = () => {
           );
         })}
       </ul>
-    </div>
+    </PointsBox>
   );
 };
