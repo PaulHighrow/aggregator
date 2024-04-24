@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.933befc2.css",
-    "main.js": "/aggregator/static/js/main.d8b22e20.js",
+    "main.js": "/aggregator/static/js/main.1e3ed244.js",
     "New Design Homepage.css": "/aggregator/static/css/New Design Homepage.106666db.chunk.css",
     "New Design Homepage.js": "/aggregator/static/js/New Design Homepage.c594140a.chunk.js",
     "School epage.css": "/aggregator/static/css/School epage.106666db.chunk.css",
@@ -19,13 +19,13 @@
     "B1 Speaking pilot page.js": "/aggregator/static/js/B1 Speaking pilot page.4c81a7cf.chunk.js",
     "Polska trials page.js": "/aggregator/static/js/Polska trials page.bcacc9ff.chunk.js",
     "English courses page.css": "/aggregator/static/css/English courses page.106666db.chunk.css",
-    "English courses page.js": "/aggregator/static/js/English courses page.66b281d7.chunk.js",
+    "English courses page.js": "/aggregator/static/js/English courses page.148cdfae.chunk.js",
     "Polski courses page.css": "/aggregator/static/css/Polski courses page.106666db.chunk.css",
     "Polski courses page.js": "/aggregator/static/js/Polski courses page.13a22c28.chunk.js",
     "Deutsch courses page.css": "/aggregator/static/css/Deutsch courses page.106666db.chunk.css",
-    "Deutsch courses page.js": "/aggregator/static/js/Deutsch courses page.f3fb1609.chunk.js",
+    "Deutsch courses page.js": "/aggregator/static/js/Deutsch courses page.a667c43b.chunk.js",
     "Teacher Page.js": "/aggregator/static/js/Teacher Page.cd3f8cee.chunk.js",
-    "My AP Page.js": "/aggregator/static/js/My AP Page.05223fbe.chunk.js",
+    "My AP Page.js": "/aggregator/static/js/My AP Page.88d9da2c.chunk.js",
     "Not Found.js": "/aggregator/static/js/Not Found.d04e3d25.chunk.js",
     "reactPlayerYouTube.js": "/aggregator/static/js/reactPlayerYouTube.074f9284.chunk.js",
     "reactPlayerSoundCloud.js": "/aggregator/static/js/reactPlayerSoundCloud.adf990cd.chunk.js",
@@ -175,7 +175,7 @@
     "static/media/btnbox-switch-right-large.svg": "/aggregator/static/media/btnbox-switch-right-large.d4edfcc5f338a2d51c7d6695947ffc4e.svg",
     "static/media/btnbox-switch-right.svg": "/aggregator/static/media/btnbox-switch-right.c2062beab8ed3d828de36754c3279d60.svg",
     "main.933befc2.css.map": "/aggregator/static/css/main.933befc2.css.map",
-    "main.d8b22e20.js.map": "/aggregator/static/js/main.d8b22e20.js.map",
+    "main.1e3ed244.js.map": "/aggregator/static/js/main.1e3ed244.js.map",
     "New Design Homepage.106666db.chunk.css.map": "/aggregator/static/css/New Design Homepage.106666db.chunk.css.map",
     "New Design Homepage.c594140a.chunk.js.map": "/aggregator/static/js/New Design Homepage.c594140a.chunk.js.map",
     "School epage.106666db.chunk.css.map": "/aggregator/static/css/School epage.106666db.chunk.css.map",
@@ -193,13 +193,13 @@
     "B1 Speaking pilot page.4c81a7cf.chunk.js.map": "/aggregator/static/js/B1 Speaking pilot page.4c81a7cf.chunk.js.map",
     "Polska trials page.bcacc9ff.chunk.js.map": "/aggregator/static/js/Polska trials page.bcacc9ff.chunk.js.map",
     "English courses page.106666db.chunk.css.map": "/aggregator/static/css/English courses page.106666db.chunk.css.map",
-    "English courses page.66b281d7.chunk.js.map": "/aggregator/static/js/English courses page.66b281d7.chunk.js.map",
+    "English courses page.148cdfae.chunk.js.map": "/aggregator/static/js/English courses page.148cdfae.chunk.js.map",
     "Polski courses page.106666db.chunk.css.map": "/aggregator/static/css/Polski courses page.106666db.chunk.css.map",
     "Polski courses page.13a22c28.chunk.js.map": "/aggregator/static/js/Polski courses page.13a22c28.chunk.js.map",
     "Deutsch courses page.106666db.chunk.css.map": "/aggregator/static/css/Deutsch courses page.106666db.chunk.css.map",
-    "Deutsch courses page.f3fb1609.chunk.js.map": "/aggregator/static/js/Deutsch courses page.f3fb1609.chunk.js.map",
+    "Deutsch courses page.a667c43b.chunk.js.map": "/aggregator/static/js/Deutsch courses page.a667c43b.chunk.js.map",
     "Teacher Page.cd3f8cee.chunk.js.map": "/aggregator/static/js/Teacher Page.cd3f8cee.chunk.js.map",
-    "My AP Page.05223fbe.chunk.js.map": "/aggregator/static/js/My AP Page.05223fbe.chunk.js.map",
+    "My AP Page.88d9da2c.chunk.js.map": "/aggregator/static/js/My AP Page.88d9da2c.chunk.js.map",
     "Not Found.d04e3d25.chunk.js.map": "/aggregator/static/js/Not Found.d04e3d25.chunk.js.map",
     "reactPlayerYouTube.074f9284.chunk.js.map": "/aggregator/static/js/reactPlayerYouTube.074f9284.chunk.js.map",
     "reactPlayerSoundCloud.adf990cd.chunk.js.map": "/aggregator/static/js/reactPlayerSoundCloud.adf990cd.chunk.js.map",
@@ -220,6 +220,6 @@
   },
   "entrypoints": [
     "static/css/main.933befc2.css",
-    "static/js/main.d8b22e20.js"
+    "static/js/main.1e3ed244.js"
   ]
 }
