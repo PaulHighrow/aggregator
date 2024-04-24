@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { CupBtnIcon } from '../MyAPPanel/MyAPPanel.styled';
+import { CalendarBtnIcon } from '../MyAPPanel/MyAPPanel.styled';
 
-export const PointsBox = styled.div`
+export const AttendanceBox = styled.div`
   position: absolute;
   top: 142px;
   right: 120px;
@@ -19,7 +19,7 @@ export const PointsBox = styled.div`
   width: 362px;
 `;
 
-export const PointsBoxHeading = styled.h3`
+export const AttendanceHeading = styled.h3`
   padding: 9px 0;
 
   color: #525266;
@@ -162,4 +162,4 @@ export const UserPlace = styled(LeaderPlace)`
   background: transparent;
 `;
 
-export const CupIcon = styled(CupBtnIcon)``;
+export const CalendarIcon = styled(CalendarBtnIcon)``;

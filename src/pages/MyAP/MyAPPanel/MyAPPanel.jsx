@@ -1,18 +1,20 @@
 import { useEffect, useState } from 'react';
 import { LessonFinder } from '../LessonFinder/LessonFinder';
+import { Points } from '../Points/Points';
 import {
   APPanel,
   APPanelBtn,
   CalendarBtnIcon,
   CupBtnIcon,
   PanelBackdrop,
-  SearchBtnIcon,
   PanelHideLeftSwitch,
   PanelHideRightSwitch,
   PanelHideSwitch,
+  SearchBtnIcon,
 } from './MyAPPanel.styled';
+import { Attendance } from '../Attendance/Attendance';
 
-export const MyAPPanel = ({ lessons }) => {
+export const MyAPPanel = ({ lessons, user }) => {
   const [isBackdropShown, setIsBackdropShown] = useState(false);
   const [isLessonFinderShown, setIsLessonFinderShown] = useState(false);
   const [isRatingShown, setIsRatingShown] = useState(false);
@@ -35,7 +37,8 @@ export const MyAPPanel = ({ lessons }) => {
       (!isRatingShown || !isCalendarShown) &&
       setIsBackdropShown(isBackdropShown => (isBackdropShown = true));
     isBackdropShown &&
-      (!isRatingShown || !isCalendarShown) &&
+      !isRatingShown &&
+      !isCalendarShown &&
       setIsBackdropShown(isBackdropShown => (isBackdropShown = false));
     setIsRatingShown(false);
     setIsCalendarShown(false);
@@ -47,7 +50,8 @@ export const MyAPPanel = ({ lessons }) => {
       (!isLessonFinderShown || !isCalendarShown) &&
       setIsBackdropShown(isBackdropShown => (isBackdropShown = true));
     isBackdropShown &&
-      (!isLessonFinderShown || !isCalendarShown) &&
+      !isLessonFinderShown &&
+      !isCalendarShown &&
       setIsBackdropShown(isBackdropShown => (isBackdropShown = false));
     setIsLessonFinderShown(false);
     setIsCalendarShown(false);
@@ -59,7 +63,8 @@ export const MyAPPanel = ({ lessons }) => {
       (!isRatingShown || !isLessonFinderShown) &&
       setIsBackdropShown(isBackdropShown => (isBackdropShown = true));
     isBackdropShown &&
-      (!isRatingShown || !isLessonFinderShown) &&
+      !isRatingShown &&
+      !isLessonFinderShown &&
       setIsBackdropShown(isBackdropShown => (isBackdropShown = false));
     setIsLessonFinderShown(false);
     setIsRatingShown(false);
@@ -99,6 +104,8 @@ export const MyAPPanel = ({ lessons }) => {
       </APPanel>
 
       {isLessonFinderShown && <LessonFinder lessons={lessons} />}
+      {isRatingShown && <Points user={user}/>}
+      {isCalendarShown && <Attendance user={user}/>}
     </>
   );
 };

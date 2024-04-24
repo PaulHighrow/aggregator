@@ -31,6 +31,7 @@ export const APPanel = styled.div`
   gap: 10px;
 
   background-color: #fff;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
   transition: transform var(--animation-global);
 
   &.hidden {
@@ -49,8 +50,8 @@ export const APPanelBtn = styled.button`
   color: #bebecc;
   transition: color var(--animation-global);
 
-  &:hover {
-    color: #525266;
+  &:hover svg {
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.16));
   }
 `;
 
@@ -74,7 +75,7 @@ export const PanelHideSwitch = styled.div`
   top: 118px;
   right: 0;
 
-  filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.09));
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
 
   z-index: 10;
 

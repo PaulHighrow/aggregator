@@ -15,11 +15,11 @@ import { useEffect, useState } from 'react';
 import * as yup from 'yup';
 import { MyPlatform } from './My Platform/MyPlatform';
 import { MyAPPanel } from './MyAPPanel/MyAPPanel';
-import { Points } from './Points/Points';
 
 const MyAP = () => {
   const [isUserLogged, setIsUserLogged] = useState(false);
   const [lessons, setLessons] = useState(false);
+  const [user, setUser] = useState({});
   axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
 
   console.log(window.location);
@@ -47,6 +47,7 @@ const MyAP = () => {
         });
         setIsUserLogged(isLogged => (isLogged = true));
         console.log(res);
+        setUser(user => user = {...res.data.user})
       } catch (error) {
         console.log(error);
       }
@@ -120,9 +121,7 @@ const MyAP = () => {
         </Formik>
       ) : (
         <>
-          <MyAPPanel lessons={lessons} />
-
-          <Points />
+          <MyAPPanel lessons={lessons} user={user}/>
           <MyPlatform />
         </>
       )}
