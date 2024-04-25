@@ -32,16 +32,17 @@ export const LinksForm = styled(Form)`
 
 export const AdminFormBtn = styled(FormBtn)`
   margin: 0 auto;
+  max-width: 600px;
 `;
 
 export const AdminInput = styled(Input)`
   border: 2px solid var(--main-color);
+  max-width: 600px;
 `;
 
 export const AdminInputNote = styled(InputNote)`
   position: static;
   color: var(--main-color);
-  font-size: 24px;
-  font-weight: 700;
+  font-size: 14px;
   bottom: -1.1em;
 `;

@@ -423,6 +423,16 @@ export const StreamPlaceHolderText = styled.p`
   font-size: 32px;
 `;
 
+export const LoginFormText = styled.p`
+  font-size: 16px;
+  text-align: center;
+  
+  @media screen and (min-width: 1280px) {
+    font-size: 24px;
+    max-width: 840px;
+  }
+`;
+
 export const LoginLogo = styled(LogoClean)`
   width: 240px;
 

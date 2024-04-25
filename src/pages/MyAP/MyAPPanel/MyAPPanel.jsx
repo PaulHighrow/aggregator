@@ -22,6 +22,7 @@ export const MyAPPanel = ({ lessons, user }) => {
   const [isButtonBoxShown, setIsButtonBoxShown] = useState(true);
 
   const toggleButtonBox = () => {
+    hideBackdrop();
     setIsButtonBoxShown(isShown => !isShown);
   };
 
@@ -87,7 +88,10 @@ export const MyAPPanel = ({ lessons, user }) => {
 
   return (
     <>
-      {isBackdropShown && <PanelBackdrop onClick={hideBackdrop} />}
+      <PanelBackdrop
+        onClick={hideBackdrop}
+        className={isBackdropShown ? '' : 'hidden'}
+      />
       <PanelHideSwitch id="no-transform" onClick={toggleButtonBox}>
         {isButtonBoxShown ? <PanelHideRightSwitch /> : <PanelHideLeftSwitch />}
       </PanelHideSwitch>
@@ -104,8 +108,8 @@ export const MyAPPanel = ({ lessons, user }) => {
       </APPanel>
 
       {isLessonFinderShown && <LessonFinder lessons={lessons} />}
-      {isRatingShown && <Points user={user}/>}
-      {isCalendarShown && <Attendance user={user}/>}
+      {isRatingShown && <Points user={user} />}
+      {isCalendarShown && <Attendance user={user} />}
     </>
   );
 };

@@ -1,9 +1,10 @@
 import axios from 'axios';
-import { Label } from 'components/LeadForm/LeadForm.styled';
 import {
-  StreamPlaceHolderText,
-  StreamSection,
-} from 'components/Stream/Stream.styled';
+  Label,
+  LeftFormBackgroundStar,
+  RightFormBackgroundStar
+} from 'components/LeadForm/LeadForm.styled';
+import { LoginFormText, StreamSection } from 'components/Stream/Stream.styled';
 import { Formik } from 'formik';
 import {
   AdminFormBtn,
@@ -47,7 +48,7 @@ const MyAP = () => {
         });
         setIsUserLogged(isLogged => (isLogged = true));
         console.log(res);
-        setUser(user => user = {...res.data.user})
+        setUser(user => (user = { ...res.data.user }));
       } catch (error) {
         console.log(error);
       }
@@ -83,6 +84,7 @@ const MyAP = () => {
       console.log(response);
       setAuthToken(response.data.token);
       setIsUserLogged(isLogged => (isLogged = true));
+      setUser(user => (user = { ...response.data.user }));
       localStorage.setItem('mail', values.mail);
       resetForm();
     } catch (error) {
@@ -99,11 +101,15 @@ const MyAP = () => {
           validationSchema={loginSchema}
         >
           <LoginForm>
-            <StreamPlaceHolderText>
-              Привіт! Ця сторінка недоступна для неавторизованих користувачів.
+            <LeftFormBackgroundStar />
+            <RightFormBackgroundStar />
+            <LoginFormText>
+              Привіт! 
+              <br />
+              Ця сторінка недоступна для неавторизованих користувачів.
               Але якщо ви маєте доступ до нашої платформи, то й до цієї сторінки
               теж. Введіть дані, які ви використовуєте для входу на платформу.
-            </StreamPlaceHolderText>
+            </LoginFormText>
             <Label>
               <AdminInput type="text" name="mail" placeholder="Login" />
               <AdminInputNote component="p" name="mail" type="email" />
@@ -121,7 +127,7 @@ const MyAP = () => {
         </Formik>
       ) : (
         <>
-          <MyAPPanel lessons={lessons} user={user}/>
+          <MyAPPanel lessons={lessons} user={user} />
           <MyPlatform />
         </>
       )}

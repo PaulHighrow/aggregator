@@ -233,6 +233,40 @@ export const BottomFormBackgroundStar = styled(FormBackgroundStar)`
   height: 40px;
 `;
 
+export const LeftFormBackgroundStar = styled(FormBackgroundStar)`
+  position: absolute;
+  left: 24px;
+  bottom: -112px;
+
+  opacity: 0.1;
+  width: 89px;
+  height: 89px;
+
+  @media screen and (min-width: 1280px) {
+    width: 310px;
+    height: 310px;
+    top: 345px;
+    left: -360px;
+  }
+`;
+
+export const RightFormBackgroundStar = styled(FormBackgroundStar)`
+  position: absolute;
+  right: 8px;
+  top: -193px;
+
+  opacity: 0.1;
+  width: 42px;
+  height: 42px;
+
+  @media screen and (min-width: 1280px) {
+    width: 98px;
+    height: 98px;
+    right: -149px;
+    top: -62px;
+  }
+`;
+
 export const FormBtn = styled.button`
   display: block;
   margin: 0 auto;

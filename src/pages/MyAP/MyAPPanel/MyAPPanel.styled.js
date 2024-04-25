@@ -12,6 +12,16 @@ export const PanelBackdrop = styled.div`
   position: absolute;
   background-color: #00000080;
   z-index: 4;
+  opacity: 1;
+
+  transition: opacity var(--animation-global);
+
+  &.hidden {
+    opacity: 0;
+    pointer-events: none;
+
+    transition: opacity var(--animation-global);
+  }
 `;
 
 export const APPanel = styled.div`
