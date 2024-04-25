@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.933befc2.css",
-    "main.js": "/aggregator/static/js/main.1e3ed244.js",
+    "main.js": "/aggregator/static/js/main.2bee4f09.js",
     "New Design Homepage.css": "/aggregator/static/css/New Design Homepage.106666db.chunk.css",
     "New Design Homepage.js": "/aggregator/static/js/New Design Homepage.c594140a.chunk.js",
     "School epage.css": "/aggregator/static/css/School epage.106666db.chunk.css",
@@ -16,6 +16,7 @@
     "English trials page.js": "/aggregator/static/js/English trials page.df49f9ff.chunk.js",
     "Kids trials page.js": "/aggregator/static/js/Kids trials page.6727cf90.chunk.js",
     "Deutsch trials page.js": "/aggregator/static/js/Deutsch trials page.f9c680d8.chunk.js",
+    "A2 Speaking pilot page.js": "/aggregator/static/js/A2 Speaking pilot page.3ada944a.chunk.js",
     "B1 Speaking pilot page.js": "/aggregator/static/js/B1 Speaking pilot page.4c81a7cf.chunk.js",
     "Polska trials page.js": "/aggregator/static/js/Polska trials page.bcacc9ff.chunk.js",
     "English courses page.css": "/aggregator/static/css/English courses page.106666db.chunk.css",
@@ -175,7 +176,7 @@
     "static/media/btnbox-switch-right-large.svg": "/aggregator/static/media/btnbox-switch-right-large.d4edfcc5f338a2d51c7d6695947ffc4e.svg",
     "static/media/btnbox-switch-right.svg": "/aggregator/static/media/btnbox-switch-right.c2062beab8ed3d828de36754c3279d60.svg",
     "main.933befc2.css.map": "/aggregator/static/css/main.933befc2.css.map",
-    "main.1e3ed244.js.map": "/aggregator/static/js/main.1e3ed244.js.map",
+    "main.2bee4f09.js.map": "/aggregator/static/js/main.2bee4f09.js.map",
     "New Design Homepage.106666db.chunk.css.map": "/aggregator/static/css/New Design Homepage.106666db.chunk.css.map",
     "New Design Homepage.c594140a.chunk.js.map": "/aggregator/static/js/New Design Homepage.c594140a.chunk.js.map",
     "School epage.106666db.chunk.css.map": "/aggregator/static/css/School epage.106666db.chunk.css.map",
@@ -190,6 +191,7 @@
     "English trials page.df49f9ff.chunk.js.map": "/aggregator/static/js/English trials page.df49f9ff.chunk.js.map",
     "Kids trials page.6727cf90.chunk.js.map": "/aggregator/static/js/Kids trials page.6727cf90.chunk.js.map",
     "Deutsch trials page.f9c680d8.chunk.js.map": "/aggregator/static/js/Deutsch trials page.f9c680d8.chunk.js.map",
+    "A2 Speaking pilot page.3ada944a.chunk.js.map": "/aggregator/static/js/A2 Speaking pilot page.3ada944a.chunk.js.map",
     "B1 Speaking pilot page.4c81a7cf.chunk.js.map": "/aggregator/static/js/B1 Speaking pilot page.4c81a7cf.chunk.js.map",
     "Polska trials page.bcacc9ff.chunk.js.map": "/aggregator/static/js/Polska trials page.bcacc9ff.chunk.js.map",
     "English courses page.106666db.chunk.css.map": "/aggregator/static/css/English courses page.106666db.chunk.css.map",
@@ -220,6 +222,6 @@
   },
   "entrypoints": [
     "static/css/main.933befc2.css",
-    "static/js/main.1e3ed244.js"
+    "static/js/main.2bee4f09.js"
   ]
 }
