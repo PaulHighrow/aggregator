@@ -71,12 +71,12 @@ export const StreamsBackgroundWrapper = styled.div`
   font-family: var(--streams-font-family);
 
   height: 100vh;
-  background-position: right -70px top 0px;
+  background-position: right center top 0px;
   background-image: image-set(
     url(${mobile1xBGWebp}) type('image/webp'),
     url(${mobile1xBGPng}) type('image/png')
   );
-  background-size: auto 100%;
+  background-size: auto 50%;
   background-repeat: no-repeat;
 
   @media (min-device-pixel-ratio: 2),
@@ -94,7 +94,7 @@ export const StreamsBackgroundWrapper = styled.div`
       url(${tablet1xBGWebp}) type('image/webp'),
       url(${tablet1xBGPng}) type('image/png')
     );
-    background-size: auto 100%;
+    background-size: auto 50%;
 
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
@@ -107,12 +107,12 @@ export const StreamsBackgroundWrapper = styled.div`
   }
 
   @media screen and (min-width: 1280px) {
-    background-position: left -215px top 0;
+    background-position: left center top 0;
     background-image: image-set(
       url(${desktop1xBGWebp}) type('image/webp'),
       url(${desktop1xBGPng}) type('image/png')
     );
-    background-size: auto 100%;
+    background-size: auto 50%;
 
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),

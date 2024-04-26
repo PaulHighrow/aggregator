@@ -14,7 +14,7 @@ import {
 } from './MyAPPanel.styled';
 import { Attendance } from '../Attendance/Attendance';
 
-export const MyAPPanel = ({ lessons, user }) => {
+export const MyAPPanel = ({ lessons, user, points }) => {
   const [isBackdropShown, setIsBackdropShown] = useState(false);
   const [isLessonFinderShown, setIsLessonFinderShown] = useState(false);
   const [isRatingShown, setIsRatingShown] = useState(false);
@@ -25,6 +25,8 @@ export const MyAPPanel = ({ lessons, user }) => {
     hideBackdrop();
     setIsButtonBoxShown(isShown => !isShown);
   };
+
+  const flatPoints = Object.values(points[0].rating).flatMap(user => user);
 
   const hideBackdrop = () => {
     setIsBackdropShown(false);
@@ -108,7 +110,7 @@ export const MyAPPanel = ({ lessons, user }) => {
       </APPanel>
 
       {isLessonFinderShown && <LessonFinder lessons={lessons} />}
-      {isRatingShown && <Points user={user} />}
+      {isRatingShown && <Points user={user} flatPoints={flatPoints} />}
       {isCalendarShown && <Attendance user={user} />}
     </>
   );

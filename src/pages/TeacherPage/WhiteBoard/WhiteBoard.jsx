@@ -24,7 +24,7 @@ export const WhiteBoard = ({
     a2kids: 'https://onlnbrd.com/b/teBJAugT',
     b1kids: 'https://onlnbrd.com/b/S0UDNll5',
     b2kids: 'https://onlnbrd.com/b/Redjgqxd',
-    test: 'https://onlineboard.eu/b/DvGmjap6',
+    test: 'https://limnu.com/d/draw.html?b=B_N65K69RyegUKa5&',
     deutsch: 'https://onlnbrd.com/b/ChJwDEJl',
     deutscha2: 'https://onlnbrd.com/b/sIDizJvB',
     polski: 'https://onlnbrd.com/b/X0PgN0TM',

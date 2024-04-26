@@ -20,6 +20,7 @@ import { MyAPPanel } from './MyAPPanel/MyAPPanel';
 const MyAP = () => {
   const [isUserLogged, setIsUserLogged] = useState(false);
   const [lessons, setLessons] = useState(false);
+  const [points, setPoints] = useState(false);
   const [user, setUser] = useState({});
   axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
 
@@ -39,6 +40,18 @@ const MyAP = () => {
       }
     };
     getLessons();
+
+    const getRating = async () => {
+      console.log('ratings getter');
+      try {
+        const res = await axios.get('/ratings');
+        console.log(res);
+        setPoints(ratings => (ratings = [...res.data]));
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getRating();
 
     const refreshToken = async () => {
       console.log('token refresher');
@@ -127,7 +140,7 @@ const MyAP = () => {
         </Formik>
       ) : (
         <>
-          <MyAPPanel lessons={lessons} user={user} />
+          <MyAPPanel lessons={lessons} user={user} points={points} />
           <MyPlatform />
         </>
       )}

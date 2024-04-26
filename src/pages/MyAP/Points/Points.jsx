@@ -1,5 +1,4 @@
 import { nanoid } from 'nanoid';
-import points from './pointsFebruary.json';
 import {
   CupIcon,
   LeaderPlace,
@@ -19,15 +18,16 @@ import {
   UserPlace,
 } from './Points.styled';
 import { useState } from 'react';
-console.log(points.february);
 
-export const Points = ({ user }) => {
+export const Points = ({ user, flatPoints }) => {
   const [position, setPosition] = useState('0%');
   const [activeRating, setActiveRating] = useState(0);
 
-  const februarySorted = points.february.sort((a, b) => b.points - a.points);
-  console.log(user);
-  console.log(februarySorted);
+  const pointsSorted = flatPoints
+    .filter(student => `${student.course}` === user.course)
+    .sort((a, b) => b.points - a.points);
+
+  const userPlace = pointsSorted.findIndex(leader => leader.mail === user.mail);
 
   const calculatePointerPosition = i => {
     setPosition(position => (position = `${i * 100}%`));
@@ -68,13 +68,13 @@ export const Points = ({ user }) => {
       </PointsTableHead>
       <PointsUser>
         <PointsUserData>
-          {februarySorted.findIndex(leader => leader.name === user.name)}
+          {pointsSorted.findIndex(leader => leader.mail === user.mail) + 1}
         </PointsUserData>
         <PointsUserDataWide>{user.name}</PointsUserDataWide>
-        <PointsUserData>{user.points}</PointsUserData>
+        <PointsUserData>{pointsSorted[userPlace].points}</PointsUserData>
       </PointsUser>
       <PointsLeaderboard>
-        {februarySorted.slice(0, 10).map((leader, i) => (
+        {pointsSorted.slice(0, 10).map((leader, i) => (
           <PointsLeader key={nanoid(8)}>
             {i <= 2 ? (
               <LeaderPlace>{i + 1}</LeaderPlace>
