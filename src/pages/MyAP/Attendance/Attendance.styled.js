@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { CalendarBtnIcon } from '../MyAPPanel/MyAPPanel.styled';
+import { ReactComponent as CoursesArrowLeft } from '../../../img/svg/month-switch-left.svg';
+import { ReactComponent as CoursesArrowRight } from '../../../img/svg/month-switch-right.svg';
 
 export const AttendanceBox = styled.div`
   position: absolute;
@@ -15,7 +17,7 @@ export const AttendanceBox = styled.div`
   overflow: hidden;
   border-radius: 20px;
   padding: 0 20px;
-  height: 556px;
+  height: 272px;
   width: 362px;
 `;
 
@@ -32,134 +34,70 @@ export const AttendanceHeading = styled.h3`
   gap: 10px;
 `;
 
-export const PointsCategoryPicker = styled.div`
-  padding: 5px 0;
+export const CalendarIcon = styled(CalendarBtnIcon)``;
+
+export const MonthSwitchBox = styled.div`
+  display: flex;
+  gap: 2px;
+  align-items: center;
+
+  margin-left: 16px;
+  margin-bottom: 10px;
+`;
+
+export const AttendanceMonth = styled.span`
+  color: #525266;
+  font-size: 14px;
+
+  text-transform: capitalize;
+`;
+
+export const AttendanceBtnLeft = styled.button`
+  width: 16px;
+  height: 16px;
 
   position: relative;
 
-  font-size: 14px;
-
-  display: flex;
-
-  margin-bottom: 6px;
-
-  &::after {
-    content: '';
-    height: 2px;
-    width: 100%;
-    border-radius: 2px;
-    background-color: #eeeef0;
-
-    position: absolute;
-    bottom: 0;
-    left: 0;
-  }
+  border: none;
+  outline: transparent;
+  background-color: transparent;
 `;
 
-export const PointsCategory = styled.p`
-  font-size: 14px;
-  text-align: center;
-  width: 50%;
+export const AttendanceArrowLeft = styled(CoursesArrowLeft)`
   color: #bebecc;
 
-  transition: color var(--animation-global);
+  position: absolute;
+  top: 50%;
+  left: 50%;
 
-  cursor: pointer;
+  transform: translate(-50%, -50%);
 
-  &.active,
-  &:hover,
-  &:focus {
+  &.available {
     color: #525266;
   }
 `;
 
-export const PointsCategoryPointer = styled.div`
-  height: 2px;
-  width: 50%;
-  border-radius: 2px;
-  background-color: var(--main-color);
+export const AttendanceBtnRight = styled.button`
+  width: 16px;
+  height: 16px;
+
+  position: relative;
+
+  border: none;
+  outline: transparent;
+  background-color: transparent;
+`;
+
+export const AttendanceArrowRight = styled(CoursesArrowRight)`
+  color: #bebecc;
 
   position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
+  top: 50%;
+  left: 50%;
 
-  transition: transform 250ms var(--animation-global);
+  transform: translate(-50%, -50%);
+
+  &.available {
+    color: #525266;
+  }
 `;
-
-export const PointsTableHead = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  padding: 6px 5px 6px 0;
-`;
-
-export const PointsTableHeadItem = styled.p`
-  font-size: 12px;
-  color: #bebecc;
-`;
-
-export const PointsTableHeadItemWide = styled(PointsTableHeadItem)`
-  width: 100%;
-`;
-
-export const PointsUser = styled(PointsTableHead)`
-  height: 36px;
-  border-radius: 7px;
-  background-color: var(--accent-color);
-
-  margin-bottom: 4px;
-`;
-
-export const PointsUserData = styled(PointsTableHeadItem)`
-  flex-shrink: 0;
-
-  width: 33px;
-  font-size: 14px;
-  text-align: center;
-  color: #525266;
-`;
-
-export const PointsUserDataWide = styled(PointsUserData)`
-  width: 100%;
-  flex-shrink: 1;
-  text-align: left;
-`;
-
-export const PointsLeaderboard = styled.ul`
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-`;
-
-export const PointsLeader = styled.li`
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  padding: 1.5px 5px 1.5px 0;
-`;
-
-export const LeaderPlace = styled.div`
-  display: flex;
-  height: 33px;
-  width: 33px;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-
-  text-align: center;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--secondary-color);
-  border-radius: 5px;
-  background: linear-gradient(322deg, #0f645b -5.61%, #09c6cc 93.88%);
-`;
-
-export const UserPlace = styled(LeaderPlace)`
-  color: #525266;
-  background: transparent;
-`;
-
-export const CalendarIcon = styled(CalendarBtnIcon)``;
