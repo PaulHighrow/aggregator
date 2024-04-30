@@ -30,6 +30,7 @@ import ScrollToTop from 'utils/ScrollToTop/ScrollToTop';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { ThankYouPage } from 'pages/ThankYouPage/ThankYouPage';
 import StreamTrialDeutschSprechclub from 'pages/Trials/StreamTrialDeutschSprechclub';
+import { KidsB1Beginner } from 'pages/StreamsKids/KidsB1Beginner/KidsB1Beginner';
 
 // const Home = lazy(() =>
 //   import(/* webpackChunkName: "Homepage" */ '../pages/Home/Home')
@@ -256,6 +257,8 @@ export const App = () => {
           <Route path="b1-chat" element={<WindowedChat />} />
           <Route path="b2" element={<KidsB2 />} />
           <Route path="b2-chat" element={<WindowedChat />} />
+          <Route path="b1beginner" element={<KidsB1Beginner />} />
+          <Route path="b1beginner-chat" element={<WindowedChat />} />
         </Route>
         <Route path="service" element={<Service />}>
           <Route path="viber" element={<ViberRedirect />} />
@@ -280,6 +283,7 @@ export const App = () => {
           <Route path="a2kids" element={<TeacherPage />} />
           <Route path="b1kids" element={<TeacherPage />} />
           <Route path="b2kids" element={<TeacherPage />} />
+          <Route path="b1kidsbeginner" element={<TeacherPage />} />
           <Route path="deutsch-a1" element={<TeacherPage />} />
           <Route path="deutsch-a2" element={<TeacherPage />} />
           <Route path="polski-a1" element={<TeacherPage />} />

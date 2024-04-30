@@ -84,6 +84,7 @@ export const CollectionsAdminPanel = () => {
     a2kids: '',
     b1kids: '',
     b2kids: '',
+    b1kidsbeginner: '',
     test: '',
   };
 
@@ -105,6 +106,7 @@ export const CollectionsAdminPanel = () => {
     a2kids: yup.string().optional(),
     b1kids: yup.string().optional(),
     b2kids: yup.string().optional(),
+    b1kidsbeginner: yup.string().optional(),
     test: yup.string().optional(),
   });
 
@@ -281,6 +283,14 @@ export const CollectionsAdminPanel = () => {
                   placeholder="B2 Kids collection"
                 />
                 <AdminInputNote component="p" name="b2kids" />
+              </Label>
+              <Label>
+                <AdminInput
+                  type="text"
+                  name="b1kidsbeginner"
+                  placeholder="B1 Kids Beginner collection"
+                />
+                <AdminInputNote component="p" name="b1kidsbeginner" />
               </Label>
               <Label>
                 <AdminInput

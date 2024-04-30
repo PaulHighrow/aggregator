@@ -86,6 +86,7 @@ export const AdminPanel = () => {
     a2kids: '',
     b1kids: '',
     b2kids: '',
+    b1kidsbeginners: '',
     test: '',
   };
 
@@ -107,6 +108,7 @@ export const AdminPanel = () => {
     a2kids: yup.string().optional(),
     b1kids: yup.string().optional(),
     b2kids: yup.string().optional(),
+    b1kidsbeginners: yup.string().optional(),
     test: yup.string().optional(),
   });
 
@@ -275,6 +277,14 @@ export const AdminPanel = () => {
                   placeholder="B2 Kids link"
                 />
                 <AdminInputNote component="p" name="b2kids" />
+              </Label>
+              <Label>
+                <AdminInput
+                  type="text"
+                  name="b1kidsbeginner"
+                  placeholder="B1 Beginner Kids link"
+                />
+                <AdminInputNote component="p" name="b1kidsbeginner" />
               </Label>
               <Label>
                 <AdminInput

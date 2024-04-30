@@ -33,6 +33,7 @@ import { TrialsEngKahootForm } from '../KahootAdminPanel/TrialsEngKahootForm';
 import { TrialsKidsKahootForm } from '../KahootAdminPanel/TrialsKidsKahootForm';
 import { TrialsPlKahootForm } from '../KahootAdminPanel/TrialsPlKahootForm';
 import { HostAdminPanelSection } from './HostKahootAdminPanel.styled';
+import { B1KidsBeginnerKahootForm } from '../KahootAdminPanel/B1KidsBeginnerKahootForm';
 
 axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
 const setAuthToken = token => {
@@ -162,6 +163,9 @@ export const HostKahootAdminPanel = () => {
             <KahootLvlBtn onClick={() => handleBtnClick('b2kids')}>
               B2 Kids
             </KahootLvlBtn>
+            <KahootLvlBtn onClick={() => handleBtnClick('b1kidsbeginner')}>
+              B1 Kids Beginner
+            </KahootLvlBtn>
             <KahootLvlBtn onClick={() => handleBtnClick('test')}>
               Test
             </KahootLvlBtn>
@@ -208,6 +212,9 @@ export const HostKahootAdminPanel = () => {
           )}
           {levels.includes('b2kids') && (
             <B2KidsKahootForm destination={destination} />
+          )}
+          {levels.includes('b1kidsbeginner') && (
+            <B1KidsBeginnerKahootForm destination={destination} />
           )}
           {levels.includes('test') && (
             <TestKahootForm destination={destination} />

@@ -11,6 +11,7 @@ import { A1KidsKahootForm } from './A1KidsKahootForm';
 import { A2KahootForm } from './A2KahootForm';
 import { A2KidsKahootForm } from './A2KidsKahootForm';
 import { B1KahootForm } from './B1KahootForm';
+import { B1KidsBeginnerKahootForm } from './B1KidsBeginnerKahootForm';
 import { B1KidsKahootForm } from './B1KidsKahootForm';
 import { B2KahootForm } from './B2KahootForm';
 import { B2KidsKahootForm } from './B2KidsKahootForm';
@@ -162,6 +163,9 @@ export const KahootAdminPanel = () => {
             <KahootLvlBtn onClick={() => handleBtnClick('b2kids')}>
               B2 Kids
             </KahootLvlBtn>
+            <KahootLvlBtn onClick={() => handleBtnClick('b1kidsbeginner')}>
+              B1 Kids Beginner
+            </KahootLvlBtn>
             <KahootLvlBtn onClick={() => handleBtnClick('test')}>
               Test
             </KahootLvlBtn>
@@ -208,6 +212,9 @@ export const KahootAdminPanel = () => {
           )}
           {levels.includes('b2kids') && (
             <B2KidsKahootForm destination={destination} />
+          )}
+          {levels.includes('b1kidsbeginner') && (
+            <B1KidsBeginnerKahootForm destination={destination} />
           )}
           {levels.includes('test') && (
             <TestKahootForm destination={destination} />
