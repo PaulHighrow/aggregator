@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.933befc2.css",
-    "main.js": "/aggregator/static/js/main.eadb2a8e.js",
+    "main.js": "/aggregator/static/js/main.68098e88.js",
     "New Design Homepage.css": "/aggregator/static/css/New Design Homepage.106666db.chunk.css",
     "New Design Homepage.js": "/aggregator/static/js/New Design Homepage.c594140a.chunk.js",
     "School epage.css": "/aggregator/static/css/School epage.106666db.chunk.css",
@@ -176,7 +176,7 @@
     "static/media/btnbox-switch-right-large.svg": "/aggregator/static/media/btnbox-switch-right-large.d4edfcc5f338a2d51c7d6695947ffc4e.svg",
     "static/media/btnbox-switch-right.svg": "/aggregator/static/media/btnbox-switch-right.c2062beab8ed3d828de36754c3279d60.svg",
     "main.933befc2.css.map": "/aggregator/static/css/main.933befc2.css.map",
-    "main.eadb2a8e.js.map": "/aggregator/static/js/main.eadb2a8e.js.map",
+    "main.68098e88.js.map": "/aggregator/static/js/main.68098e88.js.map",
     "New Design Homepage.106666db.chunk.css.map": "/aggregator/static/css/New Design Homepage.106666db.chunk.css.map",
     "New Design Homepage.c594140a.chunk.js.map": "/aggregator/static/js/New Design Homepage.c594140a.chunk.js.map",
     "School epage.106666db.chunk.css.map": "/aggregator/static/css/School epage.106666db.chunk.css.map",
@@ -222,6 +222,6 @@
   },
   "entrypoints": [
     "static/css/main.933befc2.css",
-    "static/js/main.eadb2a8e.js"
+    "static/js/main.68098e88.js"
   ]
 }
