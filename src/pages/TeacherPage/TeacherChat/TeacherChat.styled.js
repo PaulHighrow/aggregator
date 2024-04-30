@@ -11,7 +11,7 @@ import { ReactComponent as BoxSwitchRight } from '../../../img/svg/btnbox-switch
 
 export const TeacherChatBox = styled.div`
   position: absolute;
-  bottom: 0;
+  top: 0;
   right: 0;
   z-index: 8;
   height: 40vh;
@@ -567,7 +567,7 @@ export const ChatHeaderLogo = styled(ChatLogo)`
 
 export const TeacherChatSwitch = styled.button`
   position: absolute;
-  top: 15px;
+  bottom: 40px;
   left: -40px;
 
   border: none;

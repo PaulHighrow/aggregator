@@ -4,6 +4,9 @@ import { ReactComponent as WhiteBoardIcon } from '../../img/svg/whiteBoardIcon.s
 import { ReactComponent as PlatformIcon } from '../../img/svg/myap/logo-short.svg';
 import { ReactComponent as BoxSwitchUp } from '../../img/svg/btnbox-switch-up.svg';
 import { ReactComponent as BoxSwitchDown } from '../../img/svg/btnbox-switch-down.svg';
+import { ReactComponent as BoxSwitchLeft } from '../../img/svg/btnbox-switch-left.svg';
+import { ReactComponent as BoxSwitchRight } from '../../img/svg/btnbox-switch-right.svg';
+
 import { ChatBtn, StreamSection } from 'components/Stream/Stream.styled';
 
 export const TeacherPageSection = styled(StreamSection)`
@@ -12,30 +15,31 @@ export const TeacherPageSection = styled(StreamSection)`
 
 export const TeacherButtonBox = styled.div`
   position: absolute;
-  bottom: 25px;
-  left: 245px;
+  bottom: 80px;
+  right: 25px;
   z-index: 100;
   display: flex;
+  flex-direction: column;
   gap: 20px;
 
   transition: transform var(--animation-global);
 
   &.hidden {
-    transform: translateY(calc(200px));
+    transform: translateX(200px);
   }
 `;
 
 export const TeacherButtonBoxHideSwitch = styled.div`
   position: absolute;
-  bottom: 0;
-  left: 375px;
+  bottom: 210px;
+  right: 0;
 
   filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.09));
 
   z-index: 10;
 
-  width: 90px;
-  height: 18px;
+  width: 18px;
+  height: 90px;
 
   display: flex;
   align-items: center;
@@ -44,7 +48,7 @@ export const TeacherButtonBoxHideSwitch = styled.div`
   background-color: #fff;
 
   border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
 `;
 
 export const BoxHideUpSwitch = styled(BoxSwitchUp)`
@@ -57,6 +61,20 @@ export const BoxHideUpSwitch = styled(BoxSwitchUp)`
 export const BoxHideDownSwitch = styled(BoxSwitchDown)`
   width: 18px;
   height: 12px;
+  stroke: var(--main-color);
+  transition: stroke var(--animation-global);
+`;
+
+export const BoxHideLeftSwitch = styled(BoxSwitchLeft)`
+  width: 12px;
+  height: 18px;
+  stroke: var(--main-color);
+  transition: stroke var(--animation-global);
+`;
+
+export const BoxHideRightSwitch = styled(BoxSwitchRight)`
+  width: 12px;
+  height: 18px;
   stroke: var(--main-color);
   transition: stroke var(--animation-global);
 `;

@@ -1,11 +1,16 @@
 import useSize from '@react-hook/size';
-import { KahootBtn, KahootLogo } from 'components/Stream/Stream.styled';
+import axios from 'axios';
+import { Loader } from 'components/SharedLayout/Loaders/Loader';
+import { LoaderWrapper } from 'components/SharedLayout/Loaders/Loader.styled';
+import {  KahootBtn, KahootLogo } from 'components/Stream/Stream.styled';
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { HostKahoots } from './HostKahoots/HostKahoots';
 import { Platform } from './Platform/Platform';
+import { TeacherChat } from './TeacherChat/TeacherChat';
 import {
-  BoxHideDownSwitch,
-  BoxHideUpSwitch,
+  BoxHideLeftSwitch,
+  BoxHideRightSwitch,
   PlatformBtn,
   PlatformLogo,
   TeacherButtonBox,
@@ -13,15 +18,10 @@ import {
   ViewerBtn,
   ViewerLogo,
   WhiteBoardBtn,
-  WhiteBoardLogo,
+  WhiteBoardLogo
 } from './TeacherPage.styled';
 import { Viewer } from './Viewer/Viewer';
 import { WhiteBoard } from './WhiteBoard/WhiteBoard';
-import { useLocation } from 'react-router-dom';
-import { TeacherChat } from './TeacherChat/TeacherChat';
-import axios from 'axios';
-import { LoaderWrapper } from 'components/SharedLayout/Loaders/Loader.styled';
-import { Loader } from 'components/SharedLayout/Loaders/Loader';
 
 const TeacherPage = () => {
   const [isWhiteBoardOpen, setIsWhiteBoardOpen] = useState(false);
@@ -128,7 +128,8 @@ const TeacherPage = () => {
         </KahootBtn>
       </TeacherButtonBox>
       <TeacherButtonBoxHideSwitch id="no-transform" onClick={toggleButtonBox}>
-        {isButtonBoxOpen ? <BoxHideDownSwitch /> : <BoxHideUpSwitch />}
+        {isButtonBoxOpen ? <BoxHideRightSwitch/>
+         : <BoxHideLeftSwitch />}
       </TeacherButtonBoxHideSwitch>
       {collection.length && (
         <Viewer
