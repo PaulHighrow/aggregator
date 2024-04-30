@@ -18,7 +18,10 @@ import {
   UserDeleteButton,
   UserHeadCell,
   UserCell,
+  UserEditButton,
 } from './UserAdminPanel.styled';
+import { Backdrop } from 'components/LeadForm/Backdrop/Backdrop.styled';
+import { UserEditForm } from './UserEditForm/UserEditForm';
 
 axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
 const setAuthToken = token => {
@@ -29,6 +32,8 @@ export const UserAdminPanel = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isUserAdmin, setIsUserAdmin] = useState(false);
   const [users, setUsers] = useState([]);
+  const [isEditFormOpen, setIsEditFormOpen] = useState(false);
+  const [userToEdit, setUserToEdit] = useState({});
 
   useEffect(() => {
     document.title = 'User Admin Panel | AP Education';
@@ -61,7 +66,19 @@ export const UserAdminPanel = () => {
       }
     };
     getUsers();
-  }, [isUserAdmin, isLoading]);
+
+    const onEscapeClose = event => {
+      if (event.code === 'Escape' && isEditFormOpen) {
+        closeEditForm();
+      }
+    };
+
+    window.addEventListener('keydown', onEscapeClose);
+
+    return () => {
+      window.removeEventListener('keydown', onEscapeClose);
+    };
+  }, [isUserAdmin, isLoading, isEditFormOpen]);
 
   const initialLoginValues = {
     login: '',
@@ -138,6 +155,23 @@ export const UserAdminPanel = () => {
       );
     } finally {
       setIsLoading(isLoading => (isLoading = false));
+    }
+  };
+
+  const handleEdit = async id => {
+    setIsEditFormOpen(true);
+    setUserToEdit(
+      userToEdit => (userToEdit = users.find(user => user._id === id))
+    );
+  };
+
+  const closeEditForm = e => {
+    setIsEditFormOpen(false);
+  };
+
+  const closeEditFormonClick = e => {
+    if (!e.target.form) {
+      setIsEditFormOpen(false);
     }
   };
 
@@ -270,6 +304,10 @@ export const UserAdminPanel = () => {
                 <UserHeadCell>Пошта (логін)</UserHeadCell>
                 <UserHeadCell>Пароль</UserHeadCell>
                 <UserHeadCell>Відвідини</UserHeadCell>
+                <UserHeadCell>Мова</UserHeadCell>
+                <UserHeadCell>Потік</UserHeadCell>
+                <UserHeadCell>Знання</UserHeadCell>
+                <UserHeadCell>Edit</UserHeadCell>
                 <UserHeadCell>Delete</UserHeadCell>
                 <UserHeadCell>Ban</UserHeadCell>
               </UserDBRow>
@@ -283,6 +321,16 @@ export const UserAdminPanel = () => {
                   <UserCell>{user.password}</UserCell>
                   <UserCell>
                     {new Date(user.updatedAt).toLocaleString('uk-UA')}
+                  </UserCell>
+                  <UserCell>{user.lang}</UserCell>
+                  <UserCell>{user.course}</UserCell>
+                  <UserCell>{user.knowledge}</UserCell>
+                  <UserCell>
+                    {user.name === 'Dev Acc' ? null : (
+                      <UserEditButton onClick={() => handleEdit(user._id)}>
+                        Edit
+                      </UserEditButton>
+                    )}
                   </UserCell>
                   <UserCell>
                     {user.name === 'Dev Acc' ? null : (
@@ -305,6 +353,14 @@ export const UserAdminPanel = () => {
               ))}
             </tbody>
           </UserDBTable>
+        )}
+        {isEditFormOpen && (
+          <Backdrop onClick={closeEditFormonClick}>
+            <UserEditForm
+              userToEdit={userToEdit}
+              closeEditForm={closeEditForm}
+            />
+          </Backdrop>
         )}
         {isLoading && <Loader />}
       </AdminPanelSection>

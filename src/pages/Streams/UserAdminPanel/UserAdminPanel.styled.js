@@ -33,6 +33,21 @@ export const UsersForm = styled(Form)`
   gap: 20px;
 `;
 
+export const UsersEditForm = styled(Form)`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background-color: white;
+  padding: 24px;
+  border-radius: 24px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+`;
+
 export const AdminFormBtn = styled(FormBtn)`
   margin: 0 auto;
   height: 48px;
@@ -98,6 +113,12 @@ export const UserHeadCell = styled.th`
 export const UserCell = styled.td`
   border: 1px solid #000;
   padding: 3px;
+`;
+
+export const UserEditButton = styled.button`
+  background-color: transparent;
+  border: 1px solid var(--accent-color);
+  border-radius: 5px;
 `;
 
 export const UserDeleteButton = styled.button`
