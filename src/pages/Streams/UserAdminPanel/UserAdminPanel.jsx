@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Backdrop } from 'components/LeadForm/Backdrop/Backdrop.styled';
 import { Label } from 'components/LeadForm/LeadForm.styled';
 import { Loader } from 'components/SharedLayout/Loaders/Loader';
 import { Formik } from 'formik';
@@ -9,18 +10,16 @@ import {
   AdminInput,
   AdminInputNote,
   AdminPanelSection,
-  UsersForm,
   LoginForm,
   UserBanButton,
+  UserCell,
   UserDBCaption,
   UserDBRow,
   UserDBTable,
-  UserDeleteButton,
-  UserHeadCell,
-  UserCell,
   UserEditButton,
+  UserHeadCell,
+  UsersForm
 } from './UserAdminPanel.styled';
-import { Backdrop } from 'components/LeadForm/Backdrop/Backdrop.styled';
 import { UserEditForm } from './UserEditForm/UserEditForm';
 
 axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
@@ -175,22 +174,22 @@ export const UserAdminPanel = () => {
     }
   };
 
-  const handleDelete = async id => {
-    setIsLoading(isLoading => (isLoading = true));
+  // const handleDelete = async id => {
+  //   setIsLoading(isLoading => (isLoading = true));
 
-    try {
-      const response = await axios.delete(`/users/${id}`);
-      console.log(response);
-      alert('Юзера видалено');
-    } catch (error) {
-      console.error(error);
-      alert(
-        'Десь якась проблема - клацай F12, роби скрін консолі, відправляй Кирилу'
-      );
-    } finally {
-      setIsLoading(isLoading => (isLoading = false));
-    }
-  };
+  //   try {
+  //     const response = await axios.delete(`/users/${id}`);
+  //     console.log(response);
+  //     alert('Юзера видалено');
+  //   } catch (error) {
+  //     console.error(error);
+  //     alert(
+  //       'Десь якась проблема - клацай F12, роби скрін консолі, відправляй Кирилу'
+  //     );
+  //   } finally {
+  //     setIsLoading(isLoading => (isLoading = false));
+  //   }
+  // };
 
   const handleBan = async (id, isBanned) => {
     setIsLoading(isLoading => (isLoading = true));
@@ -308,7 +307,7 @@ export const UserAdminPanel = () => {
                 <UserHeadCell>Потік</UserHeadCell>
                 <UserHeadCell>Знання</UserHeadCell>
                 <UserHeadCell>Edit</UserHeadCell>
-                <UserHeadCell>Delete</UserHeadCell>
+                {/* <UserHeadCell>Delete</UserHeadCell> */}
                 <UserHeadCell>Ban</UserHeadCell>
               </UserDBRow>
             </thead>
@@ -332,13 +331,13 @@ export const UserAdminPanel = () => {
                       </UserEditButton>
                     )}
                   </UserCell>
-                  <UserCell>
+                  {/* <UserCell>
                     {user.name === 'Dev Acc' ? null : (
                       <UserDeleteButton onClick={() => handleDelete(user._id)}>
                         Del
                       </UserDeleteButton>
                     )}
-                  </UserCell>
+                  </UserCell> */}
                   <UserCell>
                     {user.name === 'Dev Acc' ? null : (
                       <UserBanButton
