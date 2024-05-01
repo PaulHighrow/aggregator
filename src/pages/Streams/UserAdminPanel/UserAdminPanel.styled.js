@@ -4,9 +4,11 @@ import styled from 'styled-components';
 
 export const AdminPanelSection = styled.section`
   height: max-content;
-  padding: 30px 0;
+  padding: 30px 20px;
   display: flex;
   align-items: flex-start;
+
+  gap: 30px;
 `;
 
 export const LoginForm = styled(Form)`
@@ -56,7 +58,7 @@ export const AdminFormBtn = styled(FormBtn)`
 
 export const AdminInput = styled(Input)`
   width: 240px;
-  padding: 8px 4px;
+  padding: 8px 10px;
   font-size: 16px;
   height: 40px;
   -webkit-text-stroke: 0px;
@@ -113,6 +115,19 @@ export const UserHeadCell = styled.th`
 export const UserCell = styled.td`
   border: 1px solid #000;
   padding: 3px;
+
+  &.last-name {
+    text-transform: capitalize;
+  }
+
+&.attendance {
+  display: flex;
+  gap: 6px;
+}
+
+  &.attention {
+    color: red;
+  }
 `;
 
 export const UserEditButton = styled.button`
@@ -135,3 +150,7 @@ export const UserBanButton = styled(UserDeleteButton)`
     border-color: #8b0000;
   }
 `;
+
+export const FilterButton = styled.button`
+
+`

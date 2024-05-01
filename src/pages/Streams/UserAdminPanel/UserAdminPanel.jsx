@@ -18,7 +18,7 @@ import {
   UserDBTable,
   UserEditButton,
   UserHeadCell,
-  UsersForm,
+  UsersForm
 } from './UserAdminPanel.styled';
 import { UserEditForm } from './UserEditForm/UserEditForm';
 
@@ -33,6 +33,9 @@ export const UserAdminPanel = () => {
   const [users, setUsers] = useState([]);
   const [isEditFormOpen, setIsEditFormOpen] = useState(false);
   const [userToEdit, setUserToEdit] = useState({});
+  // eslint-disable-next-line
+  const [daysAfterLastLogin, setDaysAfterLastLogin] = useState(7);
+  // const [managerFilter, setManagerFilter] = useState('');
 
   useEffect(() => {
     document.title = 'User Admin Panel | AP Education';
@@ -315,7 +318,12 @@ export const UserAdminPanel = () => {
                 <UserHeadCell>Ім'я</UserHeadCell>
                 <UserHeadCell>Пошта (логін)</UserHeadCell>
                 <UserHeadCell>Пароль</UserHeadCell>
-                <UserHeadCell>Відвідини</UserHeadCell>
+                <UserHeadCell className='attendance'>
+                  Відвідини{' '}
+                  {/* <FilterButton onClick={() => setDaysAfterLastLogin(days => days = 30)}>
+                    {daysAfterLastLogin}
+                  </FilterButton> */}
+                </UserHeadCell>
                 <UserHeadCell>Мова</UserHeadCell>
                 <UserHeadCell>Потік</UserHeadCell>
                 <UserHeadCell>Знання</UserHeadCell>
@@ -332,13 +340,21 @@ export const UserAdminPanel = () => {
                   <UserCell>{user.name}</UserCell>
                   <UserCell>{user.mail}</UserCell>
                   <UserCell>{user.password}</UserCell>
-                  <UserCell>
+                  <UserCell
+                    className={
+                      Math.floor(
+                        (Date.now() - Date.parse(user.updatedAt)) / 86400000
+                      ) > daysAfterLastLogin
+                        ? 'attention'
+                        : ''
+                    }
+                  >
                     {new Date(user.updatedAt).toLocaleString('uk-UA')}
                   </UserCell>
                   <UserCell>{user.lang}</UserCell>
                   <UserCell>{user.course}</UserCell>
                   <UserCell>{user.knowledge}</UserCell>
-                  <UserCell>{user.manager}</UserCell>
+                  <UserCell className="last-name">{user.manager}</UserCell>
                   <UserCell>
                     {user.name === 'Dev Acc' ? null : (
                       <UserEditButton onClick={() => handleEdit(user._id)}>
