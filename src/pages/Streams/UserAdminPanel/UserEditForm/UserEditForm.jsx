@@ -53,7 +53,7 @@ export const UserEditForm = ({ userToEdit, closeEditForm }) => {
     values.password = values.password.trim().trimStart();
     values.age = values.age.trim().trimStart();
     values.lang = values.lang.toLowerCase().trim().trimStart();
-    values.knowledge = values.knowledge.toLowerCase().trim().trimStart();
+    values.knowledge = values.knowledge === undefined ? '' : values.knowledge.toLowerCase().trim().trimStart();
     try {
       const response = await axios.put(`/users/${userToEdit._id}`, values);
       console.log(response);
