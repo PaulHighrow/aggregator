@@ -18,7 +18,7 @@ import {
   UserDBTable,
   UserEditButton,
   UserHeadCell,
-  UsersForm
+  UsersForm,
 } from './UserAdminPanel.styled';
 import { UserEditForm } from './UserEditForm/UserEditForm';
 
@@ -113,6 +113,7 @@ export const UserAdminPanel = () => {
     course: '',
     points: '',
     knowledge: '',
+    manager: '',
   };
 
   const usersSchema = yup.object().shape({
@@ -132,6 +133,9 @@ export const UserAdminPanel = () => {
     course: yup.string().optional(),
     points: yup.string().optional(),
     knowledge: yup.string().optional(),
+    manager: yup
+      .string()
+      .required("Менеджер - обов'язкове поле, введіть прізвище"),
   });
 
   const handleUserSubmit = async (values, { resetForm }) => {
@@ -142,6 +146,7 @@ export const UserAdminPanel = () => {
     values.age = values.age.trim().trimStart();
     values.lang = values.lang.toLowerCase().trim().trimStart();
     values.knowledge = values.knowledge.toLowerCase().trim().trimStart();
+    values.manager = values.manager.toLowerCase().trim().trimStart();
     try {
       const response = await axios.post('/users/new', values);
       console.log(response);
@@ -289,6 +294,14 @@ export const UserAdminPanel = () => {
                 />
                 <AdminInputNote component="p" name="knowledge" />
               </Label>
+              <Label>
+                <AdminInput
+                  type="text"
+                  name="manager"
+                  placeholder="Прізвище відповідального менеджера"
+                />
+                <AdminInputNote component="p" name="manager" />
+              </Label>
               <AdminFormBtn type="submit">Додати юзера</AdminFormBtn>
             </UsersForm>
           </Formik>
@@ -306,6 +319,7 @@ export const UserAdminPanel = () => {
                 <UserHeadCell>Мова</UserHeadCell>
                 <UserHeadCell>Потік</UserHeadCell>
                 <UserHeadCell>Знання</UserHeadCell>
+                <UserHeadCell>Менеджер</UserHeadCell>
                 <UserHeadCell>Edit</UserHeadCell>
                 {/* <UserHeadCell>Delete</UserHeadCell> */}
                 <UserHeadCell>Ban</UserHeadCell>
@@ -324,6 +338,7 @@ export const UserAdminPanel = () => {
                   <UserCell>{user.lang}</UserCell>
                   <UserCell>{user.course}</UserCell>
                   <UserCell>{user.knowledge}</UserCell>
+                  <UserCell>{user.manager}</UserCell>
                   <UserCell>
                     {user.name === 'Dev Acc' ? null : (
                       <UserEditButton onClick={() => handleEdit(user._id)}>

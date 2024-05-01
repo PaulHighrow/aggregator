@@ -25,6 +25,7 @@ export const UserEditForm = ({ userToEdit, closeEditForm }) => {
     course: userToEdit.course,
     points: userToEdit.points,
     knowledge: userToEdit.knowledge,
+    manager: userToEdit.manager,
   };
 
   const usersSchema = yup.object().shape({
@@ -44,6 +45,9 @@ export const UserEditForm = ({ userToEdit, closeEditForm }) => {
     course: yup.string().optional(),
     points: yup.string().optional(),
     knowledge: yup.string().optional(),
+    manager: yup
+      .string()
+      .required("Менеджер - обов'язкове поле, введіть прізвище"),
   });
 
   const handleUserSubmit = async (values, { resetForm }) => {
@@ -54,6 +58,7 @@ export const UserEditForm = ({ userToEdit, closeEditForm }) => {
     values.age = values.age.trim().trimStart();
     values.lang = values.lang.toLowerCase().trim().trimStart();
     values.knowledge = values.knowledge === undefined ? '' : values.knowledge.toLowerCase().trim().trimStart();
+    values.manager = values.manager.toLowerCase().trim().trimStart();
     try {
       const response = await axios.put(`/users/${userToEdit._id}`, values);
       console.log(response);
@@ -122,6 +127,14 @@ export const UserEditForm = ({ userToEdit, closeEditForm }) => {
             />
             <AdminInputNote component="p" name="knowledge" />
           </Label>
+          <Label>
+                <AdminInput
+                  type="text"
+                  name="manager"
+                  placeholder="Прізвище відповідального менеджера"
+                />
+                <AdminInputNote component="p" name="manager" />
+              </Label>
           <AdminFormBtn type="submit">Підтвердити зміни</AdminFormBtn>
         </UsersEditForm>
       </Formik>
