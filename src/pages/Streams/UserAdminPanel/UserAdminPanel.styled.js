@@ -1,5 +1,6 @@
 import { FormBtn, Input, InputNote } from 'components/LeadForm/LeadForm.styled';
 import { Form } from 'formik';
+import { ReactComponent as FilterIcon } from '../../../img/svg/filter.svg';
 import styled from 'styled-components';
 
 export const AdminPanelSection = styled.section`
@@ -84,6 +85,7 @@ export const AdminInputNote = styled(InputNote)`
 
 export const UserDBTable = styled.table`
   max-width: 50vw;
+  min-height: 80vh;
   margin: 0 auto;
 
   table-layout: auto;
@@ -110,6 +112,15 @@ export const UserDBRow = styled.tr`
 export const UserHeadCell = styled.th`
   border: 1px solid #000;
   padding: 3px;
+
+  &.filterable {
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    position: relative;
+  }
 `;
 
 export const UserCell = styled.td`
@@ -119,11 +130,6 @@ export const UserCell = styled.td`
   &.last-name {
     text-transform: capitalize;
   }
-
-&.attendance {
-  display: flex;
-  gap: 6px;
-}
 
   &.attention {
     color: red;
@@ -151,6 +157,26 @@ export const UserBanButton = styled(UserDeleteButton)`
   }
 `;
 
-export const FilterButton = styled.button`
+export const FilterButton = styled(FilterIcon)`
+  width: 18px;
+  height: 12px;
 
-`
+  color: #000;
+
+  transition: color var(--animation-global);
+
+  &:hover {
+    color: var(--main-color);
+  }
+`;
+
+export const ManagerPicker = styled.div`
+  position: absolute;
+  top: 100%;
+  left: 0;
+`;
+
+export const ManagerPickerButton = styled.button`
+  width: 100%;
+  text-transform: capitalize;
+`;

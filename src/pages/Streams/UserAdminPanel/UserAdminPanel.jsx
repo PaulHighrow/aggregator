@@ -3,22 +3,26 @@ import { Backdrop } from 'components/LeadForm/Backdrop/Backdrop.styled';
 import { Label } from 'components/LeadForm/LeadForm.styled';
 import { Loader } from 'components/SharedLayout/Loaders/Loader';
 import { Formik } from 'formik';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import * as yup from 'yup';
 import {
   AdminFormBtn,
   AdminInput,
   AdminInputNote,
   AdminPanelSection,
+  FilterButton,
   LoginForm,
+  ManagerPicker,
+  ManagerPickerButton,
   UserBanButton,
   UserCell,
   UserDBCaption,
   UserDBRow,
   UserDBTable,
+  UserDeleteButton,
   UserEditButton,
   UserHeadCell,
-  UsersForm
+  UsersForm,
 } from './UserAdminPanel.styled';
 import { UserEditForm } from './UserEditForm/UserEditForm';
 
@@ -26,16 +30,18 @@ axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
 const setAuthToken = token => {
   axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 };
+const DAYS_SET = [1, 3, 7, 14, 30];
 
 export const UserAdminPanel = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isUserAdmin, setIsUserAdmin] = useState(false);
   const [users, setUsers] = useState([]);
+  const [managers, setManagers] = useState([]);
   const [isEditFormOpen, setIsEditFormOpen] = useState(false);
   const [userToEdit, setUserToEdit] = useState({});
-  // eslint-disable-next-line
   const [daysAfterLastLogin, setDaysAfterLastLogin] = useState(7);
-  // const [managerFilter, setManagerFilter] = useState('');
+  const [isManagerPickerOpen, setIsManagerPickerOpen] = useState(false);
+  const persistentUsers = useRef([]);
 
   useEffect(() => {
     document.title = 'User Admin Panel | AP Education';
@@ -61,7 +67,16 @@ export const UserAdminPanel = () => {
             params: { isAdmin: isUserAdmin },
           });
           setUsers(users => (users = [...response.data.reverse()]));
-          console.log(response);
+          persistentUsers.current = [...response.data];
+          setManagers(
+            managers =>
+              (managers = [
+                ...response.data
+                  .map(user => user.manager)
+                  .filter((manager, i, arr) => arr.indexOf(manager) === i)
+                  .sort(),
+              ])
+          );
         }
       } catch (error) {
         console.error(error);
@@ -91,6 +106,36 @@ export const UserAdminPanel = () => {
     login: yup.string().required('Вкажіть логін!'),
     password: yup.string().required('Введіть пароль!'),
   });
+
+  const calculateDaysFilter = current => {
+    setDaysAfterLastLogin(
+      days =>
+        (days = DAYS_SET[DAYS_SET.findIndex(days => current === days) + 1])
+    );
+    setUsers(
+      users =>
+        (users = [
+          ...users.sort(
+            (a, b) =>
+              Date.now() -
+              Date.parse(b.updatedAt) -
+              (Date.now() - Date.parse(a.updatedAt))
+          ),
+        ])
+    );
+  };
+
+  const filterByManager = current =>
+    current === ''
+      ? setUsers(users => (users = [...persistentUsers.current]))
+      : setUsers(
+          users =>
+            (users = [
+              ...persistentUsers.current.filter(
+                user => user.manager === current
+              ),
+            ])
+        );
 
   const handleLoginSubmit = async (values, { resetForm }) => {
     setIsLoading(isLoading => (isLoading = true));
@@ -182,22 +227,26 @@ export const UserAdminPanel = () => {
     }
   };
 
-  // const handleDelete = async id => {
-  //   setIsLoading(isLoading => (isLoading = true));
+  const toggleManagerPicker = () => {
+    setIsManagerPickerOpen(isOpen => !isOpen);
+  };
 
-  //   try {
-  //     const response = await axios.delete(`/users/${id}`);
-  //     console.log(response);
-  //     alert('Юзера видалено');
-  //   } catch (error) {
-  //     console.error(error);
-  //     alert(
-  //       'Десь якась проблема - клацай F12, роби скрін консолі, відправляй Кирилу'
-  //     );
-  //   } finally {
-  //     setIsLoading(isLoading => (isLoading = false));
-  //   }
-  // };
+  const handleDelete = async id => {
+    setIsLoading(isLoading => (isLoading = true));
+
+    try {
+      const response = await axios.delete(`/users/${id}`);
+      console.log(response);
+      alert('Юзера видалено');
+    } catch (error) {
+      console.error(error);
+      alert(
+        'Десь якась проблема - клацай F12, роби скрін консолі, відправляй Кирилу'
+      );
+    } finally {
+      setIsLoading(isLoading => (isLoading = false));
+    }
+  };
 
   const handleBan = async (id, isBanned) => {
     setIsLoading(isLoading => (isLoading = true));
@@ -318,18 +367,45 @@ export const UserAdminPanel = () => {
                 <UserHeadCell>Ім'я</UserHeadCell>
                 <UserHeadCell>Пошта (логін)</UserHeadCell>
                 <UserHeadCell>Пароль</UserHeadCell>
-                <UserHeadCell className='attendance'>
+                <UserHeadCell className="filterable">
                   Відвідини{' '}
-                  {/* <FilterButton onClick={() => setDaysAfterLastLogin(days => days = 30)}>
-                    {daysAfterLastLogin}
-                  </FilterButton> */}
+                  <FilterButton
+                    onClick={() => calculateDaysFilter(daysAfterLastLogin)}
+                  ></FilterButton>
+                  {daysAfterLastLogin}
                 </UserHeadCell>
                 <UserHeadCell>Мова</UserHeadCell>
                 <UserHeadCell>Потік</UserHeadCell>
                 <UserHeadCell>Знання</UserHeadCell>
-                <UserHeadCell>Менеджер</UserHeadCell>
+                <UserHeadCell className="filterable">
+                  Менеджер
+                  <FilterButton onClick={toggleManagerPicker}></FilterButton>
+                  {isManagerPickerOpen && (
+                    <ManagerPicker>
+                      {managers.map((manager, i) => (
+                        <ManagerPickerButton
+                          key={i}
+                          onClick={() => {
+                            filterByManager(manager);
+                            toggleManagerPicker();
+                          }}
+                        >
+                          {manager === undefined ? '—' : manager}
+                        </ManagerPickerButton>
+                      ))}
+                      <ManagerPickerButton
+                        onClick={() => {
+                          filterByManager('');
+                          toggleManagerPicker();
+                        }}
+                      >
+                        ВСІ
+                      </ManagerPickerButton>
+                    </ManagerPicker>
+                  )}
+                </UserHeadCell>
                 <UserHeadCell>Edit</UserHeadCell>
-                {/* <UserHeadCell>Delete</UserHeadCell> */}
+                <UserHeadCell>Delete</UserHeadCell>
                 <UserHeadCell>Ban</UserHeadCell>
               </UserDBRow>
             </thead>
@@ -362,13 +438,13 @@ export const UserAdminPanel = () => {
                       </UserEditButton>
                     )}
                   </UserCell>
-                  {/* <UserCell>
+                  <UserCell>
                     {user.name === 'Dev Acc' ? null : (
                       <UserDeleteButton onClick={() => handleDelete(user._id)}>
                         Del
                       </UserDeleteButton>
                     )}
-                  </UserCell> */}
+                  </UserCell>
                   <UserCell>
                     {user.name === 'Dev Acc' ? null : (
                       <UserBanButton
