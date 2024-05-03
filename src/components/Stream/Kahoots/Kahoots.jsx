@@ -68,6 +68,8 @@ export const Kahoots = ({
     switch (path) {
       case 'pilot':
         return 'deutsch';
+      case 'b1beginner':
+        return 'b1kidsbeginner';
       case 'pilot-a1':
         return 'a1';
       case 'test1':
@@ -85,15 +87,17 @@ export const Kahoots = ({
     }
   };
 
-  const page = location.pathname.includes('pilot')
-    ? trialsSwitch(location.pathname.match(/\/([^/]+)\/?$/)[1])
-    : location.pathname.includes('streams-kids')
-    ? location.pathname.match(/\/([^/]+)\/?$/)[1] + 'kids'
-    : location.pathname.includes('trial') ||
-      location.pathname.includes('pilot') ||
-      location.pathname.includes('test1')
-    ? trialsSwitch(location.pathname.match(/\/([^/]+)\/?$/)[1])
-    : location.pathname.match(/\/([^/]+)\/?$/)[1];
+  const page =
+    location.pathname.includes('pilot') ||
+    location.pathname.includes('beginner')
+      ? trialsSwitch(location.pathname.match(/\/([^/]+)\/?$/)[1])
+      : location.pathname.includes('streams-kids')
+      ? location.pathname.match(/\/([^/]+)\/?$/)[1] + 'kids'
+      : location.pathname.includes('trial') ||
+        location.pathname.includes('pilot') ||
+        location.pathname.includes('test1')
+      ? trialsSwitch(location.pathname.match(/\/([^/]+)\/?$/)[1])
+      : location.pathname.match(/\/([^/]+)\/?$/)[1];
 
   const kahootWidth = isFullScreen ? sectionWidth : (sectionWidth / 10) * 4;
 
@@ -307,7 +311,12 @@ export const Kahoots = ({
   };
 
   const handleUsernameReverseBtn = e => {
-    const reverseUsername = username.trim().trimStart().split(' ').reverse().join(' ');
+    const reverseUsername = username
+      .trim()
+      .trimStart()
+      .split(' ')
+      .reverse()
+      .join(' ');
     localStorage.setItem('userName', reverseUsername);
     setUsername(username => (username = reverseUsername));
     reverseAndCopyToClipboard(e.currentTarget);

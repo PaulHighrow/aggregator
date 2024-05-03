@@ -132,7 +132,7 @@ export const B1KidsBeginnerKahootForm = ({ destination }) => {
                 type="text"
                 name="b1kidsbeginner_1"
                 autoComplete="off"
-                placeholder="Перший кахут для дітей рівня B1"
+                placeholder="Перший кахут для дітей початківців рівня B1"
               />
             </Label>
             <Label>
@@ -140,7 +140,7 @@ export const B1KidsBeginnerKahootForm = ({ destination }) => {
                 type="text"
                 name="b1kidsbeginner_2"
                 autoComplete="off"
-                placeholder="Другий кахут для дітей рівня B1"
+                placeholder="Другий кахут для дітей початківців рівня B1"
               />
             </Label>
             <Label>
@@ -148,7 +148,7 @@ export const B1KidsBeginnerKahootForm = ({ destination }) => {
                 type="text"
                 name="b1kidsbeginner_3"
                 autoComplete="off"
-                placeholder="Третій кахут для дітей рівня B1"
+                placeholder="Третій кахут для дітей початківців рівня B1"
               />
             </Label>
             <Label>
@@ -156,7 +156,7 @@ export const B1KidsBeginnerKahootForm = ({ destination }) => {
                 type="text"
                 name="b1kidsbeginner_4"
                 autoComplete="off"
-                placeholder="Четвертий кахут для дітей рівня B1"
+                placeholder="Четвертий кахут для дітей початківців рівня B1"
               />
             </Label>
             <Label>
@@ -164,7 +164,7 @@ export const B1KidsBeginnerKahootForm = ({ destination }) => {
                 type="text"
                 name="b1kidsbeginner_5"
                 autoComplete="off"
-                placeholder="П'ятий кахут для дітей рівня B1"
+                placeholder="П'ятий кахут для дітей початківців рівня B1"
               />
             </Label>
             <Label>
@@ -172,7 +172,7 @@ export const B1KidsBeginnerKahootForm = ({ destination }) => {
                 type="text"
                 name="b1kidsbeginner_6"
                 autoComplete="off"
-                placeholder="Шостий кахут для дітей рівня B1"
+                placeholder="Шостий кахут для дітей початківців рівня B1"
               />
             </Label>
             <Label>
@@ -180,7 +180,7 @@ export const B1KidsBeginnerKahootForm = ({ destination }) => {
                 type="text"
                 name="b1kidsbeginner_7"
                 autoComplete="off"
-                placeholder="Сьомий кахут для дітей рівня B1"
+                placeholder="Сьомий кахут для дітей початківців рівня B1"
               />
             </Label>
             <Label>
@@ -188,7 +188,7 @@ export const B1KidsBeginnerKahootForm = ({ destination }) => {
                 type="text"
                 name="b1kidsbeginner_8"
                 autoComplete="off"
-                placeholder="Восьмий кахут для дітей рівня B1"
+                placeholder="Восьмий кахут для дітей початківців рівня B1"
               />
             </Label>
             <Label>
@@ -196,7 +196,7 @@ export const B1KidsBeginnerKahootForm = ({ destination }) => {
                 type="text"
                 name="b1kidsbeginner_9"
                 autoComplete="off"
-                placeholder="Дев'ятий кахут для дітей рівня B1"
+                placeholder="Дев'ятий кахут для дітей початківців рівня B1"
               />
             </Label>
             <Label>
@@ -204,7 +204,7 @@ export const B1KidsBeginnerKahootForm = ({ destination }) => {
                 type="text"
                 name="b1kidsbeginner_10"
                 autoComplete="off"
-                placeholder="Десятий кахут для дітей рівня B1"
+                placeholder="Десятий кахут для дітей початківців рівня B1"
               />
             </Label>
             <LabelCheckBox>

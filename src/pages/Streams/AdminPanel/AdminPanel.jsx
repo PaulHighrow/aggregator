@@ -86,7 +86,7 @@ export const AdminPanel = () => {
     a2kids: '',
     b1kids: '',
     b2kids: '',
-    b1kidsbeginners: '',
+    b1kidsbeginner: '',
     test: '',
   };
 
@@ -108,7 +108,7 @@ export const AdminPanel = () => {
     a2kids: yup.string().optional(),
     b1kids: yup.string().optional(),
     b2kids: yup.string().optional(),
-    b1kidsbeginners: yup.string().optional(),
+    b1kidsbeginner: yup.string().optional(),
     test: yup.string().optional(),
   });
 
