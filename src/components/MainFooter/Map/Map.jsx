@@ -12,15 +12,15 @@ export const Map = () => {
 
   const center = useMemo(
     () => ({
-      lat: 49.84037940597361,
-      lng: 24.03317568650616,
+      lat: 49.86299246943295,
+      lng: 24.034402969489403,
     }),
     []
   );
 
   const marker = {
-    lat: 49.84024706452136,
-    lng: 24.033143712286236,
+    lat: 49.86299246943295,
+      lng: 24.034402969489403,
   };
 
   const { isLoaded } = useJsApiLoader({
@@ -41,8 +41,8 @@ export const Map = () => {
             <InfoWindow position={marker}>
               <Location>
                 <LocationName>AP Education Center</LocationName>{' '}
-                <LocationAdress href="https://goo.gl/maps/AvneSaz3ikRAaKUD6">
-                  вул. Братів Рогатинців, 18
+                <LocationAdress href="https://maps.app.goo.gl/mj3W28hhdfHekf8dA">
+                  вул. Городницька, 47 Б
                 </LocationAdress>
               </Location>
             </InfoWindow>
