@@ -20,17 +20,17 @@ import { UserAdminPanel } from 'pages/Streams/UserAdminPanel/UserAdminPanel';
 import { KidsA1 } from 'pages/StreamsKids/KidsA1/KidsA1';
 import { KidsA2 } from 'pages/StreamsKids/KidsA2/KidsA2';
 import { KidsB1 } from 'pages/StreamsKids/KidsB1/KidsB1';
+import { KidsB1Beginner } from 'pages/StreamsKids/KidsB1Beginner/KidsB1Beginner';
 import { KidsB2 } from 'pages/StreamsKids/KidsB2/KidsB2';
 import TeacherTrialPage from 'pages/TeacherPage/TeacherTrialPage';
+import { ThankYouPage } from 'pages/ThankYouPage/ThankYouPage';
+import StreamTrialDeutschSprechclub from 'pages/Trials/StreamTrialDeutschSprechclub';
 import { lazy } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { Route, Routes, useSearchParams } from 'react-router-dom';
 import { WindowedChat } from 'utils/Chat/ChatWindowed/WindowedChat';
 import ScrollToTop from 'utils/ScrollToTop/ScrollToTop';
 import { SharedLayout } from './SharedLayout/SharedLayout';
-import { ThankYouPage } from 'pages/ThankYouPage/ThankYouPage';
-import StreamTrialDeutschSprechclub from 'pages/Trials/StreamTrialDeutschSprechclub';
-import { KidsB1Beginner } from 'pages/StreamsKids/KidsB1Beginner/KidsB1Beginner';
 
 // const Home = lazy(() =>
 //   import(/* webpackChunkName: "Homepage" */ '../pages/Home/Home')
@@ -89,14 +89,19 @@ const StreamTrialDeutsch = lazy(() =>
 //   )
 // );
 
-const StreamTrialA2SpeakingClub = lazy(() =>
-  import(
-    /* webpackChunkName: "A2 Speaking pilot page" */ '../pages/Trials/StreamTrialA2SpeakingClub'
-  )
-);
+// const StreamTrialA2SpeakingClub = lazy(() =>
+//   import(
+//     /* webpackChunkName: "A2 Speaking pilot page" */ '../pages/Trials/StreamTrialA2SpeakingClub'
+//   )
+// );
 const StreamTrialB1SpeakingClub = lazy(() =>
   import(
     /* webpackChunkName: "B1 Speaking pilot page" */ '../pages/Trials/StreamTrialB1SpeakingClub'
+  )
+);
+const StreamTrialB2SpeakingClub = lazy(() =>
+  import(
+    /* webpackChunkName: "B2 Speaking pilot page" */ '../pages/Trials/StreamTrialB2SpeakingClub'
   )
 );
 const StreamTrialPolski = lazy(() =>
@@ -218,7 +223,7 @@ export const App = () => {
           <Route path="a1-chat" element={<WindowedChat />} />
           <Route path="a2" element={<StreamA2 />} />
           <Route path="a2-chat" element={<WindowedChat />} />
-          <Route path="pilot-a2sc" element={<StreamTrialA2SpeakingClub />} />
+          <Route path="pilot-b2sc" element={<StreamTrialB2SpeakingClub />} />
           <Route path="b1" element={<StreamB1 />} />
           <Route path="b1-chat" element={<WindowedChat />} />
           <Route path="b2" element={<StreamB2 />} />
