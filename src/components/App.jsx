@@ -15,6 +15,7 @@ import { HostKahootAdminPanel } from 'pages/Streams/HostKahootAdminPanel/HostKah
 import { KahootAdminPanel } from 'pages/Streams/KahootAdminPanel/KahootAdminPanel';
 import { StreamPolskiA2 } from 'pages/Streams/Polski A2/StreamPolskiA2';
 import { StreamPolski } from 'pages/Streams/Polski/StreamPolski';
+import { RatingsAdminPanel } from 'pages/Streams/RatingsAdminPanel/RatingsAdminPanel';
 import { StreamTest } from 'pages/Streams/Test/StreamTest';
 import { UserAdminPanel } from 'pages/Streams/UserAdminPanel/UserAdminPanel';
 import { KidsA1 } from 'pages/StreamsKids/KidsA1/KidsA1';
@@ -248,6 +249,7 @@ export const App = () => {
             element={<HostKahootAdminPanel />}
           />
           <Route path="user-admin-panel" element={<UserAdminPanel />} />
+          <Route path="ratings-admin-panel" element={<RatingsAdminPanel />} />
           <Route
             path="collection-admin-panel"
             element={<CollectionsAdminPanel />}
