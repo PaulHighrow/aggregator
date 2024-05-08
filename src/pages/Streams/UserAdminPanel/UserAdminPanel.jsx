@@ -118,11 +118,20 @@ export const UserAdminPanel = () => {
           ...users.sort(
             (a, b) =>
               Date.now() -
-              Date.parse(b.updatedAt) -
-              (Date.now() - Date.parse(a.updatedAt))
+              Date.parse(changeDateFormat(b.visited[b.visited.length - 1])) -
+              (Date.now() -
+                Date.parse(changeDateFormat(a.visited[a.visited.length - 1])))
           ),
         ])
     );
+  };
+
+  const changeDateFormat = dateString => {
+    if (dateString) {
+      const dateArray = dateString.split('.');
+      return Date.parse([dateArray[1], dateArray[0], dateArray[2]].join('.'));
+    }
+    return;
   };
 
   const filterByManager = current =>
@@ -367,12 +376,13 @@ export const UserAdminPanel = () => {
                 <UserHeadCell>Ім'я</UserHeadCell>
                 <UserHeadCell>Пошта (логін)</UserHeadCell>
                 <UserHeadCell>Пароль</UserHeadCell>
+                <UserHeadCell>Апдейт</UserHeadCell>
                 <UserHeadCell className="filterable">
                   Відвідини{' '}
                   <FilterButton
                     onClick={() => calculateDaysFilter(daysAfterLastLogin)}
                   ></FilterButton>
-                  {daysAfterLastLogin}
+                  {daysAfterLastLogin}{' '}
                 </UserHeadCell>
                 <UserHeadCell>Мова</UserHeadCell>
                 <UserHeadCell>Потік</UserHeadCell>
@@ -426,6 +436,21 @@ export const UserAdminPanel = () => {
                     }
                   >
                     {new Date(user.updatedAt).toLocaleString('uk-UA')}
+                  </UserCell>
+                  <UserCell
+                    className={
+                      Math.floor(
+                        (Date.now() -
+                          changeDateFormat(
+                            user.visited[user.visited.length - 1]
+                          )) /
+                          86400000
+                      ) > daysAfterLastLogin
+                        ? 'attention'
+                        : ''
+                    }
+                  >
+                    {user.visited[user.visited.length - 1]}
                   </UserCell>
                   <UserCell>{user.lang}</UserCell>
                   <UserCell>{user.course}</UserCell>

@@ -3,18 +3,14 @@ import { Backdrop } from 'components/LeadForm/Backdrop/Backdrop.styled';
 import { Label } from 'components/LeadForm/LeadForm.styled';
 import { Loader } from 'components/SharedLayout/Loaders/Loader';
 import { Formik } from 'formik';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import * as yup from 'yup';
 import {
   AdminFormBtn,
   AdminInput,
   AdminInputNote,
   AdminPanelSection,
-  FilterButton,
   LoginForm,
-  ManagerPicker,
-  ManagerPickerButton,
-  UserBanButton,
   UserCell,
   UserDBCaption,
   UserDBRow,
@@ -22,26 +18,21 @@ import {
   UserDeleteButton,
   UserEditButton,
   UserHeadCell,
-  UsersForm,
-} from './UserAdminPanel.styled';
-import { UserEditForm } from './UserEditForm/UserEditForm';
+  UsersEditForm,
+  UsersForm
+} from '../UserAdminPanel/UserAdminPanel.styled';
 
 axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
 const setAuthToken = token => {
   axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 };
-const DAYS_SET = [1, 3, 7, 14, 30];
 
 export const LessonsAdminPanel = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isUserAdmin, setIsUserAdmin] = useState(false);
-  const [users, setUsers] = useState([]);
-  const [managers, setManagers] = useState([]);
+  const [lessons, setLessons] = useState([]);
   const [isEditFormOpen, setIsEditFormOpen] = useState(false);
   const [userToEdit, setUserToEdit] = useState({});
-  const [daysAfterLastLogin, setDaysAfterLastLogin] = useState(7);
-  const [isManagerPickerOpen, setIsManagerPickerOpen] = useState(false);
-  const persistentUsers = useRef([]);
 
   useEffect(() => {
     document.title = 'Lessons Admin Panel | AP Education';
@@ -60,29 +51,17 @@ export const LessonsAdminPanel = () => {
     };
     refreshToken();
 
-    const getUsers = async () => {
+    const getLessons = async () => {
       try {
         if (isUserAdmin) {
-          const response = await axios.get('/users/admin/', {
-            params: { isAdmin: isUserAdmin },
-          });
-          setUsers(users => (users = [...response.data.reverse()]));
-          persistentUsers.current = [...response.data];
-          setManagers(
-            managers =>
-              (managers = [
-                ...response.data
-                  .map(user => user.manager)
-                  .filter((manager, i, arr) => arr.indexOf(manager) === i)
-                  .sort(),
-              ])
-          );
+          const response = await axios.get('/lessons/');
+          setLessons(lessons => (lessons = [...response.data]));
         }
       } catch (error) {
         console.error(error);
       }
     };
-    getUsers();
+    getLessons();
 
     const onEscapeClose = event => {
       if (event.code === 'Escape' && isEditFormOpen) {
@@ -137,26 +116,43 @@ export const LessonsAdminPanel = () => {
     lang: yup.string().required("Мова - обов'язкове поле!"),
     level: yup.string().required("Рівень - обов'язкове поле!"),
     lesson: yup.string().required("Урок - обов'язкове поле!"),
-    topic: yup.string().required("Тема уроку - обов'язкове поле!"),
+    topic: yup
+      .string()
+      .required(
+        "Тема уроку - обов'язкове поле! Введи теми як граматики, так і словника одним рядком"
+      ),
     keysEn: yup
       .string()
       .required(
-        "Ключі англійською - обов'язкове поле, доведеться використати гугл-перекладач!"
+        "Ключі англійською - обов'язкове поле! Введи переклад тему уроку або її фрагментів англійською"
       ),
-    keysUa: yup.string().required("Ключі українською - обов'язкове поле!"),
+    keysUa: yup
+      .string()
+      .required(
+        "Ключі українською - обов'язкове поле! Введи переклад тему уроку або її фрагментів українською"
+      ),
     pdf: yup.string(),
     video: yup.string(),
   });
 
   const handleLessonSubmit = async (values, { resetForm }) => {
     setIsLoading(isLoading => (isLoading = true));
-    values.name = values.name.trim().trimStart();
-    values.mail = values.mail.toLowerCase().trim().trimStart();
-    values.password = values.password.trim().trimStart();
-    values.age = values.age.trim().trimStart();
-    values.lang = values.lang.toLowerCase().trim().trimStart();
-    values.knowledge = values.knowledge.toLowerCase().trim().trimStart();
-    values.manager = values.manager.toLowerCase().trim().trimStart();
+    values.lang = values.lang.trim().trimStart();
+    values.level = values.level.toLowerCase().trim().trimStart();
+    values.lesson = values.lesson.trim().trimStart();
+    values.topic = values.topic.trim().trimStart();
+    values.keysEn = values.keysEn.toLowerCase().trim().trimStart();
+    values.keysUa = values.keysUa.toLowerCase().trim().trimStart();
+    values.pdf = [
+      ...values.pdf
+        .split(', ')
+        .map(link => link.toLowerCase().trim().trimStart()),
+    ];
+    values.video = [
+      ...values.video
+        .split(', ')
+        .map(link => link.toLowerCase().trim().trimStart()),
+    ];
     try {
       const response = await axios.post('/users/new', values);
       console.log(response);
@@ -175,7 +171,7 @@ export const LessonsAdminPanel = () => {
   const handleEdit = async id => {
     setIsEditFormOpen(true);
     setUserToEdit(
-      userToEdit => (userToEdit = users.find(user => user._id === id))
+      userToEdit => (userToEdit = lessons.find(lesson => lesson._id === id))
     );
   };
 
@@ -189,10 +185,6 @@ export const LessonsAdminPanel = () => {
     }
   };
 
-  const toggleManagerPicker = () => {
-    setIsManagerPickerOpen(isOpen => !isOpen);
-  };
-
   const handleDelete = async id => {
     setIsLoading(isLoading => (isLoading = true));
 
@@ -200,26 +192,6 @@ export const LessonsAdminPanel = () => {
       const response = await axios.delete(`/users/${id}`);
       console.log(response);
       alert('Юзера видалено');
-    } catch (error) {
-      console.error(error);
-      alert(
-        'Десь якась проблема - клацай F12, роби скрін консолі, відправляй Кирилу'
-      );
-    } finally {
-      setIsLoading(isLoading => (isLoading = false));
-    }
-  };
-
-  const handleBan = async (id, isBanned) => {
-    setIsLoading(isLoading => (isLoading = true));
-
-    try {
-      const response = await axios.patch(
-        `/users/${id}`,
-        isBanned ? { isBanned: false } : { isBanned: true }
-      );
-      console.log(response);
-      isBanned ? alert('Юзера розблоковано') : alert('Юзера заблоковано');
     } catch (error) {
       console.error(error);
       alert(
@@ -267,38 +239,54 @@ export const LessonsAdminPanel = () => {
               <Label>
                 <AdminInput
                   type="text"
-                  name="name"
-                  placeholder="Прізвище та ім'я"
+                  name="lang"
+                  placeholder="Мова (en/de/pl)"
                 />
                 <AdminInputNote component="p" name="name" />
               </Label>
               <Label>
                 <AdminInput
                   type="email"
-                  name="mail"
-                  placeholder="Електронна пошта (логін)"
+                  name="level"
+                  placeholder="Рівень (A1/A2/B1/B2)"
                 />
-                <AdminInputNote component="p" name="mail" />
+                <AdminInputNote component="p" name="level" />
               </Label>
               <Label>
-                <AdminInput type="text" name="password" placeholder="Пароль" />
-                <AdminInputNote component="p" name="password" />
+                <AdminInput
+                  type="text"
+                  name="lesson"
+                  placeholder="Номер уроку (Lesson 12)"
+                />
+                <AdminInputNote component="p" name="lesson" />
               </Label>
               <Label>
-                <AdminInput type="text" name="age" placeholder="Вік" />
-                <AdminInputNote component="p" name="age" />
+                <AdminInput type="text" name="topic" placeholder="Тема уроку" />
+                <AdminInputNote component="p" name="topic" />
               </Label>
               <Label>
-                <AdminInput type="text" name="lang" placeholder="Мова" />
-                <AdminInputNote component="p" name="lang" />
+                <AdminInput
+                  type="text"
+                  name="keysUa"
+                  placeholder="Ключові слова українською"
+                />
+                <AdminInputNote component="p" name="keysUa" />
               </Label>
               <Label>
-                <AdminInput type="text" name="course" placeholder="Потік" />
-                <AdminInputNote component="p" name="course" />
+                <AdminInput
+                  type="text"
+                  name="keysEn"
+                  placeholder="Ключові слова англійською"
+                />
+                <AdminInputNote component="p" name="keysEn" />
               </Label>
               <Label>
-                <AdminInput type="text" name="points" placeholder="Бали" />
-                <AdminInputNote component="p" name="points" />
+                <AdminInput
+                  type="text"
+                  name="pdf"
+                  placeholder="Внести посилання на таблиці через кому"
+                />
+                <AdminInputNote component="p" name="pdf" />
               </Label>
               <Label>
                 <AdminInput
@@ -320,101 +308,50 @@ export const LessonsAdminPanel = () => {
             </UsersForm>
           </Formik>
         )}
-        {isUserAdmin && users && (
+        {isUserAdmin && lessons && (
           <UserDBTable>
             <UserDBCaption>Список юзерів з доступом до уроків</UserDBCaption>
             <thead>
               <UserDBRow>
-                <UserHeadCell>ID</UserHeadCell>
-                <UserHeadCell>Ім'я</UserHeadCell>
-                <UserHeadCell>Пошта (логін)</UserHeadCell>
-                <UserHeadCell>Пароль</UserHeadCell>
-                <UserHeadCell className="filterable">
-                  Відвідини{' '}
-                  <FilterButton
-                    onClick={() => calculateDaysFilter(daysAfterLastLogin)}
-                  ></FilterButton>
-                  {daysAfterLastLogin}
-                </UserHeadCell>
                 <UserHeadCell>Мова</UserHeadCell>
-                <UserHeadCell>Потік</UserHeadCell>
-                <UserHeadCell>Знання</UserHeadCell>
-                <UserHeadCell className="filterable">
-                  Менеджер
-                  <FilterButton onClick={toggleManagerPicker}></FilterButton>
-                  {isManagerPickerOpen && (
-                    <ManagerPicker>
-                      {managers.map((manager, i) => (
-                        <ManagerPickerButton
-                          key={i}
-                          onClick={() => {
-                            filterByManager(manager);
-                            toggleManagerPicker();
-                          }}
-                        >
-                          {manager === undefined ? '—' : manager}
-                        </ManagerPickerButton>
-                      ))}
-                      <ManagerPickerButton
-                        onClick={() => {
-                          filterByManager('');
-                          toggleManagerPicker();
-                        }}
-                      >
-                        ВСІ
-                      </ManagerPickerButton>
-                    </ManagerPicker>
-                  )}
-                </UserHeadCell>
+                <UserHeadCell>Рівень</UserHeadCell>
+                <UserHeadCell>Номер уроку</UserHeadCell>
+                <UserHeadCell>Тема</UserHeadCell>
+                <UserHeadCell>Ключі UA</UserHeadCell>
+                <UserHeadCell>Ключі EN</UserHeadCell>
+                <UserHeadCell>PDF</UserHeadCell>
+                <UserHeadCell>Відео</UserHeadCell>
                 <UserHeadCell>Edit</UserHeadCell>
                 <UserHeadCell>Delete</UserHeadCell>
-                <UserHeadCell>Ban</UserHeadCell>
               </UserDBRow>
             </thead>
             <tbody>
-              {users.map(user => (
-                <UserDBRow key={user._id}>
-                  <UserCell>{user._id}</UserCell>
-                  <UserCell>{user.name}</UserCell>
-                  <UserCell>{user.mail}</UserCell>
-                  <UserCell>{user.password}</UserCell>
-                  <UserCell
-                    className={
-                      Math.floor(
-                        (Date.now() - Date.parse(user.updatedAt)) / 86400000
-                      ) > daysAfterLastLogin
-                        ? 'attention'
-                        : ''
-                    }
-                  >
-                    {new Date(user.updatedAt).toLocaleString('uk-UA')}
-                  </UserCell>
-                  <UserCell>{user.lang}</UserCell>
-                  <UserCell>{user.course}</UserCell>
-                  <UserCell>{user.knowledge}</UserCell>
-                  <UserCell className="last-name">{user.manager}</UserCell>
+              {lessons.map(lesson => (
+                <UserDBRow key={lesson._id}>
+                  <UserCell>{lesson.lang}</UserCell>
+                  <UserCell>{lesson.level}</UserCell>
+                  <UserCell>{lesson.lesson}</UserCell>
                   <UserCell>
-                    {user.name === 'Dev Acc' ? null : (
-                      <UserEditButton onClick={() => handleEdit(user._id)}>
+                    {lesson.keysUa}
+                  </UserCell>
+                  <UserCell>{lesson.keysUa}</UserCell>
+                  <UserCell>{lesson.keysEn}</UserCell>
+                  <UserCell>{lesson.pdf.map((link, i) => <a key={i} href={link}>{i+1}</a>)}</UserCell>
+                  <UserCell>{lesson.video.map((link, i) => <a key={i} href={link}>{i+1}</a>)}</UserCell>
+                  <UserCell>
+                    {
+                      <UserEditButton onClick={() => handleEdit(lesson._id)}>
                         Edit
                       </UserEditButton>
-                    )}
+                    }
                   </UserCell>
                   <UserCell>
-                    {user.name === 'Dev Acc' ? null : (
-                      <UserDeleteButton onClick={() => handleDelete(user._id)}>
+                    {lesson.name === 'Dev Acc' ? null : (
+                      <UserDeleteButton
+                        onClick={() => handleDelete(lesson._id)}
+                      >
                         Del
                       </UserDeleteButton>
-                    )}
-                  </UserCell>
-                  <UserCell>
-                    {user.name === 'Dev Acc' ? null : (
-                      <UserBanButton
-                        className={user.isBanned ? 'banned' : 'not_banned'}
-                        onClick={() => handleBan(user._id, user.isBanned)}
-                      >
-                        {user.isBanned ? 'Unban' : 'Ban'}
-                      </UserBanButton>
                     )}
                   </UserCell>
                 </UserDBRow>
@@ -424,7 +361,7 @@ export const LessonsAdminPanel = () => {
         )}
         {isEditFormOpen && (
           <Backdrop onClick={closeEditFormonClick}>
-            <UserEditForm
+            <UsersEditForm
               userToEdit={userToEdit}
               closeEditForm={closeEditForm}
             />
