@@ -58,6 +58,29 @@ export const AddLessonBtn = styled.button`
   font-weight: 700;
 `;
 
+export const PlatformWhiteboardBtn = styled.button`
+  position: absolute;
+  z-index: 8;
+  bottom: 3ch;
+  left: 30px;
+
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--main-color);
+  border: none;
+  border-radius: 50%;
+  outline: transparent;
+
+  color: var(--accent-color);
+  font-size: 26px;
+  font-weight: 700;
+`;
+
 export const PlatformBackground = styled(StreamsBackgroundWrapper)`
   background: unset;
 

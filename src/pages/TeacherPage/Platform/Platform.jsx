@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { AddLessonBtn, PlatformBox } from './Platform.styled';
+import { AddLessonBtn, PlatformBox, PlatformWhiteboardBtn } from './Platform.styled';
 import {
   KahootNumbersBtn,
   KahootPicker,
 } from '../HostKahoots/HostKahoots.styled';
+import { PlatformWhiteBoard } from './PlatformWhiteBoard/PlatformWhiteBoard';
 
 export const Platform = ({
   page,
@@ -14,6 +15,8 @@ export const Platform = ({
   const [lessons, setLessons] = useState(1);
   const [activeLesson, setActiveLesson] = useState(1);
   const [picker, setPicker] = useState([lessons]);
+  const [isPlatformWhiteBoardOpen, setIsPlatformWhiteBoardOpen] =
+    useState(false);
 
   const supportBoxStylesHandler = () => {
     return {
@@ -33,6 +36,19 @@ export const Platform = ({
         className={isPlatformOpen ? 'shown' : 'hidden'}
         style={{ ...supportBoxStylesHandler() }}
       >
+        <PlatformWhiteboardBtn
+          onClick={() => {
+            setIsPlatformWhiteBoardOpen(isOpen => !isOpen);
+          }}
+        >
+          +
+        </PlatformWhiteboardBtn>
+
+        <PlatformWhiteBoard
+          page={page}
+          isPlatformWhiteBoardOpen={isPlatformWhiteBoardOpen}
+        />
+
         {lessons === 1 && (
           <AddLessonBtn
             onClick={() => {
