@@ -42,7 +42,7 @@ export const MenuSchool = ({ toggleModal }) => {
         className={show ? 'shown' : 'hidden'}
       >
         <HeaderWrapper>
-          <LogoRoute to="/">
+          <LogoRoute to="/school">
             <LogoSchool />
           </LogoRoute>
 

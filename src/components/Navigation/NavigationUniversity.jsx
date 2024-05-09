@@ -102,7 +102,7 @@ export const NavigationUniversity = ({ toggleMenu, className }) => {
           </MenuCoursesWrapperNew>
         </NavigationItemNew>
         <NavigationItemNew key={4}>
-          <NavigationAnchorUniversity to={'aboutus'} {...props}>
+          <NavigationAnchorUniversity to={'reviews-anchor'} {...props}>
             Про нас
           </NavigationAnchorUniversity>
         </NavigationItemNew>

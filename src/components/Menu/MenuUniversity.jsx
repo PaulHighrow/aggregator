@@ -41,7 +41,7 @@ export const MenuUniversity = ({ toggleModal }) => {
         className={show ? 'shown' : 'hidden'}
       >
         <HeaderWrapper>
-          <LogoRoute to="/">
+          <LogoRoute to="/university">
             <LogoUniversity />
           </LogoRoute>
 
