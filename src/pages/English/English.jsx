@@ -40,6 +40,8 @@ const English = ({ utms }) => {
   };
 
   useEffect(() => {
+    document.title = 'AP Education | English';
+
     const onEscapeClose = event => {
       if (event.code === 'Escape' && isOpenModal) {
         closeModal();

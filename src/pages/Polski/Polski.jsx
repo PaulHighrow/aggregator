@@ -40,6 +40,8 @@ const Polski = ({ utms }) => {
   };
 
   useEffect(() => {
+    document.title = 'AP Education | Polski';
+
     const onEscapeClose = event => {
       if (event.code === 'Escape' && isOpenModal) {
         closeModal();

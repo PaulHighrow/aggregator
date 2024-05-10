@@ -43,6 +43,8 @@ const NewDesign = ({ utms }) => {
   };
 
   useEffect(() => {
+    document.title = 'AP Education Center';
+    
     const onEscapeClose = event => {
       if (event.code === 'Escape' && isOpenModal) {
         closeModal();

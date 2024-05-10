@@ -40,6 +40,8 @@ const Deutsch = ({ utms }) => {
   };
 
   useEffect(() => {
+    document.title = 'AP Education | Deutsch';
+
     const onEscapeClose = event => {
       if (event.code === 'Escape' && isOpenModal) {
         closeModal();

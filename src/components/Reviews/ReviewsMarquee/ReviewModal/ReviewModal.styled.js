@@ -53,6 +53,10 @@ export const ReviewVideoBox = styled.div`
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.25);
+
+  & video {
+    object-fit: fill;
+  }
 `;
 
 export const MarqueeBackdrop = styled(Backdrop)`
