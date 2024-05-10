@@ -1,12 +1,11 @@
 import useSize from '@react-hook/size';
-import { MyAPLogin } from 'components/Navigation/Navigation.styled';
+import { LogoAnchor, MyAPLogin } from 'components/Navigation/Navigation.styled';
 import { NavigationUniversity } from 'components/Navigation/NavigationUniversity';
 import { useEffect, useRef, useState } from 'react';
 import {
   HeaderNew,
   HeaderTextNew,
   HeaderWrapper,
-  LogoRoute,
   LogoUniversity,
   MenuBurgerCloseIcon,
   MenuBurgerIcon,
@@ -26,6 +25,11 @@ export const MenuUniversity = ({ toggleModal }) => {
     setIsMenuOpen(isOpen => !isOpen);
   };
 
+  const props =
+  width < 768
+    ? { spy: true, smooth: true, onClick: toggleMenu, offset: -30 }
+    : { spy: true, smooth: true, onClick: toggleMenu, offset: -40 };
+
   useEffect(() => {
     console.log('menuunivesityproc');
     document.body.style.overflowY !== 'hidden' && width < 768 && isMenuOpen
@@ -41,9 +45,9 @@ export const MenuUniversity = ({ toggleModal }) => {
         className={show ? 'shown' : 'hidden'}
       >
         <HeaderWrapper>
-          <LogoRoute to="/university">
+          <LogoAnchor to={"hero"} {...props}>
             <LogoUniversity />
-          </LogoRoute>
+          </LogoAnchor>
 
           {width < 1280 && (
             <NewMobileMenuBtn onClick={toggleMenu}>

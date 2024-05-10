@@ -598,7 +598,7 @@ export const NavigationMenuListNew = styled.ul`
   gap: 24px;
   padding-top: 24px;
 
-  transition: all 350ms cubic-bezier(0.17, 0.22, 0.2, 1);
+  transition: all 450ms cubic-bezier(0.17, 0.22, 0.2, 1);
 
   background-color: #fff;
 
@@ -616,7 +616,7 @@ export const NavigationMenuListNew = styled.ul`
 
   &.course-list-open {
     opacity: 1;
-    transition: all 350ms cubic-bezier(0.17, 0.22, 0.2, 1);
+    transition: all 450ms cubic-bezier(0.17, 0.22, 0.2, 1);
 
     @media screen and (min-width: 500px) {
       transform: translateY(0%);
@@ -744,4 +744,8 @@ export const MyAPLogin = styled(MyAPIcon)`
     height: 22px;
     color: #000;
   }
+`;
+
+export const LogoAnchor = styled(Link)`
+  text-decoration: none;
 `;

@@ -195,6 +195,7 @@ export const LogoNew = styled(LogoNewIcon)`
   display: block;
   flex-shrink: 0;
   height: 100%;
+  overflow: visible;
 
   @media screen and (min-width: 768px) {
     width: 150px;
@@ -220,6 +221,7 @@ export const LogoSchool = styled(LogoSchoolIcon)`
   display: block;
   flex-shrink: 0;
   height: 100%;
+  overflow: visible;
 
   @media screen and (min-width: 768px) {
     width: 122px;
@@ -245,6 +247,7 @@ export const LogoUniversity = styled(LogoUniversityIcon)`
   display: block;
   flex-shrink: 0;
   height: 100%;
+  overflow: visible;
 
   @media screen and (min-width: 768px) {
     width: 148px;

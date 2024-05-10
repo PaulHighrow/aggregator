@@ -1,12 +1,11 @@
 import useSize from '@react-hook/size';
-import { MyAPLogin } from 'components/Navigation/Navigation.styled';
+import { LogoAnchor, MyAPLogin } from 'components/Navigation/Navigation.styled';
 import { NavigationSchool } from 'components/Navigation/NavigationSchool';
 import { useEffect, useRef, useState } from 'react';
 import {
   HeaderNew,
   HeaderTextNew,
   HeaderWrapper,
-  LogoRoute,
   LogoSchool,
   MenuBurgerCloseIcon,
   MenuBurgerIcon,
@@ -26,9 +25,12 @@ export const MenuSchool = ({ toggleModal }) => {
     setIsMenuOpen(isOpen => !isOpen);
   };
 
+  const props =
+    width < 768
+      ? { spy: true, smooth: true, onClick: toggleMenu, offset: -30 }
+      : { spy: true, smooth: true, onClick: toggleMenu, offset: -40 };
+
   useEffect(() => {
-    console.log('menuschoolproc');
-    console.log(width);
     document.body.style.overflowY !== 'hidden' && width < 768 && isMenuOpen
       ? (document.body.style.overflowY = 'hidden')
       : (document.body.style.overflowY = '');
@@ -42,9 +44,9 @@ export const MenuSchool = ({ toggleModal }) => {
         className={show ? 'shown' : 'hidden'}
       >
         <HeaderWrapper>
-          <LogoRoute to="/school">
+          <LogoAnchor to={"hero"} {...props}>
             <LogoSchool />
-          </LogoRoute>
+          </LogoAnchor>
 
           {width < 1280 && (
             <NewMobileMenuBtn onClick={toggleMenu}>
