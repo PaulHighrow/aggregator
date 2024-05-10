@@ -71,6 +71,7 @@ export const MarqueeSoundBtn = styled(VolumeMute)`
   position: absolute;
   top: 10px;
   right: 10px;
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
 
   transition: opacity var(--animation-global);
 `;

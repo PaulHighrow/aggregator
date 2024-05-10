@@ -26,7 +26,6 @@ export const StyledUpButton = styled(Link)`
 `;
 
 export const UpArrow = styled(UpArrowIcon)`
-  color: var(--main-color);
   width: 25px;
   transition: color var(--animation-global), transform var(--animation-global);
 `;

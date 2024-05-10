@@ -748,4 +748,5 @@ export const MyAPLogin = styled(MyAPIcon)`
 
 export const LogoAnchor = styled(Link)`
   text-decoration: none;
+  cursor: pointer;
 `;

@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import { PiMapPinDuotone } from 'react-icons/pi';
 import { Link, NavLink } from 'react-router-dom';
 import { ReactComponent as LogoNewIcon } from '../../img/svg/logoNewWhite.svg';
+import { ReactComponent as LogoSchoolWhite } from '../../img/svg/logoSchoolWhite.svg';
+import { ReactComponent as LogoUniversityWhite } from '../../img/svg/logoUniversityWhite.svg';
 import { ReactComponent as MonoIcon } from '../../img/svg/monoPaw.svg';
 import { ReactComponent as MonoIconWhite } from '../../img/svg/monoPawWhite.svg';
 import { ReactComponent as FacebookIcon } from '../../img/svg/social-links/facebook.svg';
@@ -129,7 +131,50 @@ export const FooterLogo = styled(Logo)`
   }
 `;
 
-export const FooterLogoNew = styled(LogoNew)`
+export const FooterLogoNew = styled(LogoNewIcon)`
+  width: 264px;
+  display: block;
+  flex-shrink: 0;
+  height: 100%;
+  transition: transform var(--animation-global), filter var(--animation-global);
+
+  ${FooterLogoLink}:hover & {
+    transform: scale(1.2);
+    filter: drop-shadow(0px 0px 0.5px #00000054);
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 216px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 372px;
+  }
+`;
+
+export const FooterLogoSchool = styled(LogoSchoolWhite)`
+  width: 264px;
+  display: block;
+  flex-shrink: 0;
+  height: 100%;
+  transition: transform var(--animation-global), filter var(--animation-global);
+
+  ${FooterLogoLink}:hover & {
+    transform: scale(1.2);
+    filter: drop-shadow(0px 0px 0.5px #00000054);
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 216px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 372px;
+  }
+`;
+
+export const FooterLogoUniversity
+ = styled(LogoUniversityWhite)`
   width: 264px;
   display: block;
   flex-shrink: 0;

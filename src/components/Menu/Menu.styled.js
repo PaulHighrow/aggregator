@@ -11,6 +11,7 @@ import sketchOutline from 'img/svg/sketchOutline.svg';
 import sketchOutlineNarrow from 'img/svg/sketchOutlineNarrow.svg';
 import sketchOutlineSmallNarrow from 'img/svg/sketchOutlineSmallNarrow.svg';
 import { Link } from 'react-router-dom';
+import { LogoAnchor } from 'components/Navigation/Navigation.styled';
 
 export const Header = styled.header`
   position: fixed;
@@ -173,6 +174,7 @@ export const BurgerMenuIcon = styled(RxHamburgerMenu)`
 
 export const LogoRoute = styled(Link)`
   text-decoration: none;
+  cursor: pointer;
 `;
 
 export const Logo = styled(LogoIcon)`
@@ -236,7 +238,7 @@ export const LogoSchool = styled(LogoSchoolIcon)`
     transition: transform var(--animation-global);
   }
 
-  ${LogoRoute}:hover &>path#star {
+  ${LogoAnchor}:hover &>path#star {
     transform: translate(4px, 2px) scale(1.2);
   }
 `;
@@ -262,7 +264,7 @@ export const LogoUniversity = styled(LogoUniversityIcon)`
     transition: transform var(--animation-global);
   }
 
-  ${LogoRoute}:hover &>path#star {
+  ${LogoAnchor}:hover &>path#star {
     transform: translate(4px, 2px) scale(1.2);
   }
 `;

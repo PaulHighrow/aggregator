@@ -13,7 +13,7 @@ import {
   FooterListItemNew,
   FooterListNew,
   FooterLogoLink,
-  FooterLogoNew,
+  FooterLogoUniversity,
   FooterNavLinkNew,
   FooterTopContainer,
   FooterUniversity,
@@ -28,7 +28,7 @@ import {
   SocialLogoLink,
   SocialsLinkWrapperNew,
   TikTokBtnNew,
-  YouTubeBtnNew,
+  YouTubeBtnNew
 } from './MainFooter.styled';
 import { Map } from './Map/Map';
 
@@ -60,7 +60,7 @@ export const MainFooterUniversity = ({ toggleModal }) => {
           <FooterTopContainer>
             <FooterLeftBox>
               <FooterLogoLink to="/">
-                <FooterLogoNew />
+                <FooterLogoUniversity />
               </FooterLogoLink>
               <LeadWrapperNew>
                 <LeadDescNew>... якщо залишились запитання </LeadDescNew>
