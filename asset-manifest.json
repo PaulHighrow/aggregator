@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.933befc2.css",
-    "main.js": "/aggregator/static/js/main.ca9ffc66.js",
+    "main.js": "/aggregator/static/js/main.9c229e88.js",
     "New Design Homepage.css": "/aggregator/static/css/New Design Homepage.106666db.chunk.css",
     "New Design Homepage.js": "/aggregator/static/js/New Design Homepage.c594140a.chunk.js",
     "School epage.css": "/aggregator/static/css/School epage.106666db.chunk.css",
@@ -42,7 +42,7 @@
     "reactPlayerFilePlayer.js": "/aggregator/static/js/reactPlayerFilePlayer.6e1145e6.chunk.js",
     "reactPlayerPreview.js": "/aggregator/static/js/reactPlayerPreview.b1998349.chunk.js",
     "static/js/286.0a107142.chunk.js": "/aggregator/static/js/286.0a107142.chunk.js",
-    "static/js/90.f7fa18a3.chunk.js": "/aggregator/static/js/90.f7fa18a3.chunk.js",
+    "static/js/90.0a3c7528.chunk.js": "/aggregator/static/js/90.0a3c7528.chunk.js",
     "static/js/337.cf584b1a.chunk.js": "/aggregator/static/js/337.cf584b1a.chunk.js",
     "static/media/thank-you.png": "/aggregator/static/media/thank-you.26b42b0974f823b6458a.png",
     "static/media/LTJournalCrayon-Regular.eot": "/aggregator/static/media/LTJournalCrayon-Regular.4e01f9d2a8b68d2b8f20.eot",
@@ -90,8 +90,10 @@
     "static/media/logo-clean.svg": "/aggregator/static/media/logo-clean.98f9201fe9debc36c52660463957a2db.svg",
     "static/media/mobile-bg@2x.png": "/aggregator/static/media/mobile-bg@2x.a4aab584dc3432004f5a.png",
     "static/media/logoUniversity.svg": "/aggregator/static/media/logoUniversity.ffa49051082cd1871bd03aa238fcd80b.svg",
+    "static/media/logoUniversityWhite.svg": "/aggregator/static/media/logoUniversityWhite.f5d778d93750d0d460f365885c6f0f06.svg",
     "static/media/tablet-bg@2x.webp": "/aggregator/static/media/tablet-bg@2x.c391cbe389051ce72d33.webp",
     "static/media/logoSchool.svg": "/aggregator/static/media/logoSchool.0a33ddad0e4f9c614f0488a4dfc82d9a.svg",
+    "static/media/logoSchoolWhite.svg": "/aggregator/static/media/logoSchoolWhite.805b54634c933193418f823d2701b823.svg",
     "static/media/desktop-bg@1x.webp": "/aggregator/static/media/desktop-bg@1x.6759fe5d86b2bd97fb43.webp",
     "static/media/mobile-bg@2x.webp": "/aggregator/static/media/mobile-bg@2x.c463e5de7030972db5f0.webp",
     "static/media/instagram-outline.svg": "/aggregator/static/media/instagram-outline.12da70e24a5ceee842b4e59cc4db6648.svg",
@@ -177,7 +179,7 @@
     "static/media/btnbox-switch-right-large.svg": "/aggregator/static/media/btnbox-switch-right-large.d4edfcc5f338a2d51c7d6695947ffc4e.svg",
     "static/media/btnbox-switch-right.svg": "/aggregator/static/media/btnbox-switch-right.c2062beab8ed3d828de36754c3279d60.svg",
     "main.933befc2.css.map": "/aggregator/static/css/main.933befc2.css.map",
-    "main.ca9ffc66.js.map": "/aggregator/static/js/main.ca9ffc66.js.map",
+    "main.9c229e88.js.map": "/aggregator/static/js/main.9c229e88.js.map",
     "New Design Homepage.106666db.chunk.css.map": "/aggregator/static/css/New Design Homepage.106666db.chunk.css.map",
     "New Design Homepage.c594140a.chunk.js.map": "/aggregator/static/js/New Design Homepage.c594140a.chunk.js.map",
     "School epage.106666db.chunk.css.map": "/aggregator/static/css/School epage.106666db.chunk.css.map",
@@ -218,11 +220,11 @@
     "reactPlayerFilePlayer.6e1145e6.chunk.js.map": "/aggregator/static/js/reactPlayerFilePlayer.6e1145e6.chunk.js.map",
     "reactPlayerPreview.b1998349.chunk.js.map": "/aggregator/static/js/reactPlayerPreview.b1998349.chunk.js.map",
     "286.0a107142.chunk.js.map": "/aggregator/static/js/286.0a107142.chunk.js.map",
-    "90.f7fa18a3.chunk.js.map": "/aggregator/static/js/90.f7fa18a3.chunk.js.map",
+    "90.0a3c7528.chunk.js.map": "/aggregator/static/js/90.0a3c7528.chunk.js.map",
     "337.cf584b1a.chunk.js.map": "/aggregator/static/js/337.cf584b1a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.933befc2.css",
-    "static/js/main.ca9ffc66.js"
+    "static/js/main.9c229e88.js"
   ]
 }
