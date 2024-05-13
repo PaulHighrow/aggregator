@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { ReactComponent as BoxSwitchLeft } from '../../../img/svg/btnbox-switch-left.svg';
-import { ReactComponent as BoxSwitchRight } from '../../../img/svg/btnbox-switch-right.svg';
+import { ReactComponent as BoxSwitchLeft } from '../../../img/svg/btnbox-switch-left-gray.svg';
+import { ReactComponent as BoxSwitchRight } from '../../../img/svg/btnbox-switch-right-gray.svg';
 import { ReactComponent as CalendarIcon } from '../../../img/svg/myap/calendar.svg';
 import { ReactComponent as CupIcon } from '../../../img/svg/myap/cup.svg';
 import { ReactComponent as SearchIcon } from '../../../img/svg/myap/search.svg';
@@ -111,11 +111,11 @@ export const PanelHideSwitch = styled.div`
 `;
 
 export const PanelHideLeftSwitch = styled(BoxSwitchLeft)`
-  stroke: var(--main-color);
+  stroke: #525266;
   transition: stroke var(--animation-global);
 `;
 
 export const PanelHideRightSwitch = styled(BoxSwitchRight)`
-  stroke: var(--main-color);
+  stroke: #525266;
   transition: stroke var(--animation-global);
 `;

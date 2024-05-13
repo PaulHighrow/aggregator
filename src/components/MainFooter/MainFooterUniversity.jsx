@@ -49,7 +49,7 @@ export const MainFooterUniversity = ({ toggleModal }) => {
     { href: 'tel:+380671047700', contact: '+38 (067) 104 77 00' },
     {
       href: 'https://maps.app.goo.gl/mj3W28hhdfHekf8dA',
-      contact: 'м.Львів, вул. Городницька, 47 Б',
+      contact: 'м. Львів, вул. Городницька, 47 Б',
     },
   ];
 

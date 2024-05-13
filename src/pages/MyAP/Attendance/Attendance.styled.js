@@ -36,6 +36,13 @@ export const AttendanceHeading = styled.h3`
 
 export const CalendarIcon = styled(CalendarBtnIcon)``;
 
+export const AttendanceVisitedBox = styled.div`
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
+
 export const MonthSwitchBox = styled.div`
   display: flex;
   gap: 2px;
@@ -49,6 +56,9 @@ export const AttendanceMonth = styled.span`
   color: #525266;
   font-size: 14px;
 
+  width: 70px;
+  text-align: center;
+
   text-transform: capitalize;
 `;
 
@@ -61,6 +71,11 @@ export const AttendanceBtnLeft = styled.button`
   border: none;
   outline: transparent;
   background-color: transparent;
+
+  &:hover svg,
+  &:focus svg {
+    color: #000;
+  }
 `;
 
 export const AttendanceArrowLeft = styled(CoursesArrowLeft)`
@@ -71,6 +86,7 @@ export const AttendanceArrowLeft = styled(CoursesArrowLeft)`
   left: 50%;
 
   transform: translate(-50%, -50%);
+  transition: color var(--animation-global);
 
   &.available {
     color: #525266;
@@ -86,6 +102,11 @@ export const AttendanceBtnRight = styled.button`
   border: none;
   outline: transparent;
   background-color: transparent;
+
+  &:hover svg,
+  &:focus svg {
+    color: #000;
+  }
 `;
 
 export const AttendanceArrowRight = styled(CoursesArrowRight)`
@@ -96,8 +117,29 @@ export const AttendanceArrowRight = styled(CoursesArrowRight)`
   left: 50%;
 
   transform: translate(-50%, -50%);
+  transition: color var(--animation-global);
 
   &.available {
     color: #525266;
   }
 `;
+
+export const VisitedList = styled.ul`
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 0 8px;
+  margin-bottom: 10px;
+
+  display: flex;
+  flex-direction: column;
+`;
+
+export const VisitedItem = styled.li`
+  padding: 6px 0;
+  display: flex;
+  gap: 8px;
+`;
+
+export const VisitedText = styled.span``;
+
+export const VisitedCounter = styled.span``;

@@ -2,7 +2,7 @@ import axios from 'axios';
 import {
   Label,
   LeftFormBackgroundStar,
-  RightFormBackgroundStar
+  RightFormBackgroundStar,
 } from 'components/LeadForm/LeadForm.styled';
 import { LoginFormText, StreamSection } from 'components/Stream/Stream.styled';
 import { Formik } from 'formik';
@@ -20,11 +20,9 @@ import { MyAPPanel } from './MyAPPanel/MyAPPanel';
 const MyAP = () => {
   const [isUserLogged, setIsUserLogged] = useState(false);
   const [lessons, setLessons] = useState(false);
-  const [points, setPoints] = useState(false);
+  const [points, setPoints] = useState({});
   const [user, setUser] = useState({});
   axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
-
-  console.log(window.location);
 
   useEffect(() => {
     document.title = 'My AP | AP Education';
@@ -45,8 +43,7 @@ const MyAP = () => {
       console.log('ratings getter');
       try {
         const res = await axios.get('/ratings');
-        console.log(res);
-        setPoints(ratings => (ratings = [...res.data]));
+        setPoints(points => (points = { ...res.data[0].rating }));
       } catch (error) {
         console.log(error);
       }
@@ -117,11 +114,11 @@ const MyAP = () => {
             <LeftFormBackgroundStar />
             <RightFormBackgroundStar />
             <LoginFormText>
-              Привіт! 
+              Привіт!
               <br />
-              Ця сторінка недоступна для неавторизованих користувачів.
-              Але якщо ви маєте доступ до нашої платформи, то й до цієї сторінки
-              теж. Введіть дані, які ви використовуєте для входу на платформу.
+              Ця сторінка недоступна для неавторизованих користувачів. Але якщо
+              ви маєте доступ до нашої платформи, то й до цієї сторінки теж.
+              Введіть дані, які ви використовуєте для входу на платформу.
             </LoginFormText>
             <Label>
               <AdminInput type="text" name="mail" placeholder="Login" />
@@ -140,7 +137,9 @@ const MyAP = () => {
         </Formik>
       ) : (
         <>
-          <MyAPPanel lessons={lessons} user={user} points={points} />
+          {Object.values(points).length > 0 && (
+            <MyAPPanel lessons={lessons} user={user} points={points} />
+          )}
           <MyPlatform />
         </>
       )}

@@ -26,7 +26,7 @@ export const MyAPPanel = ({ lessons, user, points }) => {
     setIsButtonBoxShown(isShown => !isShown);
   };
 
-  const flatPoints = Object.values(points[0].rating).flatMap(user => user);
+  const flatPoints = Object.values(points).flatMap(user => user);
 
   const hideBackdrop = () => {
     setIsBackdropShown(false);
