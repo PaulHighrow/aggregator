@@ -26,6 +26,7 @@ export const AttendanceHeading = styled.h3`
 
   color: #525266;
   border-bottom: 1px solid #0000000d;
+  margin-bottom: -1px;
   font-size: 20px;
   font-weight: 400;
 
@@ -37,7 +38,7 @@ export const AttendanceHeading = styled.h3`
 export const CalendarIcon = styled(CalendarBtnIcon)``;
 
 export const AttendanceVisitedBox = styled.div`
-  padding: 20px 10px;
+  padding: 18px 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -49,7 +50,6 @@ export const MonthSwitchBox = styled.div`
   align-items: center;
 
   margin-left: 16px;
-  margin-bottom: 10px;
 `;
 
 export const AttendanceMonth = styled.span`
@@ -72,9 +72,10 @@ export const AttendanceBtnLeft = styled.button`
   outline: transparent;
   background-color: transparent;
 
-  &:hover svg,
-  &:focus svg {
+  &:not(:disabled):hover svg,
+  &:not(:disabled):focus svg {
     color: #000;
+    filter: drop-shadow(0.5px 0 1px rgba(0, 0, 0, 0.5));
   }
 `;
 
@@ -86,7 +87,7 @@ export const AttendanceArrowLeft = styled(CoursesArrowLeft)`
   left: 50%;
 
   transform: translate(-50%, -50%);
-  transition: color var(--animation-global);
+  transition: color var(--animation-global), filter var(--animation-global);
 
   &.available {
     color: #525266;
@@ -103,9 +104,10 @@ export const AttendanceBtnRight = styled.button`
   outline: transparent;
   background-color: transparent;
 
-  &:hover svg,
-  &:focus svg {
+  &:not(:disabled):hover svg,
+  &:not(:disabled):focus svg {
     color: #000;
+    filter: drop-shadow(0.5px 0 1px rgba(0, 0, 0, 0.5));
   }
 `;
 
@@ -117,7 +119,7 @@ export const AttendanceArrowRight = styled(CoursesArrowRight)`
   left: 50%;
 
   transform: translate(-50%, -50%);
-  transition: color var(--animation-global);
+  transition: color var(--animation-global), filter var(--animation-global);
 
   &.available {
     color: #525266;
@@ -127,15 +129,17 @@ export const AttendanceArrowRight = styled(CoursesArrowRight)`
 export const VisitedList = styled.ul`
   border-radius: 6px;
   border: 1px solid rgba(0, 0, 0, 0.05);
+  margin: -1px;
   padding: 0 8px;
-  margin-bottom: 10px;
+  font-size: 14px;
 
   display: flex;
   flex-direction: column;
+  gap: 4px;
 `;
 
 export const VisitedItem = styled.li`
-  padding: 6px 0;
+  padding: 10px 0;
   display: flex;
   gap: 8px;
 `;
@@ -143,3 +147,10 @@ export const VisitedItem = styled.li`
 export const VisitedText = styled.span``;
 
 export const VisitedCounter = styled.span``;
+
+export const VisitedYearBox = styled.div`
+  padding: 10px 8px;
+  display: flex;
+  gap: 8px;
+  font-size: 14px;
+`;
