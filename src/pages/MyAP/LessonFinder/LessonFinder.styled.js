@@ -147,6 +147,7 @@ export const LessonValueName = styled.p`
   font-size: 14px;
   font-weight: 500;
   margin-bottom: 4px;
+  text-transform: capitalize;
 `;
 
 export const LessonValueTopic = styled.p`

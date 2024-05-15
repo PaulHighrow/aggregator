@@ -19,7 +19,7 @@ import {
   UserEditButton,
   UserHeadCell,
   UsersEditForm,
-  UsersForm
+  UsersForm,
 } from '../UserAdminPanel/UserAdminPanel.styled';
 
 axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
@@ -131,8 +131,8 @@ export const LessonsAdminPanel = () => {
       .required(
         "Ключі українською - обов'язкове поле! Введи переклад тему уроку або її фрагментів українською"
       ),
-    pdf: yup.string(),
-    video: yup.string(),
+    pdf: yup.string() || yup.array().of(yup.string()),
+    video: yup.string() || yup.array().of(yup.string()),
   });
 
   const handleLessonSubmit = async (values, { resetForm }) => {
@@ -154,10 +154,10 @@ export const LessonsAdminPanel = () => {
         .map(link => link.toLowerCase().trim().trimStart()),
     ];
     try {
-      const response = await axios.post('/users/new', values);
+      const response = await axios.post('/lessons', values);
       console.log(response);
       resetForm();
-      alert('Юзера додано');
+      alert('Урок додано');
     } catch (error) {
       console.error(error);
       alert(
@@ -246,7 +246,7 @@ export const LessonsAdminPanel = () => {
               </Label>
               <Label>
                 <AdminInput
-                  type="email"
+                  type="text"
                   name="level"
                   placeholder="Рівень (A1/A2/B1/B2)"
                 />
@@ -283,28 +283,20 @@ export const LessonsAdminPanel = () => {
               <Label>
                 <AdminInput
                   type="text"
-                  name="pdf"
-                  placeholder="Внести посилання на таблиці через кому"
-                />
-                <AdminInputNote component="p" name="pdf" />
-              </Label>
-              <Label>
-                <AdminInput
-                  type="text"
-                  name="knowledge"
-                  placeholder="Рівень знань"
+                  name="video"
+                  placeholder="Внести посилання на відео через кому"
                 />
                 <AdminInputNote component="p" name="knowledge" />
               </Label>
               <Label>
                 <AdminInput
                   type="text"
-                  name="manager"
-                  placeholder="Прізвище відповідального менеджера"
+                  name="pdf"
+                  placeholder="Внести посилання на таблиці через кому"
                 />
-                <AdminInputNote component="p" name="manager" />
+                <AdminInputNote component="p" name="pdf" />
               </Label>
-              <AdminFormBtn type="submit">Додати юзера</AdminFormBtn>
+              <AdminFormBtn type="submit">Додати урок</AdminFormBtn>
             </UsersForm>
           </Formik>
         )}
@@ -331,13 +323,27 @@ export const LessonsAdminPanel = () => {
                   <UserCell>{lesson.lang}</UserCell>
                   <UserCell>{lesson.level}</UserCell>
                   <UserCell>{lesson.lesson}</UserCell>
-                  <UserCell>
-                    {lesson.keysUa}
-                  </UserCell>
+                  <UserCell>{lesson.keysUa}</UserCell>
                   <UserCell>{lesson.keysUa}</UserCell>
                   <UserCell>{lesson.keysEn}</UserCell>
-                  <UserCell>{lesson.pdf.map((link, i) => <a key={i} href={link}>{i+1}</a>)}</UserCell>
-                  <UserCell>{lesson.video.map((link, i) => <a key={i} href={link}>{i+1}</a>)}</UserCell>
+                  <UserCell>
+                    {lesson.pdf.map((link, i) => (
+                      <>
+                        <a key={i} href={link}>
+                          {i + 1}
+                        </a>{' '}
+                      </>
+                    ))}
+                  </UserCell>
+                  <UserCell>
+                    {lesson.video.map((link, i) => (
+                      <>
+                        <a key={i} href={link}>
+                          {i + 1}
+                        </a>{' '}
+                      </>
+                    ))}
+                  </UserCell>
                   <UserCell>
                     {
                       <UserEditButton onClick={() => handleEdit(lesson._id)}>

@@ -65,7 +65,8 @@ export const Attendance = ({ user }) => {
     );
     return user.visited.filter(
       date =>
-        new Date(changeDateFormat(date)).getMonth() + 1 === month &&
+        new Date(changeDateFormat(date)).getMonth() + 1 ===
+          new Date().getMonth() + 1 &&
         lessonDays.includes(new Date(changeDateFormat(date)).getDate())
     ).length;
   };
@@ -170,7 +171,8 @@ export const Attendance = ({ user }) => {
     const visitedWithinWeek = user.visited.filter(
       date =>
         (date =
-          new Date(changeDateFormat(date)).getMonth() + 1 === month &&
+          new Date(changeDateFormat(date)).getMonth() + 1 ===
+            new Date().getMonth() + 1 &&
           lessonDays.includes(new Date(changeDateFormat(date)).getDate()))
     );
 
