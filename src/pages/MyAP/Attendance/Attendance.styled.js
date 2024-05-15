@@ -148,9 +148,28 @@ export const VisitedText = styled.span``;
 
 export const VisitedCounter = styled.span``;
 
+export const VisitedTotal = styled.span`
+  color: var(--main-color);
+`;
+
 export const VisitedYearBox = styled.div`
   padding: 10px 8px;
   display: flex;
   gap: 8px;
   font-size: 14px;
+`;
+
+export const AttendancePointsBox = styled.div`
+  position: relative;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const AttendancePointsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
 `;
