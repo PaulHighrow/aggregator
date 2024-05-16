@@ -1,12 +1,16 @@
 import { useState } from 'react';
+import { ReactComponent as AttendanceEmpty } from '../../../img/svg/attendance-empty.svg';
+import { ReactComponent as AttendanceMinus } from '../../../img/svg/attendance-minus.svg';
+import { ReactComponent as AttendancePlus } from '../../../img/svg/attendance-plus.svg';
 import {
   AttendanceArrowLeft,
   AttendanceArrowRight,
   AttendanceBox,
-  AttendanceBtnLeft,
-  AttendanceBtnRight,
+  AttendanceBtn,
+  AttendanceFlex,
   AttendanceHeading,
-  AttendanceMonth,
+  AttendancePeriod,
+  AttendancePoints,
   AttendancePointsBox,
   AttendancePointsContainer,
   AttendanceVisitedBox,
@@ -19,11 +23,9 @@ import {
   VisitedTotal,
   VisitedYearBox,
 } from './Attendance.styled';
-import { ReactComponent as AttendancePlus } from '../../../img/svg/attendance-plus.svg';
-import { ReactComponent as AttendanceMinus } from '../../../img/svg/attendance-minus.svg';
-import { ReactComponent as AttendanceEmpty } from '../../../img/svg/attendance-empty.svg';
 
 export const Attendance = ({ user }) => {
+  const [week, setWeek] = useState(new Date().getDate() - new Date().getDay());
   const [month, setMonth] = useState(
     +new Intl.DateTimeFormat('uk-UK', { month: 'numeric' }).format()
   );
@@ -39,7 +41,16 @@ export const Attendance = ({ user }) => {
     return;
   };
 
+  const decreaseWeek = () => {
+    setWeek(week => week - 7);
+  };
+
+  const increaseWeek = () => {
+    setWeek(week => week + 7);
+  };
+
   const decreaseMonth = () => {
+    setWeek(new Date(year, month - 1, 2).getDate() - new Date().getDay());
     if (month > 1) {
       setMonth(month - 1);
       return;
@@ -57,6 +68,23 @@ export const Attendance = ({ user }) => {
     setMonth(1);
     setYear(year + 1);
     return;
+  };
+
+  const editDateFormat = date => (`${date}`.length > 1 ? date : '0' + date);
+
+  const calculateWeekPeriod = () => {
+    const firstDayOfWeekDate = new Date(year, month - 1, week + 1);
+    console.log();
+
+    const date = new Date(firstDayOfWeekDate);
+
+    const lastDayOfWeekDate = new Date(date.setDate(date.getDate() + 6));
+
+    return `${editDateFormat(firstDayOfWeekDate.getDate())}.${editDateFormat(
+      firstDayOfWeekDate.getMonth() + 1
+    )} - ${editDateFormat(lastDayOfWeekDate.getDate())}.${editDateFormat(
+      lastDayOfWeekDate.getMonth() + 1
+    )}.${lastDayOfWeekDate.getFullYear()}`;
   };
 
   const calculateWeeklyVisits = () => {
@@ -78,6 +106,14 @@ export const Attendance = ({ user }) => {
     );
     return lessonDays.slice(0, currentDay + 1).length - calculateWeeklyVisits();
   };
+
+  // const calculateMonthlyUnattended = () => {
+  //   const lessonDays = getLessonDaysForMonths();
+  //   const currentDay = lessonDays.findIndex(
+  //     lessonDay => lessonDay.getDate() === new Date().getDate()
+  //   );
+  //   return lessonDays.slice(0, currentDay + 1).length - calculateMonthlyVisits();
+  // };
 
   const calculateMonthlyVisits = passedMonth =>
     user.visited.filter(
@@ -180,20 +216,20 @@ export const Attendance = ({ user }) => {
       new Date(changeDateFormat(date)).getDate()
     );
 
-    return lessonDays.map(date =>
+    return lessonDays.map((date, i) =>
       new Date(year, month - 1, date).getMonth() + 1 === month &&
       visitedWithinWeekDays.includes(
         new Date(year, month - 1, date).getDate()
       ) ? (
-        <AttendancePlus />
+        <AttendancePlus key={i} />
       ) : new Date(year, month - 1, date).getMonth() + 1 === month &&
         date < new Date().getDate() &&
         !visitedWithinWeekDays.includes(
           new Date(year, month - 1, date).getDate()
         ) ? (
-        <AttendanceMinus />
+        <AttendanceMinus key={i} />
       ) : (
-        <AttendanceEmpty />
+        <AttendanceEmpty key={i} />
       )
     );
   };
@@ -206,35 +242,35 @@ export const Attendance = ({ user }) => {
       </AttendanceHeading>
       <AttendanceVisitedBox>
         <MonthSwitchBox>
-          <AttendanceBtnLeft
+          <AttendanceBtn
             disabled={calculateMonthlyVisits(month - 1) === 0 ? true : false}
-            onClick={decreaseMonth}
+            onClick={decreaseWeek}
           >
             <AttendanceArrowLeft
               className={calculateMonthlyVisits(month - 1) !== 0 && 'available'}
             />
-          </AttendanceBtnLeft>
-          <AttendanceMonth>
-            {new Intl.DateTimeFormat('uk-UK', { month: 'long' }).format(
-              new Date(`${month}`)
-            )}
-          </AttendanceMonth>
-          <AttendanceBtnRight
+          </AttendanceBtn>
+          <AttendancePeriod>{calculateWeekPeriod()}</AttendancePeriod>
+          <AttendanceBtn
             disabled={calculateMonthlyVisits(month + 1) === 0 ? true : false}
-            onClick={increaseMonth}
+            onClick={increaseWeek}
           >
             <AttendanceArrowRight
               className={calculateMonthlyVisits(month + 1) !== 0 && 'available'}
             />
-          </AttendanceBtnRight>
+          </AttendanceBtn>
         </MonthSwitchBox>
         <VisitedList>
           <VisitedItem>
             <AttendancePointsBox>
-              <VisitedText>Відвідано:</VisitedText>
-              <AttendancePointsContainer>
-                {calculatePoints()}
-              </AttendancePointsContainer>
+              <AttendanceFlex>
+                <VisitedText>Відвідано:</VisitedText>
+                <AttendancePoints>
+                  <AttendancePointsContainer>
+                    {calculatePoints()}
+                  </AttendancePointsContainer>
+                </AttendancePoints>
+              </AttendanceFlex>
               <VisitedCounter>
                 {calculateWeeklyVisits()}/
                 <VisitedTotal>{getLessonDaysForWeeks().length}</VisitedTotal>
@@ -249,11 +285,44 @@ export const Attendance = ({ user }) => {
               {calculateWeeklyUnattended()}
             </VisitedCounter>
           </VisitedItem>
+        </VisitedList>
+        <MonthSwitchBox>
+          <AttendanceBtn
+            disabled={calculateMonthlyVisits(month - 1) === 0 ? true : false}
+            onClick={decreaseMonth}
+          >
+            <AttendanceArrowLeft
+              className={calculateMonthlyVisits(month - 1) !== 0 && 'available'}
+            />
+          </AttendanceBtn>
+          <AttendancePeriod>
+            {new Intl.DateTimeFormat('uk-UK', { month: 'long' }).format(
+              new Date(`${month}`)
+            )}
+          </AttendancePeriod>
+          <AttendanceBtn
+            disabled={calculateMonthlyVisits(month + 1) === 0 ? true : false}
+            onClick={increaseMonth}
+          >
+            <AttendanceArrowRight
+              className={calculateMonthlyVisits(month + 1) !== 0 && 'available'}
+            />
+          </AttendanceBtn>
+        </MonthSwitchBox>
+        <VisitedList>
           <VisitedItem>
-            <VisitedText>За місяць:</VisitedText>
+            <VisitedText>Відвідано:</VisitedText>
             <VisitedCounter>
               {calculateMonthlyVisits(month)}/
               <VisitedTotal>{getLessonDaysForMonths()}</VisitedTotal>
+            </VisitedCounter>
+          </VisitedItem>
+          <VisitedItem>
+            <VisitedText>Пропуски:</VisitedText>
+            <VisitedCounter
+              style={{ color: calculateWeeklyUnattended() > 0 && '#D61D1D' }}
+            >
+              {calculateWeeklyUnattended()}
             </VisitedCounter>
           </VisitedItem>
         </VisitedList>

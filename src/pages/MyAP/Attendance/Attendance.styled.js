@@ -17,7 +17,7 @@ export const AttendanceBox = styled.div`
   overflow: hidden;
   border-radius: 20px;
   padding: 0 20px;
-  height: 272px;
+  height: 356px;
   width: 362px;
 `;
 
@@ -46,23 +46,27 @@ export const AttendanceVisitedBox = styled.div`
 
 export const MonthSwitchBox = styled.div`
   display: flex;
+  width: fit-content;
   gap: 2px;
   align-items: center;
 
-  margin-left: 16px;
+  padding: 3px 3px;
+  border-radius: 6px;
+  background: linear-gradient(322deg, #0f645b 23.22%, #09c6cc 110.01%), #fff;
 `;
 
-export const AttendanceMonth = styled.span`
-  color: #525266;
+export const AttendancePeriod = styled.span`
+  color: var(--secondary-color);
   font-size: 14px;
 
-  width: 70px;
+  min-width: 70px;
   text-align: center;
+  width: max-content;
 
   text-transform: capitalize;
 `;
 
-export const AttendanceBtnLeft = styled.button`
+export const AttendanceBtn = styled.button`
   width: 16px;
   height: 16px;
 
@@ -72,15 +76,19 @@ export const AttendanceBtnLeft = styled.button`
   outline: transparent;
   background-color: transparent;
 
+  &:not(:disabled),
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+
   &:not(:disabled):hover svg,
   &:not(:disabled):focus svg {
-    color: #000;
-    filter: drop-shadow(0.5px 0 1px rgba(0, 0, 0, 0.5));
+    color: var(--accent-color);
   }
 `;
 
 export const AttendanceArrowLeft = styled(CoursesArrowLeft)`
-  color: #bebecc;
+  color: #ffffff59;
 
   position: absolute;
   top: 50%;
@@ -90,29 +98,12 @@ export const AttendanceArrowLeft = styled(CoursesArrowLeft)`
   transition: color var(--animation-global), filter var(--animation-global);
 
   &.available {
-    color: #525266;
-  }
-`;
-
-export const AttendanceBtnRight = styled.button`
-  width: 16px;
-  height: 16px;
-
-  position: relative;
-
-  border: none;
-  outline: transparent;
-  background-color: transparent;
-
-  &:not(:disabled):hover svg,
-  &:not(:disabled):focus svg {
-    color: #000;
-    filter: drop-shadow(0.5px 0 1px rgba(0, 0, 0, 0.5));
+    color: var(--secondary-color);
   }
 `;
 
 export const AttendanceArrowRight = styled(CoursesArrowRight)`
-  color: #bebecc;
+  color: #ffffff59;
 
   position: absolute;
   top: 50%;
@@ -122,7 +113,7 @@ export const AttendanceArrowRight = styled(CoursesArrowRight)`
   transition: color var(--animation-global), filter var(--animation-global);
 
   &.available {
-    color: #525266;
+    color: var(--secondary-color);
   }
 `;
 
@@ -155,12 +146,12 @@ export const VisitedTotal = styled.span`
 export const VisitedYearBox = styled.div`
   padding: 10px 8px;
   display: flex;
+  justify-content: space-between;
   gap: 8px;
   font-size: 14px;
 `;
 
 export const AttendancePointsBox = styled.div`
-  position: relative;
   width: 100%;
 
   display: flex;
@@ -168,8 +159,22 @@ export const AttendancePointsBox = styled.div`
   justify-content: space-between;
 `;
 
+export const AttendanceFlex = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+`;
+
+export const AttendancePoints = styled.div`
+  position: relative;
+`;
+
 export const AttendancePointsContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-50%);
 `;
