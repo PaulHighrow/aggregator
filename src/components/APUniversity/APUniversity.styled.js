@@ -7,6 +7,7 @@ export const APUniversitySection = styled.section`
 
   @media screen and (min-width: 768px) {
     padding: 100px 40px 0 40px;
+    overflow: hidden;
   }
 
   @media screen and (min-width: 1280px) {

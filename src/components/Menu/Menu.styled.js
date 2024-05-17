@@ -38,7 +38,11 @@ export const Header = styled.header`
   }
 
   @media screen and (min-width: 1280px) {
-    padding: 0 55px;
+    padding: 0 60px;
+  }
+
+  @media screen and (min-width: 1920px) {
+    padding: 0 120px;
   }
 
   &.hidden {
@@ -68,17 +72,21 @@ export const HeaderNew = styled.header`
   justify-content: space-between;
   transition: transform var(--animation-global);
 
-  @media screen and (min-width: 400px) {
-    padding: 0 30px;
+  @media screen and (min-width: 375px) {
+    padding: 0 20px;
   }
 
   @media screen and (min-width: 768px) {
-    padding: 0 42px;
+    padding: 0 40px;
     height: 60px;
   }
 
   @media screen and (min-width: 1280px) {
-    padding: 0 55px;
+    padding: 0 60px;
+  }
+
+  @media screen and (min-width: 1920px) {
+    padding: 0 120px;
   }
 
   &.hidden {
