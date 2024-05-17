@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.78c1cfa0.css",
-    "main.js": "/aggregator/static/js/main.ae4afd44.js",
+    "main.js": "/aggregator/static/js/main.e0a9da6a.js",
     "New Design Homepage.css": "/aggregator/static/css/New Design Homepage.106666db.chunk.css",
-    "New Design Homepage.js": "/aggregator/static/js/New Design Homepage.452a6aef.chunk.js",
+    "New Design Homepage.js": "/aggregator/static/js/New Design Homepage.232d23e3.chunk.js",
     "School epage.css": "/aggregator/static/css/School epage.106666db.chunk.css",
-    "School epage.js": "/aggregator/static/js/School epage.68e781a2.chunk.js",
+    "School epage.js": "/aggregator/static/js/School epage.8b8f7113.chunk.js",
     "University page.css": "/aggregator/static/css/University page.106666db.chunk.css",
-    "University page.js": "/aggregator/static/js/University page.92124a77.chunk.js",
+    "University page.js": "/aggregator/static/js/University page.5e985e41.chunk.js",
     "Streams page.js": "/aggregator/static/js/Streams page.74c34793.chunk.js",
     "Service page.js": "/aggregator/static/js/Service page.6020cefb.chunk.js",
     "HR page.js": "/aggregator/static/js/HR page.91c33303.chunk.js",
@@ -115,6 +115,7 @@
     "static/media/heroMarqueeTextArrow.svg": "/aggregator/static/media/heroMarqueeTextArrow.fe17556b2d5b90e4dae2b578ed2c42e6.svg",
     "static/media/attendance-plus.svg": "/aggregator/static/media/attendance-plus.1521019835cdf22728cea4866906b428.svg",
     "static/media/clipBoardCopy.svg": "/aggregator/static/media/clipBoardCopy.884c0404be0ae913ae045f7467e518bf.svg",
+    "static/media/consent-icon.svg": "/aggregator/static/media/consent-icon.9a75947f302d9c6b494f5d00534f7844.svg",
     "static/media/kahoot-arrow.svg": "/aggregator/static/media/kahoot-arrow.570952a6358ab97ab6b1b3b88d7c7e4f.svg",
     "static/media/minimize.svg": "/aggregator/static/media/minimize.6931d76a75b9568aaa8bf955581f1792.svg",
     "static/media/nameReverse.svg": "/aggregator/static/media/nameReverse.9c0a3d229a56665ad4a367d0e91f8ef1.svg",
@@ -158,13 +159,13 @@
     "static/media/btnbox-switch-right-large.svg": "/aggregator/static/media/btnbox-switch-right-large.d4edfcc5f338a2d51c7d6695947ffc4e.svg",
     "static/media/btnbox-switch-right.svg": "/aggregator/static/media/btnbox-switch-right.c2062beab8ed3d828de36754c3279d60.svg",
     "main.78c1cfa0.css.map": "/aggregator/static/css/main.78c1cfa0.css.map",
-    "main.ae4afd44.js.map": "/aggregator/static/js/main.ae4afd44.js.map",
+    "main.e0a9da6a.js.map": "/aggregator/static/js/main.e0a9da6a.js.map",
     "New Design Homepage.106666db.chunk.css.map": "/aggregator/static/css/New Design Homepage.106666db.chunk.css.map",
-    "New Design Homepage.452a6aef.chunk.js.map": "/aggregator/static/js/New Design Homepage.452a6aef.chunk.js.map",
+    "New Design Homepage.232d23e3.chunk.js.map": "/aggregator/static/js/New Design Homepage.232d23e3.chunk.js.map",
     "School epage.106666db.chunk.css.map": "/aggregator/static/css/School epage.106666db.chunk.css.map",
-    "School epage.68e781a2.chunk.js.map": "/aggregator/static/js/School epage.68e781a2.chunk.js.map",
+    "School epage.8b8f7113.chunk.js.map": "/aggregator/static/js/School epage.8b8f7113.chunk.js.map",
     "University page.106666db.chunk.css.map": "/aggregator/static/css/University page.106666db.chunk.css.map",
-    "University page.92124a77.chunk.js.map": "/aggregator/static/js/University page.92124a77.chunk.js.map",
+    "University page.5e985e41.chunk.js.map": "/aggregator/static/js/University page.5e985e41.chunk.js.map",
     "Streams page.74c34793.chunk.js.map": "/aggregator/static/js/Streams page.74c34793.chunk.js.map",
     "Service page.6020cefb.chunk.js.map": "/aggregator/static/js/Service page.6020cefb.chunk.js.map",
     "HR page.91c33303.chunk.js.map": "/aggregator/static/js/HR page.91c33303.chunk.js.map",
@@ -204,6 +205,6 @@
   },
   "entrypoints": [
     "static/css/main.78c1cfa0.css",
-    "static/js/main.ae4afd44.js"
+    "static/js/main.e0a9da6a.js"
   ]
 }
