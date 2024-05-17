@@ -10,20 +10,20 @@ export const Consent = () => {
   const [padding, setPadding] = useState('16px');
 
   useEffect(() => {
+    const calculatePadding = () => {
+      return width < 375
+        ? setPadding('1px')
+        : width >= 400 && width < 768
+        ? setPadding('5px')
+        : width >= 768 && width < 1280
+        ? setPadding('25px')
+        : width >= 1280 && width < 1920
+        ? setPadding('45px')
+        : setPadding('105px');
+    };
+
     calculatePadding();
   }, [width]);
-
-  const calculatePadding = () => {
-    return width < 375
-      ? setPadding('1px')
-      : width >= 400 && width < 768
-      ? setPadding('5px')
-      : width >= 768 && width < 1280
-      ? setPadding('25px')
-      : width >= 1280 && width < 1920
-      ? setPadding('45px')
-      : setPadding('105px');
-  };
 
   return (
     <CookieConsent
