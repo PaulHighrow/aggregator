@@ -9,10 +9,13 @@ import { AdminPanel } from 'pages/Streams/AdminPanel/AdminPanel';
 import { StreamB1 } from 'pages/Streams/B1/StreamB1';
 import { StreamB2 } from 'pages/Streams/B2/StreamB2';
 import { CollectionsAdminPanel } from 'pages/Streams/CollectionsAdminPanel/CollectionsAdminPanel';
+import { StreamDeutschA0 } from 'pages/Streams/Deutsch A0/StreamDeutschA0';
 import { StreamDeutschA2 } from 'pages/Streams/Deutsch A2/StreamDeutschA2';
 import { StreamDeutsch } from 'pages/Streams/Deutsch/StreamDeutsch';
 import { HostKahootAdminPanel } from 'pages/Streams/HostKahootAdminPanel/HostKahootAdminPanel';
 import { KahootAdminPanel } from 'pages/Streams/KahootAdminPanel/KahootAdminPanel';
+import { LessonsAdminPanel } from 'pages/Streams/LessonsAdminPanel/LessonsAdminPanel';
+import { StreamPolskiA0 } from 'pages/Streams/Polski A0/StreamPolskiA0';
 import { StreamPolskiA2 } from 'pages/Streams/Polski A2/StreamPolskiA2';
 import { StreamPolski } from 'pages/Streams/Polski/StreamPolski';
 import { RatingsAdminPanel } from 'pages/Streams/RatingsAdminPanel/RatingsAdminPanel';
@@ -25,6 +28,7 @@ import { KidsB1Beginner } from 'pages/StreamsKids/KidsB1Beginner/KidsB1Beginner'
 import { KidsB2 } from 'pages/StreamsKids/KidsB2/KidsB2';
 import TeacherTrialPage from 'pages/TeacherPage/TeacherTrialPage';
 import { ThankYouPage } from 'pages/ThankYouPage/ThankYouPage';
+import StreamTrialA1SpeakingClub from 'pages/Trials/StreamTrialA1SpeakingClub';
 import StreamTrialDeutschSprechclub from 'pages/Trials/StreamTrialDeutschSprechclub';
 import { lazy } from 'react';
 import { Toaster } from 'react-hot-toast';
@@ -32,8 +36,6 @@ import { Route, Routes, useSearchParams } from 'react-router-dom';
 import { WindowedChat } from 'utils/Chat/ChatWindowed/WindowedChat';
 import ScrollToTop from 'utils/ScrollToTop/ScrollToTop';
 import { SharedLayout } from './SharedLayout/SharedLayout';
-import { LessonsAdminPanel } from 'pages/Streams/LessonsAdminPanel/LessonsAdminPanel';
-import StreamTrialA1SpeakingClub from 'pages/Trials/StreamTrialA1SpeakingClub';
 
 // const Home = lazy(() =>
 //   import(/* webpackChunkName: "Homepage" */ '../pages/Home/Home')
@@ -227,17 +229,22 @@ export const App = () => {
           <Route path="a1-chat" element={<WindowedChat />} />
           <Route path="a2" element={<StreamA2 />} />
           <Route path="a2-chat" element={<WindowedChat />} />
+          <Route path="pilot-scb1" element={<StreamTrialB1SpeakingClub />} />
           <Route path="pilot-b2sc" element={<StreamTrialB2SpeakingClub />} />
           <Route path="b1" element={<StreamB1 />} />
           <Route path="b1-chat" element={<WindowedChat />} />
           <Route path="b2" element={<StreamB2 />} />
           <Route path="b2-chat" element={<WindowedChat />} />
+          <Route path="deutscha0" element={<StreamDeutschA0 />} />
+          <Route path="deutscha0-chat" element={<WindowedChat />} />
           <Route path="deutsch" element={<StreamDeutsch />} />
           <Route path="pilot-dsc" element={<StreamTrialDeutschSprechclub />} />
           {/* <Route path="pilot" element={<StreamDeutsch />} /> */}
           <Route path="deutsch-chat" element={<WindowedChat />} />
           <Route path="deutscha2" element={<StreamDeutschA2 />} />
           <Route path="deutscha2-chat" element={<WindowedChat />} />
+          <Route path="polskia0" element={<StreamPolskiA0 />} />
+          <Route path="polskia0-chat" element={<WindowedChat />} />
           <Route path="polski" element={<StreamPolski />} />
           <Route path="polski-chat" element={<WindowedChat />} />
           <Route path="polskia2" element={<StreamPolskiA2 />} />
@@ -282,7 +289,6 @@ export const App = () => {
         <Route path="trial-en" element={<StreamTrialEnglish />} />
         <Route path="trial-pl" element={<StreamTrialPolski />} />
         <Route path="trial-de" element={<StreamTrialDeutsch />} />
-        <Route path="pilot-scb1" element={<StreamTrialB1SpeakingClub />} />
         <Route path="trial-kids" element={<StreamTrialKids />} />
         <Route path="teacher" element={<Teacher />}>
           <Route path="a0" element={<TeacherPage />} />
@@ -295,8 +301,10 @@ export const App = () => {
           <Route path="b1kids" element={<TeacherPage />} />
           <Route path="b2kids" element={<TeacherPage />} />
           <Route path="b1kidsbeginner" element={<TeacherPage />} />
+          <Route path="deutsch-a0" element={<TeacherPage />} />
           <Route path="deutsch-a1" element={<TeacherPage />} />
           <Route path="deutsch-a2" element={<TeacherPage />} />
+          <Route path="polski-a0" element={<TeacherPage />} />
           <Route path="polski-a1" element={<TeacherPage />} />
           <Route path="polski-a2" element={<TeacherPage />} />
           <Route path="test" element={<TeacherPage />} />

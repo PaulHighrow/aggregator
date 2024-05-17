@@ -2,7 +2,7 @@ import useSize from '@react-hook/size';
 import axios from 'axios';
 import { Loader } from 'components/SharedLayout/Loaders/Loader';
 import { LoaderWrapper } from 'components/SharedLayout/Loaders/Loader.styled';
-import {  KahootBtn, KahootLogo } from 'components/Stream/Stream.styled';
+import { KahootBtn, KahootLogo } from 'components/Stream/Stream.styled';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { HostKahoots } from './HostKahoots/HostKahoots';
@@ -18,7 +18,7 @@ import {
   ViewerBtn,
   ViewerLogo,
   WhiteBoardBtn,
-  WhiteBoardLogo
+  WhiteBoardLogo,
 } from './TeacherPage.styled';
 import { Viewer } from './Viewer/Viewer';
 import { WhiteBoard } from './WhiteBoard/WhiteBoard';
@@ -38,10 +38,14 @@ const TeacherPage = () => {
 
   const getLocation = location => {
     switch (location) {
+      case 'deutsch-a0':
+        return 'deutscha0';
       case 'deutsch-a1':
         return 'deutsch';
       case 'deutsch-a2':
         return 'deutscha2';
+      case 'polski-a0':
+        return 'polskia0';
       case 'polski-a1':
         return 'polski';
       case 'polski-a2':
@@ -128,8 +132,7 @@ const TeacherPage = () => {
         </KahootBtn>
       </TeacherButtonBox>
       <TeacherButtonBoxHideSwitch id="no-transform" onClick={toggleButtonBox}>
-        {isButtonBoxOpen ? <BoxHideRightSwitch/>
-         : <BoxHideLeftSwitch />}
+        {isButtonBoxOpen ? <BoxHideRightSwitch /> : <BoxHideLeftSwitch />}
       </TeacherButtonBoxHideSwitch>
       {collection.length && (
         <Viewer

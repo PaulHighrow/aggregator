@@ -14,12 +14,9 @@
   --school-color: #924dff;
   --university-color: #352ce8;
 
-  --main-font-family: 'LT Journal', sans-serif;
   --new-font-family: 'Fixel Display', sans-serif;
   --secondary-font-family: 'Fixel Variable', sans-serif;
   --my-ap-font-family: 'Ubuntu', sans-serif;
-  --title-font-family: 'LT Journal Extended', sans-serif;
-  /* --secondary-font-family: 'Caveat', cursive; */
   --streams-font-family: 'Montserrat', sans-serif;
   --streams-secondary-font-family: 'Montserrat Alternates', sans-serif;
   --animation-global: 250ms cubic-bezier(0.4, 0, 0.2, 1);

@@ -72,8 +72,10 @@ export const CollectionsAdminPanel = () => {
     a2: '',
     b1: '',
     b2: '',
+    deutscha0: '',
     deutsch: '',
     deutscha2: '',
+    polskia0: '',
     polski: '',
     polskia2: '',
     trials: '',
@@ -94,8 +96,10 @@ export const CollectionsAdminPanel = () => {
     a2: yup.string().optional(),
     b1: yup.string().optional(),
     b2: yup.string().optional(),
+    deutscha0: yup.string().optional(),
     deutsch: yup.string().optional(),
     deutscha2: yup.string().optional(),
+    polskia0: yup.string().optional(),
     polski: yup.string().optional(),
     polskia2: yup.string().optional(),
     trials: yup.string().optional(),
@@ -191,6 +195,14 @@ export const CollectionsAdminPanel = () => {
               <Label>
                 <AdminInput
                   type="text"
+                  name="deutscha0"
+                  placeholder="Deutsch A0 collection"
+                />
+                <AdminInputNote component="p" name="deutscha0" />
+              </Label>
+              <Label>
+                <AdminInput
+                  type="text"
                   name="deutsch"
                   placeholder="Deutsch A1 collection"
                 />
@@ -203,6 +215,14 @@ export const CollectionsAdminPanel = () => {
                   placeholder="Deutsch A2 collection"
                 />
                 <AdminInputNote component="p" name="deutscha2" />
+              </Label>
+              <Label>
+                <AdminInput
+                  type="text"
+                  name="polskia0"
+                  placeholder="Polski A0 collection"
+                />
+                <AdminInputNote component="p" name="polskia0" />
               </Label>
               <Label>
                 <AdminInput

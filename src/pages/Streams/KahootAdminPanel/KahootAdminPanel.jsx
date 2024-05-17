@@ -15,6 +15,7 @@ import { B1KidsBeginnerKahootForm } from './B1KidsBeginnerKahootForm';
 import { B1KidsKahootForm } from './B1KidsKahootForm';
 import { B2KahootForm } from './B2KahootForm';
 import { B2KidsKahootForm } from './B2KidsKahootForm';
+import { DeutschA0KahootForm } from './DeutschA0KahootForm';
 import { DeutschA2KahootForm } from './DeutschA2KahootForm';
 import { DeutschKahootForm } from './DeutschKahootForm';
 import {
@@ -27,6 +28,7 @@ import {
   KahootLvlBtnBox,
   LoginForm,
 } from './KahootAdminPanel.styled';
+import { PolskiA0KahootForm } from './PolskiA0KahootForm';
 import { PolskiA2KahootForm } from './PolskiA2KahootForm';
 import { PolskiKahootForm } from './PolskiKahootForm';
 import { TestKahootForm } from './TestKahootForm';
@@ -48,7 +50,7 @@ export const KahootAdminPanel = () => {
 
   useEffect(() => {
     document.title = 'Kahoot Admin Panel | AP Education';
-    
+
     const refreshToken = async () => {
       console.log('token refresher');
       try {
@@ -131,9 +133,15 @@ export const KahootAdminPanel = () => {
             <KahootLvlBtn onClick={() => handleBtnClick('a2')}>A2</KahootLvlBtn>
             <KahootLvlBtn onClick={() => handleBtnClick('b1')}>B1</KahootLvlBtn>
             <KahootLvlBtn onClick={() => handleBtnClick('b2')}>B2</KahootLvlBtn>
+            <KahootLvlBtn onClick={() => handleBtnClick('de-a0')}>
+              DE A0
+            </KahootLvlBtn>
             <KahootLvlBtn onClick={() => handleBtnClick('de')}>DE</KahootLvlBtn>
             <KahootLvlBtn onClick={() => handleBtnClick('de-a2')}>
               DE A2
+            </KahootLvlBtn>
+            <KahootLvlBtn onClick={() => handleBtnClick('pl-a0')}>
+              PL A0
             </KahootLvlBtn>
             <KahootLvlBtn onClick={() => handleBtnClick('pl')}>PL</KahootLvlBtn>
             <KahootLvlBtn onClick={() => handleBtnClick('pl-a2')}>
@@ -177,11 +185,17 @@ export const KahootAdminPanel = () => {
           {levels.includes('a2') && <A2KahootForm destination={destination} />}
           {levels.includes('b1') && <B1KahootForm destination={destination} />}
           {levels.includes('b2') && <B2KahootForm destination={destination} />}
+          {levels.includes('de-a0') && (
+            <DeutschA0KahootForm destination={destination} />
+          )}
           {levels.includes('de') && (
             <DeutschKahootForm destination={destination} />
           )}
           {levels.includes('de-a2') && (
             <DeutschA2KahootForm destination={destination} />
+          )}
+          {levels.includes('pl-a0') && (
+            <PolskiA0KahootForm destination={destination} />
           )}
           {levels.includes('pl') && (
             <PolskiKahootForm destination={destination} />

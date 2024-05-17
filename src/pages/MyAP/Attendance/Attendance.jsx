@@ -104,16 +104,21 @@ export const Attendance = ({ user }) => {
     const currentDay = lessonDays.findIndex(
       lessonDay => lessonDay.getDate() === new Date().getDate()
     );
-    return lessonDays.slice(0, currentDay + 1).length - calculateWeeklyVisits();
+    const futureDays = lessonDays.slice(0, currentDay + 1).length;
+    return futureDays === 0 ? 0 : futureDays - calculateWeeklyVisits();
   };
 
-  // const calculateMonthlyUnattended = () => {
-  //   const lessonDays = getLessonDaysForMonths();
-  //   const currentDay = lessonDays.findIndex(
-  //     lessonDay => lessonDay.getDate() === new Date().getDate()
-  //   );
-  //   return lessonDays.slice(0, currentDay + 1).length - calculateMonthlyVisits();
-  // };
+  const calculateMonthlyUnattended = () => {
+    const lessonDays = getLessonDaysForMonths();
+    console.log(lessonDays);
+    const currentDay = lessonDays.findIndex(
+      lessonDay => lessonDay.getDate() === new Date().getDate()
+    );
+    console.log(currentDay);
+    return (
+      lessonDays.slice(0, currentDay + 1).length - calculateMonthlyVisits()
+    );
+  };
 
   const calculateMonthlyVisits = passedMonth =>
     user.visited.filter(
@@ -163,17 +168,11 @@ export const Attendance = ({ user }) => {
     date.setDate(1);
     while (date.getMonth() + 1 === month) {
       if (date.getDay() >= 1 && date.getDay() <= 4) {
-        lessonDays.push(
-          date.getDate() +
-            '.' +
-            (date.getMonth() + 1) +
-            '.' +
-            date.getFullYear()
-        );
+        lessonDays.push(date);
       }
       date.setDate(date.getDate() + 1);
     }
-    return lessonDays.length;
+    return lessonDays;
   };
 
   const getLessonDaysForYears = () => {
@@ -314,7 +313,7 @@ export const Attendance = ({ user }) => {
             <VisitedText>Відвідано:</VisitedText>
             <VisitedCounter>
               {calculateMonthlyVisits(month)}/
-              <VisitedTotal>{getLessonDaysForMonths()}</VisitedTotal>
+              <VisitedTotal>{getLessonDaysForMonths().length}</VisitedTotal>
             </VisitedCounter>
           </VisitedItem>
           <VisitedItem>
@@ -322,7 +321,7 @@ export const Attendance = ({ user }) => {
             <VisitedCounter
               style={{ color: calculateWeeklyUnattended() > 0 && '#D61D1D' }}
             >
-              {calculateWeeklyUnattended()}
+              {calculateMonthlyUnattended()}
             </VisitedCounter>
           </VisitedItem>
         </VisitedList>

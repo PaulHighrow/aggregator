@@ -15,7 +15,7 @@ export const WhiteBoard = ({
   const [isFullScreen, setIsFullScreen] = useState(true);
 
   const BOARDS = {
-    a0: 'https://onlineboard.eu/b/DvGmjap6',
+    a0: 'http://go.limnu.com/poppy-naked',
     a1: 'http://go.limnu.com/browallia-bursting',
     a2: 'http://go.limnu.com/sealion-nasty',
     b1: 'http://go.limnu.com/marker-powerless',
@@ -26,8 +26,10 @@ export const WhiteBoard = ({
     b2kids: 'http://go.limnu.com/rattlesnake-naughty',
     b1kidsbeginner: 'http://go.limnu.com/goatsbeard-naked',
     test: 'https://limnu.com/d/draw.html?b=B_N65K69RyegUKa5&',
+    deutscha0: 'http://go.limnu.com/blanket-mealy',
     deutsch: 'http://go.limnu.com/cobra-potent',
     deutscha2: 'http://go.limnu.com/woodruff-dreamy',
+    polskia0: 'http://go.limnu.com/dahlia-junior',
     polski: 'http://go.limnu.com/hippogryph-pouched',
     polskia2: 'http://go.limnu.com/emu-meek',
     trials: 'http://go.limnu.com/hare-patchy',
