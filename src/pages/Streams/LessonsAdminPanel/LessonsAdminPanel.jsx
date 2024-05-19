@@ -205,7 +205,7 @@ export const LessonsAdminPanel = () => {
   };
 
   const closeEditFormOnClick = e => {
-    if (!e.target.form) {
+    if (e.target.id === 'close-on-click') {
       setIsEditFormOpen(false);
     }
   };
@@ -411,7 +411,7 @@ export const LessonsAdminPanel = () => {
           </UserDBTable>
         )}
         {isEditFormOpen && (
-          <Backdrop onClick={closeEditFormOnClick}>
+          <Backdrop onClick={closeEditFormOnClick} id="close-on-click">
             <LessonEditForm
               lessonToEdit={lessonToEdit}
               closeEditForm={closeEditForm}

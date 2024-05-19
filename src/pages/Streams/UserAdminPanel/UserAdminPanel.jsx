@@ -311,7 +311,7 @@ export const UserAdminPanel = () => {
   };
 
   const closeEditFormOnClick = e => {
-    if (!e.target.form) {
+    if (e.target.id === 'close-on-click') {
       setIsEditFormOpen(false);
     }
   };
@@ -676,7 +676,7 @@ export const UserAdminPanel = () => {
           </UserDBTable>
         )}
         {isEditFormOpen && (
-          <Backdrop onClick={closeEditFormOnClick}>
+          <Backdrop onClick={closeEditFormOnClick} id="close-on-click">
             <UserEditForm
               userToEdit={userToEdit}
               closeEditForm={closeEditForm}
