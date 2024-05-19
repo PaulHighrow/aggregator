@@ -20,6 +20,7 @@ export const UserEditForm = ({ userToEdit, closeEditForm }) => {
     name: userToEdit.name,
     mail: userToEdit.mail,
     password: userToEdit.password,
+    pupilId: userToEdit.pupilId,
     age: userToEdit.age,
     lang: userToEdit.lang,
     course: userToEdit.course,
@@ -36,6 +37,12 @@ export const UserEditForm = ({ userToEdit, closeEditForm }) => {
       ),
     mail: yup.string().required("Пошта - обов'язкове поле!"),
     password: yup.string().required("Пароль - обов'язкове поле!"),
+    pupilId: yup
+      .string()
+      .min(7, 'Не менше 7 цифр')
+      .max(7, 'Не більше 7 цифр')
+      .matches(/^\d{1,7}$/, 'Лише цифри')
+      .required("Обов'язкове поле, дивитись на платформі"),
     age: yup
       .string()
       .required(
@@ -55,9 +62,13 @@ export const UserEditForm = ({ userToEdit, closeEditForm }) => {
     values.name = values.name.trim().trimStart();
     values.mail = values.mail.toLowerCase().trim().trimStart();
     values.password = values.password.trim().trimStart();
+    values.pupilId = values.pupilId.trim().trimStart();
     values.age = values.age.trim().trimStart();
     values.lang = values.lang.toLowerCase().trim().trimStart();
-    values.knowledge = values.knowledge === undefined ? '' : values.knowledge.toLowerCase().trim().trimStart();
+    values.knowledge =
+      values.knowledge === undefined
+        ? ''
+        : values.knowledge.toLowerCase().trim().trimStart();
     values.manager = values.manager.toLowerCase().trim().trimStart();
     try {
       const response = await axios.put(`/users/${userToEdit._id}`, values);
@@ -71,7 +82,7 @@ export const UserEditForm = ({ userToEdit, closeEditForm }) => {
         'Десь якась проблема - клацай F12, роби скрін консолі, відправляй Кирилу'
       );
     } finally {
-            setIsLoading(isLoading => (isLoading = false));
+      setIsLoading(isLoading => (isLoading = false));
     }
   };
 
@@ -104,6 +115,14 @@ export const UserEditForm = ({ userToEdit, closeEditForm }) => {
             <AdminInputNote component="p" name="password" />
           </Label>
           <Label>
+            <AdminInput
+              type="text"
+              name="pupilId"
+              placeholder="ID учня на платформі"
+            />
+            <AdminInputNote component="p" name="pupilId" />
+          </Label>
+          <Label>
             <AdminInput type="text" name="age" placeholder="Вік" />
             <AdminInputNote component="p" name="age" />
           </Label>
@@ -128,13 +147,13 @@ export const UserEditForm = ({ userToEdit, closeEditForm }) => {
             <AdminInputNote component="p" name="knowledge" />
           </Label>
           <Label>
-                <AdminInput
-                  type="text"
-                  name="manager"
-                  placeholder="Прізвище відповідального менеджера"
-                />
-                <AdminInputNote component="p" name="manager" />
-              </Label>
+            <AdminInput
+              type="text"
+              name="manager"
+              placeholder="Прізвище відповідального менеджера"
+            />
+            <AdminInputNote component="p" name="manager" />
+          </Label>
           <AdminFormBtn type="submit">Підтвердити зміни</AdminFormBtn>
         </UsersEditForm>
       </Formik>

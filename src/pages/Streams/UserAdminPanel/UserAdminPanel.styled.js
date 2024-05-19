@@ -66,6 +66,10 @@ export const AdminInput = styled(Input)`
 
   border: 2px solid var(--main-color);
 
+  &.error {
+    border-color: red;
+  }
+
   @media screen and (min-width: 768px) {
     width: 360px;
   }
@@ -112,15 +116,14 @@ export const UserDBRow = styled.tr`
 export const UserHeadCell = styled.th`
   border: 1px solid #000;
   padding: 3px;
+`;
 
-  &.filterable {
-    border: none;
-    display: flex;
-    align-items: center;
-    gap: 6px;
+export const Filterable = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 6px;
 
-    position: relative;
-  }
+  position: relative;
 `;
 
 export const UserCell = styled.td`

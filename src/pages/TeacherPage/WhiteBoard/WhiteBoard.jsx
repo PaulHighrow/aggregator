@@ -20,6 +20,7 @@ export const WhiteBoard = ({
     a2: 'http://go.limnu.com/sealion-nasty',
     b1: 'http://go.limnu.com/marker-powerless',
     b2: 'http://go.limnu.com/skunk-outraged',
+    a0kids: 'https://limnu.com/d/draw.html?b=B_ot1T09RzScMNjo&',
     a1kids: 'http://go.limnu.com/saucer-nutritious',
     a2kids: 'http://go.limnu.com/tulip-hollow',
     b1kids: 'http://go.limnu.com/boxwood-flexible',

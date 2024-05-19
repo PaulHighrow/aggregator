@@ -11,6 +11,7 @@ import {
   AdminInputNote,
   AdminPanelSection,
   FilterButton,
+  Filterable,
   LoginForm,
   ManagerPicker,
   ManagerPickerButton,
@@ -37,10 +38,17 @@ export const UserAdminPanel = () => {
   const [isUserAdmin, setIsUserAdmin] = useState(false);
   const [users, setUsers] = useState([]);
   const [managers, setManagers] = useState([]);
+  const [levels, setLevels] = useState([]);
+  const [courses, setCourses] = useState([]);
+  const [langs, setLangs] = useState([]);
   const [isEditFormOpen, setIsEditFormOpen] = useState(false);
   const [userToEdit, setUserToEdit] = useState({});
   const [daysAfterLastLogin, setDaysAfterLastLogin] = useState(7);
   const [isManagerPickerOpen, setIsManagerPickerOpen] = useState(false);
+  const [isLangPickerOpen, setIsLangPickerOpen] = useState(false);
+  const [isLevelPickerOpen, setIsLevelPickerOpen] = useState(false);
+  const [isCoursePickerOpen, setIsCoursePickerOpen] = useState(false);
+
   const persistentUsers = useRef([]);
 
   useEffect(() => {
@@ -74,6 +82,33 @@ export const UserAdminPanel = () => {
                 ...response.data
                   .map(user => user.manager)
                   .filter((manager, i, arr) => arr.indexOf(manager) === i)
+                  .sort(),
+              ])
+          );
+          setLevels(
+            levels =>
+              (levels = [
+                ...response.data
+                  .map(user => user.knowledge)
+                  .filter((level, i, arr) => arr.indexOf(level) === i)
+                  .sort(),
+              ])
+          );
+          setCourses(
+            courses =>
+              (courses = [
+                ...response.data
+                  .map(user => user.course)
+                  .filter((course, i, arr) => arr.indexOf(course) === i)
+                  .sort(),
+              ])
+          );
+          setLangs(
+            langs =>
+              (langs = [
+                ...response.data
+                  .map(user => user.lang)
+                  .filter((lang, i, arr) => arr.indexOf(lang) === i)
                   .sort(),
               ])
           );
@@ -146,6 +181,40 @@ export const UserAdminPanel = () => {
             ])
         );
 
+  const filterByCourse = current =>
+    current === ''
+      ? setUsers(users => (users = [...persistentUsers.current]))
+      : setUsers(
+          users =>
+            (users = [
+              ...persistentUsers.current.filter(
+                user => user.course === current
+              ),
+            ])
+        );
+
+  const filterByLang = current =>
+    current === ''
+      ? setUsers(users => (users = [...persistentUsers.current]))
+      : setUsers(
+          users =>
+            (users = [
+              ...persistentUsers.current.filter(user => user.lang === current),
+            ])
+        );
+
+  const filterByLevel = current =>
+    current === ''
+      ? setUsers(users => (users = [...persistentUsers.current]))
+      : setUsers(
+          users =>
+            (users = [
+              ...persistentUsers.current.filter(
+                user => user.knowledge === current
+              ),
+            ])
+        );
+
   const handleLoginSubmit = async (values, { resetForm }) => {
     setIsLoading(isLoading => (isLoading = true));
     try {
@@ -165,6 +234,7 @@ export const UserAdminPanel = () => {
     name: '',
     mail: '',
     password: '',
+    pupilId: '',
     age: '',
     lang: '',
     course: '',
@@ -181,6 +251,12 @@ export const UserAdminPanel = () => {
       ),
     mail: yup.string().required("Пошта - обов'язкове поле!"),
     password: yup.string().required("Пароль - обов'язкове поле!"),
+    pupilId: yup
+      .string()
+      .min(7, 'Не менше 7 цифр')
+      .max(7, 'Не більше 7 цифр')
+      .matches(/^\d{1,7}$/, 'Лише цифри')
+      .required("Обов'язкове поле, дивитись на платформі"),
     age: yup
       .string()
       .required(
@@ -189,7 +265,10 @@ export const UserAdminPanel = () => {
     lang: yup.string().optional(),
     course: yup.string().optional(),
     points: yup.string().optional(),
-    knowledge: yup.string().optional(),
+    knowledge: yup
+      .string()
+      .optional()
+      .matches(/^[A-Za-z0-9]+$/, 'Лише латинські літери'),
     manager: yup
       .string()
       .required("Менеджер - обов'язкове поле, введіть прізвище"),
@@ -200,6 +279,7 @@ export const UserAdminPanel = () => {
     values.name = values.name.trim().trimStart();
     values.mail = values.mail.toLowerCase().trim().trimStart();
     values.password = values.password.trim().trimStart();
+    values.pupilId = values.pupilId.trim().trimStart();
     values.age = values.age.trim().trimStart();
     values.lang = values.lang.toLowerCase().trim().trimStart();
     values.knowledge = values.knowledge.toLowerCase().trim().trimStart();
@@ -230,10 +310,22 @@ export const UserAdminPanel = () => {
     setIsEditFormOpen(false);
   };
 
-  const closeEditFormonClick = e => {
+  const closeEditFormOnClick = e => {
     if (!e.target.form) {
       setIsEditFormOpen(false);
     }
+  };
+
+  const toggleLevelPicker = () => {
+    setIsLevelPickerOpen(isOpen => !isOpen);
+  };
+
+  const toggleCoursePicker = () => {
+    setIsCoursePickerOpen(isOpen => !isOpen);
+  };
+
+  const toggleLangPicker = () => {
+    setIsLangPickerOpen(isOpen => !isOpen);
   };
 
   const toggleManagerPicker = () => {
@@ -332,6 +424,14 @@ export const UserAdminPanel = () => {
                 <AdminInputNote component="p" name="password" />
               </Label>
               <Label>
+                <AdminInput
+                  type="text"
+                  name="pupilId"
+                  placeholder="ID учня на платформі"
+                />
+                <AdminInputNote component="p" name="pupilId" />
+              </Label>
+              <Label>
                 <AdminInput type="text" name="age" placeholder="Вік" />
                 <AdminInputNote component="p" name="age" />
               </Label>
@@ -376,43 +476,132 @@ export const UserAdminPanel = () => {
                 <UserHeadCell>Ім'я</UserHeadCell>
                 <UserHeadCell>Пошта (логін)</UserHeadCell>
                 <UserHeadCell>Пароль</UserHeadCell>
+                <UserHeadCell>ID на платформі</UserHeadCell>
                 <UserHeadCell>Апдейт</UserHeadCell>
-                <UserHeadCell className="filterable">
-                  Відвідини{' '}
-                  <FilterButton
-                    onClick={() => calculateDaysFilter(daysAfterLastLogin)}
-                  ></FilterButton>
-                  {daysAfterLastLogin}{' '}
+                <UserHeadCell>
+                  <Filterable>
+                    Відвідини
+                    <FilterButton
+                      onClick={() => calculateDaysFilter(daysAfterLastLogin)}
+                    ></FilterButton>
+                    {daysAfterLastLogin}
+                  </Filterable>
                 </UserHeadCell>
-                <UserHeadCell>Мова</UserHeadCell>
-                <UserHeadCell>Потік</UserHeadCell>
-                <UserHeadCell>Знання</UserHeadCell>
-                <UserHeadCell className="filterable">
-                  Менеджер
-                  <FilterButton onClick={toggleManagerPicker}></FilterButton>
-                  {isManagerPickerOpen && (
-                    <ManagerPicker>
-                      {managers.map((manager, i) => (
+                <UserHeadCell>
+                  <Filterable>
+                    Мова
+                    <FilterButton onClick={toggleLangPicker}></FilterButton>
+                    {isLangPickerOpen && (
+                      <ManagerPicker>
+                        {langs.map((lang, i) => (
+                          <ManagerPickerButton
+                            key={i}
+                            onClick={() => {
+                              filterByLang(lang);
+                              toggleLangPicker();
+                            }}
+                          >
+                            {lang === undefined ? '—' : lang}
+                          </ManagerPickerButton>
+                        ))}
                         <ManagerPickerButton
-                          key={i}
                           onClick={() => {
-                            filterByManager(manager);
+                            filterByLang('');
+                            toggleLangPicker();
+                          }}
+                        >
+                          ВСІ
+                        </ManagerPickerButton>
+                      </ManagerPicker>
+                    )}
+                  </Filterable>
+                </UserHeadCell>
+                <UserHeadCell>
+                  <Filterable>
+                    Потік
+                    <FilterButton onClick={toggleCoursePicker}></FilterButton>
+                    {isCoursePickerOpen && (
+                      <ManagerPicker>
+                        {courses.map((course, i) => (
+                          <ManagerPickerButton
+                            key={i}
+                            onClick={() => {
+                              filterByCourse(course);
+                              toggleCoursePicker();
+                            }}
+                          >
+                            {course === undefined ? '—' : course}
+                          </ManagerPickerButton>
+                        ))}
+                        <ManagerPickerButton
+                          onClick={() => {
+                            filterByCourse('');
+                            toggleCoursePicker();
+                          }}
+                        >
+                          ВСІ
+                        </ManagerPickerButton>
+                      </ManagerPicker>
+                    )}
+                  </Filterable>
+                </UserHeadCell>
+                <UserHeadCell>
+                  <Filterable>
+                    Знання
+                    <FilterButton onClick={toggleLevelPicker}></FilterButton>
+                    {isLevelPickerOpen && (
+                      <ManagerPicker>
+                        {levels.map((level, i) => (
+                          <ManagerPickerButton
+                            key={i}
+                            onClick={() => {
+                              filterByLevel(level);
+                              toggleLevelPicker();
+                            }}
+                          >
+                            {level === undefined ? '—' : level}
+                          </ManagerPickerButton>
+                        ))}
+                        <ManagerPickerButton
+                          onClick={() => {
+                            filterByLevel('');
+                            toggleLevelPicker();
+                          }}
+                        >
+                          ВСІ
+                        </ManagerPickerButton>
+                      </ManagerPicker>
+                    )}
+                  </Filterable>
+                </UserHeadCell>
+                <UserHeadCell className="filterable">
+                  <Filterable>
+                    Менеджер
+                    <FilterButton onClick={toggleManagerPicker}></FilterButton>
+                    {isManagerPickerOpen && (
+                      <ManagerPicker>
+                        {managers.map((manager, i) => (
+                          <ManagerPickerButton
+                            key={i}
+                            onClick={() => {
+                              filterByManager(manager);
+                              toggleManagerPicker();
+                            }}
+                          >
+                            {manager === undefined ? '—' : manager}
+                          </ManagerPickerButton>
+                        ))}
+                        <ManagerPickerButton
+                          onClick={() => {
+                            filterByManager('');
                             toggleManagerPicker();
                           }}
                         >
-                          {manager === undefined ? '—' : manager}
+                          ВСІ
                         </ManagerPickerButton>
-                      ))}
-                      <ManagerPickerButton
-                        onClick={() => {
-                          filterByManager('');
-                          toggleManagerPicker();
-                        }}
-                      >
-                        ВСІ
-                      </ManagerPickerButton>
-                    </ManagerPicker>
-                  )}
+                      </ManagerPicker>
+                    )}
+                  </Filterable>
                 </UserHeadCell>
                 <UserHeadCell>Edit</UserHeadCell>
                 <UserHeadCell>Delete</UserHeadCell>
@@ -426,6 +615,7 @@ export const UserAdminPanel = () => {
                   <UserCell>{user.name}</UserCell>
                   <UserCell>{user.mail}</UserCell>
                   <UserCell>{user.password}</UserCell>
+                  <UserCell>{user.pupilId}</UserCell>
                   <UserCell
                     className={
                       Math.floor(
@@ -486,7 +676,7 @@ export const UserAdminPanel = () => {
           </UserDBTable>
         )}
         {isEditFormOpen && (
-          <Backdrop onClick={closeEditFormonClick}>
+          <Backdrop onClick={closeEditFormOnClick}>
             <UserEditForm
               userToEdit={userToEdit}
               closeEditForm={closeEditForm}

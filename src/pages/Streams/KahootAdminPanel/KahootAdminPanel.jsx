@@ -6,6 +6,7 @@ import { Formik } from 'formik';
 import { useEffect, useState } from 'react';
 import * as yup from 'yup';
 import { A0KahootForm } from './A0KahootForm';
+import { A0KidsKahootForm } from './A0KidsKahootForm';
 import { A1KahootForm } from './A1KahootForm';
 import { A1KidsKahootForm } from './A1KidsKahootForm';
 import { A2KahootForm } from './A2KahootForm';
@@ -159,6 +160,9 @@ export const KahootAdminPanel = () => {
             <KahootLvlBtn onClick={() => handleBtnClick('trial-pl')}>
               Trial PL
             </KahootLvlBtn>
+            <KahootLvlBtn onClick={() => handleBtnClick('a0kids')}>
+              A0 Kids
+            </KahootLvlBtn>
             <KahootLvlBtn onClick={() => handleBtnClick('a1kids')}>
               A1 Kids
             </KahootLvlBtn>
@@ -214,6 +218,9 @@ export const KahootAdminPanel = () => {
           )}
           {levels.includes('trial-pl') && (
             <TrialsPlKahootForm destination={destination} />
+          )}
+          {levels.includes('a0kids') && (
+            <A0KidsKahootForm destination={destination} />
           )}
           {levels.includes('a1kids') && (
             <A1KidsKahootForm destination={destination} />

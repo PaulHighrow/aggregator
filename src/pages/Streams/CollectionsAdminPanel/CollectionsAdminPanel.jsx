@@ -82,6 +82,7 @@ export const CollectionsAdminPanel = () => {
     trials_kids: '',
     trials_de: '',
     trials_pl: '',
+    a0kids: '',
     a1kids: '',
     a2kids: '',
     b1kids: '',
@@ -106,6 +107,7 @@ export const CollectionsAdminPanel = () => {
     trials_kids: yup.string().optional(),
     trials_de: yup.string().optional(),
     trials_pl: yup.string().optional(),
+    a0kids: yup.string().optional(),
     a1kids: yup.string().optional(),
     a2kids: yup.string().optional(),
     b1kids: yup.string().optional(),
@@ -271,6 +273,14 @@ export const CollectionsAdminPanel = () => {
                   placeholder="Trials Polski collection"
                 />
                 <AdminInputNote component="p" name="trials_pl" />
+              </Label>
+              <Label>
+                <AdminInput
+                  type="text"
+                  name="a0kids"
+                  placeholder="A0 Kids collection"
+                />
+                <AdminInputNote component="p" name="a0kids" />
               </Label>
               <Label>
                 <AdminInput

@@ -18,9 +18,9 @@ import {
   UserDeleteButton,
   UserEditButton,
   UserHeadCell,
-  UsersEditForm,
   UsersForm,
 } from '../UserAdminPanel/UserAdminPanel.styled';
+import { LessonEditForm } from './LessonEditForm/LessonEditForm';
 
 axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
 const setAuthToken = token => {
@@ -32,7 +32,7 @@ export const LessonsAdminPanel = () => {
   const [isUserAdmin, setIsUserAdmin] = useState(false);
   const [lessons, setLessons] = useState([]);
   const [isEditFormOpen, setIsEditFormOpen] = useState(false);
-  const [userToEdit, setUserToEdit] = useState({});
+  const [lessonToEdit, setLessonToEdit] = useState({});
 
   useEffect(() => {
     document.title = 'Lessons Admin Panel | AP Education';
@@ -101,7 +101,9 @@ export const LessonsAdminPanel = () => {
     }
   };
 
-  const initialUserValues = {
+  const initialLessonValues = {
+    marathonId: '',
+    lessonId: '',
     lang: '',
     level: '',
     lesson: '',
@@ -112,9 +114,24 @@ export const LessonsAdminPanel = () => {
     video: '',
   };
 
-  const usersSchema = yup.object().shape({
+  const lessonSchema = yup.object().shape({
+    marathonId: yup
+      .string()
+      .required(
+        "marathonId - обов'язкове поле! Значення дивись на платформі в адресному рядку"
+      )
+      .matches(/^\d{1,7}$/, 'Лише цифри'),
+    lessonId: yup
+      .string()
+      .required(
+        "marathonLessonId - обов'язкове поле! Значення дивись на платформі в адресному рядку"
+      )
+      .matches(/^\d{1,7}$/, 'Лише цифри'),
     lang: yup.string().required("Мова - обов'язкове поле!"),
-    level: yup.string().required("Рівень - обов'язкове поле!"),
+    level: yup
+      .string()
+      .required("Рівень - обов'язкове поле!")
+      .matches(/^[A-Za-z0-9]+$/, 'Лише латинські літери'),
     lesson: yup.string().required("Урок - обов'язкове поле!"),
     topic: yup
       .string()
@@ -137,22 +154,30 @@ export const LessonsAdminPanel = () => {
 
   const handleLessonSubmit = async (values, { resetForm }) => {
     setIsLoading(isLoading => (isLoading = true));
-    values.lang = values.lang.trim().trimStart();
+    values.marathonId = values.marathonId.trim().trimStart();
+    values.lessonId = values.lessonId.trim().trimStart();
     values.level = values.level.toLowerCase().trim().trimStart();
     values.lesson = values.lesson.trim().trimStart();
     values.topic = values.topic.trim().trimStart();
     values.keysEn = values.keysEn.toLowerCase().trim().trimStart();
     values.keysUa = values.keysUa.toLowerCase().trim().trimStart();
-    values.pdf = [
-      ...values.pdf
-        .split(', ')
-        .map(link => link.toLowerCase().trim().trimStart()),
-    ];
-    values.video = [
-      ...values.video
-        .split(', ')
-        .map(link => link.toLowerCase().trim().trimStart()),
-    ];
+    values.pdf =
+      values.pdf === ''
+        ? []
+        : [
+            ...values.pdf
+              .split(', ')
+              .map(link => link.toLowerCase().trim().trimStart()),
+          ];
+
+    values.video =
+      values.video === ''
+        ? []
+        : [
+            ...values.video
+              .split(', ')
+              .map(link => link.toLowerCase().trim().trimStart()),
+          ];
     try {
       const response = await axios.post('/lessons', values);
       console.log(response);
@@ -170,8 +195,8 @@ export const LessonsAdminPanel = () => {
 
   const handleEdit = async id => {
     setIsEditFormOpen(true);
-    setUserToEdit(
-      userToEdit => (userToEdit = lessons.find(lesson => lesson._id === id))
+    setLessonToEdit(
+      lessonToEdit => (lessonToEdit = lessons.find(lesson => lesson._id === id))
     );
   };
 
@@ -179,7 +204,7 @@ export const LessonsAdminPanel = () => {
     setIsEditFormOpen(false);
   };
 
-  const closeEditFormonClick = e => {
+  const closeEditFormOnClick = e => {
     if (!e.target.form) {
       setIsEditFormOpen(false);
     }
@@ -189,9 +214,9 @@ export const LessonsAdminPanel = () => {
     setIsLoading(isLoading => (isLoading = true));
 
     try {
-      const response = await axios.delete(`/users/${id}`);
+      const response = await axios.delete(`/lessons/${id}`);
       console.log(response);
-      alert('Юзера видалено');
+      alert('Урок видалено');
     } catch (error) {
       console.error(error);
       alert(
@@ -231,18 +256,34 @@ export const LessonsAdminPanel = () => {
 
         {isUserAdmin && (
           <Formik
-            initialValues={initialUserValues}
+            initialValues={initialLessonValues}
             onSubmit={handleLessonSubmit}
-            validationSchema={usersSchema}
+            validationSchema={lessonSchema}
           >
             <UsersForm>
+              <Label>
+                <AdminInput
+                  type="text"
+                  name="marathonId"
+                  placeholder="marathonId"
+                />
+                <AdminInputNote component="p" name="marathonId" />
+              </Label>
+              <Label>
+                <AdminInput
+                  type="text"
+                  name="lessonId"
+                  placeholder="marathonLessonId"
+                />
+                <AdminInputNote component="p" name="lessonId" />
+              </Label>
               <Label>
                 <AdminInput
                   type="text"
                   name="lang"
                   placeholder="Мова (en/de/pl)"
                 />
-                <AdminInputNote component="p" name="name" />
+                <AdminInputNote component="p" name="lang" />
               </Label>
               <Label>
                 <AdminInput
@@ -305,6 +346,8 @@ export const LessonsAdminPanel = () => {
             <UserDBCaption>Список юзерів з доступом до уроків</UserDBCaption>
             <thead>
               <UserDBRow>
+                <UserHeadCell>marathonID</UserHeadCell>
+                <UserHeadCell>lessonID</UserHeadCell>
                 <UserHeadCell>Мова</UserHeadCell>
                 <UserHeadCell>Рівень</UserHeadCell>
                 <UserHeadCell>Номер уроку</UserHeadCell>
@@ -320,6 +363,8 @@ export const LessonsAdminPanel = () => {
             <tbody>
               {lessons.map(lesson => (
                 <UserDBRow key={lesson._id}>
+                  <UserCell>{lesson.marathonId}</UserCell>
+                  <UserCell>{lesson.lessonId}</UserCell>
                   <UserCell>{lesson.lang}</UserCell>
                   <UserCell>{lesson.level}</UserCell>
                   <UserCell>{lesson.lesson}</UserCell>
@@ -366,9 +411,9 @@ export const LessonsAdminPanel = () => {
           </UserDBTable>
         )}
         {isEditFormOpen && (
-          <Backdrop onClick={closeEditFormonClick}>
-            <UsersEditForm
-              userToEdit={userToEdit}
+          <Backdrop onClick={closeEditFormOnClick}>
+            <LessonEditForm
+              lessonToEdit={lessonToEdit}
               closeEditForm={closeEditForm}
             />
           </Backdrop>

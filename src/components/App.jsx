@@ -21,6 +21,7 @@ import { StreamPolski } from 'pages/Streams/Polski/StreamPolski';
 import { RatingsAdminPanel } from 'pages/Streams/RatingsAdminPanel/RatingsAdminPanel';
 import { StreamTest } from 'pages/Streams/Test/StreamTest';
 import { UserAdminPanel } from 'pages/Streams/UserAdminPanel/UserAdminPanel';
+import { KidsA0 } from 'pages/StreamsKids/KidsA0/KidsA0';
 import { KidsA1 } from 'pages/StreamsKids/KidsA1/KidsA1';
 import { KidsA2 } from 'pages/StreamsKids/KidsA2/KidsA2';
 import { KidsB1 } from 'pages/StreamsKids/KidsB1/KidsB1';
@@ -267,6 +268,8 @@ export const App = () => {
           />
         </Route>
         <Route path="streams-kids" element={<StreamsKids />}>
+          <Route path="a0" element={<KidsA0 />} />
+          <Route path="a0-chat" element={<WindowedChat />} />
           <Route path="a1" element={<KidsA1 />} />
           <Route path="a1-chat" element={<WindowedChat />} />
           <Route path="a2" element={<KidsA2 />} />
@@ -296,6 +299,7 @@ export const App = () => {
           <Route path="a2" element={<TeacherPage />} />
           <Route path="b1" element={<TeacherPage />} />
           <Route path="b2" element={<TeacherPage />} />
+          <Route path="a0kids" element={<TeacherPage />} />
           <Route path="a1kids" element={<TeacherPage />} />
           <Route path="a2kids" element={<TeacherPage />} />
           <Route path="b1kids" element={<TeacherPage />} />
