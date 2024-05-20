@@ -37,6 +37,7 @@ import { Route, Routes, useSearchParams } from 'react-router-dom';
 import { WindowedChat } from 'utils/Chat/ChatWindowed/WindowedChat';
 import ScrollToTop from 'utils/ScrollToTop/ScrollToTop';
 import { SharedLayout } from './SharedLayout/SharedLayout';
+import { LeadFormPage } from 'pages/LeadFormPage/LeadFormPage';
 
 // const Home = lazy(() =>
 //   import(/* webpackChunkName: "Homepage" */ '../pages/Home/Home')
@@ -318,6 +319,7 @@ export const App = () => {
           <Route path="trials-de" element={<TeacherTrialPage />} />
         </Route>
         <Route path="thankyou" element={<ThankYouPage />} />
+        <Route path="form" element={<LeadFormPage utms={utms} />} />
       </Routes>
     </>
   );

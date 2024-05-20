@@ -1,5 +1,6 @@
 import { ErrorMessage, Field, Form } from 'formik';
 import styled from 'styled-components';
+
 import { ReactComponent as CircleCloseIcon } from '../../img/svg/close-circle.svg';
 import { ReactComponent as FormBackgroundStar } from '../../img/svg/heroStar.svg';
 
@@ -70,7 +71,6 @@ export const FormInputBox = styled.div`
 `;
 
 export const Label = styled.label`
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -147,16 +147,14 @@ export const InputSelect = styled(Field)`
 `;
 
 export const InputNote = styled(ErrorMessage)`
-  position: absolute;
-  bottom: -20px;
-  color: var(--secondary-burnt-color);
+  color: red;
   text-align: center;
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 500;
 
   @media screen and (min-width: 768px) {
     bottom: -28px;
-    font-size: 22px;
+    font-size: 16px;
   }
 `;
 

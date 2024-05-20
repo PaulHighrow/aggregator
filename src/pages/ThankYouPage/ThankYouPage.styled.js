@@ -8,7 +8,9 @@ import { ReactComponent as FacebookIcon } from '../../img/svg/social-links/faceb
 import { ReactComponent as InstagramIcon } from '../../img/svg/social-links/instagram-outline.svg';
 import { ReactComponent as TikTokIcon } from '../../img/svg/social-links/tiktok-outline.svg';
 import { ReactComponent as YouTubeIcon } from '../../img/svg/social-links/youtube-outline.svg';
+import { ReactComponent as TextBubbleIcon } from '../../img/svg/text-bubble.svg';
 import { ReactComponent as ThankYouArrowIcon } from '../../img/svg/ty-arrow.svg';
+import { ReactComponent as ThankYouArrowLongIcon } from '../../img/svg/ty-arrow-long.svg';
 import { ReactComponent as HeroStarIcon } from '../../img/svg/heroStar.svg';
 
 export const ThankYouHeader = styled.header`
@@ -53,13 +55,12 @@ export const ThankYouHeader = styled.header`
 
 export const ThankYouSection = styled.section`
   position: relative;
-  min-height: 100vh;
   overflow: hidden;
 
   padding: 96px 20px 52px 20px;
 
   background-position: left -485px bottom -60px, right -485px top 100px,
-    right 28px bottom 92px;
+    right 28px center;
   background-image: image-set(
       url(${blurEllipseWebp}) type('image/webp'),
       url(${blurEllipsePNG}) type('image/png')
@@ -73,6 +74,10 @@ export const ThankYouSection = styled.section`
 
   font-family: var(--new-font-family);
 
+  @media screen and (min-width: 768px) {
+    min-height: 100vh;
+  }
+
   @media screen and (min-width: 1280px) {
     padding-top: 60px;
     padding-left: 120px;
@@ -81,7 +86,7 @@ export const ThankYouSection = styled.section`
 
     height: 100vh;
     background-position: left -715px center, right -715px center,
-      right 28px bottom 92px;
+      right 28px center;
     background-image: image-set(
         url(${blurEllipseWebp}) type('image/webp'),
         url(${blurEllipsePNG}) type('image/png')
@@ -100,7 +105,7 @@ export const ThankYouSection = styled.section`
 
   @media screen and (min-width: 1920px) {
     background-position: left -715px center, right -715px center,
-      right 89px top 61px;
+      right 89px center;
     background-image: image-set(
         url(${blurEllipseWebp}) type('image/webp'),
         url(${blurEllipsePNG}) type('image/png')
@@ -122,7 +127,16 @@ export const ThankYouPicture = styled.picture`
   width: 100%;
   height: 100%;
 
-  @media screen and (min-width:1280px) {
+  @media screen and (min-width: 768px) {
+    width: auto;
+    height: auto;
+    position: absolute;
+    right: -100px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  @media screen and (min-width: 1280px) {
     display: none;
   }
 `;
@@ -133,6 +147,15 @@ export const ThankYouImage = styled.img`
   max-width: 480px;
   margin: 0 auto;
   margin-bottom: 125px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0;
+    max-width: 520px;
+  }
+
+  @media screen and (min-width: 960px) {
+    max-width: 640px;
+  }
 `;
 
 export const ThankYouTextWrapper = styled.div`
@@ -140,10 +163,20 @@ export const ThankYouTextWrapper = styled.div`
   max-width: 360px;
   margin: 0 auto;
 
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 60px;
+
+    max-width: 400px;
+  }
+
   @media screen and (min-width: 1280px) {
     position: absolute;
     top: 30%;
     left: 120px;
+    transform: unset;
 
     max-width: 643px;
   }
@@ -289,8 +322,14 @@ export const SocialsBox = styled.div`
 `;
 
 export const SocialsText = styled.p`
-  text-align: center;
-  font-size: 16px;
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    text-align: center;
+    font-size: 16px;
+  }
 
   @media screen and (min-width: 1280px) {
     font-size: 18px;
@@ -302,13 +341,14 @@ export const SocialsText = styled.p`
 `;
 
 export const SocialsLinkWrapper = styled.div`
+  position: relative;
   display: flex;
   gap: 10px;
 `;
 
 export const SocialLogoLink = styled.a`
-  width: 44px;
-  height: 44px;
+  width: 55px;
+  height: 55px;
 
   border-radius: 50%;
   background-color: var(--main-color);
@@ -317,16 +357,23 @@ export const SocialLogoLink = styled.a`
   align-items: center;
   justify-content: center;
 
-  @media screen and (min-width: 1920px) {
-    width: 60px;
-    height: 60px;
+  @media screen and (min-width: 1280px) {
+    width: 44px;
+    height: 44px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 50px;
+    height: 50px;
   }
 `;
 
 const socialBtnStyles =
-  'color: #fff; width: 24px; height: 24px; transition: color var(--animation-global), transform var(--animation-global), filter var(--animation-global); ';
+  'color: #fff; width: 35px; height: 35px; transition: color var(--animation-global), transform var(--animation-global), filter var(--animation-global); ';
 
-const socialBtnStylesFullHD = 'width: 40px; height: 40px;';
+const socialBtnStylesHD = 'width: 24px; height: 24px;';
+
+const socialBtnStylesFullHD = 'width: 30px; height: 30px;';
 
 const socialBtnStylesOnHover =
   'color: var(--accent-color);  transform: scale(1.2);  filter: drop-shadow(0px 0px 0.5px #00000054);';
@@ -334,7 +381,11 @@ const socialBtnStylesOnHover =
 export const InstagramBtn = styled(InstagramIcon)`
   ${socialBtnStyles}
 
-  @media screen and (min-width: 1920px) {
+  @media screen and (min-width: 1280px) {
+    ${socialBtnStylesHD}
+  }
+
+  @media screen and (min-width: 1440px) {
     ${socialBtnStylesFullHD}
   }
 
@@ -346,7 +397,11 @@ export const InstagramBtn = styled(InstagramIcon)`
 export const FacebookBtn = styled(FacebookIcon)`
   ${socialBtnStyles}
 
-  @media screen and (min-width: 1920px) {
+  @media screen and (min-width: 1280px) {
+    ${socialBtnStylesHD}
+  }
+
+  @media screen and (min-width: 1440px) {
     ${socialBtnStylesFullHD}
   }
 
@@ -358,7 +413,11 @@ export const FacebookBtn = styled(FacebookIcon)`
 export const TikTokBtn = styled(TikTokIcon)`
   ${socialBtnStyles}
 
-  @media screen and (min-width: 1920px) {
+  @media screen and (min-width: 1280px) {
+    ${socialBtnStylesHD}
+  }
+
+  @media screen and (min-width: 1440px) {
     ${socialBtnStylesFullHD}
   }
 
@@ -370,7 +429,11 @@ export const TikTokBtn = styled(TikTokIcon)`
 export const YouTubeBtn = styled(YouTubeIcon)`
   ${socialBtnStyles}
 
-  @media screen and (min-width: 1920px) {
+  @media screen and (min-width: 1280px) {
+    ${socialBtnStylesHD}
+  }
+
+  @media screen and (min-width: 1440px) {
     ${socialBtnStylesFullHD}
   }
 
@@ -381,25 +444,33 @@ export const YouTubeBtn = styled(YouTubeIcon)`
 
 export const HeroTopStar = styled(HeroStarIcon)`
   position: absolute;
-  left: 16px;
-  bottom: -39px;
+  left: 11.7%;
+  top: 469px;
 
   width: 32px;
   height: 32px;
 
-  @media screen and (min-width: 1280px) {
-    top: -25px;
-    right: -114px;
+  @media screen and (min-width: 768px) {
+    top: 20%;
+    right: 35%;
     left: unset;
     bottom: unset;
+
+    width: 40px;
+    height: 40px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    top: 91px;
+    right: 38.8%;
 
     width: 48px;
     height: 48px;
   }
 
-  @media screen and (min-width: 1920px) {
-    top: -146px;
-    right: -114px;
+  @media screen and (min-width: 1440px) {
+    top: 152px;
+    right: 40%;
 
     width: 60px;
     height: 60px;
@@ -432,6 +503,10 @@ export const HeroBottomStar = styled(HeroStarIcon)`
 `;
 
 export const ThankYouArrow = styled(ThankYouArrowIcon)`
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+
   position: absolute;
   right: -10px;
   bottom: 185px;
@@ -457,4 +532,49 @@ export const ThankYouArrow = styled(ThankYouArrowIcon)`
     height: 151px;
     transform: rotate(-12deg);
   }
+`;
+
+export const SocialArrow = styled(ThankYouArrowLongIcon)`
+  position: absolute;
+  bottom: calc(77px + 5vh);
+  right: -48.5px;
+
+  width: 67px;
+  height: 240px;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+`;
+
+export const TextBubbleWrapper = styled.div`
+  position: absolute;
+  right: -38px;
+  bottom: calc(325.5px + 7vh);
+
+  width: 148px;
+  height: 45px;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+`;
+
+export const TextBubble = styled(TextBubbleIcon)`
+  width: 100%;
+  filter: drop-shadow(0.97px 1.29px 1.29px #00000040)
+    drop-shadow(-0.97px -0.64px 2.26px #0000001a);
+`;
+
+export const TextBubbleText = styled.p`
+  font-family: FixelVariable;
+  font-size: 12px;
+  font-style: italic;
+
+  line-height: 1.2;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
 `;

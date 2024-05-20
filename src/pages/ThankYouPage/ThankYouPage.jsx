@@ -1,4 +1,5 @@
 import { HeaderWrapper, LogoNew, LogoRoute } from 'components/Menu/Menu.styled';
+import { useEffect } from 'react';
 import thankYouPersonPNG from '../../img/bg/thank-you-person.png';
 import thankYouPersonWebp from '../../img/bg/thank-you-person.webp';
 import {
@@ -9,10 +10,14 @@ import {
   InstagramBtn,
   LinkBtn,
   MainLinkBtn,
+  SocialArrow,
   SocialLogoLink,
   SocialsBox,
   SocialsLinkWrapper,
   SocialsText,
+  TextBubble,
+  TextBubbleText,
+  TextBubbleWrapper,
   ThankYouArrow,
   ThankYouDesc,
   ThankYouHeader,
@@ -26,6 +31,10 @@ import {
 } from './ThankYouPage.styled';
 
 export const ThankYouPage = () => {
+  useEffect(() => {
+    document.title = 'Дякуємо! | AP Education';
+  }, []);
+
   return (
     <>
       <ThankYouHeader>
@@ -37,9 +46,8 @@ export const ThankYouPage = () => {
       </ThankYouHeader>
       <ThankYouSection>
         <ThankYouTextWrapper>
-          <HeroTopStar />
           <ThankYouArrow />
-          <ThankYouHeading> Дякуємо, що заповнили форму!</ThankYouHeading>
+          <ThankYouHeading>Дякуємо, що заповнили форму!</ThankYouHeading>
           <ThankYouDesc>
             Ви можете повернутися на головну, щоб переглянути наші інші напрямки
             роботи!
@@ -51,9 +59,8 @@ export const ThankYouPage = () => {
             <LinkBtn to={'/university'}>AP UNIVERSITY</LinkBtn>
           </ButtonBox>
         </ThankYouTextWrapper>
-
+        <HeroTopStar />
         <HeroBottomStar />
-
         <ThankYouPicture>
           <source
             media="(max-width:767px)"
@@ -70,8 +77,12 @@ export const ThankYouPage = () => {
             alt="Thank you page person image"
           />
         </ThankYouPicture>
-
         <SocialsBox>
+          <TextBubbleWrapper>
+            <TextBubbleText>P.S. підписуйтесь на наші соцмережі</TextBubbleText>
+            <TextBubble />
+          </TextBubbleWrapper>
+          <SocialArrow />
           <SocialsText>А також підписуйтеся на нас у соцмережах:</SocialsText>
           <SocialsLinkWrapper>
             <SocialLogoLink
