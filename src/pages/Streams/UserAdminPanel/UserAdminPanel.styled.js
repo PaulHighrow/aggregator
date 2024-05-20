@@ -173,13 +173,13 @@ export const FilterButton = styled(FilterIcon)`
   }
 `;
 
-export const ManagerPicker = styled.div`
+export const FilterPicker = styled.div`
   position: absolute;
   top: 100%;
   left: 0;
 `;
 
-export const ManagerPickerButton = styled.button`
+export const FilterPickerButton = styled.button`
   width: 100%;
   text-transform: capitalize;
 `;

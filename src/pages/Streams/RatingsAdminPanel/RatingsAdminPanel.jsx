@@ -77,11 +77,11 @@ export const RatingsAdminPanel = () => {
 
   const handleLinksSubmit = async (values, { resetForm }) => {
     setIsLoading(isLoading => (isLoading = true));
-    values.rating = JSON.parse(values.rating)
+    values.rating = JSON.parse(values.rating);
 
     try {
       console.log(values);
-      const response = await axios.post('/ratings', values);
+      const response = await axios.patch('/ratings', values);
       console.log(response);
       resetForm();
       alert('Рейтинги замінилися, молодець');

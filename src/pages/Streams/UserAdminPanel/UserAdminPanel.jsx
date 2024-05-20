@@ -11,10 +11,10 @@ import {
   AdminInputNote,
   AdminPanelSection,
   FilterButton,
+  FilterPicker,
+  FilterPickerButton,
   Filterable,
   LoginForm,
-  ManagerPicker,
-  ManagerPickerButton,
   UserBanButton,
   UserCell,
   UserDBCaption,
@@ -492,9 +492,9 @@ export const UserAdminPanel = () => {
                     Мова
                     <FilterButton onClick={toggleLangPicker}></FilterButton>
                     {isLangPickerOpen && (
-                      <ManagerPicker>
+                      <FilterPicker>
                         {langs.map((lang, i) => (
-                          <ManagerPickerButton
+                          <FilterPickerButton
                             key={i}
                             onClick={() => {
                               filterByLang(lang);
@@ -502,17 +502,17 @@ export const UserAdminPanel = () => {
                             }}
                           >
                             {lang === undefined ? '—' : lang}
-                          </ManagerPickerButton>
+                          </FilterPickerButton>
                         ))}
-                        <ManagerPickerButton
+                        <FilterPickerButton
                           onClick={() => {
                             filterByLang('');
                             toggleLangPicker();
                           }}
                         >
                           ВСІ
-                        </ManagerPickerButton>
-                      </ManagerPicker>
+                        </FilterPickerButton>
+                      </FilterPicker>
                     )}
                   </Filterable>
                 </UserHeadCell>
@@ -521,9 +521,9 @@ export const UserAdminPanel = () => {
                     Потік
                     <FilterButton onClick={toggleCoursePicker}></FilterButton>
                     {isCoursePickerOpen && (
-                      <ManagerPicker>
+                      <FilterPicker>
                         {courses.map((course, i) => (
-                          <ManagerPickerButton
+                          <FilterPickerButton
                             key={i}
                             onClick={() => {
                               filterByCourse(course);
@@ -531,17 +531,17 @@ export const UserAdminPanel = () => {
                             }}
                           >
                             {course === undefined ? '—' : course}
-                          </ManagerPickerButton>
+                          </FilterPickerButton>
                         ))}
-                        <ManagerPickerButton
+                        <FilterPickerButton
                           onClick={() => {
                             filterByCourse('');
                             toggleCoursePicker();
                           }}
                         >
                           ВСІ
-                        </ManagerPickerButton>
-                      </ManagerPicker>
+                        </FilterPickerButton>
+                      </FilterPicker>
                     )}
                   </Filterable>
                 </UserHeadCell>
@@ -550,9 +550,9 @@ export const UserAdminPanel = () => {
                     Знання
                     <FilterButton onClick={toggleLevelPicker}></FilterButton>
                     {isLevelPickerOpen && (
-                      <ManagerPicker>
+                      <FilterPicker>
                         {levels.map((level, i) => (
-                          <ManagerPickerButton
+                          <FilterPickerButton
                             key={i}
                             onClick={() => {
                               filterByLevel(level);
@@ -560,17 +560,17 @@ export const UserAdminPanel = () => {
                             }}
                           >
                             {level === undefined ? '—' : level}
-                          </ManagerPickerButton>
+                          </FilterPickerButton>
                         ))}
-                        <ManagerPickerButton
+                        <FilterPickerButton
                           onClick={() => {
                             filterByLevel('');
                             toggleLevelPicker();
                           }}
                         >
                           ВСІ
-                        </ManagerPickerButton>
-                      </ManagerPicker>
+                        </FilterPickerButton>
+                      </FilterPicker>
                     )}
                   </Filterable>
                 </UserHeadCell>
@@ -579,9 +579,9 @@ export const UserAdminPanel = () => {
                     Менеджер
                     <FilterButton onClick={toggleManagerPicker}></FilterButton>
                     {isManagerPickerOpen && (
-                      <ManagerPicker>
+                      <FilterPicker>
                         {managers.map((manager, i) => (
-                          <ManagerPickerButton
+                          <FilterPickerButton
                             key={i}
                             onClick={() => {
                               filterByManager(manager);
@@ -589,17 +589,17 @@ export const UserAdminPanel = () => {
                             }}
                           >
                             {manager === undefined ? '—' : manager}
-                          </ManagerPickerButton>
+                          </FilterPickerButton>
                         ))}
-                        <ManagerPickerButton
+                        <FilterPickerButton
                           onClick={() => {
                             filterByManager('');
                             toggleManagerPicker();
                           }}
                         >
                           ВСІ
-                        </ManagerPickerButton>
-                      </ManagerPicker>
+                        </FilterPickerButton>
+                      </FilterPicker>
                     )}
                   </Filterable>
                 </UserHeadCell>

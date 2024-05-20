@@ -26,7 +26,7 @@ import {
 } from './LessonFinder.styled';
 
 export const LessonFinder = ({ lessons }) => {
-  const [lessonsFound, setLessonsFound] = useState([...lessons]);
+  const [lessonsFound, setLessonsFound] = useState([]);
 
   const findLesson = e => {
     const value = e.target.value.toLowerCase().trim().trimStart();
@@ -36,7 +36,9 @@ export const LessonFinder = ({ lessons }) => {
           ...lessons.filter(
             lesson =>
               lesson.keysEn.toLowerCase().includes(value) ||
-              lesson.keysUa.toLowerCase().includes(value)
+              lesson.keysUa.toLowerCase().includes(value) ||
+              lesson.topic.toLowerCase().includes(value) ||
+              lesson.lesson.toLowerCase().includes(value)
           ),
         ])
       : setLessonsFound(lessonsFound => [...lessons]);

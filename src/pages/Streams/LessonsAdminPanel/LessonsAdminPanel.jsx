@@ -3,13 +3,17 @@ import { Backdrop } from 'components/LeadForm/Backdrop/Backdrop.styled';
 import { Label } from 'components/LeadForm/LeadForm.styled';
 import { Loader } from 'components/SharedLayout/Loaders/Loader';
 import { Formik } from 'formik';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import * as yup from 'yup';
 import {
   AdminFormBtn,
   AdminInput,
   AdminInputNote,
   AdminPanelSection,
+  FilterButton,
+  FilterPicker,
+  FilterPickerButton,
+  Filterable,
   LoginForm,
   UserCell,
   UserDBCaption,
@@ -33,6 +37,14 @@ export const LessonsAdminPanel = () => {
   const [lessons, setLessons] = useState([]);
   const [isEditFormOpen, setIsEditFormOpen] = useState(false);
   const [lessonToEdit, setLessonToEdit] = useState({});
+  const [marathons, setMarathons] = useState([]);
+  const [langs, setLangs] = useState([]);
+  const [levels, setLevels] = useState([]);
+  const [isMarathonPickerOpen, setIsMarathonPickerOpen] = useState(false);
+  const [isLevelPickerOpen, setIsLevelPickerOpen] = useState(false);
+  const [isLangPickerOpen, setIsLangPickerOpen] = useState(false);
+
+  const persistentLessons = useRef([]);
 
   useEffect(() => {
     document.title = 'Lessons Admin Panel | AP Education';
@@ -56,6 +68,34 @@ export const LessonsAdminPanel = () => {
         if (isUserAdmin) {
           const response = await axios.get('/lessons/');
           setLessons(lessons => (lessons = [...response.data]));
+          persistentLessons.current = [...response.data];
+          setMarathons(
+            marathons =>
+              (marathons = [
+                ...response.data
+                  .map(lesson => lesson.marathonName)
+                  .filter((marathon, i, arr) => arr.indexOf(marathon) === i)
+                  .sort(),
+              ])
+          );
+          setLangs(
+            langs =>
+              (langs = [
+                ...response.data
+                  .map(lesson => lesson.lang)
+                  .filter((lang, i, arr) => arr.indexOf(lang) === i)
+                  .sort(),
+              ])
+          );
+          setLevels(
+            levels =>
+              (levels = [
+                ...response.data
+                  .map(lesson => lesson.level)
+                  .filter((level, i, arr) => arr.indexOf(level) === i)
+                  .sort(),
+              ])
+          );
         }
       } catch (error) {
         console.error(error);
@@ -104,6 +144,7 @@ export const LessonsAdminPanel = () => {
   const initialLessonValues = {
     marathonId: '',
     lessonId: '',
+    marathonName: '',
     lang: '',
     level: '',
     lesson: '',
@@ -112,6 +153,7 @@ export const LessonsAdminPanel = () => {
     keysUa: '',
     pdf: '',
     video: '',
+    faq: '',
   };
 
   const lessonSchema = yup.object().shape({
@@ -127,6 +169,9 @@ export const LessonsAdminPanel = () => {
         "marathonLessonId - обов'язкове поле! Значення дивись на платформі в адресному рядку"
       )
       .matches(/^\d{1,7}$/, 'Лише цифри'),
+    marathonName: yup
+      .string()
+      .required("Назва і номер марафону - обов'язкове поле!"),
     lang: yup.string().required("Мова - обов'язкове поле!"),
     level: yup
       .string()
@@ -150,12 +195,15 @@ export const LessonsAdminPanel = () => {
       ),
     pdf: yup.string() || yup.array().of(yup.string()),
     video: yup.string() || yup.array().of(yup.string()),
+    faq: yup.string() || yup.array().of(yup.string()),
   });
 
   const handleLessonSubmit = async (values, { resetForm }) => {
     setIsLoading(isLoading => (isLoading = true));
     values.marathonId = values.marathonId.trim().trimStart();
     values.lessonId = values.lessonId.trim().trimStart();
+    values.marathonName = values.marathonName.trim().trimStart();
+    values.lang = values.lang.toLowerCase().trim().trimStart();
     values.level = values.level.toLowerCase().trim().trimStart();
     values.lesson = values.lesson.trim().trimStart();
     values.topic = values.topic.trim().trimStart();
@@ -164,20 +212,15 @@ export const LessonsAdminPanel = () => {
     values.pdf =
       values.pdf === ''
         ? []
-        : [
-            ...values.pdf
-              .split(', ')
-              .map(link => link.toLowerCase().trim().trimStart()),
-          ];
-
+        : [...values.pdf.split(',').map(link => link.trim().trimStart())];
     values.video =
       values.video === ''
         ? []
-        : [
-            ...values.video
-              .split(', ')
-              .map(link => link.toLowerCase().trim().trimStart()),
-          ];
+        : [...values.video.split(',').map(link => link.trim().trimStart())];
+    values.faq =
+      values.faq === ''
+        ? []
+        : [...values.faq.split(',').map(link => link.trim().trimStart())];
     try {
       const response = await axios.post('/lessons', values);
       console.log(response);
@@ -225,6 +268,54 @@ export const LessonsAdminPanel = () => {
     } finally {
       setIsLoading(isLoading => (isLoading = false));
     }
+  };
+
+  const filterByMarathon = current =>
+    current === ''
+      ? setLessons(lessons => (lessons = [...persistentLessons.current]))
+      : setLessons(
+          lessons =>
+            (lessons = [
+              ...persistentLessons.current.filter(
+                lesson => lesson.marathonName === current
+              ),
+            ])
+        );
+
+  const toggleMarathonPicker = () => {
+    setIsMarathonPickerOpen(isOpen => !isOpen);
+  };
+
+  const filterByLang = current =>
+    current === ''
+      ? setLessons(lessons => (lessons = [...persistentLessons.current]))
+      : setLessons(
+          lessons =>
+            (lessons = [
+              ...persistentLessons.current.filter(
+                lesson => lesson.lang === current
+              ),
+            ])
+        );
+
+  const toggleLangPicker = () => {
+    setIsLangPickerOpen(isOpen => !isOpen);
+  };
+
+  const filterByLevel = current =>
+    current === ''
+      ? setLessons(lessons => (lessons = [...persistentLessons.current]))
+      : setLessons(
+          lessons =>
+            (lessons = [
+              ...persistentLessons.current.filter(
+                lesson => lesson.level === current
+              ),
+            ])
+        );
+
+  const toggleLevelPicker = () => {
+    setIsLevelPickerOpen(isOpen => !isOpen);
   };
 
   return (
@@ -276,6 +367,14 @@ export const LessonsAdminPanel = () => {
                   placeholder="marathonLessonId"
                 />
                 <AdminInputNote component="p" name="lessonId" />
+              </Label>
+              <Label>
+                <AdminInput
+                  type="text"
+                  name="marathonName"
+                  placeholder="Назва і номер марафону"
+                />
+                <AdminInputNote component="p" name="marathonName" />
               </Label>
               <Label>
                 <AdminInput
@@ -337,6 +436,14 @@ export const LessonsAdminPanel = () => {
                 />
                 <AdminInputNote component="p" name="pdf" />
               </Label>
+              <Label>
+                <AdminInput
+                  type="text"
+                  name="faq"
+                  placeholder="Посилання на відеовідповіді через кому"
+                />
+                <AdminInputNote component="p" name="faq" />
+              </Label>
               <AdminFormBtn type="submit">Додати урок</AdminFormBtn>
             </UsersForm>
           </Formik>
@@ -348,14 +455,100 @@ export const LessonsAdminPanel = () => {
               <UserDBRow>
                 <UserHeadCell>marathonID</UserHeadCell>
                 <UserHeadCell>lessonID</UserHeadCell>
-                <UserHeadCell>Мова</UserHeadCell>
-                <UserHeadCell>Рівень</UserHeadCell>
+                <UserHeadCell>
+                  <Filterable>
+                    Назва і № марафону
+                    <FilterButton onClick={toggleMarathonPicker}></FilterButton>
+                    {isMarathonPickerOpen && (
+                      <FilterPicker>
+                        {marathons.map((marathon, i) => (
+                          <FilterPickerButton
+                            key={i}
+                            onClick={() => {
+                              filterByMarathon(marathon);
+                              toggleMarathonPicker();
+                            }}
+                          >
+                            {marathon === undefined ? '—' : marathon}
+                          </FilterPickerButton>
+                        ))}
+                        <FilterPickerButton
+                          onClick={() => {
+                            filterByMarathon('');
+                            toggleMarathonPicker();
+                          }}
+                        >
+                          ВСІ
+                        </FilterPickerButton>
+                      </FilterPicker>
+                    )}
+                  </Filterable>
+                </UserHeadCell>
+                <UserHeadCell>
+                  <Filterable>
+                    Мова
+                    <FilterButton onClick={toggleLangPicker}></FilterButton>
+                    {isLangPickerOpen && (
+                      <FilterPicker>
+                        {langs.map((lang, i) => (
+                          <FilterPickerButton
+                            key={i}
+                            onClick={() => {
+                              filterByLang(lang);
+                              toggleLangPicker();
+                            }}
+                          >
+                            {lang === undefined ? '—' : lang}
+                          </FilterPickerButton>
+                        ))}
+                        <FilterPickerButton
+                          onClick={() => {
+                            filterByLang('');
+                            toggleLangPicker();
+                          }}
+                        >
+                          ВСІ
+                        </FilterPickerButton>
+                      </FilterPicker>
+                    )}
+                  </Filterable>
+                </UserHeadCell>
+                <UserHeadCell>
+                  <Filterable>
+                    Рівень
+                    <FilterButton onClick={toggleLevelPicker}></FilterButton>
+                    {isLevelPickerOpen && (
+                      <FilterPicker>
+                        {levels.map((level, i) => (
+                          <FilterPickerButton
+                            key={i}
+                            onClick={() => {
+                              filterByLevel(level);
+                              toggleLevelPicker();
+                            }}
+                          >
+                            {level === undefined ? '—' : level}
+                          </FilterPickerButton>
+                        ))}
+                        <FilterPickerButton
+                          onClick={() => {
+                            filterByLevel('');
+                            toggleLevelPicker();
+                          }}
+                        >
+                          ВСІ
+                        </FilterPickerButton>
+                      </FilterPicker>
+                    )}
+                  </Filterable>
+                </UserHeadCell>
                 <UserHeadCell>Номер уроку</UserHeadCell>
                 <UserHeadCell>Тема</UserHeadCell>
                 <UserHeadCell>Ключі UA</UserHeadCell>
                 <UserHeadCell>Ключі EN</UserHeadCell>
                 <UserHeadCell>PDF</UserHeadCell>
                 <UserHeadCell>Відео</UserHeadCell>
+                <UserHeadCell>FAQ</UserHeadCell>
                 <UserHeadCell>Edit</UserHeadCell>
                 <UserHeadCell>Delete</UserHeadCell>
               </UserDBRow>
@@ -365,6 +558,7 @@ export const LessonsAdminPanel = () => {
                 <UserDBRow key={lesson._id}>
                   <UserCell>{lesson.marathonId}</UserCell>
                   <UserCell>{lesson.lessonId}</UserCell>
+                  <UserCell>{lesson.marathonName}</UserCell>
                   <UserCell>{lesson.lang}</UserCell>
                   <UserCell>{lesson.level}</UserCell>
                   <UserCell>{lesson.lesson}</UserCell>
@@ -374,7 +568,12 @@ export const LessonsAdminPanel = () => {
                   <UserCell>
                     {lesson.pdf.map((link, i) => (
                       <>
-                        <a key={i} href={link}>
+                        <a
+                          key={i}
+                          href={link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           {i + 1}
                         </a>{' '}
                       </>
@@ -383,7 +582,26 @@ export const LessonsAdminPanel = () => {
                   <UserCell>
                     {lesson.video.map((link, i) => (
                       <>
-                        <a key={i} href={link}>
+                        <a
+                          key={i}
+                          href={link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {i + 1}
+                        </a>{' '}
+                      </>
+                    ))}
+                  </UserCell>
+                  <UserCell>
+                    {lesson.faq.map((link, i) => (
+                      <>
+                        <a
+                          key={i}
+                          href={link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           {i + 1}
                         </a>{' '}
                       </>

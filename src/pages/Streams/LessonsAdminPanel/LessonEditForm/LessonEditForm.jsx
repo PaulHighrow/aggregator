@@ -17,20 +17,19 @@ axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
 export const LessonEditForm = ({ lessonToEdit, closeEditForm }) => {
   const [isLoading, setIsLoading] = useState(false);
 
-  console.log(lessonToEdit.pdf.length);
-  console.log(lessonToEdit.video.length);
-
   const initialLessonValues = {
     marathonId: lessonToEdit.marathonId,
     lessonId: lessonToEdit.lessonId,
+    marathonName: lessonToEdit.marathonName,
     lang: lessonToEdit.lang,
     level: lessonToEdit.level,
     lesson: lessonToEdit.lesson,
     topic: lessonToEdit.topic,
     keysEn: lessonToEdit.keysEn,
     keysUa: lessonToEdit.keysUa,
-    pdf: lessonToEdit.pdf.join(' ,'),
-    video: lessonToEdit.video.join(' ,'),
+    pdf: lessonToEdit.pdf.join(','),
+    video: lessonToEdit.video.join(','),
+    faq: lessonToEdit.faq.join(','),
   };
 
   const lessonSchema = yup.object().shape({
@@ -46,6 +45,9 @@ export const LessonEditForm = ({ lessonToEdit, closeEditForm }) => {
         "marathonLessonId - обов'язкове поле! Значення дивись на платформі в адресному рядку"
       )
       .matches(/^\d{1,7}$/, 'Лише цифри'),
+    marathonName: yup
+      .string()
+      .required("Назва і номер марафону - обов'язкове поле!"),
     lang: yup.string().required("Мова - обов'язкове поле!"),
     level: yup
       .string()
@@ -69,6 +71,7 @@ export const LessonEditForm = ({ lessonToEdit, closeEditForm }) => {
       ),
     video: yup.string().optional() || yup.array().of(yup.string().optional()),
     pdf: yup.string().optional() || yup.array().of(yup.string().optional()),
+    faq: yup.string().optional() || yup.array().of(yup.string().optional()),
   });
 
   const handleLessonSubmit = async (values, { resetForm }) => {
@@ -76,6 +79,8 @@ export const LessonEditForm = ({ lessonToEdit, closeEditForm }) => {
     setIsLoading(isLoading => (isLoading = true));
     values.marathonId = values.marathonId.trim().trimStart();
     values.lessonId = values.lessonId.trim().trimStart();
+    values.marathonName = values.marathonName.trim().trimStart();
+    values.lang = values.lang.toLowerCase().trim().trimStart();
     values.level = values.level.toLowerCase().trim().trimStart();
     values.lesson = values.lesson.trim().trimStart();
     values.topic = values.topic.trim().trimStart();
@@ -84,21 +89,16 @@ export const LessonEditForm = ({ lessonToEdit, closeEditForm }) => {
     values.pdf =
       values.pdf === ''
         ? []
-        : [
-            ...values.pdf
-              .split(', ')
-              .map(link => link.toLowerCase().trim().trimStart()),
-          ];
+        : [...values.pdf.split(',').map(link => link.trim().trimStart())];
 
     values.video =
       values.video === ''
         ? []
-        : [
-            ...values.video
-              .split(', ')
-              .map(link => link.toLowerCase().trim().trimStart()),
-          ];
-
+        : [...values.video.split(',').map(link => link.trim().trimStart())];
+    values.faq =
+      values.faq === ''
+        ? []
+        : [...values.faq.split(',').map(link => link.trim().trimStart())];
     try {
       const response = await axios.put(`/lessons/${lessonToEdit._id}`, values);
       console.log(response);
@@ -138,6 +138,14 @@ export const LessonEditForm = ({ lessonToEdit, closeEditForm }) => {
               placeholder="marathonLessonId"
             />
             <AdminInputNote component="p" name="lessonId" />
+          </Label>
+          <Label>
+            <AdminInput
+              type="text"
+              name="marathonName"
+              placeholder="Назва і номер марафону"
+            />
+            <AdminInputNote component="p" name="marathonName" />
           </Label>
           <Label>
             <AdminInput type="text" name="lang" placeholder="Мова (en/de/pl)" />
@@ -194,6 +202,14 @@ export const LessonEditForm = ({ lessonToEdit, closeEditForm }) => {
               placeholder="Внести посилання на таблиці через кому"
             />
             <AdminInputNote component="p" name="pdf" />
+          </Label>
+          <Label>
+            <AdminInput
+              type="text"
+              name="faq"
+              placeholder="Посилання на відеовідповіді через кому"
+            />
+            <AdminInputNote component="p" name="faq" />
           </Label>
           <AdminFormBtn type="submit">Підтвердити зміни</AdminFormBtn>
         </UsersEditForm>

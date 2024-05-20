@@ -78,11 +78,11 @@ export const APUniversity = () => {
     <APUniversitySection id="university">
       <BoxNew>
         <APUniversityWrapper>
-        <UniversityStar />
+          <UniversityStar />
           <TitleBox>
             <SectionTitleNew>AP University</SectionTitleNew>
             <SectionDescription>
-              Дистанційний університ, який піклується про твоє майбутнє!
+              Дистанційний університет, який піклується про твоє майбутнє!
             </SectionDescription>
           </TitleBox>
           <WhoAreWeList>
