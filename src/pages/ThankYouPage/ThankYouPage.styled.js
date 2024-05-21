@@ -598,7 +598,7 @@ export const TextBubbleText = styled.p`
   line-height: 1.2;
   text-align: center;
   position: absolute;
-  top: 50%;
+  top: calc(50% - 2px);
   transform: translateY(-50%);
   z-index: 5;
 `;

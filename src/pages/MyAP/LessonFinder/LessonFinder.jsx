@@ -3,7 +3,6 @@ import ReactPlayer from 'react-player/youtube';
 import { ReactComponent as LessonCopyIcon } from '../../../img/svg/lessonCopyIcon.svg';
 import { ReactComponent as PdfDownload } from '../../../img/svg/pdf-download.svg';
 import { ReactComponent as PdfIcon } from '../../../img/svg/pdf-icon.svg';
-
 import parse from 'html-react-parser';
 import {
   FinderBox,
@@ -22,11 +21,15 @@ import {
   LessonValueTopic,
   LessonValuesLogo,
   LessonVideoBox,
+  PdfBox,
+  PdfPreview,
   PdfWrapper,
 } from './LessonFinder.styled';
 
 export const LessonFinder = ({ lessons }) => {
   const [lessonsFound, setLessonsFound] = useState([]);
+  const [isPdfPreviewOpen, setIsPdfPreviewOpen] = useState(false);
+  const [openedPdf, setOpenedPdf] = useState('');
 
   const findLesson = e => {
     const value = e.target.value.toLowerCase().trim().trimStart();
@@ -46,6 +49,20 @@ export const LessonFinder = ({ lessons }) => {
 
   const copyLessonName = lesson => {
     navigator.clipboard.writeText(lesson);
+  };
+
+  const openPdfPreviewOnHover = e => {
+    setOpenedPdf(pdf => (pdf = e.target.id));
+    if (!isPdfPreviewOpen) {
+      setIsPdfPreviewOpen(isOpen => !isOpen);
+    }
+  };
+
+  const closePdfPreviewOnMouseOut = () => {
+    setOpenedPdf(pdf => (pdf = ''));
+    if (isPdfPreviewOpen) {
+      setIsPdfPreviewOpen(isOpen => !isOpen);
+    }
   };
 
   return (
@@ -94,20 +111,38 @@ export const LessonFinder = ({ lessons }) => {
                   />
                 </LessonVideoBox>
               )}
-              {lesson.pdf.map((pdf, i) => (
-                <PdfWrapper>
-                  <PdfIcon />
-                  <LessonValuePdfLink
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    to={parse(pdf)}
-                    key={i}
-                  >
-                    Граматика {i + 1}
-                    <PdfDownload />
-                  </LessonValuePdfLink>
-                </PdfWrapper>
-              ))}
+              <PdfBox onMouseLeave={closePdfPreviewOnMouseOut}>
+                {lesson.pdf.map((pdf, i) => (
+                  <>
+                    <PdfWrapper
+                      key={pdf}
+                      id={pdf}
+                      onMouseEnter={e => openPdfPreviewOnHover(e)}
+                    >
+                      <PdfIcon />
+                      <LessonValuePdfLink
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        to={parse(pdf)}
+                        key={i}
+                      >
+                        Граматика {i + 1}
+                        <PdfDownload />
+                      </LessonValuePdfLink>
+                    </PdfWrapper>
+                    {isPdfPreviewOpen && openedPdf === pdf && (
+                      <PdfPreview
+                        title={`Preview of ${pdf}`}
+                        src={pdf
+                          .replace('open?id=', 'file/d/')
+                          .replace('view', 'preview')
+                          .replace('&usp=drive_copy', '/preview')}
+                        allow="autoplay"
+                      ></PdfPreview>
+                    )}
+                  </>
+                ))}
+              </PdfBox>
             </LessonBoxItem>
           ))}
         </LessonBox>

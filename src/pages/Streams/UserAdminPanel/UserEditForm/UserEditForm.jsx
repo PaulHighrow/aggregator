@@ -39,7 +39,7 @@ export const UserEditForm = ({ userToEdit, closeEditForm }) => {
     password: yup.string().required("Пароль - обов'язкове поле!"),
     pupilId: yup
       .string()
-      .min(7, 'Не менше 7 цифр')
+      .min(6, 'Не менше 6 цифр')
       .max(7, 'Не більше 7 цифр')
       .matches(/^\d{1,7}$/, 'Лише цифри')
       .required("Обов'язкове поле, дивитись на платформі"),

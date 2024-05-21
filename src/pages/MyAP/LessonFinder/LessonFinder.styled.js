@@ -197,6 +197,7 @@ export const LessonVideoBox = styled.div`
 `;
 
 export const PdfWrapper = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -204,4 +205,11 @@ export const PdfWrapper = styled.div`
   &:not(:last-child) {
     margin-bottom: 6px;
   }
+`;
+
+export const PdfBox = styled.div``;
+
+export const PdfPreview = styled.iframe`
+  width: 100%;
+  height: 150px;
 `;
