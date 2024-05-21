@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import chat1xBGPng from '../../img/bg/chat-bg@1x.png';
-import chat1xBGWebp from '../../img/bg/chat-bg@1x.webp';
+import chat1xBGPng from '../../img/bg/chat-bg.png';
+import chat1xBGWebp from '../../img/bg/chat-bg.webp';
 import { ReactComponent as ChatSendIcon } from '../../img/svg/sendIcon.svg';
 import { ReactComponent as ChatScrollDownArrow } from '../../img/svg/downArrow.svg';
 import { ReactComponent as PinnedMessageIcon } from '../../img/svg/pinnedMessage.svg';
@@ -100,24 +100,24 @@ export const ChatContainer = styled.div`
     url(${chat1xBGWebp}) type('image/webp'),
     url(${chat1xBGPng}) type('image/png')
   );
-  background-size: auto 40%;
-  background-position: top 30px right -44px;
+  background-size: 35%;
+  background-position: top 65px left 35px;
   background-repeat: no-repeat;
   background-color: var(--chat-background-color);
 
   @media screen and (orientation: landscape) {
     max-width: 300px;
 
-    background-size: 100% auto;
-    background-position: top 30px right -44px;
+    background-size: calc(100% - 64px);
+    background-position: top 120px center;
   }
 
   @media screen and (min-width: 1280px) {
     height: 100vh;
     max-width: 300px;
 
-    background-size: 100% auto;
-    background-position: top 30px right -44px;
+    background-size: calc(100% - 64px);
+    background-position: top 120px center;
   }
 `;
 
