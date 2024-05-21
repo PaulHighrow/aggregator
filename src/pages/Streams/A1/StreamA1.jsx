@@ -139,6 +139,22 @@ export const StreamA1 = () => {
       });
     });
 
+    socketRef.current.on('message:delete', async id => {
+      console.log('delete fired');
+      setMessages(
+        messages =>
+          (messages = [...messages.filter(message => message.id !== id)])
+      );
+      const deleteMessage = async () => {
+        try {
+          await axios.delete(`https://ap-chat.onrender.com/messages/${id}`);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      await deleteMessage();
+    });
+
     socketRef.current.on('message:deleted', async id => {
       console.log(id);
       setMessages(
@@ -267,7 +283,7 @@ export const StreamA1 = () => {
             <BoxHideSwitch id="no-transform" onClick={toggleButtonBox}>
               {isButtonBoxOpen ? <BoxHideLeftSwitch /> : <BoxHideRightSwitch />}
             </BoxHideSwitch>
-
+            {console.log(socketRef.current)}
             {height > width && (
               <ChatBox
                 ref={chatEl}

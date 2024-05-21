@@ -99,6 +99,14 @@ export const WindowedChat = () => {
       await deleteMessage();
     });
 
+    socketRef.current.on('message:deleted', async id => {
+      console.log(id);
+      setMessages(
+        messages =>
+          (messages = [...messages.filter(message => message.id !== id)])
+      );
+    });
+
     socketRef.current.on('user:ban', async (userID, userIP) => {
       console.log('ban fired');
       const banUser = async () => {

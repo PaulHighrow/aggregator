@@ -450,7 +450,7 @@ export const LessonsAdminPanel = () => {
         )}
         {isUserAdmin && lessons && (
           <UserDBTable>
-            <UserDBCaption>Список юзерів з доступом до уроків</UserDBCaption>
+            <UserDBCaption>Список уроків на платформі</UserDBCaption>
             <thead>
               <UserDBRow>
                 <UserHeadCell>marathonID</UserHeadCell>

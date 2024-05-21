@@ -39,8 +39,7 @@ export const StreamPolskiA2 = () => {
   const [isOpenedLast, setIsOpenedLast] = useState('');
   const [isAnimated, setIsAnimated] = useState(false);
   const [animatedID, setAnimationID] = useState('');
-  const [links, isLoading, currentUser, room] =
-    useOutletContext();
+  const [links, isLoading, currentUser, room] = useOutletContext();
   const chatEl = useRef();
   // eslint-disable-next-line
   const [chatWidth, chatHeight] = useSize(chatEl);
@@ -138,6 +137,22 @@ export const StreamPolskiA2 = () => {
           data.isPinned;
         return [...messages];
       });
+    });
+
+    socketRef.current.on('message:delete', async id => {
+      console.log('delete fired');
+      setMessages(
+        messages =>
+          (messages = [...messages.filter(message => message.id !== id)])
+      );
+      const deleteMessage = async () => {
+        try {
+          await axios.delete(`https://ap-chat.onrender.com/messages/${id}`);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      await deleteMessage();
     });
 
     socketRef.current.on('message:deleted', async id => {

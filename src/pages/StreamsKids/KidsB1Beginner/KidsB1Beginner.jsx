@@ -41,7 +41,7 @@ export const KidsB1Beginner = () => {
   const [animatedID, setAnimationID] = useState('');
   const [links, isLoading, currentUser, room] = useOutletContext();
   const chatEl = useRef();
-  // eslint-disable-next-line 
+  // eslint-disable-next-line
   const [chatWidth, chatHeight] = useSize(chatEl);
   const [width, height] = useSize(document.body);
   const [isBanned, setIsBanned] = useState(false);
@@ -139,6 +139,22 @@ export const KidsB1Beginner = () => {
       });
     });
 
+    socketRef.current.on('message:delete', async id => {
+      console.log('delete fired');
+      setMessages(
+        messages =>
+          (messages = [...messages.filter(message => message.id !== id)])
+      );
+      const deleteMessage = async () => {
+        try {
+          await axios.delete(`https://ap-chat.onrender.com/messages/${id}`);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      await deleteMessage();
+    });
+
     socketRef.current.on('message:deleted', async id => {
       console.log(id);
       setMessages(
@@ -164,7 +180,8 @@ export const KidsB1Beginner = () => {
 
   return (
     <>
-      {(links.b1kidsbeginner === undefined || links.b1kidsbeginner[0] < 10) && !isLoading ? (
+      {(links.b1kidsbeginner === undefined || links.b1kidsbeginner[0] < 10) &&
+      !isLoading ? (
         <StreamPlaceHolder>
           <StreamPlaceHolderText>
             Поки що трансляції тут немає! <br />

@@ -36,7 +36,7 @@ export const Chat = ({ socket, messages, isChatOpen, currentUser }) => {
             <Toggle />
           </ToggleContainer>
         </ChatHeader>
-        <ChatBody messages={messages} isChatOpen={isChatOpen} />
+        <ChatBody socket={socket} messages={messages} isChatOpen={isChatOpen} />
         <ChatFooter socket={socket} theme={theme} currentUser={currentUser} />
       </ChatContainer>
     </ThemeProvider>

@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router';
 import { animateScroll } from 'react-scroll';
 import {
+  ChatDeleteMessage,
   ChatFastScrollButton,
   ChatMessagePinnedCloud,
   ChatMessageText,
@@ -17,7 +18,7 @@ import {
   ChatScrollDownIcon,
 } from './Chat.styled';
 
-export const ChatBody = ({ messages, isChatOpen }) => {
+export const ChatBody = ({ socket, messages, isChatOpen }) => {
   const location = useLocation();
   const ChatBodyEl = useRef();
   // eslint-disable-next-line
@@ -44,16 +45,16 @@ export const ChatBody = ({ messages, isChatOpen }) => {
 
     setScroll(
       height ===
-            ChatBodyEl.current.scrollHeight -
-              Math.ceil(ChatBodyEl.current.scrollTop) ||
-          (ChatBodyEl.current.scrollHeight -
-            Math.floor(ChatBodyEl.current.scrollTop) &&
-            ChatBodyEl.current.scrollHeight -
-              Math.ceil(ChatBodyEl.current.scrollTop) <=
-              height &&
-            ChatBodyEl.current.scrollHeight -
-              Math.floor(ChatBodyEl.current.scrollTop) <=
-              height)
+        ChatBodyEl.current.scrollHeight -
+          Math.ceil(ChatBodyEl.current.scrollTop) ||
+        (ChatBodyEl.current.scrollHeight -
+          Math.floor(ChatBodyEl.current.scrollTop) &&
+          ChatBodyEl.current.scrollHeight -
+            Math.ceil(ChatBodyEl.current.scrollTop) <=
+            height &&
+          ChatBodyEl.current.scrollHeight -
+            Math.floor(ChatBodyEl.current.scrollTop) <=
+            height)
     );
   };
 
@@ -63,6 +64,10 @@ export const ChatBody = ({ messages, isChatOpen }) => {
 
   const togglePins = () => {
     setArePinnedShown(shown => !shown);
+  };
+
+  const deleteMessage = async message => {
+    socket.emit('message:delete', message.id);
   };
 
   const scrollToBottom = () => {
@@ -134,6 +139,10 @@ export const ChatBody = ({ messages, isChatOpen }) => {
                   Ви ({message.username})
                 </ChatMessageYou>
                 <ChatMessageYouCloud>
+                  <ChatDeleteMessage
+                    onClick={() => deleteMessage(message)}
+                    id={message._id}
+                  />
                   <ChatMessageText
                     dangerouslySetInnerHTML={{
                       __html: message.text.replace(

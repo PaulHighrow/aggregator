@@ -5,6 +5,7 @@ import { ReactComponent as ChatSendIcon } from '../../img/svg/sendIcon.svg';
 import { ReactComponent as ChatScrollDownArrow } from '../../img/svg/downArrow.svg';
 import { ReactComponent as PinnedMessageIcon } from '../../img/svg/pinnedMessage.svg';
 import { ReactComponent as DeleteMessageIcon } from '../../img/svg/deleteMessage.svg';
+import { ReactComponent as DeleteUserMessageIcon } from '../../img/svg/trash.svg';
 import { ReactComponent as BanUserIcon } from '../../img/svg/banUser.svg';
 import { ReactComponent as EmojiSwitchIcon } from '../../img/svg/emojiPicker.svg';
 import { ChatLogo } from 'components/Stream/Stream.styled';
@@ -153,7 +154,7 @@ export const ChatMessagesBox = styled.div`
     margin-top: auto;
   }
 
-  & :nth-child(2) {
+  & #chat-pin + :nth-child(2) {
     margin-top: auto;
   }
 
@@ -213,6 +214,7 @@ export const ChatMessageYouCloud = styled.div`
   background-color: var(--accent-transparent-color);
   max-width: 65%;
   padding: 8px;
+  padding-right: 16px;
   border-radius: 10px;
   margin-left: auto;
   font-size: 15px;
@@ -493,6 +495,22 @@ export const ChatWindowedPinnedMessageIcon = styled(ChatPinnedMessageIcon)`
 
   &.pinned {
     transform: rotate(0deg);
+  }
+`;
+
+export const ChatDeleteMessage = styled(DeleteUserMessageIcon)`
+  position: absolute;
+  top: 2px;
+  right: 2px;
+
+  width: 16px;
+  height: 16px;
+
+  color: #f9c8389e;
+
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
   }
 `;
 

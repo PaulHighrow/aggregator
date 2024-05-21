@@ -139,6 +139,22 @@ export const StreamA2 = () => {
       });
     });
 
+    socketRef.current.on('message:delete', async id => {
+      console.log('delete fired');
+      setMessages(
+        messages =>
+          (messages = [...messages.filter(message => message.id !== id)])
+      );
+      const deleteMessage = async () => {
+        try {
+          await axios.delete(`https://ap-chat.onrender.com/messages/${id}`);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      await deleteMessage();
+    });
+
     socketRef.current.on('message:deleted', async id => {
       console.log(id);
       setMessages(
