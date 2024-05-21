@@ -11,7 +11,7 @@ import { HeaderWrapper, LogoNew, LogoRoute } from 'components/Menu/Menu.styled';
 import { Loader } from 'components/SharedLayout/Loaders/Loader';
 import { Formik } from 'formik';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
 import thankYouPersonPNG from '../../img/bg/thank-you-person.png';
 import thankYouPersonWebp from '../../img/bg/thank-you-person.webp';
@@ -47,6 +47,26 @@ axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
 export const LeadFormPage = ({ utms }) => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation().pathname;
+
+  const getTag = location => {
+    switch (location) {
+      case '/form':
+        return '';
+      case '/form-a':
+        return 'start_smth_sonia';
+      case '/form-b':
+        return 'atamanchuk_sonia';
+      case '/form-c':
+        return 'ukryoutube_sonia';
+      default:
+        break;
+    }
+  };
+
+  const tag = getTag(location);
+
+  console.log(tag);
 
   useEffect(() => {
     document.title = 'Форма консультації | AP Education';
@@ -55,6 +75,7 @@ export const LeadFormPage = ({ utms }) => {
   const initialValues = {
     name: '',
     phone: '',
+    tag: '',
     utm_content: '',
     utm_medium: '',
     utm_campaign: '',
@@ -86,6 +107,7 @@ export const LeadFormPage = ({ utms }) => {
       )
       .min(10, 'Номер телефону має складатися не менше ніж з 10 символів!')
       .max(15, 'Номер телефону має складатися не більше ніж з 15 символів!'),
+    tag: yup.string().optional(),
     utm_content: yup.string().optional(),
     utm_medium: yup.string().optional(),
     utm_campaign: yup.string().optional(),
@@ -99,6 +121,7 @@ export const LeadFormPage = ({ utms }) => {
   });
 
   const handleSubmit = async (values, { resetForm }) => {
+    values.tag = tag;
     values.utm_content = utms.utm_content;
     values.utm_medium = utms.utm_medium;
     values.utm_campaign = utms.utm_campaign;
@@ -158,6 +181,7 @@ export const LeadFormPage = ({ utms }) => {
                   <InputNote component="p" name="phone" />
                 </Label>
               </FormInputBox>
+              <HiddenInput type="text" name="tag" />
               <HiddenInput type="text" name="utm_content" />
               <HiddenInput type="text" name="utm_medium" />
               <HiddenInput type="text" name="utm_campaign" />
