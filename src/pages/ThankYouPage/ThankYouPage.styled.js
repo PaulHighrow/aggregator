@@ -146,7 +146,11 @@ export const ThankYouImage = styled.img`
   height: 100%;
   max-width: 480px;
   margin: 0 auto;
-  margin-bottom: 125px;
+  margin-bottom: 60px;
+
+  @media screen and (max-width: 359px) {
+    margin-bottom: 120px;
+  }
 
   @media screen and (min-width: 768px) {
     margin-bottom: 0;
@@ -536,11 +540,23 @@ export const ThankYouArrow = styled(ThankYouArrowIcon)`
 
 export const SocialArrow = styled(ThankYouArrowLongIcon)`
   position: absolute;
-  bottom: calc(77px + 5vh);
+  bottom: calc(77px);
   right: -48.5px;
 
   width: 67px;
   height: 240px;
+
+  @media screen and (max-width: 359px) {
+    right: -30px;
+  }
+
+  @media screen and (min-width: 420px) {
+    bottom: calc(77px + 2vh);
+  }
+
+  @media screen and (min-width: 480px) {
+    bottom: calc(77px + 5vh);
+  }
 
   @media screen and (min-width: 768px) {
     display: none;
@@ -550,10 +566,18 @@ export const SocialArrow = styled(ThankYouArrowLongIcon)`
 export const TextBubbleWrapper = styled.div`
   position: absolute;
   right: -38px;
-  bottom: calc(325.5px + 7vh);
+  bottom: calc(325.5px);
 
   width: 148px;
   height: 45px;
+
+  @media screen and (min-width: 420px) {
+    bottom: calc(325.5px + 6vh);
+  }
+
+  @media screen and (min-width: 480px) {
+    bottom: calc(325.5px + 10vh);
+  }
 
   @media screen and (min-width: 768px) {
     display: none;

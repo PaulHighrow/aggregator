@@ -122,7 +122,7 @@ export const LeadForm = ({ closeModal, utms }) => {
           </FormTitleBox>
           <FormInputBox>
             <Label>
-              <Input type="text" name="name" placeholder="Ім'я*" />
+              <Input type="text" name="name" placeholder="Ім'я та прізвище*" />
               <InputNote component="p" name="name" />
             </Label>
             <Label>

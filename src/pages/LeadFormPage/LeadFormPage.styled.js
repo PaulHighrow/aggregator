@@ -86,7 +86,11 @@ export const PageFormImage = styled.img`
   height: 100%;
   max-width: 480px;
   margin: 0 auto;
-  margin-bottom: 125px;
+  margin-bottom: 60px;
+
+  @media screen and (max-width: 359px) {
+    margin-bottom: 120px;
+  }
 
   @media screen and (min-width: 768px) {
     margin-bottom: 0;

@@ -35,7 +35,6 @@ import {
 import {
   FormBottomStar,
   PageForm,
-  PageFormArrow,
   PageFormBottomStar,
   PageFormHeading,
   PageFormImage,
@@ -135,8 +134,6 @@ export const LeadFormPage = ({ utms }) => {
       </ThankYouHeader>
       <ThankYouSection>
         <PageFormWrapper>
-          <PageFormArrow />
-
           <PageFormHeading>
             Залишіть заявку та отримайте -10% знижки на наші послуги!
           </PageFormHeading>
@@ -149,7 +146,11 @@ export const LeadFormPage = ({ utms }) => {
               <FormBottomStar />
               <FormInputBox>
                 <Label>
-                  <Input type="text" name="name" placeholder="Ім'я*" />
+                  <Input
+                    type="text"
+                    name="name"
+                    placeholder="Ім'я та прізвище*"
+                  />
                   <InputNote component="p" name="name" />
                 </Label>
                 <Label>
