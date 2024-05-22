@@ -13,7 +13,13 @@ export const FinderBox = styled.div`
 
   overflow: hidden;
   border-radius: 20px;
-  min-height: 442px;
+  height: 442px;
+  transition: all var(--animation-global);
+
+  &.nothing-found {
+    height: unset;
+    transition: all var(--animation-global);
+  }
 `;
 
 export const FinderLabel = styled.label`
@@ -42,14 +48,15 @@ export const FinderInput = styled.input`
 
   font-family: var(--my-ap-font-family);
   font-size: 20px;
+  line-height: 20px;
   color: #525266;
+  vertical-align: middle;
 
-  &.hidden {
-    transform: translateX(-100%);
-  }
-
-  &.shown {
-    transform: translateX(0);
+  &::placeholder {
+    color: #bebecc;
+    font-size: 16px;
+    vertical-align: middle;
+    transform: translateY(-2px);
   }
 `;
 
@@ -60,6 +67,10 @@ export const FinderLessons = styled.div`
 
   overflow-y: scroll;
   scrollbar-width: thin;
+
+  transform: scaleY(1);
+  transform-origin: top;
+  transition: transform var(--animation-global);
 
   /* &::-webkit-scrollbar {
     display: none;
@@ -74,11 +85,24 @@ export const FinderLessons = styled.div`
     height: 1px;
     background-color: #0000000d;
   }
+
+  &.nothing-found {
+    transform: scaleY(0);
+    transition: transform var(--animation-global);
+  }
 `;
 
 export const FinderMolding = styled.div`
   background-color: var(--secondary-color);
   height: 13px;
+
+  transform: scaleY(1);
+  transition: transform var(--animation-global);
+
+  &.nothing-found {
+    transform: scaleY(0);
+    transition: transform var(--animation-global);
+  }
 `;
 
 export const LessonBox = styled.ul`
@@ -201,15 +225,44 @@ export const PdfWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
-
-  &:not(:last-child) {
-    margin-bottom: 6px;
-  }
 `;
 
 export const PdfBox = styled.div``;
 
+export const PdfPreviewBackground = styled.div`
+  background-color: #303030;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 3px;
+  height: 0;
+
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform var(--animation-global), height var(--animation-global);
+
+  &:not(:last-child) {
+    margin-bottom: 3px;
+  }
+
+  &.preview-open {
+    height: 150px;
+    transform: scaleY(1);
+    transition: transform var(--animation-global),
+      height var(--animation-global);
+    & iframe {
+      height: 100%;
+    }
+  }
+`;
+
+export const PdfPreviewBackgroundText = styled.span`
+  font-size: 24px;
+`;
+
 export const PdfPreview = styled.iframe`
   width: 100%;
-  height: 150px;
+  height: 0px;
+  display: block;
+
+  transition: transform var(--animation-global), height var(--animation-global);
 `;

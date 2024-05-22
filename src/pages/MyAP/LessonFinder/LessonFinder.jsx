@@ -23,6 +23,7 @@ import {
   LessonVideoBox,
   PdfBox,
   PdfPreview,
+  PdfPreviewBackground,
   PdfWrapper,
 } from './LessonFinder.styled';
 
@@ -66,88 +67,104 @@ export const LessonFinder = ({ lessons }) => {
   };
 
   return (
-    <FinderBox>
+    <FinderBox className={lessonsFound.length === 0 && 'nothing-found'}>
       <FinderLabel>
         <FinderIcon />
-        <FinderInput onChange={findLesson} />
+        <FinderInput
+          onChange={findLesson}
+          placeholder="Введіть номер або тему уроку"
+        />
       </FinderLabel>
-      <FinderLessons>
-        <LessonBox>
-          {lessonsFound.map(lesson => (
-            <LessonBoxItem key={lesson._id}>
-              <LessonTopBox>
-                <LessonValuesLogo>
-                  {lesson.level + lesson.lesson.replace('Lesson', ' -')}
-                </LessonValuesLogo>
-                <LessonTextValuesBox>
-                  <LessonValueName>
-                    {lesson.level} {lesson.lesson}
-                  </LessonValueName>
-                  <LessonCopyNameButton
-                    onClick={() =>
-                      copyLessonName(lesson.level + ' ' + lesson.lesson)
-                    }
-                  >
-                    <LessonCopyIcon />
-                  </LessonCopyNameButton>
-                  <LessonValueTopic>{lesson.topic}</LessonValueTopic>
-                </LessonTextValuesBox>
-              </LessonTopBox>
-              {lesson.video[0] && (
-                <LessonVideoBox>
-                  <ReactPlayer
-                    loop={true}
-                    muted={false}
-                    controls={true}
-                    style={{
-                      display: 'block',
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                    }}
-                    width="100%"
-                    height="100%"
-                    url={lesson.video[0]}
-                  />
-                </LessonVideoBox>
-              )}
-              <PdfBox onMouseLeave={closePdfPreviewOnMouseOut}>
-                {lesson.pdf.map((pdf, i) => (
-                  <>
-                    <PdfWrapper
-                      key={pdf}
-                      id={pdf}
-                      onMouseEnter={e => openPdfPreviewOnHover(e)}
-                    >
-                      <PdfIcon />
-                      <LessonValuePdfLink
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        to={parse(pdf)}
-                        key={i}
+
+      {lessonsFound.length !== 0 && (
+        <>
+          <FinderLessons>
+            <LessonBox>
+              {lessonsFound.slice(0, 5).map(lesson => (
+                <LessonBoxItem key={lesson._id}>
+                  <LessonTopBox>
+                    <LessonValuesLogo>
+                      {lesson.level + lesson.lesson.replace('Lesson', ' -')}
+                    </LessonValuesLogo>
+                    <LessonTextValuesBox>
+                      <LessonValueName>
+                        {lesson.level} {lesson.lesson}
+                      </LessonValueName>
+                      <LessonCopyNameButton
+                        onClick={() =>
+                          copyLessonName(lesson.level + ' ' + lesson.lesson)
+                        }
                       >
-                        Граматика {i + 1}
-                        <PdfDownload />
-                      </LessonValuePdfLink>
-                    </PdfWrapper>
-                    {isPdfPreviewOpen && openedPdf === pdf && (
-                      <PdfPreview
-                        title={`Preview of ${pdf}`}
-                        src={pdf
-                          .replace('open?id=', 'file/d/')
-                          .replace('view', 'preview')
-                          .replace('&usp=drive_copy', '/preview')}
-                        allow="autoplay"
-                      ></PdfPreview>
-                    )}
-                  </>
-                ))}
-              </PdfBox>
-            </LessonBoxItem>
-          ))}
-        </LessonBox>
-      </FinderLessons>
-      <FinderMolding />
+                        <LessonCopyIcon />
+                      </LessonCopyNameButton>
+                      <LessonValueTopic>{lesson.topic}</LessonValueTopic>
+                    </LessonTextValuesBox>
+                  </LessonTopBox>
+                  {lesson.video[0] && (
+                    <LessonVideoBox>
+                      <ReactPlayer
+                        loop={true}
+                        muted={false}
+                        controls={true}
+                        style={{
+                          display: 'block',
+                          position: 'absolute',
+                          top: 0,
+                          left: 0,
+                        }}
+                        width="100%"
+                        height="100%"
+                        url={lesson.video[0]}
+                      />
+                    </LessonVideoBox>
+                  )}
+                  <PdfBox onMouseLeave={closePdfPreviewOnMouseOut}>
+                    {lesson.pdf.map((pdf, i) => (
+                      <>
+                        <PdfWrapper
+                          key={pdf}
+                          id={pdf}
+                          onMouseEnter={e => openPdfPreviewOnHover(e)}
+                        >
+                          <PdfIcon />
+                          <LessonValuePdfLink
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            to={parse(pdf)}
+                            key={i}
+                          >
+                            Граматика {i + 1}
+                            <PdfDownload />
+                          </LessonValuePdfLink>
+                        </PdfWrapper>
+                        <PdfPreviewBackground
+                          className={
+                            isPdfPreviewOpen &&
+                            openedPdf === pdf &&
+                            'preview-open'
+                          }
+                        >
+                          {isPdfPreviewOpen && openedPdf === pdf && (
+                            <PdfPreview
+                              title={`Preview of ${pdf}`}
+                              src={pdf
+                                .replace('open?id=', 'file/d/')
+                                .replace('view', 'preview')
+                                .replace('&usp=drive_copy', '/preview')}
+                              allow="autoplay"
+                            ></PdfPreview>
+                          )}
+                        </PdfPreviewBackground>
+                      </>
+                    ))}
+                  </PdfBox>
+                </LessonBoxItem>
+              ))}
+            </LessonBox>
+          </FinderLessons>
+          <FinderMolding />
+        </>
+      )}
     </FinderBox>
   );
 };
