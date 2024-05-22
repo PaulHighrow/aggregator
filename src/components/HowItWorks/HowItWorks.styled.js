@@ -20,6 +20,7 @@ export const HowItWorksSection = styled.section`
 export const HowItWorksSectionNew = styled.section`
   position: relative;
   padding: 50px 20px 0 20px;
+  overflow: hidden;
 
   @media screen and (min-width: 768px) {
     padding: 100px 40px 0 40px;

@@ -109,7 +109,7 @@ export const MyAPPanel = ({ lessons, user, points }) => {
         </APPanelBtn>
       </APPanel>
 
-      {isLessonFinderShown && <LessonFinder lessons={lessons} />}
+      {isLessonFinderShown && <LessonFinder lessons={lessons} user={user} />}
       {isRatingShown && <Points user={user} flatPoints={flatPoints} />}
       {isCalendarShown && <Attendance user={user} />}
     </>

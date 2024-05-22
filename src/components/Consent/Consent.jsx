@@ -39,7 +39,6 @@ export const Consent = () => {
         justifyContent: 'center',
         alignItems: 'center',
         fontSize: '14px',
-        height: '75px',
         padding: `0 ${padding}`,
         boxShadow: '0px -1px 9px 0px rgba(0, 0, 0, 0.18)',
       }}

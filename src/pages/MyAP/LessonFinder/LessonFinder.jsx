@@ -1,10 +1,17 @@
+import parse from 'html-react-parser';
 import { useState } from 'react';
 import ReactPlayer from 'react-player/youtube';
 import { ReactComponent as LessonCopyIcon } from '../../../img/svg/lessonCopyIcon.svg';
 import { ReactComponent as PdfDownload } from '../../../img/svg/pdf-download.svg';
 import { ReactComponent as PdfIcon } from '../../../img/svg/pdf-icon.svg';
-import parse from 'html-react-parser';
+
 import {
+  FaqBox,
+  FaqList,
+  FaqListItem,
+  FaqListTrigger,
+  FaqSwitchDown,
+  FaqSwitchUp,
   FinderBox,
   FinderIcon,
   FinderInput,
@@ -27,25 +34,30 @@ import {
   PdfWrapper,
 } from './LessonFinder.styled';
 
-export const LessonFinder = ({ lessons }) => {
+export const LessonFinder = ({ lessons, user }) => {
   const [lessonsFound, setLessonsFound] = useState([]);
   const [isPdfPreviewOpen, setIsPdfPreviewOpen] = useState(false);
+  const [isFaqListOpen, setIsFaqListOpen] = useState(false);
   const [openedPdf, setOpenedPdf] = useState('');
 
   const findLesson = e => {
     const value = e.target.value.toLowerCase().trim().trimStart();
     console.log(lessonsFound);
     value !== ''
-      ? setLessonsFound(lessonsFound => [
-          ...lessons.filter(
-            lesson =>
-              lesson.keysEn.toLowerCase().includes(value) ||
-              lesson.keysUa.toLowerCase().includes(value) ||
-              lesson.topic.toLowerCase().includes(value) ||
-              lesson.lesson.toLowerCase().includes(value)
-          ),
-        ])
-      : setLessonsFound(lessonsFound => [...lessons]);
+      ? setLessonsFound(
+          lessonsFound =>
+            (lessonsFound = [
+              ...lessons.filter(
+                lesson =>
+                  (lesson.keysEn.toLowerCase().includes(value) ||
+                    lesson.keysUa.toLowerCase().includes(value) ||
+                    lesson.topic.toLowerCase().includes(value) ||
+                    lesson.lesson.toLowerCase().includes(value)) &&
+                  user.lang === lesson.lang
+              ),
+            ])
+        )
+      : setLessonsFound(lessonsFound => (lessonsFound = [...lessons]));
   };
 
   const copyLessonName = lesson => {
@@ -64,6 +76,10 @@ export const LessonFinder = ({ lessons }) => {
     if (isPdfPreviewOpen) {
       setIsPdfPreviewOpen(isOpen => !isOpen);
     }
+  };
+
+  const toggleFaq = () => {
+    setIsFaqListOpen(isOpen => !isOpen);
   };
 
   return (
@@ -158,6 +174,23 @@ export const LessonFinder = ({ lessons }) => {
                       </>
                     ))}
                   </PdfBox>
+                  {lesson.faq.length > 0 && (
+                    <FaqBox>
+                      <FaqListTrigger onClick={toggleFaq}>
+                        FAQ{' '}
+                        {isFaqListOpen ? <FaqSwitchUp /> : <FaqSwitchDown />}
+                      </FaqListTrigger>
+                      {isFaqListOpen && (
+                        <FaqList>
+                          {lesson.faq.map((answer, i) => (
+                            <FaqListItem>
+                              <a href={answer}> Відповідь {i + 1}</a>
+                            </FaqListItem>
+                          ))}
+                        </FaqList>
+                      )}
+                    </FaqBox>
+                  )}
                 </LessonBoxItem>
               ))}
             </LessonBox>

@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { SearchBtnIcon } from '../MyAPPanel/MyAPPanel.styled';
+import { ReactComponent as BoxSwitchDown } from '../../../img/svg/btnbox-switch-down.svg';
+import { ReactComponent as BoxSwitchUp } from '../../../img/svg/btnbox-switch-up.svg';
 
 export const FinderBox = styled.div`
   position: absolute;
@@ -227,7 +229,11 @@ export const PdfWrapper = styled.div`
   gap: 10px;
 `;
 
-export const PdfBox = styled.div``;
+export const PdfBox = styled.div`
+  &:not(:last-child) {
+    margin-bottom: 14px;
+  }
+`;
 
 export const PdfPreviewBackground = styled.div`
   background-color: #303030;
@@ -265,4 +271,40 @@ export const PdfPreview = styled.iframe`
   display: block;
 
   transition: transform var(--animation-global), height var(--animation-global);
+`;
+
+export const FaqBox = styled.div``;
+
+export const FaqListTrigger = styled.button`
+  border: none;
+  outline: transparent;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+  padding: 6px;
+
+  color: #bebecc;
+`;
+
+export const FaqList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+`;
+
+export const FaqListItem = styled.li`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const FaqSwitchDown = styled(BoxSwitchDown)`
+  width: 14px;
+  height: 14px;
+`;
+
+export const FaqSwitchUp = styled(BoxSwitchUp)`
+  width: 14px;
+  height: 14px;
 `;

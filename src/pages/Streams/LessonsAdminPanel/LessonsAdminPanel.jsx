@@ -162,21 +162,26 @@ export const LessonsAdminPanel = () => {
       .required(
         "marathonId - обов'язкове поле! Значення дивись на платформі в адресному рядку"
       )
+      .max(7, 'Не більше 7 цифр')
       .matches(/^\d{1,7}$/, 'Лише цифри'),
     lessonId: yup
       .string()
       .required(
         "marathonLessonId - обов'язкове поле! Значення дивись на платформі в адресному рядку"
       )
+      .max(7, 'Не більше 7 цифр')
       .matches(/^\d{1,7}$/, 'Лише цифри'),
     marathonName: yup
       .string()
       .required("Назва і номер марафону - обов'язкове поле!"),
-    lang: yup.string().required("Мова - обов'язкове поле!"),
+    lang: yup
+      .string()
+      .required("Мова - обов'язкове поле!")
+      .matches(/^[A-Za-z]+$/, 'Лише латинські літери'),
     level: yup
       .string()
       .required("Рівень - обов'язкове поле!")
-      .matches(/^[A-Za-z0-9]+$/, 'Лише латинські літери'),
+      .matches(/^[A-Za-z0-9]+$/, 'Лише латинські літери та цифри'),
     lesson: yup.string().required("Урок - обов'язкове поле!"),
     topic: yup
       .string()
