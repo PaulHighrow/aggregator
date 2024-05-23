@@ -38,6 +38,7 @@ import { WindowedChat } from 'utils/Chat/ChatWindowed/WindowedChat';
 import ScrollToTop from 'utils/ScrollToTop/ScrollToTop';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { LeadFormPage } from 'pages/LeadFormPage/LeadFormPage';
+import StreamTrialA1KidsSpeakingClub from 'pages/Trials/StreamTrialA1KidsSpeakingClub';
 
 // const Home = lazy(() =>
 //   import(/* webpackChunkName: "Homepage" */ '../pages/Home/Home')
@@ -273,6 +274,10 @@ export const App = () => {
           <Route path="a0-chat" element={<WindowedChat />} />
           <Route path="a1" element={<KidsA1 />} />
           <Route path="a1-chat" element={<WindowedChat />} />
+          <Route
+            path="pilot-a1sc"
+            element={<StreamTrialA1KidsSpeakingClub />}
+          />
           <Route path="a2" element={<KidsA2 />} />
           <Route path="a2-chat" element={<WindowedChat />} />
           <Route path="b1" element={<KidsB1 />} />

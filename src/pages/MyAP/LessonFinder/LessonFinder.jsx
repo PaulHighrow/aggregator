@@ -9,6 +9,8 @@ import {
   FaqBox,
   FaqList,
   FaqListItem,
+  FaqListLink,
+  FaqListLinkNumber,
   FaqListTrigger,
   FaqSwitchDown,
   FaqSwitchUp,
@@ -180,15 +182,16 @@ export const LessonFinder = ({ lessons, user }) => {
                         FAQ{' '}
                         {isFaqListOpen ? <FaqSwitchUp /> : <FaqSwitchDown />}
                       </FaqListTrigger>
-                      {isFaqListOpen && (
-                        <FaqList>
-                          {lesson.faq.map((answer, i) => (
-                            <FaqListItem>
-                              <a href={answer}> Відповідь {i + 1}</a>
-                            </FaqListItem>
-                          ))}
-                        </FaqList>
-                      )}
+
+                      <FaqList className={isFaqListOpen && 'faqlistopen'}>
+                        {lesson.faq.map((answer, i) => (
+                          <FaqListItem>
+                            <FaqListLink href={answer}>
+                              <FaqListLinkNumber>{i + 1}</FaqListLinkNumber>
+                            </FaqListLink>
+                          </FaqListItem>
+                        ))}
+                      </FaqList>
                     </FaqBox>
                   )}
                 </LessonBoxItem>

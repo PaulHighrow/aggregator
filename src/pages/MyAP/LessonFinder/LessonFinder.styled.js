@@ -70,10 +70,6 @@ export const FinderLessons = styled.div`
   overflow-y: scroll;
   scrollbar-width: thin;
 
-  transform: scaleY(1);
-  transform-origin: top;
-  transition: transform var(--animation-global);
-
   /* &::-webkit-scrollbar {
     display: none;
   } */
@@ -87,24 +83,11 @@ export const FinderLessons = styled.div`
     height: 1px;
     background-color: #0000000d;
   }
-
-  &.nothing-found {
-    transform: scaleY(0);
-    transition: transform var(--animation-global);
-  }
 `;
 
 export const FinderMolding = styled.div`
   background-color: var(--secondary-color);
   height: 13px;
-
-  transform: scaleY(1);
-  transition: transform var(--animation-global);
-
-  &.nothing-found {
-    transform: scaleY(0);
-    transition: transform var(--animation-global);
-  }
 `;
 
 export const LessonBox = styled.ul`
@@ -244,7 +227,7 @@ export const PdfPreviewBackground = styled.div`
 
   transform: scaleY(0);
   transform-origin: top;
-  transition: transform var(--animation-global), height var(--animation-global);
+  transition: transform 350ms linear, height 350ms linear;
 
   &:not(:last-child) {
     margin-bottom: 3px;
@@ -253,8 +236,8 @@ export const PdfPreviewBackground = styled.div`
   &.preview-open {
     height: 150px;
     transform: scaleY(1);
-    transition: transform var(--animation-global),
-      height var(--animation-global);
+    transition: transform 350ms linear, height 350ms linear;
+
     & iframe {
       height: 100%;
     }
@@ -270,7 +253,7 @@ export const PdfPreview = styled.iframe`
   height: 0px;
   display: block;
 
-  transition: transform var(--animation-global), height var(--animation-global);
+  transition: transform 350ms linear, height 350ms linear;
 `;
 
 export const FaqBox = styled.div``;
@@ -281,6 +264,7 @@ export const FaqListTrigger = styled.button`
   background-color: transparent;
   display: flex;
   justify-content: space-between;
+  cursor: pointer;
 
   width: 100%;
   padding: 6px;
@@ -290,13 +274,79 @@ export const FaqListTrigger = styled.button`
 
 export const FaqList = styled.ul`
   display: flex;
-  flex-direction: column;
   gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+
+  transform: scaleY(0);
+  transform-origin: top;
+  height: 0;
+
+  transition: transform var(--animation-global);
+
+  &.faqlistopen {
+    padding: 6px;
+    height: auto;
+    transform: scaleY(1);
+  }
 `;
 
 export const FaqListItem = styled.li`
   display: flex;
   justify-content: space-between;
+`;
+
+export const FaqListLink = styled.a`
+  border-radius: 6px;
+  background: linear-gradient(322deg, #0f645b 23.22%, #09c6cc 110.01%), #0f645b;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  position: relative;
+
+  width: 30px;
+  height: 30px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+
+    transition: opacity var(--animation-global);
+
+    background: linear-gradient(322deg, #09c6cc 23.22%, #0f645b 110.01%),
+      #09c6cc;
+  }
+
+  &:hover::before,
+  &:focus::before {
+    opacity: 1;
+  }
+`;
+
+export const FaqListLinkNumber = styled.span`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+
+  transform: translate(-50%, -50%);
+
+  font-size: 20px;
+  font-weight: 700;
+  font-family: var(--secondary-font-family);
+  color: var(--secondary-color);
+  text-shadow: 0px 1.527px 1.527px rgba(0, 0, 0, 0.25);
 `;
 
 export const FaqSwitchDown = styled(BoxSwitchDown)`
