@@ -22,7 +22,9 @@ export const SharedLayout = ({ utms }) => {
 
   const toggleModal = () => {
     setIsOpenModal(isOpen => !isOpen);
+    console.log('fire');
     document.body.style.overflowY = 'hidden';
+    console.log(document.body.style.overflowY);
   };
 
   const closeModal = () => {

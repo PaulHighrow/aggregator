@@ -19,25 +19,27 @@ export const PlatformTrial = ({
         trials_1:
           'https://online.ap.education/school/marathons?marathonId=49509',
         trials_2:
-          'https://online.ap.education/school/courses/lesson-edit?lessonId=4063074&marathonId=37835&marathonLessonId=524894',
+          'https://online.ap.education/school/courses/lesson-edit?lessonId=5904149&marathonId=49509&marathonLessonId=736479',
         trials_3:
-          'https://online.ap.education/school/courses/lesson-edit?lessonId=3911221&marathonId=37835&marathonLessonId=512156',
+          'https://online.ap.education/school/courses/lesson-edit?lessonId=6765383&marathonId=49702',
         trials_4:
-          'https://online.ap.education/school/courses/lesson-edit?lessonId=3910642&marathonId=37835&marathonLessonId=512099',
+          'https://online.ap.education/school/courses/lesson-edit?lessonId=5652735&marathonId=49509&marathonLessonId=713736',
         trials_5:
-          'https://online.ap.education/school/courses/lesson-edit?lessonId=3911972&marathonId=37835&marathonLessonId=512252',
-        trials_6:
           'https://online.ap.education/school/marathons?marathonId=49509',
-        trials_7:
-          'https://online.ap.education/school/courses/lesson-edit?lessonId=5902708&marathonId=49509&marathonLessonId=736287',
       },
     },
     trials_kids: {
       links: {
         trials_kids_1:
-          'https://online.ap.education/school/courses/lesson-edit?lessonId=5703850&marathonId=49702&marathonLessonId=716930',
+          'https://online.ap.education/school/marathons?marathonId=50784',
         trials_kids_2:
-          'https://online.ap.education/school/courses/lesson-edit?lessonId=4668905&marathonId=40552&marathonLessonId=589156',
+          'https://online.ap.education/school/courses/lesson-edit?lessonId=5904789&marathonId=50784&marathonLessonId=736670',
+        trials_kids_3:
+          'https://online.ap.education/school/courses/lesson-edit?lessonId=6671815&marathonId=49702&marathonLessonId=828172',
+        trials_kids_4:
+          'https://online.ap.education/school/courses/lesson-edit?lessonId=6457234&marathonId=50784&marathonLessonId=802432',
+        trials_kids_5:
+          'https://online.ap.education/school/marathons?marathonId=50784',
       },
     },
     trials_pl: {
@@ -45,11 +47,13 @@ export const PlatformTrial = ({
         trials_pl_1:
           'https://online.ap.education/school/marathons?marathonId=41057',
         trials_pl_2:
-          'https://online.ap.education/school/courses/lesson-edit?lessonId=4563093&marathonId=41057&marathonLessonId=576687',
+          'https://online.ap.education/school/courses/lesson-edit?lessonId=6774539&marathonId=49702&marathonLessonId=841761',
         trials_pl_3:
-          'https://online.ap.education/school/marathons?marathonId=41057',
+          'https://online.ap.education/school/courses/lesson-edit?lessonId=6710925&marathonId=49702&marathonLessonId=832792',
         trials_pl_4:
-          'https://online.ap.education/school/courses/lesson-edit?lessonId=5238417&marathonId=41057&marathonLessonId=666529',
+          'https://online.ap.education/school/courses/lesson-edit?lessonId=6657897&marathonId=41057&marathonLessonId=826643',
+        trials_pl_5:
+          'https://online.ap.education/school/marathons?marathonId=41057',
       },
     },
     trials_de: {
@@ -57,8 +61,12 @@ export const PlatformTrial = ({
         trials_de_1:
           'https://online.ap.education/school/marathons?marathonId=41534',
         trials_de_2:
-          'https://online.ap.education/school/courses/lesson-edit?lessonId=4505690&marathonId=41534&marathonLessonId=569844',
+          'https://online.ap.education/school/courses/lesson-edit?bookId=436309&lessonId=6379213',
         trials_de_3:
+          'https://online.ap.education/school/courses/lesson-edit?lessonId=6660895&marathonId=49702&marathonLessonId=827089',
+        trials_de_4:
+          'https://online.ap.education/school/courses/lesson-edit?lessonId=5956269&marathonId=41534&marathonLessonId=742495',
+        trials_de_5:
           'https://online.ap.education/school/marathons?marathonId=41534',
       },
     },

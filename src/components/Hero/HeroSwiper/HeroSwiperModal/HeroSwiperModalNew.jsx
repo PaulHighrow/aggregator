@@ -1,21 +1,27 @@
-import { VideoBox, VideoLimiter } from 'components/AboutUs/AboutUs.styled';
+import useSize from '@react-hook/size';
+import { VideoBox } from 'components/AboutUs/AboutUs.styled';
+import { ButtonBox, LeadBtnNew } from 'components/Hero/Hero.styled';
 import { CloseIcon } from 'components/LeadForm/LeadForm.styled';
-import { LeadBtn } from 'components/Menu/Menu.styled';
 import { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player/lazy';
 import {
+  LogoNewModal,
+  LogoSchoolModal,
+  LogoUniversityModal,
   MarqueeBackBtn,
   MarqueeBackIcon,
   MarqueeBackdrop,
   MarqueeCloseBtn,
   MarqueeForwardBtn,
   MarqueeForwardIcon,
+  ModalBox,
   ModalDesc,
   ModalHeader,
+  ModalVideoLimiter,
   ModalWindow,
+  PageLink,
 } from './HeroSwiperModal.styled';
 import { serviceListNew } from './serviceListNew';
-import useSize from '@react-hook/size';
 
 export const HeroSwiperModalNew = ({ closeMarqueeModal, toggleModal, id }) => {
   const [modalId, setModalId] = useState(parseInt(id));
@@ -38,6 +44,25 @@ export const HeroSwiperModalNew = ({ closeMarqueeModal, toggleModal, id }) => {
     modalId >= length - 1
       ? setModalId(id => (id = 0))
       : setModalId(id => (id += 1));
+  };
+
+  const setModalHeader = title => {
+    switch (title) {
+      case 'AP School':
+        return <LogoSchoolModal />;
+      case 'AP University':
+        return <LogoUniversityModal />;
+      case 'Мовні курси':
+        return <LogoNewModal />;
+      case 'Англійська мова':
+        return title;
+      case 'Німецька мова':
+        return title;
+      case 'Польська мова':
+        return title;
+      default:
+        break;
+    }
   };
 
   useEffect(() => {
@@ -72,35 +97,43 @@ export const HeroSwiperModalNew = ({ closeMarqueeModal, toggleModal, id }) => {
         <MarqueeForwardBtn onClick={handleNextClick}>
           <MarqueeForwardIcon />
         </MarqueeForwardBtn>
-        <MarqueeCloseBtn onClick={closeMarqueeModal}>
-          <CloseIcon />
-        </MarqueeCloseBtn>
-        <ModalHeader>{serviceListNew[modalId].title}</ModalHeader>
+        <ModalHeader>
+          {setModalHeader(serviceListNew[modalId].title)}
 
-        <VideoLimiter>
-          <VideoBox>
-            <ReactPlayer
-              playing={true}
-              loop={true}
-              controls={true}
-              style={{
-                display: 'block',
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                objectFit: 'contain',
-              }}
-              width="100%"
-              height="100%"
-              url={serviceListNew[modalId].videoUrl}
-            />
-          </VideoBox>
-        </VideoLimiter>
+          <MarqueeCloseBtn onClick={closeMarqueeModal}>
+            <CloseIcon />
+          </MarqueeCloseBtn>
+        </ModalHeader>
 
-        <ModalDesc>{serviceListNew[modalId].desc}</ModalDesc>
-        <LeadBtn onClick={toggleLeadForm}>
-          {width >= 768 ? 'ШВИДКА КОНСУЛЬТАЦІЯ' : 'КОНСУЛЬТАЦІЯ'}
-        </LeadBtn>
+        <ModalBox>
+          <ModalVideoLimiter>
+            <VideoBox>
+              <ReactPlayer
+                playing={true}
+                loop={true}
+                controls={true}
+                style={{
+                  display: 'block',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  objectFit: 'contain',
+                }}
+                width="100%"
+                height="100%"
+                url={serviceListNew[modalId].videoUrl}
+              />
+            </VideoBox>
+          </ModalVideoLimiter>
+
+          <ModalDesc>{serviceListNew[modalId].desc}</ModalDesc>
+          <ButtonBox>
+          <LeadBtnNew onClick={toggleLeadForm}>ЗАЛИШИТИ ЗАЯВКУ</LeadBtnNew>
+
+          <PageLink to='/'>ПЕРЕЙТИ НА СТОРІНКУ</PageLink>
+        </ButtonBox>
+          
+        </ModalBox>
       </ModalWindow>
     </>
   );

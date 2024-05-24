@@ -227,7 +227,6 @@ export const App = () => {
           <Route path="a0" element={<StreamA0 />} />
           <Route path="a0-chat" element={<WindowedChat />} />
           <Route path="a1" element={<StreamA1 />} />
-          <Route path="pilot-a1" element={<StreamA1 />} />
           <Route path="pilot-a1sc" element={<StreamTrialA1SpeakingClub />} />
           <Route path="a1-chat" element={<WindowedChat />} />
           <Route path="a2" element={<StreamA2 />} />
@@ -242,7 +241,6 @@ export const App = () => {
           <Route path="deutscha0-chat" element={<WindowedChat />} />
           <Route path="deutsch" element={<StreamDeutsch />} />
           <Route path="pilot-dsc" element={<StreamTrialDeutschSprechclub />} />
-          {/* <Route path="pilot" element={<StreamDeutsch />} /> */}
           <Route path="deutsch-chat" element={<WindowedChat />} />
           <Route path="deutscha2" element={<StreamDeutschA2 />} />
           <Route path="deutscha2-chat" element={<WindowedChat />} />
