@@ -153,7 +153,6 @@ export const LessonsAdminPanel = () => {
     keysUa: '',
     pdf: '',
     video: '',
-    faq: '',
   };
 
   const lessonSchema = yup.object().shape({
@@ -200,7 +199,6 @@ export const LessonsAdminPanel = () => {
       ),
     pdf: yup.string() || yup.array().of(yup.string()),
     video: yup.string() || yup.array().of(yup.string()),
-    faq: yup.string() || yup.array().of(yup.string()),
   });
 
   const handleLessonSubmit = async (values, { resetForm }) => {
@@ -222,10 +220,6 @@ export const LessonsAdminPanel = () => {
       values.video === ''
         ? []
         : [...values.video.split(',').map(link => link.trim().trimStart())];
-    values.faq =
-      values.faq === ''
-        ? []
-        : [...values.faq.split(',').map(link => link.trim().trimStart())];
     try {
       const response = await axios.post('/lessons', values);
       console.log(response);
@@ -441,14 +435,6 @@ export const LessonsAdminPanel = () => {
                 />
                 <AdminInputNote component="p" name="pdf" />
               </Label>
-              <Label>
-                <AdminInput
-                  type="text"
-                  name="faq"
-                  placeholder="Посилання на відеовідповіді через кому"
-                />
-                <AdminInputNote component="p" name="faq" />
-              </Label>
               <AdminFormBtn type="submit">Додати урок</AdminFormBtn>
             </UsersForm>
           </Formik>
@@ -553,7 +539,6 @@ export const LessonsAdminPanel = () => {
                 <UserHeadCell>Ключі EN</UserHeadCell>
                 <UserHeadCell>PDF</UserHeadCell>
                 <UserHeadCell>Відео</UserHeadCell>
-                <UserHeadCell>FAQ</UserHeadCell>
                 <UserHeadCell>Edit</UserHeadCell>
                 <UserHeadCell>Delete</UserHeadCell>
               </UserDBRow>
@@ -567,7 +552,7 @@ export const LessonsAdminPanel = () => {
                   <UserCell>{lesson.lang}</UserCell>
                   <UserCell>{lesson.level}</UserCell>
                   <UserCell>{lesson.lesson}</UserCell>
-                  <UserCell>{lesson.keysUa}</UserCell>
+                  <UserCell>{lesson.topic}</UserCell>
                   <UserCell>{lesson.keysUa}</UserCell>
                   <UserCell>{lesson.keysEn}</UserCell>
                   <UserCell>
@@ -586,20 +571,6 @@ export const LessonsAdminPanel = () => {
                   </UserCell>
                   <UserCell>
                     {lesson.video.map((link, i) => (
-                      <>
-                        <a
-                          key={i}
-                          href={link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {i + 1}
-                        </a>{' '}
-                      </>
-                    ))}
-                  </UserCell>
-                  <UserCell>
-                    {lesson.faq.map((link, i) => (
                       <>
                         <a
                           key={i}

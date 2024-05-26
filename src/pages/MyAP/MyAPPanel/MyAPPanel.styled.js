@@ -68,16 +68,36 @@ export const APPanelBtn = styled.button`
 export const SearchBtnIcon = styled(SearchIcon)`
   height: 30px;
   width: 30px;
+
+  &.active {
+    color: #525266;
+  }
+`;
+
+export const FaqSearchBtnIcon = styled(SearchIcon)`
+  height: 16px;
+  width: 16px;
+  color: #bebecc;
+
+  transition: color var(--animation-global);
 `;
 
 export const CupBtnIcon = styled(CupIcon)`
   height: 30px;
   width: 30px;
+
+  &.active {
+    color: #525266;
+  }
 `;
 
 export const CalendarBtnIcon = styled(CalendarIcon)`
   height: 30px;
   width: 30px;
+
+  &.active {
+    color: #525266;
+  }
 `;
 
 export const PanelHideSwitch = styled.div`

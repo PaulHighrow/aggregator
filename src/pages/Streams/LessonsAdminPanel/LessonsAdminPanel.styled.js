@@ -53,3 +53,11 @@ export const AdminInputNote = styled(InputNote)`
   font-weight: 700;
   bottom: -1.1em;
 `;
+
+export const LessonInfo = styled.ul`
+  display: flex;
+  gap: 14px;
+
+  text-transform: capitalize;
+  font-weight: 600;
+`;

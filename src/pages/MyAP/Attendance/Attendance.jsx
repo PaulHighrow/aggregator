@@ -140,8 +140,10 @@ export const Attendance = ({ user }) => {
 
     const lessonDays = [];
 
-    date.setDate(sunday);
-    while (date.getDay() <= 6 && date.getDate() < sunday + 7) {
+    date.getDate() !== sunday ? date.setDate(sunday) : date.setDate(sunday + 1);
+    let i = 0;
+    while (date.getDay() <= 6 && date.getDate() < sunday + 7 && i < 7) {
+      i += 1;
       if (date.getDay() >= 1 && date.getDay() <= 4) {
         lessonDays.push(
           new Date(

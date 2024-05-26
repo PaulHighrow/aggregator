@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { SearchBtnIcon } from '../MyAPPanel/MyAPPanel.styled';
-import { ReactComponent as BoxSwitchDown } from '../../../img/svg/btnbox-switch-down.svg';
-import { ReactComponent as BoxSwitchUp } from '../../../img/svg/btnbox-switch-up.svg';
+import { FaqSearchBtnIcon, SearchBtnIcon } from '../MyAPPanel/MyAPPanel.styled';
+import { ReactComponent as BoxSwitchDown } from '../../../img/svg/faq-arrow-down.svg';
+import { ReactComponent as BoxSwitchUp } from '../../../img/svg/faq-arrow-up.svg';
 
 export const FinderBox = styled.div`
   position: absolute;
@@ -100,8 +100,12 @@ export const LessonBox = styled.ul`
 
 export const LessonBoxItem = styled.li`
   color: #000;
-  padding: 8px 0;
   border-bottom: 1px solid #0000000d;
+  padding-top: 8px;
+
+  &:not(:last-child) {
+    padding-bottom: 8px;
+  }
 `;
 
 export const LessonTopBox = styled.div`
@@ -224,17 +228,23 @@ export const PdfPreviewBackground = styled.div`
   overflow: hidden;
   margin-top: 3px;
   height: 0;
+  min-height: 0;
+  opacity: 0;
 
   transform: scaleY(0);
   transform-origin: top;
-  transition: transform 350ms linear, height 350ms linear;
+  transition: transform 350ms linear, height 350ms linear,
+    min-height 350ms linear, opacity 350ms linear;
 
   &:not(:last-child) {
     margin-bottom: 3px;
   }
 
   &.preview-open {
-    height: 150px;
+    opacity: 1;
+
+    height: auto;
+    min-height: 150px;
     transform: scaleY(1);
     transition: transform 350ms linear, height 350ms linear;
 
@@ -264,19 +274,25 @@ export const FaqListTrigger = styled.button`
   background-color: transparent;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   cursor: pointer;
 
   width: 100%;
-  padding: 6px;
+  padding: 8px 0;
 
   color: #bebecc;
+  font-size: 14px;
+  font-weight: 500;
+
+  &:hover div::before,
+  &:focus div::before {
+    opacity: 1;
+  }
 `;
 
 export const FaqList = styled.ul`
   display: flex;
-  gap: 6px;
-  align-items: center;
-  flex-wrap: wrap;
+  flex-direction: column;
 
   transform: scaleY(0);
   transform-origin: top;
@@ -285,33 +301,50 @@ export const FaqList = styled.ul`
   transition: transform var(--animation-global);
 
   &.faqlistopen {
-    padding: 6px;
+    padding-top: 6px;
     height: auto;
     transform: scaleY(1);
   }
 `;
 
 export const FaqListItem = styled.li`
-  display: flex;
-  justify-content: space-between;
+  &:not(:last-child) {
+    border-bottom: 1px solid #0000000d;
+  }
 `;
 
 export const FaqListLink = styled.a`
-  border-radius: 6px;
-  background: linear-gradient(322deg, #0f645b 23.22%, #09c6cc 110.01%), #0f645b;
+  display: block;
+  width: 100%;
+  color: #bebecc;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 12px 0;
   text-decoration: none;
   cursor: pointer;
   overflow: hidden;
 
+  transition: color var(--animation-global);
+
+  &:hover,
+  &:focus {
+    color: #525266;
+  }
+`;
+
+export const FaqListQuestionMarkBG = styled.div`
+  position: relative;
+  overflow: hidden;
+
   display: flex;
-  align-items: center;
+  height: 30px;
+  width: 30px;
   justify-content: center;
+  align-items: center;
   flex-shrink: 0;
 
-  position: relative;
-
-  width: 30px;
-  height: 30px;
+  border-radius: 6px;
+  background: linear-gradient(322deg, #0f645b -5.61%, #09c6cc 93.88%);
 
   &::before {
     content: '';
@@ -327,34 +360,114 @@ export const FaqListLink = styled.a`
     background: linear-gradient(322deg, #09c6cc 23.22%, #0f645b 110.01%),
       #09c6cc;
   }
-
-  &:hover::before,
-  &:focus::before {
-    opacity: 1;
-  }
 `;
 
-export const FaqListLinkNumber = styled.span`
+export const FaqListQuestionMark = styled.span`
   position: absolute;
   top: 50%;
   left: 50%;
-  z-index: 2;
 
   transform: translate(-50%, -50%);
 
-  font-size: 20px;
+  text-align: center;
+  font-size: 18px;
   font-weight: 700;
   font-family: var(--secondary-font-family);
   color: var(--secondary-color);
   text-shadow: 0px 1.527px 1.527px rgba(0, 0, 0, 0.25);
 `;
 
+export const FaqListDescription = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
+
 export const FaqSwitchDown = styled(BoxSwitchDown)`
-  width: 14px;
-  height: 14px;
+  width: 24px;
+  height: 24px;
 `;
 
 export const FaqSwitchUp = styled(BoxSwitchUp)`
-  width: 14px;
-  height: 14px;
+  width: 24px;
+  height: 24px;
+`;
+
+export const FaqFinderLabel = styled.label`
+  display: block;
+  position: relative;
+  height: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+
+  transition: transform var(--animation-global);
+
+  &.faqlistopen {
+    transform: scaleY(1);
+    height: auto;
+  }
+`;
+
+export const FaqFinderIcon = styled(FaqSearchBtnIcon)`
+  position: absolute;
+  top: 50%;
+  left: 0px;
+  z-index: 1;
+
+  transform: translateY(-50%);
+`;
+
+export const FaqFinderInput = styled.input`
+  height: 0;
+  width: 100%;
+
+  padding: 9px 10px;
+  padding-left: 26px;
+  height: 24px;
+
+  overflow: hidden;
+
+  border: none;
+  border-bottom: 1px solid #0000000d;
+  outline: transparent;
+
+  font-family: var(--my-ap-font-family);
+  font-size: 14px;
+  line-height: 20px;
+  color: #525266;
+  vertical-align: middle;
+
+  &::placeholder {
+    color: #bebecc;
+    font-size: 14px;
+    vertical-align: middle;
+  }
+
+  &.not-empty + svg {
+    color: #525266;
+  }
+`;
+
+export const FaqQuestion = styled.p`
+  font-size: 10px;
+  line-height: 1.2;
+  color: #bebecc;
+
+  height: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 350ms linear, height 350ms linear;
+
+  &.preview-open {
+    margin-top: 4px;
+    margin-bottom: 8px;
+    height: auto;
+    transform: scaleY(1);
+  }
+`;
+
+export const FaqPreviewBackground = styled(PdfPreviewBackground)`
+  &.preview-open {
+    margin-bottom: 8px;
+  }
 `;

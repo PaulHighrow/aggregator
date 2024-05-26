@@ -29,7 +29,6 @@ export const LessonEditForm = ({ lessonToEdit, closeEditForm }) => {
     keysUa: lessonToEdit.keysUa,
     pdf: lessonToEdit.pdf.join(','),
     video: lessonToEdit.video.join(','),
-    faq: lessonToEdit.faq.join(','),
   };
 
   const lessonSchema = yup.object().shape({
@@ -71,7 +70,6 @@ export const LessonEditForm = ({ lessonToEdit, closeEditForm }) => {
       ),
     video: yup.string().optional() || yup.array().of(yup.string().optional()),
     pdf: yup.string().optional() || yup.array().of(yup.string().optional()),
-    faq: yup.string().optional() || yup.array().of(yup.string().optional()),
   });
 
   const handleLessonSubmit = async (values, { resetForm }) => {
@@ -95,10 +93,6 @@ export const LessonEditForm = ({ lessonToEdit, closeEditForm }) => {
       values.video === ''
         ? []
         : [...values.video.split(',').map(link => link.trim().trimStart())];
-    values.faq =
-      values.faq === ''
-        ? []
-        : [...values.faq.split(',').map(link => link.trim().trimStart())];
     try {
       const response = await axios.put(`/lessons/${lessonToEdit._id}`, values);
       console.log(response);
@@ -202,14 +196,6 @@ export const LessonEditForm = ({ lessonToEdit, closeEditForm }) => {
               placeholder="Внести посилання на таблиці через кому"
             />
             <AdminInputNote component="p" name="pdf" />
-          </Label>
-          <Label>
-            <AdminInput
-              type="text"
-              name="faq"
-              placeholder="Посилання на відеовідповіді через кому"
-            />
-            <AdminInputNote component="p" name="faq" />
           </Label>
           <AdminFormBtn type="submit">Підтвердити зміни</AdminFormBtn>
         </UsersEditForm>

@@ -99,13 +99,13 @@ export const MyAPPanel = ({ lessons, user, points }) => {
       </PanelHideSwitch>
       <APPanel className={isButtonBoxShown ? '' : 'hidden'}>
         <APPanelBtn onClick={toggleSearch}>
-          <SearchBtnIcon />
+          <SearchBtnIcon className={isLessonFinderShown && 'active'} />
         </APPanelBtn>
         <APPanelBtn onClick={toggleRating}>
-          <CupBtnIcon />
+          <CupBtnIcon className={isRatingShown && 'active'} />
         </APPanelBtn>
         <APPanelBtn onClick={toggleCalendar}>
-          <CalendarBtnIcon />
+          <CalendarBtnIcon className={isCalendarShown && 'active'} />
         </APPanelBtn>
       </APPanel>
 

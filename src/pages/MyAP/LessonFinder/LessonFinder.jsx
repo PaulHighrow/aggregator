@@ -7,11 +7,18 @@ import { ReactComponent as PdfIcon } from '../../../img/svg/pdf-icon.svg';
 
 import {
   FaqBox,
+  FaqFinderIcon,
+  FaqFinderInput,
+  FaqFinderLabel,
   FaqList,
+  FaqListDescription,
   FaqListItem,
   FaqListLink,
-  FaqListLinkNumber,
+  FaqListQuestionMark,
+  FaqListQuestionMarkBG,
   FaqListTrigger,
+  FaqPreviewBackground,
+  FaqQuestion,
   FaqSwitchDown,
   FaqSwitchUp,
   FinderBox,
@@ -39,27 +46,66 @@ import {
 export const LessonFinder = ({ lessons, user }) => {
   const [lessonsFound, setLessonsFound] = useState([]);
   const [isPdfPreviewOpen, setIsPdfPreviewOpen] = useState(false);
-  const [isFaqListOpen, setIsFaqListOpen] = useState(false);
   const [openedPdf, setOpenedPdf] = useState('');
+  const [isFaqListOpen, setIsFaqListOpen] = useState(false);
+  const [openedFaq, setOpenedFaq] = useState('');
+  const [answers, setAnswers] = useState([]);
+  const [answersFound, setAnswersFound] = useState([]);
+  const [isAnswerOpen, setIsAnswerOpen] = useState(false);
+  const [openedAnswer, setOpenedAnswer] = useState(0);
+  const [isInputEmpty, setIsInputEmpty] = useState(true);
 
   const findLesson = e => {
+    setIsFaqListOpen(false);
+    setOpenedFaq('');
+    setAnswers([]);
+    setAnswersFound([]);
     const value = e.target.value.toLowerCase().trim().trimStart();
-    console.log(lessonsFound);
     value !== ''
       ? setLessonsFound(
           lessonsFound =>
             (lessonsFound = [
-              ...lessons.filter(
-                lesson =>
+              ...lessons.filter(lesson => {
+                const lessonLevelNumber =
+                  lesson.level +
+                  ' ' +
+                  lesson.lesson.replace('Lesson', '').trim().trimStart();
+                return (
                   (lesson.keysEn.toLowerCase().includes(value) ||
                     lesson.keysUa.toLowerCase().includes(value) ||
                     lesson.topic.toLowerCase().includes(value) ||
-                    lesson.lesson.toLowerCase().includes(value)) &&
+                    lesson.lesson.toLowerCase().includes(value) ||
+                    lesson.level.toLowerCase().includes(value) ||
+                    lessonLevelNumber.toLowerCase().includes(value)) &&
                   user.lang === lesson.lang
+                );
+              }),
+            ])
+        )
+      : setLessonsFound(
+          lessonsFound =>
+            (lessonsFound = [
+              ...lessons.filter(lesson => user.lang === lesson.lang),
+            ])
+        );
+    sessionStorage.setItem('searchValue', value);
+  };
+
+  const findAnswer = e => {
+    const value = e.target.value.toLowerCase().trim().trimStart();
+    value !== '' ? setIsInputEmpty(false) : setIsInputEmpty(true);
+    value !== ''
+      ? setAnswersFound(
+          answersFound =>
+            (answersFound = [
+              ...answers.filter(
+                answer =>
+                  answer.question.toLowerCase().includes(value) ||
+                  answer.exercise.toLowerCase().includes(value)
               ),
             ])
         )
-      : setLessonsFound(lessonsFound => (lessonsFound = [...lessons]));
+      : setAnswersFound(answersFound => (answersFound = [...answers]));
   };
 
   const copyLessonName = lesson => {
@@ -80,15 +126,35 @@ export const LessonFinder = ({ lessons, user }) => {
     }
   };
 
-  const toggleFaq = () => {
+  const toggleFaq = lesson => {
     setIsFaqListOpen(isOpen => !isOpen);
+    setAnswers(answers => (answers = [...lesson.faq]));
+    setAnswersFound(answersFound => (answersFound = [...lesson.faq]));
+    setOpenedFaq(openedFaq => (openedFaq = lesson._id));
   };
+
+  const openAnswer = i => {
+    setOpenedAnswer(i);
+    setIsAnswerOpen(isOpen => !isOpen);
+  };
+
+  const toggleAnswer = i =>
+    isAnswerOpen && i !== openedAnswer
+      ? setOpenedAnswer(i)
+      : !isAnswerOpen && i === openedAnswer
+      ? setIsAnswerOpen(isOpen => !isOpen)
+      : isAnswerOpen && i === openedAnswer
+      ? setIsAnswerOpen(isOpen => !isOpen)
+      : openAnswer(i);
 
   return (
     <FinderBox className={lessonsFound.length === 0 && 'nothing-found'}>
       <FinderLabel>
         <FinderIcon />
         <FinderInput
+          value={sessionStorage.getItem('searchValue')}
+          autoFocus={sessionStorage.getItem('searchValue') && true}
+          onFocus={sessionStorage.getItem('searchValue') && findLesson}
           onChange={findLesson}
           placeholder="Введіть номер або тему уроку"
         />
@@ -178,17 +244,77 @@ export const LessonFinder = ({ lessons, user }) => {
                   </PdfBox>
                   {lesson.faq.length > 0 && (
                     <FaqBox>
-                      <FaqListTrigger onClick={toggleFaq}>
-                        FAQ{' '}
+                      <FaqListTrigger onClick={() => toggleFaq(lesson)}>
+                        <FaqListDescription>
+                          <FaqListQuestionMarkBG>
+                            <FaqListQuestionMark>?</FaqListQuestionMark>
+                          </FaqListQuestionMarkBG>
+                          FAQ{' '}
+                        </FaqListDescription>
                         {isFaqListOpen ? <FaqSwitchUp /> : <FaqSwitchDown />}
                       </FaqListTrigger>
 
-                      <FaqList className={isFaqListOpen && 'faqlistopen'}>
-                        {lesson.faq.map((answer, i) => (
-                          <FaqListItem>
-                            <FaqListLink href={answer}>
-                              <FaqListLinkNumber>{i + 1}</FaqListLinkNumber>
+                      <FaqFinderLabel
+                        className={
+                          isFaqListOpen &&
+                          openedFaq === lesson._id &&
+                          'faqlistopen'
+                        }
+                      >
+                        <FaqFinderInput
+                          onChange={findAnswer}
+                          placeholder="Введіть номер вправи або ваше питання"
+                          className={!isInputEmpty && 'not-empty'}
+                        />
+                        <FaqFinderIcon />
+                      </FaqFinderLabel>
+                      <FaqList
+                        className={
+                          isFaqListOpen &&
+                          openedFaq === lesson._id &&
+                          'faqlistopen'
+                        }
+                      >
+                        {answersFound.map((q, i) => (
+                          <FaqListItem key={i}>
+                            <FaqListLink onClick={() => toggleAnswer(i)}>
+                              {q.exercise}
                             </FaqListLink>
+                            <FaqQuestion
+                              className={
+                                isAnswerOpen &&
+                                openedAnswer === i &&
+                                'preview-open'
+                              }
+                            >
+                              {q.question}
+                            </FaqQuestion>
+                            <FaqPreviewBackground
+                              className={
+                                isAnswerOpen &&
+                                openedAnswer === i &&
+                                'preview-open'
+                              }
+                            >
+                              {isAnswerOpen && openedAnswer === i && (
+                                <LessonVideoBox>
+                                  <ReactPlayer
+                                    loop={true}
+                                    muted={false}
+                                    controls={true}
+                                    style={{
+                                      display: 'block',
+                                      position: 'absolute',
+                                      top: 0,
+                                      left: 0,
+                                    }}
+                                    width="100%"
+                                    height="100%"
+                                    url={q.answer}
+                                  />
+                                </LessonVideoBox>
+                              )}
+                            </FaqPreviewBackground>
                           </FaqListItem>
                         ))}
                       </FaqList>

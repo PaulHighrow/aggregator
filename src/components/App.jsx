@@ -39,6 +39,7 @@ import ScrollToTop from 'utils/ScrollToTop/ScrollToTop';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { LeadFormPage } from 'pages/LeadFormPage/LeadFormPage';
 import StreamTrialA1KidsSpeakingClub from 'pages/Trials/StreamTrialA1KidsSpeakingClub';
+import { TeacherLessonsAdminPanel } from 'pages/Streams/LessonsAdminPanel/TeacherLessonsAdminPanel/TeacherLessonsAdminPanel';
 
 // const Home = lazy(() =>
 //   import(/* webpackChunkName: "Homepage" */ '../pages/Home/Home')
@@ -262,6 +263,10 @@ export const App = () => {
           <Route path="user-admin-panel" element={<UserAdminPanel />} />
           <Route path="ratings-admin-panel" element={<RatingsAdminPanel />} />
           <Route path="lessons-admin-panel" element={<LessonsAdminPanel />} />
+          <Route
+            path="teacher-admin-panel"
+            element={<TeacherLessonsAdminPanel />}
+          />
           <Route
             path="collection-admin-panel"
             element={<CollectionsAdminPanel />}

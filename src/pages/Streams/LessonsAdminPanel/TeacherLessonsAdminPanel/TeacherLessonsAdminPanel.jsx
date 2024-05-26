@@ -19,12 +19,11 @@ import {
   UserDBCaption,
   UserDBRow,
   UserDBTable,
-  UserDeleteButton,
   UserEditButton,
   UserHeadCell,
-  UsersForm,
-} from '../UserAdminPanel/UserAdminPanel.styled';
-import { LessonEditForm } from './LessonEditForm/LessonEditForm';
+  UsersEditForm,
+} from '../../UserAdminPanel/UserAdminPanel.styled';
+import { LessonInfo } from '../LessonsAdminPanel.styled';
 
 axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
 const setAuthToken = token => {
@@ -141,96 +140,42 @@ export const TeacherLessonsAdminPanel = () => {
     }
   };
 
-  const initialLessonValues = {
-    marathonId: '',
-    lessonId: '',
-    marathonName: '',
-    lang: '',
-    level: '',
-    lesson: '',
-    topic: '',
-    keysEn: '',
-    keysUa: '',
-    pdf: '',
-    video: '',
-    faq: '',
+  const initialAnswerValues = {
+    exercise: '',
+    question: '',
+    answer: '',
   };
 
-  const lessonSchema = yup.object().shape({
-    marathonId: yup
+  const answerSchema = yup.object().shape({
+    exercise: yup
       .string()
       .required(
-        "marathonId - обов'язкове поле! Значення дивись на платформі в адресному рядку"
-      )
-      .max(7, 'Не більше 7 цифр')
-      .matches(/^\d{1,7}$/, 'Лише цифри'),
-    lessonId: yup
-      .string()
-      .required(
-        "marathonLessonId - обов'язкове поле! Значення дивись на платформі в адресному рядку"
-      )
-      .max(7, 'Не більше 7 цифр')
-      .matches(/^\d{1,7}$/, 'Лише цифри'),
-    marathonName: yup
-      .string()
-      .required("Назва і номер марафону - обов'язкове поле!"),
-    lang: yup
-      .string()
-      .required("Мова - обов'язкове поле!")
-      .matches(/^[A-Za-z]+$/, 'Лише латинські літери'),
-    level: yup
-      .string()
-      .required("Рівень - обов'язкове поле!")
-      .matches(/^[A-Za-z0-9]+$/, 'Лише латинські літери та цифри'),
-    lesson: yup.string().required("Урок - обов'язкове поле!"),
-    topic: yup
-      .string()
-      .required(
-        "Тема уроку - обов'язкове поле! Введи теми як граматики, так і словника одним рядком"
+        "Необхідно вказати розділ та вправу, наприклад: 'Слухання 1.2'"
       ),
-    keysEn: yup
+    question: yup
       .string()
       .required(
-        "Ключі англійською - обов'язкове поле! Введи переклад тему уроку або її фрагментів англійською"
+        'Необхідно вказати питання юзера (за потреби переформулювати та скоротити)'
       ),
-    keysUa: yup
-      .string()
-      .required(
-        "Ключі українською - обов'язкове поле! Введи переклад тему уроку або її фрагментів українською"
-      ),
-    pdf: yup.string() || yup.array().of(yup.string()),
-    video: yup.string() || yup.array().of(yup.string()),
-    faq: yup.string() || yup.array().of(yup.string()),
+    answer: yup.string().required('Лінк на відеовідповідь, залиту на ютуб'),
   });
 
-  const handleLessonSubmit = async (values, { resetForm }) => {
+  const handleAnswerSubmit = async (values, { resetForm }) => {
     setIsLoading(isLoading => (isLoading = true));
-    values.marathonId = values.marathonId.trim().trimStart();
-    values.lessonId = values.lessonId.trim().trimStart();
-    values.marathonName = values.marathonName.trim().trimStart();
-    values.lang = values.lang.toLowerCase().trim().trimStart();
-    values.level = values.level.toLowerCase().trim().trimStart();
-    values.lesson = values.lesson.trim().trimStart();
-    values.topic = values.topic.trim().trimStart();
-    values.keysEn = values.keysEn.toLowerCase().trim().trimStart();
-    values.keysUa = values.keysUa.toLowerCase().trim().trimStart();
-    values.pdf =
-      values.pdf === ''
-        ? []
-        : [...values.pdf.split(',').map(link => link.trim().trimStart())];
-    values.video =
-      values.video === ''
-        ? []
-        : [...values.video.split(',').map(link => link.trim().trimStart())];
-    values.faq =
-      values.faq === ''
-        ? []
-        : [...values.faq.split(',').map(link => link.trim().trimStart())];
+
+    const faq = {
+      exercise: values.exercise,
+      question: values.question,
+      answer: values.answer,
+    };
+
     try {
-      const response = await axios.post('/lessons', values);
+      console.log(lessonToEdit._id);
+      console.log(faq);
+      const response = await axios.patch(`/lessons/${lessonToEdit._id}`, faq);
       console.log(response);
       resetForm();
-      alert('Урок додано');
+      alert('Відповідь додано');
     } catch (error) {
       console.error(error);
       alert(
@@ -255,23 +200,6 @@ export const TeacherLessonsAdminPanel = () => {
   const closeEditFormOnClick = e => {
     if (e.target.id === 'close-on-click') {
       setIsEditFormOpen(false);
-    }
-  };
-
-  const handleDelete = async id => {
-    setIsLoading(isLoading => (isLoading = true));
-
-    try {
-      const response = await axios.delete(`/lessons/${id}`);
-      console.log(response);
-      alert('Урок видалено');
-    } catch (error) {
-      console.error(error);
-      alert(
-        'Десь якась проблема - клацай F12, роби скрін консолі, відправляй Кирилу'
-      );
-    } finally {
-      setIsLoading(isLoading => (isLoading = false));
     }
   };
 
@@ -350,116 +278,11 @@ export const TeacherLessonsAdminPanel = () => {
           </Formik>
         )}
 
-        {isUserAdmin && (
-          <Formik
-            initialValues={initialLessonValues}
-            onSubmit={handleLessonSubmit}
-            validationSchema={lessonSchema}
-          >
-            <UsersForm>
-              <Label>
-                <AdminInput
-                  type="text"
-                  name="marathonId"
-                  placeholder="marathonId"
-                />
-                <AdminInputNote component="p" name="marathonId" />
-              </Label>
-              <Label>
-                <AdminInput
-                  type="text"
-                  name="lessonId"
-                  placeholder="marathonLessonId"
-                />
-                <AdminInputNote component="p" name="lessonId" />
-              </Label>
-              <Label>
-                <AdminInput
-                  type="text"
-                  name="marathonName"
-                  placeholder="Назва і номер марафону"
-                />
-                <AdminInputNote component="p" name="marathonName" />
-              </Label>
-              <Label>
-                <AdminInput
-                  type="text"
-                  name="lang"
-                  placeholder="Мова (en/de/pl)"
-                />
-                <AdminInputNote component="p" name="lang" />
-              </Label>
-              <Label>
-                <AdminInput
-                  type="text"
-                  name="level"
-                  placeholder="Рівень (A1/A2/B1/B2)"
-                />
-                <AdminInputNote component="p" name="level" />
-              </Label>
-              <Label>
-                <AdminInput
-                  type="text"
-                  name="lesson"
-                  placeholder="Номер уроку (Lesson 12)"
-                />
-                <AdminInputNote component="p" name="lesson" />
-              </Label>
-              <Label>
-                <AdminInput type="text" name="topic" placeholder="Тема уроку" />
-                <AdminInputNote component="p" name="topic" />
-              </Label>
-              <Label>
-                <AdminInput
-                  type="text"
-                  name="keysUa"
-                  placeholder="Ключові слова українською"
-                />
-                <AdminInputNote component="p" name="keysUa" />
-              </Label>
-              <Label>
-                <AdminInput
-                  type="text"
-                  name="keysEn"
-                  placeholder="Ключові слова англійською"
-                />
-                <AdminInputNote component="p" name="keysEn" />
-              </Label>
-              <Label>
-                <AdminInput
-                  type="text"
-                  name="video"
-                  placeholder="Внести посилання на відео через кому"
-                />
-                <AdminInputNote component="p" name="knowledge" />
-              </Label>
-              <Label>
-                <AdminInput
-                  type="text"
-                  name="pdf"
-                  placeholder="Внести посилання на таблиці через кому"
-                />
-                <AdminInputNote component="p" name="pdf" />
-              </Label>
-              <Label>
-                <AdminInput
-                  type="text"
-                  name="faq"
-                  placeholder="Посилання на відеовідповіді через кому"
-                />
-                <AdminInputNote component="p" name="faq" />
-              </Label>
-              <AdminFormBtn type="submit">Додати урок</AdminFormBtn>
-            </UsersForm>
-          </Formik>
-        )}
         {isUserAdmin && lessons && (
           <UserDBTable>
             <UserDBCaption>Список уроків на платформі</UserDBCaption>
             <thead>
               <UserDBRow>
-                <UserHeadCell>marathonID</UserHeadCell>
-                <UserHeadCell>lessonID</UserHeadCell>
                 <UserHeadCell>
                   <Filterable>
                     Назва і № марафону
@@ -549,61 +372,24 @@ export const TeacherLessonsAdminPanel = () => {
                 </UserHeadCell>
                 <UserHeadCell>Номер уроку</UserHeadCell>
                 <UserHeadCell>Тема</UserHeadCell>
-                <UserHeadCell>Ключі UA</UserHeadCell>
-                <UserHeadCell>Ключі EN</UserHeadCell>
-                <UserHeadCell>PDF</UserHeadCell>
-                <UserHeadCell>Відео</UserHeadCell>
                 <UserHeadCell>FAQ</UserHeadCell>
-                <UserHeadCell>Edit</UserHeadCell>
-                <UserHeadCell>Delete</UserHeadCell>
+                <UserHeadCell>Додати</UserHeadCell>
               </UserDBRow>
             </thead>
             <tbody>
               {lessons.map(lesson => (
                 <UserDBRow key={lesson._id}>
-                  <UserCell>{lesson.marathonId}</UserCell>
-                  <UserCell>{lesson.lessonId}</UserCell>
                   <UserCell>{lesson.marathonName}</UserCell>
                   <UserCell>{lesson.lang}</UserCell>
                   <UserCell>{lesson.level}</UserCell>
                   <UserCell>{lesson.lesson}</UserCell>
-                  <UserCell>{lesson.keysUa}</UserCell>
-                  <UserCell>{lesson.keysUa}</UserCell>
-                  <UserCell>{lesson.keysEn}</UserCell>
+                  <UserCell>{lesson.topic}</UserCell>
                   <UserCell>
-                    {lesson.pdf.map((link, i) => (
+                    {lesson.faq.map((q, i) => (
                       <>
                         <a
                           key={i}
-                          href={link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {i + 1}
-                        </a>{' '}
-                      </>
-                    ))}
-                  </UserCell>
-                  <UserCell>
-                    {lesson.video.map((link, i) => (
-                      <>
-                        <a
-                          key={i}
-                          href={link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {i + 1}
-                        </a>{' '}
-                      </>
-                    ))}
-                  </UserCell>
-                  <UserCell>
-                    {lesson.faq.map((link, i) => (
-                      <>
-                        <a
-                          key={i}
-                          href={link}
+                          href={q.answer}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
@@ -615,18 +401,9 @@ export const TeacherLessonsAdminPanel = () => {
                   <UserCell>
                     {
                       <UserEditButton onClick={() => handleEdit(lesson._id)}>
-                        Edit
+                        Add
                       </UserEditButton>
                     }
-                  </UserCell>
-                  <UserCell>
-                    {lesson.name === 'Dev Acc' ? null : (
-                      <UserDeleteButton
-                        onClick={() => handleDelete(lesson._id)}
-                      >
-                        Del
-                      </UserDeleteButton>
-                    )}
                   </UserCell>
                 </UserDBRow>
               ))}
@@ -635,10 +412,46 @@ export const TeacherLessonsAdminPanel = () => {
         )}
         {isEditFormOpen && (
           <Backdrop onClick={closeEditFormOnClick} id="close-on-click">
-            <LessonEditForm
-              lessonToEdit={lessonToEdit}
-              closeEditForm={closeEditForm}
-            />
+            <Formik
+              initialValues={initialAnswerValues}
+              onSubmit={handleAnswerSubmit}
+              validationSchema={answerSchema}
+            >
+              <UsersEditForm>
+                <LessonInfo>
+                  <li>{lessonToEdit.marathonName}</li>
+                  <li>{lessonToEdit.lang}</li>
+                  <li>{lessonToEdit.level}</li>
+                  <li>{lessonToEdit.lesson}</li>
+                </LessonInfo>
+
+                <Label>
+                  <AdminInput
+                    type="text"
+                    name="exercise"
+                    placeholder="Розділ та вправа"
+                  />
+                  <AdminInputNote component="p" name="exercise" />
+                </Label>
+                <Label>
+                  <AdminInput
+                    type="text"
+                    name="question"
+                    placeholder="Питання користувача (переформулювати точніше та скоротити)"
+                  />
+                  <AdminInputNote component="p" name="question" />
+                </Label>
+                <Label>
+                  <AdminInput
+                    type="text"
+                    name="answer"
+                    placeholder="Відповідь"
+                  />
+                  <AdminInputNote component="p" name="answer" />
+                </Label>
+                <AdminFormBtn type="submit">Додати відповідь</AdminFormBtn>
+              </UsersEditForm>
+            </Formik>
           </Backdrop>
         )}
         {isLoading && <Loader />}
