@@ -59,6 +59,10 @@ export const LeadFormPage = ({ utms }) => {
         return 'atamanchuk_sonia';
       case '/form-c':
         return 'ukryoutube_sonia';
+      case '/form-d':
+        return 'eng_for_ukr';
+      case '/form-e':
+        return 'yanovych';
       default:
         break;
     }

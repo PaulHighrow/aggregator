@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { FaqSearchBtnIcon, SearchBtnIcon } from '../MyAPPanel/MyAPPanel.styled';
 import { ReactComponent as BoxSwitchDown } from '../../../img/svg/faq-arrow-down.svg';
 import { ReactComponent as BoxSwitchUp } from '../../../img/svg/faq-arrow-up.svg';
+import { ReactComponent as ExternalLink } from '../../../img/svg/externalLink.svg';
+import { ReactComponent as InternalLink } from '../../../img/svg/internalLink.svg';
 
 export const FinderBox = styled.div`
   position: absolute;
@@ -103,9 +105,7 @@ export const LessonBoxItem = styled.li`
   border-bottom: 1px solid #0000000d;
   padding-top: 8px;
 
-  &:not(:last-child) {
-    padding-bottom: 8px;
-  }
+  padding-bottom: 8px;
 `;
 
 export const LessonTopBox = styled.div`
@@ -148,6 +148,7 @@ export const LessonValuesList = styled.ul`
 export const LessonTextValuesBox = styled.div`
   position: relative;
   padding-right: 32px;
+  min-height: 52px;
   width: 100%;
 `;
 
@@ -168,16 +169,24 @@ export const LessonValueTopic = styled.p`
   font-size: 12px;
 `;
 
+export const LessonLinksBox = styled.div`
+  position: absolute;
+  top: 50%;
+  right: 0;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+`;
+
 export const LessonCopyNameButton = styled.button`
   border: none;
   outline: transparent;
   background-color: transparent;
   padding: 0;
   cursor: pointer;
-
-  position: absolute;
-  top: 0;
-  right: 0;
 `;
 
 export const LessonPdfBox = styled.div`
@@ -470,4 +479,13 @@ export const FaqPreviewBackground = styled(PdfPreviewBackground)`
   &.preview-open {
     margin-bottom: 8px;
   }
+`;
+
+export const ExternalLinkIcon = styled(ExternalLink)`
+  display: block;
+  flex-shrink: 0;
+`;
+export const InternalLinkIcon = styled(InternalLink)`
+  display: block;
+  flex-shrink: 0;
 `;

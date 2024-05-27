@@ -1,11 +1,10 @@
 import parse from 'html-react-parser';
 import { useState } from 'react';
 import ReactPlayer from 'react-player/youtube';
-import { ReactComponent as LessonCopyIcon } from '../../../img/svg/lessonCopyIcon.svg';
-import { ReactComponent as PdfDownload } from '../../../img/svg/pdf-download.svg';
 import { ReactComponent as PdfIcon } from '../../../img/svg/pdf-icon.svg';
 
 import {
+  ExternalLinkIcon,
   FaqBox,
   FaqFinderIcon,
   FaqFinderInput,
@@ -27,9 +26,11 @@ import {
   FinderLabel,
   FinderLessons,
   FinderMolding,
+  InternalLinkIcon,
   LessonBox,
   LessonBoxItem,
   LessonCopyNameButton,
+  LessonLinksBox,
   LessonTextValuesBox,
   LessonTopBox,
   LessonValueName,
@@ -43,7 +44,7 @@ import {
   PdfWrapper,
 } from './LessonFinder.styled';
 
-export const LessonFinder = ({ lessons, user }) => {
+export const LessonFinder = ({ lessons, user, setPlatformIframeLink }) => {
   const [lessonsFound, setLessonsFound] = useState([]);
   const [isPdfPreviewOpen, setIsPdfPreviewOpen] = useState(false);
   const [openedPdf, setOpenedPdf] = useState('');
@@ -108,9 +109,9 @@ export const LessonFinder = ({ lessons, user }) => {
       : setAnswersFound(answersFound => (answersFound = [...answers]));
   };
 
-  const copyLessonName = lesson => {
-    navigator.clipboard.writeText(lesson);
-  };
+  // const copyLessonName = lesson => {
+  //   navigator.clipboard.writeText(lesson);
+  // };
 
   const openPdfPreviewOnHover = e => {
     setOpenedPdf(pdf => (pdf = e.target.id));
@@ -174,13 +175,56 @@ export const LessonFinder = ({ lessons, user }) => {
                       <LessonValueName>
                         {lesson.level} {lesson.lesson}
                       </LessonValueName>
-                      <LessonCopyNameButton
-                        onClick={() =>
-                          copyLessonName(lesson.level + ' ' + lesson.lesson)
-                        }
-                      >
-                        <LessonCopyIcon />
-                      </LessonCopyNameButton>
+                      <LessonLinksBox>
+                        <LessonCopyNameButton
+                          // onClick={() =>
+                          //   copyLessonName(lesson.level + ' ' + lesson.lesson)
+                          // }
+                          onClick={() => {
+                            setPlatformIframeLink(
+                              `https://online.ap.education/MarathonClass/?marathonId=${lesson.marathonId}&pupilId=${user.pupilId}&marathonLessonId=${lesson.lessonId}`
+                            );
+                          }}
+                          // onClick={() => {
+                          //   window.open(
+                          //     `http://localhost:3000/aggregator/my-ap/?https://online.ap.education/MarathonClass/?marathonId=${lesson.marathonId}&pupilId=${user.pupilId}&marathonLessonId=${lesson.lessonId}`,
+                          //     '_blank'
+                          //   );
+                          // }}
+                          // onClick={() => {
+                          //   window.open(
+                          //     `https://online.ap.education/MarathonClass/?marathonId=${lesson.marathonId}&pupilId=${user.pupilId}&marathonLessonId=${lesson.lessonId}`,
+                          //     '_blank'
+                          //   );
+                          // }}
+                        >
+                          <InternalLinkIcon />
+                        </LessonCopyNameButton>
+                        <LessonCopyNameButton
+                          // onClick={() =>
+                          //   copyLessonName(lesson.level + ' ' + lesson.lesson)
+                          // }
+                          // onClick={() => {
+                          //   setPlatformIframeLink(
+                          //     `https://online.ap.education/MarathonClass/?marathonId=${lesson.marathonId}&pupilId=${user.pupilId}&marathonLessonId=${lesson.lessonId}`
+                          //   );
+                          // }}
+                          onClick={() => {
+                            window.open(
+                              `http://localhost:3000/aggregator/my-ap/?https://online.ap.education/MarathonClass/?marathonId=${lesson.marathonId}&pupilId=${user.pupilId}&marathonLessonId=${lesson.lessonId}`,
+                              '_blank'
+                            );
+                          }}
+                          // onClick={() => {
+                          //   window.open(
+                          //     `https://online.ap.education/MarathonClass/?marathonId=${lesson.marathonId}&pupilId=${user.pupilId}&marathonLessonId=${lesson.lessonId}`,
+                          //     '_blank'
+                          //   );
+                          // }}
+                        >
+                          <ExternalLinkIcon />
+                        </LessonCopyNameButton>
+                      </LessonLinksBox>
                       <LessonValueTopic>{lesson.topic}</LessonValueTopic>
                     </LessonTextValuesBox>
                   </LessonTopBox>
@@ -202,46 +246,48 @@ export const LessonFinder = ({ lessons, user }) => {
                       />
                     </LessonVideoBox>
                   )}
-                  <PdfBox onMouseLeave={closePdfPreviewOnMouseOut}>
-                    {lesson.pdf.map((pdf, i) => (
-                      <>
-                        <PdfWrapper
-                          key={pdf}
-                          id={pdf}
-                          onMouseEnter={e => openPdfPreviewOnHover(e)}
-                        >
-                          <PdfIcon />
-                          <LessonValuePdfLink
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            to={parse(pdf)}
-                            key={i}
+                  {lesson.pdf.length > 0 && (
+                    <PdfBox onMouseLeave={closePdfPreviewOnMouseOut}>
+                      {lesson.pdf.map((pdf, i) => (
+                        <>
+                          <PdfWrapper
+                            key={pdf}
+                            id={pdf}
+                            onMouseEnter={e => openPdfPreviewOnHover(e)}
                           >
-                            Граматика {i + 1}
-                            <PdfDownload />
-                          </LessonValuePdfLink>
-                        </PdfWrapper>
-                        <PdfPreviewBackground
-                          className={
-                            isPdfPreviewOpen &&
-                            openedPdf === pdf &&
-                            'preview-open'
-                          }
-                        >
-                          {isPdfPreviewOpen && openedPdf === pdf && (
-                            <PdfPreview
-                              title={`Preview of ${pdf}`}
-                              src={pdf
-                                .replace('open?id=', 'file/d/')
-                                .replace('view', 'preview')
-                                .replace('&usp=drive_copy', '/preview')}
-                              allow="autoplay"
-                            ></PdfPreview>
-                          )}
-                        </PdfPreviewBackground>
-                      </>
-                    ))}
-                  </PdfBox>
+                            <PdfIcon />
+                            <LessonValuePdfLink
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              to={parse(pdf)}
+                              key={i}
+                            >
+                              Граматика {i + 1}
+                              <ExternalLinkIcon />
+                            </LessonValuePdfLink>
+                          </PdfWrapper>
+                          <PdfPreviewBackground
+                            className={
+                              isPdfPreviewOpen &&
+                              openedPdf === pdf &&
+                              'preview-open'
+                            }
+                          >
+                            {isPdfPreviewOpen && openedPdf === pdf && (
+                              <PdfPreview
+                                title={`Preview of ${pdf}`}
+                                src={pdf
+                                  .replace('open?id=', 'file/d/')
+                                  .replace('view', 'preview')
+                                  .replace('&usp=drive_copy', '/preview')}
+                                allow="autoplay"
+                              ></PdfPreview>
+                            )}
+                          </PdfPreviewBackground>
+                        </>
+                      ))}
+                    </PdfBox>
+                  )}
                   {lesson.faq.length > 0 && (
                     <FaqBox>
                       <FaqListTrigger onClick={() => toggleFaq(lesson)}>

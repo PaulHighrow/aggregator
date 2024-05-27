@@ -14,7 +14,7 @@ import {
 } from './MyAPPanel.styled';
 import { Attendance } from '../Attendance/Attendance';
 
-export const MyAPPanel = ({ lessons, user, points }) => {
+export const MyAPPanel = ({ lessons, user, points, setPlatformIframeLink }) => {
   const [isBackdropShown, setIsBackdropShown] = useState(false);
   const [isLessonFinderShown, setIsLessonFinderShown] = useState(false);
   const [isRatingShown, setIsRatingShown] = useState(false);
@@ -109,7 +109,13 @@ export const MyAPPanel = ({ lessons, user, points }) => {
         </APPanelBtn>
       </APPanel>
 
-      {isLessonFinderShown && <LessonFinder lessons={lessons} user={user} />}
+      {isLessonFinderShown && (
+        <LessonFinder
+          lessons={lessons}
+          user={user}
+          setPlatformIframeLink={setPlatformIframeLink}
+        />
+      )}
       {isRatingShown && <Points user={user} flatPoints={flatPoints} />}
       {isCalendarShown && <Attendance user={user} />}
     </>

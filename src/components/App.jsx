@@ -331,6 +331,8 @@ export const App = () => {
         <Route path="form-a" element={<LeadFormPage utms={utms} />} />
         <Route path="form-b" element={<LeadFormPage utms={utms} />} />
         <Route path="form-c" element={<LeadFormPage utms={utms} />} />
+        <Route path="form-d" element={<LeadFormPage utms={utms} />} />
+        <Route path="form-e" element={<LeadFormPage utms={utms} />} />
       </Routes>
     </>
   );

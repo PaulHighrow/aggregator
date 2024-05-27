@@ -16,13 +16,16 @@ import { useEffect, useState } from 'react';
 import * as yup from 'yup';
 import { MyPlatform } from './My Platform/MyPlatform';
 import { MyAPPanel } from './MyAPPanel/MyAPPanel';
+import { useLocation } from 'react-router-dom';
 
 const MyAP = () => {
   const [isUserLogged, setIsUserLogged] = useState(false);
   const [lessons, setLessons] = useState(false);
   const [points, setPoints] = useState({});
   const [user, setUser] = useState({});
+  const [platformLink, setPlatformLink] = useState('https://online.ap.education/school/');
   axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
+  const location = useLocation();
 
   useEffect(() => {
     document.title = 'My AP | AP Education';
@@ -102,6 +105,12 @@ const MyAP = () => {
     }
   };
 
+  const setPlatformIframeLink = iframeLink => {
+    console.log(iframeLink);
+    location.search = '';
+    setPlatformLink(link => (link = iframeLink));
+  };
+
   return (
     <StreamSection>
       {!isUserLogged ? (
@@ -138,9 +147,9 @@ const MyAP = () => {
       ) : (
         <>
           {Object.values(points).length > 0 && (
-            <MyAPPanel lessons={lessons} user={user} points={points} />
+            <MyAPPanel lessons={lessons} user={user} points={points} setPlatformIframeLink={setPlatformIframeLink}/>
           )}
-          <MyPlatform />
+          <MyPlatform platformLink={platformLink}/>
         </>
       )}
     </StreamSection>
