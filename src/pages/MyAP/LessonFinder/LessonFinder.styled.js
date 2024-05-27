@@ -181,12 +181,48 @@ export const LessonLinksBox = styled.div`
   gap: 4px;
 `;
 
-export const LessonCopyNameButton = styled.button`
+export const LessonExternalLinkButton = styled.button`
   border: none;
   outline: transparent;
   background-color: transparent;
   padding: 0;
   cursor: pointer;
+  position: relative;
+
+  &::before {
+    content: 'Відкрити урок в новій вкладці';
+    pointer-events: none;
+
+    position: absolute;
+    top: 0%;
+    right: 100%;
+    z-index: 7;
+
+    width: max-content;
+    font-size: 10px;
+    line-height: 1.2;
+
+    padding: 4px 6px;
+    border: 0.5px solid #bebecc;
+    background: #fff;
+
+    transform: scale(0, 0);
+    transform-origin: right;
+    transition: transform var(--animation-global);
+    transition-delay: 0;
+  }
+
+  &.tooltip-open::before {
+    transform: scale(1, 1);
+    transition: transform var(--animation-global);
+    transition-delay: 500ms;
+  }
+`;
+
+export const LessonInternalLinkButton = styled(LessonExternalLinkButton)`
+  &::before {
+    content: 'Відкрити урок в поточній вкладці';
+  }
 `;
 
 export const LessonPdfBox = styled.div`
@@ -484,8 +520,11 @@ export const FaqPreviewBackground = styled(PdfPreviewBackground)`
 export const ExternalLinkIcon = styled(ExternalLink)`
   display: block;
   flex-shrink: 0;
+  pointer-events: none;
 `;
+
 export const InternalLinkIcon = styled(InternalLink)`
   display: block;
   flex-shrink: 0;
+  pointer-events: none;
 `;

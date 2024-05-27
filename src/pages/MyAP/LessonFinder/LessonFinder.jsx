@@ -29,7 +29,8 @@ import {
   InternalLinkIcon,
   LessonBox,
   LessonBoxItem,
-  LessonCopyNameButton,
+  LessonExternalLinkButton,
+  LessonInternalLinkButton,
   LessonLinksBox,
   LessonTextValuesBox,
   LessonTopBox,
@@ -55,6 +56,8 @@ export const LessonFinder = ({ lessons, user, setPlatformIframeLink }) => {
   const [isAnswerOpen, setIsAnswerOpen] = useState(false);
   const [openedAnswer, setOpenedAnswer] = useState(0);
   const [isInputEmpty, setIsInputEmpty] = useState(true);
+
+  const path = window.location.origin + window.location.pathname;
 
   const findLesson = e => {
     setIsFaqListOpen(false);
@@ -109,9 +112,9 @@ export const LessonFinder = ({ lessons, user, setPlatformIframeLink }) => {
       : setAnswersFound(answersFound => (answersFound = [...answers]));
   };
 
-  // const copyLessonName = lesson => {
-  //   navigator.clipboard.writeText(lesson);
-  // };
+  const toggleTooltip = e => {
+        e.currentTarget.classList.toggle('tooltip-open');
+  };
 
   const openPdfPreviewOnHover = e => {
     setOpenedPdf(pdf => (pdf = e.target.id));
@@ -176,54 +179,29 @@ export const LessonFinder = ({ lessons, user, setPlatformIframeLink }) => {
                         {lesson.level} {lesson.lesson}
                       </LessonValueName>
                       <LessonLinksBox>
-                        <LessonCopyNameButton
-                          // onClick={() =>
-                          //   copyLessonName(lesson.level + ' ' + lesson.lesson)
-                          // }
+                        <LessonInternalLinkButton
+                          onMouseEnter={e => toggleTooltip(e)}
+                          onMouseOut={e => toggleTooltip(e)}
                           onClick={() => {
                             setPlatformIframeLink(
                               `https://online.ap.education/MarathonClass/?marathonId=${lesson.marathonId}&pupilId=${user.pupilId}&marathonLessonId=${lesson.lessonId}`
                             );
                           }}
-                          // onClick={() => {
-                          //   window.open(
-                          //     `http://localhost:3000/aggregator/my-ap/?https://online.ap.education/MarathonClass/?marathonId=${lesson.marathonId}&pupilId=${user.pupilId}&marathonLessonId=${lesson.lessonId}`,
-                          //     '_blank'
-                          //   );
-                          // }}
-                          // onClick={() => {
-                          //   window.open(
-                          //     `https://online.ap.education/MarathonClass/?marathonId=${lesson.marathonId}&pupilId=${user.pupilId}&marathonLessonId=${lesson.lessonId}`,
-                          //     '_blank'
-                          //   );
-                          // }}
                         >
                           <InternalLinkIcon />
-                        </LessonCopyNameButton>
-                        <LessonCopyNameButton
-                          // onClick={() =>
-                          //   copyLessonName(lesson.level + ' ' + lesson.lesson)
-                          // }
-                          // onClick={() => {
-                          //   setPlatformIframeLink(
-                          //     `https://online.ap.education/MarathonClass/?marathonId=${lesson.marathonId}&pupilId=${user.pupilId}&marathonLessonId=${lesson.lessonId}`
-                          //   );
-                          // }}
+                        </LessonInternalLinkButton>
+                        <LessonExternalLinkButton
+                          onMouseEnter={e => toggleTooltip(e)}
+                          onMouseOut={e => toggleTooltip(e)}
                           onClick={() => {
                             window.open(
-                              `http://localhost:3000/aggregator/my-ap/?https://online.ap.education/MarathonClass/?marathonId=${lesson.marathonId}&pupilId=${user.pupilId}&marathonLessonId=${lesson.lessonId}`,
+                              `${path}?https://online.ap.education/MarathonClass/?marathonId=${lesson.marathonId}&pupilId=${user.pupilId}&marathonLessonId=${lesson.lessonId}`,
                               '_blank'
                             );
                           }}
-                          // onClick={() => {
-                          //   window.open(
-                          //     `https://online.ap.education/MarathonClass/?marathonId=${lesson.marathonId}&pupilId=${user.pupilId}&marathonLessonId=${lesson.lessonId}`,
-                          //     '_blank'
-                          //   );
-                          // }}
                         >
                           <ExternalLinkIcon />
-                        </LessonCopyNameButton>
+                        </LessonExternalLinkButton>
                       </LessonLinksBox>
                       <LessonValueTopic>{lesson.topic}</LessonValueTopic>
                     </LessonTextValuesBox>
