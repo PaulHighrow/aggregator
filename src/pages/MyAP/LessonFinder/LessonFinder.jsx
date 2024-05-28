@@ -64,7 +64,7 @@ export const LessonFinder = ({ lessons, user, setPlatformIframeLink }) => {
     setOpenedFaq('');
     setAnswers([]);
     setAnswersFound([]);
-    const value = e.target.value.toLowerCase().trim().trimStart();
+    const value = e.target.value;
     value !== ''
       ? setLessonsFound(
           lessonsFound =>
@@ -75,12 +75,24 @@ export const LessonFinder = ({ lessons, user, setPlatformIframeLink }) => {
                   ' ' +
                   lesson.lesson.replace('Lesson', '').trim().trimStart();
                 return (
-                  (lesson.keysEn.toLowerCase().includes(value) ||
-                    lesson.keysUa.toLowerCase().includes(value) ||
-                    lesson.topic.toLowerCase().includes(value) ||
-                    lesson.lesson.toLowerCase().includes(value) ||
-                    lesson.level.toLowerCase().includes(value) ||
-                    lessonLevelNumber.toLowerCase().includes(value)) &&
+                  (lesson.keysEn
+                    .toLowerCase()
+                    .includes(value.toLowerCase().trim().trimStart()) ||
+                    lesson.keysUa
+                      .toLowerCase()
+                      .includes(value.toLowerCase().trim().trimStart()) ||
+                    lesson.topic
+                      .toLowerCase()
+                      .includes(value.toLowerCase().trim().trimStart()) ||
+                    lesson.lesson
+                      .toLowerCase()
+                      .includes(value.toLowerCase().trim().trimStart()) ||
+                    lesson.level
+                      .toLowerCase()
+                      .includes(value.toLowerCase().trim().trimStart()) ||
+                    lessonLevelNumber
+                      .toLowerCase()
+                      .includes(value.toLowerCase().trim().trimStart())) &&
                   user.lang === lesson.lang
                 );
               }),
@@ -96,7 +108,7 @@ export const LessonFinder = ({ lessons, user, setPlatformIframeLink }) => {
   };
 
   const findAnswer = e => {
-    const value = e.target.value.toLowerCase().trim().trimStart();
+    const value = e.target.value;
     value !== '' ? setIsInputEmpty(false) : setIsInputEmpty(true);
     value !== ''
       ? setAnswersFound(
@@ -104,8 +116,12 @@ export const LessonFinder = ({ lessons, user, setPlatformIframeLink }) => {
             (answersFound = [
               ...answers.filter(
                 answer =>
-                  answer.question.toLowerCase().includes(value) ||
-                  answer.exercise.toLowerCase().includes(value)
+                  answer.question
+                    .toLowerCase()
+                    .includes(value.toLowerCase().trim().trimStart()) ||
+                  answer.exercise
+                    .toLowerCase()
+                    .includes(value.toLowerCase().trim().trimStart())
               ),
             ])
         )
@@ -113,7 +129,7 @@ export const LessonFinder = ({ lessons, user, setPlatformIframeLink }) => {
   };
 
   const toggleTooltip = e => {
-        e.currentTarget.classList.toggle('tooltip-open');
+    e.currentTarget.classList.toggle('tooltip-open');
   };
 
   const openPdfPreviewOnHover = e => {

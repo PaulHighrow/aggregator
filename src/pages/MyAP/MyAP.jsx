@@ -23,11 +23,22 @@ const MyAP = () => {
   const [lessons, setLessons] = useState(false);
   const [points, setPoints] = useState({});
   const [user, setUser] = useState({});
-  const [platformLink, setPlatformLink] = useState('https://online.ap.education/school/');
+  const [platformLink, setPlatformLink] = useState(
+    'https://online.ap.education/school/'
+  );
   axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
   const location = useLocation();
 
   useEffect(() => {
+    console.log(window.location.protocol);
+
+    const changeProtocol = () =>
+      window.location.protocol === 'https:'
+        ? (window.location.protocol = 'http:')
+        : console.log('protocol okay');
+    changeProtocol();
+
+    console.log(window.location.protocol);
     document.title = 'My AP | AP Education';
 
     const getLessons = async () => {
@@ -147,9 +158,14 @@ const MyAP = () => {
       ) : (
         <>
           {Object.values(points).length > 0 && (
-            <MyAPPanel lessons={lessons} user={user} points={points} setPlatformIframeLink={setPlatformIframeLink}/>
+            <MyAPPanel
+              lessons={lessons}
+              user={user}
+              points={points}
+              setPlatformIframeLink={setPlatformIframeLink}
+            />
           )}
-          <MyPlatform platformLink={platformLink}/>
+          <MyPlatform platformLink={platformLink} />
         </>
       )}
     </StreamSection>
