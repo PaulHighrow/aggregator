@@ -24,21 +24,24 @@ const MyAP = () => {
   const [points, setPoints] = useState({});
   const [user, setUser] = useState({});
   const [platformLink, setPlatformLink] = useState(
-    'https://online.ap.education/school/'
+    `https://online.ap.education/student/lessons?c=638519781886531655`
   );
   axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
   const location = useLocation();
+  const linkToSet = `https://online.ap.education/student/lessons`;
+
+  //online.ap.education/MarathonClass/?marathonId=37835&pupilId=${user.pupilId}&marathonLessonId=621674 - FromZeroToHero 1
+  //online.ap.education/MarathonClass/?marathonId=41057&pupilId=${user.pupilId}&marathonLessonId=629354 - Od Zera do Bohatera
+  //online.ap.education/MarathonClass/?marathonId=41534&pupilId=${user.pupilId}&marathonLessonId=629357 - Von null zum Helden
+  //online.ap.education/MarathonClass/?marathonId=40552&pupilId=${user.pupilId}&marathonLessonId=621673 - FromZeroToHero Children
 
   useEffect(() => {
-    console.log(window.location.protocol);
+    // const changeProtocol = () =>
+    //   window.location.protocol === 'https:'
+    //     ? window.location.replace('http://www.ap.education/my-ap')
+    //     : console.log('protocol okay');
+    // changeProtocol();
 
-    const changeProtocol = () =>
-      window.location.protocol === 'https:'
-        ? window.location.replace('http://www.ap.education/my-ap')
-        : console.log('protocol okay');
-    changeProtocol();
-
-    console.log(window.location.protocol);
     document.title = 'My AP | AP Education';
 
     const getLessons = async () => {
@@ -78,7 +81,12 @@ const MyAP = () => {
       }
     };
     refreshToken();
-  }, []);
+
+    const setPlatformIframeLink = async () => {
+      setPlatformLink(link => (link = linkToSet));
+    };
+    setPlatformIframeLink();
+  }, [linkToSet]);
 
   const setAuthToken = token => {
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
