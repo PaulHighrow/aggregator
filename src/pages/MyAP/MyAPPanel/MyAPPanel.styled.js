@@ -4,6 +4,10 @@ import { ReactComponent as BoxSwitchRight } from '../../../img/svg/btnbox-switch
 import { ReactComponent as CalendarIcon } from '../../../img/svg/myap/calendar.svg';
 import { ReactComponent as CupIcon } from '../../../img/svg/myap/cup.svg';
 import { ReactComponent as SearchIcon } from '../../../img/svg/myap/search.svg';
+import {
+  NameReverse,
+  NameReverseBtn,
+} from 'components/Stream/Kahoots/Kahoots.styled';
 
 export const PanelBackdrop = styled.div`
   width: 100%;
@@ -138,4 +142,23 @@ export const PanelHideLeftSwitch = styled(BoxSwitchLeft)`
 export const PanelHideRightSwitch = styled(BoxSwitchRight)`
   stroke: #525266;
   transition: stroke var(--animation-global);
+`;
+
+export const IframeSetLinkButton = styled(NameReverseBtn)`
+  top: -36px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  z-index: 5;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+
+  &:hover,
+  &:focus {
+    background-color: none;
+  }
+`;
+
+export const IframeSetLinkIcon = styled(NameReverse)`
+  color: #525266;
 `;

@@ -6,6 +6,8 @@ import {
   APPanelBtn,
   CalendarBtnIcon,
   CupBtnIcon,
+  IframeSetLinkButton,
+  IframeSetLinkIcon,
   PanelBackdrop,
   PanelHideLeftSwitch,
   PanelHideRightSwitch,
@@ -14,7 +16,13 @@ import {
 } from './MyAPPanel.styled';
 import { Attendance } from '../Attendance/Attendance';
 
-export const MyAPPanel = ({ lessons, user, points, setPlatformIframeLink }) => {
+export const MyAPPanel = ({
+  lessons,
+  link,
+  user,
+  points,
+  setPlatformIframeLink,
+}) => {
   const [isBackdropShown, setIsBackdropShown] = useState(false);
   const [isLessonFinderShown, setIsLessonFinderShown] = useState(false);
   const [isRatingShown, setIsRatingShown] = useState(false);
@@ -94,10 +102,19 @@ export const MyAPPanel = ({ lessons, user, points, setPlatformIframeLink }) => {
         onClick={hideBackdrop}
         className={isBackdropShown ? '' : 'hidden'}
       />
+
       <PanelHideSwitch id="no-transform" onClick={toggleButtonBox}>
         {isButtonBoxShown ? <PanelHideRightSwitch /> : <PanelHideLeftSwitch />}
       </PanelHideSwitch>
       <APPanel className={isButtonBoxShown ? '' : 'hidden'}>
+        <IframeSetLinkButton
+          onClick={() => {
+            setPlatformIframeLink(link + ' ');
+          }}
+        >
+          <IframeSetLinkIcon />
+        </IframeSetLinkButton>
+
         <APPanelBtn onClick={toggleSearch}>
           <SearchBtnIcon className={isLessonFinderShown && 'active'} />
         </APPanelBtn>
