@@ -31,7 +31,6 @@ const MyAP = () => {
 
   useEffect(() => {
     console.log(window.location.protocol);
-    console.log(location);
 
     const changeProtocol = () =>
       window.location.protocol === 'https:'
