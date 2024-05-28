@@ -31,10 +31,11 @@ const MyAP = () => {
 
   useEffect(() => {
     console.log(window.location.protocol);
+    console.log(location);
 
     const changeProtocol = () =>
       window.location.protocol === 'https:'
-        ? (window.location.protocol = 'http:')
+        ? window.location.replace('http://www.ap.education/my-ap')
         : console.log('protocol okay');
     changeProtocol();
 
