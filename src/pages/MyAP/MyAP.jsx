@@ -24,7 +24,7 @@ const MyAP = () => {
   const [points, setPoints] = useState({});
   const [user, setUser] = useState({});
   const [platformLink, setPlatformLink] = useState(
-    `https://online.ap.education/MarathonClass/?marathonId=37835&pupilId=${user.pupilId}&marathonLessonId=621674`
+    `https://online.ap.education/`
   );
   axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
   const location = useLocation();
@@ -79,16 +79,16 @@ const MyAP = () => {
 
     const setIframeLink = async () => {
       const LINKS = {
-        en: `https://online.ap.education/MarathonClass/?marathonId=37835&pupilId=${user.userId}&marathonLessonId=621674`,
-        pl: `https://online.ap.education/MarathonClass/?marathonId=41057&pupilId=${user.userId}&marathonLessonId=629354`,
-        de: `https://online.ap.education/MarathonClass/?marathonId=41534&pupilId=${user.userId}&marathonLessonId=629357`,
-        //online.ap.education/MarathonClass/?marathonId=40552&pupilId=${user.userId}&marathonLessonId=621673 - FromZeroToHero Children
+        en: `https://online.ap.education/MarathonClass/?marathonId=37835&pupilId=${user.pupilId}&marathonLessonId=621674`,
+        pl: `https://online.ap.education/MarathonClass/?marathonId=41057&pupilId=${user.pupilId}&marathonLessonId=629354`,
+        de: `https://online.ap.education/MarathonClass/?marathonId=41534&pupilId=${user.pupilId}&marathonLessonId=629357`,
+        //online.ap.education/MarathonClass/?marathonId=40552&pupilId=${user.pupilId}&marathonLessonId=621673 - FromZeroToHero Children
       };
 
       setPlatformLink(link => (link = LINKS[user.lang]));
     };
     setIframeLink();
-  }, [user.lang, user.userId]);
+  }, [user.lang, user.pupilId]);
 
   const setAuthToken = token => {
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
