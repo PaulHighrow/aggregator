@@ -29,8 +29,6 @@ const MyAP = () => {
   axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
   const location = useLocation();
   // const linkToSet = `https://online.ap.education/student/lessons`;
-  const lang = user.lang;
-  const id = user.userId;
 
   useEffect(() => {
     // const changeProtocol = () =>
@@ -81,16 +79,16 @@ const MyAP = () => {
 
     const setIframeLink = async () => {
       const LINKS = {
-        en: `https://online.ap.education/MarathonClass/?marathonId=37835&pupilId=${id}&marathonLessonId=621674`,
-        pl: `https://online.ap.education/MarathonClass/?marathonId=41057&pupilId=${id}&marathonLessonId=629354`,
-        de: `https://online.ap.education/MarathonClass/?marathonId=41534&pupilId=${id}&marathonLessonId=629357`,
-        //online.ap.education/MarathonClass/?marathonId=40552&pupilId=${id}&marathonLessonId=621673 - FromZeroToHero Children
+        en: `https://online.ap.education/MarathonClass/?marathonId=37835&pupilId=${user.userId}&marathonLessonId=621674`,
+        pl: `https://online.ap.education/MarathonClass/?marathonId=41057&pupilId=${user.userId}&marathonLessonId=629354`,
+        de: `https://online.ap.education/MarathonClass/?marathonId=41534&pupilId=${user.userId}&marathonLessonId=629357`,
+        //online.ap.education/MarathonClass/?marathonId=40552&pupilId=${user.userId}&marathonLessonId=621673 - FromZeroToHero Children
       };
 
-      setPlatformLink(link => (link = LINKS[lang]));
+      setPlatformLink(link => (link = LINKS[user.lang]));
     };
     setIframeLink();
-  }, [lang, id]);
+  }, [user.lang, user.userId]);
 
   const setAuthToken = token => {
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
