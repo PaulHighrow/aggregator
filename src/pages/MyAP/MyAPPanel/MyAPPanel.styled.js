@@ -198,6 +198,7 @@ export const IframeResetLinkButton = styled(APPanel)`
 export const IframeSetLinkIcon = styled(ResetIcon)`
   color: #bebecc;
   position: relative;
+  pointer-events: none;
 
   transition: color var(--animation-global);
 `;

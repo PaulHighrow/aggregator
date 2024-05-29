@@ -1,5 +1,6 @@
 import TelegramHRRedirect from 'pages/HR/TelegramHRRedirect/TelegramHRRedirect';
 import ViberHRRedirect from 'pages/HR/ViberHRRedirect/ViberHRRedirect';
+import { LeadFormPage } from 'pages/LeadFormPage/LeadFormPage';
 import TelegramRedirect from 'pages/Service/TelegramRedirect/TelegramRedirect';
 import ViberRedirect from 'pages/Service/ViberRedirect/ViberRedirect';
 import { StreamA0 } from 'pages/Streams/A0/StreamA0';
@@ -15,6 +16,7 @@ import { StreamDeutsch } from 'pages/Streams/Deutsch/StreamDeutsch';
 import { HostKahootAdminPanel } from 'pages/Streams/HostKahootAdminPanel/HostKahootAdminPanel';
 import { KahootAdminPanel } from 'pages/Streams/KahootAdminPanel/KahootAdminPanel';
 import { LessonsAdminPanel } from 'pages/Streams/LessonsAdminPanel/LessonsAdminPanel';
+import { TeacherLessonsAdminPanel } from 'pages/Streams/LessonsAdminPanel/TeacherLessonsAdminPanel/TeacherLessonsAdminPanel';
 import { StreamPolskiA0 } from 'pages/Streams/Polski A0/StreamPolskiA0';
 import { StreamPolskiA2 } from 'pages/Streams/Polski A2/StreamPolskiA2';
 import { StreamPolski } from 'pages/Streams/Polski/StreamPolski';
@@ -29,6 +31,8 @@ import { KidsB1Beginner } from 'pages/StreamsKids/KidsB1Beginner/KidsB1Beginner'
 import { KidsB2 } from 'pages/StreamsKids/KidsB2/KidsB2';
 import TeacherTrialPage from 'pages/TeacherPage/TeacherTrialPage';
 import { ThankYouPage } from 'pages/ThankYouPage/ThankYouPage';
+import StreamPolskiSpeakingClub from 'pages/Trials/StreamPolskiSpeakingClub';
+import StreamTrialA1KidsSpeakingClub from 'pages/Trials/StreamTrialA1KidsSpeakingClub';
 import StreamTrialA1SpeakingClub from 'pages/Trials/StreamTrialA1SpeakingClub';
 import StreamTrialDeutschSprechclub from 'pages/Trials/StreamTrialDeutschSprechclub';
 import { lazy } from 'react';
@@ -37,9 +41,6 @@ import { Route, Routes, useSearchParams } from 'react-router-dom';
 import { WindowedChat } from 'utils/Chat/ChatWindowed/WindowedChat';
 import ScrollToTop from 'utils/ScrollToTop/ScrollToTop';
 import { SharedLayout } from './SharedLayout/SharedLayout';
-import { LeadFormPage } from 'pages/LeadFormPage/LeadFormPage';
-import StreamTrialA1KidsSpeakingClub from 'pages/Trials/StreamTrialA1KidsSpeakingClub';
-import { TeacherLessonsAdminPanel } from 'pages/Streams/LessonsAdminPanel/TeacherLessonsAdminPanel/TeacherLessonsAdminPanel';
 
 // const Home = lazy(() =>
 //   import(/* webpackChunkName: "Homepage" */ '../pages/Home/Home')
@@ -251,6 +252,7 @@ export const App = () => {
           <Route path="polski-chat" element={<WindowedChat />} />
           <Route path="polskia2" element={<StreamPolskiA2 />} />
           <Route path="polskia2-chat" element={<WindowedChat />} />
+          <Route path="psc-a2" element={<StreamPolskiSpeakingClub />} />
           <Route path="test" element={<StreamTest />} />
           <Route path="test-chat" element={<WindowedChat />} />
           {/* <Route path="test1" element={<StreamTest />} /> */}
