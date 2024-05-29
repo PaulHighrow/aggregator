@@ -29,6 +29,8 @@ export const MyAPPanel = ({
   const [isRatingShown, setIsRatingShown] = useState(false);
   const [isCalendarShown, setIsCalendarShown] = useState(false);
   const [isButtonBoxShown, setIsButtonBoxShown] = useState(true);
+  const [isDisclaimerTimeoutActive, setIsDisclaimerTimeoutActive] =
+    useState(true);
 
   const toggleButtonBox = () => {
     hideBackdrop();
@@ -83,16 +85,24 @@ export const MyAPPanel = ({
     setIsCalendarShown(isCalendarShown => !isCalendarShown);
   };
 
-  const toggleTooltip = () => {
+  const toggleTooltip = e => {
+    !isDisclaimerTimeoutActive &&
+      e.currentTarget.classList.toggle('tooltip-open');
+  };
+
+  const toggleTooltipTimeout = () => {
     const resetBtnEl = document.querySelector('#reset-btn');
 
-    setTimeout(() => {
-      resetBtnEl.classList.add('tooltip-open');
-    }, 5000);
+    if (isDisclaimerTimeoutActive) {
+      setTimeout(() => {
+        resetBtnEl.classList.add('tooltip-open');
+      }, 10000);
 
-    setTimeout(() => {
-      resetBtnEl.classList.remove('tooltip-open');
-    }, 15000);
+      setTimeout(() => {
+        resetBtnEl.classList.remove('tooltip-open');
+        setIsDisclaimerTimeoutActive(false);
+      }, 20000);
+    }
   };
 
   useEffect(() => {
@@ -101,7 +111,7 @@ export const MyAPPanel = ({
         hideBackdrop();
       }
     };
-    toggleTooltip();
+    toggleTooltipTimeout();
 
     window.addEventListener('keydown', onEscapeClose);
 
@@ -122,7 +132,11 @@ export const MyAPPanel = ({
       </PanelHideSwitch>
       <APPanel className={isButtonBoxShown ? '' : 'hidden'}>
         <IframeResetLinkButton>
-          <APPanelResetBtn id="reset-btn">
+          <APPanelResetBtn
+            id="reset-btn"
+            onMouseEnter={e => toggleTooltip(e)}
+            onMouseOut={e => toggleTooltip(e)}
+          >
             <IframeSetLinkIcon
               onClick={() => {
                 setPlatformIframeLink(link + ' ');
