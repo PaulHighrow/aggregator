@@ -233,7 +233,7 @@ export const App = () => {
           <Route path="a1-chat" element={<WindowedChat />} />
           <Route path="a2" element={<StreamA2 />} />
           <Route path="a2-chat" element={<WindowedChat />} />
-          <Route path="pilot-scb1" element={<StreamTrialB1SpeakingClub />} />
+          <Route path="b1-sc" element={<StreamTrialB1SpeakingClub />} />
           <Route path="pilot-b2sc" element={<StreamTrialB2SpeakingClub />} />
           <Route path="b1" element={<StreamB1 />} />
           <Route path="b1-chat" element={<WindowedChat />} />
