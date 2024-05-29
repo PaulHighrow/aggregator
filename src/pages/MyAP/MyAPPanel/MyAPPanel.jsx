@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
+import { Attendance } from '../Attendance/Attendance';
 import { LessonFinder } from '../LessonFinder/LessonFinder';
 import { Points } from '../Points/Points';
 import {
   APPanel,
   APPanelBtn,
+  APPanelResetBtn,
   CalendarBtnIcon,
   CupBtnIcon,
-  IframeSetLinkButton,
+  IframeResetLinkButton,
   IframeSetLinkIcon,
   PanelBackdrop,
   PanelHideLeftSwitch,
@@ -14,7 +16,6 @@ import {
   PanelHideSwitch,
   SearchBtnIcon,
 } from './MyAPPanel.styled';
-import { Attendance } from '../Attendance/Attendance';
 
 export const MyAPPanel = ({
   lessons,
@@ -82,12 +83,25 @@ export const MyAPPanel = ({
     setIsCalendarShown(isCalendarShown => !isCalendarShown);
   };
 
+  const toggleTooltip = () => {
+    const resetBtnEl = document.querySelector('#reset-btn');
+
+    setTimeout(() => {
+      resetBtnEl.classList.add('tooltip-open');
+    }, 5000);
+
+    setTimeout(() => {
+      resetBtnEl.classList.remove('tooltip-open');
+    }, 15000);
+  };
+
   useEffect(() => {
     const onEscapeClose = event => {
       if (event.code === 'Escape' && isBackdropShown) {
         hideBackdrop();
       }
     };
+    toggleTooltip();
 
     window.addEventListener('keydown', onEscapeClose);
 
@@ -107,14 +121,15 @@ export const MyAPPanel = ({
         {isButtonBoxShown ? <PanelHideRightSwitch /> : <PanelHideLeftSwitch />}
       </PanelHideSwitch>
       <APPanel className={isButtonBoxShown ? '' : 'hidden'}>
-        <IframeSetLinkButton
-          onClick={() => {
-            setPlatformIframeLink(link + ' ');
-          }}
-        >
-          <IframeSetLinkIcon />
-        </IframeSetLinkButton>
-
+        <IframeResetLinkButton>
+          <APPanelResetBtn id="reset-btn">
+            <IframeSetLinkIcon
+              onClick={() => {
+                setPlatformIframeLink(link + ' ');
+              }}
+            />
+          </APPanelResetBtn>
+        </IframeResetLinkButton>
         <APPanelBtn onClick={toggleSearch}>
           <SearchBtnIcon className={isLessonFinderShown && 'active'} />
         </APPanelBtn>

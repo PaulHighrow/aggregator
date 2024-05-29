@@ -4,10 +4,7 @@ import { ReactComponent as BoxSwitchRight } from '../../../img/svg/btnbox-switch
 import { ReactComponent as CalendarIcon } from '../../../img/svg/myap/calendar.svg';
 import { ReactComponent as CupIcon } from '../../../img/svg/myap/cup.svg';
 import { ReactComponent as SearchIcon } from '../../../img/svg/myap/search.svg';
-import {
-  NameReverse,
-  NameReverseBtn,
-} from 'components/Stream/Kahoots/Kahoots.styled';
+import { ReactComponent as ResetIcon } from '../../../img/svg/myap/reset.svg';
 
 export const PanelBackdrop = styled.div`
   width: 100%;
@@ -66,6 +63,41 @@ export const APPanelBtn = styled.button`
 
   &:hover svg {
     filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.16));
+  }
+`;
+
+export const APPanelResetBtn = styled(APPanelBtn)`
+  &:focus svg,
+  &:active svg {
+    color: #525266;
+  }
+
+  &::before {
+    content: 'Якщо урок на платформі не відкривається, натисніть на цю кнопку';
+    pointer-events: none;
+
+    position: absolute;
+    top: 50%;
+    right: 75%;
+    z-index: 7;
+
+    width: max-content;
+    font-size: 10px;
+    line-height: 1.2;
+
+    padding: 4px 6px;
+    border: 0.5px solid #bebecc;
+    background: #fff;
+    color: #000;
+
+    transform: translateY(-50%) scale(0, 0);
+    transform-origin: right;
+    transition: transform var(--animation-global);
+  }
+
+  &.tooltip-open::before {
+    transform: translateY(-50%) scale(1, 1);
+    transition: transform var(--animation-global);
   }
 `;
 
@@ -144,8 +176,8 @@ export const PanelHideRightSwitch = styled(BoxSwitchRight)`
   transition: stroke var(--animation-global);
 `;
 
-export const IframeSetLinkButton = styled(NameReverseBtn)`
-  top: -36px;
+export const IframeResetLinkButton = styled(APPanel)`
+  top: -66px;
   left: 50%;
 
   transform: translateX(-50%);
@@ -153,12 +185,19 @@ export const IframeSetLinkButton = styled(NameReverseBtn)`
   z-index: 5;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
 
+  height: auto;
+
+  padding: 15px;
+
   &:hover,
   &:focus {
     background-color: none;
   }
 `;
 
-export const IframeSetLinkIcon = styled(NameReverse)`
-  color: #525266;
+export const IframeSetLinkIcon = styled(ResetIcon)`
+  color: #bebecc;
+  position: relative;
+
+  transition: color var(--animation-global);
 `;

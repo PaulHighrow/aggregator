@@ -209,7 +209,7 @@ export const LessonExternalLinkButton = styled.button`
     transform: scale(0, 0);
     transform-origin: right;
     transition: transform var(--animation-global);
-    transition-delay: 0;
+    transition-delay: 0ms;
   }
 
   &.tooltip-open::before {
