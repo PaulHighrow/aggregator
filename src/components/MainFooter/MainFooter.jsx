@@ -45,7 +45,7 @@ export const MainFooter = ({ toggleModal }) => {
   ];
   const footerContactsItems = [
     { href: 'mailto:info@ap.education', contact: 'info@ap.education' },
-    { href: 'tel:+380671047700', contact: '+380671047700' },
+    { href: 'tel:+380936707129', contact: '+380936707129' },
     {
       href: 'https://maps.app.goo.gl/mj3W28hhdfHekf8dA',
       contact: 'м.Львів, вул. Городницька, 47 Б',
@@ -144,10 +144,14 @@ export const MainFooter = ({ toggleModal }) => {
               ©2024 AP Education Center. All rights reserved
             </FooterCopyright>
             <FooterLinksContainer>
-              <FooterFileLink to={'https://ap.education/static/docs/privacy_policy.docx'}>
+              <FooterFileLink
+                to={'https://ap.education/static/docs/privacy_policy.docx'}
+              >
                 Політика конфіденційності
               </FooterFileLink>
-              <FooterFileLink to={'https://ap.education/static/docs/public_offer.docx'}>
+              <FooterFileLink
+                to={'https://ap.education/static/docs/public_offer.docx'}
+              >
                 Публічна оферта
               </FooterFileLink>
               <MonoPawIcon />

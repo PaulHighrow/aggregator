@@ -68,6 +68,12 @@ export const RatingsAdminPanel = () => {
   };
 
   const initialRatingsValues = {
+    period: 'all',
+    rating: '',
+  };
+
+  const initialMonthlyRatingsValues = {
+    period: 'monthly',
     rating: '',
   };
 
@@ -75,7 +81,25 @@ export const RatingsAdminPanel = () => {
     rating: yup.string().required('Внеси бали!'),
   });
 
-  const handleLinksSubmit = async (values, { resetForm }) => {
+  const handleRatingsSubmit = async (values, { resetForm }) => {
+    setIsLoading(isLoading => (isLoading = true));
+    values.rating = JSON.parse(values.rating);
+
+    try {
+      console.log(values);
+      const response = await axios.patch(`/ratings`, values);
+      console.log(response);
+      resetForm();
+      alert('Рейтинги замінилися, молодець');
+    } catch (error) {
+      console.error(error);
+      alert('Щось не прокнуло!');
+    } finally {
+      setIsLoading(isLoading => (isLoading = false));
+    }
+  };
+
+  const handleMonthlyRatingsSubmit = async (values, { resetForm }) => {
     setIsLoading(isLoading => (isLoading = true));
     values.rating = JSON.parse(values.rating);
 
@@ -123,7 +147,7 @@ export const RatingsAdminPanel = () => {
         {isUserAdmin && (
           <Formik
             initialValues={initialRatingsValues}
-            onSubmit={handleLinksSubmit}
+            onSubmit={handleRatingsSubmit}
             validationSchema={ratingsSchema}
           >
             <LinksForm>
@@ -136,7 +160,31 @@ export const RatingsAdminPanel = () => {
                 />
                 <AdminInputNote component="p" name="rating" />
               </Label>
-              <AdminFormBtn type="submit">Замінити колекції</AdminFormBtn>
+              <AdminFormBtn type="submit">
+                Оновити загальний рейтинг
+              </AdminFormBtn>
+            </LinksForm>
+          </Formik>
+        )}
+        {isUserAdmin && (
+          <Formik
+            initialValues={initialMonthlyRatingsValues}
+            onSubmit={handleMonthlyRatingsSubmit}
+            validationSchema={ratingsSchema}
+          >
+            <LinksForm>
+              <Label>
+                <AdminTextArea
+                  type="text"
+                  name="rating"
+                  component="textarea"
+                  placeholder="Бали всіх-всіх-всіх за місяць-місяць-місяць"
+                />
+                <AdminInputNote component="p" name="rating" />
+              </Label>
+              <AdminFormBtn type="submit">
+                Оновити місячний рейтинг
+              </AdminFormBtn>
             </LinksForm>
           </Formik>
         )}

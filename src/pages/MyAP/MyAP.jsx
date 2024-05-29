@@ -22,6 +22,7 @@ const MyAP = () => {
   const [isUserLogged, setIsUserLogged] = useState(false);
   const [lessons, setLessons] = useState(false);
   const [points, setPoints] = useState({});
+  const [montlyPoints, setMonthlyPoints] = useState({});
   const [user, setUser] = useState({});
   const [platformLink, setPlatformLink] = useState(
     `https://online.ap.education/`
@@ -56,6 +57,7 @@ const MyAP = () => {
       try {
         const res = await axios.get('/ratings');
         setPoints(points => (points = { ...res.data[0].rating }));
+        setMonthlyPoints(points => (points = { ...res.data[1].rating }));
       } catch (error) {
         console.log(error);
       }
@@ -172,6 +174,7 @@ const MyAP = () => {
               lessons={lessons}
               user={user}
               points={points}
+              montlyPoints={montlyPoints}
               link={platformLink}
               setPlatformIframeLink={setPlatformIframeLink}
             />

@@ -22,6 +22,7 @@ export const MyAPPanel = ({
   link,
   user,
   points,
+  montlyPoints,
   setPlatformIframeLink,
 }) => {
   const [isBackdropShown, setIsBackdropShown] = useState(false);
@@ -38,6 +39,7 @@ export const MyAPPanel = ({
   };
 
   const flatPoints = Object.values(points).flatMap(user => user);
+  const flatMonthlyPoints = Object.values(montlyPoints).flatMap(user => user);
 
   const hideBackdrop = () => {
     setIsBackdropShown(false);
@@ -162,7 +164,13 @@ export const MyAPPanel = ({
           setPlatformIframeLink={setPlatformIframeLink}
         />
       )}
-      {isRatingShown && <Points user={user} flatPoints={flatPoints} />}
+      {isRatingShown && (
+        <Points
+          user={user}
+          flatPoints={flatPoints}
+          flatMonthlyPoints={flatMonthlyPoints}
+        />
+      )}
       {isCalendarShown && <Attendance user={user} />}
     </>
   );

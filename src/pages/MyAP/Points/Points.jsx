@@ -19,13 +19,18 @@ import {
 } from './Points.styled';
 import { useState } from 'react';
 
-export const Points = ({ user, flatPoints }) => {
+export const Points = ({ user, flatPoints, flatMonthlyPoints }) => {
   const [position, setPosition] = useState('0%');
   const [activeRating, setActiveRating] = useState(0);
 
-  const pointsSorted = flatPoints
-    .filter(student => `${student.course}` === user.course)
-    .sort((a, b) => b.points - a.points);
+  const pointsSorted =
+    activeRating > 0
+      ? flatMonthlyPoints
+          .filter(student => `${student.course}` === user.course)
+          .sort((a, b) => b.points - a.points)
+      : flatPoints
+          .filter(student => `${student.course}` === user.course)
+          .sort((a, b) => b.points - a.points);
 
   const userPlace = pointsSorted.findIndex(leader => leader.mail === user.mail);
 
