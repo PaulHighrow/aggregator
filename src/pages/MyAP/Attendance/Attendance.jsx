@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ReactComponent as AttendanceEmpty } from '../../../img/svg/attendance-empty.svg';
 import { ReactComponent as AttendanceMinus } from '../../../img/svg/attendance-minus.svg';
 import { ReactComponent as AttendancePlus } from '../../../img/svg/attendance-plus.svg';
@@ -32,6 +32,95 @@ export const Attendance = ({ user }) => {
   const [year, setYear] = useState(
     +new Intl.DateTimeFormat('uk-UK', { year: 'numeric' }).format()
   );
+  const [lessonDaysForWeek, SetLessonDaysForWeek] = useState([]);
+  const [lessonDaysForMonth, SetLessonDaysForMonth] = useState([]);
+  const [lessonDaysForYear, SetLessonDaysForYear] = useState([]);
+
+  useEffect(() => {
+    const getLessonDaysForWeeks = () => {
+      let date = new Date(year, month - 1, week + 1);
+
+      const sunday = date.getDate() - date.getDay();
+
+      const lessonDays = [];
+
+      date.getDate() !== sunday
+        ? date.setDate(sunday)
+        : date.setDate(sunday + 1);
+
+      let i = 0;
+
+      while (date.getDay() <= 6 && i < 7) {
+        i += 1;
+        if (date.getDay() >= 1 && date.getDay() <= 4) {
+          lessonDays.push(
+            new Date(
+              changeDateFormat(
+                date.getDate() +
+                  '.' +
+                  (date.getMonth() + 1) +
+                  '.' +
+                  date.getFullYear()
+              )
+            )
+          );
+        }
+        date.setDate(date.getDate() + 1);
+      }
+      SetLessonDaysForWeek(days => (days = lessonDays));
+    };
+    getLessonDaysForWeeks();
+
+    const getLessonDaysForMonths = () => {
+      let date = new Date(year, month - 1, 1);
+
+      const lessonDays = [];
+
+      date.setDate(1);
+      while (date.getMonth() + 1 === month) {
+        if (date.getDay() >= 1 && date.getDay() <= 4) {
+          lessonDays.push(
+            new Date(
+              changeDateFormat(
+                date.getDate() +
+                  '.' +
+                  (date.getMonth() + 1) +
+                  '.' +
+                  date.getFullYear()
+              )
+            )
+          );
+        }
+        date.setDate(date.getDate() + 1);
+      }
+      SetLessonDaysForMonth(days => (days = lessonDays));
+    };
+    getLessonDaysForMonths();
+
+    const getLessonDaysForYears = () => {
+      let date = new Date();
+
+      const lessonDays = [];
+
+      date.setDate(1);
+      date.setMonth(0);
+
+      while (date.getFullYear() === year) {
+        if (date.getDay() >= 1 && date.getDay() <= 4) {
+          lessonDays.push(
+            date.getDate() +
+              '.' +
+              (date.getMonth() + 1) +
+              '.' +
+              date.getFullYear()
+          );
+        }
+        date.setDate(date.getDate() + 1);
+      }
+      SetLessonDaysForYear(days => (days = lessonDays.length));
+    };
+    getLessonDaysForYears();
+  }, [week, month, year]);
 
   const changeDateFormat = dateString => {
     if (dateString) {
@@ -43,48 +132,88 @@ export const Attendance = ({ user }) => {
 
   const decreaseWeek = () => {
     const newWeek = week - 7;
-    setWeek(week => newWeek);
-    if (newWeek < 0) {
-      setMonth(month - 1);
-    }
+    setWeek(newWeek);
   };
 
   const increaseWeek = () => {
     const newWeek = week + 7;
-    setWeek(week => newWeek);
-    if (newWeek > 31) {
-      setMonth(month + 1);
-    }
+    setWeek(newWeek);
   };
 
   const decreaseMonth = () => {
     if (month > 1) {
       setMonth(month - 1);
       const firstDayOfPreviousMonth = new Date(year, month - 2, 1);
-      setWeek(
-        firstDayOfPreviousMonth.getDate() - firstDayOfPreviousMonth.getDay()
+      const visitedThisMonth = user.visited.filter(
+        day => new Date(changeDateFormat(day)).getMonth() === month - 2
       );
+      const firstVisitedDayOfPreviousMonth = new Date(
+        year,
+        month - 2,
+        +visitedThisMonth[0].split('.')[0]
+      );
+
+      firstVisitedDayOfPreviousMonth > 7
+        ? setWeek(
+            firstVisitedDayOfPreviousMonth.getDate() -
+              firstVisitedDayOfPreviousMonth.getDay()
+          )
+        : setWeek(
+            firstDayOfPreviousMonth.getDate() - firstDayOfPreviousMonth.getDay()
+          );
       return;
     }
     setMonth(12);
     setYear(year - 1);
     const firstDayOfPreviousMonth = new Date(year, month - 2, 1);
-    setWeek(
-      firstDayOfPreviousMonth.getDate() - firstDayOfPreviousMonth.getDay()
+    const visitedThisMonth = user.visited.filter(
+      day => new Date(changeDateFormat(day)).getMonth() === month - 2
     );
+    const firstVisitedDayOfPreviousMonth = new Date(
+      year,
+      month - 2,
+      +visitedThisMonth[0].split('.')[0]
+    );
+
+    firstVisitedDayOfPreviousMonth > 7
+      ? setWeek(
+          firstVisitedDayOfPreviousMonth.getDate() -
+            firstVisitedDayOfPreviousMonth.getDay()
+        )
+      : setWeek(
+          firstDayOfPreviousMonth.getDate() - firstDayOfPreviousMonth.getDay()
+        );
     return;
   };
 
   const increaseMonth = () => {
-    if (month < 12) {
+    if (month < 11) {
       setMonth(month + 1);
       const firstDayOfNextMonth = new Date(year, month, 1);
+      // const visitedThisMonth = user.visited.filter(
+      //   day => new Date(changeDateFormat(day)).getMonth() === month - 2
+      // );
+      // const firstVisitedDayOfPreviousMonth = new Date(
+      //   year,
+      //   month - 2,
+      //   +visitedThisMonth[0].split('.')[0]
+      // );
+
+      // firstVisitedDayOfPreviousMonth > 7
+      //   ? setWeek(
+      //       firstVisitedDayOfPreviousMonth.getDate() -
+      //         firstVisitedDayOfPreviousMonth.getDay()
+      //     )
+      //   : setWeek(
+      //       firstDayOfPreviousMonth.getDate() - firstDayOfPreviousMonth.getDay()
+      //     );
       setWeek(firstDayOfNextMonth.getDate() - firstDayOfNextMonth.getDay());
       return;
     }
     setMonth(1);
     setYear(year + 1);
     const firstDayOfNextMonth = new Date(year, month, 1);
+
     setWeek(firstDayOfNextMonth.getDate() - firstDayOfNextMonth.getDay());
     return;
   };
@@ -106,9 +235,7 @@ export const Attendance = ({ user }) => {
   };
 
   const calculateWeeklyVisits = () => {
-    const lessonDays = getLessonDaysForWeeks().map(lessonDay =>
-      lessonDay.getDate()
-    );
+    const lessonDays = lessonDaysForWeek.map(lessonDay => lessonDay.getDate());
     return user.visited.filter(
       date =>
         new Date(changeDateFormat(date)).getMonth() + 1 ===
@@ -117,17 +244,69 @@ export const Attendance = ({ user }) => {
     ).length;
   };
 
+  const getLessonDaysOfPassedWeek = passedDay => {
+    let date = new Date(passedDay);
+
+    const sunday = date.getDate() - date.getDay();
+
+    const lessonDays = [];
+
+    date.getDate() !== sunday ? date.setDate(sunday) : date.setDate(sunday + 1);
+    let i = 0;
+    while (date.getDay() <= 6 && i < 7) {
+      i += 1;
+      if (date.getDay() >= 1 && date.getDay() <= 4) {
+        lessonDays.push(
+          new Date(
+            changeDateFormat(
+              date.getDate() +
+                '.' +
+                (date.getMonth() + 1) +
+                '.' +
+                date.getFullYear()
+            )
+          )
+        );
+      }
+      date.setDate(date.getDate() + 1);
+    }
+
+    return lessonDays;
+  };
+
+  const calculateSetWeeklyVisits = passedWeek => {
+    const firstDayOfWeekDate = new Date(year, month - 1, passedWeek + 1);
+
+    const passedWeekLessonDays = getLessonDaysOfPassedWeek(
+      firstDayOfWeekDate
+    ).map(day => new Date(day).toLocaleDateString('uk-UA'));
+    return user.visited.filter(
+      date =>
+        new Date(changeDateFormat(date)).getMonth() + 1 === month &&
+        passedWeekLessonDays.includes(date)
+    ).length;
+  };
+
   const calculateWeeklyUnattended = () => {
-    const lessonDays = getLessonDaysForWeeks();
+    const lessonDays = lessonDaysForWeek;
+
     const currentDay = lessonDays.findIndex(
       lessonDay => lessonDay.getDate() === new Date().getDate()
     );
+
     const futureDays = lessonDays.slice(0, currentDay + 1).length;
-    return futureDays === 0 ? 0 : futureDays - calculateWeeklyVisits();
+
+    return currentDay < 0
+      ? lessonDaysForWeek.length - calculateWeeklyVisits()
+      : futureDays === 0
+      ? 0
+      : futureDays - calculateWeeklyVisits() < 0
+      ? 0
+      : futureDays - calculateWeeklyVisits();
   };
 
   const calculateMonthlyUnattended = () => {
-    const lessonDays = getLessonDaysForMonths();
+    const lessonDays = lessonDaysForWeek;
     const currentDay = lessonDays.findIndex(
       lessonDay => lessonDay.getDate() === new Date().getDate()
     );
@@ -152,87 +331,8 @@ export const Attendance = ({ user }) => {
     ).length;
   };
 
-  const getLessonDaysForWeeks = () => {
-    let date = new Date();
-
-    const sunday = date.getDate() - date.getDay();
-
-    const lessonDays = [];
-
-    date.getDate() !== sunday ? date.setDate(sunday) : date.setDate(sunday + 1);
-    let i = 0;
-    while (date.getDay() <= 6 && date.getDate() < sunday + 7 && i < 7) {
-      i += 1;
-      if (date.getDay() >= 1 && date.getDay() <= 4) {
-        lessonDays.push(
-          new Date(
-            changeDateFormat(
-              date.getDate() +
-                '.' +
-                (date.getMonth() + 1) +
-                '.' +
-                date.getFullYear()
-            )
-          )
-        );
-      }
-      date.setDate(date.getDate() + 1);
-    }
-    return lessonDays;
-  };
-
-  const getLessonDaysForMonths = () => {
-    let date = new Date(year, month - 1, 1);
-
-    const lessonDays = [];
-
-    date.setDate(1);
-    while (date.getMonth() + 1 === month) {
-      if (date.getDay() >= 1 && date.getDay() <= 4) {
-        lessonDays.push(
-          new Date(
-            changeDateFormat(
-              date.getDate() +
-                '.' +
-                (date.getMonth() + 1) +
-                '.' +
-                date.getFullYear()
-            )
-          )
-        );
-      }
-      date.setDate(date.getDate() + 1);
-    }
-    return lessonDays;
-  };
-
-  const getLessonDaysForYears = () => {
-    let date = new Date();
-
-    const lessonDays = [];
-
-    date.setDate(1);
-    date.setMonth(0);
-
-    while (date.getFullYear() === year) {
-      if (date.getDay() >= 1 && date.getDay() <= 4) {
-        lessonDays.push(
-          date.getDate() +
-            '.' +
-            (date.getMonth() + 1) +
-            '.' +
-            date.getFullYear()
-        );
-      }
-      date.setDate(date.getDate() + 1);
-    }
-    return lessonDays.length;
-  };
-
   const calculatePoints = () => {
-    const lessonDays = getLessonDaysForWeeks().map(lessonDay =>
-      lessonDay.getDate()
-    );
+    const lessonDays = lessonDaysForWeek.map(lessonDay => lessonDay.getDate());
 
     const visitedWithinWeek = user.visited.filter(
       date =>
@@ -273,20 +373,24 @@ export const Attendance = ({ user }) => {
       <AttendanceVisitedBox>
         <MonthSwitchBox>
           <AttendanceBtn
-            disabled={calculateMonthlyVisits(month - 1) === 0 ? true : false}
+            disabled={calculateSetWeeklyVisits(week - 7) === 0 ? true : false}
             onClick={decreaseWeek}
           >
             <AttendanceArrowLeft
-              className={calculateMonthlyVisits(month - 1) !== 0 && 'available'}
+              className={
+                calculateSetWeeklyVisits(week - 7) !== 0 && 'available'
+              }
             />
           </AttendanceBtn>
           <AttendancePeriod>{calculateWeekPeriod()}</AttendancePeriod>
           <AttendanceBtn
-            disabled={calculateMonthlyVisits(month + 1) === 0 ? true : false}
+            disabled={calculateSetWeeklyVisits(week + 7) === 0 ? true : false}
             onClick={increaseWeek}
           >
             <AttendanceArrowRight
-              className={calculateMonthlyVisits(month + 1) !== 0 && 'available'}
+              className={
+                calculateSetWeeklyVisits(week + 7) !== 0 && 'available'
+              }
             />
           </AttendanceBtn>
         </MonthSwitchBox>
@@ -303,14 +407,18 @@ export const Attendance = ({ user }) => {
               </AttendanceFlex>
               <VisitedCounter>
                 {calculateWeeklyVisits()}/
-                <VisitedTotal>{getLessonDaysForWeeks().length}</VisitedTotal>
+                <VisitedTotal>{lessonDaysForWeek.length}</VisitedTotal>
               </VisitedCounter>
             </AttendancePointsBox>
           </VisitedItem>
           <VisitedItem>
             <VisitedText>Пропуски:</VisitedText>
             <VisitedCounter
-              style={{ color: calculateWeeklyUnattended() > 0 && '#D61D1D' }}
+              style={{
+                color:
+                  lessonDaysForWeek.length - calculateWeeklyVisits() > 0 &&
+                  '#D61D1D',
+              }}
             >
               {calculateWeeklyUnattended()}
             </VisitedCounter>
@@ -344,7 +452,7 @@ export const Attendance = ({ user }) => {
             <VisitedText>Відвідано:</VisitedText>
             <VisitedCounter>
               {calculateMonthlyVisits(month)}/
-              <VisitedTotal>{getLessonDaysForMonths().length}</VisitedTotal>
+              <VisitedTotal>{lessonDaysForMonth.length}</VisitedTotal>
             </VisitedCounter>
           </VisitedItem>
           <VisitedItem>
@@ -357,10 +465,10 @@ export const Attendance = ({ user }) => {
           </VisitedItem>
         </VisitedList>
         <VisitedYearBox>
-          <VisitedText>Загальна відвідуваність за рік:</VisitedText>
+          <VisitedText>Загалом відвідано уроків за рік:</VisitedText>
           <VisitedCounter>
             {calculateYearlyVisits()}/
-            <VisitedTotal>{getLessonDaysForYears()}</VisitedTotal>
+            <VisitedTotal>{lessonDaysForYear}</VisitedTotal>
           </VisitedCounter>
         </VisitedYearBox>
       </AttendanceVisitedBox>
