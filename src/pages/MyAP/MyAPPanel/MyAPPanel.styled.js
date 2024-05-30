@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { ReactComponent as BoxSwitchLeft } from '../../../img/svg/btnbox-switch-left-gray.svg';
 import { ReactComponent as BoxSwitchRight } from '../../../img/svg/btnbox-switch-right-gray.svg';
 import { ReactComponent as CalendarIcon } from '../../../img/svg/myap/calendar.svg';
+import { ReactComponent as TimetableIcon } from '../../../img/svg/myap/timetable.svg';
 import { ReactComponent as CupIcon } from '../../../img/svg/myap/cup.svg';
 import { ReactComponent as SearchIcon } from '../../../img/svg/myap/search.svg';
 import { ReactComponent as ResetIcon } from '../../../img/svg/myap/reset.svg';
@@ -27,7 +28,8 @@ export const PanelBackdrop = styled.div`
 
 export const APPanel = styled.div`
   width: 60px;
-  height: 145px;
+
+  padding: 10px;
 
   position: absolute;
   top: 142px;
@@ -128,6 +130,15 @@ export const CupBtnIcon = styled(CupIcon)`
 `;
 
 export const CalendarBtnIcon = styled(CalendarIcon)`
+  height: 30px;
+  width: 30px;
+
+  &.active {
+    color: #525266;
+  }
+`;
+
+export const TimetableBtnIcon = styled(TimetableIcon)`
   height: 30px;
   width: 30px;
 
