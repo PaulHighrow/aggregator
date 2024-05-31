@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { TimetableBtnIcon } from '../MyAPPanel/MyAPPanel.styled';
-import { Link } from 'react-router-dom';
 
 export const TimetableBox = styled.div`
   position: absolute;
@@ -78,7 +77,7 @@ export const TimetableLessonType = styled.span`
   margin-bottom: -1px;
 `;
 
-export const TimetableLessonLink = styled(Link)`
+export const TimetableLessonLink = styled.a`
   display: block;
   padding: 5px 0;
   margin-top: 6px;
@@ -133,4 +132,23 @@ export const TimetableLessonLinkText = styled.span`
   z-index: 1;
 
   transform: translate(-50%, -50%);
+`;
+
+export const TimetableDays = styled.ul`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const TimetableDaysItem = styled.li`
+  padding: 5px 0;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const TimetableDay = styled.span`
+  display: block;
+  font-size: 14px;
+  text-align: center;
+  color: #525266;
 `;

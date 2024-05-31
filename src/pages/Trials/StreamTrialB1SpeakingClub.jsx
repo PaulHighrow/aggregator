@@ -287,7 +287,7 @@ const StreamTrialB1SpeakingClub = () => {
               {links.trials_de &&
               !links.trials_de.includes('youtube') &&
               !links.trials_de.includes('youtu.be')
-                ? window.location.replace('https://discord.gg/UYThU2Np4d')
+                ? window.location.replace('https://us06web.zoom.us/j/87998399840?pwd=FJXK8UlERuqFy5QTEhwYPgpXqQbV7d.1#success')
                 : null}
               {height > width && (
                 <ChatBox

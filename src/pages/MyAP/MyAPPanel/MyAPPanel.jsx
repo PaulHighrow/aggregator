@@ -2,12 +2,18 @@ import { useEffect, useState } from 'react';
 import { Attendance } from '../Attendance/Attendance';
 import { LessonFinder } from '../LessonFinder/LessonFinder';
 import { Points } from '../Points/Points';
+import { Timetable } from '../Timetable.jsx/Timetable';
 import {
   APPanel,
   APPanelBtn,
+  APPanelMarathonBtn,
+  APPanelMarathonBtnText,
   APPanelResetBtn,
   CalendarBtnIcon,
   CupBtnIcon,
+  IframeMarathonLinkPanel,
+  IframeMarathonPointerLinkIcon,
+  IframeMarathonText,
   IframeResetLinkButton,
   IframeSetLinkIcon,
   PanelBackdrop,
@@ -17,13 +23,14 @@ import {
   SearchBtnIcon,
   TimetableBtnIcon,
 } from './MyAPPanel.styled';
-import { Timetable } from '../Timetable.jsx/Timetable';
 
 export const MyAPPanel = ({
   lessons,
   link,
   user,
   points,
+  timetable,
+  marathonLink,
   montlyPoints,
   setPlatformIframeLink,
 }) => {
@@ -35,6 +42,7 @@ export const MyAPPanel = ({
   const [isButtonBoxShown, setIsButtonBoxShown] = useState(true);
   const [isDisclaimerTimeoutActive, setIsDisclaimerTimeoutActive] =
     useState(true);
+  const [isMarathonBtnShown, setIsMarathonBtnShown] = useState(false);
 
   const toggleButtonBox = () => {
     hideBackdrop();
@@ -132,6 +140,12 @@ export const MyAPPanel = ({
     }
   };
 
+  const toggleMarathonButtonTimeout = () => {
+    setTimeout(() => {
+      setIsMarathonBtnShown(true);
+    }, 15000);
+  };
+
   useEffect(() => {
     const onEscapeClose = event => {
       if (event.code === 'Escape' && isBackdropShown) {
@@ -139,6 +153,7 @@ export const MyAPPanel = ({
       }
     };
     toggleTooltipTimeout();
+    toggleMarathonButtonTimeout();
 
     window.addEventListener('keydown', onEscapeClose);
 
@@ -157,6 +172,23 @@ export const MyAPPanel = ({
       <PanelHideSwitch id="no-transform" onClick={toggleButtonBox}>
         {isButtonBoxShown ? <PanelHideRightSwitch /> : <PanelHideLeftSwitch />}
       </PanelHideSwitch>
+      {isMarathonBtnShown && (
+        <IframeMarathonLinkPanel>
+          <IframeMarathonText>
+            Натисніть на цю кнопку, щоб перейти до марафону
+            <IframeMarathonPointerLinkIcon />
+          </IframeMarathonText>
+          <APPanelMarathonBtn
+            id="marathon-btn"
+            onClick={() => {
+              setIsMarathonBtnShown(false);
+              setPlatformIframeLink(marathonLink + ' ');
+            }}
+          >
+            <APPanelMarathonBtnText>МАРАФОН</APPanelMarathonBtnText>
+          </APPanelMarathonBtn>
+        </IframeMarathonLinkPanel>
+      )}
       <APPanel className={isButtonBoxShown ? '' : 'hidden'}>
         <IframeResetLinkButton>
           <APPanelResetBtn
@@ -200,7 +232,7 @@ export const MyAPPanel = ({
         />
       )}
       {isCalendarShown && <Attendance user={user} />}
-      {isTimetableShown && <Timetable user={user} />}
+      {isTimetableShown && <Timetable user={user} timetable={timetable} />}
     </>
   );
 };

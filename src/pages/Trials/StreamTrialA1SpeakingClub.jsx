@@ -287,7 +287,7 @@ const StreamTrialA1SpeakingClub = () => {
               !links.trials_de.includes('youtube') &&
               !links.trials_de.includes('youtu.be')
                 ? window.location.replace(
-                    'https://discord.com/invite/UYThU2Np4d'
+                    'https://us06web.zoom.us/j/82704231222?pwd=v2VgjZhzQvDg3g5XEq8KBNrI7GbOqq.1#success'
                   )
                 : null}
               {height > width && (

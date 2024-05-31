@@ -288,7 +288,7 @@ const StreamPolskiSpeakingClub = () => {
               !links.trials_de.includes('youtube') &&
               !links.trials_de.includes('youtu.be')
                 ? window.location.replace(
-                    'https://discord.com/invite/SaSxpDv4ZB'
+                    'https://us06web.zoom.us/j/89181253982?pwd=fbigi8SGsusTi2w0tTuflAwFjb6UMi.1#success'
                   )
                 : null}
               {height > width && (

@@ -22,9 +22,13 @@ const MyAP = () => {
   const [isUserLogged, setIsUserLogged] = useState(false);
   const [lessons, setLessons] = useState(false);
   const [points, setPoints] = useState({});
+  const [timetable, setTimetable] = useState({});
   const [montlyPoints, setMonthlyPoints] = useState({});
   const [user, setUser] = useState({});
   const [platformLink, setPlatformLink] = useState(
+    `https://online.ap.education/`
+  );
+  const [marathonLink, setMarathonLink] = useState(
     `https://online.ap.education/`
   );
   axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
@@ -64,6 +68,18 @@ const MyAP = () => {
     };
     getRating();
 
+    const getTimetable = async () => {
+      console.log('timetable getter');
+      try {
+        const res = await axios.get('/timetable');
+        console.log(res);
+        setTimetable(timetable => (timetable = res.data));
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getTimetable();
+
     const refreshToken = async () => {
       console.log('token refresher');
       try {
@@ -79,7 +95,7 @@ const MyAP = () => {
     };
     refreshToken();
 
-    const setIframeLink = async () => {
+    const setIframeLinks = async () => {
       const LINKS = {
         en: `https://online.ap.education/MarathonClass/?marathonId=37835&pupilId=${user.pupilId}&marathonLessonId=621674`,
         pl: `https://online.ap.education/MarathonClass/?marathonId=41057&pupilId=${user.pupilId}&marathonLessonId=629354`,
@@ -87,10 +103,36 @@ const MyAP = () => {
         //online.ap.education/MarathonClass/?marathonId=40552&pupilId=${user.pupilId}&marathonLessonId=621673 - FromZeroToHero Children
       };
 
+      const marathonLink =
+        user.lang === 'en' && user.knowledge === 'a1'
+          ? 'ena1'
+          : user.lang === 'en' && user.knowledge === 'a2'
+          ? 'ena2'
+          : user.lang === 'pl'
+          ? 'pl'
+          : user.lang === 'de' && user.knowledge === 'a1'
+          ? 'dea1'
+          : user.lang === 'de' && user.knowledge === 'a2'
+          ? 'dea2'
+          : user.lang === 'enkids'
+          ? 'kids'
+          : '';
+
+      const FREE_LINKS = {
+        kids: `https://online.ap.education/MarathonClass/?marathonId=50784&pupilId=${user.pupilId}&marathonLessonId=854264`,
+        ena1: `https://online.ap.education/MarathonClass/?marathonId=49509&pupilId=${user.pupilId}&marathonLessonId=854277`,
+        ena2: `https://online.ap.education/MarathonClass/?marathonId=49509&pupilId=${user.pupilId}&marathonLessonId=854278`,
+        pl: `https://online.ap.education/MarathonClass/?marathonId=41057&pupilId=${user.pupilId}&marathonLessonId=853147`,
+        dea1: `https://online.ap.education/MarathonClass/?marathonId=41534&pupilId=${user.pupilId}&marathonLessonId=854256`,
+        dea2: `https://online.ap.education/MarathonClass/?marathonId=41534&pupilId=${user.pupilId}&marathonLessonId=854258`,
+      };
+
       setPlatformLink(link => (link = LINKS[user.lang]));
+      setMarathonLink(link => (link = FREE_LINKS[marathonLink]));
     };
-    setIframeLink();
-  }, [user.lang, user.pupilId]);
+
+    setIframeLinks();
+  }, [user.lang, user.pupilId, user.knowledge]);
 
   const setAuthToken = token => {
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
@@ -113,11 +155,8 @@ const MyAP = () => {
   });
 
   const handleLoginSubmit = async (values, { resetForm }) => {
-    console.log(isUserLogged);
     try {
       const response = await axios.post('/users/login', values);
-      console.log(values);
-      console.log(response);
       setAuthToken(response.data.token);
       setIsUserLogged(isLogged => (isLogged = true));
       setUser(user => (user = { ...response.data.user }));
@@ -129,7 +168,6 @@ const MyAP = () => {
   };
 
   const setPlatformIframeLink = iframeLink => {
-    console.log(iframeLink);
     location.search = '';
     setPlatformLink(link => (link = iframeLink));
   };
@@ -176,7 +214,9 @@ const MyAP = () => {
               points={points}
               montlyPoints={montlyPoints}
               link={platformLink}
+              marathonLink={marathonLink}
               setPlatformIframeLink={setPlatformIframeLink}
+              timetable={timetable}
             />
           )}
           <MyPlatform platformLink={platformLink} />

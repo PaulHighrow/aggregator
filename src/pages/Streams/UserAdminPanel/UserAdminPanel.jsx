@@ -238,7 +238,6 @@ export const UserAdminPanel = () => {
     age: '',
     lang: '',
     course: '',
-    points: '',
     knowledge: '',
     manager: '',
   };
@@ -264,7 +263,6 @@ export const UserAdminPanel = () => {
       ),
     lang: yup.string().optional(),
     course: yup.string().optional(),
-    points: yup.string().optional(),
     knowledge: yup
       .string()
       .optional()
@@ -444,8 +442,8 @@ export const UserAdminPanel = () => {
                 <AdminInputNote component="p" name="course" />
               </Label>
               <Label>
-                <AdminInput type="text" name="points" placeholder="Бали" />
-                <AdminInputNote component="p" name="points" />
+                <AdminInput type="text" name="package" placeholder="Пакет послуг" />
+                <AdminInputNote component="p" name="package" />
               </Label>
               <Label>
                 <AdminInput
@@ -574,6 +572,7 @@ export const UserAdminPanel = () => {
                     )}
                   </Filterable>
                 </UserHeadCell>
+                <UserHeadCell>Пакет послуг</UserHeadCell>
                 <UserHeadCell className="filterable">
                   <Filterable>
                     Менеджер
@@ -645,6 +644,7 @@ export const UserAdminPanel = () => {
                   <UserCell>{user.lang}</UserCell>
                   <UserCell>{user.course}</UserCell>
                   <UserCell>{user.knowledge}</UserCell>
+                  <UserCell>{user.package}</UserCell>
                   <UserCell className="last-name">{user.manager}</UserCell>
                   <UserCell>
                     {user.name === 'Dev Acc' ? null : (

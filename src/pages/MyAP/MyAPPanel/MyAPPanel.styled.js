@@ -6,6 +6,7 @@ import { ReactComponent as TimetableIcon } from '../../../img/svg/myap/timetable
 import { ReactComponent as CupIcon } from '../../../img/svg/myap/cup.svg';
 import { ReactComponent as SearchIcon } from '../../../img/svg/myap/search.svg';
 import { ReactComponent as ResetIcon } from '../../../img/svg/myap/reset.svg';
+import { ReactComponent as PointerIcon } from '../../../img/svg/myap/pointer.svg';
 
 export const PanelBackdrop = styled.div`
   width: 100%;
@@ -212,4 +213,87 @@ export const IframeSetLinkIcon = styled(ResetIcon)`
   pointer-events: none;
 
   transition: color var(--animation-global);
+`;
+
+export const IframeMarathonLinkPanel = styled(APPanel)`
+  top: 4px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  height: 56px;
+  width: 665px;
+
+  z-index: 5;
+
+  flex-direction: row;
+  gap: 40px;
+
+  padding: 12px;
+  border-radius: 0;
+  box-shadow: none;
+`;
+
+export const IframeMarathonText = styled.p`
+  font-family: var(--secondary-font-family);
+  font-size: 14px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
+
+export const APPanelMarathonBtn = styled.button`
+  position: relative;
+  overflow: hidden;
+
+  height: 56px;
+  width: 205px;
+  flex-shrink: 0;
+
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  background: linear-gradient(322deg, #0f645b -5.61%, #09c6cc 93.88%);
+  border: none;
+
+  padding: 15px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+
+    transition: opacity 350ms linear;
+
+    background: linear-gradient(322deg, #09c6cc 23.22%, #0f645b 110.01%),
+      #09c6cc;
+  }
+
+  &:hover,
+  &:focus {
+    &::before {
+      opacity: 1;
+    }
+  }
+`;
+
+export const APPanelMarathonBtnText = styled.span`
+  position: absolute;
+  top: calc(50% + 2px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--secondary-color);
+`;
+
+export const IframeMarathonPointerLinkIcon = styled(PointerIcon)`
+  color: #525266;
 `;
