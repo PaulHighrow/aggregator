@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.78c1cfa0.css",
-    "main.js": "/aggregator/static/js/main.d10c7638.js",
+    "main.js": "/aggregator/static/js/main.52d43515.js",
     "New Design Homepage.css": "/aggregator/static/css/New Design Homepage.106666db.chunk.css",
     "New Design Homepage.js": "/aggregator/static/js/New Design Homepage.ce98ffb1.chunk.js",
     "School epage.css": "/aggregator/static/css/School epage.106666db.chunk.css",
@@ -26,7 +26,7 @@
     "Deutsch courses page.css": "/aggregator/static/css/Deutsch courses page.106666db.chunk.css",
     "Deutsch courses page.js": "/aggregator/static/js/Deutsch courses page.3e4a4863.chunk.js",
     "Teacher Page.js": "/aggregator/static/js/Teacher Page.0451233b.chunk.js",
-    "My AP Page.js": "/aggregator/static/js/My AP Page.df65fe95.chunk.js",
+    "My AP Page.js": "/aggregator/static/js/My AP Page.94fe5e9a.chunk.js",
     "Not Found.js": "/aggregator/static/js/Not Found.36dc3f66.chunk.js",
     "reactPlayerYouTube.js": "/aggregator/static/js/reactPlayerYouTube.074f9284.chunk.js",
     "reactPlayerSoundCloud.js": "/aggregator/static/js/reactPlayerSoundCloud.adf990cd.chunk.js",
@@ -82,7 +82,7 @@
     "static/media/instagram.svg": "/aggregator/static/media/instagram.b9daf875938ed610101b860a8d9931ea.svg",
     "static/media/cup.svg": "/aggregator/static/media/cup.7ffbf5a4563d0fd9b73163d2e214d6c6.svg",
     "static/media/youtube.svg": "/aggregator/static/media/youtube.7c0e9b63551b95de8f58fd34bd9d86e3.svg",
-    "static/media/reset.svg": "/aggregator/static/media/reset.8bd90afdd28b7bc907923d5358640dad.svg",
+    "static/media/reset.svg": "/aggregator/static/media/reset.8cb2261880980856d09baa07725fe4fc.svg",
     "static/media/facebook.svg": "/aggregator/static/media/facebook.c1f8cad764fca7b64ee97522a571dee7.svg",
     "static/media/telegram.svg": "/aggregator/static/media/telegram.e8ca380a3d15a87b6f7d2320aafac288.svg",
     "static/media/viewerIcon.svg": "/aggregator/static/media/viewerIcon.2afe58e811705d3a506bfc6e0d03ee4c.svg",
@@ -107,7 +107,7 @@
     "static/media/ty-arrow.svg": "/aggregator/static/media/ty-arrow.b768edbc0fbf7225bcdae7be53e22729.svg",
     "static/media/menu-arrow-rotated.svg": "/aggregator/static/media/menu-arrow-rotated.4eded94223efb5e99ab1efd7a5dbdaf4.svg",
     "static/media/whiteBoardIcon.svg": "/aggregator/static/media/whiteBoardIcon.0a26017b70bfb234b2081b1e08ed19ed.svg",
-    "static/media/pointer.svg": "/aggregator/static/media/pointer.c503294783a0984a7945cf15eecacbbd.svg",
+    "static/media/pointer.svg": "/aggregator/static/media/pointer.86def2cae59ca2a10f04f89a524e3764.svg",
     "static/media/facebook-outline.svg": "/aggregator/static/media/facebook-outline.271d2c02ac136129228954d60180674d.svg",
     "static/media/ytp-sound-muted.svg": "/aggregator/static/media/ytp-sound-muted.029aa7bc421d7599ee0d156d45fa1adf.svg",
     "static/media/youTubeChat.svg": "/aggregator/static/media/youTubeChat.9c7c6cfd74f708931db5a7195df92bd9.svg",
@@ -153,17 +153,17 @@
     "static/media/month-switch-right.svg": "/aggregator/static/media/month-switch-right.f3bea650d66d4d2d896321d68533e6a4.svg",
     "static/media/month-switch-left.svg": "/aggregator/static/media/month-switch-left.e0d1e563529c0585747ccf49797499a3.svg",
     "static/media/filter.svg": "/aggregator/static/media/filter.ddd11318f3b80e2d22a083ca3506e953.svg",
-    "static/media/btnbox-switch-right-gray.svg": "/aggregator/static/media/btnbox-switch-right-gray.75c68844da20cdc82cbdd89d05cefe9b.svg",
     "static/media/coursesArrowLeft.svg": "/aggregator/static/media/coursesArrowLeft.ce1f22af37b7c0268a143ed1e39c0e30.svg",
     "static/media/coursesArrowRight.svg": "/aggregator/static/media/coursesArrowRight.1e896337e3a51201f53d7bd1f5e8d015.svg",
     "static/media/coursesArrowDown.svg": "/aggregator/static/media/coursesArrowDown.e923aecd1e96caeaafc33d39c2938cd0.svg",
-    "static/media/btnbox-switch-left-gray.svg": "/aggregator/static/media/btnbox-switch-left-gray.71a6fc98fabd8b94abe703f8d465562d.svg",
     "static/media/btnbox-switch-left-large.svg": "/aggregator/static/media/btnbox-switch-left-large.30d01b072d5ba40a6c9542efcec84ca4.svg",
     "static/media/btnbox-switch-left.svg": "/aggregator/static/media/btnbox-switch-left.41ecbf13fa59a984cfe935e54d276421.svg",
     "static/media/btnbox-switch-right-large.svg": "/aggregator/static/media/btnbox-switch-right-large.d4edfcc5f338a2d51c7d6695947ffc4e.svg",
     "static/media/btnbox-switch-right.svg": "/aggregator/static/media/btnbox-switch-right.c2062beab8ed3d828de36754c3279d60.svg",
+    "static/media/btnbox-switch-right-gray.svg": "/aggregator/static/media/btnbox-switch-right-gray.69cf7ea74c4470687594894fc4976d49.svg",
+    "static/media/btnbox-switch-left-gray.svg": "/aggregator/static/media/btnbox-switch-left-gray.76c5407e54d9c6babd3f2224b79131dd.svg",
     "main.78c1cfa0.css.map": "/aggregator/static/css/main.78c1cfa0.css.map",
-    "main.d10c7638.js.map": "/aggregator/static/js/main.d10c7638.js.map",
+    "main.52d43515.js.map": "/aggregator/static/js/main.52d43515.js.map",
     "New Design Homepage.106666db.chunk.css.map": "/aggregator/static/css/New Design Homepage.106666db.chunk.css.map",
     "New Design Homepage.ce98ffb1.chunk.js.map": "/aggregator/static/js/New Design Homepage.ce98ffb1.chunk.js.map",
     "School epage.106666db.chunk.css.map": "/aggregator/static/css/School epage.106666db.chunk.css.map",
@@ -188,7 +188,7 @@
     "Deutsch courses page.106666db.chunk.css.map": "/aggregator/static/css/Deutsch courses page.106666db.chunk.css.map",
     "Deutsch courses page.3e4a4863.chunk.js.map": "/aggregator/static/js/Deutsch courses page.3e4a4863.chunk.js.map",
     "Teacher Page.0451233b.chunk.js.map": "/aggregator/static/js/Teacher Page.0451233b.chunk.js.map",
-    "My AP Page.df65fe95.chunk.js.map": "/aggregator/static/js/My AP Page.df65fe95.chunk.js.map",
+    "My AP Page.94fe5e9a.chunk.js.map": "/aggregator/static/js/My AP Page.94fe5e9a.chunk.js.map",
     "Not Found.36dc3f66.chunk.js.map": "/aggregator/static/js/Not Found.36dc3f66.chunk.js.map",
     "reactPlayerYouTube.074f9284.chunk.js.map": "/aggregator/static/js/reactPlayerYouTube.074f9284.chunk.js.map",
     "reactPlayerSoundCloud.adf990cd.chunk.js.map": "/aggregator/static/js/reactPlayerSoundCloud.adf990cd.chunk.js.map",
@@ -209,6 +209,6 @@
   },
   "entrypoints": [
     "static/css/main.78c1cfa0.css",
-    "static/js/main.d10c7638.js"
+    "static/js/main.52d43515.js"
   ]
 }
