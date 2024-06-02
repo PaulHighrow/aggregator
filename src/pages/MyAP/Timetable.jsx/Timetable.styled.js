@@ -18,10 +18,10 @@ export const TimetableBox = styled.div`
   padding-bottom: 10px;
   height: auto;
   overflow-y: scroll;
-  width: 362px;
+  width: calc(100% - 65px);
 
-  @media screen and (max-width: 429px) {
-    width: 250px;
+  @media screen and (min-width: 480px) {
+    width: 362px;
   }
 
   @media screen and (min-width: 768px) {
@@ -62,7 +62,7 @@ export const TimetableBody = styled.div`
   line-height: 1.2;
   color: #525266;
 
-  @media screen and (min-width: 430px) {
+  @media screen and (min-width: 390px) {
     flex-direction: row;
   }
 `;
@@ -71,10 +71,25 @@ export const TimetableWebinars = styled.div`
   padding: 0 22.5px;
   position: relative;
 
+  @media screen and (max-width: 389px) {
+    padding-top: 5px;
+    padding-bottom: 20px;
+  }
+
   &::before {
     content: '';
     height: 132px;
     width: 1px;
+
+    @media screen and (max-width: 389px) {
+      width: 75%;
+      height: 1px;
+      top: unset;
+      bottom: 10px;
+      left: 50%;
+
+      transform: translateX(-50%);
+    }
 
     position: absolute;
     top: 21px;
@@ -87,18 +102,26 @@ export const TimetableWebinars = styled.div`
 
 export const TimetableSpeakings = styled.div`
   padding: 0 22.5px;
+
+  @media screen and (max-width: 389px) {
+    padding-bottom: 5px;
+  }
 `;
 
 export const TimetableLessonType = styled.span`
   display: block;
   padding: 6px 0;
 
+  @media screen and (max-width: 389px) {
+    width: 87%;
+  }
+
   text-align: center;
   width: 118px;
 
   border-bottom: 1px solid var(--accent-color);
   margin: 0 auto;
-  margin-bottom: -1px;
+  margin-bottom: 10px;
 `;
 
 export const TimetableLessonLink = styled.a`

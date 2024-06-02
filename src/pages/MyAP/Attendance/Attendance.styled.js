@@ -35,7 +35,7 @@ export const AttendanceBox = styled.div`
 
   @media screen and (min-height: 480px) {
     top: 60px;
-    height: 356px;
+    height: auto;
   }
 
   @media screen and (min-height: 640px) {

@@ -397,12 +397,12 @@ export const IframeMarathonPointerText = styled.p`
 
   @media screen and (min-width: 375px) {
     font-size: 10px;
-    width: 137px;
+    width: 132px;
   }
 
   @media screen and (min-width: 480px) {
     font-size: 12px;
-    width: 162px;
+    width: 158px;
   }
 
   @media screen and (min-width: 768px) {

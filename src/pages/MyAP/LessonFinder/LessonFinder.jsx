@@ -139,18 +139,9 @@ export const LessonFinder = ({ lessons, user, setPlatformIframeLink }) => {
       setIsPdfPreviewOpen(isOpen => !isOpen);
     };
 
-    console.log('toggler');
-
+    setOpenedPdf(pdfId);
     isPdfPreviewOpen && pdfId !== openedPdf
-      ? console.log('setOpenedPdf(pdfId)')
-      : !isPdfPreviewOpen && pdfId === openedPdf
-      ? console.log('setIsPdfPreviewOpen(isOpen => !isOpen) 147')
-      : isPdfPreviewOpen && pdfId === openedPdf
-      ? console.log('setIsPdfPreviewOpen(isOpen => !isOpen) 149')
-      : console.log('pdfOpener(pdfId)');
-
-    isPdfPreviewOpen && pdfId !== openedPdf
-      ? setOpenedPdf(pdfId)
+      ? setOpenedPdf(pdf => (pdf = pdfId))
       : !isPdfPreviewOpen && pdfId === openedPdf
       ? setIsPdfPreviewOpen(isOpen => !isOpen)
       : isPdfPreviewOpen && pdfId === openedPdf

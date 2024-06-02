@@ -143,7 +143,7 @@ export const MyAPPanel = ({
     if (!isMarathonBtnClicked) {
       setTimeout(() => {
         setIsMarathonBtnShown(true);
-      }, 150);
+      }, 15000);
     }
   };
 
