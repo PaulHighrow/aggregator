@@ -132,6 +132,32 @@ export const LessonFinder = ({ lessons, user, setPlatformIframeLink }) => {
     e.currentTarget.classList.toggle('tooltip-open');
   };
 
+  const togglePdfPreviewOnTouch = pdfId => {
+    const pdfOpener = pdfId => {
+      console.log('opener');
+      setOpenedPdf(pdf => (pdf = pdfId));
+      setIsPdfPreviewOpen(isOpen => !isOpen);
+    };
+
+    console.log('toggler');
+
+    isPdfPreviewOpen && pdfId !== openedPdf
+      ? console.log('setOpenedPdf(pdfId)')
+      : !isPdfPreviewOpen && pdfId === openedPdf
+      ? console.log('setIsPdfPreviewOpen(isOpen => !isOpen) 147')
+      : isPdfPreviewOpen && pdfId === openedPdf
+      ? console.log('setIsPdfPreviewOpen(isOpen => !isOpen) 149')
+      : console.log('pdfOpener(pdfId)');
+
+    isPdfPreviewOpen && pdfId !== openedPdf
+      ? setOpenedPdf(pdfId)
+      : !isPdfPreviewOpen && pdfId === openedPdf
+      ? setIsPdfPreviewOpen(isOpen => !isOpen)
+      : isPdfPreviewOpen && pdfId === openedPdf
+      ? setIsPdfPreviewOpen(isOpen => !isOpen)
+      : pdfOpener(pdfId);
+  };
+
   const openPdfPreviewOnHover = e => {
     setOpenedPdf(pdf => (pdf = e.target.id));
     if (!isPdfPreviewOpen) {
@@ -140,6 +166,7 @@ export const LessonFinder = ({ lessons, user, setPlatformIframeLink }) => {
   };
 
   const closePdfPreviewOnMouseOut = () => {
+    console.log('mouse out?');
     setOpenedPdf(pdf => (pdf = ''));
     if (isPdfPreviewOpen) {
       setIsPdfPreviewOpen(isOpen => !isOpen);
@@ -248,6 +275,7 @@ export const LessonFinder = ({ lessons, user, setPlatformIframeLink }) => {
                             key={pdf}
                             id={pdf}
                             onMouseEnter={e => openPdfPreviewOnHover(e)}
+                            onTouchEnd={() => togglePdfPreviewOnTouch(pdf)}
                           >
                             <PdfIcon />
                             <LessonValuePdfLink

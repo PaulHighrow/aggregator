@@ -8,21 +8,40 @@ import { ReactComponent as InternalLink } from '../../../img/svg/internalLink.sv
 
 export const FinderBox = styled.div`
   position: absolute;
-  top: 142px;
-  right: 120px;
+  top: 30px;
+  right: 60px;
   z-index: 5;
 
+  margin-left: 5px;
   display: flex;
   flex-direction: column;
 
   overflow: hidden;
   border-radius: 20px;
-  height: 442px;
+  height: 768px;
   transition: all var(--animation-global);
 
   &.nothing-found {
     height: unset;
     transition: all var(--animation-global);
+  }
+
+  @media screen and (min-height: 320px) {
+    height: 280px;
+  }
+
+  @media screen and (min-height: 480px) {
+    top: 60px;
+    height: 400px;
+  }
+
+  @media screen and (min-height: 640px) {
+    top: 142px;
+    height: 442px;
+  }
+
+  @media screen and (min-width: 768px) {
+    right: 90px;
   }
 `;
 
@@ -41,7 +60,7 @@ export const FinderIcon = styled(SearchBtnIcon)`
 
 export const FinderInput = styled.input`
   height: 48px;
-  width: 362px;
+  width: 100%;
 
   overflow: hidden;
 
@@ -62,11 +81,15 @@ export const FinderInput = styled.input`
     vertical-align: middle;
     transform: translateY(-2px);
   }
+
+  @media screen and (min-width: 480px) {
+    width: 362px;
+  }
 `;
 
 export const FinderLessons = styled.div`
   height: 394px;
-  width: 362px;
+  width: 100%;
   padding: 0 20px 13px 20px;
 
   overflow-y: scroll;
@@ -84,6 +107,10 @@ export const FinderLessons = styled.div`
     width: 100%;
     height: 1px;
     background-color: #0000000d;
+  }
+
+  @media screen and (min-width: 480px) {
+    width: 362px;
   }
 `;
 

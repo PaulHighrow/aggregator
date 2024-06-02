@@ -3,8 +3,8 @@ import { TimetableBtnIcon } from '../MyAPPanel/MyAPPanel.styled';
 
 export const TimetableBox = styled.div`
   position: absolute;
-  top: 142px;
-  right: 120px;
+  top: 30px;
+  right: 60px;
   z-index: 5;
 
   display: flex;
@@ -15,8 +15,26 @@ export const TimetableBox = styled.div`
   overflow: hidden;
   border-radius: 20px;
   padding: 0 20px;
-  height: 226px;
+  padding-bottom: 10px;
+  height: auto;
+  overflow-y: scroll;
   width: 362px;
+
+  @media screen and (max-width: 429px) {
+    width: 250px;
+  }
+
+  @media screen and (min-width: 768px) {
+    right: 90px;
+  }
+
+  @media screen and (min-height: 480px) {
+    top: 60px;
+  }
+
+  @media screen and (min-height: 640px) {
+    top: 142px;
+  }
 `;
 
 export const TimetableHeading = styled.h3`
@@ -38,10 +56,15 @@ export const TimetableIcon = styled(TimetableBtnIcon)``;
 export const TimetableBody = styled.div`
   display: flex;
   justify-content: center;
+  flex-direction: column;
 
   font-size: 14px;
   line-height: 1.2;
   color: #525266;
+
+  @media screen and (min-width: 430px) {
+    flex-direction: row;
+  }
 `;
 
 export const TimetableWebinars = styled.div`
@@ -74,6 +97,7 @@ export const TimetableLessonType = styled.span`
   width: 118px;
 
   border-bottom: 1px solid var(--accent-color);
+  margin: 0 auto;
   margin-bottom: -1px;
 `;
 

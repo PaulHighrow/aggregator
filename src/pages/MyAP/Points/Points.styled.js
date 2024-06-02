@@ -3,8 +3,8 @@ import { CupBtnIcon } from '../MyAPPanel/MyAPPanel.styled';
 
 export const PointsBox = styled.div`
   position: absolute;
-  top: 142px;
-  right: 120px;
+  top: 30px;
+  right: 60px;
   z-index: 5;
 
   display: flex;
@@ -15,8 +15,32 @@ export const PointsBox = styled.div`
   overflow: hidden;
   border-radius: 20px;
   padding: 0 20px;
-  height: 556px;
-  width: 362px;
+  padding-bottom: 10px;
+  height: 440px;
+  overflow-y: scroll;
+  width: calc(100% - 65px);
+
+  @media screen and (min-width: 480px) {
+    width: 362px;
+  }
+
+  @media screen and (min-width: 768px) {
+    right: 90px;
+  }
+
+  @media screen and (min-height: 320px) {
+    height: 280px;
+  }
+
+  @media screen and (min-height: 480px) {
+    top: 60px;
+    height: 400px;
+  }
+
+  @media screen and (min-height: 640px) {
+    top: 142px;
+    height: 500px;
+  }
 `;
 
 export const PointsBoxHeading = styled.h3`
@@ -107,6 +131,7 @@ export const PointsTableHeadItemWide = styled(PointsTableHeadItem)`
 export const PointsUser = styled(PointsTableHead)`
   height: 36px;
   border-radius: 7px;
+  flex-shrink: 0;
   background-color: var(--accent-color);
 
   margin-bottom: 4px;

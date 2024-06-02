@@ -5,8 +5,8 @@ import { ReactComponent as CoursesArrowRight } from '../../../img/svg/month-swit
 
 export const AttendanceBox = styled.div`
   position: absolute;
-  top: 142px;
-  right: 120px;
+  top: 30px;
+  right: 60px;
   z-index: 5;
 
   display: flex;
@@ -17,8 +17,30 @@ export const AttendanceBox = styled.div`
   overflow: hidden;
   border-radius: 20px;
   padding: 0 20px;
-  height: 356px;
-  width: 362px;
+
+  overflow-y: scroll;
+  width: calc(100% - 65px);
+
+  @media screen and (min-width: 480px) {
+    width: 362px;
+  }
+
+  @media screen and (min-width: 768px) {
+    right: 90px;
+  }
+
+  @media screen and (min-height: 320px) {
+    height: 280px;
+  }
+
+  @media screen and (min-height: 480px) {
+    top: 60px;
+    height: 356px;
+  }
+
+  @media screen and (min-height: 640px) {
+    top: 142px;
+  }
 `;
 
 export const AttendanceHeading = styled.h3`
@@ -38,10 +60,18 @@ export const AttendanceHeading = styled.h3`
 export const CalendarIcon = styled(CalendarBtnIcon)``;
 
 export const AttendanceVisitedBox = styled.div`
-  padding: 18px 10px;
+  padding: 7px 4px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+
+  @media screen and (min-width: 360px) {
+    padding: 11px 6px;
+  }
+
+  @media screen and (min-width: 480px) {
+    padding: 18px 10px;
+  }
 `;
 
 export const MonthSwitchBox = styled.div`
@@ -57,13 +87,21 @@ export const MonthSwitchBox = styled.div`
 
 export const AttendancePeriod = styled.span`
   color: var(--secondary-color);
-  font-size: 14px;
+  font-size: 12px;
 
   min-width: 70px;
   text-align: center;
   width: max-content;
 
   text-transform: capitalize;
+
+  @media screen and (min-width: 360px) {
+    font-size: 13px;
+  }
+
+  @media screen and (min-width: 480px) {
+    font-size: 14px;
+  }
 `;
 
 export const AttendanceBtn = styled.button`
@@ -122,7 +160,15 @@ export const VisitedList = styled.ul`
   border: 1px solid rgba(0, 0, 0, 0.05);
   margin: -1px;
   padding: 0 8px;
-  font-size: 14px;
+  font-size: 12px;
+
+  @media screen and (min-width: 360px) {
+    font-size: 13px;
+  }
+
+  @media screen and (min-width: 480px) {
+    font-size: 14px;
+  }
 
   display: flex;
   flex-direction: column;
@@ -148,7 +194,15 @@ export const VisitedYearBox = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 8px;
-  font-size: 14px;
+  font-size: 12px;
+
+  @media screen and (min-width: 360px) {
+    font-size: 13px;
+  }
+
+  @media screen and (min-width: 480px) {
+    font-size: 14px;
+  }
 `;
 
 export const AttendancePointsBox = styled.div`
@@ -172,9 +226,17 @@ export const AttendancePoints = styled.div`
 export const AttendancePointsContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 2px;
   position: absolute;
   top: 0;
   left: 0;
   transform: translateY(-50%);
+
+  @media screen and (min-width: 360px) {
+    gap: 4px;
+  }
+
+  @media screen and (min-width: 480px) {
+    gap: 8px;
+  }
 `;

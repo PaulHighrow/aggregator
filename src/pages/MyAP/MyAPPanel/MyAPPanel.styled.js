@@ -28,25 +28,34 @@ export const PanelBackdrop = styled.div`
 `;
 
 export const APPanel = styled.div`
-  width: 60px;
+  width: 40px;
 
-  padding: 10px;
+  padding: 6px 4px;
 
   position: absolute;
   top: 142px;
-  right: 38px;
+  right: 14px;
   z-index: 5;
-  border-radius: 21px;
+  border-radius: 8px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 6px;
 
   background-color: #fff;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
   transition: transform var(--animation-global);
+
+  @media screen and (min-width: 768px) {
+    width: 60px;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 21px;
+
+    right: 24px;
+  }
 
   &.hidden {
     transform: translateX(200%);
@@ -85,6 +94,7 @@ export const APPanelResetBtn = styled(APPanelBtn)`
     z-index: 7;
 
     width: max-content;
+    max-width: calc(75vw);
     font-size: 10px;
     line-height: 1.2;
 
@@ -105,8 +115,13 @@ export const APPanelResetBtn = styled(APPanelBtn)`
 `;
 
 export const SearchBtnIcon = styled(SearchIcon)`
-  height: 30px;
-  width: 30px;
+  height: 25px;
+  width: 25px;
+
+  @media screen and (min-width: 768px) {
+    height: 30px;
+    width: 30px;
+  }
 
   &.active {
     color: #525266;
@@ -122,8 +137,13 @@ export const FaqSearchBtnIcon = styled(SearchIcon)`
 `;
 
 export const CupBtnIcon = styled(CupIcon)`
-  height: 30px;
-  width: 30px;
+  height: 25px;
+  width: 25px;
+
+  @media screen and (min-width: 768px) {
+    height: 30px;
+    width: 30px;
+  }
 
   &.active {
     color: #525266;
@@ -131,8 +151,13 @@ export const CupBtnIcon = styled(CupIcon)`
 `;
 
 export const CalendarBtnIcon = styled(CalendarIcon)`
-  height: 30px;
-  width: 30px;
+  height: 25px;
+  width: 25px;
+
+  @media screen and (min-width: 768px) {
+    height: 30px;
+    width: 30px;
+  }
 
   &.active {
     color: #525266;
@@ -140,8 +165,13 @@ export const CalendarBtnIcon = styled(CalendarIcon)`
 `;
 
 export const TimetableBtnIcon = styled(TimetableIcon)`
-  height: 30px;
-  width: 30px;
+  height: 25px;
+  width: 25px;
+
+  @media screen and (min-width: 768px) {
+    height: 30px;
+    width: 30px;
+  }
 
   &.active {
     color: #525266;
@@ -150,15 +180,15 @@ export const TimetableBtnIcon = styled(TimetableIcon)`
 
 export const PanelHideSwitch = styled.div`
   position: absolute;
-  top: 118px;
+  top: 180px;
   right: 0;
 
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
 
   z-index: 10;
 
-  width: 12px;
-  height: 42px;
+  width: 10px;
+  height: 36px;
 
   display: flex;
   align-items: center;
@@ -175,21 +205,37 @@ export const PanelHideSwitch = styled.div`
   @media screen and (min-width: 768px) {
     top: 213px;
     transform: translateY(-50%);
+    width: 12px;
+    height: 42px;
   }
 `;
 
 export const PanelHideLeftSwitch = styled(BoxSwitchLeft)`
   stroke: #525266;
   transition: stroke var(--animation-global);
+  width: 6px;
+  height: 11px;
+
+  @media screen and (min-width: 768px) {
+    width: 8px;
+    height: 13px;
+  }
 `;
 
 export const PanelHideRightSwitch = styled(BoxSwitchRight)`
   stroke: #525266;
   transition: stroke var(--animation-global);
+  width: 6px;
+  height: 11px;
+
+  @media screen and (min-width: 768px) {
+    width: 8px;
+    height: 13px;
+  }
 `;
 
 export const IframeResetLinkButton = styled(APPanel)`
-  top: -66px;
+  top: -42px;
   left: 50%;
 
   transform: translateX(-50%);
@@ -199,8 +245,10 @@ export const IframeResetLinkButton = styled(APPanel)`
 
   height: auto;
 
-  padding: 15px;
-
+  @media screen and (min-width: 768px) {
+    top: -66px;
+    padding: 15px;
+  }
   &:hover,
   &:focus {
     background-color: none;
@@ -208,6 +256,14 @@ export const IframeResetLinkButton = styled(APPanel)`
 `;
 
 export const IframeSetLinkIcon = styled(ResetIcon)`
+  height: 25px;
+  width: 25px;
+
+  @media screen and (min-width: 768px) {
+    height: 30px;
+    width: 30px;
+  }
+
   color: #bebecc;
   position: relative;
   pointer-events: none;
@@ -216,40 +272,55 @@ export const IframeSetLinkIcon = styled(ResetIcon)`
 `;
 
 export const IframeMarathonLinkPanel = styled(APPanel)`
-  top: 4px;
-  left: 50%;
+  top: 0px;
+  right: 0;
 
-  transform: translateX(-50%);
+  width: 100%;
+  height: 64px;
 
-  height: 56px;
-  width: 665px;
-
-  z-index: 5;
+  z-index: 3;
 
   flex-direction: row;
-  gap: 40px;
+  gap: 10px;
 
   padding: 12px;
   border-radius: 0;
   box-shadow: none;
+
+  @media screen and (min-width: 768px) {
+    background-color: var(--secondary-color);
+    gap: 20px;
+    right: 50%;
+    transform: translateX(50%);
+  }
+
+  @media screen and (min-width: 1280px) {
+    top: 4px;
+    padding: 0;
+    gap: 40px;
+    height: 56px;
+    width: 665px;
+  }
 `;
 
-export const IframeMarathonText = styled.p`
-  font-family: var(--secondary-font-family);
-  font-size: 14px;
-
+export const IframeMarathonText = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
+
+  @media screen and (min-width: 768px) {
+    gap: 10px;
+  }
 `;
 
 export const APPanelMarathonBtn = styled.button`
   position: relative;
   overflow: hidden;
 
-  height: 56px;
-  width: 205px;
   flex-shrink: 0;
+
+  height: 32px;
+  width: 132px;
 
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
   border-radius: 12px;
@@ -257,6 +328,18 @@ export const APPanelMarathonBtn = styled.button`
   border: none;
 
   padding: 15px;
+
+  @media screen and (min-width: 480px) {
+    height: 40px;
+    width: 162px;
+  }
+
+  @media screen and (min-width: 768px) {
+    background-color: var(--secondary-color);
+
+    height: 56px;
+    width: 205px;
+  }
 
   &::before {
     content: '';
@@ -283,17 +366,58 @@ export const APPanelMarathonBtn = styled.button`
 
 export const APPanelMarathonBtnText = styled.span`
   position: absolute;
-  top: calc(50% + 2px);
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
 
-  font-size: 32px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 1;
   color: var(--secondary-color);
+
+  @media screen and (min-width: 375px) {
+    font-size: 20px;
+  }
+
+  @media screen and (min-width: 480px) {
+    font-size: 24px;
+  }
+
+  @media screen and (min-width: 768px) {
+    top: calc(50% + 2px);
+    font-size: 32px;
+  }
+`;
+
+export const IframeMarathonPointerText = styled.p`
+  color: #525266;
+  font-size: 9px;
+  font-family: var(--secondary-font-family);
+  width: 114px;
+
+  @media screen and (min-width: 375px) {
+    font-size: 10px;
+    width: 137px;
+  }
+
+  @media screen and (min-width: 480px) {
+    font-size: 12px;
+    width: 162px;
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    width: auto;
+  }
 `;
 
 export const IframeMarathonPointerLinkIcon = styled(PointerIcon)`
   color: #525266;
+  width: 16px;
+  height: 16px;
+
+  @media screen and (min-width: 480px) {
+    width: 20px;
+    height: 20px;
+  }
 `;

@@ -309,7 +309,7 @@ export const Attendance = ({ user }) => {
 
     const futureDays = lessonDays.slice(0, currentDay + 1).length;
 
-    return currentDay < 0
+    return currentDay < 0 && calculateSetWeeklyVisits(week) > 0
       ? lessonDaysForWeek.length - calculateSetWeeklyVisits(week)
       : futureDays === 0
       ? 0
@@ -328,7 +328,7 @@ export const Attendance = ({ user }) => {
 
     const futureDays = lessonDays.slice(0, currentDay + 1).length;
 
-    return currentDay < 0
+    return currentDay < 0 && calculateMonthlyVisits(month) > 0
       ? lessonDaysForMonth.length - calculateMonthlyVisits(month)
       : futureDays === 0
       ? 0
@@ -427,9 +427,7 @@ export const Attendance = ({ user }) => {
             <VisitedText>Пропуски:</VisitedText>
             <VisitedCounter
               style={{
-                color:
-                  lessonDaysForWeek.length - calculateWeeklyVisits() > 0 &&
-                  '#D61D1D',
+                color: calculateWeeklyUnattended() > 0 && '#D61D1D',
               }}
             >
               {calculateWeeklyUnattended()}

@@ -8,14 +8,12 @@ import {
   APPanelBtn,
   APPanelMarathonBtn,
   APPanelMarathonBtnText,
-  APPanelResetBtn,
   CalendarBtnIcon,
   CupBtnIcon,
   IframeMarathonLinkPanel,
   IframeMarathonPointerLinkIcon,
+  IframeMarathonPointerText,
   IframeMarathonText,
-  IframeResetLinkButton,
-  IframeSetLinkIcon,
   PanelBackdrop,
   PanelHideLeftSwitch,
   PanelHideRightSwitch,
@@ -40,9 +38,10 @@ export const MyAPPanel = ({
   const [isCalendarShown, setIsCalendarShown] = useState(false);
   const [isTimetableShown, setIsTimetableShown] = useState(false);
   const [isButtonBoxShown, setIsButtonBoxShown] = useState(true);
-  const [isDisclaimerTimeoutActive, setIsDisclaimerTimeoutActive] =
-    useState(true);
+  // const [isDisclaimerTimeoutActive, setIsDisclaimerTimeoutActive] =
+  //   useState(true);
   const [isMarathonBtnShown, setIsMarathonBtnShown] = useState(false);
+  const [isMarathonBtnClicked, setIsMarathonBtnClicked] = useState(false);
 
   const toggleButtonBox = () => {
     hideBackdrop();
@@ -120,30 +119,32 @@ export const MyAPPanel = ({
     setIsTimetableShown(isTimetableShown => !isTimetableShown);
   };
 
-  const toggleTooltip = e => {
-    !isDisclaimerTimeoutActive &&
-      e.currentTarget.classList.toggle('tooltip-open');
-  };
+  // const toggleTooltip = e => {
+  //   !isDisclaimerTimeoutActive &&
+  //     e.currentTarget.classList.toggle('tooltip-open');
+  // };
 
-  const toggleTooltipTimeout = () => {
-    const resetBtnEl = document.querySelector('#reset-btn');
+  // const toggleTooltipTimeout = () => {
+  //   const resetBtnEl = document.querySelector('#reset-btn');
 
-    if (isDisclaimerTimeoutActive) {
-      setTimeout(() => {
-        resetBtnEl.classList.add('tooltip-open');
-      }, 10000);
+  //   if (isDisclaimerTimeoutActive) {
+  //     setTimeout(() => {
+  //       resetBtnEl.classList.add('tooltip-open');
+  //     }, 10000);
 
-      setTimeout(() => {
-        resetBtnEl.classList.remove('tooltip-open');
-        setIsDisclaimerTimeoutActive(false);
-      }, 20000);
-    }
-  };
+  //     setTimeout(() => {
+  //       resetBtnEl.classList.remove('tooltip-open');
+  //       setIsDisclaimerTimeoutActive(false);
+  //     }, 20000);
+  //   }
+  // };
 
   const toggleMarathonButtonTimeout = () => {
-    setTimeout(() => {
-      setIsMarathonBtnShown(true);
-    }, 15000);
+    if (!isMarathonBtnClicked) {
+      setTimeout(() => {
+        setIsMarathonBtnShown(true);
+      }, 150);
+    }
   };
 
   useEffect(() => {
@@ -152,7 +153,7 @@ export const MyAPPanel = ({
         hideBackdrop();
       }
     };
-    toggleTooltipTimeout();
+    // toggleTooltipTimeout();
     toggleMarathonButtonTimeout();
 
     window.addEventListener('keydown', onEscapeClose);
@@ -175,13 +176,16 @@ export const MyAPPanel = ({
       {isMarathonBtnShown && (
         <IframeMarathonLinkPanel>
           <IframeMarathonText>
-            Натисніть на цю кнопку, щоб перейти до марафону
+            <IframeMarathonPointerText>
+              Натисніть на цю кнопку, щоб перейти до марафону
+            </IframeMarathonPointerText>
             <IframeMarathonPointerLinkIcon />
           </IframeMarathonText>
           <APPanelMarathonBtn
             id="marathon-btn"
             onClick={() => {
               setIsMarathonBtnShown(false);
+              setIsMarathonBtnClicked(true);
               setPlatformIframeLink(marathonLink + ' ');
             }}
           >
@@ -190,19 +194,18 @@ export const MyAPPanel = ({
         </IframeMarathonLinkPanel>
       )}
       <APPanel className={isButtonBoxShown ? '' : 'hidden'}>
-        <IframeResetLinkButton>
+        {/* <IframeResetLinkButton>
           <APPanelResetBtn
             id="reset-btn"
             onMouseEnter={e => toggleTooltip(e)}
             onMouseOut={e => toggleTooltip(e)}
+            onClick={() => {
+              setPlatformIframeLink(link + ' ');
+            }}
           >
-            <IframeSetLinkIcon
-              onClick={() => {
-                setPlatformIframeLink(link + ' ');
-              }}
-            />
+            <IframeSetLinkIcon />
           </APPanelResetBtn>
-        </IframeResetLinkButton>
+        </IframeResetLinkButton> */}
         <APPanelBtn onClick={toggleSearch}>
           <SearchBtnIcon className={isLessonFinderShown && 'active'} />
         </APPanelBtn>
