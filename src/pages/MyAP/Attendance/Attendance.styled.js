@@ -40,6 +40,7 @@ export const AttendanceBox = styled.div`
 
   @media screen and (min-height: 640px) {
     top: 142px;
+    overflow-y: hidden;
   }
 `;
 

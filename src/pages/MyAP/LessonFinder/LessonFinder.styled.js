@@ -38,6 +38,7 @@ export const FinderBox = styled.div`
   @media screen and (min-height: 640px) {
     top: 142px;
     height: 442px;
+    overflow-y: hidden;
   }
 
   @media screen and (min-width: 768px) {

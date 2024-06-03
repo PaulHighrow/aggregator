@@ -32,6 +32,21 @@ export const Attendance = ({ user }) => {
   const [lessonDaysForMonth, SetLessonDaysForMonth] = useState([]);
   const [lessonDaysForYear, SetLessonDaysForYear] = useState([]);
 
+  const MONTHS = [
+    'Січень',
+    'Лютий',
+    'Березень',
+    'Квітень',
+    'Травень',
+    'Червень',
+    'Липень',
+    'Серпень',
+    'Вересень',
+    'Жовтень',
+    'Листопад',
+    'Грудень',
+  ];
+
   useEffect(() => {
     const getLessonDaysForWeeks = () => {
       let date = new Date(year, month - 1, week + 1);
@@ -245,8 +260,11 @@ export const Attendance = ({ user }) => {
   };
 
   const calculateWeeklyVisits = () => {
-    const lessonDays = lessonDaysForWeek.map(lessonDay =>
-      new Date(lessonDay).toLocaleDateString('uk-UA')
+    const lessonDays = lessonDaysForWeek.map(
+      lessonDay =>
+        `${editDateFormat(lessonDay.getDate())}.${editDateFormat(
+          lessonDay.getMonth() + 1
+        )}.${editDateFormat(lessonDay.getFullYear())}`
     );
     return user.visited.filter(date => (date = lessonDays.includes(date)))
       .length;
@@ -287,7 +305,12 @@ export const Attendance = ({ user }) => {
 
     const passedWeekLessonDays = getLessonDaysOfPassedWeek(
       firstDayOfWeekDate
-    ).map(day => new Date(day).toLocaleDateString('uk-UA'));
+    ).map(
+      day =>
+        `${editDateFormat(day.getDate())}.${editDateFormat(
+          day.getMonth() + 1
+        )}.${editDateFormat(day.getFullYear())}`
+    );
 
     return user.visited.filter(
       date => (date = passedWeekLessonDays.includes(date))
@@ -344,15 +367,21 @@ export const Attendance = ({ user }) => {
   };
 
   const calculateYearlyVisits = () => {
-    const lessonDays = lessonDaysForYear.map(lessonDay =>
-      new Date(lessonDay).toLocaleDateString('uk-UA')
+    const lessonDays = lessonDaysForYear.map(
+      lessonDay =>
+        `${editDateFormat(lessonDay.getDate())}.${editDateFormat(
+          lessonDay.getMonth() + 1
+        )}.${editDateFormat(lessonDay.getFullYear())}`
     );
     return user.visited.filter(date => lessonDays.includes(date)).length;
   };
 
   const calculatePoints = () => {
-    const lessonDays = lessonDaysForWeek.map(lessonDay =>
-      new Date(lessonDay).toLocaleDateString('uk-UA')
+    const lessonDays = lessonDaysForWeek.map(
+      lessonDay =>
+        `${editDateFormat(lessonDay.getDate())}.${editDateFormat(
+          lessonDay.getMonth() + 1
+        )}.${editDateFormat(lessonDay.getFullYear())}`
     );
 
     const visitedWithinWeek = user.visited.filter(
@@ -439,11 +468,7 @@ export const Attendance = ({ user }) => {
               className={calculateMonthlyVisits(month - 1) !== 0 && 'available'}
             />
           </AttendanceBtn>
-          <AttendancePeriod>
-            {new Intl.DateTimeFormat('uk-UK', { month: 'long' }).format(
-              new Date(`${month}`)
-            )}
-          </AttendancePeriod>
+          <AttendancePeriod>{MONTHS[month - 1]}</AttendancePeriod>
           <AttendanceBtn
             disabled={calculateMonthlyVisits(month + 1) === 0 ? true : false}
             onClick={increaseMonth}
@@ -476,6 +501,11 @@ export const Attendance = ({ user }) => {
             {calculateYearlyVisits()}/
             <VisitedTotal>{lessonDaysForYear.length}</VisitedTotal>
           </VisitedCounter>
+          {lessonDaysForYear[0]}
+          {lessonDaysForYear[0].getDate()}
+          {lessonDaysForYear[0].getMonth()}
+          {lessonDaysForYear[0].getFullYear()}
+          {user.visited[0]}
         </VisitedYearBox>
       </AttendanceVisitedBox>
     </AttendanceBox>
