@@ -11,6 +11,7 @@ import {
   AdminFormBtn,
   AdminInput,
   AdminPanelSection,
+  FormTitle,
   LabelCheckBox,
   LinksForm,
   WarningBox,
@@ -111,6 +112,7 @@ export const TrialsKidsKahootForm = ({ destination }) => {
   return (
     <>
       <AdminPanelSection>
+      <FormTitle>Trials Kids English</FormTitle>
         <Formik
           initialValues={initialLinksValues}
           onSubmit={handleLinksSubmit}

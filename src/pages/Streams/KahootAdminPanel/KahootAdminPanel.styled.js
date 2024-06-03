@@ -73,6 +73,8 @@ export const LinksForm = styled(Form)`
   display: flex;
   flex-direction: column;
   gap: 35px;
+
+  max-width: 500px;
 `;
 
 export const AdminFormBtn = styled(FormBtn)`
@@ -134,4 +136,10 @@ export const WarningBtn = styled(ClipBoardSubmitBtn)`
   &.cancel:focus {
     background-color: #00800030;
   }
+`;
+
+export const FormTitle = styled.p`
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 6px;
 `;

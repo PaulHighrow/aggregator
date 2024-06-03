@@ -42,12 +42,18 @@ const TeacherPage = () => {
         return 'deutscha0';
       case 'deutsch-a1':
         return 'deutsch';
+      case 'deutsch-a1free':
+        return 'deutschfree';
       case 'deutsch-a2':
         return 'deutscha2';
+      case 'deutsch-a2free':
+        return 'deutscha2free';
       case 'polski-a0':
         return 'polskia0';
       case 'polski-a1':
         return 'polski';
+      case 'polski-a1free':
+        return 'polskifree';
       case 'polski-a2':
         return 'polskia2';
       default:

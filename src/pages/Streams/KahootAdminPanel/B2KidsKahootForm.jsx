@@ -11,6 +11,7 @@ import {
   AdminFormBtn,
   AdminInput,
   AdminPanelSection,
+  FormTitle,
   LabelCheckBox,
   LinksForm,
   WarningBox,
@@ -121,6 +122,7 @@ export const B2KidsKahootForm = ({ destination }) => {
   return (
     <>
       <AdminPanelSection>
+      <FormTitle>B2 Kids</FormTitle>
         <Formik
           initialValues={initialLinksValues}
           onSubmit={handleLinksSubmit}

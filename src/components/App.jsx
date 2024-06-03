@@ -222,10 +222,10 @@ export const App = () => {
           <Route path="examination" element={<Examination utms={utms} />} />
           <Route path="translation" element={<Translation utms={utms} />} />
           <Route path="career" element={<Career utms={utms} />} /> */}
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<NotFound />} noindex={true} />
         </Route>
-        <Route path="my-ap" element={<MyAP />} />
-        <Route path="streams" element={<Streams />}>
+        <Route path="my-ap" element={<MyAP />} noindex={true}/>
+        <Route path="streams" element={<Streams />} noindex={true}>
           <Route path="a0" element={<StreamA0 />} />
           <Route path="a0-chat" element={<WindowedChat />} />
           <Route path="a1" element={<StreamA1 />} />
@@ -239,6 +239,10 @@ export const App = () => {
           <Route path="b1-chat" element={<WindowedChat />} />
           <Route path="b2" element={<StreamB2 />} />
           <Route path="b2-chat" element={<WindowedChat />} />
+          <Route path="a1free" element={<StreamA1 />} />
+          <Route path="a1free-chat" element={<WindowedChat />} />
+          <Route path="a2free" element={<StreamA2 />} />
+          <Route path="a2free-chat" element={<WindowedChat />} />
           <Route path="deutscha0" element={<StreamDeutschA0 />} />
           <Route path="deutscha0-chat" element={<WindowedChat />} />
           <Route path="deutsch" element={<StreamDeutsch />} />
@@ -246,12 +250,18 @@ export const App = () => {
           <Route path="deutsch-chat" element={<WindowedChat />} />
           <Route path="deutscha2" element={<StreamDeutschA2 />} />
           <Route path="deutscha2-chat" element={<WindowedChat />} />
+          <Route path="deutschfree" element={<StreamDeutsch />} />
+          <Route path="deutschfree-chat" element={<WindowedChat />} />
+          <Route path="deutscha2free" element={<StreamDeutschA2 />} />
+          <Route path="deutscha2free-chat" element={<WindowedChat />} />
           <Route path="polskia0" element={<StreamPolskiA0 />} />
           <Route path="polskia0-chat" element={<WindowedChat />} />
           <Route path="polski" element={<StreamPolski />} />
           <Route path="polski-chat" element={<WindowedChat />} />
           <Route path="polskia2" element={<StreamPolskiA2 />} />
           <Route path="polskia2-chat" element={<WindowedChat />} />
+          <Route path="polskifree" element={<StreamPolski />} />
+          <Route path="polskifree-chat" element={<WindowedChat />} />
           <Route path="psc-a2" element={<StreamPolskiSpeakingClub />} />
           <Route path="test" element={<StreamTest />} />
           <Route path="test-chat" element={<WindowedChat />} />
@@ -274,7 +284,7 @@ export const App = () => {
             element={<CollectionsAdminPanel />}
           />
         </Route>
-        <Route path="streams-kids" element={<StreamsKids />}>
+        <Route path="streams-kids" element={<StreamsKids />} noindex={true}>
           <Route path="a0" element={<KidsA0 />} />
           <Route path="a0-chat" element={<WindowedChat />} />
           <Route path="a1" element={<KidsA1 />} />
@@ -291,6 +301,8 @@ export const App = () => {
           <Route path="b2-chat" element={<WindowedChat />} />
           <Route path="b1beginner" element={<KidsB1Beginner />} />
           <Route path="b1beginner-chat" element={<WindowedChat />} />
+          <Route path="a1free" element={<KidsA1 />} />
+          <Route path="a1free-chat" element={<WindowedChat />} />
         </Route>
         <Route path="service" element={<Service />}>
           <Route path="viber" element={<ViberRedirect />} />
@@ -304,23 +316,29 @@ export const App = () => {
         <Route path="trial-pl" element={<StreamTrialPolski />} />
         <Route path="trial-de" element={<StreamTrialDeutsch />} />
         <Route path="trial-kids" element={<StreamTrialKids />} />
-        <Route path="teacher" element={<Teacher />}>
+        <Route path="teacher" element={<Teacher />} noindex={true}>
           <Route path="a0" element={<TeacherPage />} />
           <Route path="a1" element={<TeacherPage />} />
           <Route path="a2" element={<TeacherPage />} />
           <Route path="b1" element={<TeacherPage />} />
           <Route path="b2" element={<TeacherPage />} />
+          <Route path="a1free" element={<TeacherPage />} />
+          <Route path="a2free" element={<TeacherPage />} />
           <Route path="a0kids" element={<TeacherPage />} />
           <Route path="a1kids" element={<TeacherPage />} />
           <Route path="a2kids" element={<TeacherPage />} />
           <Route path="b1kids" element={<TeacherPage />} />
           <Route path="b2kids" element={<TeacherPage />} />
+          <Route path="a1kidsfree" element={<TeacherPage />} />
           <Route path="b1kidsbeginner" element={<TeacherPage />} />
           <Route path="deutsch-a0" element={<TeacherPage />} />
           <Route path="deutsch-a1" element={<TeacherPage />} />
           <Route path="deutsch-a2" element={<TeacherPage />} />
+          <Route path="deutsch-a1free" element={<TeacherPage />} />
+          <Route path="deutsch-a2free" element={<TeacherPage />} />
           <Route path="polski-a0" element={<TeacherPage />} />
           <Route path="polski-a1" element={<TeacherPage />} />
+          <Route path="polski-a1free" element={<TeacherPage />} />
           <Route path="polski-a2" element={<TeacherPage />} />
           <Route path="test" element={<TeacherPage />} />
           <Route path="trials" element={<TeacherTrialPage />} />
@@ -328,13 +346,13 @@ export const App = () => {
           <Route path="trials-pl" element={<TeacherTrialPage />} />
           <Route path="trials-de" element={<TeacherTrialPage />} />
         </Route>
-        <Route path="thankyou" element={<ThankYouPage />} />
-        <Route path="form" element={<LeadFormPage utms={utms} />} />
-        <Route path="form-a" element={<LeadFormPage utms={utms} />} />
-        <Route path="form-b" element={<LeadFormPage utms={utms} />} />
-        <Route path="form-c" element={<LeadFormPage utms={utms} />} />
-        <Route path="form-d" element={<LeadFormPage utms={utms} />} />
-        <Route path="form-e" element={<LeadFormPage utms={utms} />} />
+        <Route path="thankyou" element={<ThankYouPage />} noindex={true}/>
+        <Route path="form" element={<LeadFormPage utms={utms} />} noindex={true}/>
+        <Route path="form-a" element={<LeadFormPage utms={utms} />} noindex={true}/>
+        <Route path="form-b" element={<LeadFormPage utms={utms} />} noindex={true}/>
+        <Route path="form-c" element={<LeadFormPage utms={utms} />} noindex={true}/>
+        <Route path="form-d" element={<LeadFormPage utms={utms} />} noindex={true}/>
+        <Route path="form-e" element={<LeadFormPage utms={utms} />} noindex={true}/>
       </Routes>
     </>
   );

@@ -21,35 +21,25 @@ import {
   WarningText,
 } from './KahootAdminPanel.styled';
 
-export const A2KidsKahootForm = ({ destination }) => {
+export const DeutschFreeKahootForm = ({ destination }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [confirmation, setConfirmation] = useState(false);
 
   const initialLinksValues = {
-    a2kids_1: '',
-    a2kids_2: '',
-    a2kids_3: '',
-    a2kids_4: '',
-    a2kids_5: '',
-    a2kids_6: '',
-    a2kids_7: '',
-    a2kids_8: '',
-    a2kids_9: '',
-    a2kids_10: '',
+    deutschfree_1: '',
+    deutschfree_2: '',
+    deutschfree_3: '',
+    deutschfree_4: '',
+    deutschfree_5: '',
     replace: true,
   };
 
   const linksSchema = yup.object().shape({
-    a2kids_1: yup.string().optional(),
-    a2kids_2: yup.string().optional(),
-    a2kids_3: yup.string().optional(),
-    a2kids_4: yup.string().optional(),
-    a2kids_5: yup.string().optional(),
-    a2kids_6: yup.string().optional(),
-    a2kids_7: yup.string().optional(),
-    a2kids_8: yup.string().optional(),
-    a2kids_9: yup.string().optional(),
-    a2kids_10: yup.string().optional(),
+    deutschfree_1: yup.string().optional(),
+    deutschfree_2: yup.string().optional(),
+    deutschfree_3: yup.string().optional(),
+    deutschfree_4: yup.string().optional(),
+    deutschfree_5: yup.string().optional(),
     replace: yup.bool().required(),
   });
 
@@ -94,16 +84,16 @@ export const A2KidsKahootForm = ({ destination }) => {
       );
 
     if (!emptyValues || confirmation) {
-      const a2kidslinks = { a2kids: { links: {} } };
+      const deutschfreelinks = { deutschfree: { links: {} } };
       for (const [key, value] of Object.entries(values)) {
         if (value && key !== 'replace') {
-          a2kidslinks.a2kids.links[key] = value;
+          deutschfreelinks.deutschfree.links[key] = value;
         } else {
-          a2kidslinks.a2kids.replace = value;
+          deutschfreelinks.deutschfree.replace = value;
         }
       }
       try {
-        const response = await axios.patch(destination, a2kidslinks);
+        const response = await axios.patch(destination, deutschfreelinks);
         console.log(response);
         resetForm();
         alert('Лінки замінилися, молодець');
@@ -122,7 +112,7 @@ export const A2KidsKahootForm = ({ destination }) => {
   return (
     <>
       <AdminPanelSection>
-      <FormTitle>A2 Kids</FormTitle>
+      <FormTitle>Deutsch A1 Free</FormTitle>
         <Formik
           initialValues={initialLinksValues}
           onSubmit={handleLinksSubmit}
@@ -132,81 +122,41 @@ export const A2KidsKahootForm = ({ destination }) => {
             <Label>
               <AdminInput
                 type="text"
-                name="a2kids_1"
+                name="deutschfree_1"
                 autoComplete="off"
-                placeholder="Перший кахут для дітей рівня А2"
+                placeholder="Перший кахут для безкоштовного марафону рівня A1 з німецької"
               />
             </Label>
             <Label>
               <AdminInput
                 type="text"
-                name="a2kids_2"
+                name="deutschfree_2"
                 autoComplete="off"
-                placeholder="Другий кахут для дітей рівня А2"
+                placeholder="Другий кахут для безкоштовного марафону рівня A1 з німецької"
               />
             </Label>
             <Label>
               <AdminInput
                 type="text"
-                name="a2kids_3"
+                name="deutschfree_3"
                 autoComplete="off"
-                placeholder="Третій кахут для дітей рівня А2"
+                placeholder="Третій кахут для безкоштовного марафону рівня A1 з німецької"
               />
             </Label>
             <Label>
               <AdminInput
                 type="text"
-                name="a2kids_4"
+                name="deutschfree_4"
                 autoComplete="off"
-                placeholder="Четвертий кахут для дітей рівня А2"
+                placeholder="Четвертий кахут для безкоштовного марафону рівня A1 з німецької"
               />
             </Label>
             <Label>
               <AdminInput
                 type="text"
-                name="a2kids_5"
+                name="deutschfree_5"
                 autoComplete="off"
-                placeholder="П'ятий кахут для дітей рівня А2"
-              />
-            </Label>
-            <Label>
-              <AdminInput
-                type="text"
-                name="a2kids_6"
-                autoComplete="off"
-                placeholder="Шостий кахут для дітей рівня А2"
-              />
-            </Label>
-            <Label>
-              <AdminInput
-                type="text"
-                name="a2kids_7"
-                autoComplete="off"
-                placeholder="Сьомий кахут для дітей рівня А2"
-              />
-            </Label>
-            <Label>
-              <AdminInput
-                type="text"
-                name="a2kids_8"
-                autoComplete="off"
-                placeholder="Восьмий кахут для дітей рівня А2"
-              />
-            </Label>
-            <Label>
-              <AdminInput
-                type="text"
-                name="a2kids_9"
-                autoComplete="off"
-                placeholder="Дев'ятий кахут для дітей рівня А2"
-              />
-            </Label>
-            <Label>
-              <AdminInput
-                type="text"
-                name="a2kids_10"
-                autoComplete="off"
-                placeholder="Десятий кахут для дітей рівня А2"
+                placeholder="П'ятий кахут для безкоштовного марафону рівня A1 з німецької"
               />
             </Label>
             <LabelCheckBox>

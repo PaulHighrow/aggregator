@@ -66,6 +66,8 @@ export const Kahoots = ({
 
   const trialsSwitch = path => {
     switch (path) {
+      case 'a1free':
+        return 'a1kidsfree';
       case 'pilot':
         return 'deutsch';
       case 'b1beginner':
@@ -89,7 +91,9 @@ export const Kahoots = ({
 
   const page =
     location.pathname.includes('pilot') ||
-    location.pathname.includes('beginner')
+    location.pathname.includes('beginner') ||
+    (location.pathname.includes('streams-kids') &&
+      location.pathname.includes('free'))
       ? trialsSwitch(location.pathname.match(/\/([^/]+)\/?$/)[1])
       : location.pathname.includes('streams-kids')
       ? location.pathname.match(/\/([^/]+)\/?$/)[1] + 'kids'
