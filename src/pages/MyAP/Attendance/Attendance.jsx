@@ -26,12 +26,8 @@ import {
 
 export const Attendance = ({ user }) => {
   const [week, setWeek] = useState(new Date().getDate() - new Date().getDay());
-  const [month, setMonth] = useState(
-    +new Intl.DateTimeFormat('uk-UK', { month: 'numeric' }).format()
-  );
-  const [year, setYear] = useState(
-    +new Intl.DateTimeFormat('uk-UK', { year: 'numeric' }).format()
-  );
+  const [month, setMonth] = useState(new Date().getMonth() + 1);
+  const [year, setYear] = useState(new Date().getFullYear());
   const [lessonDaysForWeek, SetLessonDaysForWeek] = useState([]);
   const [lessonDaysForMonth, SetLessonDaysForMonth] = useState([]);
   const [lessonDaysForYear, SetLessonDaysForYear] = useState([]);
