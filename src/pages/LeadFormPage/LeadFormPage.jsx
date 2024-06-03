@@ -54,9 +54,9 @@ export const LeadFormPage = ({ utms }) => {
       case '/form':
         return '';
       case '/form-a':
-        return 'start_smth_sonia';
+        return 'korysnosti';
       case '/form-b':
-        return 'atamanchuk_sonia';
+        return 'digitalization';
       case '/form-c':
         return 'ukryoutube_sonia';
       case '/form-d':
