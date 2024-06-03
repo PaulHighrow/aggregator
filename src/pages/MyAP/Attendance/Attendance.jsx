@@ -505,7 +505,7 @@ export const Attendance = ({ user }) => {
           <AttendanceDebugList>
             <li>{Date.now()}</li>
             <li>{new Date().toISOString()}</li>
-            <li>
+            {/* <li>
               {lessonDaysForYear.length > 0 &&
                 `${lessonDaysForYear[0].toISOString()}`}
             </li>
@@ -522,7 +522,7 @@ export const Attendance = ({ user }) => {
               {lessonDaysForYear.length > 0 &&
                 `${lessonDaysForYear[0].getFullYear()}`}
             </li>
-            <li>{lessonDaysForYear.length > 0 && user.visited[0]}</li>
+            <li>{lessonDaysForYear.length > 0 && user.visited[0]}</li> */}
             <li>
               {lessonDaysForYear.length > 0 &&
                 `${editDateFormat(
