@@ -507,7 +507,7 @@ export const Attendance = ({ user }) => {
             <li>{new Date().toISOString()}</li>
             <li>
               {lessonDaysForYear.length > 0 &&
-                `${lessonDaysForYear[0].toISOString()}`}
+                `${Date.parse(lessonDaysForYear[0]).toISOString()}`}
             </li>
             {/* <li>{lessonDaysForYear.length > 0 && `${lessonDaysForYear[0]}`}</li>
             <li>
