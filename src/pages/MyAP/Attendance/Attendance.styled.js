@@ -241,3 +241,9 @@ export const AttendancePointsContainer = styled.div`
     gap: 8px;
   }
 `;
+
+export const AttendanceDebugList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+`;

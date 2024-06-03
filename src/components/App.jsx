@@ -5,14 +5,18 @@ import TelegramRedirect from 'pages/Service/TelegramRedirect/TelegramRedirect';
 import ViberRedirect from 'pages/Service/ViberRedirect/ViberRedirect';
 import { StreamA0 } from 'pages/Streams/A0/StreamA0';
 import { StreamA1 } from 'pages/Streams/A1/StreamA1';
+import { StreamA1Free } from 'pages/Streams/A1/StreamA1Free';
 import { StreamA2 } from 'pages/Streams/A2/StreamA2';
+import { StreamA2Free } from 'pages/Streams/A2/StreamA2Free';
 import { AdminPanel } from 'pages/Streams/AdminPanel/AdminPanel';
 import { StreamB1 } from 'pages/Streams/B1/StreamB1';
 import { StreamB2 } from 'pages/Streams/B2/StreamB2';
 import { CollectionsAdminPanel } from 'pages/Streams/CollectionsAdminPanel/CollectionsAdminPanel';
 import { StreamDeutschA0 } from 'pages/Streams/Deutsch A0/StreamDeutschA0';
 import { StreamDeutschA2 } from 'pages/Streams/Deutsch A2/StreamDeutschA2';
+import { StreamDeutschA2Free } from 'pages/Streams/Deutsch A2/StreamDeutschA2Free';
 import { StreamDeutsch } from 'pages/Streams/Deutsch/StreamDeutsch';
+import { StreamDeutschFree } from 'pages/Streams/Deutsch/StreamDeutschFree';
 import { HostKahootAdminPanel } from 'pages/Streams/HostKahootAdminPanel/HostKahootAdminPanel';
 import { KahootAdminPanel } from 'pages/Streams/KahootAdminPanel/KahootAdminPanel';
 import { LessonsAdminPanel } from 'pages/Streams/LessonsAdminPanel/LessonsAdminPanel';
@@ -20,11 +24,13 @@ import { TeacherLessonsAdminPanel } from 'pages/Streams/LessonsAdminPanel/Teache
 import { StreamPolskiA0 } from 'pages/Streams/Polski A0/StreamPolskiA0';
 import { StreamPolskiA2 } from 'pages/Streams/Polski A2/StreamPolskiA2';
 import { StreamPolski } from 'pages/Streams/Polski/StreamPolski';
+import { StreamPolskiFree } from 'pages/Streams/Polski/StreamPolskiFree';
 import { RatingsAdminPanel } from 'pages/Streams/RatingsAdminPanel/RatingsAdminPanel';
 import { StreamTest } from 'pages/Streams/Test/StreamTest';
 import { UserAdminPanel } from 'pages/Streams/UserAdminPanel/UserAdminPanel';
 import { KidsA0 } from 'pages/StreamsKids/KidsA0/KidsA0';
 import { KidsA1 } from 'pages/StreamsKids/KidsA1/KidsA1';
+import { KidsA1Free } from 'pages/StreamsKids/KidsA1/KidsA1Free';
 import { KidsA2 } from 'pages/StreamsKids/KidsA2/KidsA2';
 import { KidsB1 } from 'pages/StreamsKids/KidsB1/KidsB1';
 import { KidsB1Beginner } from 'pages/StreamsKids/KidsB1Beginner/KidsB1Beginner';
@@ -224,7 +230,7 @@ export const App = () => {
           <Route path="career" element={<Career utms={utms} />} /> */}
           <Route path="*" element={<NotFound />} noindex={true} />
         </Route>
-        <Route path="my-ap" element={<MyAP />} noindex={true}/>
+        <Route path="my-ap" element={<MyAP />} noindex={true} />
         <Route path="streams" element={<Streams />} noindex={true}>
           <Route path="a0" element={<StreamA0 />} />
           <Route path="a0-chat" element={<WindowedChat />} />
@@ -239,9 +245,9 @@ export const App = () => {
           <Route path="b1-chat" element={<WindowedChat />} />
           <Route path="b2" element={<StreamB2 />} />
           <Route path="b2-chat" element={<WindowedChat />} />
-          <Route path="a1free" element={<StreamA1 />} />
+          <Route path="a1free" element={<StreamA1Free />} />
           <Route path="a1free-chat" element={<WindowedChat />} />
-          <Route path="a2free" element={<StreamA2 />} />
+          <Route path="a2free" element={<StreamA2Free />} />
           <Route path="a2free-chat" element={<WindowedChat />} />
           <Route path="deutscha0" element={<StreamDeutschA0 />} />
           <Route path="deutscha0-chat" element={<WindowedChat />} />
@@ -250,9 +256,9 @@ export const App = () => {
           <Route path="deutsch-chat" element={<WindowedChat />} />
           <Route path="deutscha2" element={<StreamDeutschA2 />} />
           <Route path="deutscha2-chat" element={<WindowedChat />} />
-          <Route path="deutschfree" element={<StreamDeutsch />} />
+          <Route path="deutschfree" element={<StreamDeutschFree />} />
           <Route path="deutschfree-chat" element={<WindowedChat />} />
-          <Route path="deutscha2free" element={<StreamDeutschA2 />} />
+          <Route path="deutscha2free" element={<StreamDeutschA2Free />} />
           <Route path="deutscha2free-chat" element={<WindowedChat />} />
           <Route path="polskia0" element={<StreamPolskiA0 />} />
           <Route path="polskia0-chat" element={<WindowedChat />} />
@@ -260,7 +266,7 @@ export const App = () => {
           <Route path="polski-chat" element={<WindowedChat />} />
           <Route path="polskia2" element={<StreamPolskiA2 />} />
           <Route path="polskia2-chat" element={<WindowedChat />} />
-          <Route path="polskifree" element={<StreamPolski />} />
+          <Route path="polskifree" element={<StreamPolskiFree />} />
           <Route path="polskifree-chat" element={<WindowedChat />} />
           <Route path="psc-a2" element={<StreamPolskiSpeakingClub />} />
           <Route path="test" element={<StreamTest />} />
@@ -301,7 +307,7 @@ export const App = () => {
           <Route path="b2-chat" element={<WindowedChat />} />
           <Route path="b1beginner" element={<KidsB1Beginner />} />
           <Route path="b1beginner-chat" element={<WindowedChat />} />
-          <Route path="a1free" element={<KidsA1 />} />
+          <Route path="a1free" element={<KidsA1Free />} />
           <Route path="a1free-chat" element={<WindowedChat />} />
         </Route>
         <Route path="service" element={<Service />}>
@@ -346,13 +352,37 @@ export const App = () => {
           <Route path="trials-pl" element={<TeacherTrialPage />} />
           <Route path="trials-de" element={<TeacherTrialPage />} />
         </Route>
-        <Route path="thankyou" element={<ThankYouPage />} noindex={true}/>
-        <Route path="form" element={<LeadFormPage utms={utms} />} noindex={true}/>
-        <Route path="form-a" element={<LeadFormPage utms={utms} />} noindex={true}/>
-        <Route path="form-b" element={<LeadFormPage utms={utms} />} noindex={true}/>
-        <Route path="form-c" element={<LeadFormPage utms={utms} />} noindex={true}/>
-        <Route path="form-d" element={<LeadFormPage utms={utms} />} noindex={true}/>
-        <Route path="form-e" element={<LeadFormPage utms={utms} />} noindex={true}/>
+        <Route path="thankyou" element={<ThankYouPage />} noindex={true} />
+        <Route
+          path="form"
+          element={<LeadFormPage utms={utms} />}
+          noindex={true}
+        />
+        <Route
+          path="form-a"
+          element={<LeadFormPage utms={utms} />}
+          noindex={true}
+        />
+        <Route
+          path="form-b"
+          element={<LeadFormPage utms={utms} />}
+          noindex={true}
+        />
+        <Route
+          path="form-c"
+          element={<LeadFormPage utms={utms} />}
+          noindex={true}
+        />
+        <Route
+          path="form-d"
+          element={<LeadFormPage utms={utms} />}
+          noindex={true}
+        />
+        <Route
+          path="form-e"
+          element={<LeadFormPage utms={utms} />}
+          noindex={true}
+        />
       </Routes>
     </>
   );

@@ -7,6 +7,7 @@ import {
   AttendanceArrowRight,
   AttendanceBox,
   AttendanceBtn,
+  AttendanceDebugList,
   AttendanceFlex,
   AttendanceHeading,
   AttendancePeriod,
@@ -501,7 +502,13 @@ export const Attendance = ({ user }) => {
             {calculateYearlyVisits()}/
             <VisitedTotal>{lessonDaysForYear.length}</VisitedTotal>
           </VisitedCounter>
-          {/* <ul>
+          <AttendanceDebugList>
+            <li>{Date.now()}</li>
+            <li>{new Date().toISOString()}</li>
+            <li>
+              {lessonDaysForYear.length > 0 &&
+                `${lessonDaysForYear[0].toISOString()}`}
+            </li>
             <li>{lessonDaysForYear.length > 0 && `${lessonDaysForYear[0]}`}</li>
             <li>
               {lessonDaysForYear.length > 0 &&
@@ -518,11 +525,13 @@ export const Attendance = ({ user }) => {
             <li>{lessonDaysForYear.length > 0 && user.visited[0]}</li>
             <li>
               {lessonDaysForYear.length > 0 &&
-                `${editDateFormat(lessonDay.getDate())}.${editDateFormat(
-                  lessonDay.getMonth() + 1
-                )}.${editDateFormat(lessonDay.getFullYear())}`}
+                `${editDateFormat(
+                  lessonDaysForYear[0].getDate()
+                )}.${editDateFormat(
+                  lessonDaysForYear[0].getMonth() + 1
+                )}.${editDateFormat(lessonDaysForYear[0].getFullYear())}`}
             </li>
-          </ul> */}
+          </AttendanceDebugList>
         </VisitedYearBox>
       </AttendanceVisitedBox>
     </AttendanceBox>
