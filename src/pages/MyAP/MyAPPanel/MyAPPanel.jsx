@@ -19,7 +19,7 @@ import {
   PanelHideRightSwitch,
   PanelHideSwitch,
   SearchBtnIcon,
-  TimetableBtnIcon,
+  TimetableBtnIcon
 } from './MyAPPanel.styled';
 
 export const MyAPPanel = ({
@@ -218,6 +218,11 @@ export const MyAPPanel = ({
         <APPanelBtn onClick={toggleTimetable}>
           <TimetableBtnIcon className={isTimetableShown && 'active'} />
         </APPanelBtn>
+        {/* <APPanelInstructionsPanel>
+          <APPanelBtn onClick={toggleSearch}>
+            <GuideBtnIcon className={isLessonFinderShown && 'active'} />
+          </APPanelBtn>
+        </APPanelInstructionsPanel> */}
       </APPanel>
 
       {isLessonFinderShown && (

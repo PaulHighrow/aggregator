@@ -7,6 +7,7 @@ import { ReactComponent as CupIcon } from '../../../img/svg/myap/cup.svg';
 import { ReactComponent as SearchIcon } from '../../../img/svg/myap/search.svg';
 import { ReactComponent as ResetIcon } from '../../../img/svg/myap/reset.svg';
 import { ReactComponent as PointerIcon } from '../../../img/svg/myap/pointer.svg';
+import { ReactComponent as GuideIcon } from '../../../img/svg/myap/guide.svg';
 
 export const PanelBackdrop = styled.div`
   width: 100%;
@@ -178,6 +179,20 @@ export const TimetableBtnIcon = styled(TimetableIcon)`
   }
 `;
 
+export const GuideBtnIcon = styled(GuideIcon)`
+  height: 25px;
+  width: 25px;
+
+  @media screen and (min-width: 768px) {
+    height: 30px;
+    width: 30px;
+  }
+
+  &.active {
+    color: #525266;
+  }
+`;
+
 export const PanelHideSwitch = styled.div`
   position: absolute;
   top: 180px;
@@ -252,6 +267,15 @@ export const IframeResetLinkButton = styled(APPanel)`
   &:hover,
   &:focus {
     background-color: none;
+  }
+`;
+
+export const APPanelInstructionsPanel = styled(IframeResetLinkButton)`
+  top: unset;
+  bottom: -42px;
+
+  @media screen and (min-width: 768px) {
+    bottom: -66px;
   }
 `;
 

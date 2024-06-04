@@ -190,7 +190,7 @@ export const LessonFinder = ({ lessons, user, setPlatformIframeLink }) => {
       <FinderLabel>
         <FinderIcon />
         <FinderInput
-          value={sessionStorage.getItem('searchValue')}
+          value={sessionStorage.getItem('searchValue') ? sessionStorage.getItem('searchValue') : ''}
           autoFocus={sessionStorage.getItem('searchValue') && true}
           onFocus={sessionStorage.getItem('searchValue') && findLesson}
           onChange={findLesson}

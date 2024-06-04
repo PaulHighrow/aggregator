@@ -487,6 +487,11 @@ export const UserAdminPanel = () => {
                 </UserHeadCell>
                 <UserHeadCell>
                   <Filterable>
+                    Відвідини з часом
+                  </Filterable>
+                </UserHeadCell>
+                <UserHeadCell>
+                  <Filterable>
                     Мова
                     <FilterButton onClick={toggleLangPicker}></FilterButton>
                     {isLangPickerOpen && (
@@ -640,6 +645,9 @@ export const UserAdminPanel = () => {
                     }
                   >
                     {user.visited[user.visited.length - 1]}
+                  </UserCell>
+                  <UserCell                >
+                    {user.visitedTime[user.visitedTime.length - 1]}
                   </UserCell>
                   <UserCell>{user.lang}</UserCell>
                   <UserCell>{user.course}</UserCell>
