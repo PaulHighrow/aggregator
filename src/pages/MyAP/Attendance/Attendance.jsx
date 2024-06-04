@@ -265,40 +265,41 @@ export const Attendance = ({ user }) => {
 
   const getLessonDaysOfPassedWeek = passedDay => {
     let date = new Date(passedDay).toISOString();
-    console.log("date", date);
+    console.log('date', date);
 
     const sunday = new Date(date).getDate() - new Date(date).getDay();
-    console.log(sunday, "sunday");
+    console.log(sunday, 'sunday');
 
     const lessonDays = [];
 
-    new Date(date).getDate() !== sunday ? new Date(date).setDate(sunday) : new Date(date).setDate(sunday + 1);
+    new Date(date).getDate() !== sunday
+      ? new Date(date).setDate(sunday)
+      : new Date(date).setDate(sunday + 1);
     let i = 0;
     while (new Date(date).getDay() <= 6 && i < 7) {
       i += 1;
       if (new Date(date).getDay() >= 1 && new Date(date).getDay() <= 4) {
         lessonDays.push(
-          new Date(
-            changeDateFormat(
-              new Date(date).getDate() +
-                '.' +
-                (new Date(date).getMonth() + 1) +
-                '.' +
-                new Date(date).getFullYear()
-            )
-          )
+          `${editDateFormat(new Date(date).getDate())}.${editDateFormat(
+            new Date(date).getMonth() + 1
+          )}.${editDateFormat(new Date(date).getFullYear())}`
         );
       }
       new Date(date).setDate(new Date(date).getDate() + 1);
     }
-
+    console.log(lessonDays);
     return lessonDays;
   };
 
   const calculateSetWeeklyVisits = passedWeek => {
     console.log(passedWeek);
-    const firstDayOfWeekDate = new Date(year, month - 1, passedWeek + 1, 3).toISOString();
-    console.log(firstDayOfWeekDate);
+    const firstDayOfWeekDate = new Date(
+      year,
+      month - 1,
+      passedWeek + 1,
+      3
+    ).toISOString();
+    console.log("firstday", firstDayOfWeekDate);
     const passedWeekLessonDays = getLessonDaysOfPassedWeek(
       firstDayOfWeekDate
     ).map(

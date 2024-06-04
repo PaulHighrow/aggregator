@@ -1,7 +1,9 @@
 import TelegramHRRedirect from 'pages/HR/TelegramHRRedirect/TelegramHRRedirect';
 import ViberHRRedirect from 'pages/HR/ViberHRRedirect/ViberHRRedirect';
 import { LeadFormPage } from 'pages/LeadFormPage/LeadFormPage';
+import TelegramMarathonRedirect from 'pages/Service/TelegramRedirect/TelegramMarathonRedirect';
 import TelegramRedirect from 'pages/Service/TelegramRedirect/TelegramRedirect';
+import ViberMarathonRedirect from 'pages/Service/ViberRedirect/ViberMarathonRedirect';
 import ViberRedirect from 'pages/Service/ViberRedirect/ViberRedirect';
 import { StreamA0 } from 'pages/Streams/A0/StreamA0';
 import { StreamA1 } from 'pages/Streams/A1/StreamA1';
@@ -313,6 +315,10 @@ export const App = () => {
         <Route path="service" element={<Service />}>
           <Route path="viber" element={<ViberRedirect />} />
           <Route path="tg" element={<TelegramRedirect />} />
+        </Route>
+        <Route path="marathon" element={<Service />}>
+          <Route path="viber" element={<ViberMarathonRedirect />} />
+          <Route path="tg" element={<TelegramMarathonRedirect />} />
         </Route>
         <Route path="hr" element={<HR />}>
           <Route path="viber" element={<ViberHRRedirect />} />

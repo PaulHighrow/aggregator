@@ -11,8 +11,11 @@ import {
   TelegramLogo,
   ViberLogo,
 } from './ServiceNav.styled';
+import { useLocation } from 'react-router-dom';
 
 export const ServiceNav = () => {
+  const location = useLocation().pathname;
+
   return (
     <>
       <StreamNavigationBox>
@@ -26,18 +29,27 @@ export const ServiceNav = () => {
           </ServiceNavDescription>
           <ServiceNavList>
             <ServiceNavItem>
-              <ServiceNavLink to={'/service/viber'}>
+              <ServiceNavLink
+                to={
+                  location.includes('marathon')
+                    ? '/marathon/viber'
+                    : '/service/viber'
+                }
+              >
                 <ViberLogo />
               </ServiceNavLink>
             </ServiceNavItem>
             <ServiceNavItem>
-              <ServiceNavLink to={'/service/tg'}>
+              <ServiceNavLink
+                to={
+                  location.includes('marathon') ? '/marathon/tg' : '/service/tg'
+                }
+              >
                 <TelegramLogo />
               </ServiceNavLink>
             </ServiceNavItem>
           </ServiceNavList>
         </StreamNavigation>
-        {/* <Schedule /> */}
       </StreamNavigationBox>
     </>
   );

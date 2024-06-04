@@ -14,6 +14,9 @@ const Service = () => {
         {location.pathname === '/service' ||
         location.pathname === '/service/' ? (
           <ServiceNav />
+        ) : location.pathname === '/marathon' ||
+          location.pathname === '/marathon/' ? (
+          <ServiceNav />
         ) : (
           <Outlet />
         )}
