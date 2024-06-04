@@ -255,7 +255,7 @@ export const Attendance = ({ user }) => {
   const calculateWeeklyVisits = () => {
     const lessonDays = lessonDaysForWeek.map(
       lessonDay =>
-        `${new Date(lessonDay).getDate()}.${editDateFormat(
+        `${editDateFormat(new Date(lessonDay).getDate())}.${editDateFormat(
           new Date(lessonDay).getMonth() + 1
         )}.${editDateFormat(new Date(lessonDay).getFullYear())}`
     );
@@ -265,50 +265,39 @@ export const Attendance = ({ user }) => {
 
   const getLessonDaysOfPassedWeek = passedDay => {
     let date = new Date(passedDay).toISOString();
-    console.log('date', date);
-
     const sunday = new Date(date).getDate() - new Date(date).getDay();
-    console.log(sunday, 'sunday');
-
     const lessonDays = [];
 
-    new Date(date).getDate() !== sunday
-      ? new Date(date).setDate(sunday)
-      : new Date(date).setDate(sunday + 1);
+    date =
+      new Date(date).getDate() !== sunday
+        ? new Date(date).setDate(sunday)
+        : new Date(date).setDate(sunday + 1);
     let i = 0;
     while (new Date(date).getDay() <= 6 && i < 7) {
       i += 1;
       if (new Date(date).getDay() >= 1 && new Date(date).getDay() <= 4) {
-        lessonDays.push(
-          `${editDateFormat(new Date(date).getDate())}.${editDateFormat(
-            new Date(date).getMonth() + 1
-          )}.${editDateFormat(new Date(date).getFullYear())}`
-        );
+        lessonDays.push(date);
       }
-      new Date(date).setDate(new Date(date).getDate() + 1);
+      date = new Date(new Date(date).setDate(new Date(date).getDate() + 1));
     }
-    console.log(lessonDays);
     return lessonDays;
   };
 
   const calculateSetWeeklyVisits = passedWeek => {
-    console.log(passedWeek);
     const firstDayOfWeekDate = new Date(
       year,
       month - 1,
       passedWeek + 1,
       3
     ).toISOString();
-    console.log("firstday", firstDayOfWeekDate);
     const passedWeekLessonDays = getLessonDaysOfPassedWeek(
       firstDayOfWeekDate
     ).map(
       day =>
-        `${editDateFormat(day.getDate())}.${editDateFormat(
-          day.getMonth() + 1
-        )}.${editDateFormat(day.getFullYear())}`
+        `${editDateFormat(new Date(day).getDate())}.${editDateFormat(
+          new Date(day).getMonth() + 1
+        )}.${editDateFormat(new Date(day).getFullYear())}`
     );
-    console.log(passedWeekLessonDays);
 
     return user.visited.filter(
       date => (date = passedWeekLessonDays.includes(date))
@@ -379,7 +368,7 @@ export const Attendance = ({ user }) => {
   const calculatePoints = () => {
     const lessonDays = lessonDaysForWeek.map(
       lessonDay =>
-        `${new Date(lessonDay).getDate()}.${editDateFormat(
+        `${editDateFormat(new Date(lessonDay).getDate())}.${editDateFormat(
           new Date(lessonDay).getMonth() + 1
         )}.${editDateFormat(new Date(lessonDay).getFullYear())}`
     );
@@ -502,12 +491,12 @@ export const Attendance = ({ user }) => {
             <VisitedTotal>{lessonDaysForYear.length}</VisitedTotal>
           </VisitedCounter>
           <AttendanceDebugList>
-            <li>{Date.now()}</li>
+            {/* <li>{Date.now()}</li>
             <li>{new Date().toISOString()}</li>
             <li>
               {lessonDaysForYear.length > 0 &&
                 `${new Date(lessonDaysForYear[0]).toISOString()}`}
-            </li>
+            </li> */}
             {/* <li>
               {lessonDaysForYear.length > 0 &&
                 `${Date.parse(lessonDaysForYear[0]).toISOString()}`}
