@@ -155,6 +155,8 @@ const MyAP = () => {
   });
 
   const handleLoginSubmit = async (values, { resetForm }) => {
+    values.mail = values.mail.toLowerCase().trim().trimStart();
+    values.password = values.password.trim().trimStart();
     try {
       const response = await axios.post('/users/login', values);
       setAuthToken(response.data.token);
