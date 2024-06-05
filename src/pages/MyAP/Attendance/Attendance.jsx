@@ -283,15 +283,20 @@ export const Attendance = ({ user }) => {
       date.setDate(date.getDate() + 1);
     }
 
-    const lessonDays = lessonDaysForPassedMonth.map(lessonDay => {
-      return `${editDateFormat(new Date(lessonDay).getDate())}.${editDateFormat(
-        new Date(lessonDay).getMonth() + 1
-      )}.${new Date(lessonDay).getFullYear()}`;
-    });
+    console.log(lessonDaysForPassedMonth);
 
-    return user.visited.filter(date => 
-        new Date(changeDateFormat(date)).getMonth() + 1 === passedMonth &&
-        lessonDays.includes(date)).length;
+    const lessonDays = lessonDaysForPassedMonth.map(
+      lessonDay =>
+        `${editDateFormat(new Date(lessonDay).getDate())}.${editDateFormat(
+          new Date(lessonDay).getMonth() + 1
+        )}.${new Date(lessonDay).getFullYear()}`
+    );
+
+    console.log(lessonDays);
+
+    return user.visited.filter(
+      date => +date.split('.')[1] === passedMonth && lessonDays.includes(date)
+    ).length;
   };
 
   const getLessonDaysOfPassedWeek = passedDay => {
