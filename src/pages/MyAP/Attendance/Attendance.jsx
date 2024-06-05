@@ -257,10 +257,41 @@ export const Attendance = ({ user }) => {
       lessonDay =>
         `${editDateFormat(new Date(lessonDay).getDate())}.${editDateFormat(
           new Date(lessonDay).getMonth() + 1
-        )}.${editDateFormat(new Date(lessonDay).getFullYear())}`
+        )}.${new Date(lessonDay).getFullYear()}`
     );
     return user.visited.filter(date => (date = lessonDays.includes(date)))
       .length;
+  };
+
+  const calculateMonthlyVisits = passedMonth => {
+    let date = new Date(year, passedMonth - 1, 1);
+
+    const lessonDaysForPassedMonth = [];
+
+    date.setDate(1);
+    while (date.getMonth() + 1 === passedMonth) {
+      if (date.getDay() >= 1 && date.getDay() <= 4) {
+        lessonDaysForPassedMonth.push(
+          new Date(
+            date.getFullYear(),
+            date.getMonth(),
+            date.getDate(),
+            3
+          ).toISOString()
+        );
+      }
+      date.setDate(date.getDate() + 1);
+    }
+
+    const lessonDays = lessonDaysForPassedMonth.map(lessonDay => {
+      return `${editDateFormat(new Date(lessonDay).getDate())}.${editDateFormat(
+        new Date(lessonDay).getMonth() + 1
+      )}.${new Date(lessonDay).getFullYear()}`;
+    });
+
+    return user.visited.filter(date => 
+        new Date(changeDateFormat(date)).getMonth() + 1 === passedMonth &&
+        lessonDays.includes(date)).length;
   };
 
   const getLessonDaysOfPassedWeek = passedDay => {
@@ -341,18 +372,6 @@ export const Attendance = ({ user }) => {
       : futureDays - calculateMonthlyVisits(month) < 0
       ? 0
       : futureDays - calculateMonthlyVisits(month);
-  };
-
-  const calculateMonthlyVisits = passedMonth => {
-    const lessonDays = lessonDaysForMonth.map(lessonDay =>
-      new Date(lessonDay).getDate()
-    );
-    return user.visited.filter(
-      date =>
-        new Date(changeDateFormat(date)).getMonth() + 1 === passedMonth &&
-        new Date(changeDateFormat(date)).getFullYear() === year &&
-        lessonDays.includes(new Date(changeDateFormat(date)).getDate())
-    ).length;
   };
 
   const calculateYearlyVisits = () => {
