@@ -405,8 +405,8 @@ export const Attendance = ({ user }) => {
       return visitedWithinWeek.includes(date) ? (
         <AttendancePlus key={i} />
       ) : !visitedWithinWeek.includes(date) &&
-        (new Date(changeDateFormat(date)).getMonth() < new Date().getMonth() ||
-          new Date(changeDateFormat(date)).getDate() < new Date().getDate()) ? (
+        (+date.split('.')[1] < new Date().getMonth() ||
+          +date.split('.')[0] < new Date().getDate()) ? (
         <AttendanceMinus key={i} />
       ) : (
         <AttendanceEmpty key={i} />
