@@ -122,7 +122,6 @@ export const Attendance = ({ user }) => {
             ).toISOString()
           );
         }
-        // console.log(lessonDays);
         date.setDate(date.getDate() + 1);
       }
       SetLessonDaysForYear(days => (days = lessonDays));
@@ -283,16 +282,12 @@ export const Attendance = ({ user }) => {
       date.setDate(date.getDate() + 1);
     }
 
-    console.log(lessonDaysForPassedMonth);
-
     const lessonDays = lessonDaysForPassedMonth.map(
       lessonDay =>
         `${editDateFormat(new Date(lessonDay).getDate())}.${editDateFormat(
           new Date(lessonDay).getMonth() + 1
         )}.${new Date(lessonDay).getFullYear()}`
     );
-
-    console.log(lessonDays);
 
     return user.visited.filter(
       date => +date.split('.')[1] === passedMonth && lessonDays.includes(date)
@@ -405,7 +400,7 @@ export const Attendance = ({ user }) => {
       return visitedWithinWeek.includes(date) ? (
         <AttendancePlus key={i} />
       ) : !visitedWithinWeek.includes(date) &&
-        (+date.split('.')[1] < new Date().getMonth() ||
+        (+date.split('.')[1] < new Date().getMonth() + 1 ||
           +date.split('.')[0] < new Date().getDate()) ? (
         <AttendanceMinus key={i} />
       ) : (
