@@ -238,6 +238,7 @@ export const UserAdminPanel = () => {
     age: '',
     lang: '',
     course: '',
+    package: '',
     knowledge: '',
     manager: '',
   };
@@ -261,8 +262,12 @@ export const UserAdminPanel = () => {
       .required(
         "Вік - обов'язкове поле, якщо віку з якоїсь причини ми не знаємо, введіть N/A"
       ),
-    lang: yup.string().optional(),
+    lang: yup
+      .string()
+      .optional()
+      .matches(/^[A-Za-z0-9]+$/, 'Лише латинські літери'),
     course: yup.string().optional(),
+    package: yup.string().optional(),
     knowledge: yup
       .string()
       .optional()
@@ -280,6 +285,7 @@ export const UserAdminPanel = () => {
     values.pupilId = values.pupilId.trim().trimStart();
     values.age = values.age.trim().trimStart();
     values.lang = values.lang.toLowerCase().trim().trimStart();
+    values.package = values.package.toLowerCase().trim().trimStart();
     values.knowledge = values.knowledge.toLowerCase().trim().trimStart();
     values.manager = values.manager.toLowerCase().trim().trimStart();
     try {
@@ -442,7 +448,11 @@ export const UserAdminPanel = () => {
                 <AdminInputNote component="p" name="course" />
               </Label>
               <Label>
-                <AdminInput type="text" name="package" placeholder="Пакет послуг" />
+                <AdminInput
+                  type="text"
+                  name="package"
+                  placeholder="Пакет послуг"
+                />
                 <AdminInputNote component="p" name="package" />
               </Label>
               <Label>
@@ -486,9 +496,7 @@ export const UserAdminPanel = () => {
                   </Filterable>
                 </UserHeadCell>
                 <UserHeadCell>
-                  <Filterable>
-                    Відвідини з часом
-                  </Filterable>
+                  <Filterable>Відвідини з часом</Filterable>
                 </UserHeadCell>
                 <UserHeadCell>
                   <Filterable>
@@ -646,12 +654,30 @@ export const UserAdminPanel = () => {
                   >
                     {user.visited[user.visited.length - 1]}
                   </UserCell>
-                  <UserCell                >
-                    {user.visitedTime[user.visitedTime.length - 1]}
+                  <UserCell>
+                    {!user.visitedTime[user.visitedTime.length - 1]
+                      ? ''
+                      : user.visitedTime[user.visitedTime.length - 1].match(
+                          '^202'
+                        )
+                      ? new Date(
+                          user.visitedTime[user.visitedTime.length - 1]
+                        ).toLocaleString('uk-UA')
+                      : new Date(
+                          changeDateFormat(
+                            user.visitedTime[user.visitedTime.length - 1]
+                          )
+                        ).toLocaleString('uk-UA', { timeZone: '+06:00' })}
                   </UserCell>
                   <UserCell>{user.lang}</UserCell>
                   <UserCell>{user.course}</UserCell>
-                  <UserCell>{user.knowledge}</UserCell>
+                  <UserCell
+                    className={
+                      user.knowledge?.includes('а') && 'error'
+                    }
+                  >
+                    {user.knowledge}
+                  </UserCell>
                   <UserCell>{user.package}</UserCell>
                   <UserCell className="last-name">{user.manager}</UserCell>
                   <UserCell>

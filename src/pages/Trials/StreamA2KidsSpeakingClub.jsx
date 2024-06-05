@@ -3,7 +3,6 @@ import axios from 'axios';
 import { StreamsBackgroundWrapper } from 'components/BackgroundWrapper/BackgroundWrappers';
 import { Loader } from 'components/SharedLayout/Loaders/Loader';
 import { LoaderWrapper } from 'components/SharedLayout/Loaders/Loader.styled';
-import { Kahoots } from 'components/Stream/Kahoots/Kahoots';
 import { Support } from 'components/Stream/Support/Support';
 import { nanoid } from 'nanoid';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
@@ -40,7 +39,7 @@ import {
 
 axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
 
-const StreamPolskiSpeakingClub = () => {
+const StreamA2KidsSpeakingClub = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isKahootOpen, setIsKahootOpen] = useState(false);
   const [isSupportOpen, setIsSupportOpen] = useState(false);
@@ -134,7 +133,7 @@ const StreamPolskiSpeakingClub = () => {
   const socketRef = useRef(null);
 
   useEffect(() => {
-    document.title = 'Deutsch Trial | AP Education';
+    document.title = 'A2 Kids Speaking Club | AP Education';
 
     socketRef.current = io('https://ap-chat.onrender.com/');
     checkLogin();
@@ -288,7 +287,7 @@ const StreamPolskiSpeakingClub = () => {
               !links.trials_de.includes('youtube') &&
               !links.trials_de.includes('youtu.be')
                 ? window.location.replace(
-                    'https://us06web.zoom.us/j/89181253982?pwd=fbigi8SGsusTi2w0tTuflAwFjb6UMi.1#success'
+                    'https://us06web.zoom.us/j/81631617693?pwd=8bmpFqRTfObYF6BMAWEM5WWtZ6QcX7.1#success'
                   )
                 : null}
               {height > width && (
@@ -324,14 +323,6 @@ const StreamPolskiSpeakingClub = () => {
                   )}
                 </ChatBox>
               )}
-
-              <Kahoots
-                sectionWidth={width}
-                sectionHeight={height}
-                isKahootOpen={isKahootOpen}
-                isChatOpen={isChatOpen}
-                isOpenedLast={isOpenedLast}
-              />
 
               <Support
                 sectionWidth={width}
@@ -382,4 +373,4 @@ const StreamPolskiSpeakingClub = () => {
   );
 };
 
-export default StreamPolskiSpeakingClub;
+export default StreamA2KidsSpeakingClub;

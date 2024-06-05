@@ -137,6 +137,10 @@ export const UserCell = styled.td`
   &.attention {
     color: red;
   }
+
+  &.error {
+    background-color: #ff0000;
+  }
 `;
 
 export const UserEditButton = styled.button`

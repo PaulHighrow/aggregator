@@ -24,7 +24,7 @@ export const UserEditForm = ({ userToEdit, closeEditForm }) => {
     age: userToEdit.age,
     lang: userToEdit.lang,
     course: userToEdit.course,
-    points: userToEdit.points,
+    package: userToEdit.package,
     knowledge: userToEdit.knowledge,
     manager: userToEdit.manager,
   };
@@ -48,10 +48,16 @@ export const UserEditForm = ({ userToEdit, closeEditForm }) => {
       .required(
         "Вік - обов'язкове поле, якщо віку з якоїсь причини ми не знаємо, введіть N/A"
       ),
-    lang: yup.string().optional(),
+      lang: yup
+      .string()
+      .optional()
+      .matches(/^[A-Za-z0-9]+$/, 'Лише латинські літери'),
     course: yup.string().optional(),
-    points: yup.string().optional(),
-    knowledge: yup.string().optional(),
+    package: yup.string().optional(),
+    knowledge: yup
+      .string()
+      .optional()
+      .matches(/^[A-Za-z0-9]+$/, 'Лише латинські літери'),
     manager: yup
       .string()
       .required("Менеджер - обов'язкове поле, введіть прізвище"),
@@ -65,6 +71,10 @@ export const UserEditForm = ({ userToEdit, closeEditForm }) => {
     values.pupilId = values.pupilId.trim().trimStart();
     values.age = values.age.trim().trimStart();
     values.lang = values.lang.toLowerCase().trim().trimStart();
+    values.package =
+      values.package === undefined
+        ? ''
+        : values.package.toLowerCase().trim().trimStart();
     values.knowledge =
       values.knowledge === undefined
         ? ''
@@ -135,9 +145,13 @@ export const UserEditForm = ({ userToEdit, closeEditForm }) => {
             <AdminInputNote component="p" name="course" />
           </Label>
           <Label>
-            <AdminInput type="text" name="points" placeholder="Бали" />
-            <AdminInputNote component="p" name="points" />
-          </Label>
+                <AdminInput
+                  type="text"
+                  name="package"
+                  placeholder="Пакет послуг"
+                />
+                <AdminInputNote component="p" name="package" />
+              </Label>
           <Label>
             <AdminInput
               type="text"

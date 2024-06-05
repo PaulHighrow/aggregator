@@ -40,7 +40,7 @@ import {
 
 axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
 
-const StreamTrialA2SpeakingClub = () => {
+const StreamA2SpeakingClub = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isKahootOpen, setIsKahootOpen] = useState(false);
   const [isSupportOpen, setIsSupportOpen] = useState(false);
@@ -382,4 +382,4 @@ const StreamTrialA2SpeakingClub = () => {
   );
 };
 
-export default StreamTrialA2SpeakingClub;
+export default StreamA2SpeakingClub;

@@ -39,7 +39,7 @@ import {
 
 axios.defaults.baseURL = 'https://aggregator-server.onrender.com';
 
-const StreamTrialA1SpeakingClub = () => {
+const StreamA1KidsSpeakingClub = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isKahootOpen, setIsKahootOpen] = useState(false);
   const [isSupportOpen, setIsSupportOpen] = useState(false);
@@ -133,7 +133,7 @@ const StreamTrialA1SpeakingClub = () => {
   const socketRef = useRef(null);
 
   useEffect(() => {
-    document.title = 'A1 Speaking Club | AP Education';
+    document.title = 'A1 Kids Speaking Club | AP Education';
 
     socketRef.current = io('https://ap-chat.onrender.com/');
     checkLogin();
@@ -287,7 +287,7 @@ const StreamTrialA1SpeakingClub = () => {
               !links.trials_de.includes('youtube') &&
               !links.trials_de.includes('youtu.be')
                 ? window.location.replace(
-                    'https://us06web.zoom.us/j/82704231222?pwd=v2VgjZhzQvDg3g5XEq8KBNrI7GbOqq.1#success'
+                    'https://us06web.zoom.us/j/82193983045?pwd=coI2dwpXKGTjFV5zH8gTjNmWmopnFM.1#success'
                   )
                 : null}
               {height > width && (
@@ -373,4 +373,4 @@ const StreamTrialA1SpeakingClub = () => {
   );
 };
 
-export default StreamTrialA1SpeakingClub;
+export default StreamA1KidsSpeakingClub;
