@@ -40,6 +40,9 @@ export const PointsBox = styled.div`
   @media screen and (min-height: 640px) {
     top: 142px;
     height: 556px;
+  }
+
+  @media screen and (min-height: 960px) {
     overflow-y: hidden;
   }
 `;
