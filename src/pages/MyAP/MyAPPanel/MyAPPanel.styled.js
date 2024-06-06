@@ -11,7 +11,7 @@ import { ReactComponent as GuideIcon } from '../../../img/svg/myap/guide.svg';
 
 export const PanelBackdrop = styled.div`
   width: 100%;
-  height: 100%;
+  height: 100lvh;
 
   position: absolute;
   background-color: #00000080;
@@ -118,6 +118,7 @@ export const APPanelResetBtn = styled(APPanelBtn)`
 export const SearchBtnIcon = styled(SearchIcon)`
   height: 25px;
   width: 25px;
+  user-select: none;
 
   @media screen and (min-width: 768px) {
     height: 30px;
@@ -133,6 +134,7 @@ export const FaqSearchBtnIcon = styled(SearchIcon)`
   height: 16px;
   width: 16px;
   color: #bebecc;
+  user-select: none;
 
   transition: color var(--animation-global);
 `;
@@ -140,6 +142,7 @@ export const FaqSearchBtnIcon = styled(SearchIcon)`
 export const CupBtnIcon = styled(CupIcon)`
   height: 25px;
   width: 25px;
+  user-select: none;
 
   @media screen and (min-width: 768px) {
     height: 30px;
@@ -154,6 +157,7 @@ export const CupBtnIcon = styled(CupIcon)`
 export const CalendarBtnIcon = styled(CalendarIcon)`
   height: 25px;
   width: 25px;
+  user-select: none;
 
   @media screen and (min-width: 768px) {
     height: 30px;
@@ -168,6 +172,7 @@ export const CalendarBtnIcon = styled(CalendarIcon)`
 export const TimetableBtnIcon = styled(TimetableIcon)`
   height: 25px;
   width: 25px;
+  user-select: none;
 
   @media screen and (min-width: 768px) {
     height: 30px;
@@ -182,6 +187,7 @@ export const TimetableBtnIcon = styled(TimetableIcon)`
 export const GuideBtnIcon = styled(GuideIcon)`
   height: 25px;
   width: 25px;
+  user-select: none;
 
   @media screen and (min-width: 768px) {
     height: 30px;

@@ -129,14 +129,6 @@ export const Attendance = ({ user }) => {
     getLessonDaysForYears();
   }, [week, month, year]);
 
-  const changeDateFormat = dateString => {
-    if (dateString) {
-      const dateArray = dateString.split('.');
-      return Date.parse([dateArray[1], dateArray[0], dateArray[2]].join('.'));
-    }
-    return;
-  };
-
   const decreaseWeek = () => {
     const newWeek = week - 7;
     setWeek(newWeek);
@@ -152,14 +144,13 @@ export const Attendance = ({ user }) => {
       setMonth(month - 1);
       const firstDayOfPreviousMonth = new Date(year, month - 2, 1);
       const visitedThisMonth = user.visited.filter(
-        day => new Date(changeDateFormat(day)).getMonth() === month - 2
+        day => +day.split('.')[1] === month - 1
       );
       const firstVisitedDayOfPreviousMonth = new Date(
         year,
         month - 2,
         +visitedThisMonth[0].split('.')[0]
       );
-
       firstVisitedDayOfPreviousMonth > 7
         ? setWeek(
             firstVisitedDayOfPreviousMonth.getDate() -
@@ -174,7 +165,7 @@ export const Attendance = ({ user }) => {
     setYear(year - 1);
     const firstDayOfPreviousMonth = new Date(year, month - 2, 1);
     const visitedThisMonth = user.visited.filter(
-      day => new Date(changeDateFormat(day)).getMonth() === month - 2
+      day => +day.split('.')[1] === month - 1
     );
     const firstVisitedDayOfPreviousMonth = new Date(
       year,
@@ -198,7 +189,7 @@ export const Attendance = ({ user }) => {
       setMonth(month + 1);
       const firstDayOfNextMonth = new Date(year, month, 1);
       const visitedThisMonth = user.visited.filter(
-        day => new Date(changeDateFormat(day)).getMonth() === month
+        day => +day.split('.')[1] === month + 1
       );
       const firstVisitedDayOfNextMonth = new Date(
         year,
@@ -218,7 +209,7 @@ export const Attendance = ({ user }) => {
     setYear(year + 1);
     const firstDayOfNextMonth = new Date(year, month, 1);
     const visitedThisMonth = user.visited.filter(
-      day => new Date(changeDateFormat(day)).getMonth() === month
+      day => +day.split('.')[1] === month + 1
     );
     const firstVisitedDayOfNextMonth = new Date(
       year,
