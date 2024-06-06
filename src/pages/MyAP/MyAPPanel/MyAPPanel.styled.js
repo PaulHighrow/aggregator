@@ -11,7 +11,7 @@ import { ReactComponent as GuideIcon } from '../../../img/svg/myap/guide.svg';
 
 export const PanelBackdrop = styled.div`
   width: 100%;
-  height: 100lvh;
+  height: 100%;
 
   position: absolute;
   background-color: #00000080;
@@ -74,9 +74,9 @@ export const APPanelBtn = styled.button`
   color: #bebecc;
   transition: color var(--animation-global);
 
-  &:hover svg {
+  /* &:hover svg {
     filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.16));
-  }
+  } */
 `;
 
 export const APPanelResetBtn = styled(APPanelBtn)`
