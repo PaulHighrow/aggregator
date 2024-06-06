@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/aggregator/static/css/main.78c1cfa0.css",
-    "main.js": "/aggregator/static/js/main.600a41ff.js",
+    "main.js": "/aggregator/static/js/main.1273db4f.js",
     "New Design Homepage.css": "/aggregator/static/css/New Design Homepage.106666db.chunk.css",
     "New Design Homepage.js": "/aggregator/static/js/New Design Homepage.ce98ffb1.chunk.js",
     "School epage.css": "/aggregator/static/css/School epage.106666db.chunk.css",
@@ -59,12 +59,16 @@
     "static/js/337.e0bf85f6.chunk.js": "/aggregator/static/js/337.e0bf85f6.chunk.js",
     "static/media/thank-you.png": "/aggregator/static/media/thank-you.26b42b0974f823b6458a.png",
     "static/media/thank-you.webp": "/aggregator/static/media/thank-you.c788cd78534af7f11775.webp",
+    "static/media/hat.png": "/aggregator/static/media/hat.4688d43cbf0bbd00fe5a.png",
     "static/media/thank-you-person.png": "/aggregator/static/media/thank-you-person.a6cfd52fd0a797a9059f.png",
     "static/media/logoNewWhite.svg": "/aggregator/static/media/logoNewWhite.d420f9a07895edb0c0604d054e97b8bd.svg",
+    "static/media/books.png": "/aggregator/static/media/books.10f4251cf8c7983d3594.png",
+    "static/media/hi.png": "/aggregator/static/media/hi.6a292de8ae9541a4317a.png",
     "static/media/desktop-bg@2x.png": "/aggregator/static/media/desktop-bg@2x.5dec6146f202bedd5700.png",
     "static/media/host-kahoot-panel.png": "/aggregator/static/media/host-kahoot-panel.baad972a96e3ffb88ce6.png",
     "static/media/thank-you-person.webp": "/aggregator/static/media/thank-you-person.8ea27357815fd9203011.webp",
     "static/media/tablet-bg@2x.png": "/aggregator/static/media/tablet-bg@2x.049ae0d6cae6773a51eb.png",
+    "static/media/laptop.png": "/aggregator/static/media/laptop.1f9868c7694a6e624c74.png",
     "static/media/monoPaw.svg": "/aggregator/static/media/monoPaw.74d8d0148fe0f5dd7ce256ac6bdc0b08.svg",
     "static/media/monoPawWhite.svg": "/aggregator/static/media/monoPawWhite.a0a9a0d5f8d45e35dd5b19faac2664af.svg",
     "static/media/invertedLogo.svg": "/aggregator/static/media/invertedLogo.af551277e0a22f7c3a5b28c32549db12.svg",
@@ -177,7 +181,7 @@
     "static/media/btnbox-switch-right-gray.svg": "/aggregator/static/media/btnbox-switch-right-gray.69cf7ea74c4470687594894fc4976d49.svg",
     "static/media/btnbox-switch-left-gray.svg": "/aggregator/static/media/btnbox-switch-left-gray.76c5407e54d9c6babd3f2224b79131dd.svg",
     "main.78c1cfa0.css.map": "/aggregator/static/css/main.78c1cfa0.css.map",
-    "main.600a41ff.js.map": "/aggregator/static/js/main.600a41ff.js.map",
+    "main.1273db4f.js.map": "/aggregator/static/js/main.1273db4f.js.map",
     "New Design Homepage.106666db.chunk.css.map": "/aggregator/static/css/New Design Homepage.106666db.chunk.css.map",
     "New Design Homepage.ce98ffb1.chunk.js.map": "/aggregator/static/js/New Design Homepage.ce98ffb1.chunk.js.map",
     "School epage.106666db.chunk.css.map": "/aggregator/static/css/School epage.106666db.chunk.css.map",
@@ -236,6 +240,6 @@
   },
   "entrypoints": [
     "static/css/main.78c1cfa0.css",
-    "static/js/main.600a41ff.js"
+    "static/js/main.1273db4f.js"
   ]
 }
