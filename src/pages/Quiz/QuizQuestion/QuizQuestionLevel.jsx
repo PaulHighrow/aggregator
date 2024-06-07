@@ -1,6 +1,8 @@
-import de from '../../../img/quiz/de.png';
-import gb from '../../../img/quiz/gb.png';
-import pl from '../../../img/quiz/pl.png';
+import zero from '../../../img/quiz/zero.png';
+import beginner from '../../../img/quiz/beginner.png';
+import middle from '../../../img/quiz/middle.png';
+import senior from '../../../img/quiz/senior.png';
+
 import {
   BackgroundFilterBottomLeft,
   BackgroundFilterTopRight,
@@ -16,31 +18,46 @@ import {
   QuizBox,
   QuizButton,
   QuizButtonBox,
-  QuizButtonContent
+  QuizButtonContent,
 } from '../Quiz.styled';
 
-export const QuizQuestionLang = ({ continueQuiz, activeSlide, previousQuestion, nextQuestion }) => {
+export const QuizQuestionLevel = ({
+  activeSlide,
+  isChild,
+  continueQuiz,
+  previousQuestion,
+  nextQuestion,
+}) => {
   return (
     <>
       <QuizBox>
         <Logo />
-        <Question>Вивчення якої мови вас цікавить?</Question>
+        <Question>
+          {isChild ? 'Вкажіть рівень дитини' : 'Вкажіть ваш рівень'}
+        </Question>
         <QuizButtonBox>
           <QuizButton onClick={continueQuiz}>
             <QuizButtonContent>
-              <Emoji src={gb} alt="Great Britain flag emoji" width="21" />
-              Англійська
+              <Emoji src={zero} alt="Running man emoji" width="21" />
+              Нульовий
             </QuizButtonContent>
           </QuizButton>
           <QuizButton onClick={continueQuiz}>
             <QuizButtonContent>
-              <Emoji src={de} alt="Germany flag emoji" width="21" />
-              Німецька
+              <Emoji src={beginner} alt="Face in glasses emoji" width="21" />
+              Початковий
             </QuizButtonContent>
           </QuizButton>
           <QuizButton onClick={continueQuiz}>
             <QuizButtonContent>
-              <Emoji src={pl} alt="Poland flag emoji" width="21" /> Польська
+              <Emoji src={middle} alt="Alumni hat emoji" width="21" />
+              Середній
+            </QuizButtonContent>
+          </QuizButton>
+          <QuizButton onClick={continueQuiz}>
+            <QuizButtonContent>
+              <Emoji src={senior} alt="Prize cup emoji" width="21" />
+              Високий
             </QuizButtonContent>
           </QuizButton>
         </QuizButtonBox>

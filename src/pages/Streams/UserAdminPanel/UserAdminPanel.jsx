@@ -50,6 +50,7 @@ export const UserAdminPanel = () => {
   const [isCoursePickerOpen, setIsCoursePickerOpen] = useState(false);
 
   const persistentUsers = useRef([]);
+  const sortedUsers = useRef([]);
 
   useEffect(() => {
     document.title = 'User Admin Panel | AP Education';
@@ -147,31 +148,38 @@ export const UserAdminPanel = () => {
       days =>
         (days = DAYS_SET[DAYS_SET.findIndex(days => current === days) + 1])
     );
-    setUsers(
-      users =>
-        (users = [
-          ...users.sort(
-            (a, b) =>
-              Date.now() -
-              Date.parse(changeDateFormat(b.visited[b.visited.length - 1])) -
-              (Date.now() -
-                Date.parse(changeDateFormat(a.visited[a.visited.length - 1])))
-          ),
-        ])
-    );
+
+    sortedUsers.current = [
+      ...users.sort(
+        (a, b) =>
+          (changeDateFormat(a.visitedTime[a.visitedTime.length - 1]) || 0) -
+          (changeDateFormat(b.visitedTime[b.visitedTime.length - 1]) || 0)
+      ),
+    ];
+
+    setUsers(users => (users = [...sortedUsers.current]));
   };
 
   const changeDateFormat = dateString => {
     if (dateString) {
       const dateArray = dateString.split('.');
-      return Date.parse([dateArray[1], dateArray[0], dateArray[2]].join('.'));
+      return dateArray.length > 2
+        ? Date.parse([dateArray[1], dateArray[0], dateArray[2]].join('.'))
+        : Date.parse(dateString);
     }
     return;
   };
 
   const filterByManager = current =>
-    current === ''
+    current === '' && sortedUsers.current.length === 0
       ? setUsers(users => (users = [...persistentUsers.current]))
+      : sortedUsers.current.length < 0
+      ? setUsers(
+          users =>
+            (users = [
+              ...sortedUsers.current.filter(user => user.manager === current),
+            ])
+        )
       : setUsers(
           users =>
             (users = [
@@ -182,8 +190,15 @@ export const UserAdminPanel = () => {
         );
 
   const filterByCourse = current =>
-    current === ''
+    current === '' && sortedUsers.current.length === 0
       ? setUsers(users => (users = [...persistentUsers.current]))
+      : sortedUsers.current.length < 0
+      ? setUsers(
+          users =>
+            (users = [
+              ...sortedUsers.current.filter(user => user.course === current),
+            ])
+        )
       : setUsers(
           users =>
             (users = [
@@ -194,8 +209,15 @@ export const UserAdminPanel = () => {
         );
 
   const filterByLang = current =>
-    current === ''
+    current === '' && sortedUsers.current.length === 0
       ? setUsers(users => (users = [...persistentUsers.current]))
+      : sortedUsers.current.length < 0
+      ? setUsers(
+          users =>
+            (users = [
+              ...sortedUsers.current.filter(user => user.lang === current),
+            ])
+        )
       : setUsers(
           users =>
             (users = [
@@ -204,8 +226,15 @@ export const UserAdminPanel = () => {
         );
 
   const filterByLevel = current =>
-    current === ''
+    current === '' && sortedUsers.current.length === 0
       ? setUsers(users => (users = [...persistentUsers.current]))
+      : sortedUsers.current.length < 0
+      ? setUsers(
+          users =>
+            (users = [
+              ...sortedUsers.current.filter(user => user.knowledge === current),
+            ])
+        )
       : setUsers(
           users =>
             (users = [
@@ -485,7 +514,7 @@ export const UserAdminPanel = () => {
                 <UserHeadCell>Пошта (логін)</UserHeadCell>
                 <UserHeadCell>Пароль</UserHeadCell>
                 <UserHeadCell>ID на платформі</UserHeadCell>
-                <UserHeadCell>Апдейт</UserHeadCell>
+                {/* <UserHeadCell>Апдейт</UserHeadCell> */}
                 <UserHeadCell>
                   <Filterable>
                     Відвідини
@@ -628,7 +657,7 @@ export const UserAdminPanel = () => {
                   <UserCell>{user.mail}</UserCell>
                   <UserCell>{user.password}</UserCell>
                   <UserCell>{user.pupilId}</UserCell>
-                  <UserCell
+                  {/* <UserCell
                     className={
                       Math.floor(
                         (Date.now() - Date.parse(user.updatedAt)) / 86400000
@@ -638,7 +667,7 @@ export const UserAdminPanel = () => {
                     }
                   >
                     {new Date(user.updatedAt).toLocaleString('uk-UA')}
-                  </UserCell>
+                  </UserCell> */}
                   <UserCell
                     className={
                       Math.floor(
@@ -672,9 +701,7 @@ export const UserAdminPanel = () => {
                   <UserCell>{user.lang}</UserCell>
                   <UserCell>{user.course}</UserCell>
                   <UserCell
-                    className={
-                      user.knowledge?.includes('а') && 'error'
-                    }
+                    className={user.knowledge?.includes('а') && 'error'}
                   >
                     {user.knowledge}
                   </UserCell>

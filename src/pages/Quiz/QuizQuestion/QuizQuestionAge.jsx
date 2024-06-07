@@ -1,32 +1,25 @@
-import books from '../../../img/quiz/books.png';
-import hat from '../../../img/quiz/hat.png';
-import laptop from '../../../img/quiz/laptop.png';
 import {
   BackgroundFilterBottomLeft,
   BackgroundFilterTopRight,
   BackgroungStarSmall,
-  BookEmoji,
   CurrentPage,
-  HatImg,
-  LaptopImg,
   Logo,
   NextPageBtn,
   PageCounter,
   Pagination,
   PreviousPageBtn,
   Question,
-  QuizArrowLeft,
   QuizArrowRight,
   QuizBox,
   QuizButton,
   QuizButtonBox,
-  QuizButtonContent
+  QuizButtonContent,
 } from '../Quiz.styled';
 
-export const QuizQuestionWho = ({
+export const QuizQuestionAge = ({
   activeSlide,
+  isChild,
   continueQuiz,
-  continueQuizForChild,
   previousQuestion,
   nextQuestion,
 }) => {
@@ -34,27 +27,40 @@ export const QuizQuestionWho = ({
     <>
       <QuizBox>
         <Logo />
-        <Question>Для кого цікавить вивчення мови?</Question>
+        <Question>
+          {isChild ? 'Вкажіть вік дитини' : 'Вкажіть ваш вік'}
+        </Question>
         <QuizButtonBox>
-          <QuizButton onClick={e => continueQuiz(e)}>
-            <QuizButtonContent>Для себе</QuizButtonContent>
+          <QuizButton onClick={continueQuiz}>
+            <QuizButtonContent>
+              {isChild ? 'до 7 років' : 'до 18 років'}
+            </QuizButtonContent>
           </QuizButton>
-          <QuizButton onClick={e => continueQuizForChild(e)}>
-            <QuizButtonContent>Для дитини</QuizButtonContent>
+          <QuizButton onClick={continueQuiz}>
+            <QuizButtonContent>
+              {isChild ? '7-9 років' : '18-24 роки'}
+            </QuizButtonContent>
+          </QuizButton>
+          <QuizButton onClick={continueQuiz}>
+            <QuizButtonContent>
+              {isChild ? '9-11 років' : '25-35 років'}
+            </QuizButtonContent>
+          </QuizButton>
+          <QuizButton onClick={continueQuiz}>
+            <QuizButtonContent>
+              {isChild ? '12 років і більше' : '35 років і більше'}
+            </QuizButtonContent>
           </QuizButton>
         </QuizButtonBox>
         <BackgroundFilterTopRight />
         <BackgroundFilterBottomLeft />
         <BackgroungStarSmall />
-        <LaptopImg src={laptop} alt="Blurred laptop" width="67" />
-        <BookEmoji src={books} alt="Books emoji" width="112" />
-        <HatImg src={hat} alt="Blurred alumni hat" width="110" />
         <Pagination>
           <PreviousPageBtn
             className={activeSlide - 1 < 1 && 'disabled'}
             disabled={activeSlide - 1 < 1 && true}
             onClick={previousQuestion}
-          ><QuizArrowLeft/></PreviousPageBtn>
+          ></PreviousPageBtn>
           <PageCounter>
             <CurrentPage>{activeSlide}</CurrentPage>/8
           </PageCounter>

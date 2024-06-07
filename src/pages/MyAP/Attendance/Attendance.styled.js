@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { CalendarBtnIcon } from '../MyAPPanel/MyAPPanel.styled';
-import { ReactComponent as CoursesArrowLeft } from '../../../img/svg/month-switch-left.svg';
-import { ReactComponent as CoursesArrowRight } from '../../../img/svg/month-switch-right.svg';
+import { ReactComponent as ArrowLeft } from '../../../img/svg/month-switch-left.svg';
+import { ReactComponent as ArrowRight } from '../../../img/svg/month-switch-right.svg';
 
 export const AttendanceBox = styled.div`
   position: absolute;
@@ -126,7 +126,7 @@ export const AttendanceBtn = styled.button`
   }
 `;
 
-export const AttendanceArrowLeft = styled(CoursesArrowLeft)`
+export const AttendanceArrowLeft = styled(ArrowLeft)`
   color: #ffffff59;
 
   position: absolute;
@@ -141,7 +141,7 @@ export const AttendanceArrowLeft = styled(CoursesArrowLeft)`
   }
 `;
 
-export const AttendanceArrowRight = styled(CoursesArrowRight)`
+export const AttendanceArrowRight = styled(ArrowRight)`
   color: #ffffff59;
 
   position: absolute;

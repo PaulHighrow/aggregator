@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { ReactComponent as LogoIcon } from '../../img/svg/logoNew.svg';
 import { ReactComponent as StarIcon } from '../../img/svg/heroStar.svg';
+import { ReactComponent as ArrowLeft } from '../../img/svg/month-switch-left.svg';
+import { ReactComponent as ArrowRight } from '../../img/svg/month-switch-right.svg';
 
 export const QuizBox = styled.div`
   position: relative;
@@ -133,7 +135,7 @@ export const HatImg = styled.img`
   right: -47px;
 `;
 
-export const FlagEmoji = styled.img`
+export const Emoji = styled.img`
   display: block;
 `;
 
@@ -149,20 +151,37 @@ export const QuizButton = styled.button`
   justify-content: center;
   gap: 6px;
 
-  background-color: #fff;
+  background-color: var(--secondary-color);
 
   border-radius: 50px;
-  border: 2px solid #0f645b;
+  border: 2px solid var(--main-color);
 
   font-size: 21px;
   font-weight: 700;
-  line-height: 1.2;
+
+  position: relative;
+  min-height: 61px;
+
+  transition: background-color var(--animation-global),
+    color var(--animation-global);
+
+  &.chosen {
+    background-color: var(--main-color);
+    color: var(--secondary-color);
+  }
 `;
 
 export const QuizButtonContent = styled.div`
   display: flex;
   align-items: flex-start;
   gap: 6px;
+
+  position: absolute;
+  top: calc(50% + 2px);
+  left: 50%;
+
+  width: max-content;
+  transform: translate(-50%, -50%);
 `;
 
 export const BackgroungStarSmall = styled(StarIcon)`
@@ -186,8 +205,12 @@ export const BackgroungStarLarge = styled(StarIcon)`
 `;
 
 export const Pagination = styled.div`
-  width: 100%;
-  margin-top: auto;
+  width: calc(100% - 40px);
+  position: absolute;
+  bottom: 65px;
+  left: 50%;
+  transform: translateX(-50%);
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -211,3 +234,42 @@ export const PreviousPageBtn = styled.button`
 `;
 
 export const NextPageBtn = styled(PreviousPageBtn)``;
+
+export const QuizArrowLeft = styled(ArrowLeft)`
+  color: #ffffff;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+  transition: color var(--animation-global);
+
+  &.available {
+    color: var(--secondary-color);
+  }
+`;
+
+export const QuizArrowRight = styled(ArrowRight)`
+  color: #ffffff;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+  transition: color var(--animation-global);
+
+  &.available {
+    color: var(--secondary-color);
+  }
+`;
+
+export const PageCounter = styled.span`
+  font-size: 16px;
+  line-height: 1;
+`;
+
+export const CurrentPage = styled(PageCounter)`
+font-weight: 700;
+`;
